@@ -115,4 +115,28 @@ class DhizukuService(private val context: Context) : IDhizukuService.Stub() {
             -1
         }
     }
+
+    override fun bindAdbTcp(port: Int) {
+        try {
+            val targetPort = if (port > 0) port else 5555
+            Log.d(TAG, "Binding ADB TCP on port $targetPort")
+            // Use shell to set the property and restart ADB daemon
+            val cmd = "setprop service.adb.tcp.port $targetPort && stop adbd && start adbd"
+            val process = Runtime.getRuntime().exec(arrayOf("sh", "-c", cmd))
+            val stdoutThread = Thread {
+                try { process.inputStream.use { it.readBytes() } } catch (_: Exception) {}
+            }
+            val stderrThread = Thread {
+                try { process.errorStream.use { it.readBytes() } } catch (_: Exception) {}
+            }
+            stdoutThread.start()
+            stderrThread.start()
+            process.waitFor()
+            stdoutThread.join(2000)
+            stderrThread.join(2000)
+            Log.d(TAG, "ADB TCP bind command finished, exit code: ${process.exitValue()}")
+        } catch (e: Exception) {
+            Log.e(TAG, "bindAdbTcp failed", e)
+        }
+    }
 }

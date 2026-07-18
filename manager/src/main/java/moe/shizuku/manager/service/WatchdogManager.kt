@@ -72,7 +72,7 @@ object WatchdogManager {
     }
 
     fun isEnabled(): Boolean {
-        return ModuleSettings.isAutoRestartOnCrash() || ModuleSettings.isKeepAlive()
+        return ModuleSettings.isAutoRestartOnCrash() || ModuleSettings.isKeepAlive() || ModuleSettings.isErrorProtectEnabled()
     }
 
     fun reconcileService(context: Context) {
@@ -308,8 +308,9 @@ object WatchdogManager {
             }
             try {
                 val dhizukuService = moe.shizuku.manager.dhizuku.IDhizukuService.Stub.asInterface(serviceResult)
+                logi("Watchdog executing Shevery starter directly via Dhizuku Device Owner...")
                 dhizukuService.runCommand(Starter.internalCommand)
-                logi("Watchdog started Shevery server via Dhizuku successfully")
+                logi("Watchdog started Shevery server via Dhizuku shell successfully")
             } finally {
                 connection?.let { conn ->
                     try {

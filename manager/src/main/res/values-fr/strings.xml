@@ -128,4 +128,11 @@
     <string name="home_adb_is_limited_title">Une étape supplémentaire est nécessaire</string>
     <string name="home_app_management_empty">Les applications qui ont demandé ou déclaré l\'accès à Shizuku apparaîtront ici.</string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Merci d\'essayer de désactiver et de réactiver le \"Débogage sans-fil\" si ça continue à chercher.</string>
+
+    <!-- ErrorProtect & TCP 5555 -->
+    <string name="error_protect_title">ErrorProtect</string>
+    <string name="error_protect_summary">Vérifie l\'état de santé du processus et les erreurs transactionnelles toutes les 10 secondes. Arrête et redémarre automatiquement Shevery en cas de problème.</string>
+    <string name="settings_tcp_5555_title">Liaison TCP 5555</string>
+    <string name="settings_tcp_5555_summary">Lier le serveur ADB local au port 5555 pour le maintenir fonctionnel sans mise à jour du port de débogage sans fil.</string>
+    <string name="settings_tcp_5555_button">Lier au 5555</string>
 </resources>

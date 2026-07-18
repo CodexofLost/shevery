@@ -11,11 +11,15 @@ import android.content.pm.ServiceInfo
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
+import kotlinx.coroutines.*
 import moe.shizuku.manager.MainActivity
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ktx.logd
 
 class WatchdogService : Service() {
+
+    private var errorProtectJob: Job? = null
+    private val errorProtectScope = CoroutineScope(Dispatchers.Default)
 
     override fun onCreate() {
         super.onCreate()
@@ -29,7 +33,50 @@ class WatchdogService : Service() {
         }
 
         startAsForeground()
+        startErrorProtectLoop()
         return START_STICKY
+    }
+
+    override fun onDestroy() {
+        stopErrorProtectLoop()
+        super.onDestroy()
+    }
+
+    private fun startErrorProtectLoop() {
+        errorProtectJob?.cancel()
+        if (!moe.shizuku.manager.module.ModuleSettings.isErrorProtectEnabled()) return
+
+        errorProtectJob = errorProtectScope.launch {
+            while (isActive) {
+                delay(10_000)
+                if (!moe.shizuku.manager.module.ModuleSettings.isErrorProtectEnabled()) break
+
+                var healthy = false
+                try {
+                    if (rikka.shizuku.Shizuku.pingBinder()) {
+                        val version = rikka.shizuku.Shizuku.getVersion()
+                        if (version > 0) {
+                            healthy = true
+                        }
+                    }
+                } catch (e: Throwable) {
+                    logd("ErrorProtect: Binder check threw exception: ${e.message}")
+                }
+
+                if (!healthy) {
+                    logd("ErrorProtect: Service check failed. Stopping and restarting...")
+                    withContext(Dispatchers.IO) {
+                        moe.shizuku.manager.service.WatchdogManager.stopServer()
+                        moe.shizuku.manager.service.WatchdogManager.attemptRestart(applicationContext)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun stopErrorProtectLoop() {
+        errorProtectJob?.cancel()
+        errorProtectJob = null
     }
 
     override fun onBind(intent: Intent?): IBinder? = null

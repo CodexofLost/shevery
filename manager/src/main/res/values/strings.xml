@@ -378,4 +378,11 @@ With %1$s, in any terminal app, you can connect to and interact with the shell r
     <string name="wear_catalog_sort_official">Official</string>
     <string name="wear_catalog_sort_by">Sort by</string>
     <string name="wear_catalog_filter">Filter</string>
+
+    <!-- ErrorProtect & TCP 5555 -->
+    <string name="error_protect_title">ErrorProtect</string>
+    <string name="error_protect_summary">Check process health and transactional errors every 10 seconds. Automatically stops and restarts Shevery if issues are found.</string>
+    <string name="settings_tcp_5555_title">TCP Binding 5555</string>
+    <string name="settings_tcp_5555_summary">Bind local ADB server to port 5555 to keep it working without Wireless Debugging port updates.</string>
+    <string name="settings_tcp_5555_button">Bind to 5555</string>
 </resources>

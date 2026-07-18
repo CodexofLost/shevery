@@ -79,8 +79,8 @@ fun SettingsScreen() {
     var startOnBoot by remember {
         mutableStateOf(packageManager.isComponentEnabled(componentName))
     }
-    var tcpMode by remember {
-        mutableStateOf(ShizukuSettings.isTcpMode())
+    var errorProtect by remember {
+        mutableStateOf(ModuleSettings.isErrorProtectEnabled())
     }
     var autoDisableUsbDebugging by remember {
         mutableStateOf(ShizukuSettings.getAutoDisableUsbDebugging())
@@ -165,7 +165,7 @@ fun SettingsScreen() {
             }.onSuccess {
                 Toast.makeText(context, "Restore completed successfully", Toast.LENGTH_SHORT).show()
                 startOnBoot = packageManager.isComponentEnabled(componentName)
-                tcpMode = ShizukuSettings.isTcpMode()
+                errorProtect = ModuleSettings.isErrorProtectEnabled()
                 languageTag = prefs.getString(LANGUAGE, "SYSTEM") ?: "SYSTEM"
                 nightMode = ShizukuSettings.getNightMode()
                 blackNightTheme = ThemeHelper.isBlackNightTheme(context)
@@ -231,13 +231,14 @@ fun SettingsScreen() {
         item {
             SettingsGroup(title = stringResource(R.string.settings_service_group)) {
                 SwitchSettingsRow(
-                    icon = R.drawable.ic_baseline_link_24,
-                    title = stringResource(R.string.settings_tcp_mode),
-                    summary = stringResource(R.string.settings_tcp_mode_summary),
-                    checked = tcpMode,
+                    icon = R.drawable.ic_server_restart,
+                    title = stringResource(R.string.error_protect_title),
+                    summary = stringResource(R.string.error_protect_summary),
+                    checked = errorProtect,
                     onCheckedChange = { enabled ->
-                        ShizukuSettings.setTcpMode(enabled)
-                        tcpMode = ShizukuSettings.isTcpMode()
+                        ModuleSettings.setErrorProtectEnabled(enabled)
+                        errorProtect = ModuleSettings.isErrorProtectEnabled()
+                        moe.shizuku.manager.service.WatchdogManager.reconcileService(context)
                     }
                 )
                 SwitchSettingsRow(

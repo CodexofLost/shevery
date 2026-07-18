@@ -134,4 +134,11 @@
     </plurals>
     <string name="dialog_adb_invalid_port">Puerto es un número del 1 al 65535.</string>
     <string name="dialog_adb_port">Puerto</string>
+
+    <!-- ErrorProtect & TCP 5555 -->
+    <string name="error_protect_title">ErrorProtect</string>
+    <string name="error_protect_summary">Verifica la salud del proceso y los errores transaccionales cada 10 segundos. Detiene y reinicia automáticamente Shevery si se encuentran problemas.</string>
+    <string name="settings_tcp_5555_title">Vincular TCP 5555</string>
+    <string name="settings_tcp_5555_summary">Vincula el servidor ADB local al puerto 5555 para mantenerlo funcionando sin actualizaciones de puerto de depuración inalámbrica.</string>
+    <string name="settings_tcp_5555_button">Vincular a 5555</string>
 </resources>

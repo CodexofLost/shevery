@@ -33,6 +33,7 @@ object ModuleSettings {
     private const val KEY_VERBOSE_LOGGING = "shizuku_verbose_logging"
     private const val KEY_AUTO_RESTART = "shizuku_auto_restart_on_crash"
     private const val KEY_NOTIFY_DEATH = "shizuku_notify_service_death"
+    private const val KEY_ERROR_PROTECT = "shizuku_error_protect"
 
 
     enum class AccessMode(
@@ -255,6 +256,14 @@ object ModuleSettings {
 
     fun setNotifyOnServiceDeath(value: Boolean) {
         ShizukuSettings.getPreferences().edit().putBoolean(KEY_NOTIFY_DEATH, value).apply()
+    }
+
+    fun isErrorProtectEnabled(): Boolean {
+        return ShizukuSettings.getPreferences().getBoolean(KEY_ERROR_PROTECT, true)
+    }
+
+    fun setErrorProtectEnabled(value: Boolean) {
+        ShizukuSettings.getPreferences().edit().putBoolean(KEY_ERROR_PROTECT, value).apply()
     }
 
     // Comput Settings

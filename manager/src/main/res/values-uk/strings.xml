@@ -136,4 +136,11 @@
 \nМожливо потрібно буде перезапустити Shizuku.</string>
     <string name="home_adb_is_limited_title">Потрібен ще один крок</string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Будь ласка, спробуйте вимкнути та увімкнути \"Налагодження через Wi-Fi\", якщо пошук продовжується.</string>
+
+    <!-- ErrorProtect & TCP 5555 -->
+    <string name="error_protect_title">ErrorProtect</string>
+    <string name="error_protect_summary">Перевіряйте працездатність процесу та транзакційні помилки кожні 10 секунд. Автоматично зупиняє та перезапускає Shevery у разі виявлення проблем.</string>
+    <string name="settings_tcp_5555_title">TCP прив\'язка 5555</string>
+    <string name="settings_tcp_5555_summary">Прив\'язати локальний сервер ADB до порту 5555, щоб він працював без оновлень порту бездротового налагодження.</string>
+    <string name="settings_tcp_5555_button">Прив\'язати до 5555</string>
 </resources>

@@ -362,15 +362,13 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
                 try {
                     val dhizukuService = moe.shizuku.manager.dhizuku.IDhizukuService.Stub.asInterface(serviceResult)
 
-                    // Directly run starter command using Dhizuku Device Owner privileges!
-                    appendLine("Starting Shevery server via Dhizuku Device Owner privileges...")
+                    appendLine("Executing Shevery starter directly via Dhizuku Device Owner...")
+                    dhizukuService.runCommand(moe.shizuku.manager.starter.Starter.internalCommand)
                     ShizukuSettings.setLastLaunchMode(ShizukuSettings.LaunchMethod.DHIZUKU)
 
-                    dhizukuService.runCommand(Starter.internalCommand)
-
-                    appendLine("✓ Starter command executed successfully.")
+                    appendLine("✓ Starter command sent to Dhizuku shell.")
                     appendLine("Waiting for Shevery service to initialize...")
-                    kotlinx.coroutines.delay(2000)
+                    kotlinx.coroutines.delay(3000)
                     appendLine("✓ Initialization complete.")
                     postResult()
                 } finally {

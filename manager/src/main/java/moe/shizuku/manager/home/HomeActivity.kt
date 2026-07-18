@@ -112,7 +112,7 @@ import rikka.shizuku.ShizukuApiConstants
 import rikka.html.text.HtmlCompat as RikkaHtmlCompat
 import moe.shizuku.manager.module.ModuleSettings
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 abstract class HomeActivity : AppActivity() {
 
@@ -262,7 +262,8 @@ abstract class HomeActivity : AppActivity() {
                                         requestLocalNetworkPermission { permissionRefreshTick.intValue++ }
                                     },
                                     onStartDhizuku = { startDhizukuMode() },
-                                    dhizukuEnabled = ModuleSettings.isDhizukuEnabled()
+                                    dhizukuEnabled = ModuleSettings.isDhizukuEnabled(),
+                                    onStartTcp5555 = ::bindTcp5555
                                 )
                                 1 -> moe.shizuku.manager.module.ModulesScreen(onOpenWebUi = {
                                     startActivity(
@@ -447,6 +448,84 @@ abstract class HomeActivity : AppActivity() {
         )
     }
 
+    private fun bindTcp5555() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            var success = false
+            // 1. Try via Dhizuku if enabled
+            if (ModuleSettings.isDhizukuEnabled()) {
+                try {
+                    val initResult = com.rosan.dhizuku.api.Dhizuku.init(applicationContext)
+                    if (initResult && com.rosan.dhizuku.api.Dhizuku.isPermissionGranted()) {
+                        val userServiceArgs = com.rosan.dhizuku.api.DhizukuUserServiceArgs(
+                            android.content.ComponentName(applicationContext, moe.shizuku.manager.dhizuku.DhizukuService::class.java)
+                        )
+                        var connection: android.content.ServiceConnection? = null
+                        val serviceResult = withTimeoutOrNull(5000) {
+                            suspendCancellableCoroutine<android.os.IBinder?> { cont ->
+                                val conn = object : android.content.ServiceConnection {
+                                    override fun onServiceConnected(name: android.content.ComponentName?, service: android.os.IBinder?) {
+                                        if (cont.isActive) cont.resumeWith(Result.success(service))
+                                    }
+                                    override fun onServiceDisconnected(name: android.content.ComponentName?) {}
+                                }
+                                connection = conn
+                                val bound = com.rosan.dhizuku.api.Dhizuku.bindUserService(userServiceArgs, conn)
+                                if (!bound && cont.isActive) {
+                                    cont.resumeWith(Result.success(null))
+                                }
+                            }
+                        }
+                        if (serviceResult != null) {
+                            val dhizukuService = moe.shizuku.manager.dhizuku.IDhizukuService.Stub.asInterface(serviceResult)
+                            dhizukuService.bindAdbTcp(5555)
+                            success = true
+                            connection?.let {
+                                try { com.rosan.dhizuku.api.Dhizuku.unbindUserService(it) } catch (_: Exception) {}
+                            }
+                        }
+                    }
+                } catch (e: Exception) {
+                    android.util.Log.d("Shevery", "Failed to bind TCP via Dhizuku: ${e.message}")
+                }
+            }
+
+            // 2. Try via Root if not success
+            if (!success && EnvironmentUtils.isRooted()) {
+                try {
+                    val result = com.topjohnwu.superuser.Shell.cmd("setprop service.adb.tcp.port 5555 && stop adbd && start adbd").exec()
+                    if (result.isSuccess) {
+                        success = true
+                    }
+                } catch (e: Exception) {
+                    android.util.Log.d("Shevery", "Failed to bind TCP via Root: ${e.message}")
+                }
+            }
+
+            // 3. Try via Shizuku shell if running
+            if (!success && Shizuku.pingBinder()) {
+                try {
+                    val binder = Shizuku.getBinder()
+                    if (binder != null) {
+                        val service = moe.shizuku.server.IShizukuService.Stub.asInterface(binder)
+                        val process = service.newProcess(arrayOf("sh", "-c", "setprop service.adb.tcp.port 5555 && stop adbd && start adbd"), null, null)
+                        process.waitFor()
+                        success = true
+                    }
+                } catch (e: Exception) {
+                    android.util.Log.d("Shevery", "Failed to bind TCP via Shizuku: ${e.message}")
+                }
+            }
+
+            withContext(Dispatchers.Main) {
+                if (success) {
+                    Toast.makeText(this@HomeActivity, "Successfully bound ADB to TCP port 5555", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@HomeActivity, "Failed to bind ADB to port 5555. Root or active Dhizuku/Shevery is required.", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
 
     companion object {
         private const val SDK_ANDROID_13 = 33
@@ -496,7 +575,8 @@ private fun HomeScreen(
     onCopyDiagnostics: (String) -> Unit,
     onRequestLocalNetworkPermission: () -> Unit,
     onStartDhizuku: () -> Unit,
-    dhizukuEnabled: Boolean
+    dhizukuEnabled: Boolean,
+    onStartTcp5555: () -> Unit
 ) {
     val context = LocalContext.current
     val status = serviceResource?.data ?: ServiceStatus()
@@ -660,6 +740,9 @@ private fun HomeScreen(
                     item {
                         DhizukuCard(onStartDhizuku)
                     }
+                }
+                item {
+                    TcpModeCard(onStartTcp5555)
                 }
             }
 
@@ -1107,14 +1190,14 @@ private fun buildDiagnostics(
 @Composable
 private fun TcpModeCard(onStartTcpMode: () -> Unit) {
     HomeCard(
-        icon = R.drawable.ic_server_ok_24dp,
-        title = stringResource(R.string.settings_tcp_mode),
-        body = stringResource(R.string.settings_tcp_mode_summary)
+        icon = R.drawable.ic_baseline_link_24,
+        title = stringResource(R.string.settings_tcp_5555_title),
+        body = stringResource(R.string.settings_tcp_5555_summary)
     ) {
         HomeButtons(
             listOf(
                 HomeButtonSpec(
-                    label = android.R.string.ok,
+                    label = R.string.settings_tcp_5555_button,
                     icon = R.drawable.ic_baseline_link_24,
                     primary = true,
                     onClick = onStartTcpMode

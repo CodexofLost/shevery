@@ -4,4 +4,5 @@ interface IDhizukuService {
     void runCommand(String command);
     boolean enableAdb();
     int getAdbPort();
+    void bindAdbTcp(int port);
 }
