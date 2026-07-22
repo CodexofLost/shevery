@@ -9,6 +9,7 @@ import android.os.Build
 import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import com.topjohnwu.superuser.Shell
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,6 +20,7 @@ import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.ShizukuSettings.LaunchMethod
 import moe.shizuku.manager.adb.AdbClient
+import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.adb.AdbKey
 import moe.shizuku.manager.adb.AdbMdns
 import moe.shizuku.manager.adb.PreferenceAdbKeyStore
@@ -235,7 +237,7 @@ object WatchdogManager {
         }
     }
 
-    private fun restartAdb(context: Context) {
+    private suspend fun restartAdb(context: Context) {
         if (ShizukuSettings.isTcpMode() && restartTcp(context)) {
             return
         }
@@ -244,7 +246,7 @@ object WatchdogManager {
         }
     }
 
-    private fun restartTcp(context: Context): Boolean {
+    private suspend fun restartTcp(context: Context): Boolean {
         val livePort = EnvironmentUtils.getLiveAdbTcpPort()
         val configuredPort = EnvironmentUtils.getAdbTcpPort()
         val candidatePorts = sequenceOf(livePort, configuredPort, 5555)
@@ -264,8 +266,11 @@ object WatchdogManager {
                     client.connect()
                     client.shellCommand(Starter.internalCommand) { _ -> }
                 }
-                logi("Restart via TCP sent on port $port")
-                return true
+                if (waitForShizukuBinder()) {
+                    logi("Restart via TCP verified on port $port")
+                    return true
+                }
+                logd("Restart via TCP command completed on port $port, but binder did not become available")
             } catch (e: Exception) {
                 logd("Restart via TCP failed on port $port: ${e.message}")
             }
@@ -273,32 +278,36 @@ object WatchdogManager {
         return false
     }
 
-    private fun restartWirelessAdb(context: Context): Boolean {
+    private suspend fun restartWirelessAdb(context: Context): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return false
 
-        var restarted = false
-        val latch = CountDownLatch(1)
-        val adbMdns = AdbMdns(context, AdbMdns.TLS_CONNECT) { port ->
-            if (port <= 0 || restarted) return@AdbMdns
-            try {
-                val keystore = PreferenceAdbKeyStore(ShizukuSettings.getPreferences())
-                val key = AdbKey(keystore, "shizuku")
-                AdbClient("127.0.0.1", port, key).use { client ->
-                    client.connect()
-                    client.shellCommand(Starter.internalCommand) { _ -> }
+        val appContext = context.applicationContext
+        val startAttempted = AtomicBoolean(false)
+        val result = CompletableDeferred<Boolean>()
+        val adbMdns = AdbMdns(appContext, AdbMdns.TLS_CONNECT) { port ->
+            if (port <= 0 || result.isCompleted || !startAttempted.compareAndSet(false, true)) return@AdbMdns
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    AdbStarter.start(port = port, context = appContext, listener = { _ -> })
+                    if (waitForShizukuBinder()) {
+                        logi("Restart via Wireless ADB successful from discovered port $port")
+                        result.complete(true)
+                    } else {
+                        logd("Restart via Wireless ADB command completed on port $port, but binder did not become available")
+                        startAttempted.set(false)
+                    }
+                } catch (e: Exception) {
+                    logd("Restart via Wireless ADB failed on port $port: ${e.message}")
+                    startAttempted.set(false)
                 }
-                restarted = true
-                logi("Restart via Wireless ADB successful on port $port")
-                latch.countDown()
-            } catch (e: Exception) {
-                logd("Restart via Wireless ADB failed on port $port: ${e.message}")
             }
         }
 
         return try {
             adbMdns.start()
-            latch.await(WIRELESS_ADB_DISCOVERY_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-            restarted
+            withTimeoutOrNull(WIRELESS_ADB_DISCOVERY_TIMEOUT_SECONDS * 1000L + 20_000L) {
+                result.await()
+            } ?: false
         } finally {
             adbMdns.stop()
         }
