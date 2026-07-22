@@ -10,6 +10,7 @@ import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,6 +28,7 @@ import moe.shizuku.manager.adb.PreferenceAdbKeyStore
 import moe.shizuku.manager.ktx.logd
 import moe.shizuku.manager.ktx.logi
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.EnvironmentUtils
 import rikka.shizuku.Shizuku
@@ -35,6 +37,13 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
 object WatchdogManager {
+
+    data class StopResult(
+        val exitRequested: Boolean,
+        val stopped: Boolean,
+        val fallbackAttempted: Boolean = false,
+        val error: String? = null
+    )
 
     private const val CHANNEL_ID = "service_watchdog"
     private const val NOTIFICATION_ID = 1001
@@ -215,16 +224,84 @@ object WatchdogManager {
     }
 
     fun stopServer(context: Context? = null, userInitiated: Boolean = true) {
+        requestStopServer(context, userInitiated)
+    }
+
+    fun requestStopServer(context: Context? = null, userInitiated: Boolean = true): Throwable? {
         if (userInitiated) {
             setUserStopRequested(true)
             context?.let { WatchdogService.reconcile(it.applicationContext) }
         }
         expectingDeath = true
-        try {
+        return try {
             Shizuku.exit()
+            null
         } catch (e: Throwable) {
-            logd("Failed to stop Shevery service: ${e.message}")
+            logd("Failed to stop Shevery service through binder exit: ${e.message}")
             expectingDeath = false
+            e
+        }
+    }
+
+    suspend fun stopServerAndWait(
+        context: Context? = null,
+        userInitiated: Boolean = true,
+        timeoutMs: Long = 3_000L
+    ): StopResult {
+        val exitError = requestStopServer(context, userInitiated)
+        if (exitError != null) {
+            return StopResult(
+                exitRequested = false,
+                stopped = !Shizuku.pingBinder(),
+                error = exitError.message ?: exitError.javaClass.simpleName
+            )
+        }
+
+        if (waitUntilBinderStops(timeoutMs)) {
+            return StopResult(exitRequested = true, stopped = true)
+        }
+
+        val fallbackError = forceStopServerProcess()
+        if (fallbackError != null) {
+            return StopResult(
+                exitRequested = true,
+                stopped = !Shizuku.pingBinder(),
+                fallbackAttempted = true,
+                error = fallbackError
+            )
+        }
+
+        return StopResult(
+            exitRequested = true,
+            stopped = waitUntilBinderStops(timeoutMs),
+            fallbackAttempted = true
+        )
+    }
+
+    private suspend fun waitUntilBinderStops(timeoutMs: Long): Boolean {
+        val deadline = SystemClock.elapsedRealtime() + timeoutMs
+        while (SystemClock.elapsedRealtime() < deadline) {
+            if (!Shizuku.pingBinder()) return true
+            delay(250L)
+        }
+        return !Shizuku.pingBinder()
+    }
+
+    private fun forceStopServerProcess(): String? {
+        return try {
+            if (!Shizuku.pingBinder()) return null
+            val binder = Shizuku.getBinder() ?: return "binder was null"
+            val service = IShizukuService.Stub.asInterface(binder)
+            val process = service.newProcess(
+                arrayOf("sh", "-c", "for pid in $(pidof shizuku_server 2>/dev/null); do kill -9 \"\$pid\"; done"),
+                null,
+                null
+            )
+            val exitCode = process.waitFor()
+            if (exitCode == 0) null else "fallback kill exit code $exitCode"
+        } catch (e: Throwable) {
+            logd("Failed to force-stop Shevery service process: ${e.message}")
+            e.message ?: e.javaClass.simpleName
         }
     }
 

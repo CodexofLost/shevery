@@ -27,7 +27,7 @@ class WatchdogService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (!WatchdogManager.isEnabled()) {
+        if (!WatchdogManager.shouldRunService()) {
             stopSelf()
             return START_NOT_STICKY
         }

@@ -317,12 +317,36 @@ abstract class HomeActivity : AppActivity() {
     }
 
     private fun showStopDialog() {
-        if (!Shizuku.pingBinder()) return
+        if (!Shizuku.pingBinder()) {
+            checkServerStatus()
+            moe.shizuku.manager.service.SheveryNotificationManager.updateNotification(this)
+            Toast.makeText(this, R.string.service_already_stopped, Toast.LENGTH_SHORT).show()
+            return
+        }
 
         MaterialAlertDialogBuilder(this)
             .setMessage(R.string.dialog_stop_message)
             .setPositiveButton(android.R.string.ok) { _: DialogInterface?, _: Int ->
-                moe.shizuku.manager.service.WatchdogManager.stopServer(this@HomeActivity, userInitiated = true)
+                lifecycleScope.launch {
+                    val result = moe.shizuku.manager.service.WatchdogManager.stopServerAndWait(
+                        this@HomeActivity,
+                        userInitiated = true
+                    )
+                    checkServerStatus()
+                    appsModel.load(onlyCount = true)
+                    moe.shizuku.manager.service.SheveryNotificationManager.updateNotification(this@HomeActivity)
+
+                    if (result.stopped) {
+                        Toast.makeText(this@HomeActivity, R.string.service_stop_success, Toast.LENGTH_SHORT).show()
+                    } else {
+                        val reason = result.error ?: getString(R.string.service_stop_still_running)
+                        Toast.makeText(
+                            this@HomeActivity,
+                            getString(R.string.service_stop_failed, reason),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()

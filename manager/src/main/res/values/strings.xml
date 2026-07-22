@@ -231,6 +231,10 @@ With %1$s, in any terminal app, you can connect to and interact with the shell r
     <!-- Stop -->
     <string name="action_stop">Stop Shevery</string>
     <string name="dialog_stop_message">Shevery service will be stopped.</string>
+    <string name="service_already_stopped">Shevery service is already stopped.</string>
+    <string name="service_stop_success">Shevery service stopped.</string>
+    <string name="service_stop_still_running">service is still running</string>
+    <string name="service_stop_failed">Failed to stop Shevery: %1$s</string>
 
     <!-- Notification -->
     <string name="notification_channel_service_status">Service start status</string>
