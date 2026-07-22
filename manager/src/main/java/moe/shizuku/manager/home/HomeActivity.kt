@@ -458,6 +458,14 @@ abstract class HomeActivity : AppActivity() {
     private fun bindTcp5555() {
         lifecycleScope.launch(Dispatchers.IO) {
             var success = false
+            var failureReason = getString(R.string.settings_tcp_5555_bind_failed_generic)
+
+            fun recordBindFailure(route: String, reason: String, throwable: Throwable? = null) {
+                val message = "$route: $reason"
+                failureReason = message
+                android.util.Log.d("Shevery", "Failed to bind TCP 5555 via $message", throwable)
+            }
+
             // 1. Try via Dhizuku if enabled
             if (ModuleSettings.isDhizukuEnabled()) {
                 try {
@@ -485,13 +493,22 @@ abstract class HomeActivity : AppActivity() {
                         if (serviceResult != null) {
                             val dhizukuService = moe.shizuku.manager.dhizuku.IDhizukuService.Stub.asInterface(serviceResult)
                             success = dhizukuService.bindAdbTcp(5555) && waitForAdbTcpPort(5555)
+                            if (!success) {
+                                recordBindFailure("Dhizuku", "command finished but port 5555 did not become live")
+                            }
                             connection?.let {
                                 try { com.rosan.dhizuku.api.Dhizuku.unbindUserService(it) } catch (_: Exception) {}
                             }
+                        } else {
+                            recordBindFailure("Dhizuku", "service binding failed or timed out")
                         }
+                    } else if (!initResult) {
+                        recordBindFailure("Dhizuku", "initialization failed")
+                    } else {
+                        recordBindFailure("Dhizuku", "permission is not granted")
                     }
                 } catch (e: Exception) {
-                    android.util.Log.d("Shevery", "Failed to bind TCP via Dhizuku: ${e.message}")
+                    recordBindFailure("Dhizuku", e.message ?: e.javaClass.simpleName, e)
                 }
             }
 
@@ -500,9 +517,17 @@ abstract class HomeActivity : AppActivity() {
                 try {
                     val result = com.topjohnwu.superuser.Shell.cmd(ADB_TCP_BIND_COMMAND).exec()
                     success = result.isSuccess && waitForAdbTcpPort(5555)
+                    if (!success) {
+                        recordBindFailure(
+                            "root",
+                            "command exit code ${result.code}, port 5555 live: ${EnvironmentUtils.isAdbPortLive(5555)}"
+                        )
+                    }
                 } catch (e: Exception) {
-                    android.util.Log.d("Shevery", "Failed to bind TCP via Root: ${e.message}")
+                    recordBindFailure("root", e.message ?: e.javaClass.simpleName, e)
                 }
+            } else if (!success) {
+                recordBindFailure("root", "root shell is unavailable")
             }
 
             // 3. Try via Shizuku shell if running
@@ -514,17 +539,31 @@ abstract class HomeActivity : AppActivity() {
                         val process = service.newProcess(arrayOf("sh", "-c", ADB_TCP_BIND_COMMAND), null, null)
                         val exitCode = process.waitFor()
                         success = exitCode == 0 && waitForAdbTcpPort(5555)
+                        if (!success) {
+                            recordBindFailure(
+                                "Shevery",
+                                "command exit code $exitCode, port 5555 live: ${EnvironmentUtils.isAdbPortLive(5555)}"
+                            )
+                        }
+                    } else {
+                        recordBindFailure("Shevery", "binder was null")
                     }
                 } catch (e: Exception) {
-                    android.util.Log.d("Shevery", "Failed to bind TCP via Shizuku: ${e.message}")
+                    recordBindFailure("Shevery", e.message ?: e.javaClass.simpleName, e)
                 }
+            } else if (!success) {
+                recordBindFailure("Shevery", "binder is not active")
             }
 
             withContext(Dispatchers.Main) {
                 if (success) {
-                    Toast.makeText(this@HomeActivity, "Successfully bound ADB to TCP port 5555", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@HomeActivity, R.string.settings_tcp_5555_bind_success, Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this@HomeActivity, "Failed to bind ADB to port 5555. Root or active Dhizuku/Shevery is required.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this@HomeActivity,
+                        getString(R.string.settings_tcp_5555_bind_failed, failureReason),
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         }
@@ -1253,5 +1292,4 @@ private fun DhizukuCard(onStartDhizuku: () -> Unit) {
         )
     }
 }
-
 
