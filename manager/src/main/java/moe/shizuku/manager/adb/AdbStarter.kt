@@ -42,6 +42,15 @@ object AdbStarter {
         }
     }
 
+    suspend fun switchToTcpMode(
+        host: String = "127.0.0.1",
+        currentPort: Int,
+        targetPort: Int = TCP_MODE_PORT,
+    ) {
+        val key = AdbKey(PreferenceAdbKeyStore(ShizukuSettings.getPreferences()), "shizuku")
+        switchToTcp(host, currentPort, targetPort, key)
+    }
+
     private fun switchToTcp(host: String, currentPort: Int, targetPort: Int, key: AdbKey) {
         AdbClient(host, currentPort, key).use { client ->
             client.connect()
