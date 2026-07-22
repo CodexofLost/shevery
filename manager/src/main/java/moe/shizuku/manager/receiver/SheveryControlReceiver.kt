@@ -14,11 +14,11 @@ class SheveryControlReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         when (intent.action) {
             ACTION_START_SERVER -> {
-                WatchdogManager.clearUserStopRequest()
+                WatchdogManager.clearUserStopRequest(context.applicationContext)
                 WatchdogManager.attemptRestart(context.applicationContext)
             }
             ACTION_STOP_SERVER -> {
-                WatchdogManager.stopServer()
+                WatchdogManager.stopServer(context.applicationContext, userInitiated = true)
             }
         }
     }

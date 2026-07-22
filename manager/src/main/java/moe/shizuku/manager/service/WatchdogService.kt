@@ -66,7 +66,7 @@ class WatchdogService : Service() {
                 if (!healthy) {
                     logd("ErrorProtect: Service check failed. Stopping and restarting...")
                     withContext(Dispatchers.IO) {
-                        moe.shizuku.manager.service.WatchdogManager.stopServer(userInitiated = false)
+                        moe.shizuku.manager.service.WatchdogManager.stopServer(applicationContext, userInitiated = false)
                         moe.shizuku.manager.service.WatchdogManager.attemptRestart(applicationContext)
                     }
                 }
@@ -132,7 +132,7 @@ class WatchdogService : Service() {
 
         fun reconcile(context: Context) {
             val appContext = context.applicationContext
-            if (WatchdogManager.isEnabled()) {
+            if (WatchdogManager.shouldRunService()) {
                 start(appContext)
             } else {
                 stop(appContext)

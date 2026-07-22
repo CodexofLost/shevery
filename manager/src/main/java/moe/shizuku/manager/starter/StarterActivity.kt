@@ -71,7 +71,7 @@ class StarterActivity : AppActivity() {
             val finished = output.endsWith("info: shizuku_starter exit with 0")
             if (!waitingForService && dhizukuFinished) {
                 waitingForService = true
-                moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+                moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
                 viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
                 window?.decorView?.postDelayed({
                     if (!isFinishing) finish()
@@ -86,7 +86,7 @@ class StarterActivity : AppActivity() {
                         Shizuku.removeBinderReceivedListener(this)
                         binderReceivedListener = null
                         runOnUiThread {
-                            moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+                            moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
                             viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
                             window?.decorView?.postDelayed({
                                 if (!isFinishing) finish()

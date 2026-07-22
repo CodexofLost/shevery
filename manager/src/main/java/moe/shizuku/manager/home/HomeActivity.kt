@@ -322,14 +322,14 @@ abstract class HomeActivity : AppActivity() {
         MaterialAlertDialogBuilder(this)
             .setMessage(R.string.dialog_stop_message)
             .setPositiveButton(android.R.string.ok) { _: DialogInterface?, _: Int ->
-                moe.shizuku.manager.service.WatchdogManager.stopServer(userInitiated = true)
+                moe.shizuku.manager.service.WatchdogManager.stopServer(this@HomeActivity, userInitiated = true)
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
     }
 
     private fun startRoot() {
-        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         startActivity(
             Intent(this, StarterActivity::class.java).apply {
                 putExtra(StarterActivity.EXTRA_IS_ROOT, true)
@@ -338,7 +338,7 @@ abstract class HomeActivity : AppActivity() {
     }
 
     private fun startWirelessAdb() {
-        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             AdbDialogFragment().show(supportFragmentManager, "adb")
             return
@@ -441,7 +441,7 @@ abstract class HomeActivity : AppActivity() {
         Toast.makeText(this, R.string.home_diagnostics_copied, Toast.LENGTH_SHORT).show()
     }
     private fun startDhizukuMode() {
-        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         startActivity(
             Intent(this, StarterActivity::class.java).apply {
                 putExtra(StarterActivity.EXTRA_IS_ROOT, false)
@@ -451,7 +451,7 @@ abstract class HomeActivity : AppActivity() {
     }
 
     private fun bindTcp5555() {
-        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         lifecycleScope.launch(Dispatchers.IO) {
             var success = false
             var failureReason = getString(R.string.settings_tcp_5555_bind_failed_generic)

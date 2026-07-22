@@ -150,7 +150,7 @@ fun SettingsScreen() {
 
     fun restartAdbForTcpMode() {
         val port = EnvironmentUtils.getAdbTcpPort().takeIf { it > 0 } ?: return
-        WatchdogManager.clearUserStopRequest()
+        WatchdogManager.clearUserStopRequest(context)
         activity?.startActivity(
             Intent(context, StarterActivity::class.java).apply {
                 putExtra(StarterActivity.EXTRA_IS_ROOT, false)

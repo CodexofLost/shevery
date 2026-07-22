@@ -75,7 +75,7 @@ object WatchdogManager {
         logi("Initializing service watchdog")
 
         Shizuku.addBinderReceivedListenerSticky {
-            clearUserStopRequest()
+            expectingDeath = false
         }
 
         Shizuku.addBinderDeadListener {
@@ -85,6 +85,10 @@ object WatchdogManager {
 
     fun isEnabled(): Boolean {
         return ModuleSettings.isAutoRestartOnCrash() || ModuleSettings.isKeepAlive() || ModuleSettings.isErrorProtectEnabled()
+    }
+
+    fun shouldRunService(): Boolean {
+        return isEnabled() && !isUserStopRequested()
     }
 
     fun reconcileService(context: Context) {
@@ -162,9 +166,10 @@ object WatchdogManager {
         notificationManager.notify(NOTIFICATION_ID, notification)
     }
 
-    fun clearUserStopRequest() {
+    fun clearUserStopRequest(context: Context? = null) {
         setUserStopRequested(false)
         expectingDeath = false
+        context?.let { WatchdogService.reconcile(it.applicationContext) }
     }
 
     private fun setUserStopRequested(value: Boolean) {
@@ -209,18 +214,17 @@ object WatchdogManager {
         }
     }
 
-    fun stopServer(userInitiated: Boolean = true) {
+    fun stopServer(context: Context? = null, userInitiated: Boolean = true) {
         if (userInitiated) {
             setUserStopRequested(true)
+            context?.let { WatchdogService.reconcile(it.applicationContext) }
         }
         expectingDeath = true
         try {
             Shizuku.exit()
-        } catch (_: Throwable) {
+        } catch (e: Throwable) {
+            logd("Failed to stop Shevery service: ${e.message}")
             expectingDeath = false
-            if (userInitiated) {
-                setUserStopRequested(false)
-            }
         }
     }
 
