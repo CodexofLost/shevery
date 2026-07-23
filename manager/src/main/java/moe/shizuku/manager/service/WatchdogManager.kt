@@ -112,6 +112,11 @@ object WatchdogManager {
             return
         }
 
+        if (isUserStopRequested()) {
+            logi("Service death came from a user-initiated stop. Suppressing watchdog notification and restart.")
+            return
+        }
+
         if (ModuleSettings.isNotifyOnServiceDeath()) {
             showDeathNotification(context)
         }
