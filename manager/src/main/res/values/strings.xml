@@ -326,8 +326,8 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_control_title_running">Shevery is running</string>
     <string name="notification_control_title_stopped">Shevery is stopped</string>
-    <string name="notification_control_text_running">Tap to open Shevery, or use actions below to stop it.</string>
-    <string name="notification_control_text_stopped">Tap to open Shevery, or use actions below to start it.</string>
+    <string name="notification_control_text_running">Tap to open Shevery, or expand this notification to stop it.</string>
+    <string name="notification_control_text_stopped">Tap to open Shevery, or expand this notification to start it.</string>
     <string name="notification_control_action_start">Start</string>
     <string name="notification_control_action_stop">Stop</string>
     <!-- Update Settings -->
