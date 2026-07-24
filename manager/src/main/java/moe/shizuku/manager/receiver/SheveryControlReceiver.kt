@@ -3,6 +3,10 @@ package moe.shizuku.manager.receiver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import moe.shizuku.manager.service.SheveryNotificationManager
 import moe.shizuku.manager.service.WatchdogManager
 
 class SheveryControlReceiver : BroadcastReceiver() {
@@ -14,11 +18,19 @@ class SheveryControlReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         when (intent.action) {
             ACTION_START_SERVER -> {
-                WatchdogManager.clearUserStopRequest()
+                WatchdogManager.clearUserStopRequest(context.applicationContext)
                 WatchdogManager.attemptRestart(context.applicationContext)
             }
             ACTION_STOP_SERVER -> {
-                WatchdogManager.stopServer()
+                val pendingResult = goAsync()
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        WatchdogManager.stopServerAndWait(context.applicationContext, userInitiated = true)
+                        SheveryNotificationManager.updateNotification(context.applicationContext)
+                    } finally {
+                        pendingResult.finish()
+                    }
+                }
             }
         }
     }

@@ -78,6 +78,7 @@ import moe.shizuku.manager.Helps
 import moe.shizuku.manager.R
 import moe.shizuku.manager.about.AboutActivity
 import moe.shizuku.manager.ShizukuSettings
+import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.app.AppActivity
 import moe.shizuku.manager.management.ApplicationManagementActivity
 import moe.shizuku.manager.module.AdbModuleManager
@@ -316,19 +317,43 @@ abstract class HomeActivity : AppActivity() {
     }
 
     private fun showStopDialog() {
-        if (!Shizuku.pingBinder()) return
+        if (!Shizuku.pingBinder()) {
+            checkServerStatus()
+            moe.shizuku.manager.service.SheveryNotificationManager.updateNotification(this)
+            Toast.makeText(this, R.string.service_already_stopped, Toast.LENGTH_SHORT).show()
+            return
+        }
 
         MaterialAlertDialogBuilder(this)
             .setMessage(R.string.dialog_stop_message)
             .setPositiveButton(android.R.string.ok) { _: DialogInterface?, _: Int ->
-                moe.shizuku.manager.service.WatchdogManager.stopServer(userInitiated = true)
+                lifecycleScope.launch {
+                    val result = moe.shizuku.manager.service.WatchdogManager.stopServerAndWait(
+                        this@HomeActivity,
+                        userInitiated = true
+                    )
+                    checkServerStatus()
+                    appsModel.load(onlyCount = true)
+                    moe.shizuku.manager.service.SheveryNotificationManager.updateNotification(this@HomeActivity)
+
+                    if (result.stopped) {
+                        Toast.makeText(this@HomeActivity, R.string.service_stop_success, Toast.LENGTH_SHORT).show()
+                    } else {
+                        val reason = result.error ?: getString(R.string.service_stop_still_running)
+                        Toast.makeText(
+                            this@HomeActivity,
+                            getString(R.string.service_stop_failed, reason),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
     }
 
     private fun startRoot() {
-        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         startActivity(
             Intent(this, StarterActivity::class.java).apply {
                 putExtra(StarterActivity.EXTRA_IS_ROOT, true)
@@ -337,7 +362,7 @@ abstract class HomeActivity : AppActivity() {
     }
 
     private fun startWirelessAdb() {
-        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             AdbDialogFragment().show(supportFragmentManager, "adb")
             return
@@ -440,7 +465,7 @@ abstract class HomeActivity : AppActivity() {
         Toast.makeText(this, R.string.home_diagnostics_copied, Toast.LENGTH_SHORT).show()
     }
     private fun startDhizukuMode() {
-        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         startActivity(
             Intent(this, StarterActivity::class.java).apply {
                 putExtra(StarterActivity.EXTRA_IS_ROOT, false)
@@ -450,7 +475,7 @@ abstract class HomeActivity : AppActivity() {
     }
 
     private fun bindTcp5555() {
-        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest()
+        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         lifecycleScope.launch(Dispatchers.IO) {
             var success = false
             var failureReason = getString(R.string.settings_tcp_5555_bind_failed_generic)
@@ -459,6 +484,31 @@ abstract class HomeActivity : AppActivity() {
                 val message = "$route: $reason"
                 failureReason = message
                 android.util.Log.d("Shevery", "Failed to bind TCP 5555 via $message", throwable)
+            }
+
+            // 0. Prefer the actual ADB protocol path (adb tcpip 5555).
+            // Running setprop/stop/start through the Shevery shell process is not equivalent to
+            // adb tcpip and can fail with exit code 1 even when the service is active.
+            if (EnvironmentUtils.isAdbPortLive(AdbStarter.TCP_MODE_PORT)) {
+                success = true
+            } else {
+                val activePort = EnvironmentUtils.getLiveAdbTcpPort()
+                    .takeIf { it > 0 && it != AdbStarter.TCP_MODE_PORT }
+                    ?: EnvironmentUtils.getAdbTcpPort().takeIf { it > 0 && it != AdbStarter.TCP_MODE_PORT }
+
+                if (activePort != null) {
+                    try {
+                        AdbStarter.switchToTcpMode(currentPort = activePort)
+                        success = waitForAdbTcpPort(AdbStarter.TCP_MODE_PORT)
+                        if (!success) {
+                            recordBindFailure("ADB", "tcpip command finished but port 5555 did not become live")
+                        }
+                    } catch (e: Exception) {
+                        recordBindFailure("ADB", e.message ?: e.javaClass.simpleName, e)
+                    }
+                } else {
+                    recordBindFailure("ADB", "no active local ADB port was found")
+                }
             }
 
             // 1. Try via Dhizuku if enabled
@@ -487,7 +537,7 @@ abstract class HomeActivity : AppActivity() {
                         }
                         if (serviceResult != null) {
                             val dhizukuService = moe.shizuku.manager.dhizuku.IDhizukuService.Stub.asInterface(serviceResult)
-                            success = dhizukuService.bindAdbTcp(5555) && waitForAdbTcpPort(5555)
+                            success = dhizukuService.bindAdbTcp(AdbStarter.TCP_MODE_PORT) && waitForAdbTcpPort(AdbStarter.TCP_MODE_PORT)
                             if (!success) {
                                 recordBindFailure("Dhizuku", "command finished but port 5555 did not become live")
                             }
@@ -511,11 +561,11 @@ abstract class HomeActivity : AppActivity() {
             if (!success && EnvironmentUtils.isRooted()) {
                 try {
                     val result = com.topjohnwu.superuser.Shell.cmd(ADB_TCP_BIND_COMMAND).exec()
-                    success = result.isSuccess && waitForAdbTcpPort(5555)
+                    success = result.isSuccess && waitForAdbTcpPort(AdbStarter.TCP_MODE_PORT)
                     if (!success) {
                         recordBindFailure(
                             "root",
-                            "command exit code ${result.code}, port 5555 live: ${EnvironmentUtils.isAdbPortLive(5555)}"
+                            "command exit code ${result.code}, port 5555 live: ${EnvironmentUtils.isAdbPortLive(AdbStarter.TCP_MODE_PORT)}"
                         )
                     }
                 } catch (e: Exception) {
@@ -533,11 +583,11 @@ abstract class HomeActivity : AppActivity() {
                         val service = moe.shizuku.server.IShizukuService.Stub.asInterface(binder)
                         val process = service.newProcess(arrayOf("sh", "-c", ADB_TCP_BIND_COMMAND), null, null)
                         val exitCode = process.waitFor()
-                        success = exitCode == 0 && waitForAdbTcpPort(5555)
+                        success = exitCode == 0 && waitForAdbTcpPort(AdbStarter.TCP_MODE_PORT)
                         if (!success) {
                             recordBindFailure(
                                 "Shevery",
-                                "command exit code $exitCode, port 5555 live: ${EnvironmentUtils.isAdbPortLive(5555)}"
+                                "command exit code $exitCode, port 5555 live: ${EnvironmentUtils.isAdbPortLive(AdbStarter.TCP_MODE_PORT)}"
                             )
                         }
                     } else {

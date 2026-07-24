@@ -44,6 +44,10 @@ import moe.shizuku.manager.ktx.isComponentEnabled
 import moe.shizuku.manager.ktx.setComponentEnabled
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.receiver.BootCompleteReceiver
+import moe.shizuku.manager.adb.AdbStarter
+import moe.shizuku.manager.service.WatchdogManager
+import moe.shizuku.manager.starter.StarterActivity
+import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.ui.compose.GroupDivider
 import moe.shizuku.manager.ui.compose.SettingsGroup
 import moe.shizuku.manager.ui.compose.SettingsRow
@@ -53,6 +57,7 @@ import moe.shizuku.manager.ui.compose.htmlToPlainText
 import moe.shizuku.manager.utils.CustomTabsHelper
 import rikka.core.util.ResourceUtils
 import rikka.material.app.LocaleDelegate
+import rikka.shizuku.Shizuku
 import rikka.shizuku.manager.ShizukuLocales
 import java.util.Locale
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -104,6 +109,7 @@ fun SettingsScreen() {
     var showNightDialog by remember { mutableStateOf(false) }
     var showModuleModeDialog by remember { mutableStateOf(false) }
     var showCustomPermissionsDialog by remember { mutableStateOf(false) }
+    var pendingTcpModeChange by remember { mutableStateOf<Boolean?>(null) }
 
     var moduleAccessMode by remember {
         mutableStateOf(ModuleSettings.getAccessMode())
@@ -133,6 +139,34 @@ fun SettingsScreen() {
     var showGeminiModelDialog by remember { mutableStateOf(false) }
     var recreateTick by remember { mutableIntStateOf(0) }
     var showUpdateSettings by remember { mutableStateOf(false) }
+
+    fun tcpModeNeedsRestart(enabled: Boolean): Boolean {
+        val currentPort = EnvironmentUtils.getAdbTcpPort()
+        return Shizuku.pingBinder() && currentPort > 0 && when {
+            enabled -> currentPort != AdbStarter.TCP_MODE_PORT
+            else -> currentPort == AdbStarter.TCP_MODE_PORT
+        }
+    }
+
+    fun restartAdbForTcpMode() {
+        val port = EnvironmentUtils.getAdbTcpPort().takeIf { it > 0 } ?: return
+        WatchdogManager.clearUserStopRequest(context)
+        activity?.startActivity(
+            Intent(context, StarterActivity::class.java).apply {
+                putExtra(StarterActivity.EXTRA_IS_ROOT, false)
+                putExtra(StarterActivity.EXTRA_HOST, "127.0.0.1")
+                putExtra(StarterActivity.EXTRA_PORT, port)
+            }
+        )
+    }
+
+    fun applyTcpMode(enabled: Boolean, restart: Boolean = false) {
+        ShizukuSettings.setTcpMode(enabled)
+        tcpMode = ShizukuSettings.isTcpMode()
+        if (restart && enabled) {
+            restartAdbForTcpMode()
+        }
+    }
 
     val scope = rememberCoroutineScope()
     val backupLauncher = rememberLauncherForActivityResult(
@@ -260,8 +294,11 @@ fun SettingsScreen() {
                     summary = stringResource(R.string.settings_tcp_mode_summary),
                     checked = tcpMode,
                     onCheckedChange = { enabled ->
-                        ShizukuSettings.setTcpMode(enabled)
-                        tcpMode = ShizukuSettings.isTcpMode()
+                        if (tcpModeNeedsRestart(enabled)) {
+                            pendingTcpModeChange = enabled
+                        } else {
+                            applyTcpMode(enabled)
+                        }
                     }
                 )
             }
@@ -513,6 +550,38 @@ fun SettingsScreen() {
                 showNightDialog = false
                 activity?.recreate()
             }
+        )
+    }
+
+    pendingTcpModeChange?.let { enabled ->
+        AlertDialog(
+            onDismissRequest = { pendingTcpModeChange = null },
+            title = { Text(stringResource(R.string.settings_restart_dialog_title)) },
+            text = {
+                Text(
+                    htmlToPlainText(
+                        context.getString(R.string.settings_restart_dialog_message) +
+                            if (enabled) context.getString(R.string.settings_restart_dialog_message_wifi_required) else ""
+                    )
+                )
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        pendingTcpModeChange = null
+                        applyTcpMode(enabled, restart = true)
+                    }
+                ) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { pendingTcpModeChange = null }) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            },
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            shape = MaterialTheme.shapes.extraLarge
         )
     }
 

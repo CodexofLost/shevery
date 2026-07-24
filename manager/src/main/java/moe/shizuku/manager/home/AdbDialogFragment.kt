@@ -24,12 +24,18 @@ import androidx.compose.ui.unit.dp
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import moe.shizuku.manager.R
+import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbMdns
+import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.starter.StarterActivity
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import moe.shizuku.manager.utils.EnvironmentUtils
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @RequiresApi(Build.VERSION_CODES.R)
 class AdbDialogFragment : DialogFragment() {
@@ -65,7 +71,11 @@ class AdbDialogFragment : DialogFragment() {
             }
         }
 
-        val port = EnvironmentUtils.getAdbTcpPort()
+        val port = if (ShizukuSettings.isTcpMode()) {
+            AdbStarter.TCP_MODE_PORT
+        } else {
+            EnvironmentUtils.getAdbTcpPort()
+        }
 
         val builder = MaterialAlertDialogBuilder(context).apply {
             setTitle(R.string.dialog_adb_discovery)
@@ -90,6 +100,7 @@ class AdbDialogFragment : DialogFragment() {
 
     private fun onDialogShow(dialog: AlertDialog) {
         adbMdns.start()
+        tryTcpModePortFirst()
         val context = dialog.context
         if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
             val cr = context.contentResolver
@@ -109,12 +120,32 @@ class AdbDialogFragment : DialogFragment() {
         }
 
         dialog.getButton(AlertDialog.BUTTON_NEUTRAL)?.setOnClickListener {
-            startAndDismiss(EnvironmentUtils.getAdbTcpPort())
+            startAndDismiss(
+                if (ShizukuSettings.isTcpMode()) {
+                    AdbStarter.TCP_MODE_PORT
+                } else {
+                    EnvironmentUtils.getAdbTcpPort()
+                }
+            )
         }
 
         port.observe(this) {
             if (it > 65535 || it < 1) return@observe
             startAndDismiss(it)
+        }
+    }
+
+    private fun tryTcpModePortFirst() {
+        if (!ShizukuSettings.isTcpMode()) return
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            if (!EnvironmentUtils.isAdbPortLive(AdbStarter.TCP_MODE_PORT)) return@launch
+
+            withContext(Dispatchers.Main) {
+                if (dialog?.isShowing == true) {
+                    startAndDismiss(AdbStarter.TCP_MODE_PORT)
+                }
+            }
         }
     }
 
