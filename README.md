@@ -132,3 +132,4 @@ Under Apache 2.0 section 6, specifically:
 
 * [Nightzuku](https://github.com/kerneldroid/Nightzuku) - for parts of App UI, Catalog Modules System and Android 17 support.
 * [Shizuku](https://github.com/rikkaapps/Shizuku) - for Shizuku API and main sources.
+* [Landon Moran](https://github.com/LandonMoran) - for Dhizuku, TCP and etc. fixes.
