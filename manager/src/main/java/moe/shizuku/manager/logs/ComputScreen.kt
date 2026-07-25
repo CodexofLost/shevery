@@ -609,7 +609,7 @@ fun ComputScreen() {
                                 )
                                 Spacer(Modifier.size(8.dp))
                                 Text(
-                                    text = "Gemini Explain",
+                                    text = stringResource(R.string.comput_gemini_explain),
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Bold,
                                     color = MaterialTheme.colorScheme.onPrimaryContainer
@@ -621,7 +621,7 @@ fun ComputScreen() {
                                     scope.launch {
                                         isExplaining = true
                                         val apiKey = ModuleSettings.getComputApiKey()
-                                        aiExplanation = explainCommandWithGemini(command, outputLog, apiKey,
+                                        aiExplanation = explainCommandWithGemini(command, outputLog, apiKey, context,
                                             emptyApiKeyMessage = context.getString(R.string.comput_ai_api_key_empty))
                                         isExplaining = false
                                     }
@@ -1105,6 +1105,7 @@ private suspend fun explainCommandWithGemini(
     command: String,
     output: String,
     apiKey: String,
+    context: Context,
     emptyApiKeyMessage: String = "Google AI Studio API Key is empty! Please configure it in Shevery Settings (Comput Console Settings)."
 ): String = withContext(Dispatchers.IO) {
     if (apiKey.isBlank()) {
@@ -1155,10 +1156,10 @@ private suspend fun explainCommandWithGemini(
             text.trim()
         } else {
             val errText = conn.errorStream?.bufferedReader()?.use { it.readText() } ?: "No details."
-            "Gemini API returned error code $responseCode: $errText"
+            context.getString(R.string.comput_gemini_api_error, responseCode, errText)
         }
     } catch (e: Exception) {
-        "Failed to reach Gemini API: ${e.message ?: "Connection error."}"
+        context.getString(R.string.comput_gemini_failed, e.message ?: context.getString(R.string.comput_gemini_connection_error))
     }
 }
 
