@@ -498,7 +498,7 @@ fun ComputScreen() {
                                     modifier = Modifier.size(18.dp)
                                 )
                                 Spacer(Modifier.size(6.dp))
-                                Text("Run")
+                                Text(stringResource(R.string.comput_run))
                             }
                         }
                         
