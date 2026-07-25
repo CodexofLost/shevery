@@ -448,7 +448,7 @@ fun SettingsScreen() {
         }
 
         item {
-            SettingsGroup(title = "Comput Console Settings") {
+            SettingsGroup(title = stringResource(R.string.comput_settings)) {
                 SettingsRow(
                     icon = R.drawable.ic_code_24dp,
                     title = "Google AI Studio API Key",
@@ -465,8 +465,8 @@ fun SettingsScreen() {
                 GroupDivider()
                 SwitchSettingsRow(
                     icon = R.drawable.ic_warning_24,
-                    title = "ReCommand for Comput",
-                    summary = "Show a confirmation dialog before running commands in Comput console",
+                    title = stringResource(R.string.comput_recommand_title),
+                    summary = stringResource(R.string.comput_recommand_summary),
                     checked = computRecommand,
                     onCheckedChange = { enabled ->
                         ModuleSettings.setComputRecommandEnabled(enabled)
@@ -477,11 +477,11 @@ fun SettingsScreen() {
         }
 
         item {
-            SettingsGroup(title = "Backup & Restore") {
+            SettingsGroup(title = stringResource(R.string.backup_restore_title)) {
                 SettingsRow(
                     icon = R.drawable.ic_outline_arrow_upward_24,
-                    title = "Backup Settings & Modules",
-                    summary = "Export configuration and modules to a ZIP file",
+                    title = stringResource(R.string.backup_title),
+                    summary = stringResource(R.string.backup_summary),
                     onClick = {
                         backupLauncher.launch("shevery_backup_${System.currentTimeMillis()}.zip")
                     }
@@ -489,8 +489,8 @@ fun SettingsScreen() {
                 GroupDivider()
                 SettingsRow(
                     icon = R.drawable.ic_server_restart,
-                    title = "Restore Settings & Modules",
-                    summary = "Import configuration and modules from a ZIP file",
+                    title = stringResource(R.string.restore_title),
+                    summary = stringResource(R.string.restore_summary),
                     onClick = {
                         restoreLauncher.launch(arrayOf("application/zip", "application/octet-stream"))
                     }
