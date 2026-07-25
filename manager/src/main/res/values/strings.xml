@@ -394,6 +394,22 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="wear_catalog_sort_by">Sort by</string>
     <string name="wear_catalog_filter">Filter</string>
 
+    <!-- Backup & Restore -->
+    <string name="backup_restore_title">Backup &amp; Restore</string>
+    <string name="backup_title">Backup Settings &amp; Modules</string>
+    <string name="backup_summary">Export configuration and modules to a ZIP file</string>
+    <string name="restore_title">Restore Settings &amp; Modules</string>
+    <string name="restore_summary">Import configuration and modules from a ZIP file</string>
+
+    <!-- Comput Console -->
+    <string name="comput_title">Comput</string>
+    <string name="comput_settings">Comput Console Settings</string>
+    <string name="comput_adb_console">ADB Comput Console</string>
+    <string name="comput_recommand_title">ReCommand for Comput</string>
+    <string name="comput_recommand_summary">Show a confirmation dialog before running commands in Comput console</string>
+    <string name="comput_recommand_confirmation">Are you sure you want to execute this ADB command in Comput?</string>
+    <string name="comput_ai_api_key_empty">Google AI Studio API Key is empty! Please configure it in Shevery Settings (Comput Console Settings).</string>
+
     <!-- ErrorProtect & TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">Check process health and transactional errors every 10 seconds. Automatically stops and restarts Shevery if issues are found.</string>
