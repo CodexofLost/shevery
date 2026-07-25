@@ -222,7 +222,7 @@ abstract class HomeActivity : AppActivity() {
                                 selected = selectedTab == 2,
                                 onClick = { selectedTab = 2 },
                                 icon = { ShizukuIcon(R.drawable.ic_terminal_24, contentDescription = null) },
-                                label = { Text("Comput") }
+                                label = { Text(stringResource(R.string.comput_title)) }
                             )
                             NavigationBarItem(
                                 selected = selectedTab == 3,
