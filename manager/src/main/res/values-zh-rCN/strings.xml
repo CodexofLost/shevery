@@ -382,8 +382,8 @@ Wi-Fi 是首次重启所必需的，因为 Shevery 必须在将 ADB 切换到 55
     <string name="comput_title">终端</string>
     <string name="comput_settings">终端设置</string>
     <string name="comput_adb_console">ADB 终端</string>
-    <string name="comput_recommand_title">终端的 ReCommand</string>
-    <string name="comput_recommand_summary">在终端中运行命令前显示确认对话框</string>
+    <string name="comput_recommand_title">终端执行命令确认</string>
+    <string name="comput_recommand_summary">在终端中执行命令前显示确认对话框</string>
     <string name="comput_recommand_confirmation">确定要在终端中执行此 ADB 命令吗？</string>
     <string name="comput_ai_api_key_empty">Google AI Studio API 密钥为空！请在 Shevery 设置（终端设置）中进行配置。</string>
     <string name="comput_ai_api_key_title">Google AI Studio API 密钥</string>
