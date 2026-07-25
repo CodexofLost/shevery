@@ -451,14 +451,14 @@ fun SettingsScreen() {
             SettingsGroup(title = stringResource(R.string.comput_settings)) {
                 SettingsRow(
                     icon = R.drawable.ic_code_24dp,
-                    title = "Google AI Studio API Key",
-                    summary = if (computApiKey.isBlank()) "Not configured (Gemini AI will not work)" else "••••••••••••••••" + computApiKey.takeLast(4),
+                    title = stringResource(R.string.comput_ai_api_key_title),
+                    summary = if (computApiKey.isBlank()) stringResource(R.string.comput_ai_api_key_not_configured) else "••••••••••••••••" + computApiKey.takeLast(4),
                     onClick = { showApiKeyDialog = true }
                 )
                 GroupDivider()
                 SettingsRow(
                     icon = R.drawable.ic_outline_info_24,
-                    title = "Gemini AI Model",
+                    title = stringResource(R.string.comput_gemini_model_title),
                     summary = computGeminiModel,
                     onClick = { showGeminiModelDialog = true }
                 )
@@ -628,12 +628,12 @@ fun SettingsScreen() {
         var keyVisible by remember { mutableStateOf(false) }
         AlertDialog(
             onDismissRequest = { showApiKeyDialog = false },
-            title = { Text("Google AI Studio API Key") },
+            title = { Text(stringResource(R.string.comput_ai_api_key_title)) },
             text = {
                 OutlinedTextField(
                     value = tempKey,
                     onValueChange = { tempKey = it },
-                    label = { Text("API Key") },
+                    label = { Text(stringResource(R.string.comput_api_key_label)) },
                     placeholder = { Text("AIzaSy...") },
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true,
@@ -643,7 +643,7 @@ fun SettingsScreen() {
                         androidx.compose.material3.IconButton(onClick = { keyVisible = !keyVisible }) {
                             moe.shizuku.manager.ui.compose.ShizukuIcon(
                                 icon = image,
-                                contentDescription = if (keyVisible) "Hide API key" else "Show API key"
+                                contentDescription = if (keyVisible) stringResource(R.string.comput_hide_api_key) else stringResource(R.string.comput_show_api_key)
                             )
                         }
                     }
@@ -673,11 +673,11 @@ fun SettingsScreen() {
     if (showGeminiModelDialog) {
         val modelOptions = listOf("gemini-3.5-flash", "gemini-3.1-flash-lite")
         ChoiceDialog(
-            title = "Gemini AI Model",
+            title = stringResource(R.string.comput_gemini_model_title),
             choices = modelOptions.map {
                 ChoiceOption(
                     title = it,
-                    summary = if (it == "gemini-3.5-flash") "High performance coding & agentic (Recommended)" else "Lightweight high speed model",
+                    summary = if (it == "gemini-3.5-flash") stringResource(R.string.comput_gemini_model_performance) else stringResource(R.string.comput_gemini_model_lightweight),
                     icon = R.drawable.ic_outline_info_24
                 )
             },
