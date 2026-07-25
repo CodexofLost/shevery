@@ -409,6 +409,19 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_recommand_summary">Show a confirmation dialog before running commands in Comput console</string>
     <string name="comput_recommand_confirmation">Are you sure you want to execute this ADB command in Comput?</string>
     <string name="comput_ai_api_key_empty">Google AI Studio API Key is empty! Please configure it in Shevery Settings (Comput Console Settings).</string>
+    <string name="comput_ai_api_key_title">Google AI Studio API Key</string>
+    <string name="comput_ai_api_key_not_configured">Not configured (Gemini AI will not work)</string>
+    <string name="comput_gemini_model_title">Gemini AI Model</string>
+    <string name="comput_gemini_explain">Gemini Explain</string>
+    <string name="comput_api_key_label">API Key</string>
+    <string name="comput_show_api_key">Show API key</string>
+    <string name="comput_hide_api_key">Hide API key</string>
+    <string name="comput_gemini_model_performance">High performance coding &amp; agentic (Recommended)</string>
+    <string name="comput_gemini_model_lightweight">Lightweight high speed model</string>
+    <string name="comput_gemini_api_error">Gemini API returned error code %1$d: %2$s</string>
+    <string name="comput_gemini_connection_error">Connection error.</string>
+    <string name="comput_gemini_failed">Failed to reach Gemini API: %1$s</string>
+    <string name="comput_gemini_no_details">No details.</string>
 
     <!-- ErrorProtect & TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
