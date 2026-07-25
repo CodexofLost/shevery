@@ -91,7 +91,7 @@ fun ComputScreen() {
     val scope = rememberCoroutineScope()
     
     var command by remember { mutableStateOf("pm list packages -3") }
-    var outputLog by remember { mutableStateOf("Console initialized. Privileged Shevery service connected.\nReady for commands.") }
+    var outputLog by remember { mutableStateOf(context.getString(R.string.comput_console_initialized)) }
     var isRunning by remember { mutableStateOf(false) }
     var isAdbMode by remember { mutableStateOf(false) }
     var isExplaining by remember { mutableStateOf(false) }
@@ -235,10 +235,10 @@ fun ComputScreen() {
             }
 
             if (!Shizuku.pingBinder()) {
-                return@withContext Pair("Error: Privileged Shevery Service is not running. Please start the service first.", true)
+                return@withContext Pair(context.getString(R.string.comput_error_not_running), true)
             }
             try {
-                val binder = Shizuku.getBinder() ?: return@withContext Pair("Error: Unable to retrieve Shevery binder.", true)
+                val binder = Shizuku.getBinder() ?: return@withContext Pair(context.getString(R.string.comput_error_no_binder), true)
                 val service = IShizukuService.Stub.asInterface(binder)
                 val remote = service.newProcess(
                     arrayOf("sh", "-c", finalCmd),
@@ -285,12 +285,12 @@ fun ComputScreen() {
                     }
                     if (!finished) {
                         if (isNotEmpty()) append("\n")
-                        append("[E] Command timed out after 120 seconds.")
+                        append(context.getString(R.string.comput_timed_out))
                     } else if (exitCode != 0) {
                         if (isNotEmpty()) append("\n")
-                        append("[E] Command exited with code $exitCode.")
+                        append(context.getString(R.string.comput_exit_code, exitCode))
                     }
-                    if (isEmpty()) append("Command completed with no output.")
+                    if (isEmpty()) append(context.getString(R.string.comput_command_no_output))
                 }
                 val hasFailed = !finished || exitCode != 0 || stderrText.isNotBlank()
                 Pair(resString, hasFailed)
@@ -312,9 +312,9 @@ fun ComputScreen() {
             }
 
             if (isAdbMode) {
-                outputLog = "ADB Command Translation Mode Active\nOriginal: $cmd\nExecuting...\n"
+                outputLog = context.getString(R.string.comput_adb_translate, cmd)
             } else {
-                outputLog = "Executing: $cmd ...\n"
+                outputLog = context.getString(R.string.comput_executing, cmd)
             }
 
             val (result, hasFailed) = executeCommandInternal(cmd)
@@ -344,11 +344,11 @@ fun ComputScreen() {
             isRunning = true
             aiExplanation = ""
             val fullLog = StringBuilder()
-            fullLog.append("Running macro: $macroName\n\n")
+            fullLog.append(context.getString(R.string.comput_running_macro, macroName)).append("\n\n")
             outputLog = fullLog.toString()
 
             for (cmd in commands) {
-                fullLog.append("> Executing command: $cmd\n")
+                fullLog.append(context.getString(R.string.comput_executing_cmd, cmd)).append("\n")
                 outputLog = fullLog.toString()
                 
                 val (result, hasFailed) = executeCommandInternal(cmd)
@@ -433,7 +433,7 @@ fun ComputScreen() {
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                text = "sh Mode",
+                                text = stringResource(R.string.comput_sh_mode),
                                 style = MaterialTheme.typography.labelLarge,
                                 fontWeight = FontWeight.Bold,
                                 color = shTextColor
@@ -450,7 +450,7 @@ fun ComputScreen() {
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                text = "adb Mode",
+                                text = stringResource(R.string.comput_adb_mode),
                                 style = MaterialTheme.typography.labelLarge,
                                 fontWeight = FontWeight.Bold,
                                 color = adbTextColor
@@ -466,8 +466,8 @@ fun ComputScreen() {
                             fontFamily = FontFamily.Monospace,
                             fontSize = 14.sp
                         ),
-                        label = { Text("Command") },
-                        placeholder = { Text("e.g. pm list packages") },
+                        label = { Text(stringResource(R.string.comput_command_label)) },
+                        placeholder = { Text(stringResource(R.string.comput_command_placeholder)) },
                         maxLines = 4,
                         colors = TextFieldDefaults.colors(
                             focusedContainerColor = Color.Transparent,
@@ -494,7 +494,7 @@ fun ComputScreen() {
                             } else {
                                 Icon(
                                     imageVector = Icons.Rounded.PlayArrow,
-                                    contentDescription = "Run",
+                                    contentDescription = stringResource(R.string.comput_run),
                                     modifier = Modifier.size(18.dp)
                                 )
                                 Spacer(Modifier.size(6.dp))
@@ -505,15 +505,15 @@ fun ComputScreen() {
                         TextButton(
                             onClick = {
                                 command = ""
-                                outputLog = "Console cleared."
+                                outputLog = context.getString(R.string.comput_console_cleared)
                                 aiExplanation = ""
                             },
                             enabled = !isRunning,
                             shape = MaterialTheme.shapes.large
                         ) {
-                            Icon(Icons.Rounded.Clear, contentDescription = "Clear")
+                            Icon(Icons.Rounded.Clear, contentDescription = stringResource(R.string.comput_clear))
                             Spacer(Modifier.size(6.dp))
-                            Text("Clear")
+                            Text(stringResource(R.string.comput_clear))
                         }
                     }
                 }
@@ -536,7 +536,7 @@ fun ComputScreen() {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Console Output",
+                            text = stringResource(R.string.comput_console_output),
                             style = MaterialTheme.typography.titleSmall,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -545,12 +545,12 @@ fun ComputScreen() {
                             onClick = {
                                 val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                                 clipboard.setPrimaryClip(ClipData.newPlainText("ADB Output", outputLog))
-                                Toast.makeText(context, "Output copied to clipboard", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, context.getString(R.string.comput_output_copied), Toast.LENGTH_SHORT).show()
                             }
                         ) {
                             Icon(
                                 imageVector = Icons.Rounded.ContentCopy,
-                                contentDescription = "Copy Output",
+                                contentDescription = stringResource(R.string.comput_copy_output),
                                 modifier = Modifier.size(18.dp),
                                 tint = MaterialTheme.colorScheme.primary
                             )
@@ -604,7 +604,7 @@ fun ComputScreen() {
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 Icon(
                                     imageVector = Icons.Rounded.AutoAwesome,
-                                    contentDescription = "AI Explanation",
+                                    contentDescription = stringResource(R.string.comput_ai_explanation),
                                     tint = MaterialTheme.colorScheme.primary
                                 )
                                 Spacer(Modifier.size(8.dp))
@@ -637,7 +637,7 @@ fun ComputScreen() {
                                         strokeWidth = 2.dp
                                     )
                                 } else {
-                                    Text("Ask Gemini")
+                                    Text(stringResource(R.string.comput_ask_gemini))
                                 }
                             }
                         }
@@ -677,11 +677,11 @@ fun ComputScreen() {
                     ) {
                         Icon(
                             imageVector = Icons.Rounded.AutoAwesome,
-                            contentDescription = "Commandium",
+                            contentDescription = stringResource(R.string.comput_commandium),
                             tint = MaterialTheme.colorScheme.primary
                         )
                         Text(
-                            text = "Commandium AI Assistant",
+                            text = stringResource(R.string.comput_commandium_assistant),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.primary
@@ -689,7 +689,7 @@ fun ComputScreen() {
                     }
 
                     Text(
-                        text = "Generate shell commands using natural language. Gemini will output a raw, copyable command.",
+                        text = stringResource(R.string.comput_commandium_description),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -698,8 +698,8 @@ fun ComputScreen() {
                         value = commandiumPrompt,
                         onValueChange = { commandiumPrompt = it },
                         modifier = Modifier.fillMaxWidth(),
-                        label = { Text("What command do you need?") },
-                        placeholder = { Text("e.g. Find all files larger than 10MB in /sdcard") },
+                        label = { Text(stringResource(R.string.comput_commandium_label)) },
+                        placeholder = { Text(stringResource(R.string.comput_commandium_placeholder)) },
                         maxLines = 3,
                         colors = TextFieldDefaults.colors(
                             focusedContainerColor = Color.Transparent,
@@ -727,7 +727,7 @@ fun ComputScreen() {
                                 strokeWidth = 2.dp
                             )
                         } else {
-                            Text("Ask Commandium")
+                            Text(stringResource(R.string.comput_ask_commandium))
                         }
                     }
 
@@ -740,7 +740,7 @@ fun ComputScreen() {
                         ) {
                             Column(modifier = Modifier.padding(12.dp)) {
                                 Text(
-                                    text = "Generated Command:",
+                                    text = stringResource(R.string.comput_generated_command),
                                     style = MaterialTheme.typography.labelMedium,
                                     fontWeight = FontWeight.Bold,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -771,24 +771,24 @@ fun ComputScreen() {
                                     Button(
                                         onClick = {
                                             command = generatedCommandiumResult
-                                            Toast.makeText(context, "Command pasted to input", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(context, context.getString(R.string.comput_command_pasted), Toast.LENGTH_SHORT).show()
                                         },
                                         modifier = Modifier.weight(1f),
                                         colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
                                         shape = MaterialTheme.shapes.medium
                                     ) {
-                                        Text("Use command")
+                                        Text(stringResource(R.string.comput_use_command))
                                     }
                                     IconButton(
                                         onClick = {
                                             val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                                             clipboard.setPrimaryClip(ClipData.newPlainText("Commandium", generatedCommandiumResult))
-                                            Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(context, context.getString(R.string.comput_copied_to_clipboard), Toast.LENGTH_SHORT).show()
                                         }
                                     ) {
                                         Icon(
                                             imageVector = Icons.Rounded.ContentCopy,
-                                            contentDescription = "Copy command"
+                                            contentDescription = stringResource(R.string.comput_copy_command)
                                         )
                                     }
                                 }
@@ -818,7 +818,7 @@ fun ComputScreen() {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Console Macros",
+                            text = stringResource(R.string.comput_console_macros),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.primary
@@ -839,7 +839,7 @@ fun ComputScreen() {
                                         .background(Color.White, shape = RoundedCornerShape(5.dp))
                                 )
                                 Spacer(Modifier.size(6.dp))
-                                Text("Stop (${recordedCommands.size})")
+                                Text(stringResource(R.string.comput_stop, recordedCommands.size))
                             }
                         } else {
                             Button(
@@ -855,14 +855,14 @@ fun ComputScreen() {
                                         .background(Color.Red, shape = RoundedCornerShape(5.dp))
                                 )
                                 Spacer(Modifier.size(6.dp))
-                                Text("Record Macro")
+                                Text(stringResource(R.string.comput_record_macro))
                             }
                         }
                     }
 
                     if (isRecording) {
                         Text(
-                            text = "Recording active. Run commands using the main input to add them to this macro.",
+                            text = stringResource(R.string.comput_recording_active),
                             style = MaterialTheme.typography.bodySmall,
                             color = Color(0xFFEF5350),
                             fontWeight = FontWeight.SemiBold
@@ -888,7 +888,7 @@ fun ComputScreen() {
                     HorizontalDivider(color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.1f))
 
                     Text(
-                        text = "Saved Macros",
+                        text = stringResource(R.string.comput_saved_macros),
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface
@@ -896,7 +896,7 @@ fun ComputScreen() {
 
                     if (savedMacros.isEmpty()) {
                         Text(
-                            text = "No saved macros yet. Click 'Record Macro' to start recording console commands.",
+                            text = stringResource(R.string.comput_no_macros),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -951,14 +951,14 @@ fun ComputScreen() {
                                                 modifier = Modifier.weight(1f),
                                                 shape = MaterialTheme.shapes.medium
                                             ) {
-                                                Text("Run")
+                                Text(stringResource(R.string.comput_run))
                                             }
                                             TextButton(
                                                 onClick = { deleteMacro(name) },
                                                 colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error),
                                                 shape = MaterialTheme.shapes.medium
                                             ) {
-                                                Text("Delete")
+                                                Text(stringResource(R.string.comput_delete))
                                             }
                                         }
                                     }
@@ -974,7 +974,7 @@ fun ComputScreen() {
     if (showReCommandPrompt) {
         AlertDialog(
             onDismissRequest = { showReCommandPrompt = false },
-            title = { Text("ReCommand confirmation") },
+            title = { Text(stringResource(R.string.comput_recommand_confirmation_title)) },
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                     Text(
@@ -1004,12 +1004,12 @@ fun ComputScreen() {
                         runShellCommand(command)
                     }
                 ) {
-                    Text("Execute")
+                    Text(stringResource(R.string.comput_execute))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showReCommandPrompt = false }) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.comput_cancel))
                 }
             },
             containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
@@ -1020,15 +1020,15 @@ fun ComputScreen() {
     if (showSaveMacroDialog) {
         AlertDialog(
             onDismissRequest = { showSaveMacroDialog = false },
-            title = { Text("Save Macro") },
+            title = { Text(stringResource(R.string.comput_save_macro)) },
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                    Text("Enter a name for the recorded macro:")
+                    Text(stringResource(R.string.comput_save_macro_hint))
                     OutlinedTextField(
                         value = macroNameInput,
                         onValueChange = { macroNameInput = it },
                         modifier = Modifier.fillMaxWidth(),
-                        label = { Text("Macro Name") },
+                        label = { Text(stringResource(R.string.comput_macro_name_label)) },
                         singleLine = true
                     )
                 }
@@ -1044,7 +1044,7 @@ fun ComputScreen() {
                     },
                     enabled = macroNameInput.isNotBlank()
                 ) {
-                    Text("Save")
+                    Text(stringResource(R.string.comput_save))
                 }
             },
             dismissButton = {
@@ -1055,7 +1055,7 @@ fun ComputScreen() {
                         showSaveMacroDialog = false
                     }
                 ) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.comput_cancel))
                 }
             },
             containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
@@ -1155,7 +1155,7 @@ private suspend fun explainCommandWithGemini(
                 .getString("text")
             text.trim()
         } else {
-            val errText = conn.errorStream?.bufferedReader()?.use { it.readText() } ?: "No details."
+            val errText = conn.errorStream?.bufferedReader()?.use { it.readText() } ?: context.getString(R.string.comput_gemini_no_details)
             context.getString(R.string.comput_gemini_api_error, responseCode, errText)
         }
     } catch (e: Exception) {
