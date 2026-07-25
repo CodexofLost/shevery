@@ -621,9 +621,8 @@ fun ComputScreen() {
                                     scope.launch {
                                         isExplaining = true
                                         val apiKey = ModuleSettings.getComputApiKey()
-                                        val ctx = LocalContext.current
                                         aiExplanation = explainCommandWithGemini(command, outputLog, apiKey,
-                                            emptyApiKeyMessage = ctx.getString(R.string.comput_ai_api_key_empty))
+                                            emptyApiKeyMessage = context.getString(R.string.comput_ai_api_key_empty))
                                         isExplaining = false
                                     }
                                 },
