@@ -384,7 +384,7 @@ fun ComputScreen() {
     }
 
     ShizukuLazyScaffold(
-        title = "Comput",
+        title = stringResource(R.string.comput_title),
         onNavigateUp = null
     ) {
         item {
@@ -401,7 +401,7 @@ fun ComputScreen() {
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     Text(
-                        text = "ADB Comput Console",
+                        text = stringResource(R.string.comput_adb_console),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.primary
@@ -621,7 +621,9 @@ fun ComputScreen() {
                                     scope.launch {
                                         isExplaining = true
                                         val apiKey = ModuleSettings.getComputApiKey()
-                                        aiExplanation = explainCommandWithGemini(command, outputLog, apiKey)
+                                        val ctx = LocalContext.current
+                                        aiExplanation = explainCommandWithGemini(command, outputLog, apiKey,
+                                            emptyApiKeyMessage = ctx.getString(R.string.comput_ai_api_key_empty))
                                         isExplaining = false
                                     }
                                 },
@@ -977,7 +979,7 @@ fun ComputScreen() {
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                     Text(
-                        text = "Are you sure you want to execute this ADB command in Comput?",
+                        text = stringResource(R.string.comput_recommand_confirmation),
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Surface(
@@ -1103,10 +1105,11 @@ private fun buildAnnotatedLog(
 private suspend fun explainCommandWithGemini(
     command: String,
     output: String,
-    apiKey: String
+    apiKey: String,
+    emptyApiKeyMessage: String = "Google AI Studio API Key is empty! Please configure it in Shevery Settings (Comput Console Settings)."
 ): String = withContext(Dispatchers.IO) {
     if (apiKey.isBlank()) {
-        return@withContext "Google AI Studio API Key is empty! Please configure it in Shevery Settings (Comput Console Settings)."
+        return@withContext emptyApiKeyMessage
     }
     try {
         val selectedModel = ModuleSettings.getComputGeminiModel()
