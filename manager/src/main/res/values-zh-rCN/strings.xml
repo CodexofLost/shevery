@@ -388,8 +388,8 @@ Wi-Fi 是首次重启所必需的，因为 Shevery 必须在将 ADB 切换到 55
     <string name="comput_ai_api_key_empty">Google AI Studio API 密钥为空！请在 Shevery 设置（终端设置）中进行配置。</string>
     <string name="comput_ai_api_key_title">Google AI Studio API 密钥</string>
     <string name="comput_ai_api_key_not_configured">未配置（Gemini AI 将无法使用）</string>
-    <string name="comput_gemini_model_title">Gemini AI 模型</string>
-    <string name="comput_gemini_explain">Gemini 解释</string>
+    <string name="comput_gemini_model_title">Gemini模型</string>
+    <string name="comput_gemini_explain">询问Gemini</string>
     <string name="comput_api_key_label">API 密钥</string>
     <string name="comput_show_api_key">显示 API 密钥</string>
     <string name="comput_hide_api_key">隐藏 API 密钥</string>
