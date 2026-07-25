@@ -1279,21 +1279,21 @@ private fun buildDiagnostics(
     val versionName = context.packageManager.getPackageInfo(context.packageName, 0).versionName
     val localNetwork = if (localNetworkPermissionState.required) {
         "${localNetworkPermissionState.label}: " +
-                if (localNetworkPermissionState.granted) "granted" else "missing"
+                if (localNetworkPermissionState.granted) context.getString(R.string.diagnostics_granted) else context.getString(R.string.diagnostics_missing)
     } else {
-        "not required"
+        context.getString(R.string.diagnostics_not_required)
     }
 
     return buildString {
-        appendLine("App: ${context.getString(R.string.app_name)} $versionName (${BuildConfig.VERSION_CODE})")
-        appendLine("Android: ${Build.VERSION.RELEASE} / SDK ${Build.VERSION.SDK_INT} / ${Build.VERSION.CODENAME}")
-        appendLine("Service: ${if (status.isRunning) "running" else "stopped"}")
-        appendLine("Server uid: ${status.uid}")
-        appendLine("Server API: ${status.apiVersion}.${status.patchVersion}")
-        appendLine("SELinux: ${status.seContext ?: "unknown"}")
-        appendLine("ADB permission: ${if (status.permission) "full" else "limited"}")
-        appendLine("Authorized apps: $grantedCount")
-        appendLine("Local network: $localNetwork")
+        appendLine("${context.getString(R.string.diagnostics_app)}: ${context.getString(R.string.app_name)} $versionName (${BuildConfig.VERSION_CODE})")
+        appendLine("${context.getString(R.string.diagnostics_android)}: ${Build.VERSION.RELEASE} / SDK ${Build.VERSION.SDK_INT} / ${Build.VERSION.CODENAME}")
+        appendLine("${context.getString(R.string.diagnostics_service)}: ${if (status.isRunning) context.getString(R.string.diagnostics_running) else context.getString(R.string.diagnostics_stopped)}")
+        appendLine("${context.getString(R.string.diagnostics_server_uid)}: ${status.uid}")
+        appendLine("${context.getString(R.string.diagnostics_server_api)}: ${status.apiVersion}.${status.patchVersion}")
+        appendLine("${context.getString(R.string.diagnostics_selinux)}: ${status.seContext ?: context.getString(R.string.diagnostics_unknown)}")
+        appendLine("${context.getString(R.string.diagnostics_adb_permission)}: ${if (status.permission) context.getString(R.string.diagnostics_full) else context.getString(R.string.diagnostics_limited)}")
+        appendLine("${context.getString(R.string.diagnostics_authorized_apps)}: $grantedCount")
+        appendLine("${context.getString(R.string.diagnostics_local_network)}: $localNetwork")
     }.trim()
 }
 
