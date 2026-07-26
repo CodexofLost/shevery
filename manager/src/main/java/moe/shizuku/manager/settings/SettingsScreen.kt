@@ -671,13 +671,13 @@ fun SettingsScreen() {
     }
 
     if (showGeminiModelDialog) {
-        val modelOptions = listOf("gemini-3.5-flash", "gemini-3.1-flash-lite")
+        val modelOptions = listOf("gemini-3.6-flash", "gemini-3.5-flash-lite")
         ChoiceDialog(
             title = stringResource(R.string.comput_gemini_model_title),
             choices = modelOptions.map {
                 ChoiceOption(
                     title = it,
-                    summary = if (it == "gemini-3.5-flash") stringResource(R.string.comput_gemini_model_performance) else stringResource(R.string.comput_gemini_model_lightweight),
+                    summary = if (it == "gemini-3.6-flash") stringResource(R.string.comput_gemini_model_performance) else stringResource(R.string.comput_gemini_model_lightweight),
                     icon = R.drawable.ic_outline_info_24
                 )
             },

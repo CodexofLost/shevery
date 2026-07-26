@@ -348,7 +348,7 @@ object ModuleSettings {
     }
 
     fun getComputGeminiModel(): String {
-        return ShizukuSettings.getPreferences().getString(KEY_COMPUT_GEMINI_MODEL, "gemini-3.5-flash") ?: "gemini-3.5-flash"
+        return ShizukuSettings.getPreferences().getString(KEY_COMPUT_GEMINI_MODEL, "gemini-3.6-flash") ?: "gemini-3.6-flash"
     }
 
     fun setComputGeminiModel(value: String) {

@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.graphics.drawable.toBitmap
 import moe.shizuku.manager.BuildConfig
 import moe.shizuku.manager.R
 import moe.shizuku.manager.app.AppActivity
@@ -80,11 +81,12 @@ class AboutActivity : AppActivity() {
     @Composable
     private fun AboutHeader(versionName: String) {
         val context = androidx.compose.ui.platform.LocalContext.current
-        val appIcon = remember {
-            val bitmap = android.graphics.BitmapFactory.decodeResource(
-                context.resources, R.mipmap.ic_launcher
-            )
-            bitmap?.asImageBitmap()
+        val appIcon = remember(context) {
+            runCatching {
+                val drawable = context.packageManager.getApplicationIcon(context.packageName)
+                val bitmap = drawable.toBitmap(192, 192)
+                bitmap.asImageBitmap()
+            }.getOrNull()
         }
 
         Box(

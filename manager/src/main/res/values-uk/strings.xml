@@ -1,146 +1,494 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="action_about">Про додаток</string>
-    <string name="home_adb_button_view_command">Переглянути adb команду</string>
-    <string name="home_adb_button_view_help">Прочитати онлайн довідку</string>
-    <string name="app_management_dialog_adb_is_limited_title">Дозвіл на adb обмежений</string>
-    <string name="home_app_management_title">Авторизовані додатки</string>
-    <string name="settings_black_night_theme">Чорна темна тема</string>
-    <string name="settings_black_night_theme_summary">Використовуйте чорну тему, якщо включений нічний режим</string>
-    <string name="start_with_root_failed">Неможливо запустити службу, оскільки не надано дозвіл root або цей пристрій не рутовано.</string>
-    <string name="notification_channel_service_status">Статус запуску серав</string>
-    <string name="home_adb_dialog_view_command_copy_button">Копіювати</string>
-    <string name="dialog_cannot_open_browser_title">Не вдається запустити браузер</string>
-    <string name="home_learn_more_title">Вивчіть Shizuku</string>
-    <string name="home_learn_more_description">Дізнайтеся, як розробляти з Shizuku</string>
-    <string name="notification_service_start_failed">Помилка запуску служби Shizuku.</string>
-    <string name="notification_service_start_no_root">Помилка запиту на root доступ.</string>
-    <string name="notification_service_starting">Сервіс Shizuku запущено…</string>
-    <string name="notification_working">Працює…</string>
-    <string name="dialog_requesting_legacy_button_open_shizuku">Відкрити Shizuku</string>
-    <string name="home_root_button_restart">Перезапуск</string>
+    <string name="translation_contributors">Community Translators</string>
+
+    <!-- Accessibility -->
+    <string name="accessibility_navigate_up">Перейти вгору</string>
+    <string name="accessibility_close">Закрити</string>
+    <string name="accessibility_more_options">Додаткові опції</string>
+    <string name="accessibility_open_on_github">Відкрити на GitHub</string>
+
+    <!-- Home - Status -->
     <string name="home_status_service_is_running">%1$s працює</string>
-    <string name="home_adb_dialog_view_command_button_send">Відправити</string>
-    <string name="settings_language">Мова</string>
-    <string name="home_root_button_start">Запуск</string>
-    <string name="home_status_service_version">версія %2$s, %1$s</string>
-    <string name="settings_user_interface">Зовнішній вигляд</string>
-    <string name="settings_startup">Стартап</string>
-    <string name="home_status_service_version_update">версія %2$s, %1$s&lt;br&gt;почніть оновлюватися до версії %3$s</string>
-    <string name="permission_label">доступ до Shizuku</string>
-    <string name="app_management_item_summary_requires_root">* потрібен root, щоб запускався Shizuku</string>
     <string name="home_status_service_not_running">%1$s не працює</string>
-    <string name="about_view_source_code"><![CDATA[Переглянути вихідний код на %s]]></string>
-    <string name="app_management_dialog_adb_is_limited_message">Можливо, ваш виробник пристрою лімітує дозвіл adb.&lt;p&gt;Можливо, є рішення для вашої системи у &lt;b&gt;&lt;a href=\"%1$s\"&gt;цьому документі&lt;/a&gt;&lt;/b&gt;.</string>
-    <string name="home_adb_description">Для пристроїв без root потрібно використовувати ADB для запуску Shizuku (потрібне підключення до комп’ютера). Цей процес потрібно повторювати кожного разу, коли пристрій перезавантажується. Будь ласка, <b><a href="%1$s">прочитайте довідку</a></b>.</string>
-    <string name="home_adb_title">Почніть з підключення до ПК</string>
-    <string name="home_root_title"><![CDATA[Запустіть службу з root доступом]]></string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> скопійовано в буфер обміну.</string>
-    <string name="home_app_management_view_authorized_apps"><![CDATA[Натисніть для перегляду авторизованих додатків]]></string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Є деякі інші міркування, будь ласка, підтвердьте, що ви прочитали довідку спочатку.]]></string>
-    <string name="toast_copied_to_clipboard">%s
-\nскопійовано в буфер обміну.</string>
-    <string name="translation_contributors">Nederlands, vitalitk</string>
-    <string name="grant_dialog_button_allow_always">Завжди дозволяти</string>
-    <string name="grant_dialog_button_deny">Заборонити</string>
-    <string name="permission_warning_template">Дозволити додатку <b>%1$s</b> таке: %2$s\?</string>
-    <string name="home_wireless_adb_title">Запуск за допомогою налагоджування через Wi-Fi</string>
-    <string name="adb_pairing_tutorial_content_notification">Повідомлення від Shizuku допоможе вам закінчити парування.</string>
-    <string name="adb_pairing_tutorial_content_enter_pairing_code">Введіть код в повідомленні щоб завершити парування.</string>
-    <string name="adb_pairing_tutorial_title">Парувати Shizuku з вашим пристроєм</string>
-    <string name="notification_settings">Налаштування повідомлень</string>
-    <string name="adb_pairing_tutorial_content_notification_blocked">Процес парування потребує, щоб ви взаємодіяли із сповіщенням від Shizuku. Будь ласка, дозвольте Shizuku публікувати сповіщення.</string>
-    <string name="home_wireless_adb_description">Починаючи з Android 11 та вище, ви можете ввімкнути налагодження через WiFi та запустити Shizuku прямо з вашого пристрою, не під\'єднуючись до комп\'ютеру.&lt;p&gt;Будь ласка, спочатку перегляньте інструкцію.</string>
-    <string name="home_wireless_adb_view_guide_button">Покрокова інструкція</string>
-    <string name="dialog_adb_discovery">Пошук сервісу бездротового налагодження</string>
-    <string name="dialog_adb_discovery_message">Будь ласка, увімкніть \"Налагодження через Wi-Fi\" в \"Параметрах розробника\". \"Налагодження через Wi-Fi\" автоматично вимикається при зміні мереж.
-\n
-\nЗверніть увагу, не вимикайте \"Параметри розробника\" чи \"Налагодження USB\", інакше Shizuku буде зупинено.</string>
+    <string name="home_status_service_version">Версія %2$s, %1$s</string>
+    <string name="home_status_service_version_update"><![CDATA[Версія %2$s, %1$s<br>Перезапустіть для оновлення до версії %3$s]]></string>
+
+    <!-- Home - Adb -->
+    <string name="home_adb_title"><![CDATA[Запуск через підключення до ПК]]></string>
+    <string name="home_adb_description"><![CDATA[Для пристроїв без root-прав потрібно використовувати ADB для запуску Shevery (потрібне підключення до комп’ютера). Процедуру слід повторювати після кожного перезавантаження пристрою. Будь ласка, <b><a href=\"%1$s\">прочитайте довідку</a></b>.]]></string>
+    <string name="home_adb_button_view_help">Читати довідку</string>
+    <string name="home_adb_button_view_command">Переглянути команду</string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Є інші особливості, переконайтеся, що ви спочатку прочитали довідку.]]></string>
+    <string name="home_adb_dialog_view_command_copy_button">Копіювати</string>
+    <string name="home_adb_dialog_view_command_button_send">Надіслати</string>
+
+    <!-- Home - Wireless Adb -->
+    <string name="home_wireless_adb_title"><![CDATA[Запуск через бездротове налагодження]]></string>
+    <string name="home_wireless_adb_description"><![CDATA[На Android 11+ можна увімкнути бездротове налагодження та запустити Shevery безпосередньо з пристрою без підключення до комп’ютера.<p>Перегляньте покрокові інструкції.]]></string>
+    <string name="home_wireless_adb_description_pre_11"><![CDATA[До Android 11 підключення до комп’ютера є обов’язковим для увімкнення бездротового налагодження.]]></string>
+    <string name="home_wireless_adb_view_guide_button">Покрокове керівництво</string>
+    <string name="home_local_network_title">Доступ до локальної мережі</string>
+    <string name="home_local_network_description">Для бездротового налагодження потрібен %1$s у цій версії Android.</string>
+    <string name="home_local_network_granted">%1$s надано.</string>
+    <string name="home_local_network_missing">%1$s не надано.</string>
+    <string name="home_local_network_grant">Надати доступ</string>
+    <string name="home_local_network_permission_denied">Доступ до локальної мережі необхідний для бездротового налагодження.</string>
+
+    <!-- Adb -->
+    <string name="dialog_adb_discovery">Пошук служби бездротового налагодження</string>
+    <string name="dialog_adb_discovery_message">Увімкніть \"Бездротове налагодження\" в \"Параметрах розробника\". Бездротове налагодження вимикається автоматично при зміні мережі.\n\nПримітка: не вимикайте \"Параметри розробника\" чи \"Налагодження по USB\", інакше Shevery зупиниться.</string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Спробуйте вимкнути та знову ввімкнути \"Бездротове налагодження\", якщо пошук триває занадто довго.</string>
     <string name="dialog_adb_port">Порт</string>
-    <string name="dialog_adb_invalid_port">Порт – це ціле число від 1 до 65535.</string>
-    <string name="adb_pairing">Парування</string>
-    <string name="dialog_adb_pairing_title">Спарувати з пристроєм</string>
-    <string name="dialog_adb_pairing_discovery">Пошук сервісу парування</string>
-    <string name="dialog_adb_pairing_paring_code">Код парування</string>
-    <string name="paring_code_is_wrong">Код парування неправильний.</string>
-    <string name="cannot_connect_port">Неможливо під\'\'єднатися до сервісу бездротового налагодження.</string>
-    <string name="dialog_wireless_adb_not_enabled">Налагодження через Wi-Fi не ввімкнено.
-\nЗверніть увагу, до Android 11, щоб увімкнути налагодження через Wi-Fi, під\'\'єднання до ПК обов\'\'язкове.</string>
-    <string name="dialog_adb_pairing_message">Будь ласка, почніть парування, виконавши такі кроки: \"Параметри розробника\" - \"Налагодження через Wi-Fi\" - \"Підключати пристрій за допомогою коду підключення\".
-\n
-\nПісля початку процесу парування, ви зможете ввести код парування.</string>
-    <string name="adb_pairing_requires_multi_window">Спершу увійдіть в режим розділеного екрана (багатьох вікон).</string>
-    <string name="adb_pairing_requires_multi_window_reason">Системі потрібно, щоб діалогове вікно парування завжди було видимим. Використання режиму розділеного екрана — єдиний спосіб, щоб ця програма та системне діалогове вікно були видимими одночасно.</string>
-    <string name="adb_pair_required">Будь ласка, спочатку пройдіть етап парування.</string>
+    <string name="dialog_adb_invalid_port">Порт повинен бути цілим числом від 1 до 65535.</string>
+    <string name="adb_pairing">З’єднання</string>
+    <string name="dialog_adb_pairing_title">З’єднання з пристроєм</string>
+    <string name="dialog_adb_pairing_discovery">Пошук служби з’єднання</string>
+    <string name="dialog_adb_pairing_paring_code">Код з’єднання</string>
+    <string name="paring_code_is_wrong">Невірний код з’єднання.</string>
+    <string name="cannot_connect_port">Не вдалося підключитися до служби бездротового налагодження.</string>
+    <string name="dialog_wireless_adb_not_enabled">Бездротове налагодження вимкнено.\nДо Android 11 підключення до ПК обов’язкове.</string>
+    <string name="dialog_adb_pairing_message">Розпочніть з’єднання за кроками: \"Параметри розробника\" - \"Бездротове налагодження\" - \"З’єднати пристрій кодом з’єднання\".\n\nПісля запуску ви зможете ввести код.</string>
+    <string name="adb_pairing_requires_multi_window">Будь ласка, спочатку перейдіть у режим розділеного екрана (багатовіконність).</string>
+    <string name="adb_pairing_requires_multi_window_reason">Система вимагає, щоб діалог з’єднання завжди залишався видимим. Розділений екран є єдиним способом тримати видимими додаток і діалог системи одночасно.</string>
+    <string name="adb_error_key_store">Не вдалося згенерувати ключ бездротового налагодження.\nМожливо, механізм KeyStore цього пристрою пошкоджено.</string>
+    <string name="adb_pair_required">Будь ласка, спочатку пройдіть крок з’єднання.</string>
     <string name="development_settings">Параметри розробника</string>
-    <string name="adb_error_key_store">Неможливо генерувати ключ для налагодження через Wi-Fi.
-\nМожливо, механізм KeyStore цього пристрою зламаний.</string>
-    <string name="adb_pairing_tutorial_content_steps">Зайдіть в \"Параметри розробника\" - \"Налагодження через Wi-Fi\". Натисніть на \"Підключати пристрій за допомогою коду підключення\", ви побачите шестизначний код.</string>
-    <string name="terminal_export_files">Експортувати файли</string>
-    <string name="starter">Запуск</string>
-    <string name="adb_pairing_tutorial_content_miui">Користувачам MIUI, иожливо, доведеться змінити стіль сповіщень на \"Android\" із \"Сповіщення\" - \"Панель сповіщень\" в системних налаштуваннях.</string>
-    <string name="settings_title">Налаштування</string>
-    <string name="adb_pairing_tutorial_content_miui_2">В іншому випадку, ви, можливо, не зможете увести код парування з повідомлення.</string>
-    <string name="home_terminal_title">Використовувати Shizuku в програмах терміналу</string>
-    <string name="home_terminal_description">Виконуйте команди через Shizuku у програмах терміналу, які вам подобаються</string>
-    <string name="terminal_tutorial_2">Тоді, використайте будь-який текстовий редактор та редагуйте %1$s.</string>
-    <string name="terminal_tutorial_3">Нарешті, перемістіть файли туди, де програма терміналу матиме доступ до них, ви зможете використовувати %1$s для запуску команд через Shizuku.</string>
-    <string name="settings_translation">Беріть участь у перекладі</string>
-    <string name="settings_translation_summary">Допоможіть нам перекласти %s на вашу мову</string>
-    <string name="notification_adb_pairing_succeed_title">Парування успішне</string>
-    <string name="terminal_tutorial_1_description">Файли з такою ж назвою у вибраній папці буде видалено.
-\n
-\nФункція експорту використовує SAF (Storage Access Framework). Були скарги на те, що MIUI ламає функції SAF. Якщо ви користуєтесь MIUI, вам потрібно розпакувати файл з apk-файлу Shizuku або завантажити його з GitHub.</string>
-    <string name="notification_adb_pairing_retry">Спробувати ще раз</string>
-    <string name="notification_adb_pairing_failed_title">Парування невдале</string>
-    <string name="action_stop">Зупинити Shizuku</string>
-    <string name="dialog_stop_message">Сервіс Shizuku буде зупинено.</string>
-    <string name="adb_pairing_tutorial_content_network">Shizuku потрібен доступ до локальної мережі. Це контролюється дозволом мережі.</string>
-    <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Деякі системи (наприклад, MIUI) забороняють програмам доступ до мережі коли їх не видно, навіть якщо програма використовує фоновий сервіс за замовчуванням. Будь ласка, вимкніть оптимізацію батареї для Shizuku на таких системах.</string>
-    <string name="settings_start_on_boot_summary">Для рутованих пристроїв, Shizuku має можливість автоматично запускатися при завантаженні системи</string>
-    <string name="home_wireless_adb_description_pre_11">До Android 11, потрібно під\'єднатися до комп\'ютеру щоб ввімкнути налагодження через Wi-FI.</string>
-    <string name="adb_pairing_tutorial_content_finish">Поверніться до Shizuku та запустіть Shizuku.</string>
-    <string name="home_root_description">В додаток, Shizuku можна автоматично запустити при завантаженні. Якщо цього не трапляється, будь ласка, перевірте чи ваша не обмежили Shizuku система чи сторонні інструменти.&lt;br&gt;Ви можете переглянути більше на %s.</string>
-    <string name="home_root_description_sui">Якщо ви користуєтесь Magisk, ви можете спробувати %1$s. Для користувачів root, він колись замінить Shizuku. Увага, існуючі програми мають трохи змінитися щоб можна було користуватися %2$s.</string>
-    <string name="dialog_legacy_not_support_title">%1$s не підтримує сучасну версію Shizuku</string>
-    <string name="dialog_requesting_legacy_title">%1$s просить стару версію Shizuku</string>
-    <string name="dialog_requesting_legacy_message">&lt;b&gt;%1$s&lt;/b&gt; має підтримку нової версії Shizuku, але просить стару версію Shizuku. Це може трапитися тому, що Shizuku не запущено, будь ласка, перевірте у програмі Shizuku.&lt;p&gt;Підтримка старої версії Shizuku завершилася у березні 2019 року.</string>
-    <string name="settings_use_system_color">Використовувати системний колір</string>
-    <string name="notification_channel_adb_pairing">Парування для налагодження по Wi-Fi</string>
-    <string name="notification_adb_pairing_input_paring_code">Уведіть код парування</string>
-    <string name="notification_adb_pairing_searching_for_service_title">Пошук пристрою для парування</string>
-    <string name="notification_adb_pairing_service_found_title">Сервіс парування знайдено</string>
-    <string name="notification_adb_pairing_stop_searching">Зупинити пошук</string>
-    <string name="notification_adb_pairing_working_title">Виконується створення пари</string>
-    <string name="notification_adb_pairing_succeed_text">Тепер ви можете запустити сервіс Shizuku.</string>
-    <string name="permission_description">Дозволити програмі використовувати Shizuku.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Зверніть увагу, на ліву частину \"Налагодження по Wi-Fi\" можна натиснути, при натисканні відкриється нова сторіна. Лише вмикати перемикач справа неправильно.</string>
+    <string name="notification_settings">Параметри сповіщень</string>
+    <string name="adb_pairing_tutorial_title">З’єднати Shevery з вашим пристроєм</string>
+    <string name="adb_pairing_tutorial_content_notification">Сповіщення від Shevery допоможе вам завершити з’єднання.</string>
+    <string name="adb_pairing_tutorial_content_steps">Перейдіть у \"Параметри розробника\" - \"Бездротове налагодження\". Натисніть \"З’єднати пристрій кодом з’єднання\", ви побачите шестизначний код.</string>
+    <string name="adb_pairing_tutorial_content_enter_pairing_code">Введіть код у сповіщенні для завершення з’єднання.</string>
+    <string name="adb_pairing_tutorial_content_notification_blocked">Процес з’єднання вимагає взаємодії зі сповіщенням Shevery. Будь ласка, дозвольте Shevery надсилати сповіщення.</string>
+    <string name="adb_pairing_tutorial_content_miui">Користувачам MIUI може знадобитися змінити стиль сповіщень на \"Android\" у \"Налаштування\" - \"Сповіщення\".</string>
+    <string name="adb_pairing_tutorial_content_miui_2">Інакше ви не зможете ввести код з’єднання зі сповіщення.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable">Зверніть увагу, що ліва частина опції \"Бездротове налагодження\" є натискальною та відкриває нову сторінку. Увімкнення лише перемикача праворуч є недостатнім.</string>
+    <string name="adb_pairing_tutorial_content_finish">Поверніться до Shevery та запустіть службу.</string>
+    <string name="adb_pairing_tutorial_content_network">Shevery потребує доступу до локальної мережі.</string>
+    <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Деякі системи (наприклад, MIUI) обмежують доступ до мережі у фоні. Вимкніть оптимізацію батареї для Shevery.</string>
+
+    <!-- Home - Root -->
+    <string name="home_root_title"><![CDATA[Запуск (для пристроїв із root-правами)]]></string>
+    <string name="home_root_description"><![CDATA[Крім того, Shevery може запускатися автоматично під час завантаження пристрою. Якщо ні, перевірте обмеження системи або сторонніх утиліт.<br>Ви можете звернутися до %s.]]></string>
+    <string name="home_root_description_sui"><![CDATA[Якщо ви використовуєте Magisk, спробуйте %1$s. Для root-користувачів це згодом замінить Shevery.]]></string>
+    <string name="home_root_button_start">Запустити</string>
+    <string name="home_root_button_restart">Перезапустити</string>
+
+    <!-- Home - Application management -->
+    <string name="home_app_management_title">Управління додатками</string>
     <plurals name="home_app_management_authorized_apps_count">
-        <item quantity="one">Авторизовано %d програму</item>
-        <item quantity="few">Авторизовано %d програми</item>
-        <item quantity="many">Авторизовано %d програм</item>
-        <item quantity="other">Авторизовано %d програм</item>
+        <item quantity="one"><![CDATA[%d авторизований додаток]]></item>
+        <item quantity="few"><![CDATA[%d авторизовані додатки]]></item>
+        <item quantity="many"><![CDATA[%d авторизованих додатків]]></item>
+        <item quantity="other"><![CDATA[%d авторизованих додатків]]></item>
     </plurals>
-    <string name="terminal_tutorial_1">Спочатку, експортуйте файли де вам потрібно. Ви побачите два файли, %1$s та %2$s.</string>
-    <string name="terminal_tutorial_2_description">Наприклад, якщо ви хочете використати Shizuku в %1$s, вам потрібно замінити %2$s на %3$s (%4$s це назва пакету %1$s).</string>
-    <string name="terminal_tutorial_3_description">Деякі поради: надайте %1$s дозвіл на виконання та додайте його в %2$s, ви зможете використовувати %1$s відразу.</string>
-    <string name="rish_description">З %1$s, в будь-якій програмі терміналу, ви зможете під\'\'єднатися та взаємодіяти з Shizuku. &lt;p&gt;Ви можете дізнатися більше про використання %1$s, натисніть тут щоб перегляньте документацію.</string>
-    <string name="settings_translation_contributors">Співробітники перекладу</string>
-    <string name="settings_start_on_boot">Запуск при завантаженні системи (root)</string>
-    <string name="dialog_legacy_not_support_message">Підтримка старої версії Shizuku завершилася у березні 2019 року. Також, стара версія Shizuku не працює на нових версіях Android.&lt;p&gt;Будь ласка, попросіть оновитися у розробника &lt;b&gt;%1$s&lt;/b&gt;.</string>
-    <string name="home_app_management_empty">Додатки, що запросили або декларували використання Shizuku будуть відображені тут.</string>
-    <string name="home_adb_is_limited_description">Виробник вашого пристрою обмежив права ADB, додатки що використовую Shizuku будуть працювати некорректно.
-\n
-\nЗазвичай ці обмеження можна зняти змінивши налаштування в параметрах розробника. Будь ласка, прочитайте як це зробити в розділі \"Допомога\".
-\n
-\nМожливо потрібно буде перезапустити Shizuku.</string>
-    <string name="home_adb_is_limited_title">Потрібен ще один крок</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Будь ласка, спробуйте вимкнути та увімкнути \"Налагодження через Wi-Fi\", якщо пошук продовжується.</string>
+    <string name="home_app_management_view_authorized_apps"><![CDATA[Натисніть для управління авторизованими додатками]]></string>
+    <string name="home_app_management_empty">Додатки, які запитали або оголосили Shevery, відображатимуться тут.</string>
+
+    <!-- Home - Learn more -->
+    <string name="home_learn_more_title">Дізнатися більше про Shevery</string>
+    <string name="home_learn_more_description">Дізнайтеся, як розробляти з Shevery</string>
+
+    <!-- Home - Diagnostics -->
+    <string name="home_refresh">Оновити</string>
+    <string name="home_diagnostics_title">Діагностика</string>
+    <string name="home_diagnostics_copy">Копіювати діагностику</string>
+    <string name="home_diagnostics_copied">Діагностику скопійовано в буфер обміну.</string>
+    <string name="home_modules_description">Встановлення та управління модулями ADB</string>
+
+    <!-- Home - Adb permissions limited -->
+    <string name="home_adb_is_limited_title">Потрібен додатковий крок</string>
+    <string name="home_adb_is_limited_description">Виробник вашого пристрою обмежив дозволи ADB, і додатки з Shevery працюватимуть неналежно.\n\nЗазвичай це обмеження знімається в \"Параметрах розробника\". Детальніше дивіться у довідці.\n\nМоже знадобитися перезапуск Shevery.</string>
+
+    <!-- Application management -->
+    <string name="app_management_select_all">Вибрати все</string>
+    <string name="app_management_deselect_all">Зняти виділення</string>
+    <string name="app_management_dialog_adb_is_limited_title">Дозвіл ADB обмежено</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Цілком можливо, що виробник вашого пристрою обмежує дозволи ADB.<p>Рішення можна знайти у <b><a href=\"%1$s\">цьому документі</a></b>.]]></string>
+    <string name="app_management_item_summary_requires_root">* вимагає запуску Shevery з root-правами</string>
+
+    <!-- Terminal -->
+    <string name="home_terminal_title">Використання Shevery в додатках термінала</string>
+    <string name="home_terminal_description">Запускайте команди через Shevery у ваших улюблених терміналах</string>
+    <string name="terminal_tutorial_1">Спочатку експортуйте файли у будь-яке місце. Ви знайдете два файли: %1$s та %2$s.</string>
+    <string name="terminal_tutorial_1_description">Якщо у вибраній папці є файли з такими ж іменами, їх буде видалено.\n\nЕкспорт використовує SAF (Storage Access Framework). На MIUI SAF може працювати з помилками; у такому разі витягніть файли з APK Shevery або завантажте з GitHub.</string>
+    <string name="terminal_export_files">Експортувати файли</string>
+    <string name="terminal_tutorial_2">Потім скористайтеся будь-яким текстовим редактором для відкриття та редагування %1$s.</string>
+    <string name="terminal_tutorial_2_description">Наприклад, якщо ви хочете використовувати Shevery в %1$s, замініть %2$s на %3$s (%4$s — назва пакета %1$s).</string>
+    <string name="terminal_tutorial_3">Нарешті, перемістіть файли туди, де ваш термінал має до них доступ, щоб використовувати %1$s.</string>
+    <string name="terminal_tutorial_3_description">Порада: надайте дозвіл на виконання для %1$s та додайте його в %2$s для прямого запуску %1$s.</string>
+    <string name="rish_description"><![CDATA[За допомогою %1$s у будь-якому терміналі ви можете підключитися та взаємодіяти з командною оболонкою Shevery.<p>Для детальної інформації про використання %1$s натисніть для перегляду документації.]]></string>
+
+    <!-- Settings -->
+    <string name="settings_title">Налаштування</string>
+    <string name="settings_language">Мова</string>
+    <string name="settings_user_interface">Зовнішній вигляд</string>
+    <string name="settings_black_night_theme">Глибока темна тема</string>
+    <string name="settings_black_night_theme_summary">Використовувати чистий чорний фон при увімкненому нічному режимі</string>
+    <string name="settings_startup">Запуск</string>
+    <string name="settings_translation_contributors">Автори перекладу</string>
+    <string name="settings_translation">Взяти участь у перекладі</string>
+    <string name="settings_translation_summary">Допоможіть нам перекласти %s вашою мовою</string>
+    <string name="settings_start_on_boot">Запускати при завантаженні</string>
+    <string name="settings_start_on_boot_summary">Shevery може автоматично запускатися при включенні пристрою після успішного першого запуску.</string>
+    <string name="settings_use_system_color">Використовувати системні кольори</string>
+
+    <!-- ADB modules -->
+    <string name="modules_title">Модулі ADB</string>
+    <string name="modules_settings_title">Модулі</string>
+    <string name="modules_settings_summary">Встановлюйте ZIP-модулі та виконуйте їх дії через активний ADB/root сервер Shevery</string>
+    <string name="modules_header_summary">%1$d встановлено, %2$d увімкнено</string>
+    <string name="modules_version_label">Версія: %s</string>
+    <string name="modules_author_label">Автор: %s</string>
+    <string name="modules_access_mode">Режим доступу модулів</string>
+    <string name="modules_access_mode_safe">Безпечний</string>
+    <string name="modules_access_mode_safe_summary">Без командного мосту, без завантажень WebUI, без дій та служб.</string>
+    <string name="modules_access_mode_custom">Кастомний</string>
+    <string name="modules_access_mode_custom_summary">Налаштуйте дозволи для дій, служб, мосту WebUI, мережі та завантажень вручну.</string>
+    <string name="modules_access_mode_full">Повний доступ</string>
+    <string name="modules_access_mode_full_summary">Дозволяє командний міст, дії, служби та завантаження WebUI. Інтернет у WebView залишається заблокованим.</string>
+    <string name="modules_custom_permissions">Персональні дозволи</string>
+    <string name="modules_custom_permissions_summary">Налаштувати кожен дозвіл модуля окремо</string>
+    <string name="modules_permission_action">Запуск Action</string>
+    <string name="modules_permission_action_summary">Дозволити ручне виконання action.sh.</string>
+    <string name="modules_permission_service">Запуск Service</string>
+    <string name="modules_permission_service_summary">Дозволити service.sh, коли фонові дії також увімкнені.</string>
+    <string name="modules_permission_web_bridge">Командний міст WebUI</string>
+    <string name="modules_permission_web_bridge_summary">Надавати window.Shevery лише для локального WebUI та без інтернету у WebView.</string>
+    <string name="modules_permission_web_network">Інтернет у WebView</string>
+    <string name="modules_permission_web_network_summary">Дозволити HTTPS навігацію та ресурси. Вимикає командний міст для цього WebView.</string>
+    <string name="modules_permission_web_download">download() у WebUI</string>
+    <string name="modules_permission_web_download_summary">Дозволити завантаження HTTPS файлів у папку WebUI, крім index.html.</string>
+    <string name="modules_background_actions">Дозволити фонові дії</string>
+    <string name="modules_background_actions_summary">Дозволити встановленим модулям запитувати фонові завдання ADB у режимі повного доступу</string>
+    <string name="modules_background_allowed">Фоновий режим дозволено</string>
+    <string name="modules_background_blocked">Фоновий режим заблоковано</string>
+    <string name="modules_install_zip">Встановити ZIP</string>
+    <string name="modules_empty_title">Немає встановлених модулів</string>
+    <string name="modules_empty_summary">Модулі ADB використовують ZIP у стилі KernelSU/Magisk з module.prop, баннером, WebUI, action.sh та service.sh.</string>
+    <string name="modules_install_success">Встановлено %s</string>
+    <string name="modules_install_failed">Помилка встановлення: %s</string>
+    <string name="modules_enabled">Увімкнено</string>
+    <string name="modules_disabled">Вимкнено</string>
+    <string name="modules_enable">Увімкнути</string>
+    <string name="modules_disable">Вимкнути</string>
+    <string name="modules_full_trust">Повна довіра</string>
+    <string name="modules_trust">Довіряти</string>
+    <string name="modules_untrust">Не довіряти</string>
+    <string name="modules_run_action">Action</string>
+    <string name="modules_run_service">Service</string>
+    <string name="modules_running">Виконується скрипт модуля…</string>
+    <string name="modules_open_webui">WebUI</string>
+    <string name="modules_webui">WebUI модуля</string>
+    <string name="modules_delete">Видалити</string>
+    <string name="modules_delete_title">Видалити модуль?</string>
+    <string name="modules_delete_message">%s буде видалено зі сховища модулів Shevery.</string>
+    <string name="modules_action_result">Дію завершено: код %d</string>
+    <string name="modules_action_failed">Помилка виконання дії</string>
+    <string name="modules_service_result">Службу завершено: код %d</string>
+    <string name="modules_service_failed">Помилка виконання служби</string>
+    <string name="modules_recommand_title">ReCommand</string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
+    <string name="modules_recommand_expand">Розгорнути</string>
+    <string name="modules_recommand_collapse">Згорнути</string>
+    <string name="modules_recommand_copy">Копіювати</string>
+    <string name="modules_recommand_execute">Виконати</string>
+    <string name="modules_recommand_close">Закрити</string>
+    <string name="modules_recommand_command_clip_label">Команда модуля</string>
+    <string name="modules_recommand_webui">ReCommand для WebUI</string>
+    <string name="modules_recommand_webui_summary">Показувати підтвердження перед виконанням команд із WebUI.</string>
+    <string name="modules_recommand_action">ReCommand для Action</string>
+    <string name="modules_recommand_action_summary">Показувати підтвердження перед запуском action.sh.</string>
+    <string name="modules_ai">ШІ</string>
+    <string name="modules_ai_api_key">Ключ API</string>
+    <string name="modules_ai_api_key_summary">Зберігається у зашифрованому вигляді через Android Keystore.</string>
+    <string name="modules_ai_unlocked">Перевірку ШІ розблоковано</string>
+    <string name="modules_ai_hidden">Перевірку ШІ приховано</string>
+    <string name="modules_ai_failed">Помилка перевірки ШІ: %s</string>
+    <string name="modules_tab_installed">Встановлені</string>
+    <string name="modules_tab_catalog">Каталог</string>
+    <string name="modules_check_updates">Перевірити оновлення</string>
+    <string name="modules_checking_updates">Перевірка оновлень…</string>
+    <string name="modules_no_updates">Усі модулі мають актуальну версію</string>
+    <string name="modules_update_available">Доступне оновлення: v%s</string>
+    <string name="modules_update_button">Оновити</string>
+    <string name="modules_updating">Оновлення модуля…</string>
+    <string name="modules_update_success">Модуль оновлено до v%s</string>
+    <string name="modules_download_downloads">Завантажити у Завантаження</string>
+    <string name="modules_download_install">Завантажити та встановити</string>
+    <string name="modules_downloading">Завантаження…</string>
+    <string name="modules_download_enqueued">Завантаження розпочато у фоні</string>
+    <string name="modules_search_placeholder">Пошук у каталозі модулів…</string>
+
+    <!-- About -->
+    <string name="action_about">Про додаток</string>
+    <string name="about_source_code_button">Вихідний код</string>
+    <string name="about_view_source_code"><![CDATA[Вихідний код доступний на %s]]></string>
+
+    <!-- Stop -->
+    <string name="action_stop">Зупинити Shevery</string>
+    <string name="dialog_stop_message">Службу Shevery буде зупинено.</string>
+    <string name="service_already_stopped">Службу Shevery вже зупинено.</string>
+    <string name="service_stop_success">Службу Shevery зупинено.</string>
+    <string name="service_stop_still_running">Служба все ще працює</string>
+    <string name="service_stop_failed">Не вдалося зупинити Shevery: %1$s</string>
+
+    <!-- Notification -->
+    <string name="notification_channel_service_status">Статус запуску служби</string>
+    <string name="notification_service_starting">Запуск служби Shevery…</string>
+    <string name="notification_service_start_failed">Помилка запуску служби Shevery.</string>
+    <string name="notification_service_start_no_root">Не вдалося отримати root-права.</string>
+    <string name="notification_working">Обробка…</string>
+    <string name="notification_channel_adb_pairing">З’єднання бездротового налагодження</string>
+    <string name="notification_adb_pairing_input_paring_code">Введіть код з’єднання</string>
+    <string name="notification_adb_pairing_searching_for_service_title">Пошук служби з’єднання</string>
+    <string name="notification_adb_pairing_service_found_title">Службу з’єднання знайдено</string>
+    <string name="notification_adb_pairing_stop_searching">Зупинити пошук</string>
+    <string name="notification_adb_pairing_working_title">Виконується з’єднання</string>
+    <string name="notification_adb_pairing_succeed_title">З’єднання успішне</string>
+    <string name="notification_adb_pairing_succeed_text">Тепер ви можете запустити службу Shevery.</string>
+    <string name="notification_adb_pairing_failed_title">Помилка з’єднання</string>
+    <string name="notification_adb_pairing_retry">Повторити</string>
+
+    <!-- Permission related -->
+    <string name="permission_label">доступ до Shevery</string>
+    <string name="permission_description">Дозволити додатку використовувати Shevery.</string>
+    <string name="permission_warning_template"><![CDATA[Дозволити <b>%1$s</b> отримати %2$s?]]></string>
+    <string name="grant_dialog_button_allow_always">Дозволяти завжди</string>
+    <string name="grant_dialog_button_deny">Відхилити</string>
+
+    <!-- Starter -->
+    <string name="starter">Запуск</string>
+    <string name="start_with_root_failed">Неможливо запустити службу, оскільки root-права не надано або пристрій не має root-прав.</string>
+
+    <!-- Misc -->
+    <string name="dialog_cannot_open_browser_title">Неможливо відкрити браузер</string>
+    <string name="toast_copied_to_clipboard">%s\nскопійовано у буфер обміну.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> скопійовано у буфер обміну.]]></string>
+
+    <!-- Messages for legacy -->
+    <string name="dialog_legacy_not_support_title">%1$s не підтримує сучасний Shevery</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Застарілий Shevery не підтримується з березня 2019 року та не працює на нових версіях Android.<p>Будь ласка, попросіть розробника <b>%1$s</b> оновити додаток.]]></string>
+    <string name="dialog_requesting_legacy_title">%1$s запитує застарілий Shevery</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> підтримує сучасний Shevery, але запитує застарілий Shevery. Це може статися, якщо Shevery не запущено.<p>Застарілий Shevery не підтримується.]]></string>
+    <string name="dialog_requesting_legacy_button_open_shizuku">Відкрити Shevery</string>
+
+    <!-- Lab Features -->
+    <string name="lab_features_title">Лабораторні функції</string>
+    <string name="lab_features_summary">Експериментальні можливості</string>
+    <string name="shizuku_connectors_title">Коннектори Shevery</string>
+    <string name="shizuku_connectors_summary">Дозволити плагінам активувати Shevery</string>
+    <string name="unsafe_warning_title">Попередження</string>
+    <string name="unsafe_warning_message">Увімкнення цієї функції НЕБЕЗПЕЧНО. Продовжити?</string>
+    <string name="dhizuku_mode_title">Режим Dhizuku</string>
+    <string name="dhizuku_mode_summary">Дозволити Shevery працювати через прив’язку до Dhizuku</string>
+    <string name="home_dhizuku_title"><![CDATA[Запуск (через Dhizuku)]]></string>
+    <string name="home_dhizuku_description"><![CDATA[Для пристроїв під управлінням Dhizuku ви можете запустити Shevery з правами власника пристрою.]]></string>
+    <string name="dhizuku_warning_title">Попередження: Режим Dhizuku</string>
+    <string name="dhizuku_warning_message">Dhizuku призначено для прав власника пристрою. Деякі команди консолі та ADB можуть працювати неналежно. Продовжити?</string>
+    <string name="settings_tcp_mode">Режим TCP</string>
+    <string name="settings_tcp_mode_summary">Перезапустити ADB на TCP-порт 5555 для стабільного підключення без зміни портів.</string>
+    <string name="settings_restart_dialog_title">Потрібен перезапуск</string>
+    <string name="settings_restart_dialog_message">Shevery повинен перезапуститися для застосування режиму TCP.</string>
+    <string name="settings_restart_dialog_message_wifi_required"><![CDATA[
+
+Підключення Wi-Fi необхідне при першому перезапуску, щоб Shevery підключився до поточного порту налагодження перед переключенням ADB на 5555.]]></string>
+    <string name="settings_auto_disable_usb_debugging">Авто-вимкнення налагодження по USB</string>
+    <string name="settings_auto_disable_usb_debugging_summary">Вимикати налагодження по USB після перезавантаження, якщо Shevery не запущено автоматично</string>
+    <string name="settings_service_group">Обслуговування служби</string>
+
+    <!-- Lab Features - Service Behavior -->
+    <string name="lab_service_behavior_title">Поведінка служби</string>
+    <string name="lab_keep_alive_title">Підтримувати службу активною</string>
+    <string name="lab_keep_alive_summary">Періодично перевіряти роботу служби Shevery та перезапускати при потребі</string>
+    <string name="lab_auto_restart_title">Авто-перезапуск при збої</string>
+    <string name="lab_auto_restart_summary">Автоматично відновлювати службу Shevery у разі раптового збою</string>
+    <string name="lab_notify_death_title">Сповіщати про зупинку служби</string>
+    <string name="lab_notify_death_summary">Показувати сповіщення, якщо служба Shevery раптово зупинилася</string>
+
+    <!-- Lab Features - Debugging -->
+    <string name="lab_debugging_title">Налагодження</string>
+    <string name="lab_verbose_logging_title">Детальний журнал</string>
+    <string name="lab_verbose_logging_summary">Записувати детальні логи у Logcat. Вимикайте для економії заряду</string>
+    <string name="notification_channel_watchdog">Моніторинг служби</string>
+    <string name="notification_watchdog_title">Службу Shevery зупинено</string>
+    <string name="notification_watchdog_text">Служба Shevery раптово зупинилася.</string>
+    <string name="watchdog_service_title">Моніторинг Shevery активний</string>
+    <string name="watchdog_service_text">Відстеження служби Shevery для фонового відновлення</string>
+
+    <!-- Shevery Control Notification -->
+    <string name="notification_control_channel_name">Управління Shevery</string>
+    <string name="notification_control_title_running">Shevery працює</string>
+    <string name="notification_control_title_stopped">Shevery зупинено</string>
+    <string name="notification_control_text_running">Натисніть для відкриття Shevery або розгорніть для зупинки.</string>
+    <string name="notification_control_text_stopped">Натисніть для відкриття Shevery або розгорніть для запуску.</string>
+    <string name="notification_control_action_start">Запустити</string>
+    <string name="notification_control_action_stop">Зупинити</string>
+
+    <!-- Update Settings -->
+    <string name="update_settings_title">Налаштування оновлень</string>
+    <string name="update_settings_catalog">Каталог модулів</string>
+    <string name="update_settings_catalog_enabled">Увімкнути каталог</string>
+    <string name="update_settings_catalog_enabled_summary">Показувати модулі з GitHub Topics</string>
+    <string name="update_settings_frequency">Частота оновлення</string>
+    <string name="update_settings_frequency_label">Перевірка оновлень</string>
+    <string name="update_settings_frequency_manual">Вручну</string>
+    <string name="update_settings_frequency_daily">Щодня</string>
+    <string name="update_settings_frequency_weekly">Щотижня</string>
+    <string name="update_settings_install_mode">Режим встановлення</string>
+    <string name="update_settings_install_mode_label">Метод встановлення за замовчуванням</string>
+    <string name="update_settings_install_mode_sources">Збирати з вихідних кодів</string>
+    <string name="update_settings_install_mode_release">Завантажувати релізний ZIP</string>
+    <string name="update_settings_github">GitHub</string>
+    <string name="update_settings_github_pat">Персональний токен доступу</string>
+    <string name="update_settings_github_pat_set">Токен встановлено</string>
+    <string name="update_settings_github_pat_unset">Не встановлено (60 запитів/год)</string>
+    <string name="update_settings_github_pat_title">Персональний токен GitHub</string>
+    <string name="update_settings_github_pat_description">Необов’язково. Токен GitHub підвищує ліміт запитів з 60 до 5000 на годину.</string>
+    <string name="update_settings_github_pat_label">Токен</string>
+    <string name="update_settings_github_pat_show">Показати</string>
+    <string name="update_settings_github_pat_hide">Сховати</string>
+    <string name="update_settings_github_pat_clear">Очистити</string>
+    <string name="update_settings_github_pat_delete">Видалити токен</string>
+    <string name="update_settings_github_pat_delete_summary">Видалити збережений токен GitHub</string>
+
+    <!-- Module Catalog -->
+    <string name="modules_catalog">Каталог</string>
+    <string name="modules_catalog_title">Каталог модулів</string>
+    <string name="modules_catalog_empty">Модулів не знайдено</string>
+    <string name="modules_catalog_sort_newest">Новіші</string>
+    <string name="modules_catalog_sort_oldest">Старіші</string>
+    <string name="modules_catalog_sort_stars">Зірки</string>
+    <string name="modules_catalog_sort_official">Офіційні</string>
+    <string name="modules_catalog_install_sources">Встановити з вихідних кодів</string>
+    <string name="modules_catalog_install_release">Завантажити релізний ZIP</string>
+    <string name="modules_catalog_install_description">Виберіть спосіб встановлення модуля:</string>
+    <string name="modules_catalog_install_success">Модуль успішно встановлено</string>
+    <string name="modules_catalog_install_failed">Помилка встановлення: %s</string>
+    <string name="modules_catalog_token_required">Потрібен токен GitHub</string>
+    <string name="modules_catalog_token_hint">Персональний токен GitHub</string>
+    <string name="modules_catalog_token_description">Токен потрібен для пошуку модулів у GitHub.</string>
+    <string name="modules_catalog_token_format_warning">Токен повинен починатися з ghp_ або github_pat_</string>
+    <string name="modules_catalog_loading">Завантаження каталогу…</string>
+    <string name="modules_catalog_error">Помилка завантаження каталогу</string>
+    <string name="modules_catalog_install">Встановити</string>
+    <string name="modules_catalog_installing">Встановлення…</string>
+    <string name="modules_catalog_view_github">Переглянути на GitHub</string>
+    <string name="modules_catalog_skip_token">Пропустити</string>
+    <string name="modules_catalog_open">Відкрити каталог</string>
+
+    <!-- TV Status -->
+    <string name="tv_status_active">АКТИВНИЙ</string>
+    <string name="tv_status_disabled">ВИМКНЕНО</string>
+    <string name="tv_status_trusted">НАДІЙНИЙ</string>
+
+    <!-- Wear Catalog -->
+    <string name="wear_catalog_sort_newest">Новіші</string>
+    <string name="wear_catalog_sort_stars">Зірки</string>
+    <string name="wear_catalog_sort_official">Офіційні</string>
+    <string name="wear_catalog_sort_by">Сортувати за</string>
+    <string name="wear_catalog_filter">Фільтр</string>
+
+    <!-- Backup & Restore -->
+    <string name="backup_restore_title">Резервне копіювання та відновлення</string>
+    <string name="backup_title">Створити бэкап налаштувань і модулів</string>
+    <string name="backup_summary">Експортувати конфігурацію та модулі у ZIP-файл</string>
+    <string name="restore_title">Відновити налаштування та модулі</string>
+    <string name="restore_summary">Імпортувати конфігурацію та модулі із ZIP-файлу</string>
+
+    <!-- Comput Console -->
+    <string name="comput_title">Comput</string>
+    <string name="comput_settings">Налаштування консолі Comput</string>
+    <string name="comput_adb_console">Консоль ADB Comput</string>
+    <string name="comput_recommand_title">ReCommand для Comput</string>
+    <string name="comput_recommand_summary">Показувати підтвердження перед виконанням команд у консолі Comput</string>
+    <string name="comput_recommand_confirmation">Ви впевнені, що хочете виконати цю команду ADB у Comput?</string>
+    <string name="comput_ai_api_key_empty">Ключ Google AI Studio API порожній! Будь ласка, налаштуйте його у Налаштуваннях Shevery.</string>
+    <string name="comput_ai_api_key_title">Ключ Google AI Studio API</string>
+    <string name="comput_ai_api_key_not_configured">Не налаштовано (Gemini ШІ не працюватиме)</string>
+    <string name="comput_gemini_model_title">Модель ШІ Gemini</string>
+    <string name="comput_gemini_explain">Пояснення Gemini</string>
+    <string name="comput_api_key_label">Ключ API</string>
+    <string name="comput_show_api_key">Показати ключ</string>
+    <string name="comput_hide_api_key">Сховати ключ</string>
+    <string name="comput_gemini_model_performance">Висока продуктивність для коду (Рекомендовано)</string>
+    <string name="comput_gemini_model_lightweight">Легка швидкісна модель</string>
+    <string name="comput_gemini_api_error">Gemini API повернув помилку %1$d: %2$s</string>
+    <string name="comput_gemini_connection_error">Помилка з’єднання.</string>
+    <string name="comput_gemini_failed">Не вдалося підключитися до Gemini API: %1$s</string>
+    <string name="comput_gemini_no_details">Немає деталей.</string>
+    <string name="comput_sh_mode">Режим sh</string>
+    <string name="comput_adb_mode">Режим adb</string>
+    <string name="comput_command_label">Команда</string>
+    <string name="comput_command_placeholder">напр. pm list packages</string>
+    <string name="comput_run">Запустити</string>
+    <string name="comput_clear">Очистити</string>
+    <string name="comput_console_cleared">Консоль очищено.</string>
+    <string name="comput_console_output">Вивід консолі</string>
+    <string name="comput_output_copied">Вивід скопійовано в буфер обміну</string>
+    <string name="comput_copy_output">Копіювати вивід</string>
+    <string name="comput_ask_gemini">Запитати у Gemini</string>
+    <string name="comput_executing">Виконується: %1$s ...</string>
+    <string name="comput_adb_translate">Режим трансляції ADB активний\nОригінал: %1$s\nВиконується...</string>
+    <string name="comput_command_no_output">Команду виконано без виводу.</string>
+    <string name="comput_timed_out">[E] Час очікування команди вичерпано (120с).</string>
+    <string name="comput_exit_code">[E] Команда завершилася з кодом %1$d.</string>
+    <string name="comput_running_macro">Виконується макрос: %1$s</string>
+    <string name="comput_executing_cmd">> Виконується команда: %1$s</string>
+    <string name="comput_error_not_running">Помилка: Службу Shevery не запущено. Запустіть службу.</string>
+    <string name="comput_error_no_binder">Помилка: Не вдалося отримати binder Shevery.</string>
+    <string name="comput_console_initialized">Консоль ініціалізовано. Привілейовану службу Shevery підключено.\nГотово.</string>
+    <string name="comput_ai_explanation">Пояснення ШІ</string>
+    <string name="comput_commandium">Commandium</string>
+    <string name="comput_commandium_assistant">Асистент Commandium ШІ</string>
+    <string name="comput_commandium_description">Генеруйте команди консолі звичайною мовою. Gemini створить команду для копіювання.</string>
+    <string name="comput_commandium_label">Яка команда вам потрібна?</string>
+    <string name="comput_commandium_placeholder">напр. Знайти всі файли більше 10MB у /sdcard</string>
+    <string name="comput_ask_commandium">Запитати у Commandium</string>
+    <string name="comput_generated_command">Згенерована команда:</string>
+    <string name="comput_command_pasted">Команду вставлено у поле введення</string>
+    <string name="comput_use_command">Використовувати команду</string>
+    <string name="comput_copied_to_clipboard">Скопійовано у буфер обміну</string>
+    <string name="comput_copy_command">Копіювати команду</string>
+    <string name="comput_console_macros">Макроси консолі</string>
+    <string name="comput_stop">Зупинити (%1$d)</string>
+    <string name="comput_record_macro">Записати макрос</string>
+    <string name="comput_recording_active">Запис активний. Запускайте команди з основного поля для додавання в макрос.</string>
+    <string name="comput_saved_macros">Збережені макроси</string>
+    <string name="comput_no_macros">Немає збережених макросів. Натисніть \'Записати макрос\' для початку.</string>
+    <string name="comput_delete">Видалити</string>
+    <string name="comput_recommand_confirmation_title">Підтвердження ReCommand</string>
+    <string name="comput_execute">Виконати</string>
+    <string name="comput_cancel">Скасувати</string>
+    <string name="comput_save_macro">Зберегти макрос</string>
+    <string name="comput_save_macro_hint">Введіть назву для записаного макросу:</string>
+    <string name="comput_macro_name_label">Назва макросу</string>
+    <string name="comput_save">Зберегти</string>
+    <string name="diagnostics_app">Додаток</string>
+    <string name="diagnostics_android">Android</string>
+    <string name="diagnostics_service">Служба</string>
+    <string name="diagnostics_server_uid">UID сервера</string>
+    <string name="diagnostics_server_api">API сервера</string>
+    <string name="diagnostics_selinux">SELinux</string>
+    <string name="diagnostics_adb_permission">Дозвіл ADB</string>
+    <string name="diagnostics_authorized_apps">Авторизовані додатки</string>
+    <string name="diagnostics_local_network">Локальна мережа</string>
+    <string name="diagnostics_running">працює</string>
+    <string name="diagnostics_stopped">зупинено</string>
+    <string name="diagnostics_granted">надано</string>
+    <string name="diagnostics_missing">відсутній</string>
+    <string name="diagnostics_not_required">не потрібно</string>
+    <string name="diagnostics_full">повний</string>
+    <string name="diagnostics_limited">обмежений</string>
+    <string name="diagnostics_unknown">невідомо</string>
 
     <!-- ErrorProtect & TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
-    <string name="error_protect_summary">Перевіряйте працездатність процесу та транзакційні помилки кожні 10 секунд. Автоматично зупиняє та перезапускає Shevery у разі виявлення проблем.</string>
-    <string name="settings_tcp_5555_title">TCP прив\'язка 5555</string>
-    <string name="settings_tcp_5555_summary">Прив\'язати локальний сервер ADB до порту 5555, щоб він працював без оновлень порту бездротового налагодження.</string>
-    <string name="settings_tcp_5555_button">Прив\'язати до 5555</string>
+    <string name="error_protect_summary">Перевіряє стан процесів та транзакцій кожні 10 секунд. Автоматично перезапускає Shevery у разі збоїв.</string>
+    <string name="settings_tcp_5555_title">Прив’язка TCP 5555</string>
+    <string name="settings_tcp_5555_summary">Прив’язати локальний ADB сервер до порту 5555 для роботи без постійних оновлень порту бездротового налагодження.</string>
+    <string name="settings_tcp_5555_button">Прив’язати до 5555</string>
+    <string name="settings_tcp_5555_bind_success">Успішно прив’язано ADB до TCP-порту 5555</string>
+    <string name="settings_tcp_5555_bind_failed">Помилка прив’язки ADB до порту 5555: %1$s</string>
+    <string name="settings_tcp_5555_bind_failed_generic">Потрібні Root, Dhizuku або активний Shevery.</string>
 </resources>
