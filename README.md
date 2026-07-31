@@ -138,4 +138,4 @@ Under Apache 2.0 section 6, specifically:
 
 ### WARNING!
 
-Shevery update is delayed to 10.08.26-12.08.26, because HmnDev-Tech got some problems.
+Shevery update is delayed to 10.08.26-12.08.26, because HmnDev-Tech got some problems with Android 17 Emulator and etc.
