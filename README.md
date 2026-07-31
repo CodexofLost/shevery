@@ -139,3 +139,12 @@ Under Apache 2.0 section 6, specifically:
 ### WARNING!
 
 Shevery update is delayed to 10.08.26-12.08.26, because HmnDev-Tech got some problems with Android 17 Emulator and etc.
+
+## And...
+
+Now, you can publish your ADB module! 
+Follow this steps:
+- Create your module.
+- Create GH Repository for this module.
+- Add topic "shevery-modules"
+- Add sources and Release with module.
