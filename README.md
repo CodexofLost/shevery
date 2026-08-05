@@ -151,5 +151,6 @@ Follow this steps:
 
 ## News
 
-I published pre-release with 13.9 beta 1
+I published pre-release with 13.9 beta 1.
+
 Full release is soon!
