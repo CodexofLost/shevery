@@ -148,3 +148,8 @@ Follow this steps:
 - Create GH Repository for this module.
 - Add topic "shevery-modules"
 - Add sources and Release with module.
+
+## News
+
+I published pre-release with 13.9 beta 1
+Full release is soon!
