@@ -1,0 +1,154 @@
+name: 'AI Triage Bot'
+description: >
+  Reads a repo's diff/code via Gemini and automatically labels issues/PRs
+  (including a "trash" tag for junk), with antispam and anti-abuse protection.
+author: 'ai-triage-bot'
+
+inputs:
+  github-token:
+    description: 'Token for the GitHub API (usually secrets.GITHUB_TOKEN)'
+    required: true
+  gemini-api-keys:
+    description: 'One or more Gemini API keys (comma/newline separated, up to 100)'
+    required: true
+  gemini-model:
+    description: 'Gemini model ID'
+    required: false
+    default: 'gemini-3.5-flash-lite'
+  repo-context-path:
+    description: 'Path to system prompt #1 (repository description)'
+    required: false
+    default: '.github/ai-triage/repo_context.md'
+  instructions-path:
+    description: 'Path to system prompt #2 (instructions/tone)'
+    required: false
+    default: '.github/ai-triage/instructions.md'
+  templates-path:
+    description: 'Path to system prompt #3 (optional): canned patterns/responses for recurring issue/PR shapes. Missing file = feature simply skipped'
+    required: false
+    default: '.github/ai-triage/templates.md'
+  labels-config-path:
+    description: 'Path to the JSON config of allowed labels'
+    required: false
+    default: '.github/ai-triage/labels.json'
+  spam-window-minutes:
+    description: 'Time window for the antispam check, in minutes'
+    required: false
+    default: '60'
+  spam-threshold:
+    description: 'How many issues from one author within the window counts as flooding (strictly more than this)'
+    required: false
+    default: '5'
+  max-files:
+    description: 'Max repository files the AI reads per analysis (2-4 recommended)'
+    required: false
+    default: '4'
+  max-file-bytes:
+    description: 'Max size of a single file read, in bytes (truncated beyond this)'
+    required: false
+    default: '20000'
+  max-diff-bytes:
+    description: 'Max diff size in bytes (truncated beyond this)'
+    required: false
+    default: '30000'
+  max-extracted-paths:
+    description: 'Max file paths the bot will accept from an issue body before treating it as abuse and skipping AI analysis'
+    required: false
+    default: '30'
+  max-referenced-issues:
+    description: 'Max other issues/PRs (referenced via "#123" in the body) the bot will fetch for context per analysis. 0 disables it'
+    required: false
+    default: '5'
+  max-api-calls:
+    description: 'Circuit breaker: max GitHub API calls allowed in a single run before the bot aborts without posting anything'
+    required: false
+    default: '60'
+  max-attachments:
+    description: 'Max attachments (screenshots/files) from the issue/PR body to process per analysis. 0 disables attachment processing entirely'
+    required: false
+    default: '4'
+  max-attachment-bytes:
+    description: 'Max size of a SINGLE attachment, in bytes'
+    required: false
+    default: '8000000'
+  max-attachment-total-bytes:
+    description: 'Total byte budget for all attachments in one run'
+    required: false
+    default: '20000000'
+  attachment-fetch-timeout-seconds:
+    description: 'Timeout for downloading a single attachment, in seconds'
+    required: false
+    default: '15'
+  moderation-token:
+    description: >
+      OPTIONAL. A personal access token with ELEVATED rights, used ONLY for
+      really deleting an issue and really blocking a user when the AI flags
+      a doxxing/severe-abuse violation. Leaving this empty is a normal, safe
+      default — github-token (even with issues/pull-requests/contents
+      write) CANNOT do either of these things, no matter how you configure
+      `permissions:`, because GitHub gates issue deletion behind repo ADMIN
+      rights and user blocking behind a separate "Blocking users"
+      permission, and the default Actions token qualifies for neither.
+      Without this input, a flagged violation is still handled: the content
+      is redacted, closed, and the thread is locked — it just isn't
+      actually deleted, and a repeat offender isn't actually blocked, only
+      logged as one. To enable the real thing: for an org-owned repo, a
+      classic PAT with `admin:org` (+ `repo`) from an account with admin
+      rights on the repo; for a personal-account repo, a fine-grained PAT
+      with "Administration: write", "Issues: write", and the personal
+      "Blocking users: write" permission. Store it as a secret, never as
+      plain text.
+    required: false
+    default: ''
+  moderation-state-path:
+    description: 'Path to the JSON file the bot uses to remember per-author moderation offense counts across runs'
+    required: false
+    default: '.github/ai-triage/moderation-state.json'
+  moderation-log-issue:
+    description: 'Issue number to post an audit-trail comment on for every moderation action taken (deletion/block/redaction). 0 disables this'
+    required: false
+    default: '0'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.26'
+
+    - name: Resolve Go dependencies
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: |
+        go get google.golang.org/genai@latest
+        go mod tidy
+
+    - name: Run AI Triage Bot
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: go run ./cmd/bot
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        GEMINI_API_KEYS: ${{ inputs.gemini-api-keys }}
+        GEMINI_MODEL: ${{ inputs.gemini-model }}
+        REPO_CONTEXT_PATH: ${{ inputs.repo-context-path }}
+        INSTRUCTIONS_PATH: ${{ inputs.instructions-path }}
+        TEMPLATES_PATH: ${{ inputs.templates-path }}
+        LABELS_CONFIG_PATH: ${{ inputs.labels-config-path }}
+        SPAM_WINDOW_MINUTES: ${{ inputs.spam-window-minutes }}
+        SPAM_THRESHOLD: ${{ inputs.spam-threshold }}
+        MAX_FILES: ${{ inputs.max-files }}
+        MAX_FILE_BYTES: ${{ inputs.max-file-bytes }}
+        MAX_DIFF_BYTES: ${{ inputs.max-diff-bytes }}
+        MAX_EXTRACTED_PATHS: ${{ inputs.max-extracted-paths }}
+        MAX_REFERENCED_ISSUES: ${{ inputs.max-referenced-issues }}
+        MAX_API_CALLS: ${{ inputs.max-api-calls }}
+        MAX_ATTACHMENTS: ${{ inputs.max-attachments }}
+        MAX_ATTACHMENT_BYTES: ${{ inputs.max-attachment-bytes }}
+        MAX_ATTACHMENT_TOTAL_BYTES: ${{ inputs.max-attachment-total-bytes }}
+        ATTACHMENT_FETCH_TIMEOUT_SECONDS: ${{ inputs.attachment-fetch-timeout-seconds }}
+        MODERATION_TOKEN: ${{ inputs.moderation-token }}
+        MODERATION_STATE_PATH: ${{ inputs.moderation-state-path }}
+        MODERATION_LOG_ISSUE: ${{ inputs.moderation-log-issue }}
+        GITHUB_WORKSPACE: ${{ github.workspace }}

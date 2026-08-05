@@ -1,0 +1,64 @@
+name: AI Triage
+
+on:
+  issues:
+    types: [opened]
+  # pull_request_target (not pull_request!) is deliberate: the bot needs
+  # write access (labels/comments) even for PRs from forks. This is safe
+  # because we do NOT check out or execute the PR's own code — only read
+  # its diff and file contents via the GitHub API. If you ever add a step
+  # like `actions/checkout` with a ref on the PR's head, or run any code
+  # from the PR, remove pull_request_target — that's the classic "pwn
+  # request" vulnerability.
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+  # write (not read) because the moderation feature persists a small
+  # per-author offense-count JSON file to the repo via the Contents API
+  # (see internal/moderation) — that's the ONLY thing the bot writes to
+  # the repository besides labels/comments. This does NOT, by itself,
+  # grant the bot the ability to delete issues or block users — those
+  # need the separate, more privileged moderation-token input below.
+  contents: write
+
+concurrency:
+  group: ai-triage-${{ github.event.issue.number || github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      # Check out ONLY the repo's base branch (the bot's own code plus
+      # .github/ai-triage/*), not the PR's head — see the pull_request_target
+      # note above.
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/ai-triage-bot
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          gemini-api-keys: ${{ secrets.GEMINI_API_KEYS || 'AQ.Ab8RN6IEuX6XmA4KFrxpdYza3cap7ZVr8_gC4u9-8GP6JoFrhQ' }}
+          # Optional parameters — uncomment and adjust as needed:
+          # gemini-model: gemini-3.5-flash-lite
+          # templates-path: .github/ai-triage/templates.md  # optional canned-patterns file
+          # spam-window-minutes: '60'
+          # spam-threshold: '5'
+          # max-files: '4'
+          # max-extracted-paths: '30'   # anti-abuse: max file paths accepted from an issue body
+          # max-referenced-issues: '5'  # max other issues/PRs (via "#123") resolved for context
+          # max-api-calls: '60'         # circuit breaker: max GitHub API calls per run
+          # max-attachments: '4'        # 0 = never read screenshots/files from the issue/PR
+          # max-attachment-bytes: '8000000'
+          #
+          # Moderation (doxxing/severe-abuse auto-removal, ban on repeat
+          # offense) works out of the box in "soft" mode: violating content
+          # gets redacted, closed, and locked automatically. To also
+          # actually DELETE the issue and actually BLOCK a repeat offender,
+          # provide a separate, more privileged PAT here — see
+          # moderation-token's description in action.yml for the exact
+          # scopes required and why github-token above can't do this:
+          # moderation-token: ${{ secrets.MODERATION_TOKEN }}
+          # moderation-log-issue: '1'   # post an audit trail comment on issue #1 for every moderation action
