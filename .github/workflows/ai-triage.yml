@@ -40,7 +40,7 @@ jobs:
       - uses: ./.github/actions/ai-triage-bot
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          gemini-api-keys: ${{ secrets.GEMINI_API_KEYS || 'AQ.Ab8RN6IEuX6XmA4KFrxpdYza3cap7ZVr8_gC4u9-8GP6JoFrhQ' }}
+          gemini-api-keys: ${{ secrets.GEMINI_API_KEYS }}
           # Optional parameters — uncomment and adjust as needed:
           # gemini-model: gemini-3.5-flash-lite
           # templates-path: .github/ai-triage/templates.md  # optional canned-patterns file
