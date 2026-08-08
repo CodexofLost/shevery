@@ -455,6 +455,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_use_command">Use command</string>
     <string name="comput_copied_to_clipboard">Copied to clipboard</string>
     <string name="comput_copy_command">Copy command</string>
+    <string name="comput_copy_explanation">Copy explanation</string>
     <string name="comput_console_macros">Console Macros</string>
     <string name="comput_stop">Stop (%1$d)</string>
     <string name="comput_record_macro">Record Macro</string>
