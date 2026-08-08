@@ -19,3 +19,8 @@ Thank you for contributing to the Shevery repository. Please follow these guidel
 - Follow standard Kotlin idioms.
 - Use state hoisting and avoid deep nesting in Compose. Use `ShizukuExpressiveTheme`.
 - Run internal linters before submitting.
+
+## Attention!
+
+- Do not create a lot of branches in this repo. Use "dev" branch for fixes and new features.
+- Do not use "main" branch before test and total check by Owner.
