@@ -415,7 +415,7 @@ Wi-Fi נדרש להפעלה מחדש הראשונה מכיוון ש-Shevery חי
     <string name="comput_record_macro">הקלט מאקרו</string>
     <string name="comput_recording_active">ההקלטה פעילה. הפעל פקודות באמצעות הקלט הראשי כדי להוסיפן למאקרו זה.</string>
     <string name="comput_saved_macros">מאקרואים שמורים</string>
-    <string name="comput_no_macros">אין מאקרואים שמורים עדיין. לחץ על 'הקלט מאקרו' כדי להתחיל.</string>
+    <string name="comput_no_macros">אין מאקרואים שמורים עדיין. לחץ על \'הקלט מאקרו\' כדי להתחיל.</string>
     <string name="comput_delete">מחק</string>
     <string name="comput_recommand_confirmation_title">אישור ReCommand</string>
     <string name="comput_execute">הפעל</string>
