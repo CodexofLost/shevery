@@ -16,10 +16,10 @@
 
     <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[Démarrer en vous connectant à un ordinateur]]></string>
-    <string name="home_adb_description"><![CDATA[Pour les appareils non rootés, vous devez utiliser ADB pour démarrer Shevery (requiert une connexion ordinateur). Ce processus doit être répété après chaque redémarrage de l\'appareil. Veuillez <b><a href=\"%1$s\">lire l\'aide</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[Pour les appareils non rootés, vous devez utiliser ADB pour démarrer Shevery (requiert une connexion ordinateur). Ce processus doit être répété après chaque redémarrage de l'appareil. Veuillez <b><a href="%1$s">lire l'aide</a></b>.]]></string>
     <string name="home_adb_button_view_help">Lire l\'aide</string>
     <string name="home_adb_button_view_command">Voir la commande</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* D\'autres considérations existent, veuillez confirmer que vous avez lu l\'aide d\'abord.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* D'autres considérations existent, veuillez confirmer que vous avez lu l'aide d'abord.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Copier</string>
     <string name="home_adb_dialog_view_command_button_send">Envoyer</string>
 
@@ -69,7 +69,7 @@
 
     <!-- Home - Root -->
     <string name="home_root_title"><![CDATA[Démarrer (pour appareils rootés)]]></string>
-    <string name="home_root_description"><![CDATA[De plus, Shevery peut démarrer automatiquement au démarrage de l\'appareil. Si ce n\'est pas le caso, vérifiez si votre système ou des outils tiers ont restreint Shevery.<br>Vous pouvez consulter %s.]]></string>
+    <string name="home_root_description"><![CDATA[De plus, Shevery peut démarrer automatiquement au démarrage de l'appareil. Si ce n'est pas le caso, vérifiez si votre système ou des outils tiers ont restreint Shevery.<br>Vous pouvez consulter %s.]]></string>
     <string name="home_root_description_sui"><![CDATA[Si vous utilisez Magisk, vous pouvez essayer %1$s. Pour les utilisateurs root, cela remplacera à terme Shevery.]]></string>
     <string name="home_root_button_start">Démarrer</string>
     <string name="home_root_button_restart">Redémarrer</string>
@@ -102,7 +102,7 @@
     <string name="app_management_select_all">Tout sélectionner</string>
     <string name="app_management_deselect_all">Tout désélectionner</string>
     <string name="app_management_dialog_adb_is_limited_title">L\'autorisation ADB est limitée</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Il est fort probable que le fabricant de votre appareil limite les autorisations ADB.<p>Une solution existe peut-être dans <b><a href=\"%1$s\">ce document</a></b>.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Il est fort probable que le fabricant de votre appareil limite les autorisations ADB.<p>Une solution existe peut-être dans <b><a href="%1$s">ce document</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* nécessite que Shevery fonctionne avec les droits root</string>
 
     <!-- Terminal -->
@@ -115,7 +115,7 @@
     <string name="terminal_tutorial_2_description">Par exemple, si vous souhaitez utiliser Shevery dans %1$s, remplacez %2$s par %3$s (%4$s est le nom de paquet de %1$s).</string>
     <string name="terminal_tutorial_3">Enfin, déplacez les fichiers vers un répertoire accessible par votre application de terminal pour pouvoir utiliser %1$s.</string>
     <string name="terminal_tutorial_3_description">Astuce : accordez les autorisations d\'exécution à %1$s et ajoutez-le à %2$s pour utiliser %1$s directement.</string>
-    <string name="rish_description"><![CDATA[Avec %1$s, dans n\'importe quelle application de terminal, vous pouvez vous connecter et interagir avec la console de Shevery.<p>Pour plus de détails sur l\'utilisation de %1$s, appuyez pour consulter la documentation.]]></string>
+    <string name="rish_description"><![CDATA[Avec %1$s, dans n'importe quelle application de terminal, vous pouvez vous connecter et interagir avec la console de Shevery.<p>Pour plus de détails sur l'utilisation de %1$s, appuyez pour consulter la documentation.]]></string>
 
     <!-- Settings -->
     <string name="settings_title">Paramètres</string>
@@ -266,9 +266,9 @@
 
     <!-- Messages for legacy -->
     <string name="dialog_legacy_not_support_title">%1$s ne prend pas en charge le Shevery moderne</string>
-    <string name="dialog_legacy_not_support_message"><![CDATA[Le Shevery hérité est obsolète depuis mars 2019 et ne fonctionne pas sur les versions récentes d\'Android.<p>Veuillez demander au développeur de <b>%1$s</b> de mettre à jour son application.]]></string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Le Shevery hérité est obsolète depuis mars 2019 et ne fonctionne pas sur les versions récentes d'Android.<p>Veuillez demander au développeur de <b>%1$s</b> de mettre à jour son application.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s demande l\'ancien Shevery</string>
-    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> prend en charge le Shevery moderne, mais demande l\'ancien Shevery. Cela peut arriver si Shevery n\'est pas en cours d\'exécution.<p>Le Shevery hérité est obsolète.]]></string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> prend en charge le Shevery moderne, mais demande l'ancien Shevery. Cela peut arriver si Shevery n'est pas en cours d'exécution.<p>Le Shevery hérité est obsolète.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Ouvrir Shevery</string>
 
     <!-- Lab Features -->
@@ -281,7 +281,7 @@
     <string name="dhizuku_mode_title">Mode Dhizuku</string>
     <string name="dhizuku_mode_summary">Autoriser Shevery à fonctionner via la liaison avec Dhizuku</string>
     <string name="home_dhizuku_title"><![CDATA[Démarrer (via Dhizuku)]]></string>
-    <string name="home_dhizuku_description"><![CDATA[Pour les appareils gérés par Dhizuku, vous pouvez démarrer Shevery en utilisant les privilèges de propriétaire de l\'appareil.]]></string>
+    <string name="home_dhizuku_description"><![CDATA[Pour les appareils gérés par Dhizuku, vous pouvez démarrer Shevery en utilisant les privilèges de propriétaire de l'appareil.]]></string>
     <string name="dhizuku_warning_title">Avertissement : Mode Dhizuku</string>
     <string name="dhizuku_warning_message">Dhizuku est conçu pour les privilèges d\'administrateur/propriétaire d\'appareil. Certaines commandes shell et ADB peuvent ne pas fonctionner correctement ou ne pas être prises en charge via Dhizuku. Voulez-vous continuer ?</string>
     <string name="settings_tcp_mode">Mode TCP</string>

@@ -16,7 +16,7 @@
 
     <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[Запуск через підключення до ПК]]></string>
-    <string name="home_adb_description"><![CDATA[Для пристроїв без root-прав потрібно використовувати ADB для запуску Shevery (потрібне підключення до комп’ютера). Процедуру слід повторювати після кожного перезавантаження пристрою. Будь ласка, <b><a href=\"%1$s\">прочитайте довідку</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[Для пристроїв без root-прав потрібно використовувати ADB для запуску Shevery (потрібне підключення до комп’ютера). Процедуру слід повторювати після кожного перезавантаження пристрою. Будь ласка, <b><a href="%1$s">прочитайте довідку</a></b>.]]></string>
     <string name="home_adb_button_view_help">Читати довідку</string>
     <string name="home_adb_button_view_command">Переглянути команду</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Є інші особливості, переконайтеся, що ви спочатку прочитали довідку.]]></string>
@@ -104,7 +104,7 @@
     <string name="app_management_select_all">Вибрати все</string>
     <string name="app_management_deselect_all">Зняти виділення</string>
     <string name="app_management_dialog_adb_is_limited_title">Дозвіл ADB обмежено</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Цілком можливо, що виробник вашого пристрою обмежує дозволи ADB.<p>Рішення можна знайти у <b><a href=\"%1$s\">цьому документі</a></b>.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Цілком можливо, що виробник вашого пристрою обмежує дозволи ADB.<p>Рішення можна знайти у <b><a href="%1$s">цьому документі</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* вимагає запуску Shevery з root-правами</string>
 
     <!-- Terminal -->

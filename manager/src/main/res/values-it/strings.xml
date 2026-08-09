@@ -89,7 +89,7 @@
     <string name="grant_dialog_button_allow_always">Consenti sempre</string>
     <string name="notification_service_starting">Il servizio Shizuku si sta avviando…</string>
     <string name="dialog_requesting_legacy_title">%1$s sta richiedendo Shizuku legacy</string>
-    <string name="permission_warning_template">Consentire a <b>%1$s</b> di %2$s\?</string>
+    <string name="permission_warning_template">Consentire a <b>%1$s</b> di %2$s?</string>
     <string name="toast_copied_to_clipboard_with_text"><b>%s</b> è stato copiato negli appunti.</string>
     <string name="rish_description">Con %1$s, in qualsiasi app terminale, puoi connetterti e interagire con la shell eseguita da Shizuku. &lt;p&gt;Per info sull\'utilizzo dettagliato di %1$s, tocca per visualizzare il documento.</string>
     <string name="notification_adb_pairing_searching_for_service_title">Ricerca del servizio di accoppiamento</string>

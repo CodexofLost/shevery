@@ -16,7 +16,7 @@
 
     <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[Iniciar conectando a un ordenador]]></string>
-    <string name="home_adb_description"><![CDATA[En dispositivos sin root, necesita ADB para iniciar Shevery (requiere conexión a un ordenador). Este proceso debe repetirse tras reiniciar el dispositivo. Por favor <b><a href=\"%1$s\">lea la ayuda</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[En dispositivos sin root, necesita ADB para iniciar Shevery (requiere conexión a un ordenador). Este proceso debe repetirse tras reiniciar el dispositivo. Por favor <b><a href="%1$s">lea la ayuda</a></b>.]]></string>
     <string name="home_adb_button_view_help">Leer ayuda</string>
     <string name="home_adb_button_view_command">Ver comando</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Existen otras consideraciones, por favor confirme que ha leído la ayuda primero.]]></string>
@@ -102,7 +102,7 @@
     <string name="app_management_select_all">Seleccionar todo</string>
     <string name="app_management_deselect_all">Deseleccionar todo</string>
     <string name="app_management_dialog_adb_is_limited_title">El permiso de ADB está limitado</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Es muy probable que el fabricante de su dispositivo limite los permisos de ADB.<p>Puede encontrar una solución en <b><a href=\"%1$s\">este documento</a></b>.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Es muy probable que el fabricante de su dispositivo limite los permisos de ADB.<p>Puede encontrar una solución en <b><a href="%1$s">este documento</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* requiere que Shevery se ejecute con root</string>
 
     <!-- Terminal -->

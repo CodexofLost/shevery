@@ -15,7 +15,7 @@
     <string name="starter">Başlanğıc</string>
     <string name="grant_dialog_button_deny">Ləğv et</string>
     <string name="grant_dialog_button_allow_always">Hər zaman icazə ver</string>
-    <string name="permission_warning_template"><b>%1$s</b> - ya %2$s üçün icazə verilsin\?</string>
+    <string name="permission_warning_template"><b>%1$s</b> - ya %2$s üçün icazə verilsin?</string>
     <string name="permission_description">Proqramın Shizukudan istifadə etməsinə icazə verin</string>
     <string name="permission_label">Shizukuya daxil olun</string>
     <string name="notification_adb_pairing_retry">Yenidən cəhd edin</string>

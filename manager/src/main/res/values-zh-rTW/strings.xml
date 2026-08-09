@@ -10,7 +10,7 @@
     <string name="home_status_service_version">版本 %2$s, %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[版本 %2$s, %1$s<br>重新啟動以更新至版本 %3$s]]></string>
     <string name="home_adb_title"><![CDATA[透過連接電腦啟動]]></string>
-    <string name="home_adb_description"><![CDATA[對於未 Root 的裝置，需要使用 ADB 啟動 Shevery（需要連接電腦）。每次重新啟動裝置後都需要重複此過程。請<b><a href=\"%1$s\">閱讀說明文件</a></b>。]]></string>
+    <string name="home_adb_description"><![CDATA[對於未 Root 的裝置，需要使用 ADB 啟動 Shevery（需要連接電腦）。每次重新啟動裝置後都需要重複此過程。請<b><a href="%1$s">閱讀說明文件</a></b>。]]></string>
     <string name="home_adb_button_view_help">閱讀說明</string>
     <string name="home_adb_button_view_command">檢視指令</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* 還有其他注意事項，請先確認您已閱讀說明文件。]]></string>
@@ -83,7 +83,7 @@
     <string name="app_management_select_all">全選</string>
     <string name="app_management_deselect_all">取消全選</string>
     <string name="app_management_dialog_adb_is_limited_title">ADB 權限受限</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[您的裝置製造商很有可能限制了 ADB 權限。<p>您可以在<b><a href=\"%1$s\">此文件</a></b>中找到針對您系統的解決方案。]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[您的裝置製造商很有可能限制了 ADB 權限。<p>您可以在<b><a href="%1$s">此文件</a></b>中找到針對您系統的解決方案。]]></string>
     <string name="app_management_item_summary_requires_root">* 需要 Shevery 以 Root 方式執行</string>
     <string name="home_terminal_title">在終端機應用程式中使用 Shevery</string>
     <string name="home_terminal_description">在您喜愛的終端機應用程式中透過 Shevery 執行指令</string>

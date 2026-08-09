@@ -13,7 +13,7 @@
     <string name="starter">ตัวเริ่ม</string>
     <string name="grant_dialog_button_deny">ปฏิเสธ</string>
     <string name="grant_dialog_button_allow_always">อนุญาตเสมอ</string>
-    <string name="permission_warning_template">อนุญาต <b>%1$s</b> ให้ %2$s ไหม\?</string>
+    <string name="permission_warning_template">อนุญาต <b>%1$s</b> ให้ %2$s ไหม?</string>
     <string name="permission_description">อนุญาตให้แอปใช้งาน Shizuku</string>
     <string name="permission_label">เข้าถึง Shizuku</string>
     <string name="notification_adb_pairing_retry">ลองใหม่</string>

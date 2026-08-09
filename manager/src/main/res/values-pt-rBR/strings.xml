@@ -233,7 +233,7 @@ Com %1$s, em qualquer aplicativo de terminal, você pode conectar-se e interagir
     <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">acessar Shizuku</string>
     <string name="permission_description">Permita que o aplicativo use o Shizuku.</string>
-    <string name="permission_warning_template">Permitir que o app &lt;b&gt;%1$s&lt;/b&gt; %2$s\?</string>
+    <string name="permission_warning_template">Permitir que o app &lt;b&gt;%1$s&lt;/b&gt; %2$s?</string>
     <string name="grant_dialog_button_allow_always">Permitir o tempo todo</string>
     <string name="grant_dialog_button_deny">Negar</string>
     <string name="starter">Iniciante</string>

@@ -233,7 +233,7 @@
     <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Shizuku에 접근</string>
     <string name="permission_description">앱이 Shizuku를 사용하도록 허용합니다.</string>
-    <string name="permission_warning_template"><b>%1$s</b>을(를) %2$s에 허용하시겠습니까\?</string>
+    <string name="permission_warning_template"><b>%1$s</b>을(를) %2$s에 허용하시겠습니까?</string>
     <string name="grant_dialog_button_allow_always">항상 허용</string>
     <string name="grant_dialog_button_deny">거부</string>
     <string name="starter">실행기</string>

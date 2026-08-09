@@ -10,7 +10,7 @@
     <string name="home_status_service_version_update"><![CDATA[Verzió %2$s, %1$s<br>Kezdje újra a %3$s verzióra való frissítéshez]]></string>
     <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[Kezdje a számítógéphez való csatlakozással]]></string>
-    <string name="home_adb_description"><![CDATA[Root nélküli eszközök esetén az adb-t kell használnia a Shizuku elindításához (számítógépes kapcsolat szükséges). Ezt a folyamatot minden alkalommal meg kell ismételni az eszköz újraindításakor. Kérem <b><a href=\"%1$s\">olvassa el a súgót</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[Root nélküli eszközök esetén az adb-t kell használnia a Shizuku elindításához (számítógépes kapcsolat szükséges). Ezt a folyamatot minden alkalommal meg kell ismételni az eszköz újraindításakor. Kérem <b><a href="%1$s">olvassa el a súgót</a></b>.]]></string>
     <string name="home_adb_button_view_help">Olvassa el a súgót</string>
     <string name="home_adb_button_view_command">Parancs megtekintés</string>
     <string name="home_adb_dialog_view_command_message">&lt;font face=monospace&gt;%1$s&lt;/font&gt;&lt;br&gt;&lt;br&gt;* Vannak más szempontok is, kérjük erősítse meg, hogy először elolvasta a súgót.</string>
@@ -73,7 +73,7 @@
     <string name="home_adb_is_limited_description">Az eszköz gyártója korlátozta az adb-engedélyeket, és a Shizuku-t használó alkalmazások nem működnek megfelelően.\n\nÁltalában ez a korlátozás bizonyos beállítások módosításával feloldható a \"Fejlesztői lehetőségek\"-nél. Kérjük, olvassa el a súgót ennek részleteiért.\n\nLehet, hogy újra kell indítania a Shizukut, hogy a művelet érvénybe lépjen.</string>
     <!-- Application management -->
     <string name="app_management_dialog_adb_is_limited_title">Az adb engedélye korlátozott</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Nagyon valószínű, hogy az eszköz gyártója korlátozza az adb engedélyét.<p>Lehet, hogy van megoldás a rendszeréhez ebben a <b><a href=\"%1$s\">dokumentumban</a></b>.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Nagyon valószínű, hogy az eszköz gyártója korlátozza az adb engedélyét.<p>Lehet, hogy van megoldás a rendszeréhez ebben a <b><a href="%1$s">dokumentumban</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* szükséges, hogy a Shizuku root-on fusson</string>
     <!-- Terminal -->
     <string name="home_terminal_title">Használja a Shizukut a terminál appokban</string>

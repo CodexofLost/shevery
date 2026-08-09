@@ -70,7 +70,7 @@
     <string name="notification_working">Đang làm việc…</string>
     <string name="permission_label">truy cập Shizuku</string>
     <string name="permission_description">Cho phép ứng dụng sử dụng Shizuku.</string>
-    <string name="permission_warning_template">Cho phép <b>%1$s</b> thành %2$s\?</string>
+    <string name="permission_warning_template">Cho phép <b>%1$s</b> thành %2$s?</string>
     <string name="grant_dialog_button_allow_always">Cho phép mọi lúc</string>
     <string name="grant_dialog_button_deny">Từ chối</string>
     <string name="toast_copied_to_clipboard">%s

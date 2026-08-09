@@ -18,7 +18,7 @@
 
     <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[Start by connecting to a computer]]></string>
-    <string name="home_adb_description"><![CDATA[For devices without root, you need to use adb to start Shevery (requires computer connection). This process needs to be repeated every time the device is restarted. Please <b><a href=\"%1$s\">read the help</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[For devices without root, you need to use adb to start Shevery (requires computer connection). This process needs to be repeated every time the device is restarted. Please <b><a href="%1$s">read the help</a></b>.]]></string>
     <string name="home_adb_button_view_help">Read help</string>
     <string name="home_adb_button_view_command">View command</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* There are some other considerations, please confirm that you have read the help first.]]></string>
@@ -110,7 +110,7 @@
     <string name="app_management_select_all">Select all</string>
     <string name="app_management_deselect_all">Deselect all</string>
     <string name="app_management_dialog_adb_is_limited_title">The permission of adb is limited</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[It\'s highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href=\"%1$s\">this document</a></b>.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[It's highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href="%1$s">this document</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* requires Shevery runs with root</string>
 
     <!-- Terminal -->
@@ -282,7 +282,7 @@ With %1$s, in any terminal app, you can connect to and interact with the shell r
     <string name="dialog_legacy_not_support_title">%1$s does not support modern Shevery</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery has been deprecated since March 2019. Also, legacy Shevery does not work on newer Android systems.<p>Please ask the developer of <b>%1$s</b> to update.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s is requesting legacy Shevery</string>
-    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> has modern Shevery support, but it\'s requesting legacy Shevery. This could because Shevery is not running, please check in Shevery app.<p>Legacy Shevery has been deprecated since March 2019.]]></string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> has modern Shevery support, but it's requesting legacy Shevery. This could because Shevery is not running, please check in Shevery app.<p>Legacy Shevery has been deprecated since March 2019.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Open Shevery</string>
 
     <!-- Lab Features -->

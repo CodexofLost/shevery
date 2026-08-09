@@ -10,7 +10,7 @@
     <string name="home_status_service_version">نسخه %2$s، %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[نسخه %2$s، %1$s<br>برای به‌روزرسانی به نسخه %3$s برنامه را راه‌اندازی مجدد نمایید]]></string>
     <string name="home_adb_title"><![CDATA[با اتصال به رایانه شروع کنید]]></string>
-    <string name="home_adb_description"><![CDATA[برای دستگاه‌های بدون دسترسی ریشه (روت)، باید از adb برای راه‌اندازی Shizuku استفاده کنید (نیاز به اتصال به رایانه دارد). این فرآیند باید هر بار که دستگاه راه اندازی مجدد می شود تکرار شود. لطفاً <b><a href=\"%1$s\">راهنما را بخوانید</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[برای دستگاه‌های بدون دسترسی ریشه (روت)، باید از adb برای راه‌اندازی Shizuku استفاده کنید (نیاز به اتصال به رایانه دارد). این فرآیند باید هر بار که دستگاه راه اندازی مجدد می شود تکرار شود. لطفاً <b><a href="%1$s">راهنما را بخوانید</a></b>.]]></string>
     <string name="home_adb_button_view_help">خواندن راهنما</string>
     <string name="home_adb_button_view_command">مشاهده دستور</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* ملاحظات دیگری نیز وجود دارد، لطفاً تأیید کنید که ابتدا راهنما را خوانده اید.]]></string>
@@ -85,7 +85,7 @@
     <string name="app_management_select_all">انتخاب همه</string>
     <string name="app_management_deselect_all">لغو انتخاب همه</string>
     <string name="app_management_dialog_adb_is_limited_title">مجوز adb محدود است</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[این احتمال وجود دارد که سازنده دستگاه شما مجوز adb را محدود کند.<p>ممکن است راه حلی برای دستگاه شما در <b><a href=\"%1$s\">این سند</a></b> وجود داشته باشد.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[این احتمال وجود دارد که سازنده دستگاه شما مجوز adb را محدود کند.<p>ممکن است راه حلی برای دستگاه شما در <b><a href="%1$s">این سند</a></b> وجود داشته باشد.]]></string>
     <string name="app_management_item_summary_requires_root">* نیاز دارد که Shizuku با امتیازات ریشه اجرا شود</string>
     <string name="home_terminal_title">از Shizuku در برنامه های پایانه استفاده کنید</string>
     <string name="home_terminal_description">دستورات را از طریق Shizuku در برنامه های پایانه که دوست دارید اجرا کنید</string>

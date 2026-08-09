@@ -81,7 +81,7 @@
     <string name="notification_adb_pairing_retry">Încearcă din nou</string>
     <string name="permission_label">accesare Shizuku</string>
     <string name="permission_description">Permite aplicației să folosească Shizuku.</string>
-    <string name="permission_warning_template">Permiți <b>%1$s</b> să %2$s\?</string>
+    <string name="permission_warning_template">Permiți <b>%1$s</b> să %2$s?</string>
     <string name="grant_dialog_button_allow_always">Permite tot timpul</string>
     <string name="grant_dialog_button_deny">Refuz</string>
     <string name="starter">Începător</string>

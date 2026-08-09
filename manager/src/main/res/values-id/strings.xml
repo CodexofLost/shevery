@@ -85,7 +85,7 @@
     <string name="notification_working">Sedang bekerja…</string>
     <string name="permission_description">Izinkan aplikasi menggunakan Shizuku.</string>
     <string name="permission_label">mengakses Shizuku</string>
-    <string name="permission_warning_template">Izinkan <b>%1$s</b> untuk %2$s\?</string>
+    <string name="permission_warning_template">Izinkan <b>%1$s</b> untuk %2$s?</string>
     <string name="grant_dialog_button_allow_always">Selalu izinkan</string>
     <string name="grant_dialog_button_deny">Tolak</string>
     <string name="starter">Pemulaian</string>

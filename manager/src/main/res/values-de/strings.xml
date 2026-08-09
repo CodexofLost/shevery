@@ -33,7 +33,7 @@
 \nHinweis: \"Entwickleroptionen\" oder \"USB-Debugging\" nicht deaktivieren, sonst wird Shizuku gestoppt.</string>
     <string name="grant_dialog_button_deny">Verweigern</string>
     <string name="grant_dialog_button_allow_always">Immer zulassen</string>
-    <string name="permission_warning_template"><b>%1$s</b> erlauben %2$s zu verwenden\?</string>
+    <string name="permission_warning_template"><b>%1$s</b> erlauben %2$s zu verwenden?</string>
     <string name="translation_contributors">" "</string>
     <string name="notification_service_start_failed">Shizuku-Dienst starten fehlgeschlagen.</string>
     <string name="notification_channel_service_status">Status des Dienststarts</string>

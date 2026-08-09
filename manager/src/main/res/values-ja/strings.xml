@@ -16,7 +16,7 @@
 
     <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[パソコンに接続して開始]]></string>
-    <string name="home_adb_description"><![CDATA[root権限のない端末では、Sheveryを開始するためにADBを使用する必要があります（パソコンとの接続が必要です）。この手順は端末を再起動するたびに繰り返し行う必要があります。<b><a href=\"%1$s\">ヘルプを読む</a></b>をご参照ください。]]></string>
+    <string name="home_adb_description"><![CDATA[root権限のない端末では、Sheveryを開始するためにADBを使用する必要があります（パソコンとの接続が必要です）。この手順は端末を再起動するたびに繰り返し行う必要があります。<b><a href="%1$s">ヘルプを読む</a></b>をご参照ください。]]></string>
     <string name="home_adb_button_view_help">ヘルプを読む</string>
     <string name="home_adb_button_view_command">コマンドを表示</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* その他の注意事項については、まずヘルプをお読みください。]]></string>
@@ -101,7 +101,7 @@
     <string name="app_management_select_all">すべて選択</string>
     <string name="app_management_deselect_all">選択を解除</string>
     <string name="app_management_dialog_adb_is_limited_title">ADBの権限が制限されています</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[端末製造元によりADB権限が制限されている可能性が高いです。<p><b><a href=\"%1$s\">このドキュメント</a></b>に解決策が掲載されている場合があります。]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[端末製造元によりADB権限が制限されている可能性が高いです。<p><b><a href="%1$s">このドキュメント</a></b>に解決策が掲載されている場合があります。]]></string>
     <string name="app_management_item_summary_requires_root">* Sheveryをroot権限で実行する必要があります</string>
 
     <!-- Terminal -->

@@ -233,7 +233,7 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI\'nin S
     <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Shizuku’ya erişim</string>
     <string name="permission_description">Uygulamanın Shizuku’yu kullanmasına izin verin.</string>
-    <string name="permission_warning_template"><b>%1$s</b> uygulamasına %2$s için izin verilsin mi\?</string>
+    <string name="permission_warning_template"><b>%1$s</b> uygulamasına %2$s için izin verilsin mi?</string>
     <string name="grant_dialog_button_allow_always">Her zaman izin ver</string>
     <string name="grant_dialog_button_deny">Reddet</string>
     <string name="starter">Başlatıcı</string>
