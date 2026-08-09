@@ -16,10 +16,10 @@
 
     <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[Démarrer en vous connectant à un ordinateur]]></string>
-    <string name="home_adb_description"><![CDATA[Pour les appareils non rootés, vous devez utiliser ADB pour démarrer Shevery (requiert une connexion ordinateur). Ce processus doit être répété après chaque redémarrage de l'appareil. Veuillez <b><a href="%1$s">lire l'aide</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[Pour les appareils non rootés, vous devez utiliser ADB pour démarrer Shevery (requiert une connexion ordinateur). Ce processus doit être répété après chaque redémarrage de l\'appareil. Veuillez <b><a href="%1$s">lire l\'aide</a></b>.]]></string>
     <string name="home_adb_button_view_help">Lire l\'aide</string>
     <string name="home_adb_button_view_command">Voir la commande</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* D'autres considérations existent, veuillez confirmer que vous avez lu l'aide d'abord.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* D\'autres considérations existent, veuillez confirmer que vous avez lu l\'aide d\'abord.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Copier</string>
     <string name="home_adb_dialog_view_command_button_send">Envoyer</string>
 
@@ -37,8 +37,8 @@
 
     <!-- Adb -->
     <string name="dialog_adb_discovery">Recherche du service de débogage sans fil</string>
-    <string name="dialog_adb_discovery_message">Veuillez activer le \"Débogage sans fil\" dans les \"Options pour les développeurs\". Le débogage sans fil se désactive automatiquement lors des changements de réseau.\n\nNote : ne désactivez pas les \"Options développeurs\" ou le \"Débogage USB\", sinon Shevery s\'arrêtera.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Veuillez désactiver et réactiver le \"Débogage sans fil\" si la recherche persiste.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Veuillez activer le "Débogage sans fil" dans les "Options pour les développeurs". Le débogage sans fil se désactive automatiquement lors des changements de réseau.\n\nNote : ne désactivez pas les "Options développeurs" ou le "Débogage USB", sinon Shevery s\'arrêtera.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Veuillez désactiver et réactiver le "Débogage sans fil" si la recherche persiste.]]></string>
     <string name="dialog_adb_port">Port</string>
     <string name="dialog_adb_invalid_port">Le port doit être un entier compris entre 1 et 65535.</string>
     <string name="adb_pairing">Association</string>
@@ -48,7 +48,7 @@
     <string name="paring_code_is_wrong">Le code d\'association est incorrect.</string>
     <string name="cannot_connect_port">Impossible de se connecter au service de débogage sans fil.</string>
     <string name="dialog_wireless_adb_not_enabled">Le débogage sans fil n\'est pas activé.\nNote : avant Android 11, une connexion à un ordinateur est obligatoire.</string>
-    <string name="dialog_adb_pairing_message">Démarrez l\'association en suivant ces étapes : \"Options développeurs\" - \"Débogage sans fil\" - \"Associer l\'appareil avec un code d\'association\".\n\nUne fois le processus lancé, vous pourrez saisir le code.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Démarrez l\'association en suivant ces étapes : "Options développeurs" - "Débogage sans fil" - "Associer l\'appareil avec un code d\'association".\n\nUne fois le processus lancé, vous pourrez saisir le code.]]></string>
     <string name="adb_pairing_requires_multi_window">Veuillez d\'abord passer en mode écran partagé (multi-fenêtres).</string>
     <string name="adb_pairing_requires_multi_window_reason">Le système exige que la boîte de dialogue d\'association soit toujours visible. L\'écran partagé est le seul moyen de garder l\'application et la boîte système visibles en même temps.</string>
     <string name="adb_error_key_store">Impossible de générer la clé de débogage sans fil.\nCela peut être dû à un dysfonctionnement du KeyStore de cet appareil.</string>
@@ -57,19 +57,19 @@
     <string name="notification_settings">Options de notification</string>
     <string name="adb_pairing_tutorial_title">Associer Shevery à votre appareil</string>
     <string name="adb_pairing_tutorial_content_notification">Une notification de Shevery vous aidera à finaliser l\'association.</string>
-    <string name="adb_pairing_tutorial_content_steps">Allez dans \"Options développeurs\" - \"Débogage sans fil\". Appuyez sur \"Associer l\'appareil avec un code d\'association\", un code à six chiffres s\'affichera.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Allez dans "Options développeurs" - "Débogage sans fil". Appuyez sur "Associer l\'appareil avec un code d\'association", un code à six chiffres s\'affichera.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Saisissez le code dans la notification pour terminer l\'association.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Le processus d\'association nécessite d\'interagir avec une notification de Shevery. Veuillez autoriser Shevery à envoyer des notifications.</string>
-    <string name="adb_pairing_tutorial_content_miui">Les utilisateurs de MIUI doivent régler le style de notification sur \"Android\" dans \"Paramètres\" - \"Notifications\".</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Les utilisateurs de MIUI doivent régler le style de notification sur "Android" dans "Paramètres" - "Notifications".]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">Sinon, vous ne pourrez pas saisir le code depuis la notification.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Remarque : la partie gauche de l\'option \"Débogage sans fil\" est cliquable et ouvre une nouvelle page. Activer uniquement l\'interrupteur de droite ne suffit pas.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Remarque : la partie gauche de l\'option "Débogage sans fil" est cliquable et ouvre une nouvelle page. Activer uniquement l\'interrupteur de droite ne suffit pas.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Revenez sur Shevery et lancez le service.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery nécessite l\'accès au réseau local.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Certains systèmes (comme MIUI) bloquent l\'accès au réseau en arrière-plan. Désactivez l\'optimisation de la batterie pour Shevery.</string>
 
     <!-- Home - Root -->
     <string name="home_root_title"><![CDATA[Démarrer (pour appareils rootés)]]></string>
-    <string name="home_root_description"><![CDATA[De plus, Shevery peut démarrer automatiquement au démarrage de l'appareil. Si ce n'est pas le caso, vérifiez si votre système ou des outils tiers ont restreint Shevery.<br>Vous pouvez consulter %s.]]></string>
+    <string name="home_root_description"><![CDATA[De plus, Shevery peut démarrer automatiquement au démarrage de l\'appareil. Si ce n\'est pas le caso, vérifiez si votre système ou des outils tiers ont restreint Shevery.<br>Vous pouvez consulter %s.]]></string>
     <string name="home_root_description_sui"><![CDATA[Si vous utilisez Magisk, vous pouvez essayer %1$s. Pour les utilisateurs root, cela remplacera à terme Shevery.]]></string>
     <string name="home_root_button_start">Démarrer</string>
     <string name="home_root_button_restart">Redémarrer</string>
@@ -96,7 +96,7 @@
 
     <!-- Home - Adb permissions limited -->
     <string name="home_adb_is_limited_title">Une étape supplémentaire est requise</string>
-    <string name="home_adb_is_limited_description">Le fabricant de votre appareil a restreint les autorisations ADB et les applications utilisant Shevery ne fonctionneront pas correctement.\n\nEn général, cette limitation peut être levée dans les \"Options développeurs\". Consultez l\'aide pour plus de détails.\n\nUn redémarrage de Shevery peut être nécessaire.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Le fabricant de votre appareil a restreint les autorisations ADB et les applications utilisant Shevery ne fonctionneront pas correctement.\n\nEn général, cette limitation peut être levée dans les "Options développeurs". Consultez l\'aide pour plus de détails.\n\nUn redémarrage de Shevery peut être nécessaire.]]></string>
 
     <!-- Application management -->
     <string name="app_management_select_all">Tout sélectionner</string>
@@ -115,7 +115,7 @@
     <string name="terminal_tutorial_2_description">Par exemple, si vous souhaitez utiliser Shevery dans %1$s, remplacez %2$s par %3$s (%4$s est le nom de paquet de %1$s).</string>
     <string name="terminal_tutorial_3">Enfin, déplacez les fichiers vers un répertoire accessible par votre application de terminal pour pouvoir utiliser %1$s.</string>
     <string name="terminal_tutorial_3_description">Astuce : accordez les autorisations d\'exécution à %1$s et ajoutez-le à %2$s pour utiliser %1$s directement.</string>
-    <string name="rish_description"><![CDATA[Avec %1$s, dans n'importe quelle application de terminal, vous pouvez vous connecter et interagir avec la console de Shevery.<p>Pour plus de détails sur l'utilisation de %1$s, appuyez pour consulter la documentation.]]></string>
+    <string name="rish_description"><![CDATA[Avec %1$s, dans n\'importe quelle application de terminal, vous pouvez vous connecter et interagir avec la console de Shevery.<p>Pour plus de détails sur l\'utilisation de %1$s, appuyez pour consulter la documentation.]]></string>
 
     <!-- Settings -->
     <string name="settings_title">Paramètres</string>
@@ -266,9 +266,9 @@
 
     <!-- Messages for legacy -->
     <string name="dialog_legacy_not_support_title">%1$s ne prend pas en charge le Shevery moderne</string>
-    <string name="dialog_legacy_not_support_message"><![CDATA[Le Shevery hérité est obsolète depuis mars 2019 et ne fonctionne pas sur les versions récentes d'Android.<p>Veuillez demander au développeur de <b>%1$s</b> de mettre à jour son application.]]></string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Le Shevery hérité est obsolète depuis mars 2019 et ne fonctionne pas sur les versions récentes d\'Android.<p>Veuillez demander au développeur de <b>%1$s</b> de mettre à jour son application.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s demande l\'ancien Shevery</string>
-    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> prend en charge le Shevery moderne, mais demande l'ancien Shevery. Cela peut arriver si Shevery n'est pas en cours d'exécution.<p>Le Shevery hérité est obsolète.]]></string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> prend en charge le Shevery moderne, mais demande l\'ancien Shevery. Cela peut arriver si Shevery n\'est pas en cours d\'exécution.<p>Le Shevery hérité est obsolète.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Ouvrir Shevery</string>
 
     <!-- Lab Features -->
@@ -281,7 +281,7 @@
     <string name="dhizuku_mode_title">Mode Dhizuku</string>
     <string name="dhizuku_mode_summary">Autoriser Shevery à fonctionner via la liaison avec Dhizuku</string>
     <string name="home_dhizuku_title"><![CDATA[Démarrer (via Dhizuku)]]></string>
-    <string name="home_dhizuku_description"><![CDATA[Pour les appareils gérés par Dhizuku, vous pouvez démarrer Shevery en utilisant les privilèges de propriétaire de l'appareil.]]></string>
+    <string name="home_dhizuku_description"><![CDATA[Pour les appareils gérés par Dhizuku, vous pouvez démarrer Shevery en utilisant les privilèges de propriétaire de l\'appareil.]]></string>
     <string name="dhizuku_warning_title">Avertissement : Mode Dhizuku</string>
     <string name="dhizuku_warning_message">Dhizuku est conçu pour les privilèges d\'administrateur/propriétaire d\'appareil. Certaines commandes shell et ADB peuvent ne pas fonctionner correctement ou ne pas être prises en charge via Dhizuku. Voulez-vous continuer ?</string>
     <string name="settings_tcp_mode">Mode TCP</string>

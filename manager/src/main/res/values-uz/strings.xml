@@ -10,14 +10,14 @@
     <string name="home_status_service_version">Versiya %2$s, %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[Versiya %2$s, %1$s<br>%3$s versiyasiga yangilash uchun qayta ishga tushiring]]></string>
     <string name="home_adb_title"><![CDATA[Kompyuterga ulanish orqali ishga tushirish]]></string>
-    <string name="home_adb_description"><![CDATA[Root huquqlari bo'lmagan qurilmalar uchun Shevery dasturini adb orqali ishga tushirish kerak (kompyuterga ulanish talab etiladi). Bu jarayon qurilma har safar qayta yoqilganda takrorlanishi kerak. Iltimos, <b><a href="%1$s">yordamni o'qing</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[Root huquqlari bo\'lmagan qurilmalar uchun Shevery dasturini adb orqali ishga tushirish kerak (kompyuterga ulanish talab etiladi). Bu jarayon qurilma har safar qayta yoqilganda takrorlanishi kerak. Iltimos, <b><a href="%1$s">yordamni o\'qing</a></b>.]]></string>
     <string name="home_adb_button_view_help">Yordamni o\'qish</string>
     <string name="home_adb_button_view_command">Buyruqni ko\'rish</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Boshqa qo'shimcha shartlar mavjud, avval yordam bo'limini ko'rib chiqqaningizga ishonch hosil qiling.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Boshqa qo\'shimcha shartlar mavjud, avval yordam bo\'limini ko\'rib chiqqaningizga ishonch hosil qiling.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Nusxalash</string>
     <string name="home_adb_dialog_view_command_button_send">Yuborish</string>
     <string name="home_wireless_adb_title"><![CDATA[Simsiz nosozliklarni bartaraf etish (Wireless ADB) orqali ishga tushirish]]></string>
-    <string name="home_wireless_adb_description"><![CDATA[Android 11 va undan yuqori versiyalarda siz kompyuterga ulanmasdan to'g'ridan-to'g'ri qurilmangizdan Simsiz nosozliklarni bartaraf etishni yoqib, Shevery dasturini ishga tushirishingiz mumkin.<p>Avval bosqichma-bosqich qo'llanmani ko'rib chiqing.]]></string>
+    <string name="home_wireless_adb_description"><![CDATA[Android 11 va undan yuqori versiyalarda siz kompyuterga ulanmasdan to\'g\'ridan-to\'g\'ri qurilmangizdan Simsiz nosozliklarni bartaraf etishni yoqib, Shevery dasturini ishga tushirishingiz mumkin.<p>Avval bosqichma-bosqich qo\'llanmani ko\'rib chiqing.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Android 11 dan oldingi versiyalarda Simsiz nosozliklarni bartaraf etishni yoqish uchun kompyuterga ulanish shart.]]></string>
     <string name="home_wireless_adb_view_guide_button">Bosqichma-bosqich qo\'llanma</string>
     <string name="home_local_network_title">Mahalliy tarmoqqa kirish</string>
@@ -61,8 +61,8 @@ Juftlash boshlangach, kodni kiritishingiz mumkin bo\'ladi.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery mahalliy tarmoqqa kirishi kerak.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Bazi tizimlar ilovalar ko\'rinmayotganda tarmoqdan foydalanishni cheklaydi.</string>
     <string name="home_root_title"><![CDATA[Ishga tushirish (Root huquqiga ega qurilmalar uchun)]]></string>
-    <string name="home_root_description"><![CDATA[Bundan tashqari, Shevery yuklanganda avtomatik ishga tushishi mumkin.<br>Buning uchun %s ma'lumotiga murojaat qiling.]]></string>
-    <string name="home_root_description_sui"><![CDATA[Agar siz Magisk ishlatayotgan bo'lsangiz, %1$s ni sinab ko'rishingiz mumkin. Root foydalanuvchilari uchun bu Shevery o'rnini bosadi.]]></string>
+    <string name="home_root_description"><![CDATA[Bundan tashqari, Shevery yuklanganda avtomatik ishga tushishi mumkin.<br>Buning uchun %s ma\'lumotiga murojaat qiling.]]></string>
+    <string name="home_root_description_sui"><![CDATA[Agar siz Magisk ishlatayotgan bo\'lsangiz, %1$s ni sinab ko\'rishingiz mumkin. Root foydalanuvchilari uchun bu Shevery o\'rnini bosadi.]]></string>
     <string name="home_root_button_start">Boshlash</string>
     <string name="home_root_button_restart">Qayta ishga tushirish</string>
     <string name="home_app_management_title">Ilovalarni boshqarish</string>
@@ -85,7 +85,7 @@ Juftlash boshlangach, kodni kiritishingiz mumkin bo\'ladi.</string>
     <string name="app_management_select_all">Barchasini tanlash</string>
     <string name="app_management_deselect_all">Tanlovni bekor qilish</string>
     <string name="app_management_dialog_adb_is_limited_title">ADB ruxsati cheklangan</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Qurilmangiz ishlab chiqaruvchisi ADB ruxsatlarini cheklagan bo'lishi mumkin. Hujjatlarni o'qing.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Qurilmangiz ishlab chiqaruvchisi ADB ruxsatlarini cheklagan bo\'lishi mumkin. Hujjatlarni o\'qing.]]></string>
     <string name="app_management_item_summary_requires_root">* Shevery Root bilan ishlashini talab qiladi</string>
     <string name="home_terminal_title">Shevery ni terminal ilovalarida ishlatish</string>
     <string name="home_terminal_description">O\'zingizga yoqqan terminal ilovalarida Shevery orqali buyruqlarni bajaring</string>
@@ -196,7 +196,7 @@ Juftlash boshlangach, kodni kiritishingiz mumkin bo\'ladi.</string>
     <string name="modules_search_placeholder">Katalog modullarini qidirish…</string>
     <string name="action_about">Dastur haqida</string>
     <string name="about_source_code_button">Manba kodi</string>
-    <string name="about_view_source_code"><![CDATA[Manba kodini %s da ko'rish]]></string>
+    <string name="about_view_source_code"><![CDATA[Manba kodini %s da ko\'rish]]></string>
     <string name="action_stop">Shevery ni to\'xtatish</string>
     <string name="dialog_stop_message">Shevery xizmati to\'xtatiladi.</string>
     <string name="service_already_stopped">Shevery xizmati allaqachon to\'xtatilgan.</string>
@@ -233,9 +233,9 @@ Juftlash boshlangach, kodni kiritishingiz mumkin bo\'ladi.</string>
 buferga nusxalandi.</string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> buferga nusxalandi.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s zamonaviy Shevery ni qo\'llab-quvvatlamaydi</string>
-    <string name="dialog_legacy_not_support_message"><![CDATA[Eski Shevery versiyasi 2019-yildan beri qo'llab-quvvatlanmaydi.]]></string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Eski Shevery versiyasi 2019-yildan beri qo\'llab-quvvatlanmaydi.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s eski Shevery versiyasini so\'ramoqda</string>
-    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> zamonaviy Shevery ni qo'llab-quvvatlaydi, lekin eski versiyani so'ramoqda.]]></string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> zamonaviy Shevery ni qo\'llab-quvvatlaydi, lekin eski versiyani so\'ramoqda.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Shevery ni ochish</string>
     <string name="lab_features_title">Laboratoriya funksiyalari</string>
     <string name="lab_features_summary">Tadqiqotdagi funksiyalar</string>
@@ -246,7 +246,7 @@ buferga nusxalandi.</string>
     <string name="dhizuku_mode_title">Dhizuku rejimi</string>
     <string name="dhizuku_mode_summary">Shevery ga Dhizuku orqali ishlashga ruxsat berish</string>
     <string name="home_dhizuku_title"><![CDATA[Ishga tushirish (Dhizuku orqali)]]></string>
-    <string name="home_dhizuku_description"><![CDATA[Dhizuku tomonidan boshqariladigan qurilmalarda siz Shevery ni to'g'ridan-to me uning ruxsatlari bilan ishga tushirishingiz mumkin.]]></string>
+    <string name="home_dhizuku_description"><![CDATA[Dhizuku tomonidan boshqariladigan qurilmalarda siz Shevery ni to\'g\'ridan-to me uning ruxsatlari bilan ishga tushirishingiz mumkin.]]></string>
     <string name="dhizuku_warning_title">Ogohlantirish: Dhizuku rejimi</string>
     <string name="dhizuku_warning_message">Dhizuku Qurilma Egalari uchun mo\'ljallangan. Ba\'zi buyruqlar ishlamasligi mumkin.</string>
     <string name="settings_tcp_mode">TCP Rejimi</string>

@@ -37,8 +37,8 @@
 
     <!-- Adb -->
     <string name="dialog_adb_discovery">Buscando servicio de depuración inalámbrica</string>
-    <string name="dialog_adb_discovery_message">Por favor active \"Depuración inalámbrica\" en \"Opciones de desarrollador\". La depuración inalámbrica se desactiva automáticamente al cambiar de red.\n\nNota: no desactive \"Opciones de desarrollador\" ni \"Depuración por USB\", o Shevery se detendrá.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Por favor intente desactivar y volver a activar \"Depuración inalámbrica\" si la búsqueda continúa.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Por favor active "Depuración inalámbrica" en "Opciones de desarrollador". La depuración inalámbrica se desactiva automáticamente al cambiar de red.\n\nNota: no desactive "Opciones de desarrollador" ni "Depuración por USB", o Shevery se detendrá.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Por favor intente desactivar y volver a activar "Depuración inalámbrica" si la búsqueda continúa.]]></string>
     <string name="dialog_adb_port">Puerto</string>
     <string name="dialog_adb_invalid_port">El puerto debe ser un número entero entre 1 y 65535.</string>
     <string name="adb_pairing">Emparejamiento</string>
@@ -48,7 +48,7 @@
     <string name="paring_code_is_wrong">El código de emparejamiento es incorrecto.</string>
     <string name="cannot_connect_port">No se pudo conectar al servicio de depuración inalámbrica.</string>
     <string name="dialog_wireless_adb_not_enabled">La depuración inalámbrica no está activada.\nNota: antes de Android 11, se requiere conexión a un ordenador para activarla.</string>
-    <string name="dialog_adb_pairing_message">Inicie el emparejamiento siguiendo estos pasos: \"Opciones de desarrollador\" - \"Depuración inalámbrica\" - \"Emparejar dispositivo con código de emparejamiento\".\n\nUna vez iniciado, podrá introducir el código.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Inicie el emparejamiento siguiendo estos pasos: "Opciones de desarrollador" - "Depuración inalámbrica" - "Emparejar dispositivo con código de emparejamiento".\n\nUna vez iniciado, podrá introducir el código.]]></string>
     <string name="adb_pairing_requires_multi_window">Por favor active primero el modo de pantalla dividida (multiventana).</string>
     <string name="adb_pairing_requires_multi_window_reason">El sistema requiere que el diálogo de emparejamiento esté visible en todo momento. Usar pantalla dividida es la única forma de mantener visibles esta app y el diálogo del sistema simultáneamente.</string>
     <string name="adb_error_key_store">No se pudo generar la clave de depuración inalámbrica.\nEsto puede deberse a que el almacén de claves (KeyStore) de este dispositivo esté dañado.</string>
@@ -57,12 +57,12 @@
     <string name="notification_settings">Opciones de notificación</string>
     <string name="adb_pairing_tutorial_title">Emparejar Shevery con su dispositivo</string>
     <string name="adb_pairing_tutorial_content_notification">Una notificación de Shevery le ayudará a completar el emparejamiento.</string>
-    <string name="adb_pairing_tutorial_content_steps">Vaya a \"Opciones de desarrollador\" - \"Depuración inalámbrica\". Toque \"Emparejar dispositivo con código de emparejamiento\", verá un código de seis dígitos.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Vaya a "Opciones de desarrollador" - "Depuración inalámbrica". Toque "Emparejar dispositivo con código de emparejamiento", verá un código de seis dígitos.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Introduzca el código en la notificación para completar el emparejamiento.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">El emparejamiento requiere interactuar con una notificación de Shevery. Por favor permita que Shevery envíe notificaciones.</string>
-    <string name="adb_pairing_tutorial_content_miui">Los usuarios de MIUI pueden necesitar cambiar el estilo de notificación a \"Android\" en \"Ajustes\" - \"Notificaciones\" - \"Barra de notificaciones\".</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Los usuarios de MIUI pueden necesitar cambiar el estilo de notificación a "Android" en "Ajustes" - "Notificaciones" - "Barra de notificaciones".]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">De lo contrario, no podrá introducir el código de emparejamiento desde la notificación.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Tenga en cuenta que la parte izquierda de \"Depuración inalámbrica\" es pulsable y abre una nueva página. Activar solo el interruptor de la derecha no es suficiente.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Tenga en cuenta que la parte izquierda de "Depuración inalámbrica" es pulsable y abre una nueva página. Activar solo el interruptor de la derecha no es suficiente.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Vuelva a Shevery e inicie el servicio.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery necesita acceder a la red local. Esto se controla mediante el permiso de red.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Algunos sistemas (como MIUI) restringen el acceso a red cuando las apps no están visibles, aunque usen servicios en primer plano. Desactive las optimizaciones de batería para Shevery.</string>
@@ -96,7 +96,7 @@
 
     <!-- Home - Adb permissions limited -->
     <string name="home_adb_is_limited_title">Paso adicional requerido</string>
-    <string name="home_adb_is_limited_description">El fabricante de su dispositivo ha restringido los permisos de ADB y las apps que usan Shevery no funcionarán correctamente.\n\nPor lo general, esta limitación se corrige ajustando opciones en \"Opciones de desarrollador\". Consulte la ayuda para más detalles.\n\nEs posible que deba reiniciar Shevery.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[El fabricante de su dispositivo ha restringido los permisos de ADB y las apps que usan Shevery no funcionarán correctamente.\n\nPor lo general, esta limitación se corrige ajustando opciones en "Opciones de desarrollador". Consulte la ayuda para más detalles.\n\nEs posible que deba reiniciar Shevery.]]></string>
 
     <!-- Application management -->
     <string name="app_management_select_all">Seleccionar todo</string>
