@@ -16,3 +16,6 @@
 jdk21/
 release.keystore
 signing.properties
+
+**/build/
+*.jks

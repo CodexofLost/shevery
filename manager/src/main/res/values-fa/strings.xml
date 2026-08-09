@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Shizuku</string>
-    <!-- To translators: you can leave your here -->
-    <string name="translation_contributors">@Fardin_Ahmadyy</string>
-    <!-- Home - Status -->
+    <string name="translation_contributors" />
+    <string name="app_name" translatable="false">Shevery</string>
+    <string name="accessibility_navigate_up">Navigate up</string>
+    <string name="accessibility_close">Close</string>
+    <string name="accessibility_more_options">More options</string>
+    <string name="accessibility_open_on_github">Open on GitHub</string>
     <string name="home_status_service_is_running">%1$s در حال اجرا است</string>
     <string name="home_status_service_not_running">%1$s در حال اجرا نیست</string>
     <string name="home_status_service_version">نسخه %2$s، %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[نسخه %2$s، %1$s<br>برای به‌روزرسانی به نسخه %3$s برنامه را راه‌اندازی مجدد نمایید]]></string>
-    <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[با اتصال به رایانه شروع کنید]]></string>
     <string name="home_adb_description"><![CDATA[برای دستگاه‌های بدون دسترسی ریشه (روت)، باید از adb برای راه‌اندازی Shizuku استفاده کنید (نیاز به اتصال به رایانه دارد). این فرآیند باید هر بار که دستگاه راه اندازی مجدد می شود تکرار شود. لطفاً <b><a href=\"%1$s\">راهنما را بخوانید</a></b>.]]></string>
     <string name="home_adb_button_view_help">خواندن راهنما</string>
@@ -16,12 +16,16 @@
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* ملاحظات دیگری نیز وجود دارد، لطفاً تأیید کنید که ابتدا راهنما را خوانده اید.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">رونوشت</string>
     <string name="home_adb_dialog_view_command_button_send">ارسال</string>
-    <!-- Home - Wireless Adb -->
     <string name="home_wireless_adb_title"><![CDATA[از طریق اشکال زدایی بی‌سیم شروع کنید]]></string>
     <string name="home_wireless_adb_description"><![CDATA[در اندروید ۱۱ یا بالاتر، می‌توانید اشکال‌زدایی بی‌سیم را فعال کنید و Shizuku را مستقیماً از دستگاه خود بدون اتصال به رایانه شروع کنید.<p>لطفاً ابتدا راهنمای گام به گام را مطالعه کنید.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[قبل از اندروید ۱۱، برای فعال کردن اشکال‌زدایی بی‌سیم، اتصال به رایانه لازم است.]]></string>
     <string name="home_wireless_adb_view_guide_button">راهنمای گام به گام</string>
-    <!-- Adb -->
+    <string name="home_local_network_title">Local network access</string>
+    <string name="home_local_network_description">Wireless debugging needs %1$s on this Android version.</string>
+    <string name="home_local_network_granted">%1$s is granted.</string>
+    <string name="home_local_network_missing">%1$s is not granted.</string>
+    <string name="home_local_network_grant">Grant access</string>
+    <string name="home_local_network_permission_denied">Local network access is required for Wireless debugging.</string>
     <string name="dialog_adb_discovery">جستجوی خدمات اشکال زدایی بی‌سیم</string>
     <string name="dialog_adb_discovery_message">لطفاً \"اشکال‌زدایی بی‌سیم\" را در \"گزینه‌های توسعه دهنده\" فعال کنید. وقتی شبکه تغییر می‌کند، \"اشکال‌زدایی بی‌سیم\" به‌طور خودکار غیرفعال می‌شود.\n\nتوجه داشته باشید، \"گزینه‌های توسعه دهنده\" یا \"اشکال‌زدایی USB\" را غیرفعال نکنید، در غیر این صورت Shizuku متوقف خواهد شد.</string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging">لطفاً در صورتی که به جستجو ادامه داد \"اشکال‌زدایی بی‌سیم\" را غیرفعال و فعال کنید.</string>
@@ -52,45 +56,52 @@
     <string name="adb_pairing_tutorial_content_finish">به Shizuku برگردید و Shizuku را راه‌اندازی کنید.</string>
     <string name="adb_pairing_tutorial_content_network">برنامه Shizuku نیاز به دسترسی به شبکه محلی دارد. زیرا توسط مجوز شبکه مدیریت می شود.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">برخی از دستگاه ها (مانند MIUI) به برنامه‌ها اجازه دسترسی به شبکه را زمانی که قابل مشاهده نیستند، نمی‌دهند، حتی اگر برنامه از خدمات پیش‌زمینه به‌عنوان استاندارد استفاده کند. لطفاً ویژگی‌های بهینه‌سازی باتری را برای Shizuku در چنین دستگاه‌هایی غیرفعال کنید.</string>
-    <!-- Home - Root -->
     <string name="home_root_title"><![CDATA[راه‌اندازی (برای دستگاه‌هایی با دسترسی ریشه)]]></string>
     <string name="home_root_description"><![CDATA[علاوه بر این، Shizuku می تواند به طور خودکار هنگام راه‌اندازی دستگاه راه اندازی شود. اگر نه، لطفاً بررسی کنید که آیا سیستم شما یا ابزارهای شخص ثالث Shizuku را محدود کرده است.<br>می توانید به %s مراجعه کنید.]]></string>
     <string name="home_root_description_sui"><![CDATA[اگر از Magisk استفاده می‌کنید، می‌توانید %1$s را امتحان کنید. برای کاربران دارای امتیازات ریشه، در نهایت جایگزین Shizuku خواهد شد. توجه داشته باشید، برنامه‌های موجود برای استفاده از %2$s باید کمی تغییر کنند.]]></string>
     <string name="home_root_button_start">راه‌اندازی</string>
     <string name="home_root_button_restart">راه‌اندازی مجدد</string>
-    <!-- Home - Application management -->
     <string name="home_app_management_title">مدیریت برنامه</string>
-    <plurals name="home_app_management_authorized_apps_count">
-        <item quantity="one"><![CDATA[%d برنامه مجاز]]></item>
-        <item quantity="other"><![CDATA[%d برنامه مجاز]]></item>
-    </plurals>
+    <plurals name="home_app_management_authorized_apps_count"><item quantity="one"><![CDATA[%d برنامه مجاز]]></item><item quantity="other"><![CDATA[%d برنامه مجاز]]></item></plurals>
     <string name="home_app_management_view_authorized_apps"><![CDATA[برای مدیریت برنامه های مجاز ضربه بزنید]]></string>
-    <string name="home_app_management_empty">برنامه‌هایی که Shizuku را درخواست کرده یا اعلام کرده‌اند در اینجا نشان داده می‌شوند.</string>
-    <!-- Home - Learn more -->
+    <string name="home_app_management_empty">برنامه‌هایی که درخواست یا اعلام استفاده از Shevery کرده‌اند اینجا نمایش داده می‌شوند.</string>
     <string name="home_learn_more_title">یادگیری Shizuku</string>
     <string name="home_learn_more_description">یاد بگیرید که چگونه با Shizuku توسعه دهید</string>
-    <!-- Home - Adb permissions limited -->
-    <string name="home_adb_is_limited_title">شما باید یک قدم اضافی بردارید</string>
-    <string name="home_adb_is_limited_description">سازنده دستگاه شما مجوزهای adb را محدود کرده است و برنامه هایی که از Shizuku استفاده می کنند به درستی کار نمی کنند.\n\nمعمولاً با تنظیم برخی از گزینه‌ها در \"گزینه‌های توسعه دهنده\" می‌توان این محدودیت را برطرف کرد. لطفاً راهنما را برای جزئیات نحوه انجام این کار بخوانید.\n\nشاید لازم باشد Shizuku را مجدداً راه اندازی کنید تا عملیات اجرایی شود.</string>
-    <!-- Application management -->
+    <string name="home_quick_terminal">ترمینال</string>
+    <string name="home_quick_wireless">ADB بی‌سیم</string>
+    <string name="home_quick_tcp">TCP 5555</string>
+    <string name="home_manage_apps_button">مدیریت برنامه‌ها</string>
+    <string name="home_refresh">بازنشانی</string>
+    <string name="home_diagnostics_title">تشخیص</string>
+    <string name="home_diagnostics_copy">کپی تشخیص</string>
+    <string name="home_diagnostics_copied">تشخیص کپی شد.</string>
+    <string name="home_modules_description">نصب و مدیریت ماژول‌های ADB</string>
+    <string name="home_adb_is_limited_title">یک مرحله اضافی لازم است</string>
+    <string name="home_adb_is_limited_description">سازنده دستگاه شما مجوزهای adb را محدود کرده و برنامه‌هایی که از Shevery استفاده می‌کنند درست کار نخواهند کرد.
+
+معمولاً این محدودیت با تنظیم برخی گزینه‌ها در «گزینه‌های توسعه‌دهنده» قابل رفع است. برای جزئیات راهنما را بخوانید.
+
+ممکن است برای اعمال تغییرات، Shevery را مجدداً راه‌اندازی کنید.</string>
+    <string name="app_management_select_all">انتخاب همه</string>
+    <string name="app_management_deselect_all">لغو انتخاب همه</string>
     <string name="app_management_dialog_adb_is_limited_title">مجوز adb محدود است</string>
     <string name="app_management_dialog_adb_is_limited_message"><![CDATA[این احتمال وجود دارد که سازنده دستگاه شما مجوز adb را محدود کند.<p>ممکن است راه حلی برای دستگاه شما در <b><a href=\"%1$s\">این سند</a></b> وجود داشته باشد.]]></string>
     <string name="app_management_item_summary_requires_root">* نیاز دارد که Shizuku با امتیازات ریشه اجرا شود</string>
-    <!-- Terminal -->
     <string name="home_terminal_title">از Shizuku در برنامه های پایانه استفاده کنید</string>
     <string name="home_terminal_description">دستورات را از طریق Shizuku در برنامه های پایانه که دوست دارید اجرا کنید</string>
-    <string name="terminal_tutorial_1">ابتدا پرونده ها را به هر جایی که می خواهید صادر کنید. دو پرونده %1$s و %2$s پیدا خواهید کرد.</string>
-    <string name="terminal_tutorial_1_description">اگر پرونده هایی با همین نام در پوشه انتخاب شده وجود داشته باشد، حذف خواهند شد.\n\nتابع صادرات از SAF (چارچوب دسترسی ذخیره سازی) استفاده می کند. گزارش شده است که MIUI عملکردهای SAF را خراب می کند. اگر از MIUI استفاده می کنید، ممکن است مجبور شوید پرونده را از apk شیزوکو استخراج کنید یا از GitHub بارگیری کنید.</string>
-    <string name="terminal_export_files">صادرات پرونده ها</string>
-    <string name="terminal_tutorial_2">سپس، از هر ویرایشگر متنی برای باز کردن و ویرایش %1$s استفاده کنید.</string>
-    <string name="terminal_tutorial_2_description">برای مثال، اگر می‌خواهید از Shizuku در %1$s استفاده کنید، باید %2$s را با %3$s جایگزین کنید (%4$s نام بسته %1$s است).</string>
-    <string name="terminal_tutorial_3">در نهایت، پرونده ها را به جایی منتقل کنید که برنامه پایانه شما می تواند به آن دسترسی داشته باشد، می توانید از %1$s برای اجرای دستورات از طریق Shizuku استفاده کنید.</string>
-    <string name="terminal_tutorial_3_description">چند نکته: به %1$s اجازه اجرا بدهید و آن را به %2$s اضافه کنید، می‌توانید مستقیماً از %1$s استفاده کنید.</string>
+    <string name="terminal_tutorial_1">ابتدا فایل‌ها را به هر جایی که می‌خواهید صادر کنید. دو فایل خواهید یافت: %1$s و %2$s.</string>
+    <string name="terminal_tutorial_1_description">اگر در پوشه انتخابی فایلی با همین نام وجود داشته باشد، حذف خواهد شد.
+
+عملکرد صادرات از SAF (Storage Access Framework) استفاده می‌کند. گزارش شده که MIUI عملکردهای SAF را خراب می‌کند. اگر از MIUI استفاده می‌کنید، ممکن است نیاز به استخراج فایل از APK Shevery یا دانلود از GitHub داشته باشید.</string>
+    <string name="terminal_export_files">صادر کردن فایل‌ها</string>
+    <string name="terminal_tutorial_2">بعد، از هر ویرایشگر متنی برای باز کردن و ویرایش %1$s استفاده کنید.</string>
+    <string name="terminal_tutorial_2_description">مثلاً اگر می‌خواهید از Shevery در %1$s استفاده کنید، باید %2$s را با %3$s جایگزین کنید (%4$s نام بسته %1$s است).</string>
+    <string name="terminal_tutorial_3">در نهایت، فایل‌ها را به جایی که برنامه ترمینال شما می‌تواند به آن دسترسی داشته باشد منتقل کنید و می‌توانید از %1$s برای اجرای دستورات از طریق Shevery استفاده کنید.</string>
+    <string name="terminal_tutorial_3_description">نکاتی: به %1$s مجوز اجرا بدهید و آن را به %2$s اضافه کنید تا بتوانید از %1$s مستقیماً استفاده کنید.</string>
     <string name="rish_description"><![CDATA[
-با %1$s، در هر برنامه پایانه‌ای، می‌توانید به پوسته‌ای که Shizuku اجرا می‌کند متصل شوید و با آن تعامل داشته باشید.
-<p>درباره استفاده دقیق %1$s، برای مشاهده سند ضربه بزنید.
+با %1$s، در هر برنامه ترمینال، می‌توانید به shell‌ای که Shevery اجرا می‌کند متصل شده و با آن تعامل کنید.
+<p>برای مشاهده استفاده تفصیلی %1$s، برای مشاهده مستندات ضربه بزنید.
     ]]></string>
-    <!-- Settings -->
     <string name="settings_title">تنظیمات</string>
     <string name="settings_language">زبان</string>
     <string name="settings_user_interface">ظاهر</string>
@@ -100,16 +111,103 @@
     <string name="settings_translation_contributors">مشارکت کنندگان ترجمه</string>
     <string name="settings_translation">در ترجمه شرکت کنید</string>
     <string name="settings_translation_summary">با ما همکاری کنید تا %s را به زبان شما ترجمه کنیم</string>
-    <string name="settings_start_on_boot">شروع هنگام راه‌اندازی دستگاه (دسترسی ریشه)</string>
-    <string name="settings_start_on_boot_summary">برای دستگاه های روت شده، Shizuku می تواند به طور خودکار در هنگام راه‌اندازی دستگاه شروع شود</string>
-    <string name="settings_use_system_color">از رنگ طرح زمینه دستگاه استفاده کنید</string>
-    <!-- About -->
+    <string name="settings_start_on_boot">شروع هنگام بوت</string>
+    <string name="settings_start_on_boot_summary">Shevery می‌تواند پس از راه‌اندازی موفق به‌صورت خودکار شروع شود.</string>
+    <string name="settings_use_system_color">استفاده از رنگ تم سیستم</string>
+    <string name="modules_title">ماژول‌های ADB</string>
+    <string name="modules_settings_title">ماژول‌ها</string>
+    <string name="modules_settings_summary">نصب ماژول‌های ZIP و اجرای عملیات آن‌ها از طریق سرور فعال Shevery ADB/root</string>
+    <string name="modules_header_summary">%1$d نصب شده، %2$d فعال</string>
+    <string name="modules_version_label">نسخه: %s</string>
+    <string name="modules_author_label">نویسنده: %s</string>
+    <string name="modules_access_mode">حالت دسترسی ماژول</string>
+    <string name="modules_access_mode_safe">ایمن</string>
+    <string name="modules_access_mode_safe_summary">بدون shell bridge، بدون دانلود WebUI، بدون عملیات، بدون سرویس.</string>
+    <string name="modules_access_mode_custom">سفارشی</string>
+    <string name="modules_access_mode_custom_summary">عملیات، سرویس، WebUI bridge، شبکه و مجوزهای دانلود را به‌صورت دستی انتخاب کنید.</string>
+    <string name="modules_access_mode_full">دسترسی کامل</string>
+    <string name="modules_access_mode_full_summary">shell bridge، عملیات، سرویس‌ها و دانلودهای WebUI را مجاز می‌کند. اینترنت WebView مسدود می‌ماند.</string>
+    <string name="modules_custom_permissions">مجوزهای سفارشی</string>
+    <string name="modules_custom_permissions_summary">هر مجوز ماژول را به‌صورت جداگانه پیکربندی کنید</string>
+    <string name="modules_permission_action">اجرای عملیات</string>
+    <string name="modules_permission_action_summary">اجرای دستی action.sh را مجاز می‌کند.</string>
+    <string name="modules_permission_service">اجرای سرویس</string>
+    <string name="modules_permission_service_summary">وقتی عملیات پس‌زمینه هم فعال باشد، service.sh را مجاز می‌کند.</string>
+    <string name="modules_permission_web_bridge">Shell Bridge برای WebUI</string>
+    <string name="modules_permission_web_bridge_summary">فقط برای WebUI محلی و فقط وقتی اینترنت WebView خاموش است، window.Shevery را نمایش می‌دهد.</string>
+    <string name="modules_permission_web_network">اینترنت WebView</string>
+    <string name="modules_permission_web_network_summary">مرور HTTPS/دارایی‌ها را مجاز می‌کند. این نمایش shell bridge را برای آن WebView غیرفعال می‌کند.</string>
+    <string name="modules_permission_web_download">WebUI download()</string>
+    <string name="modules_permission_web_download_summary">دانلود فایل HTTPS به پوشه WebUI را مجاز می‌کند، به‌جز index.html.</string>
+    <string name="modules_background_actions">اجازه عملیات پس‌زمینه</string>
+    <string name="modules_background_actions_summary">به ماژول‌های نصب شده اجازه می‌دهد در حالت دسترسی کامل، کار ADB پس‌زمینه درخواست کنند</string>
+    <string name="modules_background_allowed">پس‌زمینه مجاز است</string>
+    <string name="modules_background_blocked">پس‌زمینه مسدود است</string>
+    <string name="modules_install_zip">نصب ZIP</string>
+    <string name="modules_empty_title">هیچ ماژولی نصب نشده</string>
+    <string name="modules_empty_summary">ماژول‌های ADB از یک ZIP به سبک KernelSU/Magisk با module.prop، بنر اختیاری، WebUI، action.sh و service.sh استفاده می‌کنند.</string>
+    <string name="modules_install_success">%s نصب شد</string>
+    <string name="modules_install_failed">نصب ناموفق بود: %s</string>
+    <string name="modules_enabled">فعال</string>
+    <string name="modules_disabled">غیرفعال</string>
+    <string name="modules_enable">فعال‌سازی</string>
+    <string name="modules_disable">غیرفعال‌سازی</string>
+    <string name="modules_full_trust">اعتماد کامل</string>
+    <string name="modules_trust">اعتماد</string>
+    <string name="modules_untrust">عدم اعتماد</string>
+    <string name="modules_run_action">عملیات</string>
+    <string name="modules_run_service">سرویس</string>
+    <string name="modules_running">در حال اجرای اسکریپت ماژول…</string>
+    <string name="modules_open_webui">WebUI</string>
+    <string name="modules_webui">WebUI ماژول</string>
+    <string name="modules_delete">حذف</string>
+    <string name="modules_delete_title">ماژول حذف شود؟</string>
+    <string name="modules_delete_message">%s از فضای ذخیره‌سازی ماژول Shevery حذف خواهد شد.</string>
+    <string name="modules_action_result">عملیات کامل شد: خروج %d</string>
+    <string name="modules_action_failed">عملیات ناموفق بود</string>
+    <string name="modules_service_result">سرویس کامل شد: خروج %d</string>
+    <string name="modules_service_failed">سرویس ناموفق بود</string>
+    <string name="modules_recommand_title">ReCommand</string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
+    <string name="modules_recommand_expand">گسترش</string>
+    <string name="modules_recommand_collapse">جمع کردن</string>
+    <string name="modules_recommand_copy">کپی</string>
+    <string name="modules_recommand_execute">اجرا</string>
+    <string name="modules_recommand_close">بستن</string>
+    <string name="modules_recommand_command_clip_label">دستور ماژول</string>
+    <string name="modules_recommand_webui">ReCommand برای WebUI</string>
+    <string name="modules_recommand_webui_summary">قبل از اجرای shell در WebUI، کادر تأیید نمایش دهید.</string>
+    <string name="modules_recommand_action">ReCommand برای عملیات</string>
+    <string name="modules_recommand_action_summary">قبل از action.sh، کادر تأیید نمایش دهید.</string>
+    <string name="modules_ai">هوش مصنوعی</string>
+    <string name="modules_ai_api_key">کلید API</string>
+    <string name="modules_ai_api_key_summary">رمزگذاری شده با Android Keystore ذخیره می‌شود.</string>
+    <string name="modules_ai_unlocked">بازرس هوش مصنوعی باز شد</string>
+    <string name="modules_ai_hidden">بازرس هوش مصنوعی پنهان شد</string>
+    <string name="modules_ai_failed">بازرسی هوش مصنوعی ناموفق بود: %s</string>
+    <string name="modules_tab_installed">نصب شده</string>
+    <string name="modules_tab_catalog">کاتالوگ</string>
+    <string name="modules_check_updates">بررسی به‌روزرسانی‌ها</string>
+    <string name="modules_checking_updates">در حال بررسی به‌روزرسانی‌ها…</string>
+    <string name="modules_no_updates">همه ماژول‌ها به‌روز هستند</string>
+    <string name="modules_update_available">به‌روزرسانی موجود: v%s</string>
+    <string name="modules_update_button">به‌روزرسانی</string>
+    <string name="modules_updating">در حال به‌روزرسانی ماژول…</string>
+    <string name="modules_update_success">ماژول به v%s به‌روز شد</string>
+    <string name="modules_download_downloads">دانلود به پوشه دانلودها</string>
+    <string name="modules_download_install">دانلود و نصب</string>
+    <string name="modules_downloading">در حال دانلود…</string>
+    <string name="modules_download_enqueued">دانلود در پس‌زمینه شروع شد</string>
+    <string name="modules_search_placeholder">جستجو در ماژول‌های کاتالوگ…</string>
     <string name="action_about">درباره</string>
-    <string name="about_view_source_code"><![CDATA[کد منبع را در %s مشاهده کنید]]></string>
-    <!-- Stop -->
-    <string name="action_stop">توقف Shizuku</string>
-    <string name="dialog_stop_message">خدمات Shizuku متوقف خواهد شد.</string>
-    <!-- Notification -->
+    <string name="about_source_code_button">کد منبع</string>
+    <string name="about_view_source_code"><![CDATA[مشاهده کد منبع در %s]]></string>
+    <string name="action_stop">توقف Shevery</string>
+    <string name="dialog_stop_message">سرویس Shevery متوقف خواهد شد.</string>
+    <string name="service_already_stopped">سرویس Shevery از قبل متوقف شده است.</string>
+    <string name="service_stop_success">سرویس Shevery متوقف شد.</string>
+    <string name="service_stop_still_running">سرویس هنوز در حال اجراست</string>
+    <string name="service_stop_failed">توقف Shevery ناموفق بود: %1$s</string>
     <string name="notification_channel_service_status">وضعیت شروع خدمات</string>
     <string name="notification_service_starting">خدمات Shizuku شروع می شود…</string>
     <string name="notification_service_start_failed">راه‌اندازی خدمات Shizuku ناموفق بود.</string>
@@ -125,26 +223,238 @@
     <string name="notification_adb_pairing_succeed_text">اکنون می توانید خدمات Shizuku را راه اندازی کنید.</string>
     <string name="notification_adb_pairing_failed_title">مرتبط سازی انجام نشد</string>
     <string name="notification_adb_pairing_retry">سعی مجدد</string>
-    <!-- Permission related, appears in system permission UI -->
-    <string name="permission_group_label" translatable="false">Shizuku</string>
+    <string name="permission_group_label" translatable="false">Shevery</string>
     <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">دسترسی Shizuku</string>
     <string name="permission_description">به برنامه اجازه دهید از Shizuku استفاده کند.</string>
     <string name="permission_warning_template"><![CDATA[اجازه <b>%1$s</b> برای %2$s؟]]></string>
     <string name="grant_dialog_button_allow_always">همیشه اجازه داده شود</string>
     <string name="grant_dialog_button_deny">"رد"</string>
-    <!-- Starter -->
     <string name="starter">شروع کننده</string>
-    <string name="starting_root_shell" translatable="false">در حال راه‌اندازی پوسته ریشه…</string>
+    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">نمی‌توان خدمات را راه‌اندازی کرد زیرا مجوز ریشه داده نشده است یا این دستگاه روت نشده است.</string>
-    <!-- Misc -->
     <string name="dialog_cannot_open_browser_title">نمی توان مرورگر را راه اندازی کرد</string>
     <string name="toast_copied_to_clipboard">%s\nدر بریده‌دان رونوشت شده است.</string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> در بریده‌دان رونوشت شده است.]]></string>
-    <!-- Messages for legacy -->
     <string name="dialog_legacy_not_support_title">%1$s از شیزوکوی جدید پشتیبانی نمی کند</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[شیزوکوی قدیمی از مارس ۲۰۱۹ منسوخ شده است. همچنین، Shizuku قدیمی در دستگاه‌های اندروید جدید کار نمی‌کند.<p>لطفاً از توسعه‌دهنده <b>%1$s</b> بخواهید که به‌روزرسانی کند.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s در حال درخواست Shizuku قدیمی است</string>
     <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> پشتیبانی نسخه جدید شیزوکو دارد، اما شیزوکو قدیمی را درخواست می‌کند. این ممکن است به این دلیل باشد که Shizuku در حال اجرا نیست، لطفاً در برنامه Shizuku بررسی کنید.<p>Shizuku قدیمی از مارس ۲۰۱۹ منسوخ شده است.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">باز کردن Shizuku</string>
+    <string name="lab_features_title">ویژگی‌های آزمایشی</string>
+    <string name="lab_features_summary">ویژگی‌های آزمایشی</string>
+    <string name="shizuku_connectors_title">کانکتورهای Shevery</string>
+    <string name="shizuku_connectors_summary">اجازه می‌دهد پلاگین‌ها Shevery را فعال کنند</string>
+    <string name="unsafe_warning_title">هشدار</string>
+    <string name="unsafe_warning_message">فعال کردن این ویژگی ناامن است. آیا مطمئنید؟</string>
+    <string name="dhizuku_mode_title">حالت Dhizuku</string>
+    <string name="dhizuku_mode_summary">اجازه می‌دهد Shevery متصل به Dhizuku کار کند</string>
+    <string name="home_dhizuku_title"><![CDATA[شروع (از طریق Dhizuku)]]></string>
+    <string name="home_dhizuku_description"><![CDATA[برای دستگاه‌های مدیریت‌شده توسط Dhizuku، می‌توانید Shevery را مستقیماً با استفاده از امتیازات مالک دستگاه شروع کنید.]]></string>
+    <string name="dhizuku_warning_title">هشدار: حالت Dhizuku</string>
+    <string name="dhizuku_warning_message">Dhizuku برای امتیازات مالک/مدیر دستگاه طراحی شده است. برخی دستورات shell و ADB ممکن است هنگام اجرای Shevery از طریق Dhizuku به درستی کار نکنند یا اصلاً پشتیبانی نشوند. آیا مطمئن هستید که می‌خواهید ادامه دهید؟</string>
+    <string name="settings_tcp_mode">حالت TCP</string>
+    <string name="settings_tcp_mode_summary">راه‌اندازی مجدد ADB روی پورت TCP 5555.</string>
+    <string name="settings_restart_dialog_title">راه‌اندازی مجدد لازم است</string>
+    <string name="settings_restart_dialog_message">Shevery باید برای اعمال این تغییر حالت TCP مجدداً راه‌اندازی شود.</string>
+    <string name="settings_restart_dialog_message_wifi_required">
+
+Wi-Fi برای اولین راه‌اندازی مجدد لازم است زیرا Shevery باید قبل از تغییر ADB به 5555، به پورت اشکال‌زدایی بی‌سیم فعلی متصل شود.</string>
+    <string name="settings_auto_disable_usb_debugging">غیرفعال کردن خودکار USB</string>
+    <string name="settings_auto_disable_usb_debugging_summary">بعد از راه‌اندازی مجدد، اشکال‌زدایی USB را خاموش کن وقتی Shevery برای شروع هنگام بوت تنظیم نشده</string>
+    <string name="settings_service_group">نگهداری سرویس</string>
+    <string name="settings_application">برنامه</string>
+    <string name="settings_appearance">ظاهر</string>
+    <string name="lab_service_behavior_title">رفتار سرویس</string>
+    <string name="lab_keep_alive_title">نگه داشتن سرویس فعال</string>
+    <string name="lab_keep_alive_summary">به‌صورت دوره‌ای بررسی می‌کند که آیا سرویس Shevery در حال اجراست و در صورت لزوم آن را مجدداً راه‌اندازی می‌کند</string>
+    <string name="lab_auto_restart_title">راه‌اندازی مجدد خودکار در صورت خرابی</string>
+    <string name="lab_auto_restart_summary">در صورت خراب شدن غیرمنتظره سرویس Shevery، سعی می‌کند به‌طور خودکار آن را مجدداً راه‌اندازی کند</string>
+    <string name="lab_notify_death_title">اطلاع‌رسانی هنگام توقف سرویس</string>
+    <string name="lab_notify_death_summary">هنگامی که سرویس Shevery به‌طور غیرمنتظره متوقف می‌شود، اعلان نمایش می‌دهد</string>
+    <string name="lab_debugging_title">اشکال‌زدایی</string>
+    <string name="lab_verbose_logging_title">ثبت گزارش تفصیلی</string>
+    <string name="lab_verbose_logging_summary">گزارش‌های اشکال‌زدایی تفصیلی را در Logcat می‌نویسد. برای صرفه‌جویی در باتری در محصول غیرفعال کنید</string>
+    <string name="notification_channel_watchdog">نگهبان سرویس</string>
+    <string name="notification_watchdog_title">سرویس Shevery متوقف شد</string>
+    <string name="notification_watchdog_text">سرویس Shevery به‌طور غیرمنتظره متوقف شد.</string>
+    <string name="watchdog_service_title">نگهبان Shevery فعال است</string>
+    <string name="watchdog_service_text">در حال نظارت بر سرویس Shevery برای بازیابی</string>
+    <string name="notification_control_channel_name">کنترل Shevery</string>
+    <string name="notification_control_title_running">Shevery در حال اجراست</string>
+    <string name="notification_control_title_stopped">Shevery متوقف شده</string>
+    <string name="notification_control_text_running">برای باز کردن Shevery ضربه بزنید، یا این اعلان را گسترش دهید تا آن را متوقف کنید.</string>
+    <string name="notification_control_text_stopped">برای باز کردن Shevery ضربه بزنید، یا این اعلان را گسترش دهید تا آن را شروع کنید.</string>
+    <string name="notification_control_action_start">شروع</string>
+    <string name="notification_control_action_stop">توقف</string>
+    <string name="update_settings_title">تنظیمات به‌روزرسانی</string>
+    <string name="update_settings_catalog">کاتالوگ ماژول</string>
+    <string name="update_settings_catalog_enabled">فعال‌سازی کاتالوگ</string>
+    <string name="update_settings_catalog_enabled_summary">نمایش ماژول‌های کشف‌شده از GitHub Topics</string>
+    <string name="update_settings_frequency">دوره به‌روزرسانی</string>
+    <string name="update_settings_frequency_label">بررسی به‌روزرسانی‌ها</string>
+    <string name="update_settings_frequency_manual">دستی</string>
+    <string name="update_settings_frequency_daily">روزانه</string>
+    <string name="update_settings_frequency_weekly">هفتگی</string>
+    <string name="update_settings_install_mode">حالت نصب</string>
+    <string name="update_settings_install_mode_label">روش نصب پیش‌فرض</string>
+    <string name="update_settings_install_mode_sources">ساخت از منبع</string>
+    <string name="update_settings_install_mode_release">دانلود ZIP انتشار</string>
+    <string name="update_settings_github">GitHub</string>
+    <string name="update_settings_github_pat">توکن دسترسی شخصی</string>
+    <string name="update_settings_github_pat_set">توکن تنظیم شده</string>
+    <string name="update_settings_github_pat_unset">تنظیم نشده (۶۰ درخواست/ساعت)</string>
+    <string name="update_settings_github_pat_title">توکن دسترسی شخصی GitHub</string>
+    <string name="update_settings_github_pat_description">اختیاری. PAT GitHub محدودیت نرخ API را از ۶۰ به ۵۰۰۰ درخواست در ساعت افزایش می‌دهد. فقط به محدوده public_repo نیاز دارد.</string>
+    <string name="update_settings_github_pat_label">توکن</string>
+    <string name="update_settings_github_pat_show">نمایش</string>
+    <string name="update_settings_github_pat_hide">پنهان</string>
+    <string name="update_settings_github_pat_clear">پاک کردن</string>
+    <string name="update_settings_github_pat_delete">حذف توکن</string>
+    <string name="update_settings_github_pat_delete_summary">حذف توکن GitHub ذخیره‌شده</string>
+    <string name="modules_catalog">کاتالوگ</string>
+    <string name="modules_catalog_title">کاتالوگ ماژول</string>
+    <string name="modules_catalog_empty">ماژولی یافت نشد</string>
+    <string name="modules_catalog_sort_newest">جدیدترین</string>
+    <string name="modules_catalog_sort_oldest">قدیمی‌ترین</string>
+    <string name="modules_catalog_sort_stars">ستاره‌ها</string>
+    <string name="modules_catalog_sort_official">رسمی</string>
+    <string name="modules_catalog_install_sources">نصب از منبع</string>
+    <string name="modules_catalog_install_release">دانلود ZIP انتشار</string>
+    <string name="modules_catalog_install_description">نحوه نصب این ماژول را انتخاب کنید:</string>
+    <string name="modules_catalog_install_success">ماژول با موفقیت نصب شد</string>
+    <string name="modules_catalog_install_failed">نصب ناموفق بود: %s</string>
+    <string name="modules_catalog_token_required">توکن GitHub لازم است</string>
+    <string name="modules_catalog_token_hint">توکن دسترسی شخصی GitHub</string>
+    <string name="modules_catalog_token_description">برای جستجوی ماژول‌ها در GitHub یک توکن لازم است. می‌توانید در github.com/settings/tokens آن را ایجاد کنید</string>
+    <string name="modules_catalog_token_format_warning">توکن باید با ghp_ یا github_pat_ شروع شده و حداقل ۳۰ کاراکتر داشته باشد</string>
+    <string name="modules_catalog_loading">در حال بارگذاری کاتالوگ…</string>
+    <string name="modules_catalog_error">بارگذاری کاتالوگ ناموفق بود</string>
+    <string name="modules_catalog_install">نصب</string>
+    <string name="modules_catalog_installing">در حال نصب…</string>
+    <string name="modules_catalog_view_github">مشاهده در GitHub</string>
+    <string name="modules_catalog_skip_token">رد کردن</string>
+    <string name="modules_catalog_open">باز کردن کاتالوگ</string>
+    <string name="tv_status_active">فعال</string>
+    <string name="tv_status_disabled">غیرفعال</string>
+    <string name="tv_status_trusted">مورد اعتماد</string>
+    <string name="wear_catalog_sort_newest">جدیدترین</string>
+    <string name="wear_catalog_sort_stars">ستاره‌ها</string>
+    <string name="wear_catalog_sort_official">رسمی</string>
+    <string name="wear_catalog_sort_by">مرتب‌سازی بر اساس</string>
+    <string name="wear_catalog_filter">فیلتر</string>
+    <string name="backup_restore_title">پشتیبان‌گیری و بازیابی</string>
+    <string name="backup_title">پشتیبان‌گیری از تنظیمات و ماژول‌ها</string>
+    <string name="backup_summary">صادر کردن پیکربندی و ماژول‌ها به فایل ZIP</string>
+    <string name="restore_title">بازیابی تنظیمات و ماژول‌ها</string>
+    <string name="restore_summary">وارد کردن پیکربندی و ماژول‌ها از فایل ZIP</string>
+    <string name="comput_title">Comput</string>
+    <string name="comput_settings">تنظیمات کنسول Comput</string>
+    <string name="comput_adb_console">کنسول ADB Comput</string>
+    <string name="comput_recommand_title">ReCommand برای Comput</string>
+    <string name="comput_recommand_summary">قبل از اجرای دستورات در کنسول Comput، کادر تأیید نمایش دهید</string>
+    <string name="comput_recommand_confirmation">آیا مطمئن هستید که می‌خواهید این دستور ADB را در Comput اجرا کنید؟</string>
+    <string name="comput_ai_api_key_empty">کلید API Google AI Studio خالی است! لطفاً در تنظیمات Shevery پیکربندی کنید.</string>
+    <string name="comput_ai_api_key_title">کلید API Google AI Studio</string>
+    <string name="comput_ai_api_key_not_configured">پیکربندی نشده (Gemini AI کار نخواهد کرد)</string>
+    <string name="comput_gemini_model_title">مدل هوش مصنوعی Gemini</string>
+    <string name="comput_gemini_explain">توضیح Gemini</string>
+    <string name="comput_api_key_label">کلید API</string>
+    <string name="comput_show_api_key">نمایش کلید API</string>
+    <string name="comput_hide_api_key">پنهان کردن کلید API</string>
+    <string name="comput_gemini_model_performance">مدل با عملکرد بالا برای کدنویسی و عامل‌ها (توصیه شده)</string>
+    <string name="comput_gemini_model_lightweight">مدل سبک و پرسرعت</string>
+    <string name="comput_gemini_api_error">Gemini API کد خطای %1$d را برگرداند: %2$s</string>
+    <string name="comput_gemini_connection_error">خطای اتصال.</string>
+    <string name="comput_gemini_failed">دسترسی به Gemini API ناموفق بود: %1$s</string>
+    <string name="comput_gemini_no_details">بدون جزئیات.</string>
+    <string name="comput_sh_mode">حالت sh</string>
+    <string name="comput_adb_mode">حالت adb</string>
+    <string name="comput_command_label">دستور</string>
+    <string name="comput_command_placeholder">مثال: pm list packages</string>
+    <string name="comput_run">اجرا</string>
+    <string name="comput_clear">پاک کردن</string>
+    <string name="comput_console_cleared">کنسول پاک شد.</string>
+    <string name="comput_console_output">خروجی کنسول</string>
+    <string name="comput_output_copied">خروجی در کلیپبورد کپی شد</string>
+    <string name="comput_copy_output">کپی خروجی</string>
+    <string name="comput_ask_gemini">از Gemini بپرسید</string>
+    <string name="comput_executing">در حال اجرا: %1$s ...</string>
+    <string name="comput_adb_translate">حالت ترجمه ADB فعال
+اصل: %1$s
+در حال اجرا...</string>
+    <string name="comput_command_no_output">دستور بدون خروجی تکمیل شد.</string>
+    <string name="comput_timed_out">[E] دستور پس از ۱۲۰ ثانیه پایان وقت یافت.</string>
+    <string name="comput_exit_code">[E] دستور با کد %1$d خارج شد.</string>
+    <string name="comput_running_macro">در حال اجرای ماکرو: %1$s</string>
+    <string name="comput_executing_cmd">> در حال اجرای دستور: %1$s</string>
+    <string name="comput_error_not_running">خطا: سرویس Shevery با امتیاز در حال اجرا نیست. ابتدا سرویس را شروع کنید.</string>
+    <string name="comput_error_no_binder">خطا: بازیابی binder Shevery امکان‌پذیر نبود.</string>
+    <string name="comput_console_initialized">کنسول مقداردهی اولیه شد. سرویس Shevery با امتیاز متصل شد.
+آماده دستورات.</string>
+    <string name="comput_ai_explanation">توضیح هوش مصنوعی</string>
+    <string name="comput_commandium">Commandium</string>
+    <string name="comput_commandium_assistant">دستیار هوش مصنوعی Commandium</string>
+    <string name="comput_commandium_description">با استفاده از زبان طبیعی دستورات shell تولید کنید. Gemini یک دستور قابل کپی تولید خواهد کرد.</string>
+    <string name="comput_commandium_label">به چه دستوری نیاز دارید؟</string>
+    <string name="comput_commandium_placeholder">مثال: پیدا کردن همه فایل‌های بزرگتر از ۱۰MB در /sdcard</string>
+    <string name="comput_ask_commandium">از Commandium بپرسید</string>
+    <string name="comput_generated_command">دستور تولید شده:</string>
+    <string name="comput_command_pasted">دستور در ورودی الصاق شد</string>
+    <string name="comput_use_command">استفاده از دستور</string>
+    <string name="comput_copied_to_clipboard">در کلیپبورد کپی شد</string>
+    <string name="comput_copy_command">کپی دستور</string>
+    <string name="comput_hero_title">کنسول Shevery</string>
+    <string name="comput_hero_subtitle">ترمینال shell قدرتمند در دستگاه شما، با پشتیبانی Shizuku.</string>
+    <string name="comput_status_ready">آماده</string>
+    <string name="comput_status_running">در حال اجرا</string>
+    <string name="comput_status_error">خطا</string>
+    <string name="comput_console_section">کنسول</string>
+    <string name="comput_console_macros">ماکروهای کنسول</string>
+    <string name="comput_stop">توقف (%1$d)</string>
+    <string name="comput_record_macro">ضبط ماکرو</string>
+    <string name="comput_recording_active">ضبط فعال است. برای افزودن به این ماکرو، دستورات را با استفاده از ورودی اصلی اجرا کنید.</string>
+    <string name="comput_saved_macros">ماکروهای ذخیره‌شده</string>
+    <string name="comput_no_macros">هنوز هیچ ماکرویی ذخیره نشده. برای شروع روی «ضبط ماکرو» کلیک کنید.</string>
+    <string name="comput_delete">حذف</string>
+    <string name="comput_recommand_confirmation_title">تأیید ReCommand</string>
+    <string name="comput_execute">اجرا</string>
+    <string name="comput_cancel">لغو</string>
+    <string name="comput_save_macro">ذخیره ماکرو</string>
+    <string name="comput_save_macro_hint">نامی برای ماکروی ضبط‌شده وارد کنید:</string>
+    <string name="comput_macro_name_label">نام ماکرو</string>
+    <string name="comput_save">ذخیره</string>
+    <string name="comput_tab_terminal">ترمینال</string>
+    <string name="comput_tab_commandium">AI Studio</string>
+    <string name="comput_tab_macros">ماکروها</string>
+    <string name="comput_tab_presets">پیش‌تنظیم‌ها</string>
+    <string name="comput_quick_chips">عملیات سریع</string>
+    <string name="comput_terminal_header">خروجی SHELL</string>
+    <string name="comput_presets_title">کتابخانه پیش‌تنظیم‌ها</string>
+    <string name="comput_presets_subtitle">روی هر دستوری ضربه بزنید تا سریعاً اجرا شود یا به‌صورت خودکار در ترمینال پر شود.</string>
+    <string name="diagnostics_app">برنامه</string>
+    <string name="diagnostics_android">Android</string>
+    <string name="diagnostics_service">سرویس</string>
+    <string name="diagnostics_server_uid">uid سرور</string>
+    <string name="diagnostics_server_api">API سرور</string>
+    <string name="diagnostics_selinux">SELinux</string>
+    <string name="diagnostics_adb_permission">مجوز ADB</string>
+    <string name="diagnostics_authorized_apps">برنامه‌های مجاز</string>
+    <string name="diagnostics_local_network">شبکه محلی</string>
+    <string name="diagnostics_running">در حال اجرا</string>
+    <string name="diagnostics_stopped">متوقف</string>
+    <string name="diagnostics_granted">اعطا شده</string>
+    <string name="diagnostics_missing">غایب</string>
+    <string name="diagnostics_not_required">لازم نیست</string>
+    <string name="diagnostics_full">کامل</string>
+    <string name="diagnostics_limited">محدود</string>
+    <string name="diagnostics_unknown">ناشناخته</string>
+    <string name="error_protect_title">ErrorProtect</string>
+    <string name="error_protect_summary">هر ۱۰ ثانیه یکبار سلامت فرآیند و خطاهای تراکنش را بررسی می‌کند. اگر مشکلی یافت شود، Shevery را به‌صورت خودکار متوقف کرده و مجدداً راه‌اندازی می‌کند.</string>
+    <string name="settings_tcp_5555_title">اتصال TCP 5555</string>
+    <string name="settings_tcp_5555_summary">اتصال سرور ADB محلی به پورت ۵۵۵۵ برای ادامه کار بدون به‌روزرسانی پورت اشکال‌زدایی بی‌سیم.</string>
+    <string name="settings_tcp_5555_button">اتصال به ۵۵۵۵</string>
+    <string name="settings_tcp_5555_bind_success">ADB با موفقیت به پورت TCP 5555 متصل شد</string>
+    <string name="settings_tcp_5555_bind_failed">اتصال ADB به پورت ۵۵۵۵ ناموفق بود: %1$s</string>
+    <string name="settings_tcp_5555_bind_failed_generic">Root، Dhizuku یا Shevery فعال لازم است.</string>
 </resources>

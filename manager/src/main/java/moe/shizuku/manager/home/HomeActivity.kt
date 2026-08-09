@@ -36,15 +36,26 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Apps
+import androidx.compose.material.icons.rounded.Home
+import androidx.compose.material.icons.rounded.Link
+import androidx.compose.material.icons.rounded.NearMe
+import androidx.compose.material.icons.rounded.Settings
+import androidx.compose.material.icons.rounded.Terminal
+import androidx.compose.material.icons.rounded.Wifi
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
@@ -52,6 +63,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -64,7 +76,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -91,8 +105,6 @@ import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.starter.StarterActivity
 import moe.shizuku.manager.ui.compose.ShizukuIcon
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
@@ -101,8 +113,10 @@ import moe.shizuku.manager.utils.CustomTabsHelper
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.UserHandleCompat
 import moe.shizuku.manager.ui.compose.ExpressiveCard
+import moe.shizuku.manager.ui.compose.ExpressiveFloatingNavigationBar
 import moe.shizuku.manager.ui.compose.HtmlText
 import moe.shizuku.manager.ui.compose.MonospaceLog
+import moe.shizuku.manager.ui.compose.NavItem
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import rikka.core.util.ClipboardUtils
 import rikka.lifecycle.Resource
@@ -199,39 +213,9 @@ abstract class HomeActivity : AppActivity() {
             var selectedTab by remember { mutableIntStateOf(0) }
 
             ShizukuExpressiveTheme {
+                Box(Modifier.fillMaxSize()) {
                 Scaffold(
-                    contentWindowInsets = WindowInsets.navigationBars,
-                    bottomBar = {
-                        NavigationBar(
-                            containerColor = MaterialTheme.colorScheme.surfaceContainer,
-                            tonalElevation = 8.dp
-                        ) {
-                            NavigationBarItem(
-                                selected = selectedTab == 0,
-                                onClick = { selectedTab = 0 },
-                                icon = { ShizukuIcon(R.drawable.ic_server_ok_24dp, contentDescription = null) },
-                                label = { Text(stringResource(R.string.app_name)) }
-                            )
-                            NavigationBarItem(
-                                selected = selectedTab == 1,
-                                onClick = { selectedTab = 1 },
-                                icon = { ShizukuIcon(R.drawable.ic_system_icon, contentDescription = null) },
-                                label = { Text(stringResource(R.string.modules_title)) }
-                            )
-                            NavigationBarItem(
-                                selected = selectedTab == 2,
-                                onClick = { selectedTab = 2 },
-                                icon = { ShizukuIcon(R.drawable.ic_terminal_24, contentDescription = null) },
-                                label = { Text(stringResource(R.string.comput_title)) }
-                            )
-                            NavigationBarItem(
-                                selected = selectedTab == 3,
-                                onClick = { selectedTab = 3 },
-                                icon = { ShizukuIcon(R.drawable.ic_action_settings_24dp, contentDescription = null) },
-                                label = { Text(stringResource(R.string.settings_title)) }
-                            )
-                        }
-                    }
+                    contentWindowInsets = WindowInsets(0.dp)
                 ) { innerPadding ->
                     Box(modifier = Modifier.padding(innerPadding).fillMaxSize()) {
                         androidx.compose.animation.AnimatedContent(
@@ -283,6 +267,18 @@ abstract class HomeActivity : AppActivity() {
                             }
                         }
                     }
+                }
+                ExpressiveFloatingNavigationBar(
+                    items = listOf(
+                        NavItem(stringResource(R.string.app_name), Icons.Rounded.Home),
+                        NavItem(stringResource(R.string.modules_title), Icons.Rounded.Apps),
+                        NavItem(stringResource(R.string.comput_title), Icons.Rounded.Terminal),
+                        NavItem(stringResource(R.string.settings_title), Icons.Rounded.Settings)
+                    ),
+                    selectedIndex = selectedTab,
+                    onItemSelected = { selectedTab = it },
+                    modifier = Modifier.align(Alignment.BottomCenter)
+                )
                 }
             }
         }
@@ -695,14 +691,16 @@ private fun HomeScreen(
     val running = status.isRunning
     val adbPermission = status.permission
     val canUseWirelessAdb = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
-    var moreOpen by remember { mutableStateOf(false) }
     val diagnostics = remember(status, grantedCount, localNetworkPermissionState) {
         buildDiagnostics(context, status, grantedCount, localNetworkPermissionState)
     }
+    var moreOpen by remember { mutableStateOf(false) }
 
     Scaffold(
+        contentWindowInsets = WindowInsets(0.dp),
         topBar = {
             TopAppBar(
+                modifier = Modifier.clip(RoundedCornerShape(bottomStart = 28.dp, bottomEnd = 28.dp)),
                 title = {
                     Text(
                         text = stringResource(R.string.app_name),
@@ -762,40 +760,37 @@ private fun HomeScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
-            contentPadding = PaddingValues(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
+            contentPadding = PaddingValues(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 112.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             item {
-                StatusCard(
+                StatusHero(
                     serviceResource = serviceResource,
-                    status = status
+                    status = status,
+                    running = running,
+                    adbPermission = adbPermission,
+                    isPrimaryUser = isPrimaryUser,
+                    isRooted = isRooted,
+                    canUseWirelessAdb = canUseWirelessAdb,
+                    dhizukuEnabled = dhizukuEnabled,
+                    onStartRoot = onStartRoot,
+                    onStartWirelessAdb = onStartWirelessAdb,
+                    onStartDhizuku = onStartDhizuku,
+                    onManageApps = onManageApps,
+                    onStop = onStop
                 )
             }
 
-
-
-            if (adbPermission) {
-                item {
-                    ManageAppsCard(
-                        status = status,
-                        grantedCount = grantedCount,
-                        onClick = onManageApps
-                    )
-                }
-
-                item {
-                    SimpleActionCard(
-                        icon = R.drawable.ic_terminal_24,
-                        title = stringResource(R.string.home_terminal_title),
-                        body = if (running) {
-                            stringResource(R.string.home_terminal_description)
-                        } else {
-                            stringResource(R.string.home_status_service_not_running, stringResource(R.string.app_name))
-                        },
-                        enabled = running,
-                        onClick = onTerminal
-                    )
-                }
+            item {
+                QuickActionsPills(
+                    running = running,
+                    isPrimaryUser = isPrimaryUser,
+                    onTerminal = onTerminal,
+                    onStartWirelessAdb = onStartWirelessAdb,
+                    onPairWirelessAdb = onPairWirelessAdb,
+                    onStartTcp5555 = onStartTcp5555,
+                    onOpenWirelessGuide = onOpenWirelessGuide
+                )
             }
 
             if (running && !adbPermission) {
@@ -819,50 +814,36 @@ private fun HomeScreen(
                 }
             }
 
-            if (isPrimaryUser) {
-                val rootRestart = running && status.uid == 0
-                if (isRooted) {
-                    item {
-                        RootCard(rootRestart, onStartRoot)
-                    }
-                }
-                if (canUseWirelessAdb) {
-                    item {
-                        WirelessAdbCard(
-                            localNetworkPermissionState = localNetworkPermissionState,
-                            onStartWirelessAdb = onStartWirelessAdb,
-                            onPairWirelessAdb = onPairWirelessAdb,
-                            onOpenWirelessGuide = onOpenWirelessGuide
-                        )
-                    }
-                }
-                item {
-                    AdbCommandCard(
-                        onShowAdbCommand = onShowAdbCommand,
-                        onOpenAdbHelp = onOpenAdbHelp
-                    )
-                }
-                if (!isRooted) {
-                    item {
-                        RootCard(rootRestart, onStartRoot)
-                    }
-                }
-                if (dhizukuEnabled) {
-                    item {
-                        DhizukuCard(onStartDhizuku)
-                    }
-                }
-                item {
-                    TcpModeCard(onStartTcp5555)
-                }
-            }
-
             if (localNetworkPermissionState.required && !localNetworkPermissionState.granted) {
                 item {
                     LocalNetworkPermissionCard(
                         localNetworkPermissionState = localNetworkPermissionState,
                         onRequestLocalNetworkPermission = onRequestLocalNetworkPermission
                     )
+                }
+            }
+
+            if (adbPermission) {
+                item {
+                    ManageAppsCard(
+                        status = status,
+                        grantedCount = grantedCount,
+                        onClick = onManageApps
+                    )
+                }
+            }
+
+            if (isPrimaryUser) {
+                item {
+                    AdbCommandCard(
+                        onShowAdbCommand = onShowAdbCommand,
+                        onOpenAdbHelp = onOpenAdbHelp
+                    )
+                }
+                if (dhizukuEnabled) {
+                    item {
+                        DhizukuCard(onStartDhizuku)
+                    }
                 }
             }
 
@@ -886,12 +867,22 @@ private fun HomeScreen(
 }
 
 @Composable
-private fun StatusCard(
+private fun StatusHero(
     serviceResource: Resource<ServiceStatus>?,
-    status: ServiceStatus
+    status: ServiceStatus,
+    running: Boolean,
+    adbPermission: Boolean,
+    isPrimaryUser: Boolean,
+    isRooted: Boolean,
+    canUseWirelessAdb: Boolean,
+    dhizukuEnabled: Boolean,
+    onStartRoot: () -> Unit,
+    onStartWirelessAdb: () -> Unit,
+    onStartDhizuku: () -> Unit,
+    onManageApps: () -> Unit,
+    onStop: () -> Unit
 ) {
     val context = LocalContext.current
-    val running = status.isRunning
     val title = if (running) {
         stringResource(R.string.home_status_service_is_running, stringResource(R.string.app_name))
     } else {
@@ -901,14 +892,117 @@ private fun StatusCard(
         buildServiceSummary(context, status)
     }
 
-    HomeCard(
-        icon = if (running) R.drawable.ic_server_ok_24dp else R.drawable.ic_server_error_24dp,
-        title = title,
-        body = summary
+    Surface(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(28.dp),
+        color = if (running) {
+            MaterialTheme.colorScheme.primaryContainer
+        } else {
+            MaterialTheme.colorScheme.surfaceContainerHigh
+        }
     ) {
-        if (serviceResource == null) {
-            Spacer(Modifier.height(12.dp))
-            LoadingIndicator(Modifier.size(32.dp))
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Surface(
+                    modifier = Modifier.size(56.dp),
+                    shape = CircleShape,
+                    color = if (running) {
+                        MaterialTheme.colorScheme.primary
+                    } else {
+                        MaterialTheme.colorScheme.surfaceContainerHighest
+                    }
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        ShizukuIcon(
+                            icon = if (running) R.drawable.ic_server_ok_24dp else R.drawable.ic_server_error_24dp,
+                            contentDescription = null,
+                            tint = if (running) {
+                                MaterialTheme.colorScheme.onPrimary
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            },
+                            modifier = Modifier.size(28.dp)
+                        )
+                    }
+                }
+                Spacer(Modifier.width(16.dp))
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.titleLargeEmphasized,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        color = if (running) {
+                            MaterialTheme.colorScheme.onPrimaryContainer
+                        } else {
+                            MaterialTheme.colorScheme.onSurface
+                        }
+                    )
+                    if (summary.isNotBlank()) {
+                        Text(
+                            text = summary,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = if (running) {
+                                MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.75f)
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            }
+                        )
+                    }
+                }
+            }
+
+            if (serviceResource == null) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    LoadingIndicator(Modifier.size(24.dp))
+                }
+            }
+
+            FlowRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                if (running) {
+                    if (adbPermission) {
+                        Button(onClick = onManageApps) {
+                            ButtonIcon(R.drawable.ic_system_icon)
+                            Text(stringResource(R.string.home_manage_apps_button))
+                        }
+                    }
+                    if (status.uid == 0) {
+                        FilledTonalButton(onClick = onStartRoot) {
+                            ButtonIcon(R.drawable.ic_server_restart)
+                            Text(stringResource(R.string.home_root_button_restart))
+                        }
+                    }
+                    FilledTonalButton(onClick = onStop) {
+                        ButtonIcon(R.drawable.ic_close_24)
+                        Text(stringResource(R.string.action_stop))
+                    }
+                } else if (isPrimaryUser) {
+                    if (isRooted) {
+                        Button(onClick = onStartRoot) {
+                            ButtonIcon(R.drawable.ic_server_start_24dp)
+                            Text(stringResource(R.string.home_root_button_start))
+                        }
+                    }
+                    if (canUseWirelessAdb) {
+                        FilledTonalButton(onClick = onStartWirelessAdb) {
+                            ButtonIcon(R.drawable.ic_wadb_24)
+                            Text(stringResource(R.string.home_wireless_adb_title))
+                        }
+                    }
+                    if (dhizukuEnabled) {
+                        FilledTonalButton(onClick = onStartDhizuku) {
+                            ButtonIcon(R.drawable.ic_system_icon)
+                            Text(stringResource(R.string.home_dhizuku_title))
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -946,85 +1040,94 @@ private fun ManageAppsCard(
 }
 
 @Composable
-private fun RootCard(
-    restart: Boolean,
-    onStartRoot: () -> Unit
+private fun QuickActionsPills(
+    running: Boolean,
+    isPrimaryUser: Boolean,
+    onTerminal: () -> Unit,
+    onStartWirelessAdb: () -> Unit,
+    onPairWirelessAdb: () -> Unit,
+    onStartTcp5555: () -> Unit,
+    onOpenWirelessGuide: () -> Unit
 ) {
-    val buttonLabel = if (restart) R.string.home_root_button_restart else R.string.home_root_button_start
-    val buttonIcon = if (restart) R.drawable.ic_server_restart else R.drawable.ic_server_start_24dp
-
-    HomeCard(
-        icon = R.drawable.ic_root_24dp,
-        title = htmlStringResource(R.string.home_root_title),
-        body = htmlStringResource(
-            R.string.home_root_description,
-            "Don't kill my app!"
-        )
-    ) {
-        HomeButtons(
-            listOf(
-                HomeButtonSpec(
-                    label = buttonLabel,
-                    icon = buttonIcon,
-                    primary = true,
-                    onClick = onStartRoot
-                )
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            QuickActionPill(
+                icon = Icons.Rounded.Terminal,
+                label = stringResource(R.string.home_quick_terminal),
+                enabled = running,
+                onClick = onTerminal
             )
-        )
+            if (isPrimaryUser) {
+                QuickActionPill(
+                    icon = Icons.Rounded.Wifi,
+                    label = stringResource(R.string.home_quick_wireless),
+                    onClick = onStartWirelessAdb
+                )
+                QuickActionPill(
+                    icon = Icons.Rounded.NearMe,
+                    label = stringResource(R.string.adb_pairing),
+                    onClick = onPairWirelessAdb
+                )
+                QuickActionPill(
+                    icon = Icons.Rounded.Link,
+                    label = stringResource(R.string.home_quick_tcp),
+                    onClick = onStartTcp5555
+                )
+            }
+        }
+        if (isPrimaryUser) {
+            TextButton(onClick = onOpenWirelessGuide) {
+                Text(stringResource(R.string.home_wireless_adb_view_guide_button))
+            }
+        }
     }
 }
 
 @Composable
-private fun WirelessAdbCard(
-    localNetworkPermissionState: LocalNetworkPermissionState,
-    onStartWirelessAdb: () -> Unit,
-    onPairWirelessAdb: () -> Unit,
-    onOpenWirelessGuide: () -> Unit
+private fun QuickActionPill(
+    icon: ImageVector,
+    label: String,
+    enabled: Boolean = true,
+    onClick: () -> Unit
 ) {
-    val body = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-        htmlStringResource(R.string.home_wireless_adb_description)
-    } else {
-        htmlStringResource(R.string.home_wireless_adb_description_pre_11)
-    }
-    val permissionLine = if (localNetworkPermissionState.required) {
-        stringResource(
-            if (localNetworkPermissionState.granted) {
-                R.string.home_local_network_granted
-            } else {
-                R.string.home_local_network_missing
-            },
-            localNetworkPermissionState.label
-        )
-    } else {
-        null
-    }
-
-    HomeCard(
-        icon = R.drawable.ic_wadb_24,
-        title = htmlStringResource(R.string.home_wireless_adb_title),
-        body = listOfNotNull(body, permissionLine).joinToString("\n\n")
+    Surface(
+        onClick = onClick,
+        enabled = enabled,
+        shape = RoundedCornerShape(percent = 50),
+        color = if (enabled) {
+            MaterialTheme.colorScheme.secondaryContainer
+        } else {
+            MaterialTheme.colorScheme.surfaceContainerHigh
+        }
     ) {
-        val buttons = mutableListOf(
-            HomeButtonSpec(
-                label = R.string.home_root_button_start,
-                icon = R.drawable.ic_server_start_24dp,
-                primary = true,
-                onClick = onStartWirelessAdb
+        Row(
+            modifier = Modifier.padding(horizontal = 18.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                tint = if (enabled) {
+                    MaterialTheme.colorScheme.onSecondaryContainer
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                },
+                modifier = Modifier.size(20.dp)
             )
-        )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            buttons += HomeButtonSpec(
-                label = R.string.adb_pairing,
-                icon = R.drawable.ic_numeric_1_circle_outline_24,
-                onClick = onPairWirelessAdb
-            )
-            buttons += HomeButtonSpec(
-                label = R.string.home_wireless_adb_view_guide_button,
-                icon = R.drawable.ic_help_outline_24dp,
-                onClick = onOpenWirelessGuide
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelLarge,
+                color = if (enabled) {
+                    MaterialTheme.colorScheme.onSecondaryContainer
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                }
             )
         }
-        HomeButtons(buttons)
     }
 }
 
@@ -1297,26 +1400,6 @@ private fun buildDiagnostics(
     }.trim()
 }
 
-
-@Composable
-private fun TcpModeCard(onStartTcpMode: () -> Unit) {
-    HomeCard(
-        icon = R.drawable.ic_baseline_link_24,
-        title = stringResource(R.string.settings_tcp_5555_title),
-        body = stringResource(R.string.settings_tcp_5555_summary)
-    ) {
-        HomeButtons(
-            listOf(
-                HomeButtonSpec(
-                    label = R.string.settings_tcp_5555_button,
-                    icon = R.drawable.ic_baseline_link_24,
-                    primary = true,
-                    onClick = onStartTcpMode
-                )
-            )
-        )
-    }
-}
 
 @Composable
 private fun DhizukuCard(onStartDhizuku: () -> Unit) {

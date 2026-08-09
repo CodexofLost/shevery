@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
@@ -31,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import moe.shizuku.manager.R
@@ -248,10 +250,12 @@ fun SettingsScreen() {
     } else {
         ShizukuLazyScaffold(
             title = stringResource(R.string.settings_title),
-            onNavigateUp = null
+            onNavigateUp = null,
+            bottomInset = 112.dp
         ) {
         item {
-            SettingsGroup(title = stringResource(R.string.settings_startup)) {
+            SettingsGroup(title = stringResource(R.string.settings_application)) {
+                SectionHeader(stringResource(R.string.settings_startup))
                 SwitchSettingsRow(
                     icon = R.drawable.ic_server_restart,
                     title = stringResource(R.string.settings_start_on_boot),
@@ -262,11 +266,8 @@ fun SettingsScreen() {
                         startOnBoot = packageManager.isComponentEnabled(componentName)
                     }
                 )
-            }
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.settings_service_group)) {
+                GroupDivider()
+                SectionHeader(stringResource(R.string.settings_service_group))
                 SwitchSettingsRow(
                     icon = R.drawable.ic_server_restart,
                     title = stringResource(R.string.error_protect_title),
@@ -305,7 +306,8 @@ fun SettingsScreen() {
         }
 
         item {
-            SettingsGroup(title = stringResource(R.string.settings_language)) {
+            SettingsGroup(title = stringResource(R.string.settings_appearance)) {
+                SectionHeader(stringResource(R.string.settings_language))
                 SettingsRow(
                     icon = R.drawable.ic_outline_translate_24,
                     title = stringResource(R.string.settings_language),
@@ -333,11 +335,8 @@ fun SettingsScreen() {
                         CustomTabsHelper.launchUrlOrCopy(context, context.getString(R.string.translation_url))
                     }
                 )
-            }
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.settings_user_interface)) {
+                GroupDivider()
+                SectionHeader(stringResource(rikka.core.R.string.dark_theme))
                 SettingsRow(
                     icon = R.drawable.ic_outline_dark_mode_24,
                     title = stringResource(rikka.core.R.string.dark_theme),
@@ -373,17 +372,6 @@ fun SettingsScreen() {
                         }
                     )
                 }
-            }
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.lab_features_title)) {
-                SettingsRow(
-                    icon = R.drawable.ic_settings_outline_24dp,
-                    title = stringResource(R.string.lab_features_title),
-                    summary = stringResource(R.string.lab_features_summary),
-                    onClick = { context.startActivity(Intent(context, LabFeaturesActivity::class.java)) }
-                )
             }
         }
 
@@ -478,6 +466,14 @@ fun SettingsScreen() {
 
         item {
             SettingsGroup(title = stringResource(R.string.backup_restore_title)) {
+                SectionHeader(stringResource(R.string.lab_features_title))
+                SettingsRow(
+                    icon = R.drawable.ic_settings_outline_24dp,
+                    title = stringResource(R.string.lab_features_title),
+                    summary = stringResource(R.string.lab_features_summary),
+                    onClick = { context.startActivity(Intent(context, LabFeaturesActivity::class.java)) }
+                )
+                GroupDivider()
                 SettingsRow(
                     icon = R.drawable.ic_outline_arrow_upward_24,
                     title = stringResource(R.string.backup_title),
@@ -693,13 +689,22 @@ fun SettingsScreen() {
     }
 }
 
+@Composable
+private fun SectionHeader(title: String) {
+    Text(
+        text = title,
+        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 14.dp, bottom = 4.dp),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+        fontWeight = FontWeight.SemiBold
+    )
+}
+
 private data class LocaleOption(
     val tag: String,
     val title: String,
     val summary: String?
-)
-
-private fun buildLocaleOptions(context: android.content.Context, currentTag: String): List<LocaleOption> {
+)private fun buildLocaleOptions(context: android.content.Context, currentTag: String): List<LocaleOption> {
     val localeTags = ShizukuLocales.LOCALES
     val displayLocaleTags = ShizukuLocales.DISPLAY_LOCALES
     val currentLocale = ShizukuSettings.getLocale()

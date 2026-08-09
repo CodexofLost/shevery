@@ -10,6 +10,8 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
+import androidx.compose.runtime.DisposableEffect
+import moe.shizuku.manager.ui.compose.LocalFloatingNavBarVisible
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -97,6 +99,7 @@ import moe.shizuku.manager.module.update.ModuleInstaller
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import moe.shizuku.manager.ui.compose.ShizukuIcon
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
+import moe.shizuku.manager.ui.compose.ShizukuScaffold
 import java.util.Locale
 
 private enum class SortMode { NEWEST, OLDEST, STARS, OFFICIAL }
@@ -107,6 +110,13 @@ private const val MAX_README_CHARS = 16000
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun CatalogScreen(onNavigateUp: () -> Unit) {
+    val navBarState = LocalFloatingNavBarVisible.current
+    DisposableEffect(onNavigateUp) {
+        navBarState.value = false
+        onDispose {
+            navBarState.value = true
+        }
+    }
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val discoveryManager = remember { ModuleDiscoveryManager.getInstance(context) }
@@ -344,6 +354,7 @@ private fun CatalogListScreen(
     ShizukuLazyScaffold(
         title = stringResource(R.string.modules_catalog_title),
         onNavigateUp = onNavigateUp,
+        bottomInset = 112.dp,
         actions = {
             FilledTonalButton(modifier = Modifier.height(40.dp), onClick = onRefresh) {
                 ShizukuIcon(R.drawable.ic_server_restart, modifier = Modifier.padding(end = 6.dp).size(16.dp))
@@ -412,6 +423,13 @@ private fun ModuleDetailScreen(
     onViewOnGitHub: () -> Unit,
     onRefreshInstalled: () -> Unit
 ) {
+    val navBarState = LocalFloatingNavBarVisible.current
+    DisposableEffect(Unit) {
+        navBarState.value = false
+        onDispose {
+            navBarState.value = true
+        }
+    }
     val scope = rememberCoroutineScope()
     var readmeContent by remember { mutableStateOf<String?>(null) }
     var isLoadingReadme by remember { mutableStateOf(true) }
@@ -472,28 +490,17 @@ private fun ModuleDetailScreen(
         isLoadingReadme = false
     }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(module.moduleName, maxLines = 1, overflow = TextOverflow.Ellipsis) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Rounded.ArrowBack,
-                            contentDescription = "Back"
-                        )
-                    }
-                },
-                actions = {
-                    IconButton(onClick = onViewOnGitHub) {
-                        ShizukuIcon(
-                            R.drawable.ic_outline_open_in_new_24,
-                            contentDescription = stringResource(R.string.accessibility_open_on_github),
-                            modifier = Modifier.size(20.dp)
-                        )
-                    }
-                }
-            )
+    ShizukuScaffold(
+        title = module.moduleName,
+        onNavigateUp = onBack,
+        actions = {
+            IconButton(onClick = onViewOnGitHub) {
+                ShizukuIcon(
+                    R.drawable.ic_outline_open_in_new_24,
+                    contentDescription = stringResource(R.string.accessibility_open_on_github),
+                    modifier = Modifier.size(20.dp)
+                )
+            }
         },
         bottomBar = {
             Surface(tonalElevation = 3.dp) {

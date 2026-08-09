@@ -5,9 +5,9 @@ pluginManagement {
         mavenLocal()
     }
     plugins {
-        id("com.android.application") version "8.10.0"
-        id("com.android.library") version "8.10.0"
-        id("org.jetbrains.kotlin.android") version "2.1.21"
+        id("com.android.application") version "9.4.0-alpha07"
+        id("com.android.library") version "9.4.0-alpha07"
+        id("org.jetbrains.kotlin.android") version "2.4.20-Beta2"
         id("dev.rikka.tools.autoresconfig") version "1.2.2"
         id("dev.rikka.tools.materialthemebuilder") version "1.5.1"
         id("dev.rikka.tools.refine") version "4.4.0"
@@ -15,14 +15,14 @@ pluginManagement {
 }
 
 plugins {
-    id("com.android.settings") version "8.10.0"
+    id("com.android.settings") version "9.4.0-alpha07"
 }
 
 android {
     compileSdk = 36
     minSdk = 24
     targetSdk = 36
-    ndkVersion = "29.0.13113456"
+    ndkVersion = "30.0.14904198"
     buildToolsVersion = "36.0.0"
 }
 
@@ -35,7 +35,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         libs {
-            version('hidden-api', '4.3.3')
+            version('hidden-api', '4.4.0')
             library('hidden-compat', 'dev.rikka.hidden', 'compat').versionRef('hidden-api')
             library('hidden-stub', 'dev.rikka.hidden', 'stub').versionRef('hidden-api')
 

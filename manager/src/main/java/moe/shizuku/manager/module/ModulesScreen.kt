@@ -1,7 +1,8 @@
 @file:OptIn(
     androidx.compose.foundation.ExperimentalFoundationApi::class,
     androidx.compose.foundation.layout.ExperimentalLayoutApi::class,
-    androidx.compose.material3.ExperimentalMaterial3Api::class
+    androidx.compose.material3.ExperimentalMaterial3Api::class,
+    androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class
 )
 
 package moe.shizuku.manager.module
@@ -249,8 +250,9 @@ fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
     } else {
         ShizukuLazyScaffold(
             title = stringResource(R.string.modules_title),
-        onNavigateUp = null,
-        actions = {
+            onNavigateUp = null,
+            bottomInset = 112.dp,
+            actions = {
             if (selectedTab == 0) {
                 OutlinedButton(
                     modifier = Modifier.height(36.dp),

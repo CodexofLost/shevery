@@ -1,6 +1,7 @@
 @file:OptIn(
     androidx.compose.foundation.layout.ExperimentalLayoutApi::class,
-    androidx.compose.material3.ExperimentalMaterial3Api::class
+    androidx.compose.material3.ExperimentalMaterial3Api::class,
+    androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class
 )
 
 package moe.shizuku.manager.logs
@@ -8,15 +9,17 @@ package moe.shizuku.manager.logs
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.ui.draw.clip
 import android.os.ParcelFileDescriptor
 import android.widget.Toast
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,32 +27,47 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Apps
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.Clear
 import androidx.compose.material.icons.rounded.ContentCopy
+import androidx.compose.material.icons.rounded.ContentPaste
+import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.PlayArrow
+import androidx.compose.material.icons.rounded.PlaylistPlay
+import androidx.compose.material.icons.rounded.Terminal
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -65,15 +83,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
-import androidx.compose.runtime.mutableStateListOf
 import moe.shizuku.manager.R
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
@@ -85,18 +101,30 @@ import rikka.shizuku.Shizuku
 import java.net.HttpURLConnection
 import java.net.URL
 
+private data class PresetCommand(
+    val title: String,
+    val command: String,
+    val category: String
+)
+
 @Composable
 fun ComputScreen() {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
-    
+
     var command by remember { mutableStateOf("pm list packages -3") }
     var outputLog by remember { mutableStateOf(context.getString(R.string.comput_console_initialized)) }
     var isRunning by remember { mutableStateOf(false) }
     var isAdbMode by remember { mutableStateOf(false) }
     var isExplaining by remember { mutableStateOf(false) }
     var aiExplanation by remember { mutableStateOf("") }
+    var showGeminiSection by remember { mutableStateOf(false) }
     var showReCommandPrompt by remember { mutableStateOf(false) }
+    var lastFailed by remember { mutableStateOf(false) }
+
+    var showCommandiumSheet by remember { mutableStateOf(false) }
+    var showMacrosSheet by remember { mutableStateOf(false) }
+    var showPresetsSheet by remember { mutableStateOf(false) }
 
     var isRecording by remember { mutableStateOf(false) }
     val recordedCommands = remember { mutableStateListOf<String>() }
@@ -150,12 +178,23 @@ fun ComputScreen() {
         ModuleSettings.setComputMacros(json.toString())
     }
 
-    val errorColor = Color(0xFFEF5350)
-    val warningColor = Color(0xFFFFB300)
-    val normalColor = MaterialTheme.colorScheme.onSurfaceVariant
+    val errorColor = MaterialTheme.colorScheme.error
+    val warningColor = MaterialTheme.colorScheme.tertiary
+    val normalColor = MaterialTheme.colorScheme.onSurface
 
-    val annotatedOutput = remember(outputLog) {
+    val annotatedOutput = remember(outputLog, errorColor, warningColor, normalColor) {
         buildAnnotatedLog(outputLog, errorColor, warningColor, normalColor)
+    }
+
+    val statusText = when {
+        isRunning -> stringResource(R.string.comput_status_running)
+        lastFailed -> stringResource(R.string.comput_status_error)
+        else -> stringResource(R.string.comput_status_ready)
+    }
+    val statusColor = when {
+        isRunning -> MaterialTheme.colorScheme.tertiary
+        lastFailed -> MaterialTheme.colorScheme.error
+        else -> MaterialTheme.colorScheme.primary
     }
 
     suspend fun executeCommandInternal(cmd: String): Pair<String, Boolean> {
@@ -206,7 +245,7 @@ fun ComputScreen() {
                     "adb_internal_help" -> {
                         return@withContext Pair("""
                             Android Debug Bridge (Shevery Console Bridge)
-                            You are already connected to the device's privileged shell via Shevery.
+                            You are connected to the device privileged shell via Shevery.
                             
                             For on-device shell commands, type them directly without 'adb' or 'adb shell'.
                             Examples:
@@ -214,7 +253,7 @@ fun ComputScreen() {
                               settings get secure android_id
                               dumpsys battery
                             
-                            Note: Host-side commands like 'adb devices', 'adb push/pull', or 'adb install' are not supported directly inside the device shell, but you can use standard shell equivalents (e.g. 'pm install').
+                            Note: Host-side commands like 'adb devices', 'adb push/pull', or 'adb install' are not supported directly inside the device shell. Use standard shell equivalents (e.g. 'pm install').
                         """.trimIndent(), false)
                     }
                     "adb_internal_devices" -> {
@@ -305,6 +344,7 @@ fun ComputScreen() {
         if (cmd.isBlank()) return
         scope.launch {
             isRunning = true
+            lastFailed = false
             aiExplanation = ""
             
             if (isRecording) {
@@ -320,12 +360,14 @@ fun ComputScreen() {
             val (result, hasFailed) = executeCommandInternal(cmd)
             outputLog = result
             isRunning = false
+            lastFailed = hasFailed
 
             if (hasFailed && ModuleSettings.isComputAiExplainEnabled()) {
                 val apiKey = ModuleSettings.getComputApiKey()
                 if (apiKey.isNotBlank()) {
                     scope.launch {
                         isExplaining = true
+                        showGeminiSection = true
                         aiExplanation = AiExplainUtil.explainFailure(
                             contextStr = "Shevery Comput Console Shell Command Execution",
                             inputDetail = cmd,
@@ -342,6 +384,7 @@ fun ComputScreen() {
     fun runMacro(macroName: String, commands: List<String>) {
         scope.launch {
             isRunning = true
+            lastFailed = false
             aiExplanation = ""
             val fullLog = StringBuilder()
             fullLog.append(context.getString(R.string.comput_running_macro, macroName)).append("\n\n")
@@ -354,12 +397,14 @@ fun ComputScreen() {
                 val (result, hasFailed) = executeCommandInternal(cmd)
                 fullLog.append(result).append("\n\n")
                 outputLog = fullLog.toString()
+                lastFailed = hasFailed
 
                 if (hasFailed && ModuleSettings.isComputAiExplainEnabled()) {
                     val apiKey = ModuleSettings.getComputApiKey()
                     if (apiKey.isNotBlank()) {
                         scope.launch {
                             isExplaining = true
+                            showGeminiSection = true
                             aiExplanation = AiExplainUtil.explainFailure(
                                 contextStr = "Shevery Macro Command Execution ($macroName - $cmd)",
                                 inputDetail = cmd,
@@ -383,148 +428,280 @@ fun ComputScreen() {
         }
     }
 
+    fun triggerGeminiExplanation() {
+        scope.launch {
+            isExplaining = true
+            showGeminiSection = true
+            val apiKey = ModuleSettings.getComputApiKey()
+            aiExplanation = explainCommandWithGemini(command, outputLog, apiKey, context,
+                emptyApiKeyMessage = context.getString(R.string.comput_ai_api_key_empty))
+            isExplaining = false
+        }
+    }
+
+    val quickActionChips = remember {
+        listOf(
+            "pm list packages -3",
+            "dumpsys battery",
+            "logcat -d -t 30",
+            "settings get secure android_id",
+            "df -h",
+            "getprop ro.build.version.release"
+        )
+    }
+
+    val presetLibrary = remember {
+        listOf(
+            PresetCommand("User Installed Apps", "pm list packages -3", "Package Manager"),
+            PresetCommand("System Packages", "pm list packages -s", "Package Manager"),
+            PresetCommand("Disabled Packages", "pm list packages -d", "Package Manager"),
+            PresetCommand("Manager APK Path", "pm path moe.shizuku.manager", "Package Manager"),
+
+            PresetCommand("Android OS Version", "getprop ro.build.version.release", "System Props"),
+            PresetCommand("Device Model Name", "getprop ro.product.model", "System Props"),
+            PresetCommand("Display Screen Resolution", "wm size", "System Props"),
+            PresetCommand("Screen Density (DPI)", "wm density", "System Props"),
+
+            PresetCommand("Battery Health & Level", "dumpsys battery", "Battery & Power"),
+            PresetCommand("Simulate Disconnected AC", "dumpsys battery unplug", "Battery & Power"),
+            PresetCommand("Reset Battery Stats", "dumpsys battery reset", "Battery & Power"),
+
+            PresetCommand("Disk Usage & Free Space", "df -h", "Storage & Files"),
+            PresetCommand("Root Storage File List", "ls -la /sdcard", "Storage & Files"),
+            PresetCommand("Download Folder Size", "du -sh /sdcard/Download", "Storage & Files"),
+
+            PresetCommand("Active Network Sockets", "netstat -tulpn", "Network"),
+            PresetCommand("Network Interfaces & IPs", "ip addr", "Network")
+        )
+    }
+
     ShizukuLazyScaffold(
         title = stringResource(R.string.comput_title),
-        onNavigateUp = null
+        onNavigateUp = null,
+        bottomInset = 112.dp
     ) {
+        // Mode & Tools Header Card
         item {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 6.dp),
+                    .padding(horizontal = 16.dp, vertical = 4.dp),
                 shape = MaterialTheme.shapes.extraLarge,
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow)
             ) {
                 Column(
-                    modifier = Modifier.padding(18.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                    modifier = Modifier.padding(14.dp),
+                    verticalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
-                    Text(
-                        text = stringResource(R.string.comput_adb_console),
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(
-                                color = MaterialTheme.colorScheme.surfaceContainerHigh,
-                                shape = RoundedCornerShape(24.dp)
-                            )
-                            .padding(4.dp),
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                    SingleChoiceSegmentedButtonRow(
+                        modifier = Modifier.fillMaxWidth()
                     ) {
-                        val shModeColor = if (!isAdbMode) MaterialTheme.colorScheme.primary else Color.Transparent
-                        val shTextColor = if (!isAdbMode) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant
-                        val adbModeColor = if (isAdbMode) MaterialTheme.colorScheme.primary else Color.Transparent
-                        val adbTextColor = if (isAdbMode) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant
-
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .clip(RoundedCornerShape(20.dp))
-                                .background(shModeColor)
-                                .clickable { isAdbMode = false }
-                                .padding(vertical = 8.dp),
-                            contentAlignment = Alignment.Center
+                        SegmentedButton(
+                            selected = !isAdbMode,
+                            onClick = { isAdbMode = false },
+                            shape = CircleShape,
+                            modifier = Modifier.weight(1f)
                         ) {
                             Text(
-                                text = stringResource(R.string.comput_sh_mode),
-                                style = MaterialTheme.typography.labelLarge,
-                                fontWeight = FontWeight.Bold,
-                                color = shTextColor
+                                stringResource(R.string.comput_sh_mode),
+                                style = MaterialTheme.typography.labelMedium,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
                             )
                         }
-
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .clip(RoundedCornerShape(20.dp))
-                                .background(adbModeColor)
-                                .clickable { isAdbMode = true }
-                                .padding(vertical = 8.dp),
-                            contentAlignment = Alignment.Center
+                        SegmentedButton(
+                            selected = isAdbMode,
+                            onClick = { isAdbMode = true },
+                            shape = CircleShape,
+                            modifier = Modifier.weight(1f)
                         ) {
                             Text(
-                                text = stringResource(R.string.comput_adb_mode),
-                                style = MaterialTheme.typography.labelLarge,
-                                fontWeight = FontWeight.Bold,
-                                color = adbTextColor
+                                stringResource(R.string.comput_adb_mode),
+                                style = MaterialTheme.typography.labelMedium,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
                             )
                         }
                     }
-                    
+
+                    // Horizontally Scrollable Action Tools Chips Row
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .horizontalScroll(rememberScrollState()),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        FilterChip(
+                            selected = false,
+                            onClick = { showCommandiumSheet = true },
+                            label = {
+                                Text(
+                                    stringResource(R.string.comput_tab_commandium),
+                                    style = MaterialTheme.typography.labelMedium,
+                                    maxLines = 1
+                                )
+                            },
+                            leadingIcon = { Icon(Icons.Rounded.AutoAwesome, contentDescription = null, modifier = Modifier.size(16.dp)) },
+                            shape = CircleShape,
+                            colors = FilterChipDefaults.filterChipColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        )
+                        FilterChip(
+                            selected = false,
+                            onClick = { showMacrosSheet = true },
+                            label = {
+                                Text(
+                                    stringResource(R.string.comput_tab_macros),
+                                    style = MaterialTheme.typography.labelMedium,
+                                    maxLines = 1
+                                )
+                            },
+                            leadingIcon = { Icon(Icons.Rounded.PlaylistPlay, contentDescription = null, modifier = Modifier.size(16.dp)) },
+                            shape = CircleShape,
+                            colors = FilterChipDefaults.filterChipColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        )
+                        FilterChip(
+                            selected = false,
+                            onClick = { showPresetsSheet = true },
+                            label = {
+                                Text(
+                                    stringResource(R.string.comput_tab_presets),
+                                    style = MaterialTheme.typography.labelMedium,
+                                    maxLines = 1
+                                )
+                            },
+                            leadingIcon = { Icon(Icons.Rounded.Apps, contentDescription = null, modifier = Modifier.size(16.dp)) },
+                            shape = CircleShape,
+                            colors = FilterChipDefaults.filterChipColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        )
+                    }
+                }
+            }
+        }
+
+        // Quick Command Chips Carousel
+        item {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 2.dp)
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                quickActionChips.forEach { chipText ->
+                    FilterChip(
+                        selected = command == chipText,
+                        onClick = { command = chipText },
+                        label = {
+                            Text(
+                                text = chipText,
+                                style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp),
+                                maxLines = 1
+                            )
+                        },
+                        shape = RoundedCornerShape(16.dp),
+                        colors = FilterChipDefaults.filterChipColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                            selectedContainerColor = MaterialTheme.colorScheme.primaryContainer
+                        )
+                    )
+                }
+            }
+        }
+
+        // Command Input Field Card
+        item {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 4.dp),
+                shape = MaterialTheme.shapes.extraLarge,
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow)
+            ) {
+                Column(
+                    modifier = Modifier.padding(14.dp),
+                    verticalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
                     OutlinedTextField(
                         value = command,
                         onValueChange = { command = it },
                         modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(24.dp),
                         textStyle = TextStyle(
                             fontFamily = FontFamily.Monospace,
                             fontSize = 14.sp
                         ),
+                        leadingIcon = {
+                            Text(
+                                text = if (isAdbMode) "#" else "$",
+                                fontFamily = FontFamily.Monospace,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 16.sp,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.padding(start = 12.dp)
+                            )
+                        },
+                        trailingIcon = {
+                            if (command.isNotEmpty()) {
+                                IconButton(onClick = { command = "" }) {
+                                    Icon(
+                                        Icons.Rounded.Clear,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(18.dp)
+                                    )
+                                }
+                            }
+                        },
                         label = { Text(stringResource(R.string.comput_command_label)) },
                         placeholder = { Text(stringResource(R.string.comput_command_placeholder)) },
                         maxLines = 4,
                         colors = TextFieldDefaults.colors(
-                            focusedContainerColor = Color.Transparent,
-                            unfocusedContainerColor = Color.Transparent
+                            focusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                            unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
                         )
                     )
 
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    Button(
+                        onClick = { requestRun() },
+                        enabled = !isRunning && command.isNotBlank(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp),
+                        shape = MaterialTheme.shapes.extraLarge,
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
                     ) {
-                        Button(
-                            onClick = { requestRun() },
-                            enabled = !isRunning && command.isNotBlank(),
-                            modifier = Modifier.weight(1f),
-                            shape = MaterialTheme.shapes.large
-                        ) {
-                            if (isRunning) {
-                                CircularProgressIndicator(
-                                    modifier = Modifier.size(18.dp),
-                                    color = MaterialTheme.colorScheme.onPrimary,
-                                    strokeWidth = 2.dp
-                                )
-                            } else {
-                                Icon(
-                                    imageVector = Icons.Rounded.PlayArrow,
-                                    contentDescription = stringResource(R.string.comput_run),
-                                    modifier = Modifier.size(18.dp)
-                                )
-                                Spacer(Modifier.size(6.dp))
-                                Text(stringResource(R.string.comput_run))
-                            }
-                        }
-                        
-                        TextButton(
-                            onClick = {
-                                command = ""
-                                outputLog = context.getString(R.string.comput_console_cleared)
-                                aiExplanation = ""
-                            },
-                            enabled = !isRunning,
-                            shape = MaterialTheme.shapes.large
-                        ) {
-                            Icon(Icons.Rounded.Clear, contentDescription = stringResource(R.string.comput_clear))
-                            Spacer(Modifier.size(6.dp))
-                            Text(stringResource(R.string.comput_clear))
+                        if (isRunning) {
+                            LoadingIndicator(
+                                Modifier.size(18.dp),
+                                MaterialTheme.colorScheme.onPrimary
+                            )
+                            Spacer(Modifier.width(8.dp))
+                            Text(stringResource(R.string.comput_status_running), fontWeight = FontWeight.Bold)
+                        } else {
+                            Icon(
+                                imageVector = Icons.Rounded.PlayArrow,
+                                contentDescription = stringResource(R.string.comput_run),
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(Modifier.width(8.dp))
+                            Text(
+                                stringResource(R.string.comput_run),
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold
+                            )
                         }
                     }
                 }
             }
         }
 
+        // Terminal Output Canvas with Integrated Ask Gemini Action
         item {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 6.dp),
+                    .padding(horizontal = 16.dp, vertical = 4.dp),
                 shape = MaterialTheme.shapes.extraLarge,
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLowest),
                 border = CardDefaults.outlinedCardBorder()
@@ -535,431 +712,482 @@ fun ComputScreen() {
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(
-                            text = stringResource(R.string.comput_console_output),
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        IconButton(
-                            onClick = {
-                                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                                clipboard.setPrimaryClip(ClipData.newPlainText("ADB Output", outputLog))
-                                Toast.makeText(context, context.getString(R.string.comput_output_copied), Toast.LENGTH_SHORT).show()
-                            }
-                        ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(
-                                imageVector = Icons.Rounded.ContentCopy,
-                                contentDescription = stringResource(R.string.comput_copy_output),
+                                imageVector = Icons.Rounded.Terminal,
+                                contentDescription = null,
                                 modifier = Modifier.size(18.dp),
                                 tint = MaterialTheme.colorScheme.primary
                             )
+                            Spacer(Modifier.width(8.dp))
+                            Text(
+                                text = stringResource(R.string.comput_terminal_header),
+                                style = TextStyle(
+                                    fontFamily = FontFamily.Monospace,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            )
+                        }
+
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            if (isRunning) {
+                                LoadingIndicator(
+                                    Modifier.size(14.dp),
+                                    MaterialTheme.colorScheme.primary
+                                )
+                            }
+                            FilterChip(
+                                selected = showGeminiSection,
+                                onClick = {
+                                    if (!showGeminiSection && aiExplanation.isBlank() && !isExplaining) {
+                                        triggerGeminiExplanation()
+                                    } else {
+                                        showGeminiSection = !showGeminiSection
+                                    }
+                                },
+                                label = { Text(stringResource(R.string.comput_ask_gemini), style = MaterialTheme.typography.labelSmall) },
+                                leadingIcon = {
+                                    if (isExplaining) {
+                                        LoadingIndicator(Modifier.size(14.dp), MaterialTheme.colorScheme.primary)
+                                    } else {
+                                        Icon(Icons.Rounded.AutoAwesome, contentDescription = null, modifier = Modifier.size(14.dp))
+                                    }
+                                },
+                                shape = CircleShape,
+                                colors = FilterChipDefaults.filterChipColors(containerColor = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.6f))
+                            )
+                            IconButton(
+                                onClick = {
+                                    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                    clipboard.setPrimaryClip(ClipData.newPlainText("ADB Output", outputLog))
+                                    Toast.makeText(context, context.getString(R.string.comput_output_copied), Toast.LENGTH_SHORT).show()
+                                },
+                                modifier = Modifier.size(32.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Rounded.ContentCopy,
+                                    contentDescription = stringResource(R.string.comput_copy_output),
+                                    modifier = Modifier.size(16.dp),
+                                    tint = MaterialTheme.colorScheme.primary
+                                )
+                            }
+                            IconButton(
+                                onClick = {
+                                    command = ""
+                                    outputLog = context.getString(R.string.comput_console_cleared)
+                                    aiExplanation = ""
+                                    showGeminiSection = false
+                                },
+                                modifier = Modifier.size(32.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Rounded.Clear,
+                                    contentDescription = stringResource(R.string.comput_clear),
+                                    modifier = Modifier.size(16.dp),
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
                         }
                     }
-                    
+
                     Spacer(Modifier.height(8.dp))
-                    
+
                     Surface(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .heightIn(min = 160.dp, max = 320.dp)
-                            .background(Color.Black.copy(alpha = 0.05f))
-                            .verticalScroll(rememberScrollState()),
-                        shape = MaterialTheme.shapes.medium
+                            .heightIn(min = 200.dp, max = 380.dp),
+                        color = MaterialTheme.colorScheme.surfaceContainerHigh.copy(alpha = 0.5f),
+                        shape = RoundedCornerShape(18.dp)
                     ) {
                         SelectionContainer {
                             Text(
                                 text = annotatedOutput,
-                                modifier = Modifier.padding(12.dp),
+                                modifier = Modifier.padding(14.dp),
                                 style = TextStyle(
                                     fontFamily = FontFamily.Monospace,
-                                    fontSize = 13.sp,
+                                    fontSize = 12.5.sp,
                                     lineHeight = 18.sp
                                 )
                             )
                         }
                     }
-                }
-            }
-        }
 
-        if (outputLog.isNotBlank() && !isRunning) {
-            item {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 6.dp),
-                    shape = MaterialTheme.shapes.extraLarge,
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.6f))
-                ) {
-                    Column(
-                        modifier = Modifier.padding(18.dp),
-                        verticalArrangement = Arrangement.spacedBy(10.dp)
-                    ) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Icon(
-                                    imageVector = Icons.Rounded.AutoAwesome,
-                                    contentDescription = stringResource(R.string.comput_ai_explanation),
-                                    tint = MaterialTheme.colorScheme.primary
-                                )
-                                Spacer(Modifier.size(8.dp))
-                                Text(
-                                    text = stringResource(R.string.comput_gemini_explain),
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.Bold,
-                                    color = MaterialTheme.colorScheme.onPrimaryContainer
-                                )
-                            }
-                            
-                            Button(
-                                onClick = {
-                                    scope.launch {
-                                        isExplaining = true
-                                        val apiKey = ModuleSettings.getComputApiKey()
-                                        aiExplanation = explainCommandWithGemini(command, outputLog, apiKey, context,
-                                            emptyApiKeyMessage = context.getString(R.string.comput_ai_api_key_empty))
-                                        isExplaining = false
-                                    }
-                                },
-                                enabled = !isExplaining,
-                                shape = MaterialTheme.shapes.large,
-                                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
-                            ) {
-                                if (isExplaining) {
-                                    CircularProgressIndicator(
-                                        modifier = Modifier.size(16.dp),
-                                        color = MaterialTheme.colorScheme.onPrimary,
-                                        strokeWidth = 2.dp
-                                    )
-                                } else {
-                                    Text(stringResource(R.string.comput_ask_gemini))
-                                }
-                            }
-                        }
-                        
-                        if (aiExplanation.isNotBlank()) {
-                            HorizontalDivider(color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.15f))
-                            SelectionContainer {
-                                Text(
-                                    text = aiExplanation,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                                    modifier = Modifier.padding(top = 4.dp)
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-        }
+                    Spacer(Modifier.height(8.dp))
 
-        item {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 6.dp),
-                shape = MaterialTheme.shapes.extraLarge,
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh.copy(alpha = 0.8f)),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-            ) {
-                Column(
-                    modifier = Modifier.padding(18.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Rounded.AutoAwesome,
-                            contentDescription = stringResource(R.string.comput_commandium),
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                        Text(
-                            text = stringResource(R.string.comput_commandium_assistant),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary
-                        )
-                    }
-
-                    Text(
-                        text = stringResource(R.string.comput_commandium_description),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-
-                    OutlinedTextField(
-                        value = commandiumPrompt,
-                        onValueChange = { commandiumPrompt = it },
-                        modifier = Modifier.fillMaxWidth(),
-                        label = { Text(stringResource(R.string.comput_commandium_label)) },
-                        placeholder = { Text(stringResource(R.string.comput_commandium_placeholder)) },
-                        maxLines = 3,
-                        colors = TextFieldDefaults.colors(
-                            focusedContainerColor = Color.Transparent,
-                            unfocusedContainerColor = Color.Transparent
-                        )
-                    )
-
-                    Button(
-                        onClick = {
-                            scope.launch {
-                                isCommandiumGenerating = true
-                                val apiKey = ModuleSettings.getComputApiKey()
-                                generatedCommandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)
-                                isCommandiumGenerating = false
-                            }
-                        },
-                        enabled = !isCommandiumGenerating && commandiumPrompt.isNotBlank(),
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = MaterialTheme.shapes.large
-                    ) {
-                        if (isCommandiumGenerating) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.size(18.dp),
-                                color = MaterialTheme.colorScheme.onPrimary,
-                                strokeWidth = 2.dp
-                            )
-                        } else {
-                            Text(stringResource(R.string.comput_ask_commandium))
-                        }
-                    }
-
-                    if (generatedCommandiumResult.isNotBlank()) {
-                        Card(
-                            modifier = Modifier.fillMaxWidth(),
-                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest),
-                            shape = MaterialTheme.shapes.medium,
-                            border = CardDefaults.outlinedCardBorder()
-                        ) {
-                            Column(modifier = Modifier.padding(12.dp)) {
-                                Text(
-                                    text = stringResource(R.string.comput_generated_command),
-                                    style = MaterialTheme.typography.labelMedium,
-                                    fontWeight = FontWeight.Bold,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                                Spacer(modifier = Modifier.height(4.dp))
-                                SelectionContainer {
-                                    Text(
-                                        text = generatedCommandiumResult,
-                                        style = TextStyle(
-                                            fontFamily = FontFamily.Monospace,
-                                            fontSize = 13.sp,
-                                            color = MaterialTheme.colorScheme.onSurface
-                                        ),
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .background(
-                                                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.4f),
-                                                shape = MaterialTheme.shapes.small
-                                            )
-                                            .padding(8.dp)
-                                    )
-                                }
-                                Spacer(modifier = Modifier.height(8.dp))
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                                ) {
-                                    Button(
-                                        onClick = {
-                                            command = generatedCommandiumResult
-                                            Toast.makeText(context, context.getString(R.string.comput_command_pasted), Toast.LENGTH_SHORT).show()
-                                        },
-                                        modifier = Modifier.weight(1f),
-                                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
-                                        shape = MaterialTheme.shapes.medium
-                                    ) {
-                                        Text(stringResource(R.string.comput_use_command))
-                                    }
-                                    IconButton(
-                                        onClick = {
-                                            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                                            clipboard.setPrimaryClip(ClipData.newPlainText("Commandium", generatedCommandiumResult))
-                                            Toast.makeText(context, context.getString(R.string.comput_copied_to_clipboard), Toast.LENGTH_SHORT).show()
-                                        }
-                                    ) {
-                                        Icon(
-                                            imageVector = Icons.Rounded.ContentCopy,
-                                            contentDescription = stringResource(R.string.comput_copy_command)
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        item {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 6.dp),
-                shape = MaterialTheme.shapes.extraLarge,
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh.copy(alpha = 0.8f)),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-            ) {
-                Column(
-                    modifier = Modifier.padding(18.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = stringResource(R.string.comput_console_macros),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary
+                            text = "Lines: ${outputLog.lineSequence().count()} | Chars: ${outputLog.length}",
+                            style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 10.sp),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
-                        
-                        if (isRecording) {
-                            Button(
-                                onClick = {
-                                    showSaveMacroDialog = true
-                                    isRecording = false
-                                },
-                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEF5350)),
-                                shape = MaterialTheme.shapes.large
-                            ) {
-                                Box(
-                                    modifier = Modifier
-                                        .size(10.dp)
-                                        .background(Color.White, shape = RoundedCornerShape(5.dp))
-                                )
-                                Spacer(Modifier.size(6.dp))
-                                Text(stringResource(R.string.comput_stop, recordedCommands.size))
-                            }
-                        } else {
-                            Button(
-                                onClick = {
-                                    recordedCommands.clear()
-                                    isRecording = true
-                                },
-                                shape = MaterialTheme.shapes.large
-                            ) {
-                                Box(
-                                    modifier = Modifier
-                                        .size(10.dp)
-                                        .background(Color.Red, shape = RoundedCornerShape(5.dp))
-                                )
-                                Spacer(Modifier.size(6.dp))
-                                Text(stringResource(R.string.comput_record_macro))
-                            }
-                        }
                     }
 
-                    if (isRecording) {
-                        Text(
-                            text = stringResource(R.string.comput_recording_active),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = Color(0xFFEF5350),
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        if (recordedCommands.isNotEmpty()) {
+                    // Integrated Expandable Gemini AI Explanation Block
+                    AnimatedVisibility(visible = showGeminiSection) {
+                        Surface(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 10.dp)
+                                .animateContentSize(),
+                            color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.5f),
+                            shape = RoundedCornerShape(16.dp)
+                        ) {
                             Column(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .background(Color.Black.copy(alpha = 0.05f), MaterialTheme.shapes.medium)
-                                    .padding(8.dp),
-                                verticalArrangement = Arrangement.spacedBy(4.dp)
+                                modifier = Modifier.padding(12.dp),
+                                verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
-                                recordedCommands.forEachIndexed { i, c ->
-                                    Text(
-                                        text = "${i + 1}. $c",
-                                        style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 12.sp)
-                                    )
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        Icon(
+                                            imageVector = Icons.Rounded.AutoAwesome,
+                                            contentDescription = null,
+                                            modifier = Modifier.size(16.dp),
+                                            tint = MaterialTheme.colorScheme.onSecondaryContainer
+                                        )
+                                        Spacer(Modifier.width(6.dp))
+                                        Text(
+                                            text = stringResource(R.string.comput_gemini_explain),
+                                            style = MaterialTheme.typography.titleSmall,
+                                            fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.onSecondaryContainer
+                                        )
+                                    }
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        if (aiExplanation.isNotBlank()) {
+                                            IconButton(
+                                                onClick = {
+                                                    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                                    clipboard.setPrimaryClip(ClipData.newPlainText("Gemini Analysis", aiExplanation))
+                                                    Toast.makeText(context, context.getString(R.string.comput_copied_to_clipboard), Toast.LENGTH_SHORT).show()
+                                                },
+                                                modifier = Modifier.size(28.dp)
+                                            ) {
+                                                Icon(
+                                                    Icons.Rounded.ContentCopy,
+                                                    contentDescription = null,
+                                                    modifier = Modifier.size(14.dp),
+                                                    tint = MaterialTheme.colorScheme.onSecondaryContainer
+                                                )
+                                            }
+                                        }
+                                        IconButton(
+                                            onClick = { showGeminiSection = false },
+                                            modifier = Modifier.size(28.dp)
+                                        ) {
+                                            Icon(
+                                                Icons.Rounded.Clear,
+                                                contentDescription = null,
+                                                modifier = Modifier.size(14.dp),
+                                                tint = MaterialTheme.colorScheme.onSecondaryContainer
+                                            )
+                                        }
+                                    }
+                                }
+
+                                if (isExplaining) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                    ) {
+                                        LoadingIndicator(Modifier.size(16.dp), MaterialTheme.colorScheme.onSecondaryContainer)
+                                        Text("Analyzing command & output...", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSecondaryContainer)
+                                    }
+                                } else if (aiExplanation.isNotBlank()) {
+                                    HorizontalDivider(color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.15f))
+                                    SelectionContainer {
+                                        Text(
+                                            text = aiExplanation,
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.onSecondaryContainer
+                                        )
+                                    }
+                                } else {
+                                    TextButton(
+                                        onClick = { triggerGeminiExplanation() },
+                                        modifier = Modifier.fillMaxWidth()
+                                    ) {
+                                        Text("Click to generate Gemini AI breakdown", style = MaterialTheme.typography.labelSmall)
+                                    }
                                 }
                             }
                         }
                     }
+                }
+            }
+        }
+    }
 
-                    HorizontalDivider(color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.1f))
-
+    // Modal BottomSheet for Commandium AI Studio
+    if (showCommandiumSheet) {
+        ModalBottomSheet(
+            onDismissRequest = { showCommandiumSheet = false },
+            sheetState = rememberModalBottomSheetState()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp),
+                verticalArrangement = Arrangement.spacedBy(14.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.AutoAwesome,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(24.dp)
+                    )
                     Text(
-                        text = stringResource(R.string.comput_saved_macros),
-                        style = MaterialTheme.typography.titleSmall,
+                        text = stringResource(R.string.comput_commandium_assistant),
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+
+                Text(
+                    text = stringResource(R.string.comput_commandium_description),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    listOf(
+                        "List user installed apps",
+                        "Check battery temperature & status",
+                        "Find files larger than 50MB",
+                        "Get device Android model & build"
+                    ).forEach { suggestion ->
+                        FilterChip(
+                            selected = commandiumPrompt == suggestion,
+                            onClick = { commandiumPrompt = suggestion },
+                            label = { Text(suggestion, style = MaterialTheme.typography.labelSmall) },
+                            shape = CircleShape
+                        )
+                    }
+                }
+
+                OutlinedTextField(
+                    value = commandiumPrompt,
+                    onValueChange = { commandiumPrompt = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(20.dp),
+                    label = { Text(stringResource(R.string.comput_commandium_label)) },
+                    placeholder = { Text(stringResource(R.string.comput_commandium_placeholder)) },
+                    maxLines = 3
+                )
+
+                Button(
+                    onClick = {
+                        scope.launch {
+                            isCommandiumGenerating = true
+                            val apiKey = ModuleSettings.getComputApiKey()
+                            generatedCommandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)
+                            isCommandiumGenerating = false
+                        }
+                    },
+                    enabled = !isCommandiumGenerating && commandiumPrompt.isNotBlank(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp),
+                    shape = CircleShape
+                ) {
+                    if (isCommandiumGenerating) {
+                        LoadingIndicator(Modifier.size(18.dp), MaterialTheme.colorScheme.onPrimary)
+                    } else {
+                        Text(stringResource(R.string.comput_ask_commandium), fontWeight = FontWeight.Bold)
+                    }
+                }
+
+                if (generatedCommandiumResult.isNotBlank()) {
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        shape = RoundedCornerShape(16.dp)
+                    ) {
+                        Column(modifier = Modifier.padding(14.dp)) {
+                            Text(
+                                text = stringResource(R.string.comput_generated_command),
+                                style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp, fontWeight = FontWeight.Bold),
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            SelectionContainer {
+                                Text(
+                                    text = generatedCommandiumResult,
+                                    style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 13.sp)
+                                )
+                            }
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                Button(
+                                    onClick = {
+                                        command = generatedCommandiumResult
+                                        showCommandiumSheet = false
+                                    },
+                                    modifier = Modifier.weight(1f),
+                                    shape = CircleShape
+                                ) {
+                                    Text(stringResource(R.string.comput_use_command))
+                                }
+                                IconButton(
+                                    onClick = {
+                                        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                        clipboard.setPrimaryClip(ClipData.newPlainText("Commandium", generatedCommandiumResult))
+                                        Toast.makeText(context, context.getString(R.string.comput_copied_to_clipboard), Toast.LENGTH_SHORT).show()
+                                    }
+                                ) {
+                                    Icon(Icons.Rounded.ContentCopy, contentDescription = null)
+                                }
+                            }
+                        }
+                    }
+                }
+                Spacer(Modifier.height(16.dp))
+            }
+        }
+    }
+
+    // Modal BottomSheet for Macros
+    if (showMacrosSheet) {
+        ModalBottomSheet(
+            onDismissRequest = { showMacrosSheet = false },
+            sheetState = rememberModalBottomSheetState()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp),
+                verticalArrangement = Arrangement.spacedBy(14.dp)
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = stringResource(R.string.comput_console_macros),
+                        style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface
                     )
 
-                    if (savedMacros.isEmpty()) {
-                        Text(
-                            text = stringResource(R.string.comput_no_macros),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
+                    if (isRecording) {
+                        Button(
+                            onClick = {
+                                showSaveMacroDialog = true
+                                isRecording = false
+                            },
+                            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error),
+                            shape = CircleShape
+                        ) {
+                            Text(stringResource(R.string.comput_stop, recordedCommands.size))
+                        }
                     } else {
-                        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                            savedMacros.forEach { (name, cmds) ->
-                                Card(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest),
-                                    shape = MaterialTheme.shapes.large,
-                                    border = CardDefaults.outlinedCardBorder()
-                                ) {
-                                    Column(modifier = Modifier.padding(12.dp)) {
+                        Button(
+                            onClick = {
+                                recordedCommands.clear()
+                                isRecording = true
+                            },
+                            shape = CircleShape
+                        ) {
+                            Text(stringResource(R.string.comput_record_macro))
+                        }
+                    }
+                }
+
+                if (isRecording) {
+                    Text(
+                        text = stringResource(R.string.comput_recording_active),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+
+                Text(
+                    text = stringResource(R.string.comput_saved_macros),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+
+                if (savedMacros.isEmpty()) {
+                    Text(
+                        text = stringResource(R.string.comput_no_macros),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                } else {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        savedMacros.forEach { (name, cmds) ->
+                            Card(
+                                modifier = Modifier.fillMaxWidth(),
+                                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
+                                shape = RoundedCornerShape(16.dp)
+                            ) {
+                                Column(modifier = Modifier.padding(14.dp)) {
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.SpaceBetween,
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
                                         Text(
                                             text = name,
                                             style = MaterialTheme.typography.titleSmall,
                                             fontWeight = FontWeight.Bold,
                                             color = MaterialTheme.colorScheme.primary
                                         )
-                                        Spacer(modifier = Modifier.height(4.dp))
-                                        Column(
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .background(Color.Black.copy(alpha = 0.03f), MaterialTheme.shapes.small)
-                                                .padding(6.dp),
-                                            verticalArrangement = Arrangement.spacedBy(2.dp)
+                                        Text(
+                                            text = "${cmds.size} cmds",
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                    ) {
+                                        Button(
+                                            onClick = {
+                                                showMacrosSheet = false
+                                                runMacro(name, cmds)
+                                            },
+                                            enabled = !isRunning,
+                                            modifier = Modifier.weight(1f),
+                                            shape = CircleShape
                                         ) {
-                                            cmds.take(3).forEach { c ->
-                                                Text(
-                                                    text = "> $c",
-                                                    maxLines = 1,
-                                                    style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp),
-                                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                                )
-                                            }
-                                            if (cmds.size > 3) {
-                                                Text(
-                                                    text = "... and ${cmds.size - 3} more",
-                                                    style = MaterialTheme.typography.bodySmall,
-                                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                                )
-                                            }
+                                            Text(stringResource(R.string.comput_run))
                                         }
-                                        Spacer(modifier = Modifier.height(8.dp))
-                                        Row(
-                                            modifier = Modifier.fillMaxWidth(),
-                                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                        TextButton(
+                                            onClick = { deleteMacro(name) },
+                                            colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error),
+                                            shape = CircleShape
                                         ) {
-                                            Button(
-                                                onClick = { runMacro(name, cmds) },
-                                                enabled = !isRunning,
-                                                modifier = Modifier.weight(1f),
-                                                shape = MaterialTheme.shapes.medium
-                                            ) {
-                                Text(stringResource(R.string.comput_run))
-                                            }
-                                            TextButton(
-                                                onClick = { deleteMacro(name) },
-                                                colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error),
-                                                shape = MaterialTheme.shapes.medium
-                                            ) {
-                                                Text(stringResource(R.string.comput_delete))
-                                            }
+                                            Icon(Icons.Rounded.Delete, contentDescription = null, modifier = Modifier.size(16.dp))
+                                            Spacer(Modifier.width(4.dp))
+                                            Text(stringResource(R.string.comput_delete))
                                         }
                                     }
                                 }
@@ -967,6 +1195,94 @@ fun ComputScreen() {
                         }
                     }
                 }
+                Spacer(Modifier.height(16.dp))
+            }
+        }
+    }
+
+    // Modal BottomSheet for Presets Library
+    if (showPresetsSheet) {
+        ModalBottomSheet(
+            onDismissRequest = { showPresetsSheet = false },
+            sheetState = rememberModalBottomSheetState()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp),
+                verticalArrangement = Arrangement.spacedBy(14.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.comput_presets_title),
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = stringResource(R.string.comput_presets_subtitle),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                val categories = remember { presetLibrary.map { it.category }.distinct() }
+                categories.forEach { cat ->
+                    Text(
+                        text = cat.uppercase(),
+                        style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp, fontWeight = FontWeight.Bold),
+                        color = MaterialTheme.colorScheme.primary
+                    )
+
+                    presetLibrary.filter { it.category == cat }.forEach { preset ->
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
+                            shape = RoundedCornerShape(16.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(12.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Column(modifier = Modifier.weight(1f)) {
+                                    Text(
+                                        text = preset.title,
+                                        style = MaterialTheme.typography.titleSmall,
+                                        fontWeight = FontWeight.Bold,
+                                        color = MaterialTheme.colorScheme.onSurface
+                                    )
+                                    Text(
+                                        text = preset.command,
+                                        style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 12.sp, color = MaterialTheme.colorScheme.primary)
+                                    )
+                                }
+
+                                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                                    IconButton(
+                                        onClick = {
+                                            command = preset.command
+                                            showPresetsSheet = false
+                                        }
+                                    ) {
+                                        Icon(Icons.Rounded.ContentPaste, contentDescription = null, tint = MaterialTheme.colorScheme.secondary)
+                                    }
+                                    Button(
+                                        onClick = {
+                                            command = preset.command
+                                            showPresetsSheet = false
+                                            requestRun()
+                                        },
+                                        shape = CircleShape
+                                    ) {
+                                        Text(stringResource(R.string.comput_run), style = MaterialTheme.typography.labelSmall)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                Spacer(Modifier.height(16.dp))
             }
         }
     }
@@ -984,11 +1300,11 @@ fun ComputScreen() {
                     Surface(
                         modifier = Modifier.fillMaxWidth(),
                         color = MaterialTheme.colorScheme.surfaceContainerHigh,
-                        shape = MaterialTheme.shapes.medium
+                        shape = RoundedCornerShape(16.dp)
                     ) {
                         Text(
                             text = command,
-                            modifier = Modifier.padding(10.dp),
+                            modifier = Modifier.padding(12.dp),
                             style = TextStyle(
                                 fontFamily = FontFamily.Monospace,
                                 fontSize = 13.sp
@@ -1002,13 +1318,17 @@ fun ComputScreen() {
                     onClick = {
                         showReCommandPrompt = false
                         runShellCommand(command)
-                    }
+                    },
+                    shape = CircleShape
                 ) {
                     Text(stringResource(R.string.comput_execute))
                 }
             },
             dismissButton = {
-                TextButton(onClick = { showReCommandPrompt = false }) {
+                TextButton(
+                    onClick = { showReCommandPrompt = false },
+                    shape = CircleShape
+                ) {
                     Text(stringResource(R.string.comput_cancel))
                 }
             },
@@ -1028,6 +1348,7 @@ fun ComputScreen() {
                         value = macroNameInput,
                         onValueChange = { macroNameInput = it },
                         modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(20.dp),
                         label = { Text(stringResource(R.string.comput_macro_name_label)) },
                         singleLine = true
                     )
@@ -1042,7 +1363,8 @@ fun ComputScreen() {
                             showSaveMacroDialog = false
                         }
                     },
-                    enabled = macroNameInput.isNotBlank()
+                    enabled = macroNameInput.isNotBlank(),
+                    shape = CircleShape
                 ) {
                     Text(stringResource(R.string.comput_save))
                 }
@@ -1053,7 +1375,8 @@ fun ComputScreen() {
                         recordedCommands.clear()
                         macroNameInput = ""
                         showSaveMacroDialog = false
-                    }
+                    },
+                    shape = CircleShape
                 ) {
                     Text(stringResource(R.string.comput_cancel))
                 }
@@ -1182,4 +1505,3 @@ private fun readStreamTail(pfd: ParcelFileDescriptor): String {
         }
     }
 }
-

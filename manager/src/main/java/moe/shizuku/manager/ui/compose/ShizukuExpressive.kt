@@ -9,6 +9,18 @@ package moe.shizuku.manager.ui.compose
 import android.os.Build
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -21,11 +33,18 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -36,14 +55,19 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.automirrored.rounded.HelpOutline
 import androidx.compose.material.icons.automirrored.rounded.OpenInNew
+import androidx.compose.material.icons.rounded.AdminPanelSettings
 import androidx.compose.material.icons.rounded.Apps
+import androidx.compose.material.icons.rounded.Cancel
 import androidx.compose.material.icons.rounded.Check
+import androidx.compose.material.icons.rounded.CheckCircle
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.Code
 import androidx.compose.material.icons.rounded.ContentCopy
 import androidx.compose.material.icons.rounded.DarkMode
+import androidx.compose.material.icons.rounded.DeveloperMode
 import androidx.compose.material.icons.rounded.HelpOutline
 import androidx.compose.material.icons.rounded.Info
+import androidx.compose.material.icons.rounded.LooksOne
 import androidx.compose.material.icons.rounded.Link
 import androidx.compose.material.icons.rounded.LightMode
 import androidx.compose.material.icons.rounded.MoreVert
@@ -51,18 +75,25 @@ import androidx.compose.material.icons.rounded.NotificationsActive
 import androidx.compose.material.icons.rounded.OpenInNew
 import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Refresh
+import androidx.compose.material.icons.rounded.School
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material.icons.rounded.Terminal
 import androidx.compose.material.icons.rounded.Translate
 import androidx.compose.material.icons.rounded.Warning
+import androidx.compose.material.icons.rounded.Wifi
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.FloatingToolbarDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.HorizontalFloatingToolbar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MotionScheme
@@ -72,6 +103,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.ToggleButton
+import androidx.compose.material3.ToggleButtonDefaults
+import androidx.compose.material3.ToggleButtonShapes
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.darkColorScheme
@@ -79,18 +113,29 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.boundsInParent
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.text.HtmlCompat
 import moe.shizuku.manager.R
@@ -103,6 +148,141 @@ data class ExpressiveButtonSpec(
     val enabled: Boolean = true,
     val onClick: () -> Unit
 )
+
+val LocalFloatingNavBarVisible = compositionLocalOf<MutableState<Boolean>> {
+    mutableStateOf(true)
+}
+
+data class NavItem(
+    val title: String,
+    val icon: ImageVector
+)
+
+@Composable
+fun ExpressiveFloatingNavigationBar(
+    items: List<NavItem>,
+    selectedIndex: Int,
+    onItemSelected: (Int) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val navBarState = LocalFloatingNavBarVisible.current
+    val isKeyboardVisible = WindowInsets.ime.asPaddingValues().calculateBottomPadding() > 0.dp
+    AnimatedVisibility(
+        visible = !isKeyboardVisible && navBarState.value,
+        modifier = modifier,
+        enter = fadeIn(),
+        exit = fadeOut()
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .windowInsetsPadding(WindowInsets.navigationBars.only(WindowInsetsSides.Bottom))
+                .padding(bottom = 16.dp),
+            contentAlignment = Alignment.BottomCenter
+        ) {
+        val buttonBounds = remember { mutableStateMapOf<Int, Rect>() }
+        val targetRect = buttonBounds[selectedIndex]
+        val firstRect = buttonBounds[0]
+
+        val pillRelativeX = (targetRect?.left ?: 0f) - (firstRect?.left ?: 0f)
+
+        val pillAnimatedX by animateFloatAsState(
+            targetValue = pillRelativeX,
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioLowBouncy,
+                stiffness = Spring.StiffnessLow
+            ),
+            label = "pillX"
+        )
+        val pillAnimatedWidth by animateFloatAsState(
+            targetValue = targetRect?.width ?: 0f,
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioLowBouncy,
+                stiffness = Spring.StiffnessLow
+            ),
+            label = "pillWidth"
+        )
+
+        val pillColor = MaterialTheme.colorScheme.primary
+
+        HorizontalFloatingToolbar(
+            expanded = true,
+            colors = FloatingToolbarDefaults.vibrantFloatingToolbarColors(
+                toolbarContainerColor = MaterialTheme.colorScheme.primaryContainer,
+                toolbarContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+            )
+        ) {
+            CompositionLocalProvider(LocalRippleConfiguration provides null) {
+                items.forEachIndexed { index, item ->
+                    val selected = index == selectedIndex
+
+                    ToggleButton(
+                        checked = selected,
+                        onCheckedChange = { if (!selected) onItemSelected(index) },
+                        modifier = Modifier
+                            .height(56.dp)
+                            .onGloballyPositioned { coords ->
+                                buttonBounds[index] = coords.boundsInParent()
+                            }
+                            .then(
+                                if (index == 0) {
+                                    Modifier.drawWithContent {
+                                        if (pillAnimatedWidth > 0f) {
+                                            drawRoundRect(
+                                                color = pillColor,
+                                                topLeft = Offset(pillAnimatedX, 0f),
+                                                size = Size(pillAnimatedWidth, size.height),
+                                                cornerRadius = CornerRadius(size.height / 2f)
+                                            )
+                                        }
+                                        drawContent()
+                                    }
+                                } else {
+                                    Modifier
+                                }
+                            ),
+                        colors = ToggleButtonDefaults.toggleButtonColors(
+                            checkedContainerColor = Color.Transparent,
+                            checkedContentColor = MaterialTheme.colorScheme.onPrimary,
+                            containerColor = Color.Transparent,
+                            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                        ),
+                        shapes = ToggleButtonShapes(
+                            shape = CircleShape,
+                            pressedShape = CircleShape,
+                            checkedShape = CircleShape
+                        )
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = item.icon,
+                                contentDescription = item.title
+                            )
+                            AnimatedVisibility(
+                                visible = selected,
+                                enter = expandHorizontally(
+                                    animationSpec = MaterialTheme.motionScheme.defaultSpatialSpec()
+                                ),
+                                exit = shrinkHorizontally(
+                                    animationSpec = MaterialTheme.motionScheme.defaultSpatialSpec()
+                                )
+                            ) {
+                                Text(
+                                    text = item.title,
+                                    modifier = Modifier.padding(start = ButtonDefaults.IconSpacing),
+                                    style = MaterialTheme.typography.titleSmall.copy(
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
 
 @Composable
 fun ShizukuExpressiveTheme(content: @Composable () -> Unit) {
@@ -149,11 +329,23 @@ fun ShizukuScaffold(
     navigationIcon: Int = R.drawable.ic_arrow_back_24,
     @StringRes navigationContentDescription: Int = R.string.accessibility_navigate_up,
     actions: @Composable RowScope.() -> Unit = {},
+    bottomBar: @Composable () -> Unit = {},
     content: @Composable (PaddingValues) -> Unit
 ) {
+    if (onNavigateUp != null) {
+        val navBarState = LocalFloatingNavBarVisible.current
+        DisposableEffect(onNavigateUp) {
+            navBarState.value = false
+            onDispose {
+                navBarState.value = true
+            }
+        }
+    }
+
     Scaffold(
         modifier = modifier,
         contentWindowInsets = WindowInsets(0.dp),
+        bottomBar = bottomBar,
         topBar = {
             TopAppBar(
                 title = {
@@ -193,6 +385,7 @@ fun ShizukuLazyScaffold(
     @StringRes navigationContentDescription: Int = R.string.accessibility_navigate_up,
     actions: @Composable RowScope.() -> Unit = {},
     contentPadding: PaddingValues = PaddingValues(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 16.dp),
+    bottomInset: Dp = 0.dp,
     verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(10.dp),
     content: LazyListScope.() -> Unit
 ) {
@@ -204,12 +397,18 @@ fun ShizukuLazyScaffold(
         navigationContentDescription = navigationContentDescription,
         actions = actions
     ) { innerPadding ->
+        val navigationBarPadding = WindowInsets.navigationBars.asPaddingValues()
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
-                .windowInsetsPadding(WindowInsets.navigationBars),
-            contentPadding = contentPadding,
+                .padding(innerPadding),
+            contentPadding = PaddingValues(
+                start = contentPadding.calculateStartPadding(LayoutDirection.Ltr),
+                top = contentPadding.calculateTopPadding(),
+                end = contentPadding.calculateEndPadding(LayoutDirection.Ltr),
+                bottom = contentPadding.calculateBottomPadding() +
+                    navigationBarPadding.calculateBottomPadding() + bottomInset
+            ),
             verticalArrangement = verticalArrangement,
             content = content
         )
@@ -602,6 +801,13 @@ private fun roundedIconFor(@DrawableRes icon: Int): ImageVector? {
         R.drawable.ic_content_copy_24 -> Icons.Rounded.ContentCopy
         R.drawable.ic_terminal_24 -> Icons.Rounded.Terminal
         R.drawable.ic_code_24dp -> Icons.Rounded.Code
+        R.drawable.ic_server_ok_24dp -> Icons.Rounded.CheckCircle
+        R.drawable.ic_server_error_24dp -> Icons.Rounded.Cancel
+        R.drawable.ic_wadb_24 -> Icons.Rounded.Wifi
+        R.drawable.ic_numeric_1_circle_outline_24 -> Icons.Rounded.LooksOne
+        R.drawable.ic_adb_24dp -> Icons.Rounded.DeveloperMode
+        R.drawable.ic_learn_more_24dp -> Icons.Rounded.School
+        R.drawable.ic_root_24dp -> Icons.Rounded.AdminPanelSettings
         else -> null
     }
 }
