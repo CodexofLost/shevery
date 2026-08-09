@@ -1,0 +1,5 @@
+## What's New in Shevery v13.9.0
+
+### Highlights & New Features
+* **Full Multi-Language Localization**: Complete translations added for Simplified Chinese, Traditional Chinese, Portuguese, Uzbek, Kyrgyz, Turkish, Arabic, Korean, Farsi, and Hebrew.
+* **Version 13.9.0 Update**: Core system version bump with enhanced stability.

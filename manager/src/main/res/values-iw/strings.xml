@@ -5,19 +5,19 @@
     <string name="accessibility_close">Close</string>
     <string name="accessibility_more_options">More options</string>
     <string name="accessibility_open_on_github">Open on GitHub</string>
-    <string name="home_status_service_is_running">%1$s פועל</string>
-    <string name="home_status_service_not_running">%1$s לא רץ</string>
-    <string name="home_status_service_version">גירסה %2$s, %1$s</string>
-    <string name="home_status_service_version_update">גירסה %2$s, %1$s&lt;br&gt;התחל מחדש כדי לעדכן לגירסה %3$s</string>
-    <string name="home_adb_title">התחל באמצעות חיבור למחשב</string>
-    <string name="home_adb_description">עבור מכשירים ללא גישת שורש, עליך להשתמש ב-adb כדי להתחיל את Shizuku (נדרש חיבור למחשב). \u0020עליך לחזור על תהליך זה בכל פעם שמכשירך יופעל מחדש. בבקשה <b> <a href="%1$s">קראו את דפי העזרה</a></b>.</string>
-    <string name="home_adb_button_view_help">קראו את דפי העזרה</string>
-    <string name="home_adb_button_view_command">הצג פקודה</string>
-    <string name="home_adb_dialog_view_command_message">&lt;font face=monospace&gt;%1$s&lt;/font&gt;&lt;br&gt;&lt;br&gt;* יש עדין שיקולים אחרים, בבקשה תאשר שקראת את העזרה לפני.</string>
-    <string name="home_adb_dialog_view_command_copy_button">העתק</string>
-    <string name="home_adb_dialog_view_command_button_send">שלח</string>
-    <string name="home_wireless_adb_title">התחל עם ניפוי באגים אלחוטי</string>
-    <string name="home_wireless_adb_description">באנדרואיד 11 ומעלה, אתם יכולים להפעיל ניפוי באגים אלחוטי ולהתחיל את Shizuku ישירות מהמכשיר שלכם, ללא חיבור למחשב. קודם כל, הביטו בבקשה במדריך.</string>
+    <string name="home_status_service_is_running">%1$s is running</string>
+    <string name="home_status_service_not_running">%1$s is not running</string>
+    <string name="home_status_service_version">Version %2$s, %1$s</string>
+    <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br>Start again to update to version %3$s]]></string>
+    <string name="home_adb_title"><![CDATA[Start by connecting to a computer]]></string>
+    <string name="home_adb_description"><![CDATA[For devices without root, you need to use adb to start Shevery (requires computer connection). This process needs to be repeated every time the device is restarted. Please <b><a href=\"%1$s\">read the help</a></b>.]]></string>
+    <string name="home_adb_button_view_help">Read help</string>
+    <string name="home_adb_button_view_command">View command</string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* There are some other considerations, please confirm that you have read the help first.]]></string>
+    <string name="home_adb_dialog_view_command_copy_button">Copy</string>
+    <string name="home_adb_dialog_view_command_button_send">Send</string>
+    <string name="home_wireless_adb_title"><![CDATA[Start via Wireless debugging]]></string>
+    <string name="home_wireless_adb_description"><![CDATA[On Android 11 or above, you can enable Wireless debugging and start Shevery directly from your device, without connecting to a computer.<p>Please view the step-by-step guide first.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Before Android 11, connecting to a computer is required to enable Wireless debugging.]]></string>
     <string name="home_wireless_adb_view_guide_button">Step-by-step guide</string>
     <string name="home_local_network_title">Local network access</string>

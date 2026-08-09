@@ -1,20 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="translation_contributors">Community Translators</string>
-
-    <!-- Accessibility -->
+    <string name="translation_contributors" />
+    <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">返回上一级</string>
     <string name="accessibility_close">关闭</string>
     <string name="accessibility_more_options">更多选项</string>
     <string name="accessibility_open_on_github">在 GitHub 上打开</string>
-
-    <!-- Home - Status -->
     <string name="home_status_service_is_running">%1$s 正在运行</string>
     <string name="home_status_service_not_running">%1$s 未运行</string>
     <string name="home_status_service_version">版本 %2$s, %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[版本 %2$s, %1$s<br>重新启动以更新到版本 %3$s]]></string>
-
-    <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[通过连接电脑启动]]></string>
     <string name="home_adb_description"><![CDATA[对于未 root 的设备，需要使用 ADB 启动 Shevery（需要连接电脑）。每次重新启动设备后都需要重复此过程。请<b><a href=\"%1$s\">阅读帮助文档</a></b>。]]></string>
     <string name="home_adb_button_view_help">阅读帮助</string>
@@ -22,8 +16,6 @@
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* 还有其他注意事项，请先确认您已阅读帮助文档。]]></string>
     <string name="home_adb_dialog_view_command_copy_button">复制</string>
     <string name="home_adb_dialog_view_command_button_send">发送</string>
-
-    <!-- Home - Wireless Adb -->
     <string name="home_wireless_adb_title"><![CDATA[通过无线调试启动]]></string>
     <string name="home_wireless_adb_description"><![CDATA[在 Android 11 或更高版本上，可以开启无线调试并直接在设备上启动 Shevery，无需连接电脑。<p>请查阅分步指南。]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[在 Android 11 以下版本，需要连接电脑才能开启无线调试。]]></string>
@@ -34,8 +26,6 @@
     <string name="home_local_network_missing">未授予 %1$s。</string>
     <string name="home_local_network_grant">授予权限</string>
     <string name="home_local_network_permission_denied">无线调试需要本地网络访问权限。</string>
-
-    <!-- Adb -->
     <string name="dialog_adb_discovery">正在搜索无线调试服务</string>
     <string name="dialog_adb_discovery_message">请在“开发者选项”中开启“无线调试”。网络更改时，无线调试会自动关闭。\n\n注意：请勿关闭“开发者选项”或“USB 调试”，否则 Shevery 将停止运行。</string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging">如果一直处于搜索状态，请尝试关闭并重新开启“无线调试”。</string>
@@ -66,45 +56,35 @@
     <string name="adb_pairing_tutorial_content_finish">返回 Shevery 并启动服务。</string>
     <string name="adb_pairing_tutorial_content_network">Shevery 需要访问本地网络。</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">某些系统（如 MIUI）在应用未处于前台时会禁用网络访问。请为 Shevery 关闭电池优化。</string>
-
-    <!-- Home - Root -->
     <string name="home_root_title"><![CDATA[启动（针对已 root 设备）]]></string>
     <string name="home_root_description"><![CDATA[此外，Shevery 可以在开机时自动启动。如果未启动，请检查系统或第三方工具是否限制了 Shevery。<br>可以参考 %s。]]></string>
     <string name="home_root_description_sui"><![CDATA[如果您正在使用 Magisk，可以尝试 %1$s。对于 root 用户，它最终将取代 Shevery。]]></string>
     <string name="home_root_button_start">启动</string>
     <string name="home_root_button_restart">重新启动</string>
-
-    <!-- Home - Application management -->
     <string name="home_app_management_title">应用管理</string>
     <plurals name="home_app_management_authorized_apps_count">
         <item quantity="other"><![CDATA[已授权 %d 个应用]]></item>
     </plurals>
     <string name="home_app_management_view_authorized_apps"><![CDATA[点击管理已授权的应用]]></string>
     <string name="home_app_management_empty">请求或声明使用 Shevery 的应用将在此处显示。</string>
-
-    <!-- Home - Learn more -->
     <string name="home_learn_more_title">了解 Shevery</string>
     <string name="home_learn_more_description">了解如何使用 Shevery 进行开发</string>
-
-    <!-- Home - Diagnostics -->
+    <string name="home_quick_terminal">终端</string>
+    <string name="home_quick_wireless">无线 ADB</string>
+    <string name="home_quick_tcp">TCP 5555</string>
+    <string name="home_manage_apps_button">管理应用</string>
     <string name="home_refresh">刷新</string>
     <string name="home_diagnostics_title">诊断信息</string>
     <string name="home_diagnostics_copy">复制诊断信息</string>
     <string name="home_diagnostics_copied">诊断信息已复制到剪贴板。</string>
     <string name="home_modules_description">安装与管理 ADB 模块</string>
-
-    <!-- Home - Adb permissions limited -->
     <string name="home_adb_is_limited_title">需要额外步骤</string>
     <string name="home_adb_is_limited_description">您的设备厂商限制了 ADB 权限，使用 Shevery 的应用将无法正常工作。\n\n通常可以在“开发者选项”中调整相关设置。请阅读帮助了解详情。\n\n您可能需要重新启动 Shevery。</string>
-
-    <!-- Application management -->
     <string name="app_management_select_all">全选</string>
     <string name="app_management_deselect_all">取消全选</string>
     <string name="app_management_dialog_adb_is_limited_title">ADB 权限受限</string>
     <string name="app_management_dialog_adb_is_limited_message"><![CDATA[您的设备厂商很有可能限制了 ADB 权限。<p>您可以在<b><a href=\"%1$s\">此文档</a></b>中找到针对您系统的解决方案。]]></string>
     <string name="app_management_item_summary_requires_root">* 需要 Shevery 以 Root 方式运行</string>
-
-    <!-- Terminal -->
     <string name="home_terminal_title">在终端应用中使用 Shevery</string>
     <string name="home_terminal_description">在您喜爱的终端应用中通过 Shevery 执行命令</string>
     <string name="terminal_tutorial_1">首先，将文件导出到您选择的任何位置。您将找到两个文件：%1$s 和 %2$s。</string>
@@ -115,8 +95,6 @@
     <string name="terminal_tutorial_3">最后，将文件移动到终端应用可以访问的位置，即可使用 %1$s 执行命令。</string>
     <string name="terminal_tutorial_3_description">提示：向 %1$s 授予可执行权限并将其添加到 %2$s，即可直接使用 %1$s。</string>
     <string name="rish_description"><![CDATA[使用 %1$s，在任何终端应用中，您都可以连接并交互 Shevery 运行的 Shell。<p>关于 %1$s 的详细用法，点击查看文档。]]></string>
-
-    <!-- Settings -->
     <string name="settings_title">设置</string>
     <string name="settings_language">语言</string>
     <string name="settings_user_interface">外观</string>
@@ -129,8 +107,6 @@
     <string name="settings_start_on_boot">开机自启</string>
     <string name="settings_start_on_boot_summary">成功运行后，Shevery 可在设备开机时自动启动。</string>
     <string name="settings_use_system_color">使用系统主题颜色</string>
-
-    <!-- ADB modules -->
     <string name="modules_title">ADB 模块</string>
     <string name="modules_settings_title">模块</string>
     <string name="modules_settings_summary">安装 ZIP 模块并通过 Shevery 活跃的 ADB/root 服务执行其操作</string>
@@ -216,21 +192,15 @@
     <string name="modules_downloading">正在下载…</string>
     <string name="modules_download_enqueued">已在后台开始下载</string>
     <string name="modules_search_placeholder">在目录中搜索模块…</string>
-
-    <!-- About -->
     <string name="action_about">关于</string>
     <string name="about_source_code_button">源代码</string>
     <string name="about_view_source_code"><![CDATA[在 %s 查看源代码]]></string>
-
-    <!-- Stop -->
     <string name="action_stop">停止 Shevery</string>
     <string name="dialog_stop_message">Shevery 服务将被停止。</string>
     <string name="service_already_stopped">Shevery 服务已经停止。</string>
     <string name="service_stop_success">Shevery 服务已停止。</string>
     <string name="service_stop_still_running">服务仍在运行中</string>
     <string name="service_stop_failed">停止 Shevery 失败：%1$s</string>
-
-    <!-- Notification -->
     <string name="notification_channel_service_status">服务运行状态</string>
     <string name="notification_service_starting">正在启动 Shevery 服务…</string>
     <string name="notification_service_start_failed">启动 Shevery 服务失败。</string>
@@ -246,31 +216,24 @@
     <string name="notification_adb_pairing_succeed_text">您现在可以启动 Shevery 服务。</string>
     <string name="notification_adb_pairing_failed_title">配对失败</string>
     <string name="notification_adb_pairing_retry">重试</string>
-
-    <!-- Permission related -->
+    <string name="permission_group_label" translatable="false">Shevery</string>
+    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Shevery 访问权限</string>
     <string name="permission_description">允许应用使用 Shevery。</string>
     <string name="permission_warning_template"><![CDATA[允许 <b>%1$s</b> 获得 %2$s 权限？]]></string>
     <string name="grant_dialog_button_allow_always">总是允许</string>
     <string name="grant_dialog_button_deny">拒绝</string>
-
-    <!-- Starter -->
     <string name="starter">启动器</string>
+    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">无法启动服务，因为未授予 Root 权限或此设备未 Root。</string>
-
-    <!-- Misc -->
     <string name="dialog_cannot_open_browser_title">无法启动浏览器</string>
     <string name="toast_copied_to_clipboard">%s\n已复制到剪贴板。</string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> 已复制到剪贴板。]]></string>
-
-    <!-- Messages for legacy -->
     <string name="dialog_legacy_not_support_title">%1$s 不支持现代 Shevery</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[旧版 Shevery 自 2019 年 3 月起已被弃用，无法在较新的 Android 系统上运行。<p>请联系 <b>%1$s</b> 的开发者进行更新。]]></string>
     <string name="dialog_requesting_legacy_title">%1$s 正在请求旧版 Shevery</string>
     <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> 具备现代 Shevery 支持，但正在请求旧版 Shevery。这可能是由于 Shevery 未在运行引起的。]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">打开 Shevery</string>
-
-    <!-- Lab Features -->
     <string name="lab_features_title">实验室功能</string>
     <string name="lab_features_summary">实验性功能</string>
     <string name="shizuku_connectors_title">Shevery 连接器</string>
@@ -293,8 +256,8 @@
     <string name="settings_auto_disable_usb_debugging">自动关闭 USB 调试</string>
     <string name="settings_auto_disable_usb_debugging_summary">重启后若 Shevery 未设置为开机自启，则自动关闭 USB 调试</string>
     <string name="settings_service_group">服务维护</string>
-
-    <!-- Lab Features - Service Behavior -->
+    <string name="settings_application">应用</string>
+    <string name="settings_appearance">外观</string>
     <string name="lab_service_behavior_title">服务行为</string>
     <string name="lab_keep_alive_title">保持服务保活</string>
     <string name="lab_keep_alive_summary">定期检查 Shevery 服务运行状态并在需要时重启</string>
@@ -302,8 +265,6 @@
     <string name="lab_auto_restart_summary">在 Shevery 服务意外终止时尝试自动重启</string>
     <string name="lab_notify_death_title">服务停止时通知</string>
     <string name="lab_notify_death_summary">在 Shevery 服务意外停止时显示通知</string>
-
-    <!-- Lab Features - Debugging -->
     <string name="lab_debugging_title">调试</string>
     <string name="lab_verbose_logging_title">详细日志</string>
     <string name="lab_verbose_logging_summary">向 Logcat 写入详细调试日志。正式使用时请关闭以省电</string>
@@ -312,8 +273,6 @@
     <string name="notification_watchdog_text">Shevery 服务意外停止。</string>
     <string name="watchdog_service_title">Shevery 看门狗已激活</string>
     <string name="watchdog_service_text">正在监视 Shevery 服务以实现保活恢复</string>
-
-    <!-- Shevery Control Notification -->
     <string name="notification_control_channel_name">Shevery 控制</string>
     <string name="notification_control_title_running">Shevery 正在运行</string>
     <string name="notification_control_title_stopped">Shevery 已停止</string>
@@ -321,8 +280,6 @@
     <string name="notification_control_text_stopped">点击打开 Shevery 或展开以启动服务。</string>
     <string name="notification_control_action_start">启动</string>
     <string name="notification_control_action_stop">停止</string>
-
-    <!-- Update Settings -->
     <string name="update_settings_title">更新设置</string>
     <string name="update_settings_catalog">模块目录</string>
     <string name="update_settings_catalog_enabled">启用目录</string>
@@ -348,8 +305,6 @@
     <string name="update_settings_github_pat_clear">清除</string>
     <string name="update_settings_github_pat_delete">删除令牌</string>
     <string name="update_settings_github_pat_delete_summary">删除已保存的 GitHub 令牌</string>
-
-    <!-- Module Catalog -->
     <string name="modules_catalog">目录</string>
     <string name="modules_catalog_title">模块目录</string>
     <string name="modules_catalog_empty">未找到模块</string>
@@ -373,27 +328,19 @@
     <string name="modules_catalog_view_github">在 GitHub 查看</string>
     <string name="modules_catalog_skip_token">跳过</string>
     <string name="modules_catalog_open">打开目录</string>
-
-    <!-- TV Status -->
     <string name="tv_status_active">活跃</string>
     <string name="tv_status_disabled">已禁用</string>
     <string name="tv_status_trusted">受信任</string>
-
-    <!-- Wear Catalog -->
     <string name="wear_catalog_sort_newest">最新</string>
     <string name="wear_catalog_sort_stars">标星</string>
     <string name="wear_catalog_sort_official">官方</string>
     <string name="wear_catalog_sort_by">排序方式</string>
     <string name="wear_catalog_filter">筛选</string>
-
-    <!-- Backup & Restore -->
     <string name="backup_restore_title">备份与恢复</string>
     <string name="backup_title">备份设置和模块</string>
     <string name="backup_summary">将配置和模块导出为 ZIP 文件</string>
     <string name="restore_title">恢复设置和模块</string>
     <string name="restore_summary">从 ZIP 文件导入配置和模块</string>
-
-    <!-- Comput Console -->
     <string name="comput_title">Comput</string>
     <string name="comput_settings">Comput 控制台设置</string>
     <string name="comput_adb_console">ADB Comput 控制台</string>
@@ -447,6 +394,12 @@
     <string name="comput_use_command">使用命令</string>
     <string name="comput_copied_to_clipboard">已复制到剪贴板</string>
     <string name="comput_copy_command">复制命令</string>
+    <string name="comput_hero_title">Shevery 控制台</string>
+    <string name="comput_hero_subtitle">设备上的强大 Shell 终端，由 Shizuku 驱动。</string>
+    <string name="comput_status_ready">就绪</string>
+    <string name="comput_status_running">运行中</string>
+    <string name="comput_status_error">错误</string>
+    <string name="comput_console_section">控制台</string>
     <string name="comput_console_macros">控制台宏</string>
     <string name="comput_stop">停止 (%1$d)</string>
     <string name="comput_record_macro">录制宏</string>
@@ -461,6 +414,14 @@
     <string name="comput_save_macro_hint">请输入已录制宏的名称：</string>
     <string name="comput_macro_name_label">宏名称</string>
     <string name="comput_save">保存</string>
+    <string name="comput_tab_terminal">终端</string>
+    <string name="comput_tab_commandium">AI 工作室</string>
+    <string name="comput_tab_macros">宏命令</string>
+    <string name="comput_tab_presets">预设</string>
+    <string name="comput_quick_chips">快捷操作</string>
+    <string name="comput_terminal_header">SHELL 输出</string>
+    <string name="comput_presets_title">预设库</string>
+    <string name="comput_presets_subtitle">点按任意命令即可快速运行或自动填入终端提示符。</string>
     <string name="diagnostics_app">应用</string>
     <string name="diagnostics_android">Android</string>
     <string name="diagnostics_service">服务</string>
@@ -478,8 +439,6 @@
     <string name="diagnostics_full">完全</string>
     <string name="diagnostics_limited">受限</string>
     <string name="diagnostics_unknown">未知</string>
-
-    <!-- ErrorProtect & TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">每 10 秒检查进程健康状态与事务错误。若发现异常自动停止并重启 Shevery。</string>
     <string name="settings_tcp_5555_title">绑定 TCP 5555</string>
