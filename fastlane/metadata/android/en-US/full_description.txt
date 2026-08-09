@@ -1,9 +1,0 @@
-Shevery is an enhanced Android system service manager featuring Material 3 Expressive UI, experimental Dhizuku integration, ADB Modules management, and Comput AI command assistance.
-
-Key Features:
-• Jetpack Compose manager UI with Material 3 Expressive components, dynamic motion, and customized icons.
-• ADB Modules Screen: Install, activate, deactivate, configure policies, and manage custom ADB shell modules.
-• Dhizuku Support: Device-Owner bridging system integrated in Laboratory features.
-• Comput Console: Enhanced ADB shell environment with script execution, macros, and AI command helper.
-• Android 16 & 17 support built with modern Android SDK and NDK tooling.
-• Fully open-source under Apache 2.0.

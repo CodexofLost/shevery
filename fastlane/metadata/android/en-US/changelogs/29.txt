@@ -1,5 +1,0 @@
-• Material 3 Expressive UI update.
-• Added Dhizuku experimental support.
-• ADB Modules management and catalog fixes.
-• Comput AI command helper enhancements.
-• Android 16/17 compatibility updates.
