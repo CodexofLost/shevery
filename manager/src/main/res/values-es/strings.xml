@@ -387,7 +387,7 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="wear_catalog_sort_by">Ordenar por</string>
     <string name="wear_catalog_filter">Filtrar</string>
 
-    <!-- Backup & Restore -->
+    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title">Copia de seguridad y restauración</string>
     <string name="backup_title">Respaldar ajustes y módulos</string>
     <string name="backup_summary">Exportar configuración y módulos a un archivo ZIP</string>
@@ -480,7 +480,7 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="diagnostics_limited">limitado</string>
     <string name="diagnostics_unknown">desconocido</string>
 
-    <!-- ErrorProtect & TCP 5555 -->
+    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">Supervisa la salud del proceso y errores cada 10 segundos. Detiene y reinicia Shevery si detecta problemas.</string>
     <string name="settings_tcp_5555_title">Vincular TCP 5555</string>

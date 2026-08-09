@@ -389,7 +389,7 @@
     <string name="wear_catalog_sort_by">Сортувати за</string>
     <string name="wear_catalog_filter">Фільтр</string>
 
-    <!-- Backup & Restore -->
+    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title">Резервне копіювання та відновлення</string>
     <string name="backup_title">Створити бэкап налаштувань і модулів</string>
     <string name="backup_summary">Експортувати конфігурацію та модулі у ZIP-файл</string>
@@ -482,7 +482,7 @@
     <string name="diagnostics_limited">обмежений</string>
     <string name="diagnostics_unknown">невідомо</string>
 
-    <!-- ErrorProtect & TCP 5555 -->
+    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">Перевіряє стан процесів та транзакцій кожні 10 секунд. Автоматично перезапускає Shevery у разі збоїв.</string>
     <string name="settings_tcp_5555_title">Прив’язка TCP 5555</string>

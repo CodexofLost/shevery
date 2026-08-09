@@ -386,7 +386,7 @@
     <string name="wear_catalog_sort_by">並び替え</string>
     <string name="wear_catalog_filter">フィルター</string>
 
-    <!-- Backup & Restore -->
+    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title">バックアップと復元</string>
     <string name="backup_title">設定とモジュールをバックアップ</string>
     <string name="backup_summary">設定とモジュールをZIPファイルにエクスポート</string>
@@ -479,7 +479,7 @@
     <string name="diagnostics_limited">制限付き</string>
     <string name="diagnostics_unknown">不明</string>
 
-    <!-- ErrorProtect & TCP 5555 -->
+    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">プロセスの健全性とエラーを10秒ごとに監視。問題を検知するとSheveryを自動再起動します。</string>
     <string name="settings_tcp_5555_title">TCP 5555 バインド</string>

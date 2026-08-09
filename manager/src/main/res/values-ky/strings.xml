@@ -1,5 +1,5 @@
 <resources>
-    <string name="translation_contributors" />
+    <string name="translation_contributors">AI</string>
     <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">Жогору карай багыттоо</string>
     <string name="accessibility_close">Жабуу</string>

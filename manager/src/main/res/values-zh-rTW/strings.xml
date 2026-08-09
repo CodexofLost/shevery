@@ -1,5 +1,5 @@
 <resources>
-    <string name="translation_contributors" />
+    <string name="translation_contributors">AI</string>
     <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">返回上一層</string>
     <string name="accessibility_close">關閉</string>

@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">Shevery</string>
 
     <!-- To translators: you can leave your here -->
-    <string name="translation_contributors" />
+    <string name="translation_contributors">AI</string>
 
     <!-- Accessibility -->
     <string name="accessibility_navigate_up">Navigate up</string>
@@ -402,7 +402,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="wear_catalog_sort_by">Sort by</string>
     <string name="wear_catalog_filter">Filter</string>
 
-    <!-- Backup & Restore -->
+    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title">Backup &amp; Restore</string>
     <string name="backup_title">Backup Settings &amp; Modules</string>
     <string name="backup_summary">Export configuration and modules to a ZIP file</string>
@@ -509,7 +509,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="diagnostics_limited">limited</string>
     <string name="diagnostics_unknown">unknown</string>
 
-    <!-- ErrorProtect & TCP 5555 -->
+    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">Check process health and transactional errors every 10 seconds. Automatically stops and restarts Shevery if issues are found.</string>
     <string name="settings_tcp_5555_title">TCP Binding 5555</string>

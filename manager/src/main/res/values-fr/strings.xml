@@ -387,7 +387,7 @@ Le Wi-Fi est requis lors du premier redémarrage car Shevery doit se connecter a
     <string name="wear_catalog_sort_by">Trier par</string>
     <string name="wear_catalog_filter">Filtrer</string>
 
-    <!-- Backup & Restore -->
+    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title">Sauvegarde et restauration</string>
     <string name="backup_title">Sauvegarder paramètres et modules</string>
     <string name="backup_summary">Exporter la configuration et les modules dans un fichier ZIP</string>
@@ -480,7 +480,7 @@ Le Wi-Fi est requis lors du premier redémarrage car Shevery doit se connecter a
     <string name="diagnostics_limited">limité</string>
     <string name="diagnostics_unknown">inconnu</string>
 
-    <!-- ErrorProtect & TCP 5555 -->
+    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">Vérifie la santé du processus et les erreurs de transaction toutes les 10 secondes. Arrête et redémarre automatiquement Shevery si des problèmes sont détectés.</string>
     <string name="settings_tcp_5555_title">Lier TCP 5555</string>
