@@ -42,6 +42,7 @@ class AdbDialogFragment : DialogFragment() {
 
     private lateinit var adbMdns: AdbMdns
     private val port = MutableLiveData<Int>()
+    private var startCommitted = false
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val context = requireContext()
@@ -151,6 +152,10 @@ class AdbDialogFragment : DialogFragment() {
 
     private fun startAndDismiss(port: Int) {
         if (!isValidAdbPort(port)) return
+        if (startCommitted) return
+
+        startCommitted = true
+        adbMdns.stop()
 
         val host = "127.0.0.1"
         val intent = Intent(context, StarterActivity::class.java).apply {
