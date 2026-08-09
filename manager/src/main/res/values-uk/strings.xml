@@ -16,7 +16,7 @@
 
     <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[Запуск через підключення до ПК]]></string>
-    <string name="home_adb_description"><![CDATA[Для пристроїв без root-прав потрібно використовувати ADB для запуску Shevery (потрібне підключення до комп’ютера). Процедуру слід повторювати після кожного перезавантаження пристрою. Будь ласка, <b><a href=\"%1$s\">прочитайте довідку</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[Для пристроїв без root-прав потрібно використовувати ADB для запуску Shevery (потрібне підключення до комп’ютера). Процедуру слід повторювати після кожного перезавантаження пристрою. Будь ласка, <b><a href="%1$s">прочитайте довідку</a></b>.]]></string>
     <string name="home_adb_button_view_help">Читати довідку</string>
     <string name="home_adb_button_view_command">Переглянути команду</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Є інші особливості, переконайтеся, що ви спочатку прочитали довідку.]]></string>
@@ -37,8 +37,8 @@
 
     <!-- Adb -->
     <string name="dialog_adb_discovery">Пошук служби бездротового налагодження</string>
-    <string name="dialog_adb_discovery_message">Увімкніть \"Бездротове налагодження\" в \"Параметрах розробника\". Бездротове налагодження вимикається автоматично при зміні мережі.\n\nПримітка: не вимикайте \"Параметри розробника\" чи \"Налагодження по USB\", інакше Shevery зупиниться.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Спробуйте вимкнути та знову ввімкнути \"Бездротове налагодження\", якщо пошук триває занадто довго.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Увімкніть "Бездротове налагодження" в "Параметрах розробника". Бездротове налагодження вимикається автоматично при зміні мережі.\n\nПримітка: не вимикайте "Параметри розробника" чи "Налагодження по USB", інакше Shevery зупиниться.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Спробуйте вимкнути та знову ввімкнути "Бездротове налагодження", якщо пошук триває занадто довго.]]></string>
     <string name="dialog_adb_port">Порт</string>
     <string name="dialog_adb_invalid_port">Порт повинен бути цілим числом від 1 до 65535.</string>
     <string name="adb_pairing">З’єднання</string>
@@ -48,7 +48,7 @@
     <string name="paring_code_is_wrong">Невірний код з’єднання.</string>
     <string name="cannot_connect_port">Не вдалося підключитися до служби бездротового налагодження.</string>
     <string name="dialog_wireless_adb_not_enabled">Бездротове налагодження вимкнено.\nДо Android 11 підключення до ПК обов’язкове.</string>
-    <string name="dialog_adb_pairing_message">Розпочніть з’єднання за кроками: \"Параметри розробника\" - \"Бездротове налагодження\" - \"З’єднати пристрій кодом з’єднання\".\n\nПісля запуску ви зможете ввести код.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Розпочніть з’єднання за кроками: "Параметри розробника" - "Бездротове налагодження" - "З’єднати пристрій кодом з’єднання".\n\nПісля запуску ви зможете ввести код.]]></string>
     <string name="adb_pairing_requires_multi_window">Будь ласка, спочатку перейдіть у режим розділеного екрана (багатовіконність).</string>
     <string name="adb_pairing_requires_multi_window_reason">Система вимагає, щоб діалог з’єднання завжди залишався видимим. Розділений екран є єдиним способом тримати видимими додаток і діалог системи одночасно.</string>
     <string name="adb_error_key_store">Не вдалося згенерувати ключ бездротового налагодження.\nМожливо, механізм KeyStore цього пристрою пошкоджено.</string>
@@ -57,12 +57,12 @@
     <string name="notification_settings">Параметри сповіщень</string>
     <string name="adb_pairing_tutorial_title">З’єднати Shevery з вашим пристроєм</string>
     <string name="adb_pairing_tutorial_content_notification">Сповіщення від Shevery допоможе вам завершити з’єднання.</string>
-    <string name="adb_pairing_tutorial_content_steps">Перейдіть у \"Параметри розробника\" - \"Бездротове налагодження\". Натисніть \"З’єднати пристрій кодом з’єднання\", ви побачите шестизначний код.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Перейдіть у "Параметри розробника" - "Бездротове налагодження". Натисніть "З’єднати пристрій кодом з’єднання", ви побачите шестизначний код.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Введіть код у сповіщенні для завершення з’єднання.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Процес з’єднання вимагає взаємодії зі сповіщенням Shevery. Будь ласка, дозвольте Shevery надсилати сповіщення.</string>
-    <string name="adb_pairing_tutorial_content_miui">Користувачам MIUI може знадобитися змінити стиль сповіщень на \"Android\" у \"Налаштування\" - \"Сповіщення\".</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Користувачам MIUI може знадобитися змінити стиль сповіщень на "Android" у "Налаштування" - "Сповіщення".]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">Інакше ви не зможете ввести код з’єднання зі сповіщення.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Зверніть увагу, що ліва частина опції \"Бездротове налагодження\" є натискальною та відкриває нову сторінку. Увімкнення лише перемикача праворуч є недостатнім.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Зверніть увагу, що ліва частина опції "Бездротове налагодження" є натискальною та відкриває нову сторінку. Увімкнення лише перемикача праворуч є недостатнім.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Поверніться до Shevery та запустіть службу.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery потребує доступу до локальної мережі.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Деякі системи (наприклад, MIUI) обмежують доступ до мережі у фоні. Вимкніть оптимізацію батареї для Shevery.</string>
@@ -98,13 +98,13 @@
 
     <!-- Home - Adb permissions limited -->
     <string name="home_adb_is_limited_title">Потрібен додатковий крок</string>
-    <string name="home_adb_is_limited_description">Виробник вашого пристрою обмежив дозволи ADB, і додатки з Shevery працюватимуть неналежно.\n\nЗазвичай це обмеження знімається в \"Параметрах розробника\". Детальніше дивіться у довідці.\n\nМоже знадобитися перезапуск Shevery.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Виробник вашого пристрою обмежив дозволи ADB, і додатки з Shevery працюватимуть неналежно.\n\nЗазвичай це обмеження знімається в "Параметрах розробника". Детальніше дивіться у довідці.\n\nМоже знадобитися перезапуск Shevery.]]></string>
 
     <!-- Application management -->
     <string name="app_management_select_all">Вибрати все</string>
     <string name="app_management_deselect_all">Зняти виділення</string>
     <string name="app_management_dialog_adb_is_limited_title">Дозвіл ADB обмежено</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Цілком можливо, що виробник вашого пристрою обмежує дозволи ADB.<p>Рішення можна знайти у <b><a href=\"%1$s\">цьому документі</a></b>.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Цілком можливо, що виробник вашого пристрою обмежує дозволи ADB.<p>Рішення можна знайти у <b><a href="%1$s">цьому документі</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* вимагає запуску Shevery з root-правами</string>
 
     <!-- Terminal -->
@@ -389,7 +389,7 @@
     <string name="wear_catalog_sort_by">Сортувати за</string>
     <string name="wear_catalog_filter">Фільтр</string>
 
-    <!-- Backup & Restore -->
+    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title">Резервне копіювання та відновлення</string>
     <string name="backup_title">Створити бэкап налаштувань і модулів</string>
     <string name="backup_summary">Експортувати конфігурацію та модулі у ZIP-файл</string>
@@ -482,7 +482,7 @@
     <string name="diagnostics_limited">обмежений</string>
     <string name="diagnostics_unknown">невідомо</string>
 
-    <!-- ErrorProtect & TCP 5555 -->
+    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">Перевіряє стан процесів та транзакцій кожні 10 секунд. Автоматично перезапускає Shevery у разі збоїв.</string>
     <string name="settings_tcp_5555_title">Прив’язка TCP 5555</string>

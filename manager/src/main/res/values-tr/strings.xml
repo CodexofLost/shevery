@@ -1,5 +1,5 @@
 <resources>
-    <string name="translation_contributors" />
+    <string name="translation_contributors">AI</string>
     <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">Navigate up</string>
     <string name="accessibility_close">Close</string>
@@ -8,16 +8,16 @@
     <string name="home_status_service_is_running">%1$s çalışıyor</string>
     <string name="home_status_service_not_running">%1$s çalışmıyor</string>
     <string name="home_status_service_version">Sürüm %2$s, %1$s</string>
-    <string name="home_status_service_version_update">Sürüm %2$s, %1$s&lt;br&gt;Sürüm %3$s, güncelleştirmek için yeniden başlatın</string>
+    <string name="home_status_service_version_update"><![CDATA[Sürüm %2$s, %1$s<br>Sürüm %3$s, güncelleştirmek için yeniden başlatın]]></string>
     <string name="home_adb_title">Bilgisayara bağlanarak başlatın</string>
     <string name="home_adb_description">Rootsuz cihazlar için Shizuku’yu başlatmak için adb kullanmanız gerekir (bilgisayar bağlantısı gerektirir). Bu işlemin cihaz her yeniden başlatıldığında tekrarlanması gerekir. Lütfen <b><a href="%1$s">yardımı okuyun</a></b>.</string>
     <string name="home_adb_button_view_help">Yardımı oku</string>
     <string name="home_adb_button_view_command">Komutu görüntüle</string>
-    <string name="home_adb_dialog_view_command_message">&lt;font face=monospace&gt;%1$s&lt;/font&gt;&lt;br&gt;&lt;br&gt;* Başka hususlar da var, lütfen önce yardımı okuduğunuzu onaylayın.</string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Başka hususlar da var, lütfen önce yardımı okuduğunuzu onaylayın.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Kopyala</string>
     <string name="home_adb_dialog_view_command_button_send">Gönder</string>
     <string name="home_wireless_adb_title">Kablosuz hata ayıklama ile başlat</string>
-    <string name="home_wireless_adb_description">Android 11 ve üzeri sürümlerde, Kablosuz hata ayıklama ve Shizuku\'yu cihazınızdan bir bilgisayara bağlanmadan direkt aktif edebilirsiniz.&lt;p&gt;Lütfen öncelikle adım adım kılavuz\'u inceleyin.</string>
+    <string name="home_wireless_adb_description"><![CDATA[Android 11 ve üzeri sürümlerde, Kablosuz hata ayıklama ve Shizuku\'yu cihazınızdan bir bilgisayara bağlanmadan direkt aktif edebilirsiniz.<p>Lütfen öncelikle adım adım kılavuz\'u inceleyin.]]></string>
     <string name="home_wireless_adb_description_pre_11">Android 11 ve önceki sürümlerde, Kablosuz hata ayıklama’yı aktif etmek için bir bilgisayara bağlanmak gereklidir.</string>
     <string name="home_wireless_adb_view_guide_button">Adım adım kılavuz</string>
     <string name="home_local_network_title">Local network access</string>
@@ -27,10 +27,10 @@
     <string name="home_local_network_grant">Grant access</string>
     <string name="home_local_network_permission_denied">Local network access is required for Wireless debugging.</string>
     <string name="dialog_adb_discovery">Kablosuz hata ayıklama hizmeti aranıyor</string>
-    <string name="dialog_adb_discovery_message">Lütfen \"Geliştirici seçenekleri\"nde \"Kablosuz hata ayıklama\"yı etkinleştirin. Ağ değiştiğinde \"kablosuz hata ayıklama\" otomatik olarak devre dışı bırakılır.
+    <string name="dialog_adb_discovery_message"><![CDATA[Lütfen "Geliştirici seçenekleri"nde "Kablosuz hata ayıklama"yı etkinleştirin. Ağ değiştiğinde "kablosuz hata ayıklama" otomatik olarak devre dışı bırakılır.
 \n
-\nNot, \"Geliştirici seçenekleri\" veya \"USB hata ayıklama\" devre dışı bırakmayın, Shizuku durdurulur.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Eğer sürekli arıyorsa lütfen \"Wireless Debugging\" ayarını kapatıp açmayı deneyin.</string>
+\nNot, "Geliştirici seçenekleri" veya "USB hata ayıklama" devre dışı bırakmayın, Shizuku durdurulur.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Eğer sürekli arıyorsa lütfen "Wireless Debugging" ayarını kapatıp açmayı deneyin.]]></string>
     <string name="dialog_adb_port">Port</string>
     <string name="dialog_adb_invalid_port">Port 1 ile 65535 arasında değişen bir tamsayıdır.</string>
     <string name="adb_pairing">Eşleştiriliyor</string>
@@ -41,9 +41,9 @@
     <string name="cannot_connect_port">Kablosuz hata ayıklama hizmeti bağlanamıyor.</string>
     <string name="dialog_wireless_adb_not_enabled">Kablosuz hata ayıklama etkin değil.
 \nNot, Android 11’den önce kablosuz hata ayıklamayı etkinleştirmek için bilgisayar bağlantısının şart olduğunu unutmayın.</string>
-    <string name="dialog_adb_pairing_message">Lütfen aşağıdaki adımları izleyerek eşleştirme işlemine başlayın: \"Geliştirici Seçenekleri\" - \"Kablosuz hata ayıklama\" - \"Cihazı eşleme kodu kullanarak eşleştir\".
+    <string name="dialog_adb_pairing_message"><![CDATA[Lütfen aşağıdaki adımları izleyerek eşleştirme işlemine başlayın: "Geliştirici Seçenekleri" - "Kablosuz hata ayıklama" - "Cihazı eşleme kodu kullanarak eşleştir".
 \n
-\nEşleştirme işlemi başladıktan sonra eşleştirme kodunu girebilirsiniz.</string>
+\nEşleştirme işlemi başladıktan sonra eşleştirme kodunu girebilirsiniz.]]></string>
     <string name="adb_pairing_requires_multi_window">Lütfen önce bölünmüş ekran (çoklu pencere) moduna girin.</string>
     <string name="adb_pairing_requires_multi_window_reason">Sistem, eşleştirme iletişim kutusunun her zaman görünür olmasını zorunda kılıyor; bölünmüş ekran modunu kullanmak, bu uygulamanın ve sistem iletişim kutusunun aynı anda görünür olmasını sağlamanın tek yoludur.</string>
     <string name="adb_error_key_store">Kablosuz hata ayıklama için anahtar üretilemiyor.
@@ -53,17 +53,17 @@
     <string name="notification_settings">Bildirim seçenekleri</string>
     <string name="adb_pairing_tutorial_title">Shizuku’yu cihazınızla eşleştirin</string>
     <string name="adb_pairing_tutorial_content_notification">Shizuku’dan bir bildirim eşleştirmeyi tamamlamanıza yardım edecek.</string>
-    <string name="adb_pairing_tutorial_content_steps">\"Geliştirici Seçenekleri\" - \"Kablosuz hata ayıklama\" girin. \"Cihazı eşleştirme kodu ile eşleştir\"e dokunun, altı haneli bir kod göreceksiniz.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA["Geliştirici Seçenekleri" - "Kablosuz hata ayıklama" girin. "Cihazı eşleştirme kodu ile eşleştir"e dokunun, altı haneli bir kod göreceksiniz.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Eşleştirmeyi tamamlamak için kodu bildirime girin.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Eşleştirme işlemi, Shizuku\'dan gelen bir bildirimle etkileşim kurmanızı gerektirir. Lütfen Shizuku\'nun bildirim göndermesine izin verin.</string>
-    <string name="adb_pairing_tutorial_content_miui">MIUI kullanıcılarının sistem ayarlarında \"Bildirim\" - \"Bildirim gölgesi\"nden bildirim stilini \"Android\" olarak değiştirmeleri gerekebilir.</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI kullanıcılarının sistem ayarlarında "Bildirim" - "Bildirim gölgesi"nden bildirim stilini "Android" olarak değiştirmeleri gerekebilir.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">Aksi takdirde, bildirimden eşleştirme kodunu giremeyebilirsiniz.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Lütfen, \"Kablosuz hata ayıklama\" seçeneğinin sol kısmının tıklanabilir olduğunu, dokunulduğunda yeni bir sayfa açılacağını unutmayın. Yalnızca sağdaki düğmeyi açmak yanlıştır.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Lütfen, "Kablosuz hata ayıklama" seçeneğinin sol kısmının tıklanabilir olduğunu, dokunulduğunda yeni bir sayfa açılacağını unutmayın. Yalnızca sağdaki düğmeyi açmak yanlıştır.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Shizuku\'ya geri dönün ve Shizuku\'yu başlatın.</string>
     <string name="adb_pairing_tutorial_content_network">Shizuku’nun yerel ağa erişmesi gerekiyor. Ağ izni tarafından kontrol edilir.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Bazı sistemler (MIUI gibi), uygulama standart olarak ön plan hizmetini kullansa bile, arka planda çalıştıklarında ağa erişmesine izin vermez. Lütfen bu tür sistemlerde Shizuku için pil optimizasyon özelliklerini devre dışı bırakın.</string>
     <string name="home_root_title">Başlat (rootlu cihazlar için)</string>
-    <string name="home_root_description">Buna ek olarak, Shizuku otomatik olarak açılışta başlatılabilir. Aksi durumda ise, lütfen sisteminizin veya üçüncü taraf araçlarınızın Shizuku\'yu kısıtlayıp kısıtlamadığını kontrol edin. &lt;br&gt;%s \'ye başvurabilirsiniz.</string>
+    <string name="home_root_description"><![CDATA[Buna ek olarak, Shizuku otomatik olarak açılışta başlatılabilir. Aksi durumda ise, lütfen sisteminizin veya üçüncü taraf araçlarınızın Shizuku\'yu kısıtlayıp kısıtlamadığını kontrol edin. <br>%s \'ye başvurabilirsiniz.]]></string>
     <string name="home_root_description_sui">Magisk kullanıyorsanız, %1$s’yi deneyebilirsiniz. Kök kullanıcıları için sonunda Shizuku’nun yerini alacak. %2$s’yi kullanmak için mevcut uygulamaların biraz değişmesi gerektiğini unutmayın.</string>
     <string name="home_root_button_start">Başlat</string>
     <string name="home_root_button_restart">Yeniden başlat</string>
@@ -87,26 +87,26 @@
 
 Genellikle bu kısıtlama "Geliştirici seçenekleri"nde bazı ayarları düzenleyerek kaldırılabilir. Ayrıntılar için yardımı okuyun.
 
-Değişikliklerin geçerli olması için Shevery'yi yeniden başlatmanız gerekebilir.</string>
+Değişikliklerin geçerli olması için Shevery\'yi yeniden başlatmanız gerekebilir.</string>
     <string name="app_management_select_all">Tümünü seç</string>
     <string name="app_management_deselect_all">Seçimi kaldır</string>
     <string name="app_management_dialog_adb_is_limited_title">ADB’nin izni sınırlıdır</string>
-    <string name="app_management_dialog_adb_is_limited_message">Cihaz üreticinizin adb iznini sınırlaması son derece olasıdır. &lt;p&gt;Bu belgede&lt;b&gt;&lt;a href=\"%1$s\"&gt;sisteminiz için bir çözüm olabilir&lt;/a&gt;&lt;/b&gt;.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Cihaz üreticinizin adb iznini sınırlaması son derece olasıdır. <p>Bu belgede<b><a href="%1$s">sisteminiz için bir çözüm olabilir</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* Shizuku’nun root ile çalıştırılması gerekli</string>
     <string name="home_terminal_title">Shizuku’yu terminal uygulamalarında kullanın</string>
     <string name="home_terminal_description">Sevdiğiniz terminal uygulamalarında Shizuku aracılığıyla komutları çalıştırın</string>
     <string name="terminal_tutorial_1">İlk olarak, dosyaları istediğiniz yere aktarın. İki dosya bulacaksınız: %1$s ve %2$s.</string>
     <string name="terminal_tutorial_1_description">Seçilen klasörde aynı ada sahip dosyalar varsa bunlar silinecek.
 
-Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SAF işlevlerini bozduğu bildirilmektedir. MIUI kullanıyorsanız dosyayı Shevery'nin APK'sından çıkarmanız veya GitHub'dan indirmeniz gerekebilir.</string>
+Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI\'nin SAF işlevlerini bozduğu bildirilmektedir. MIUI kullanıyorsanız dosyayı Shevery\'nin APK\'sından çıkarmanız veya GitHub\'dan indirmeniz gerekebilir.</string>
     <string name="terminal_export_files">Dosyaları dışa aktar</string>
     <string name="terminal_tutorial_2">Ardından, herhangi bir metin düzenleyici kullanarak %1$s dosyasını açın ve düzenleyin.</string>
-    <string name="terminal_tutorial_2_description">Örneğin, Shevery'yi %1$s'de kullanmak istiyorsanız %2$s yerine %3$s koymalısınız (%4$s, %1$s'nin paket adıdır).</string>
+    <string name="terminal_tutorial_2_description">Örneğin, Shevery\'yi %1$s\'de kullanmak istiyorsanız %2$s yerine %3$s koymalısınız (%4$s, %1$s\'nin paket adıdır).</string>
     <string name="terminal_tutorial_3">Son olarak, dosyaları terminal uygulamanızın erişebileceği bir yere taşıyın; Shevery aracılığıyla komut çalıştırmak için %1$s kullanabilirsiniz.</string>
-    <string name="terminal_tutorial_3_description">Bazı ipuçları: %1$s'ye çalıştırma izni verin ve %2$s'ye ekleyin; böylece %1$s'yi doğrudan kullanabilirsiniz.</string>
+    <string name="terminal_tutorial_3_description">Bazı ipuçları: %1$s\'ye çalıştırma izni verin ve %2$s\'ye ekleyin; böylece %1$s\'yi doğrudan kullanabilirsiniz.</string>
     <string name="rish_description"><![CDATA[
 %1$s ile herhangi bir terminal uygulamasında Shevery tarafından çalıştırılan kabuğa bağlanabilir ve etkileşime girebilirsiniz.
-<p>%1$s'nin ayrıntılı kullanımı için belgeyi görüntülemek üzere dokunun.
+<p>%1$s\'nin ayrıntılı kullanımı için belgeyi görüntülemek üzere dokunun.
     ]]></string>
     <string name="settings_title">Ayarlar</string>
     <string name="settings_language">Dil</string>
@@ -138,9 +138,9 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="modules_permission_action">Eylem Çalıştır</string>
     <string name="modules_permission_action_summary">Manuel action.sh çalıştırmasına izin ver.</string>
     <string name="modules_permission_service">Hizmet Çalıştır</string>
-    <string name="modules_permission_service_summary">Arka plan eylemleri de etkinleştirildiğinde service.sh'ye izin ver.</string>
+    <string name="modules_permission_service_summary">Arka plan eylemleri de etkinleştirildiğinde service.sh\'ye izin ver.</string>
     <string name="modules_permission_web_bridge">WebUI kabuk köprüsü</string>
-    <string name="modules_permission_web_bridge_summary">window.Shevery'yi yalnızca yerel WebUI için ve yalnızca WebView internet kapalıyken göster.</string>
+    <string name="modules_permission_web_bridge_summary">window.Shevery\'yi yalnızca yerel WebUI için ve yalnızca WebView internet kapalıyken göster.</string>
     <string name="modules_permission_web_network">WebView internet</string>
     <string name="modules_permission_web_network_summary">HTTPS gezintisine/varlıklara izin ver. Bu, o WebView için kabuk köprüsü gösterimini devre dışı bırakır.</string>
     <string name="modules_permission_web_download">WebUI download()</string>
@@ -208,7 +208,7 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="action_about">Hakkında</string>
     <string name="about_source_code_button">Kaynak kodu</string>
     <string name="about_view_source_code"><![CDATA[Kaynak kodunu %s adresinde görüntüle]]></string>
-    <string name="action_stop">Shevery'yi durdur</string>
+    <string name="action_stop">Shevery\'yi durdur</string>
     <string name="dialog_stop_message">Shevery hizmeti durdurulacak.</string>
     <string name="service_already_stopped">Shevery hizmeti zaten durdurulmuş.</string>
     <string name="service_stop_success">Shevery hizmeti durduruldu.</string>
@@ -233,7 +233,7 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Shizuku’ya erişim</string>
     <string name="permission_description">Uygulamanın Shizuku’yu kullanmasına izin verin.</string>
-    <string name="permission_warning_template"><b>%1$s</b> uygulamasına %2$s için izin verilsin mi\?</string>
+    <string name="permission_warning_template"><b>%1$s</b> uygulamasına %2$s için izin verilsin mi?</string>
     <string name="grant_dialog_button_allow_always">Her zaman izin ver</string>
     <string name="grant_dialog_button_deny">Reddet</string>
     <string name="starter">Başlatıcı</string>
@@ -244,29 +244,29 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
 \npanoya kopyalanmıştır.</string>
     <string name="toast_copied_to_clipboard_with_text"><b>%s</b> panoya kopyalandı.</string>
     <string name="dialog_legacy_not_support_title">%1$s, yeni Shizuku’yu desteklemiyor</string>
-    <string name="dialog_legacy_not_support_message">Eski Shizuku, Mart 2019’dan beri kullanımdan kaldırılmıştır. Ayrıca, eski Shizuku yeni Android sistemlerinde çalışmaz. &lt;p&gt;Lütfen&lt;b&gt;%1$s&lt;/b&gt; geliştiricisinden güncelleme yapmasını isteyin.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Eski Shizuku, Mart 2019’dan beri kullanımdan kaldırılmıştır. Ayrıca, eski Shizuku yeni Android sistemlerinde çalışmaz. <p>Lütfen<b>%1$s</b> geliştiricisinden güncelleme yapmasını isteyin.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s, mevcut Shizuku gerektiriyor</string>
-    <string name="dialog_requesting_legacy_message">&lt;b&gt;%1$s&lt;/b&gt; yeni Shizuku desteğine sahip ama eski Shizuku talep ediyor. Bu Shizuku çalışmadığı zaman meydana gelir, lütfen Shizuku uygulamasını kontrol edin.&lt;p&gt;Eski Shizuku uygulaması Mart 2019’da kullanımdan kaldırılmıştır.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> yeni Shizuku desteğine sahip ama eski Shizuku talep ediyor. Bu Shizuku çalışmadığı zaman meydana gelir, lütfen Shizuku uygulamasını kontrol edin.<p>Eski Shizuku uygulaması Mart 2019’da kullanımdan kaldırılmıştır.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Shizuku’yu aç</string>
     <string name="lab_features_title">Deneysel Özellikler</string>
     <string name="lab_features_summary">Deneysel özellikler</string>
     <string name="shizuku_connectors_title">Shevery Bağlayıcıları</string>
-    <string name="shizuku_connectors_summary">Eklentilerin Shevery'yi etkinleştirmesine izin ver</string>
+    <string name="shizuku_connectors_summary">Eklentilerin Shevery\'yi etkinleştirmesine izin ver</string>
     <string name="unsafe_warning_title">Uyarı</string>
     <string name="unsafe_warning_message">Bu özelliği etkinleştirmek GÜVENSİZDİR. Emin misiniz?</string>
     <string name="dhizuku_mode_title">Dhizuku Modu</string>
-    <string name="dhizuku_mode_summary">Shevery'nin Dhizuku'ya bağlı olarak çalışmasına izin ver</string>
+    <string name="dhizuku_mode_summary">Shevery\'nin Dhizuku\'ya bağlı olarak çalışmasına izin ver</string>
     <string name="home_dhizuku_title"><![CDATA[Başlat (Dhizuku aracılığıyla)]]></string>
-    <string name="home_dhizuku_description"><![CDATA[Dhizuku tarafından yönetilen cihazlar için Cihaz Sahibi ayrıcalıklarını kullanarak Shevery'yi doğrudan başlatabilirsiniz.]]></string>
+    <string name="home_dhizuku_description"><![CDATA[Dhizuku tarafından yönetilen cihazlar için Cihaz Sahibi ayrıcalıklarını kullanarak Shevery\'yi doğrudan başlatabilirsiniz.]]></string>
     <string name="dhizuku_warning_title">Uyarı: Dhizuku Modu</string>
-    <string name="dhizuku_warning_message">Dhizuku, Cihaz Sahibi/yönetici ayrıcalıkları için tasarlanmıştır. Shevery'yi Dhizuku aracılığıyla çalıştırırken bazı kabuk ve ADB'ye özgü komutlar düzgün çalışmayabilir veya tamamen desteklenmeyebilir. Devam etmek istediğinizden emin misiniz?</string>
+    <string name="dhizuku_warning_message">Dhizuku, Cihaz Sahibi/yönetici ayrıcalıkları için tasarlanmıştır. Shevery\'yi Dhizuku aracılığıyla çalıştırırken bazı kabuk ve ADB\'ye özgü komutlar düzgün çalışmayabilir veya tamamen desteklenmeyebilir. Devam etmek istediğinizden emin misiniz?</string>
     <string name="settings_tcp_mode">TCP Modu</string>
     <string name="settings_tcp_mode_summary">ADB başlatmayı TCP 5555 portuna yeniden bağla.</string>
     <string name="settings_restart_dialog_title">Yeniden başlatma gerekli</string>
     <string name="settings_restart_dialog_message">Shevery bu TCP modu değişikliğini uygulamak için yeniden başlatılmalı.</string>
     <string name="settings_restart_dialog_message_wifi_required">
 
-İlk yeniden başlatma için Wi-Fi gereklidir çünkü Shevery ADB'yi 5555'e geçirmeden önce mevcut Kablosuz Hata Ayıklama portuna bağlanmalıdır.</string>
+İlk yeniden başlatma için Wi-Fi gereklidir çünkü Shevery ADB\'yi 5555\'e geçirmeden önce mevcut Kablosuz Hata Ayıklama portuna bağlanmalıdır.</string>
     <string name="settings_auto_disable_usb_debugging">USB hata ayıklamayı otomatik devre dışı bırak</string>
     <string name="settings_auto_disable_usb_debugging_summary">Shevery başlangıçta başlayacak şekilde yapılandırılmamışsa yeniden başlatma sonrası USB hata ayıklamayı kapat</string>
     <string name="settings_service_group">Hizmet Bakımı</string>
@@ -281,7 +281,7 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="lab_notify_death_summary">Shevery hizmeti beklenmedik şekilde durduğunda bildirim göster</string>
     <string name="lab_debugging_title">Hata Ayıklama</string>
     <string name="lab_verbose_logging_title">Ayrıntılı Günlük Kaydı</string>
-    <string name="lab_verbose_logging_summary">Logcat'e ayrıntılı hata ayıklama günlükleri yaz. Pili korumak için üretimde devre dışı bırak</string>
+    <string name="lab_verbose_logging_summary">Logcat\'e ayrıntılı hata ayıklama günlükleri yaz. Pili korumak için üretimde devre dışı bırak</string>
     <string name="notification_channel_watchdog">Hizmet İzleyici</string>
     <string name="notification_watchdog_title">Shevery Hizmeti Durdu</string>
     <string name="notification_watchdog_text">Shevery hizmeti beklenmedik şekilde durdu.</string>
@@ -290,14 +290,14 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="notification_control_channel_name">Shevery Kontrolü</string>
     <string name="notification_control_title_running">Shevery çalışıyor</string>
     <string name="notification_control_title_stopped">Shevery durdu</string>
-    <string name="notification_control_text_running">Shevery'yi açmak için dokun veya durdurmak için bildirimi genişlet.</string>
-    <string name="notification_control_text_stopped">Shevery'yi açmak için dokun veya başlatmak için bildirimi genişlet.</string>
+    <string name="notification_control_text_running">Shevery\'yi açmak için dokun veya durdurmak için bildirimi genişlet.</string>
+    <string name="notification_control_text_stopped">Shevery\'yi açmak için dokun veya başlatmak için bildirimi genişlet.</string>
     <string name="notification_control_action_start">Başlat</string>
     <string name="notification_control_action_stop">Durdur</string>
     <string name="update_settings_title">Güncelleme Ayarları</string>
     <string name="update_settings_catalog">Modül Kataloğu</string>
     <string name="update_settings_catalog_enabled">Kataloğu etkinleştir</string>
-    <string name="update_settings_catalog_enabled_summary">GitHub Topics'ten keşfedilen modülleri göster</string>
+    <string name="update_settings_catalog_enabled_summary">GitHub Topics\'ten keşfedilen modülleri göster</string>
     <string name="update_settings_frequency">Güncelleme Sıklığı</string>
     <string name="update_settings_frequency_label">Güncellemeleri kontrol et</string>
     <string name="update_settings_frequency_manual">Manuel</string>
@@ -312,7 +312,7 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="update_settings_github_pat_set">Belirteç ayarlandı</string>
     <string name="update_settings_github_pat_unset">Ayarlanmadı (60 istek/saat)</string>
     <string name="update_settings_github_pat_title">GitHub Kişisel Erişim Belirteci</string>
-    <string name="update_settings_github_pat_description">İsteğe bağlı. GitHub PAT, API hız sınırlarını 60'tan 5000 istek/saate çıkarır. Yalnızca public_repo kapsamı gerektirir.</string>
+    <string name="update_settings_github_pat_description">İsteğe bağlı. GitHub PAT, API hız sınırlarını 60\'tan 5000 istek/saate çıkarır. Yalnızca public_repo kapsamı gerektirir.</string>
     <string name="update_settings_github_pat_label">Belirteç</string>
     <string name="update_settings_github_pat_show">Göster</string>
     <string name="update_settings_github_pat_hide">Gizle</string>
@@ -333,13 +333,13 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="modules_catalog_install_failed">Yükleme başarısız: %s</string>
     <string name="modules_catalog_token_required">GitHub belirteci gerekli</string>
     <string name="modules_catalog_token_hint">GitHub Kişisel Erişim Belirteci</string>
-    <string name="modules_catalog_token_description">GitHub'da modülleri aramak için bir belirteç gerekli. github.com/settings/tokens adresinde oluşturabilirsiniz</string>
+    <string name="modules_catalog_token_description">GitHub\'da modülleri aramak için bir belirteç gerekli. github.com/settings/tokens adresinde oluşturabilirsiniz</string>
     <string name="modules_catalog_token_format_warning">Belirteç ghp_ veya github_pat_ ile başlamalı ve en az 30 karakter olmalıdır</string>
     <string name="modules_catalog_loading">Katalog yükleniyor…</string>
     <string name="modules_catalog_error">Katalog yüklenemedi</string>
     <string name="modules_catalog_install">Yükle</string>
     <string name="modules_catalog_installing">Yükleniyor…</string>
-    <string name="modules_catalog_view_github">GitHub'da görüntüle</string>
+    <string name="modules_catalog_view_github">GitHub\'da görüntüle</string>
     <string name="modules_catalog_skip_token">Atla</string>
     <string name="modules_catalog_open">Kataloğu Aç</string>
     <string name="tv_status_active">ETKİN</string>
@@ -360,8 +360,8 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="comput_adb_console">ADB Comput Konsolu</string>
     <string name="comput_recommand_title">Comput için ReCommand</string>
     <string name="comput_recommand_summary">Comput konsolunda komut çalıştırmadan önce onay diyaloğu göster</string>
-    <string name="comput_recommand_confirmation">Bu ADB komutunu Comput'ta çalıştırmak istediğinizden emin misiniz?</string>
-    <string name="comput_ai_api_key_empty">Google AI Studio API Anahtarı boş! Lütfen Shevery Ayarları'nda yapılandırın.</string>
+    <string name="comput_recommand_confirmation">Bu ADB komutunu Comput\'ta çalıştırmak istediğinizden emin misiniz?</string>
+    <string name="comput_ai_api_key_empty">Google AI Studio API Anahtarı boş! Lütfen Shevery Ayarları\'nda yapılandırın.</string>
     <string name="comput_ai_api_key_title">Google AI Studio API Anahtarı</string>
     <string name="comput_ai_api_key_not_configured">Yapılandırılmadı (Gemini YZ çalışmayacak)</string>
     <string name="comput_gemini_model_title">Gemini YZ Modeli</string>
@@ -373,7 +373,7 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="comput_gemini_model_lightweight">Hafif yüksek hız modeli</string>
     <string name="comput_gemini_api_error">Gemini API %1$d hata kodu döndürdü: %2$s</string>
     <string name="comput_gemini_connection_error">Bağlantı hatası.</string>
-    <string name="comput_gemini_failed">Gemini API'ye erişilemedi: %1$s</string>
+    <string name="comput_gemini_failed">Gemini API\'ye erişilemedi: %1$s</string>
     <string name="comput_gemini_no_details">Ayrıntı yok.</string>
     <string name="comput_sh_mode">sh Modu</string>
     <string name="comput_adb_mode">adb Modu</string>
@@ -385,7 +385,7 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI'nin SA
     <string name="comput_console_output">Konsol Çıktısı</string>
     <string name="comput_output_copied">Çıktı panoya kopyalandı</string>
     <string name="comput_copy_output">Çıktıyı Kopyala</string>
-    <string name="comput_ask_gemini">Gemini'ye Sor</string>
+    <string name="comput_ask_gemini">Gemini\'ye Sor</string>
     <string name="comput_executing">Çalıştırılıyor: %1$s ...</string>
     <string name="comput_adb_translate">ADB Komut Çeviri Modu Etkin
 Orijinal: %1$s
@@ -404,8 +404,8 @@ Komutlar için hazır.</string>
     <string name="comput_commandium_assistant">Commandium YZ Asistanı</string>
     <string name="comput_commandium_description">Doğal dil kullanarak kabuk komutları oluşturun.</string>
     <string name="comput_commandium_label">Hangi komutu istiyorsunuz?</string>
-    <string name="comput_commandium_placeholder">örn. /sdcard'da 10MB'dan büyük tüm dosyaları bul</string>
-    <string name="comput_ask_commandium">Commandium'a Sor</string>
+    <string name="comput_commandium_placeholder">örn. /sdcard\'da 10MB\'dan büyük tüm dosyaları bul</string>
+    <string name="comput_ask_commandium">Commandium\'a Sor</string>
     <string name="comput_generated_command">Oluşturulan Komut:</string>
     <string name="comput_command_pasted">Komut girişe yapıştırıldı</string>
     <string name="comput_use_command">Komutu kullan</string>
@@ -422,7 +422,7 @@ Komutlar için hazır.</string>
     <string name="comput_record_macro">Makro Kaydet</string>
     <string name="comput_recording_active">Kayıt etkin. Bu makroya eklemek için ana girişi kullanarak komutları çalıştırın.</string>
     <string name="comput_saved_macros">Kaydedilmiş Makrolar</string>
-    <string name="comput_no_macros">Henüz kaydedilmiş makro yok. Başlamak için 'Makro Kaydet'e tıklayın.</string>
+    <string name="comput_no_macros">Henüz kaydedilmiş makro yok. Başlamak için \'Makro Kaydet\'e tıklayın.</string>
     <string name="comput_delete">Sil</string>
     <string name="comput_recommand_confirmation_title">ReCommand onayı</string>
     <string name="comput_execute">Çalıştır</string>
@@ -457,11 +457,11 @@ Komutlar için hazır.</string>
     <string name="diagnostics_limited">kısıtlı</string>
     <string name="diagnostics_unknown">bilinmiyor</string>
     <string name="error_protect_title">ErrorProtect</string>
-    <string name="error_protect_summary">Her 10 saniyede bir işlem sağlığını ve işlem hatalarını kontrol et. Sorun bulunursa Shevery'yi otomatik olarak durdur ve yeniden başlat.</string>
+    <string name="error_protect_summary">Her 10 saniyede bir işlem sağlığını ve işlem hatalarını kontrol et. Sorun bulunursa Shevery\'yi otomatik olarak durdur ve yeniden başlat.</string>
     <string name="settings_tcp_5555_title">TCP Bağlantısı 5555</string>
     <string name="settings_tcp_5555_summary">Kablosuz Hata Ayıklama bağlantı noktası güncellemeleri olmadan çalışmaya devam etmesi için yerel ADB sunucusunu 5555 bağlantı noktasına bağla.</string>
-    <string name="settings_tcp_5555_button">5555'e Bağla</string>
+    <string name="settings_tcp_5555_button">5555\'e Bağla</string>
     <string name="settings_tcp_5555_bind_success">ADB başarıyla TCP 5555 bağlantı noktasına bağlandı</string>
-    <string name="settings_tcp_5555_bind_failed">ADB'yi 5555 bağlantı noktasına bağlama başarısız: %1$s</string>
+    <string name="settings_tcp_5555_bind_failed">ADB\'yi 5555 bağlantı noktasına bağlama başarısız: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root, Dhizuku veya aktif Shevery gereklidir.</string>
 </resources>

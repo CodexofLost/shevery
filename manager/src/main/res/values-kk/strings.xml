@@ -16,7 +16,7 @@
 
     <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[Компьютерге қосылу арқылы іске қосу]]></string>
-    <string name="home_adb_description"><![CDATA[Root құқығы жоқ құрылғылар үшін Shevery қолданбасын іске қосу үшін ADB пайдалану қажет (компьютерге қосылуды талап етеді). Бұл процесс құрылғы қайта жүктелген сайын қайталануы керек. <b><a href=\"%1$s\">Анықтаманы оқыңыз</a></b>.]]></string>
+    <string name="home_adb_description"><![CDATA[Root құқығы жоқ құрылғылар үшін Shevery қолданбасын іске қосу үшін ADB пайдалану қажет (компьютерге қосылуды талап етеді). Бұл процесс құрылғы қайта жүктелген сайын қайталануы керек. <b><a href="%1$s">Анықтаманы оқыңыз</a></b>.]]></string>
     <string name="home_adb_button_view_help">Анықтаманы оқу</string>
     <string name="home_adb_button_view_command">Команданы қарау</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Басқа да ерекшеліктер бар, алдымен анықтаманы оқып шыққаныңызды растаңыз.]]></string>
@@ -37,8 +37,8 @@
 
     <!-- Adb -->
     <string name="dialog_adb_discovery">Сымсыз баптау қызметін іздеу</string>
-    <string name="dialog_adb_discovery_message">\"Әзірлеуші опцияларында\" \"Сымсыз баптауды\" қосыңыз. Желі ауысқанда сымсыз баптау автоматты түрде өшеді.\n\nЕскертпе: \"Әзірлеуші опцияларын\" немесе \"USB арқылы баптауды\" өшірмеңіз, әйтпесе Shevery тоқтайды.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Іздеу тоқтамаса, \"Сымсыз баптауды\" өшіріп, қайта қосып көріңіз.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA["Әзірлеуші опцияларында" "Сымсыз баптауды" қосыңыз. Желі ауысқанда сымсыз баптау автоматты түрде өшеді.\n\nЕскертпе: "Әзірлеуші опцияларын" немесе "USB арқылы баптауды" өшірмеңіз, әйтпесе Shevery тоқтайды.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Іздеу тоқтамаса, "Сымсыз баптауды" өшіріп, қайта қосып көріңіз.]]></string>
     <string name="dialog_adb_port">Порт</string>
     <string name="dialog_adb_invalid_port">Порт 1 мен 65535 аралығындағы бүтін сан болуы керек.</string>
     <string name="adb_pairing">Жұптастыру</string>
@@ -48,7 +48,7 @@
     <string name="paring_code_is_wrong">Жұптастыру коды қате.</string>
     <string name="cannot_connect_port">Сымсыз баптау қызметіне қосылу мүмкін болмады.</string>
     <string name="dialog_wireless_adb_not_enabled">Сымсыз баптау қосылмаған.\nAndroid 11-ге дейін компьютерге қосылу міндетті.</string>
-    <string name="dialog_adb_pairing_message">Жұптастыруды мына қадамдар бойынша бастаңыз: \"Әзірлеуші опциялары\" - \"Сымсыз баптау\" - \"Құрылғыны жұптастыру кодымен жұптастыру\".\n\nПроцесс басталғаннан кейін кодты енгізе аласыз.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Жұптастыруды мына қадамдар бойынша бастаңыз: "Әзірлеуші опциялары" - "Сымсыз баптау" - "Құрылғыны жұптастыру кодымен жұптастыру".\n\nПроцесс басталғаннан кейін кодты енгізе аласыз.]]></string>
     <string name="adb_pairing_requires_multi_window">Алдымен бөлінген экран режиміне (көп терезелі) өтіңіз.</string>
     <string name="adb_pairing_requires_multi_window_reason">Жүйе жұптастыру диалогының әрдайым көрініп тұруын талап етеді. Бөлінген экран режимі - қолданба мен жүйелік диалогты бір уақытта көрсетудің жалғыз жолы.</string>
     <string name="adb_error_key_store">Сымсыз баптау кілтін жасау мүмкін болмады.\nБұл құрылғының KeyStore механизмінің бұзылуынан болуы мүмкін.</string>
@@ -57,12 +57,12 @@
     <string name="notification_settings">Хабарландыру опциялары</string>
     <string name="adb_pairing_tutorial_title">Shevery-ді құрылғыңызбен жұптастыру</string>
     <string name="adb_pairing_tutorial_content_notification">Shevery хабарландыруы жұптастыруды аяқтауға көмектеседі.</string>
-    <string name="adb_pairing_tutorial_content_steps">\"Әзірлеуші опциялары\" - \"Сымсыз баптау\" өтіңіз. \"Құрылғыны жұптастыру кодымен жұптастыру\" басыңыз, сіз алты таңбалы кодты көресіз.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA["Әзірлеуші опциялары" - "Сымсыз баптау" өтіңіз. "Құрылғыны жұптастыру кодымен жұптастыру" басыңыз, сіз алты таңбалы кодты көресіз.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Жұптастыруды аяқтау үшін кодты хабарландыруға енгізіңіз.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Жұптастыру процесі Shevery хабарландыруымен әрекеттесуді талап етеді. Shevery-ге хабарландыру жіберуге рұқсат беріңіз.</string>
-    <string name="adb_pairing_tutorial_content_miui">MIUI пайдаланушылары хабарландыру стилін жүйелік баптауларда \"Android\" стиліне ауыстыруы қажет болуы мүмкін.</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI пайдаланушылары хабарландыру стилін жүйелік баптауларда "Android" стиліне ауыстыруы қажет болуы мүмкін.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">Әйтпесе, хабарландырудан жұптастыру кодтарын енгізе алмауыңыз мүмкін.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Ескерту: \"Сымсыз баптау\" опциясының сол жағы басылады және жаңа бетті ашады. Тек оң жақтағы ауыстырып-қосқышты қосу жеткіліксіз.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Ескерту: "Сымсыз баптау" опциясының сол жағы басылады және жаңа бетті ашады. Тек оң жақтағы ауыстырып-қосқышты қосу жеткіліксіз.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Shevery-ге қайта оралып, қызметті іске қосыңыз.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery жергілікті желіге кіруді талап етеді.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Кейбір жүйелер (мысалы, MIUI) фонда желіге кіруді шектейді. Shevery үшін батареяны оңтайландыруды өшіріңіз.</string>
@@ -96,13 +96,13 @@
 
     <!-- Home - Adb permissions limited -->
     <string name="home_adb_is_limited_title">Қосымша қадам қажет</string>
-    <string name="home_adb_is_limited_description">Құрылғы өндірушісі ADB рұқсаттарын шектеді және Shevery-ді пайдаланатын қолданбалар дұрыс жұмыс істемейді.\n\n\"Әзірлеуші опцияларындағы\" баптаулар арқылы шектеуді жоюға болады. Детальдарды анықтамадан оқыңыз.\n\nShevery-ді қайта іске қосу қажет болуы мүмкін.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Құрылғы өндірушісі ADB рұқсаттарын шектеді және Shevery-ді пайдаланатын қолданбалар дұрыс жұмыс істемейді.\n\n"Әзірлеуші опцияларындағы" баптаулар арқылы шектеуді жоюға болады. Детальдарды анықтамадан оқыңыз.\n\nShevery-ді қайта іске қосу қажет болуы мүмкін.]]></string>
 
     <!-- Application management -->
     <string name="app_management_select_all">Барлығын таңдау</string>
     <string name="app_management_deselect_all">Таңдауды алып тастау</string>
     <string name="app_management_dialog_adb_is_limited_title">ADB рұқсаты шектелген</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Құрылғы өндірушісі ADB рұқсатын шектеуі әбден мүмкін.<p>Шешімді <b><a href=\"%1$s\">осы құжаттан</a></b> табуға болады.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Құрылғы өндірушісі ADB рұқсатын шектеуі әбден мүмкін.<p>Шешімді <b><a href="%1$s">осы құжаттан</a></b> табуға болады.]]></string>
     <string name="app_management_item_summary_requires_root">* Shevery-дің root арқылы жұмыс істеуін талап етеді</string>
 
     <!-- Terminal -->
@@ -387,7 +387,7 @@
     <string name="wear_catalog_sort_by">Сұрыптау</string>
     <string name="wear_catalog_filter">Сүзгі</string>
 
-    <!-- Backup & Restore -->
+    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title">Резервтік көшіру және қалпына келтіру</string>
     <string name="backup_title">Баптаулар мен модульдерді резервтеу</string>
     <string name="backup_summary">Конфигурация мен модульдерді ZIP файылына экспорттау</string>
@@ -480,7 +480,7 @@
     <string name="diagnostics_limited">шектеулі</string>
     <string name="diagnostics_unknown">белгісіз</string>
 
-    <!-- ErrorProtect & TCP 5555 -->
+    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">Әр 10 секунд сайын процесс пен қателерді тексереді. Мәселе табылса Shevery-ді автоматты тоқтатып, қайта іске қосады.</string>
     <string name="settings_tcp_5555_title">TCP 5555-ке байлау</string>
