@@ -30,6 +30,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -80,7 +81,9 @@ class AccessibilityManagerActivity : AppActivity() {
         setContent {
             val context = LocalContext.current
             val services = remember(tick) { loadServices(context) }
-            val enabledIds = remember(tick) { AccessibilityManager.getEnabledServices(context) }
+            val enabledIds by produceState(initialValue = emptySet<String>(), key1 = tick, context) {
+                value = AccessibilityManager.getEnabledServices(context)
+            }
             val pinnedIds = remember(tick) { AccessibilityKeepAliveStore.getKeepAliveIds() }
             val keepAliveEnabled = remember(tick) { AccessibilityKeepAliveStore.isKeepAliveEnabled() }
             val autoBoot = remember(tick) { AccessibilityKeepAliveStore.isAutoBootEnabled() }

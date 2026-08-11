@@ -97,7 +97,7 @@ class AccessibilityDaemonService : Service() {
         observer = object : ContentObserver(mainHandler) {
             override fun onChange(selfChange: Boolean) {
                 // Ignore our own writes so a restore can't loop on itself.
-                if (AccessibilityManager.wasSelfWrite()) {
+                if (AccessibilityManager.isSelfWrite()) {
                     AccessibilityManager.clearSelfWrite()
                     return
                 }
