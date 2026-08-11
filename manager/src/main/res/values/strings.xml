@@ -519,4 +519,25 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="settings_tcp_5555_bind_success">Successfully bound ADB to TCP port 5555</string>
     <string name="settings_tcp_5555_bind_failed">Failed to bind ADB to port 5555: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root, Dhizuku, or active Shevery is required.</string>
+
+    <!-- Accessibility Manager -->
+    <string name="accessibility_manager_title">Accessibility Manager</string>
+    <string name="accessibility_manager_lab_group">Accessibility</string>
+    <string name="accessibility_manager_lab_title">Accessibility Manager</string>
+    <string name="accessibility_manager_lab_summary">Manage and keep alive accessibility services</string>
+    <string name="accessibility_manager_keep_alive_group">Keep alive</string>
+    <string name="accessibility_manager_keep_alive_title">Keep pinned services alive</string>
+    <string name="accessibility_manager_keep_alive_summary">Re-enable pinned accessibility services when the system or user disables them</string>
+    <string name="accessibility_manager_auto_boot_title">Start on boot</string>
+    <string name="accessibility_manager_auto_boot_summary">Automatically start the keep-alive daemon after device reboot</string>
+    <string name="accessibility_manager_shizuku_required">Shevery is not running. Start it to enable or disable accessibility services.</string>
+    <string name="accessibility_manager_services_group">Accessibility services (%1$d)</string>
+    <string name="accessibility_manager_services_empty">No installed accessibility services found.</string>
+    <string name="accessibility_manager_service_no_description">No description provided by the service.</string>
+    <string name="accessibility_manager_write_failed">Failed to update accessibility services. Check that Shevery is running and has permission.</string>
+    <string name="accessibility_manager_pin">Pin service to keep alive</string>
+    <string name="accessibility_manager_unpin">Unpin service</string>
+    <string name="accessibility_daemon_channel_name">Accessibility keep-alive</string>
+    <string name="accessibility_daemon_notification_title">Accessibility keep-alive active</string>
+    <string name="accessibility_daemon_notification_text">Pinned accessibility services will be restored if disabled</string>
 </resources>

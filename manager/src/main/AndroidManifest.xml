@@ -108,6 +108,11 @@
             android:label="Lab Features" />
 
         <activity
+            android:name=".accessibility.AccessibilityManagerActivity"
+            android:exported="false"
+            android:label="@string/accessibility_manager_title" />
+
+        <activity
             android:name=".about.AboutActivity"
             android:exported="false"
             android:label="@string/action_about" />
@@ -181,6 +186,16 @@
                 android:value="Keeps Shevery service watchdog monitoring active while keep-alive or auto-restart is enabled." />
         </service>
 
+        <service
+            android:name=".accessibility.AccessibilityDaemonService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Keeps pinned accessibility services enabled by restoring them when disabled." />
+        </service>
+
         <receiver
             android:name=".receiver.BootCompleteReceiver"
             android:directBootAware="true"
@@ -191,6 +206,18 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".accessibility.AccessibilityBootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
