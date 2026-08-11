@@ -1,0 +1,15 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.hamondev.shevery.tasker'
+    buildFeatures {
+        buildConfig = false
+    }
+}
+
+dependencies {
+    implementation project(':api')
+    implementation 'androidx.annotation:annotation:1.11.0-alpha01'
+}
