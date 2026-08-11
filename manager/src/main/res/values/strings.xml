@@ -540,4 +540,12 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="accessibility_daemon_channel_name">Accessibility keep-alive</string>
     <string name="accessibility_daemon_notification_title">Accessibility keep-alive active</string>
     <string name="accessibility_daemon_notification_text">Pinned accessibility services will be restored if disabled</string>
+
+    <!-- Shizuku compatibility stub -->
+    <string name="settings_compat_stub">Legacy Shizuku stub</string>
+    <string name="settings_compat_stub_summary">Installs a stub package (moe.shizuku.privileged.api) so apps that hard-check for the legacy Shizuku manager keep working. Permission and binder requests are forwarded to Shevery.</string>
+    <string name="settings_compat_stub_installed">Legacy stub installed via %1$s</string>
+    <string name="settings_compat_stub_uninstalled">Legacy stub removed</string>
+    <string name="settings_compat_stub_failed">Failed to %1$s the legacy stub via %2$s: %3$s</string>
+    <string name="settings_compat_stub_none">No channel available (start Shevery first)</string>
 </resources>

@@ -34,6 +34,7 @@ object ModuleSettings {
     private const val KEY_AUTO_RESTART = "shizuku_auto_restart_on_crash"
     private const val KEY_NOTIFY_DEATH = "shizuku_notify_service_death"
     private const val KEY_ERROR_PROTECT = "shizuku_error_protect"
+    private const val KEY_COMPAT_STUB = "shizuku_compat_stub"
 
 
     enum class AccessMode(
@@ -264,6 +265,14 @@ object ModuleSettings {
 
     fun setErrorProtectEnabled(value: Boolean) {
         ShizukuSettings.getPreferences().edit().putBoolean(KEY_ERROR_PROTECT, value).apply()
+    }
+
+    fun isCompatibilityStubEnabled(): Boolean {
+        return ShizukuSettings.getPreferences().getBoolean(KEY_COMPAT_STUB, false)
+    }
+
+    fun setCompatibilityStubEnabled(value: Boolean) {
+        ShizukuSettings.getPreferences().edit().putBoolean(KEY_COMPAT_STUB, value).apply()
     }
 
     // Comput Settings
