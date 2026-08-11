@@ -29,6 +29,8 @@ android {
     sourceSets {
         debug.assets.srcDir(file("$buildDir/generated/rish/debug/assets"))
         release.assets.srcDir(file("$buildDir/generated/rish/release/assets"))
+        debug.assets.srcDir(file("$buildDir/generated/stub/debug/assets"))
+        release.assets.srcDir(file("$buildDir/generated/stub/release/assets"))
     }
     signingConfigs {
         sign
@@ -124,6 +126,10 @@ afterEvaluate {
     tasks.getByName('preDebugBuild').dependsOn(':shell:copyDebugShellDex')
     tasks.getByName('mergeReleaseAssets').dependsOn(':shell:copyReleaseShellDex')
     tasks.getByName('mergeDebugAssets').dependsOn(':shell:copyDebugShellDex')
+    tasks.getByName('preReleaseBuild').dependsOn(':stub:copyReleaseStubApk')
+    tasks.getByName('preDebugBuild').dependsOn(':stub:copyDebugStubApk')
+    tasks.getByName('mergeReleaseAssets').dependsOn(':stub:copyReleaseStubApk')
+    tasks.getByName('mergeDebugAssets').dependsOn(':stub:copyDebugStubApk')
 
     ['debug', 'release'].each { variantName ->
         def capitalized = variantName.capitalize()
