@@ -63,3 +63,5 @@ def registerStubApkCopyTask(String variantName) {
 
 registerStubApkCopyTask("debug")
 registerStubApkCopyTask("release")
+
+apply from: rootProject.file('signing.gradle')
