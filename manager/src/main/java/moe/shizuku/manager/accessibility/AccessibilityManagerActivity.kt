@@ -160,6 +160,12 @@ class AccessibilityManagerActivity : AppActivity() {
                                         canWrite = shizukuRunning,
                                         onToggle = { target ->
                                             scope.launch {
+                                                // Unpin a service when the user disables it, so the
+                                                // keep-alive daemon doesn't immediately re-enable it
+                                                // (toggle "fight"). Mirrors the reference app's behavior.
+                                                if (!target && AccessibilityKeepAliveStore.isPinned(service.id)) {
+                                                    AccessibilityKeepAliveStore.removePinned(service.id)
+                                                }
                                                 val ok = if (target) {
                                                     AccessibilityManager.enableService(context, service.id)
                                                 } else {

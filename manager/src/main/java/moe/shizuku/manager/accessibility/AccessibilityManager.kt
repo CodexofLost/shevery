@@ -30,6 +30,20 @@ object AccessibilityManager {
     private const val SHELL_TIMEOUT_SECONDS = 10L
 
     /**
+     * Set when this app writes the enabled-services list, so the daemon's
+     * ContentObserver can ignore its own change and avoid a restore loop.
+     * Mirrors the reference app's isSelfModification flag.
+     */
+    @Volatile
+    private var selfWritePending = false
+
+    fun wasSelfWrite(): Boolean = selfWritePending
+
+    fun clearSelfWrite() {
+        selfWritePending = false
+    }
+
+    /**
      * Read the set of currently enabled accessibility services.
      * Safe to call from the app process (readable without permission).
      */
@@ -79,11 +93,13 @@ object AccessibilityManager {
         }
         val newValue = services.joinToString(":")
         val cmd = "settings put secure $SETTINGS_KEY ${shellQuote(newValue)}"
+        selfWritePending = true
         val (exitCode, stderr) = runShizukuShell(cmd)
         if (exitCode == 0) {
             logi("Enabled accessibility services updated: $newValue")
             return true
         }
+        selfWritePending = false
         Log.e(TAG, "Failed to write accessibility services (exit $exitCode): $stderr")
         return false
     }

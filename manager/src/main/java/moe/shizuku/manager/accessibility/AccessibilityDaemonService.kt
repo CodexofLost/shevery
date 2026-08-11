@@ -96,6 +96,11 @@ class AccessibilityDaemonService : Service() {
         val resolver: ContentResolver = contentResolver
         observer = object : ContentObserver(mainHandler) {
             override fun onChange(selfChange: Boolean) {
+                // Ignore our own writes so a restore can't loop on itself.
+                if (AccessibilityManager.wasSelfWrite()) {
+                    AccessibilityManager.clearSelfWrite()
+                    return
+                }
                 scheduleCheck(delayMs = 500L)
             }
         }
