@@ -2,6 +2,7 @@ package moe.shizuku.manager.compat
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.ParcelFileDescriptor
 import android.os.SystemClock
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
@@ -16,7 +17,6 @@ import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.server.IShizukuService
 import rikka.shizuku.Shizuku
 import java.io.File
-import java.util.concurrent.TimeUnit
 
 object StubManager {
 
@@ -144,9 +144,9 @@ object StubManager {
             val service = IShizukuService.Stub.asInterface(binder)
             val process = service.newProcess(arrayOf("sh", "-c", script.command), null, null)
             script.stdin?.let { writer ->
-                process.getOutputStream().use { output -> writer(output) }
+                ParcelFileDescriptor.AutoCloseOutputStream(process.getOutputStream()).use { output -> writer(output) }
             }
-            val finished = process.waitForTimeout(60, TimeUnit.SECONDS)
+            val finished = process.waitForTimeout(60, "SECONDS")
             if (!finished) {
                 process.destroy()
                 return Result(false, CHANNEL_SERVER, "command timed out")
