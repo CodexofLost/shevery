@@ -4,6 +4,10 @@
 
     <uses-sdk tools:overrideLibrary="com.rosan.dhizuku.api, androidx.wear.compose.material3, androidx.wear.compose.foundation, androidx.wear.compose.material.core, androidx.wear.compose.material" />
 
+    <queries>
+        <package android:name="moe.shizuku.privileged.api" />
+    </queries>
+
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />

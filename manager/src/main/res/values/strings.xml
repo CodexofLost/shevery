@@ -518,4 +518,12 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="settings_tcp_5555_bind_success">Successfully bound ADB to TCP port 5555</string>
     <string name="settings_tcp_5555_bind_failed">Failed to bind ADB to port 5555: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root, Dhizuku, or active Shevery is required.</string>
+
+    <!-- Shizuku compatibility stub -->
+    <string name="settings_compat_stub">Legacy Shizuku stub</string>
+    <string name="settings_compat_stub_summary">Installs a stub package (moe.shizuku.privileged.api) so apps that hard-check for the legacy Shizuku manager keep working. Permission and binder requests are forwarded to Shevery.</string>
+    <string name="settings_compat_stub_installed">Legacy stub installed via %1$s</string>
+    <string name="settings_compat_stub_uninstalled">Legacy stub removed</string>
+    <string name="settings_compat_stub_failed">Failed to %1$s the legacy stub via %2$s: %3$s</string>
+    <string name="settings_compat_stub_none">No channel available (start Shevery first)</string>
 </resources>
