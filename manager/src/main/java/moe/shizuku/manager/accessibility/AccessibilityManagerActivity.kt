@@ -77,13 +77,13 @@ class AccessibilityManagerActivity : AppActivity() {
 
         setContent {
             val context = LocalContext.current
-            val services = remember(tick) { loadServices(context) }
+            val pinnedIds = remember(tick) { AccessibilityKeepAliveStore.getKeepAliveIds() }
+            val services = remember(tick) { loadServices(context, pinnedIds) }
             val enabledIds = remember(tick) {
                 AccessibilityManager.getEnabledServices(context)
                     .map { it.flattenToString() }
                     .toSet()
             }
-            val pinnedIds = remember(tick) { AccessibilityKeepAliveStore.getKeepAliveIds() }
             val keepAliveEnabled = remember(tick) { AccessibilityKeepAliveStore.isKeepAliveEnabled() }
             val autoBoot = remember(tick) { AccessibilityKeepAliveStore.isAutoBootEnabled() }
             val shizukuRunning = remember(tick) { Shizuku.pingBinder() }
@@ -212,7 +212,7 @@ class AccessibilityManagerActivity : AppActivity() {
         super.onDestroy()
     }
 
-    private fun loadServices(context: Context): List<AccessibilityServiceEntry> {
+    private fun loadServices(context: Context, pinnedIds: Set<String>): List<AccessibilityServiceEntry> {
         val am = context.getSystemService(Context.ACCESSIBILITY_SERVICE) as SystemAccessibilityManager?
             ?: return emptyList()
         val pm = context.packageManager
@@ -242,7 +242,8 @@ class AccessibilityManagerActivity : AppActivity() {
                 null
             }
         }.sortedWith(
-            compareBy<AccessibilityServiceEntry> { it.label.lowercase() }
+            compareBy<AccessibilityServiceEntry> { it.id !in pinnedIds }
+                .thenBy { it.label.lowercase() }
         )
     }
 }

@@ -121,8 +121,13 @@
 
         <activity
             android:name=".accessibility.AccessibilityManagerActivity"
-            android:exported="false"
-            android:label="@string/accessibility_manager_title" />
+            android:exported="true"
+            android:label="@string/accessibility_manager_title">
+            <intent-filter>
+                <action android:name="com.hamondev.shevery.action.ACCESSIBILITY_MANAGER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".about.AboutActivity"
