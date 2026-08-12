@@ -22,14 +22,17 @@
         android:name="android.permission.WRITE_SECURE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
 
-    <!-- Android 11+ package visibility: expose every app that provides an
-         accessibility service so the Accessibility Manager can list and
-         manage all of them, not just system ones. -->
-    <queries>
-        <intent>
-            <action android:name="android.accessibilityservice.AccessibilityService" />
-        </intent>
-    </queries>
+    <!-- Android 11+ package visibility: enumerate EVERY package that provides
+         an accessibility service so the Accessibility Manager can list and
+         manage all of them. The scoped <queries> form was too narrow — it
+         only exposed resolvable exported components and missed 8 of 32
+         services on the tester's device. QUERY_ALL_PACKAGES is the same
+         approach the reference app uses, and is a legitimate, Play-policy
+         compliant use for an accessibility manager (its core function is
+         managing services across all installed apps). -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
 
     <uses-feature
         android:name="android.software.leanback"
