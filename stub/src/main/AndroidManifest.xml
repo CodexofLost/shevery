@@ -10,17 +10,6 @@
         android:icon="@android:drawable/ic_secure"
         android:allowBackup="false"
         android:theme="@android:style/Theme.DeviceDefault.Dialog.Alert">
-        <activity
-            android:name=".ForwardActivity"
-            android:exported="true"
-            android:excludeFromRecents="true"
-            android:noHistory="true"
-            android:taskAffinity=""
-            android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter android:priority="1000">
-                <action android:name="moe.shizuku.manager.intent.action.REQUEST_PERMISSION" />
-            </intent-filter>
-        </activity>
         <receiver
             android:name=".ForwardReceiver"
             android:exported="true">
