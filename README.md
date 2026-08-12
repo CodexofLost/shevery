@@ -1,11 +1,18 @@
 # Shevery
 
+<div align="center">
+
+[![Stars](https://img.shields.io/github/stars/HmnDev-Tech/shevery?style=for-the-badge&color=yellow)](https://github.com/HmnDev-Tech/shevery/stargazers) [![Forks](https://img.shields.io/github/forks/HmnDev-Tech/shevery?style=for-the-badge&color=orange)](https://github.com/HmnDev-Tech/shevery/network/members) [![Downloads](https://img.shields.io/github/downloads/HmnDev-Tech/shevery/total?style=for-the-badge&color=green)](https://github.com/HmnDev-Tech/shevery/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
+
+</div>
+
+
 [English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
 ## Fork status
 
 > [!IMPORTANT]
-> **Migration Action Required:** Due to the App Signation (moe.shizuku.privileged.api -> **com.hamondev.shevery**), you **MUST UNINSTALL** any older official Shizuku Manager app from your device before installing Shevery. Otherwise, they will conflict.
+> **Migration Action Required:** Due to the App Signation (`moe.shizuku.privileged.api` -> `com.hamondev.shevery`), you **MUST UNINSTALL** any older official Shizuku Manager app from your device before installing Shevery. Otherwise, they will conflict.
 Upstream project reference: <https://github.com/RikkaApps/Shizuku>
 > 
 
@@ -49,7 +56,7 @@ Shizuku uses a completely different way. See detailed description below.
 ## Screenshots
 
 <details>
-  <summary>📸 Click to open Screenshot Gallery</summary>
+  <summary> Click to open Screenshots</summary>
   <br/>
   <table>
     <tr>
