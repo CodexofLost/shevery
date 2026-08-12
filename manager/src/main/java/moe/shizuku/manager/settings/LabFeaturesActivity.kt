@@ -1,5 +1,6 @@
 package moe.shizuku.manager.settings
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.material3.AlertDialog
@@ -11,11 +12,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import moe.shizuku.manager.R
+import moe.shizuku.manager.accessibility.AccessibilityManagerActivity
 import moe.shizuku.manager.app.AppActivity
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.service.WatchdogManager
 import moe.shizuku.manager.ui.compose.GroupDivider
 import moe.shizuku.manager.ui.compose.SettingsGroup
+import moe.shizuku.manager.ui.compose.SettingsRow
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import moe.shizuku.manager.ui.compose.SwitchSettingsRow
@@ -68,6 +71,21 @@ class LabFeaturesActivity : AppActivity() {
                                         dhizukuEnabled = false
                                         ModuleSettings.setDhizukuEnabled(false)
                                     }
+                                }
+                            )
+                        }
+                    }
+
+                    item {
+                        SettingsGroup(title = stringResource(R.string.accessibility_manager_lab_group)) {
+                            SettingsRow(
+                                icon = R.drawable.ic_system_icon,
+                                title = stringResource(R.string.accessibility_manager_lab_title),
+                                summary = stringResource(R.string.accessibility_manager_lab_summary),
+                                onClick = {
+                                    startActivity(
+                                        Intent(this@LabFeaturesActivity, AccessibilityManagerActivity::class.java)
+                                    )
                                 }
                             )
                         }

@@ -138,7 +138,7 @@ Under Apache 2.0 section 6, specifically:
 
 ### WARNING!
 
-Next update r31 is in 19.08.26
+Shevery update is in 19.08.26
 
 ## And...
 

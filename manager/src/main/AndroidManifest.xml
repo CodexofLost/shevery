@@ -26,6 +26,18 @@
         android:name="android.permission.WRITE_SECURE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
 
+    <!-- Android 11+ package visibility: enumerate EVERY package that provides
+         an accessibility service so the Accessibility Manager can list and
+         manage all of them. The scoped <queries> form was too narrow — it
+         only exposed resolvable exported components and missed 8 of 32
+         services on the tester's device. QUERY_ALL_PACKAGES is the same
+         approach the reference app uses, and is a legitimate, Play-policy
+         compliant use for an accessibility manager (its core function is
+         managing services across all installed apps). -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
     <uses-feature
         android:name="android.software.leanback"
         android:required="false" />
@@ -112,6 +124,16 @@
             android:label="Lab Features" />
 
         <activity
+            android:name=".accessibility.AccessibilityManagerActivity"
+            android:exported="true"
+            android:label="@string/accessibility_manager_title">
+            <intent-filter>
+                <action android:name="com.hamondev.shevery.action.ACCESSIBILITY_MANAGER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".about.AboutActivity"
             android:exported="false"
             android:label="@string/action_about" />
@@ -185,6 +207,16 @@
                 android:value="Keeps Shevery service watchdog monitoring active while keep-alive or auto-restart is enabled." />
         </service>
 
+        <service
+            android:name=".accessibility.AccessibilityDaemonService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Keeps pinned accessibility services enabled by restoring them when disabled." />
+        </service>
+
         <receiver
             android:name=".receiver.BootCompleteReceiver"
             android:directBootAware="true"
@@ -195,6 +227,18 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".accessibility.AccessibilityBootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 

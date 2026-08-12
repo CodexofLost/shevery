@@ -5,6 +5,7 @@ package moe.shizuku.manager.management
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -16,7 +17,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.AssistChip
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
@@ -138,11 +139,19 @@ class ApplicationManagementActivity : AppActivity() {
                     when {
                         packagesResource == null -> {
                             item {
-                                Box(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    contentAlignment = Alignment.Center
+                                Column(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(vertical = 24.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.spacedBy(12.dp)
                                 ) {
                                     LoadingIndicator(Modifier.size(36.dp))
+                                    Text(
+                                        text = stringResource(R.string.app_management_loading),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
                                 }
                             }
                         }
@@ -227,7 +236,7 @@ class ApplicationManagementActivity : AppActivity() {
     }
 
     private fun showAdbLimitedDialog() {
-        MaterialAlertDialogBuilder(this)
+        val dialog = MaterialAlertDialogBuilder(this)
             .setTitle(R.string.app_management_dialog_adb_is_limited_title)
             .setMessage(
                 getString(R.string.app_management_dialog_adb_is_limited_message, Helps.ADB.get())
@@ -235,6 +244,9 @@ class ApplicationManagementActivity : AppActivity() {
             )
             .setPositiveButton(android.R.string.ok, null)
             .show()
+
+        dialog.findViewById<android.widget.TextView>(android.R.id.message)?.movementMethod =
+            LinkMovementMethod.getInstance()
     }
 }
 
@@ -326,12 +338,17 @@ private fun AppPermissionRow(
                 overflow = TextOverflow.Ellipsis
             )
             if (requiresRoot) {
-                AssistChip(
-                    onClick = {},
-                    label = {
-                        Text(stringResource(R.string.app_management_item_summary_requires_root))
-                    }
-                )
+                Surface(
+                    shape = RoundedCornerShape(50),
+                    color = MaterialTheme.colorScheme.secondaryContainer
+                ) {
+                    Text(
+                        text = stringResource(R.string.app_management_item_summary_requires_root),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                    )
+                }
             }
         }
         ExpressiveSwitch(
