@@ -30,9 +30,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -44,7 +42,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.launch
 import moe.shizuku.manager.R
 import moe.shizuku.manager.app.AppActivity
 import moe.shizuku.manager.ktx.loge
@@ -81,14 +78,15 @@ class AccessibilityManagerActivity : AppActivity() {
         setContent {
             val context = LocalContext.current
             val services = remember(tick) { loadServices(context) }
-            val enabledIds by produceState(initialValue = emptySet<String>(), key1 = tick, context) {
-                value = AccessibilityManager.getEnabledServices(context)
+            val enabledIds = remember(tick) {
+                AccessibilityManager.getEnabledServices(context)
+                    .map { it.flattenToString() }
+                    .toSet()
             }
             val pinnedIds = remember(tick) { AccessibilityKeepAliveStore.getKeepAliveIds() }
             val keepAliveEnabled = remember(tick) { AccessibilityKeepAliveStore.isKeepAliveEnabled() }
             val autoBoot = remember(tick) { AccessibilityKeepAliveStore.isAutoBootEnabled() }
             val shizukuRunning = remember(tick) { Shizuku.pingBinder() }
-            val scope = rememberCoroutineScope()
 
             ShizukuExpressiveTheme {
                 ShizukuLazyScaffold(
@@ -162,26 +160,24 @@ class AccessibilityManagerActivity : AppActivity() {
                                         pinned = pinnedIds.contains(service.id),
                                         canWrite = shizukuRunning,
                                         onToggle = { target ->
-                                            scope.launch {
-                                                // Unpin a service when the user disables it, so the
-                                                // keep-alive daemon doesn't immediately re-enable it
-                                                // (toggle "fight"). Mirrors the reference app's behavior.
-                                                if (!target && AccessibilityKeepAliveStore.isPinned(service.id)) {
-                                                    AccessibilityKeepAliveStore.removePinned(service.id)
-                                                }
-                                                val ok = if (target) {
-                                                    AccessibilityManager.enableService(context, service.id)
-                                                } else {
-                                                    AccessibilityManager.disableService(context, service.id)
-                                                }
-                                                if (!ok) {
-                                                    MaterialAlertDialogBuilder(this@AccessibilityManagerActivity)
-                                                        .setMessage(R.string.accessibility_manager_write_failed)
-                                                        .setPositiveButton(android.R.string.ok, null)
-                                                        .show()
-                                                }
-                                                tick++
+                                            // Unpin a service when the user disables it, so the
+                                            // keep-alive daemon doesn't immediately re-enable it
+                                            // (toggle "fight"). Mirrors the reference app's behavior.
+                                            if (!target && AccessibilityKeepAliveStore.isPinned(service.id)) {
+                                                AccessibilityKeepAliveStore.removePinned(service.id)
                                             }
+                                            val ok = if (target) {
+                                                AccessibilityManager.enableService(context, service.id)
+                                            } else {
+                                                AccessibilityManager.disableService(context, service.id)
+                                            }
+                                            if (!ok) {
+                                                MaterialAlertDialogBuilder(this@AccessibilityManagerActivity)
+                                                    .setMessage(R.string.accessibility_manager_write_failed)
+                                                    .setPositiveButton(android.R.string.ok, null)
+                                                    .show()
+                                            }
+                                            tick++
                                         },
                                         onPin = {
                                             if (AccessibilityKeepAliveStore.isPinned(service.id)) {

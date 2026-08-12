@@ -152,7 +152,7 @@ class AccessibilityDaemonService : Service() {
         }
     }
 
-    private suspend fun runCheck() {
+    private fun runCheck() {
         // Rate-limit: never run two checks within 2 seconds of each other.
         val now = System.currentTimeMillis()
         if (now - lastRestore < MIN_CHECK_INTERVAL_MS) return
