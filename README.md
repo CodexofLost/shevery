@@ -124,21 +124,15 @@ The `:manager:assembleDebug` task generates a debuggable server. You can attach 
 
 All code files in this project are licensed under Apache 2.0
 
-Under Apache 2.0 section 6, specifically:
-
-* You are **FORBIDDEN** to use `manager/src/main/res/mipmap*/ic_launcher*.png` image files, unless for displaying Shizuku itself.
-
-* You are **FORBIDDEN** to use `Shevery` as app name or use `moe.shizuku.privileged.api` and `com.hamondev.shevery` as application id or declare `moe.shizuku.manager.permission.*` permission.
-
 ## Credits
 
-* [Nightzuku](https://github.com/kerneldroid/Nightzuku) - for parts of App UI, Catalog Modules System and Android 17 support.
-* [Shizuku](https://github.com/rikkaapps/Shizuku) - for Shizuku API and main sources.
+* [kerneldroid](https://github.com/kerneldroid) - for parts of App UI, Catalog Modules System and Android 17 support.
+* [RikkaApps/Shizuku](https://github.com/rikkaapps/Shizuku) - for Shizuku API and main sources.
 * [Landon Moran](https://github.com/LandonMoran) - for Dhizuku, TCP and etc. fixes.
 
 ### WARNING!
 
-Next update r31 is in 19.08.26
+Next update r32 is in 13.08.26
 
 ## And...
 
