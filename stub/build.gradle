@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'moe.shizuku.privileged.api'
+    defaultConfig {
+        applicationId "moe.shizuku.privileged.api"
+        versionCode 600
+        versionName "13.9.0"
+    }
+    buildFeatures {
+        buildConfig false
+        aidl false
+    }
+    signingConfigs {
+        sign
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.sign
+        }
+        release {
+            signingConfig signingConfigs.sign
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+    lint {
+        checkReleaseBuilds false
+    }
+    dependenciesInfo {
+        includeInApk false
+    }
+}
+
+def registerStubApkCopyTask(String variantName) {
+    def capitalized = variantName.capitalize()
+    tasks.register("copy${capitalized}StubApk") {
+        dependsOn("assemble${capitalized}")
+
+        def apkFiles = fileTree(layout.buildDirectory.dir("outputs/apk/${variantName}")) {
+            include '*.apk'
+        }
+        def stubPath = rootProject.layout.projectDirectory.dir("manager/build/generated/stub/${variantName}/assets")
+
+        inputs.files(apkFiles)
+        outputs.file(stubPath.file("shevery-stub.apk"))
+
+        doLast {
+            def apk = apkFiles.files.find { it.name.endsWith(".apk") }
+            if (apk == null) {
+                throw new GradleException("Stub ${variantName} APK was not found")
+            }
+            copy {
+                from apk
+                into stubPath
+                rename { 'shevery-stub.apk' }
+            }
+        }
+    }
+}
+
+registerStubApkCopyTask("debug")
+registerStubApkCopyTask("release")
+
+apply from: rootProject.file('signing.gradle')

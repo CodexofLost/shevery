@@ -44,6 +44,7 @@ import moe.shizuku.manager.app.ThemeHelper.KEY_BLACK_NIGHT_THEME
 import moe.shizuku.manager.app.ThemeHelper.KEY_USE_SYSTEM_COLOR
 import moe.shizuku.manager.ktx.isComponentEnabled
 import moe.shizuku.manager.ktx.setComponentEnabled
+import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.receiver.BootCompleteReceiver
 import moe.shizuku.manager.adb.AdbStarter
@@ -88,6 +89,9 @@ fun SettingsScreen() {
     }
     var errorProtect by remember {
         mutableStateOf(ModuleSettings.isErrorProtectEnabled())
+    }
+    var compatStub by remember {
+        mutableStateOf(StubManager.isInstalled(context))
     }
     var autoDisableUsbDebugging by remember {
         mutableStateOf(ShizukuSettings.getAutoDisableUsbDebugging())
@@ -277,6 +281,40 @@ fun SettingsScreen() {
                         ModuleSettings.setErrorProtectEnabled(enabled)
                         errorProtect = ModuleSettings.isErrorProtectEnabled()
                         moe.shizuku.manager.service.WatchdogManager.reconcileService(context)
+                    }
+                )
+                GroupDivider()
+                SwitchSettingsRow(
+                    icon = R.drawable.ic_server_restart,
+                    title = stringResource(R.string.settings_compat_stub),
+                    summary = stringResource(R.string.settings_compat_stub_summary),
+                    checked = compatStub,
+                    onCheckedChange = { enabled ->
+                        scope.launch {
+                            val result = if (enabled) {
+                                StubManager.install(context)
+                            } else {
+                                StubManager.uninstall(context)
+                            }
+                            compatStub = StubManager.isInstalled(context)
+                            if (result.ok) {
+                                ModuleSettings.setCompatibilityStubEnabled(enabled)
+                                val message = if (enabled) {
+                                    context.getString(R.string.settings_compat_stub_installed, result.channel)
+                                } else {
+                                    context.getString(R.string.settings_compat_stub_uninstalled)
+                                }
+                                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                            } else {
+                                val action = if (enabled) "install" else "uninstall"
+                                val message = if (result.error == "no channel available") {
+                                    context.getString(R.string.settings_compat_stub_none)
+                                } else {
+                                    context.getString(R.string.settings_compat_stub_failed, action, result.channel, result.error ?: "unknown")
+                                }
+                                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                            }
+                        }
                     }
                 )
                 SwitchSettingsRow(

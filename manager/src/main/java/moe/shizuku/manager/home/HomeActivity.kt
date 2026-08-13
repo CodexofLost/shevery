@@ -126,6 +126,7 @@ import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuApiConstants
 import rikka.html.text.HtmlCompat as RikkaHtmlCompat
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.manager.compat.StubManager
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.*
 
@@ -180,6 +181,15 @@ abstract class HomeActivity : AppActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
                 requestNotificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
+
+        if (ModuleSettings.isCompatibilityStubEnabled() && !StubManager.isInstalled(this)) {
+            lifecycleScope.launch(Dispatchers.IO) {
+                try {
+                    StubManager.install(applicationContext)
+                } catch (_: Throwable) {
+                }
             }
         }
 

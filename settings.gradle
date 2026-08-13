@@ -44,8 +44,10 @@ dependencyResolutionManagement {
 }
 
 include ':server', ':starter', ':shell'
+include ':stub'
 include ':manager'
 include ':common'
+include ':tasker'
 
 def root = "api"
 
