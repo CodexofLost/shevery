@@ -111,7 +111,7 @@ private const val MAX_README_CHARS = 16000
 @Composable
 fun CatalogScreen(onNavigateUp: () -> Unit) {
     val navBarState = LocalFloatingNavBarVisible.current
-    DisposableEffect(onNavigateUp) {
+    DisposableEffect(Unit) {
         navBarState.value = false
         onDispose {
             navBarState.value = true
@@ -423,13 +423,6 @@ private fun ModuleDetailScreen(
     onViewOnGitHub: () -> Unit,
     onRefreshInstalled: () -> Unit
 ) {
-    val navBarState = LocalFloatingNavBarVisible.current
-    DisposableEffect(Unit) {
-        navBarState.value = false
-        onDispose {
-            navBarState.value = true
-        }
-    }
     val scope = rememberCoroutineScope()
     var readmeContent by remember { mutableStateOf<String?>(null) }
     var isLoadingReadme by remember { mutableStateOf(true) }

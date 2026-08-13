@@ -46,6 +46,9 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Apps
+import androidx.compose.material.icons.rounded.CheckCircle
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
@@ -57,9 +60,11 @@ import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Icon
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -292,26 +297,44 @@ fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
         }
     ) {
         item {
-            TabRow(
-                selectedTabIndex = selectedTab,
-                containerColor = MaterialTheme.colorScheme.surfaceContainer,
-                contentColor = MaterialTheme.colorScheme.primary,
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 12.dp)
+                    .padding(bottom = 12.dp),
+                horizontalArrangement = Arrangement.Center
             ) {
-                Tab(
-                    selected = selectedTab == 0,
-                    onClick = { selectedTab = 0 },
-                    text = { Text(stringResource(R.string.modules_tab_installed)) }
-                )
-                Tab(
-                    selected = false,
-                    onClick = {
-                        showCatalog = true
-                    },
-                    text = { Text(stringResource(R.string.modules_tab_catalog)) }
-                )
+                SingleChoiceSegmentedButtonRow {
+                    SegmentedButton(
+                        selected = selectedTab == 0,
+                        onClick = { selectedTab = 0 },
+                        shape = SegmentedButtonDefaults.itemShape(index = 0, count = 2),
+                        contentPadding = PaddingValues(horizontal = 16.dp),
+                        icon = {
+                            Icon(
+                                imageVector = Icons.Rounded.CheckCircle,
+                                contentDescription = stringResource(R.string.modules_tab_installed),
+                                modifier = Modifier.size(18.dp)
+                            )
+                        },
+                        label = {}
+                    )
+                    SegmentedButton(
+                        selected = false,
+                        onClick = {
+                            showCatalog = true
+                        },
+                        shape = SegmentedButtonDefaults.itemShape(index = 1, count = 2),
+                        contentPadding = PaddingValues(horizontal = 16.dp),
+                        icon = {
+                            Icon(
+                                imageVector = Icons.Rounded.Apps,
+                                contentDescription = stringResource(R.string.modules_tab_catalog),
+                                modifier = Modifier.size(18.dp)
+                            )
+                        },
+                        label = {}
+                    )
+                }
             }
         }
 
