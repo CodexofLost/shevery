@@ -127,6 +127,12 @@ https://github.com/RikkaApps/Shizuku-API#migration-guide-for-existing-applicatio
 
 The `:manager:assembleDebug` task generates a debuggable server. You can attach a debugger to `shizuku_server` to debug the server. Be aware that, in Android Studio, "Run/Debug configurations" - "Always install with package manager" should be checked, so that the server will use the latest code.
 
+## How "Start(via Dhizuku)" works?
+
+* First, you need to start Shevery by PC/OTG or Wireless Debugging.
+* Next, start Dhizuku.
+  - Do not start Shevery via Dhizuku first.
+  
 ## License
 
 All code files in this project are licensed under Apache 2.0
