@@ -572,18 +572,19 @@ fun ComputScreen() {
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            Column(
+            LazyColumn(
                 modifier = Modifier
                     .widthIn(max = 840.dp)
                     .fillMaxWidth()
-                    .align(Alignment.TopCenter)
-                    .padding(
-                        bottom = 112.dp + WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
-                    ),
+                    .align(Alignment.TopCenter),
+                contentPadding = PaddingValues(
+                    bottom = 112.dp + WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding() + 12.dp
+                ),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                if (searchActive) {
-                ComputSearchBar(
+                item {
+                    if (searchActive) {
+                        ComputSearchBar(
                     query = searchQuery,
                     onQueryChange = { searchQuery = it },
                     onClear = { searchQuery = "" },
@@ -642,46 +643,50 @@ fun ComputScreen() {
                     )
                 }
             }
+            }
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                TextButton(
-                    onClick = { isAdbMode = !isAdbMode },
-                    shape = CircleShape,
-                    colors = ButtonDefaults.textButtonColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer
-                    )
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Icon(
-                        imageVector = Icons.Rounded.Terminal,
-                        contentDescription = null,
-                        modifier = Modifier.size(18.dp)
-                    )
-                    Spacer(Modifier.width(6.dp))
-                    Text(
-                        text = if (isAdbMode) {
-                            stringResource(R.string.comput_adb_mode)
-                        } else {
-                            stringResource(R.string.comput_sh_mode)
-                        },
-                        style = MaterialTheme.typography.labelLarge
-                    )
+                    TextButton(
+                        onClick = { isAdbMode = !isAdbMode },
+                        shape = CircleShape,
+                        colors = ButtonDefaults.textButtonColors(
+                            containerColor = MaterialTheme.colorScheme.primaryContainer,
+                            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                        )
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.Terminal,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(Modifier.width(6.dp))
+                        Text(
+                            text = if (isAdbMode) {
+                                stringResource(R.string.comput_adb_mode)
+                            } else {
+                                stringResource(R.string.comput_sh_mode)
+                            },
+                            style = MaterialTheme.typography.labelLarge
+                        )
+                    }
                 }
             }
 
-            ExposedDropdownMenuBox(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                expanded = historyExpanded,
-                onExpandedChange = { historyExpanded = it && cmdHistory.isNotEmpty() }
-            ) {
+            item {
+                ExposedDropdownMenuBox(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    expanded = historyExpanded,
+                    onExpandedChange = { historyExpanded = it && cmdHistory.isNotEmpty() }
+                ) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -813,60 +818,67 @@ fun ComputScreen() {
                     }
                 }
             }
+            }
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState())
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(6.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                quickActionChips.forEach { chipText ->
-                    FilterChip(
-                        selected = command == chipText,
-                        onClick = { command = chipText },
-                        label = {
-                            Text(
-                                text = chipText,
-                                style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp),
-                                maxLines = 1
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState())
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    quickActionChips.forEach { chipText ->
+                        FilterChip(
+                            selected = command == chipText,
+                            onClick = { command = chipText },
+                            label = {
+                                Text(
+                                    text = chipText,
+                                    style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp),
+                                    maxLines = 1
+                                )
+                            },
+                            shape = RoundedCornerShape(16.dp),
+                            colors = FilterChipDefaults.filterChipColors(
+                                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                                selectedContainerColor = MaterialTheme.colorScheme.primaryContainer
                             )
-                        },
-                        shape = RoundedCornerShape(16.dp),
-                        colors = FilterChipDefaults.filterChipColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
-                            selectedContainerColor = MaterialTheme.colorScheme.primaryContainer
                         )
-                    )
+                    }
                 }
             }
 
-            ComputOutputCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f),
-                lines = visibleLines,
-                isRunning = isRunning,
-                searchActive = searchActive,
-                searchQuery = searchQuery,
-                showGeminiSection = showGeminiSection,
-                isExplaining = isExplaining,
-                onToggleGemini = {
-                    if (!showGeminiSection && aiExplanation.isBlank() && !isExplaining) {
-                        triggerGeminiExplanation()
-                    } else {
-                        showGeminiSection = !showGeminiSection
-                    }
-                },
-                onCopyOutput = {
-                    copyToClipboard("ADB Output", outputLog, context.getString(R.string.comput_output_copied))
-                },
-                onClearOutput = { clearConsole() }
-            )
+            item {
+                ComputOutputCard(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .heightIn(min = 240.dp, max = 600.dp),
+                    lines = visibleLines,
+                    isRunning = isRunning,
+                    searchActive = searchActive,
+                    searchQuery = searchQuery,
+                    showGeminiSection = showGeminiSection,
+                    isExplaining = isExplaining,
+                    onToggleGemini = {
+                        if (!showGeminiSection && aiExplanation.isBlank() && !isExplaining) {
+                            triggerGeminiExplanation()
+                        } else {
+                            showGeminiSection = !showGeminiSection
+                        }
+                    },
+                    onCopyOutput = {
+                        copyToClipboard("ADB Output", outputLog, context.getString(R.string.comput_output_copied))
+                    },
+                    onClearOutput = { clearConsole() }
+                )
+            }
 
-            AnimatedVisibility(visible = showGeminiSection) {
-                Surface(
+            item {
+                AnimatedVisibility(visible = showGeminiSection) {
+                    Surface(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp)
@@ -956,15 +968,18 @@ fun ComputScreen() {
                     }
                 }
             }
+            }
 
-            Text(
-                text = "Lines: ${outputLines.size} | Chars: ${outputLog.length}",
-                style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 10.sp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 20.dp)
-            )
+            item {
+                Text(
+                    text = "Lines: ${outputLines.size} | Chars: ${outputLog.length}",
+                    style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 10.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp)
+                )
+            }
         }
     }
 
