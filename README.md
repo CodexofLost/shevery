@@ -136,6 +136,7 @@ All code files in this project are licensed under Apache 2.0
 * [kerneldroid](https://github.com/kerneldroid) - for parts of App UI, Catalog Modules System and Android 17 support.
 * [RikkaApps/Shizuku](https://github.com/rikkaapps/Shizuku) - for Shizuku API and main sources.
 * [Landon Moran](https://github.com/LandonMoran) - for Dhizuku, TCP and etc. fixes.
+* [DP-Hridayan](https://github.com/DP-Hridayan/aShellYou) - for parts of "Comput" UI.
 
 ## And...
 
