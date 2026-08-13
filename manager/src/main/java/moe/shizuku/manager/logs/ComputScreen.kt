@@ -11,6 +11,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.ParcelFileDescriptor
+import android.os.SystemClock
 import android.widget.Toast
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
@@ -351,7 +352,18 @@ fun ComputScreen() {
                 stdoutThread.start()
                 stderrThread.start()
 
-                val finished = remote.waitForTimeout(120L, java.util.concurrent.TimeUnit.SECONDS.name)
+                val finished = run {
+                    var done = false
+                    val startedAt = SystemClock.elapsedRealtime()
+                    while (!cancelRequested.get()) {
+                        if (SystemClock.elapsedRealtime() - startedAt >= 120_000L) break
+                        if (remote.waitForTimeout(1L, java.util.concurrent.TimeUnit.SECONDS.name)) {
+                            done = true
+                            break
+                        }
+                    }
+                    done
+                }
                 val exitCode = if (finished) {
                     remote.exitValue()
                 } else {

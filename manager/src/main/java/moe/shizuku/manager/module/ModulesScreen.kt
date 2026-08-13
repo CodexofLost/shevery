@@ -81,6 +81,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -126,6 +127,7 @@ private val MODULE_MIME_TYPES = arrayOf(
 @Composable
 fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
     val context = LocalContext.current
+    val view = LocalView.current
     val scope = rememberCoroutineScope()
     var selectedTab by remember { mutableStateOf(0) } // 0: Installed, 1: Catalog
     var showCatalog by remember { mutableStateOf(false) }
@@ -258,7 +260,10 @@ fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
             onNavigateUp = null,
             bottomInset = 112.dp,
             isRefreshing = checkingUpdates,
-            onRefresh = if (selectedTab == 0) ({ checkAllUpdates() }) else null,
+            onRefresh = if (selectedTab == 0) ({
+                view.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)
+                checkAllUpdates()
+            }) else null,
             actions = {
                 ModuleTabsSwitcher(
                     selectedTab = selectedTab,

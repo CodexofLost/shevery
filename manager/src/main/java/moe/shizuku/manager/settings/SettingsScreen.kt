@@ -8,6 +8,13 @@ import android.content.Intent
 import android.os.Build
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -65,6 +72,7 @@ import rikka.shizuku.manager.ShizukuLocales
 import java.util.Locale
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.rememberCoroutineScope
@@ -247,11 +255,33 @@ fun SettingsScreen() {
         }
     }
 
-    if (showUpdateSettings) {
-        moe.shizuku.manager.module.update.UpdateSettingsScreen(
-            onNavigateUp = { showUpdateSettings = false }
-        )
-    } else {
+    AnimatedContent(
+        targetState = showUpdateSettings,
+        transitionSpec = {
+            if (targetState) {
+                (slideInHorizontally(animationSpec = tween(300)) { fullWidth -> fullWidth } +
+                    fadeIn(animationSpec = tween(300)))
+                    .togetherWith(
+                        slideOutHorizontally(animationSpec = tween(300)) { fullWidth -> -fullWidth / 4 } +
+                            fadeOut(animationSpec = tween(300))
+                    )
+            } else {
+                (slideInHorizontally(animationSpec = tween(300)) { fullWidth -> -fullWidth / 4 } +
+                    fadeIn(animationSpec = tween(300)))
+                    .togetherWith(
+                        slideOutHorizontally(animationSpec = tween(300)) { fullWidth -> fullWidth } +
+                            fadeOut(animationSpec = tween(300))
+                    )
+            }
+        },
+        label = "update-settings"
+    ) { showUpdateSettingsScreen ->
+        if (showUpdateSettingsScreen) {
+            BackHandler { showUpdateSettings = false }
+            moe.shizuku.manager.module.update.UpdateSettingsScreen(
+                onNavigateUp = { showUpdateSettings = false }
+            )
+        } else {
         ShizukuLazyScaffold(
             title = stringResource(R.string.settings_title),
             onNavigateUp = null,
@@ -531,6 +561,7 @@ fun SettingsScreen() {
                 )
             }
         }
+    }
     }
 }
 

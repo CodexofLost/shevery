@@ -3,6 +3,7 @@ package moe.shizuku.manager.module.catalog
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -111,6 +112,7 @@ private const val MAX_README_CHARS = 16000
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun CatalogScreen(onNavigateUp: () -> Unit) {
+    BackHandler { onNavigateUp() }
     val navBarState = LocalFloatingNavBarVisible.current
     val scope = rememberCoroutineScope()
     DisposableEffect(Unit) {
@@ -430,6 +432,7 @@ private fun ModuleDetailScreen(
     onViewOnGitHub: () -> Unit,
     onRefreshInstalled: () -> Unit
 ) {
+    BackHandler { onBack() }
     val scope = rememberCoroutineScope()
     var readmeContent by remember { mutableStateOf<String?>(null) }
     var isLoadingReadme by remember { mutableStateOf(true) }
