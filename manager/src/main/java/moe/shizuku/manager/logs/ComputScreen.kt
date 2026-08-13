@@ -1554,7 +1554,8 @@ private fun ComputOutputCard(
             val lastVisible = info.visibleItemsInfo.lastOrNull()
                 ?: return@derivedStateOf true
             val trailingGap = info.viewportEndOffset - (lastVisible.offset + lastVisible.size)
-            trailingGap <= bottomProximityPx
+            lastVisible.index + 1 == info.totalItemsCount &&
+                trailingGap >= -bottomProximityPx
         }
     }
 
