@@ -44,6 +44,7 @@ import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -230,17 +231,6 @@ fun ComputScreen() {
             json.put(k, JSONArray(v))
         }
         ModuleSettings.setComputMacros(json.toString())
-    }
-
-    val statusText = when {
-        isRunning -> stringResource(R.string.comput_status_running)
-        lastFailed -> stringResource(R.string.comput_status_error)
-        else -> stringResource(R.string.comput_status_ready)
-    }
-    val statusColor = when {
-        isRunning -> MaterialTheme.colorScheme.tertiary
-        lastFailed -> MaterialTheme.colorScheme.error
-        else -> MaterialTheme.colorScheme.primary
     }
 
     fun clearConsole() {
@@ -577,16 +567,22 @@ fun ComputScreen() {
         title = stringResource(R.string.comput_title),
         onNavigateUp = null
     ) { innerPadding ->
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(
-                    bottom = 112.dp + WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
-                ),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            if (searchActive) {
+            Column(
+                modifier = Modifier
+                    .widthIn(max = 840.dp)
+                    .fillMaxWidth()
+                    .align(Alignment.TopCenter)
+                    .padding(
+                        bottom = 112.dp + WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+                    ),
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                if (searchActive) {
                 ComputSearchBar(
                     query = searchQuery,
                     onQueryChange = { searchQuery = it },
@@ -677,26 +673,6 @@ fun ComputScreen() {
                         style = MaterialTheme.typography.labelLarge
                     )
                 }
-
-                Spacer(Modifier.weight(1f))
-
-                Box(
-                    modifier = Modifier.size(8.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        shape = CircleShape,
-                        color = statusColor
-                    ) {}
-                }
-                Spacer(Modifier.width(4.dp))
-                Text(
-                    text = statusText,
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1
-                )
             }
 
             ExposedDropdownMenuBox(
@@ -757,8 +733,8 @@ fun ComputScreen() {
                             onSend = { requestRun() }
                         ),
                         colors = TextFieldDefaults.colors(
-                            focusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
-                            unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                            focusedContainerColor = Color.Transparent,
+                            unfocusedContainerColor = Color.Transparent
                         )
                     )
 
@@ -1445,6 +1421,7 @@ fun ComputScreen() {
             shape = MaterialTheme.shapes.extraLarge
         )
     }
+}
 }
 
 @Composable
