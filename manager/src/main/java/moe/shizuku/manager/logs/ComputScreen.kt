@@ -107,12 +107,14 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
@@ -154,8 +156,8 @@ private data class ComputLogLine(
 )
 
 private val ComputSpring = spring<Float>(
-    dampingRatio = 0.35f,
-    stiffness = Spring.StiffnessLow
+    dampingRatio = 0.4f,
+    stiffness = Spring.StiffnessMediumLow
 )
 
 @Composable
@@ -1545,12 +1547,14 @@ private fun ComputOutputCard(
     val scope = rememberCoroutineScope()
     var userScrolledAway by remember { mutableStateOf(false) }
 
+    val bottomProximityPx = with(LocalDensity.current) { 48.dp.toPx() }
     val isNearBottom by remember(lines) {
         derivedStateOf {
             val info = listState.layoutInfo
-            val total = info.totalItemsCount
-            val lastVisible = info.visibleItemsInfo.lastOrNull()?.index ?: 0
-            total == 0 || lastVisible >= total - 2
+            val lastVisible = info.visibleItemsInfo.lastOrNull()
+                ?: return@derivedStateOf true
+            val trailingGap = info.viewportEndOffset - (lastVisible.offset + lastVisible.size)
+            trailingGap <= bottomProximityPx
         }
     }
 
@@ -1560,12 +1564,15 @@ private fun ComputOutputCard(
         }
     }
 
-    LaunchedEffect(listState.isScrollInProgress, isNearBottom, isRunning) {
-        if (isRunning && listState.isScrollInProgress && !isNearBottom) {
-            userScrolledAway = true
-        } else if (isNearBottom) {
-            userScrolledAway = false
-        }
+    LaunchedEffect(isNearBottom, isRunning) {
+        snapshotFlow { listState.isScrollInProgress }
+            .collect { scrolling ->
+                if (isRunning && scrolling && !isNearBottom) {
+                    userScrolledAway = true
+                } else if (isNearBottom) {
+                    userScrolledAway = false
+                }
+            }
     }
 
     LaunchedEffect(lines.size, isRunning, userScrolledAway) {
@@ -1800,18 +1807,15 @@ private fun highlightQuery(
     foreground: Color
 ): AnnotatedString {
     if (query.isBlank()) return AnnotatedString(text)
+    val matches = Regex(java.util.regex.Pattern.quote(query), RegexOption.IGNORE_CASE)
+        .findAll(text)
+        .toList()
+    if (matches.isEmpty()) return AnnotatedString(text)
     return buildAnnotatedString {
-        val lowerText = text.lowercase()
-        val lowerQuery = query.lowercase()
-        var index = 0
-        while (index < text.length) {
-            val match = lowerText.indexOf(lowerQuery, index)
-            if (match < 0) {
-                append(text.substring(index))
-                break
-            }
-            if (match > index) {
-                append(text.substring(index, match))
+        var cursor = 0
+        for (match in matches) {
+            if (match.range.first > cursor) {
+                append(text.substring(cursor, match.range.first))
             }
             withStyle(
                 style = SpanStyle(
@@ -1820,9 +1824,12 @@ private fun highlightQuery(
                     fontWeight = FontWeight.Bold
                 )
             ) {
-                append(text.substring(match, match + lowerQuery.length))
+                append(text.substring(match.range))
             }
-            index = match + lowerQuery.length
+            cursor = match.range.last + 1
+        }
+        if (cursor < text.length) {
+            append(text.substring(cursor))
         }
     }
 }
