@@ -63,6 +63,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -111,14 +112,20 @@ private const val MAX_README_CHARS = 16000
 @Composable
 fun CatalogScreen(onNavigateUp: () -> Unit) {
     val navBarState = LocalFloatingNavBarVisible.current
+    val scope = rememberCoroutineScope()
     DisposableEffect(Unit) {
         navBarState.value = false
+        val watcher = scope.launch {
+            snapshotFlow { navBarState.value }.collect { visible ->
+                if (visible) navBarState.value = false
+            }
+        }
         onDispose {
+            watcher.cancel()
             navBarState.value = true
         }
     }
     val context = LocalContext.current
-    val scope = rememberCoroutineScope()
     val discoveryManager = remember { ModuleDiscoveryManager.getInstance(context) }
     val installer = remember { ModuleInstaller.getInstance() }
 
