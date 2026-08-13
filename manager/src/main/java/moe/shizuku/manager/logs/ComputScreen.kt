@@ -53,7 +53,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.SelectionContainer
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material.icons.rounded.Apps
@@ -77,7 +76,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.ExposedDropdownMenu
 import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.FilterChip
@@ -342,7 +340,7 @@ fun ComputScreen() {
                     null
                 )
 
-                val destroy = { runCatching { remote.destroy() } }
+                val destroy: () -> Unit = { runCatching { remote.destroy() } }
                 val stdoutPfd = remote.getInputStream()
                 val stderrPfd = remote.getErrorStream()
 
@@ -812,9 +810,8 @@ fun ComputScreen() {
                 ExposedDropdownMenu(
                     expanded = historyExpanded,
                     onDismissRequest = { historyExpanded = false },
-                    modifier = Modifier
-                        .heightIn(max = 360.dp)
-                        .verticalScroll(rememberScrollState())
+                    modifier = Modifier.heightIn(max = 360.dp),
+                    scrollState = rememberScrollState()
                 ) {
                     if (cmdHistory.isEmpty()) return@ExposedDropdownMenu
                     Text(
@@ -1537,6 +1534,7 @@ private fun ComputOutputCard(
 ) {
     val dark = isSystemInDarkTheme()
     val listState = rememberLazyListState()
+    val scope = rememberCoroutineScope()
     var userScrolledAway by remember { mutableStateOf(false) }
 
     val isNearBottom by remember(lines) {
@@ -1687,7 +1685,7 @@ private fun ComputOutputCard(
                     }
                 }
 
-                AnimatedVisibility(
+                androidx.compose.animation.AnimatedVisibility(
                     visible = showScrollFab,
                     modifier = Modifier.align(Alignment.BottomEnd),
                     enter = scaleIn(animationSpec = ComputSpring) + fadeIn(animationSpec = ComputSpring),
@@ -1696,7 +1694,9 @@ private fun ComputOutputCard(
                     SmallFloatingActionButton(
                         onClick = {
                             if (lines.isNotEmpty()) {
-                                listState.animateScrollToItem(lines.lastIndex)
+                                scope.launch {
+                                    listState.animateScrollToItem(lines.lastIndex)
+                                }
                             }
                         },
                         containerColor = MaterialTheme.colorScheme.tertiaryContainer,
