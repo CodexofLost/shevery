@@ -855,7 +855,7 @@ fun ComputScreen() {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp)
-                        .heightIn(min = 240.dp, max = 600.dp),
+                        .heightIn(min = 160.dp, max = 320.dp),
                     lines = visibleLines,
                     isRunning = isRunning,
                     searchActive = searchActive,
