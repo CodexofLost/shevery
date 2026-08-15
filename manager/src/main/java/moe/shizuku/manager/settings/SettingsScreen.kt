@@ -2,12 +2,9 @@
 
 package moe.shizuku.manager.settings
 
-import android.Manifest
 import android.app.Activity
 import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatDelegate
@@ -58,7 +55,6 @@ import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.receiver.BootCompleteReceiver
 import moe.shizuku.manager.adb.AdbStarter
-import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.service.WatchdogManager
 import moe.shizuku.manager.starter.StarterActivity
 import moe.shizuku.manager.utils.EnvironmentUtils
@@ -98,9 +94,6 @@ fun SettingsScreen() {
 
     var startOnBoot by remember {
         mutableStateOf(packageManager.isComponentEnabled(componentName))
-    }
-    var adbStartOnBoot by remember {
-        mutableStateOf(ShizukuSettings.getStartOnBootAdb())
     }
     var errorProtect by remember {
         mutableStateOf(ModuleSettings.isErrorProtectEnabled())
@@ -166,25 +159,6 @@ fun SettingsScreen() {
         return Shizuku.pingBinder() && currentPort > 0 && when {
             enabled -> currentPort != AdbStarter.TCP_MODE_PORT
             else -> currentPort == AdbStarter.TCP_MODE_PORT
-        }
-    }
-
-    suspend fun grantWriteSecureSettings(context: Context): Boolean {
-        if (context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
-            return true
-        }
-        val binder = Shizuku.getBinder() ?: return false
-        return try {
-            val service = IShizukuService.Stub.asInterface(binder)
-            val process = service.newProcess(
-                arrayOf("sh", "-c", "pm grant ${context.packageName} android.permission.WRITE_SECURE_SETTINGS"),
-                null,
-                null
-            )
-            process.waitFor() == 0
-                    && context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
-        } catch (e: Throwable) {
-            false
         }
     }
 
@@ -324,56 +298,6 @@ fun SettingsScreen() {
                     onCheckedChange = { enabled ->
                         packageManager.setComponentEnabled(componentName, enabled)
                         startOnBoot = packageManager.isComponentEnabled(componentName)
-                    }
-                )
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_wadb_24,
-                    title = stringResource(R.string.settings_start_on_boot_adb),
-                    summary = stringResource(
-                        if (tcpMode) R.string.settings_start_on_boot_adb_summary
-                        else R.string.settings_start_on_boot_adb_summary_no_tcp
-                    ),
-                    checked = adbStartOnBoot,
-                    onCheckedChange = { enabled ->
-                        if (enabled) {
-                            scope.launch {
-                                if (!Shizuku.pingBinder()) {
-                                    Toast.makeText(
-                                        context,
-                                        R.string.settings_start_on_boot_adb_not_running,
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                    return@launch
-                                }
-                                if (!grantWriteSecureSettings(context)) {
-                                    Toast.makeText(
-                                        context,
-                                        R.string.settings_start_on_boot_adb_grant_failed,
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                    return@launch
-                                }
-                                ShizukuSettings.setStartOnBootAdb(true)
-                                adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
-                                packageManager.setComponentEnabled(componentName, true)
-                                Toast.makeText(
-                                    context,
-                                    R.string.settings_start_on_boot_adb_granted,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                if (!tcpMode) {
-                                    Toast.makeText(
-                                        context,
-                                        R.string.settings_start_on_boot_adb_warning_no_tcp,
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
-                            }
-                        } else {
-                            ShizukuSettings.setStartOnBootAdb(false)
-                            adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
-                            packageManager.setComponentEnabled(componentName, startOnBoot)
-                        }
                     }
                 )
                 GroupDivider()
