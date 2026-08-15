@@ -835,7 +835,7 @@ fun SettingsScreen() {
 
     if (showMissingPermissionDialog) {
         val serviceRunning = Shizuku.pingBinder()
-        val grantCommand = "pm grant ${context.packageName} android.permission.WRITE_SECURE_SETTINGS"
+        val grantCommand = "adb shell pm grant ${context.packageName} android.permission.WRITE_SECURE_SETTINGS"
         AlertDialog(
             onDismissRequest = { showMissingPermissionDialog = false },
             title = { Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_title)) },
