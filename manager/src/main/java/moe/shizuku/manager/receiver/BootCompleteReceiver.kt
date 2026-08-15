@@ -72,85 +72,85 @@ class BootCompleteReceiver : BroadcastReceiver() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 suspend fun waitForServer(maxMs: Long): Boolean {
-                var running = Shizuku.pingBinder()
-                var waited = 0L
-                while (!running && waited < maxMs) {
-                    delay(250)
-                    waited += 250
-                    running = Shizuku.pingBinder()
+                    var running = Shizuku.pingBinder()
+                    var waited = 0L
+                    while (!running && waited < maxMs) {
+                        delay(250)
+                        waited += 250
+                        running = Shizuku.pingBinder()
+                    }
+                    return running
                 }
-                return running
-            }
 
-            val portFound = CountDownLatch(1)
-            val startDone = CountDownLatch(1)
-            var lastError: String? = null
-            val adbMdns = AdbMdns(context, AdbMdns.TLS_CONNECT) { port ->
-                if (port <= 0) return@AdbMdns
-                portFound.countDown()
-                CoroutineScope(Dispatchers.IO).launch {
-                    try {
-                        StartupNotificationManager.showProgress(
-                            context,
-                            context.getString(R.string.notification_startup_connecting)
-                        )
-                        AdbStarter.start(port = port, context = context.applicationContext) {
-                            lastError = it
+                val portFound = CountDownLatch(1)
+                val startDone = CountDownLatch(1)
+                var lastError: String? = null
+                val adbMdns = AdbMdns(context, AdbMdns.TLS_CONNECT) { port ->
+                    if (port <= 0) return@AdbMdns
+                    portFound.countDown()
+                    CoroutineScope(Dispatchers.IO).launch {
+                        try {
+                            StartupNotificationManager.showProgress(
+                                context,
+                                context.getString(R.string.notification_startup_connecting)
+                            )
+                            AdbStarter.start(port = port, context = context.applicationContext) {
+                                lastError = it
+                            }
+                            if (waitForServer(3000)) {
+                                StartupNotificationManager.showStarted(
+                                    context,
+                                    context.getString(R.string.notification_startup_started)
+                                )
+                            } else {
+                                val detail = lastError?.takeIf { it.isNotBlank() }
+                                StartupNotificationManager.showFailed(
+                                    context,
+                                    context.getString(R.string.notification_startup_failed) +
+                                            if (detail != null) "\n$detail" else ""
+                                )
+                            }
+                        } catch (e: Exception) {
+                            Log.w(AppConstants.TAG, "ADB boot start failed", e)
+                            if (waitForServer(5000)) {
+                                StartupNotificationManager.showStarted(
+                                    context,
+                                    context.getString(R.string.notification_startup_started)
+                                )
+                            } else {
+                                val detail = lastError?.takeIf { it.isNotBlank() }
+                                        ?: e.message?.takeIf { it.isNotBlank() }
+                                StartupNotificationManager.showFailed(
+                                    context,
+                                    context.getString(R.string.notification_startup_failed) +
+                                            if (detail != null) "\n$detail" else ""
+                                )
+                            }
+                        } finally {
+                            startDone.countDown()
                         }
-                        if (waitForServer(3000)) {
-                            StartupNotificationManager.showStarted(
-                                context,
-                                context.getString(R.string.notification_startup_started)
-                            )
-                        } else {
-                            val detail = lastError?.takeIf { it.isNotBlank() }
-                            StartupNotificationManager.showFailed(
-                                context,
-                                context.getString(R.string.notification_startup_failed) +
-                                        if (detail != null) "\n$detail" else ""
-                            )
-                        }
-                    } catch (e: Exception) {
-                        Log.w(AppConstants.TAG, "ADB boot start failed", e)
-                        if (waitForServer(5000)) {
-                            StartupNotificationManager.showStarted(
-                                context,
-                                context.getString(R.string.notification_startup_started)
-                            )
-                        } else {
-                            val detail = lastError?.takeIf { it.isNotBlank() }
-                                    ?: e.message?.takeIf { it.isNotBlank() }
-                            StartupNotificationManager.showFailed(
-                                context,
-                                context.getString(R.string.notification_startup_failed) +
-                                        if (detail != null) "\n$detail" else ""
-                            )
-                        }
-                    } finally {
-                        startDone.countDown()
                     }
                 }
-            }
-            adbMdns.start()
-            var waited = 0L
-            val step = 3_000L
-            val deadline = 20_000L
-            while (!portFound.await(step, TimeUnit.MILLISECONDS) && waited < deadline) {
-                waited += step
-                // Force adbd to re-announce the wireless debugging port over mDNS.
-                Settings.Global.putInt(cr, "adb_wifi_enabled", 0)
-                delay(500)
-                Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
-            }
-            adbMdns.stop()
-            if (portFound.await(0, TimeUnit.MILLISECONDS)) {
-                startDone.await(20, TimeUnit.SECONDS)
-            } else {
-                StartupNotificationManager.showFailed(
-                    context,
-                    context.getString(R.string.notification_startup_no_port)
-                )
-            }
+                adbMdns.start()
+                var waited = 0L
+                val step = 3_000L
+                val deadline = 20_000L
+                while (!portFound.await(step, TimeUnit.MILLISECONDS) && waited < deadline) {
+                    waited += step
+                    // Force adbd to re-announce the wireless debugging port over mDNS.
+                    Settings.Global.putInt(cr, "adb_wifi_enabled", 0)
+                    delay(500)
+                    Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+                }
+                adbMdns.stop()
+                if (portFound.await(0, TimeUnit.MILLISECONDS)) {
+                    startDone.await(20, TimeUnit.SECONDS)
+                } else {
+                    StartupNotificationManager.showFailed(
+                        context,
+                        context.getString(R.string.notification_startup_no_port)
+                    )
+                }
             } finally {
                 pending.finish()
             }
