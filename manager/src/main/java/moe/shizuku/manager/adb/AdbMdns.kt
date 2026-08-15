@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.net.ServerSocket
+import java.util.concurrent.ConcurrentLinkedQueue
 
 @RequiresApi(Build.VERSION_CODES.R)
 class AdbMdns(
@@ -27,9 +28,11 @@ class AdbMdns(
     private val nsdManager: NsdManager = context.getSystemService(NsdManager::class.java)
     // On API 30-33, NsdManager can only resolve one service at a time.
     // Queue discovered services and resolve them one by one.
+    // ConcurrentLinkedQueue for thread safety — NsdManager callbacks can
+    // fire from different binder/handler threads on some OEM implementations.
     @Volatile
     private var pendingResolve: NsdServiceInfo? = null
-    private val resolveQueue = ArrayDeque<NsdServiceInfo>()
+    private val resolveQueue = ConcurrentLinkedQueue<NsdServiceInfo>()
 
     fun start() {
         if (running) return
@@ -44,6 +47,9 @@ class AdbMdns(
     fun stop() {
         if (!running) return
         running = false
+        // Clear any pending resolves so orphaned callbacks don't trigger new ones.
+        resolveQueue.clear()
+        pendingResolve = null
         try {
             nsdManager.stopServiceDiscovery(listener)
         } catch (e: Exception) {
@@ -88,10 +94,12 @@ class AdbMdns(
 
     private fun drainResolveQueue() {
         pendingResolve = null
-        if (resolveQueue.isNotEmpty()) {
-            val next = resolveQueue.removeFirst()
-            pendingResolve = next
-            nsdManager.resolveService(next, ResolveListener(this))
+        if (running) {
+            val next = resolveQueue.poll()
+            if (next != null) {
+                pendingResolve = next
+                nsdManager.resolveService(next, ResolveListener(this))
+            }
         }
     }
 

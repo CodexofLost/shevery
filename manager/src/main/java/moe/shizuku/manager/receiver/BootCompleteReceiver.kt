@@ -150,7 +150,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 adbMdns.start()
                 var waited = 0L
                 val step = 3_000L
-                val deadline = 20_000L
+                val deadline = 12_000L
                 while (!portFound.await(step, TimeUnit.MILLISECONDS) && waited < deadline) {
                     waited += step
                     // Force adbd to re-announce the wireless debugging port over mDNS.
@@ -161,7 +161,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 }
                 adbMdns.stop()
                 if (portFound.await(0, TimeUnit.MILLISECONDS)) {
-                    startDone.await(20, TimeUnit.SECONDS)
+                    startDone.await(10, TimeUnit.SECONDS)
                 } else {
                     StartupNotificationManager.showFailed(
                         context,
