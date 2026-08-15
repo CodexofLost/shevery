@@ -134,5 +134,13 @@ public class ShizukuSettings {
         getPreferences().edit().putBoolean(START_ON_BOOT_ADB, enabled).apply();
     }
 
+    public static boolean getStartOnBoot() {
+        return getPreferences().getBoolean(KEEP_START_ON_BOOT, false);
+    }
+
+    public static void setStartOnBoot(boolean enabled) {
+        getPreferences().edit().putBoolean(KEEP_START_ON_BOOT, enabled).apply();
+    }
+
 
 }

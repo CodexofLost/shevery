@@ -104,7 +104,10 @@ fun SettingsScreen() {
     val prefs = ShizukuSettings.getPreferences()
 
     var startOnBoot by remember {
-        mutableStateOf(packageManager.isComponentEnabled(componentName))
+        mutableStateOf(
+            ShizukuSettings.getStartOnBoot()
+                || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
+        )
     }
     var adbStartOnBoot by remember {
         mutableStateOf(ShizukuSettings.getStartOnBootAdb())
@@ -249,7 +252,9 @@ fun SettingsScreen() {
                 }
             }.onSuccess {
                 Toast.makeText(context, "Restore completed successfully", Toast.LENGTH_SHORT).show()
-                startOnBoot = packageManager.isComponentEnabled(componentName)
+                startOnBoot = ShizukuSettings.getStartOnBoot()
+                    || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
+                adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
                 errorProtect = ModuleSettings.isErrorProtectEnabled()
                 languageTag = prefs.getString(LANGUAGE, "SYSTEM") ?: "SYSTEM"
                 nightMode = ShizukuSettings.getNightMode()
@@ -339,8 +344,12 @@ fun SettingsScreen() {
                     summary = stringResource(R.string.settings_start_on_boot_summary),
                     checked = startOnBoot,
                     onCheckedChange = { enabled ->
-                        packageManager.setComponentEnabled(componentName, enabled)
-                        startOnBoot = packageManager.isComponentEnabled(componentName)
+                        ShizukuSettings.setStartOnBoot(enabled)
+                        startOnBoot = ShizukuSettings.getStartOnBoot()
+                        packageManager.setComponentEnabled(
+                            componentName,
+                            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                        )
                     }
                 )
                 SwitchSettingsRow(
@@ -359,7 +368,10 @@ fun SettingsScreen() {
                                 if (Shizuku.pingBinder() && grantWriteSecureSettings(context)) {
                                     ShizukuSettings.setStartOnBootAdb(true)
                                     adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
-                                    packageManager.setComponentEnabled(componentName, true)
+                                    packageManager.setComponentEnabled(
+                                        componentName,
+                                        ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                                    )
                                     if (!wasGranted) {
                                         Toast.makeText(
                                             context,
@@ -381,7 +393,10 @@ fun SettingsScreen() {
                         } else {
                             ShizukuSettings.setStartOnBootAdb(false)
                             adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
-                            packageManager.setComponentEnabled(componentName, startOnBoot)
+                            packageManager.setComponentEnabled(
+                                componentName,
+                                ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                            )
                         }
                     }
                 )

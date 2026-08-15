@@ -66,7 +66,6 @@ class BootCompleteReceiver : BroadcastReceiver() {
         val cr = context.contentResolver
         Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
         Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
-        Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
         val pending = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
             suspend fun waitForServer(maxMs: Long): Boolean {
@@ -148,7 +147,10 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     context.getString(R.string.notification_startup_no_port)
                 )
             }
-            pending.finish()
         }
+        // The receiver must not hold goAsync() while the coroutine waits up to
+        // tens of seconds; finish immediately so the system never kills the
+        // process for a "timed out" broadcast receiver.
+        pending.finish()
     }
 }
