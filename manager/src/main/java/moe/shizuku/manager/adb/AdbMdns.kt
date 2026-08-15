@@ -80,8 +80,8 @@ class AdbMdns(
         }
         // Resolve the next queued service after this one completes.
         pendingResolve = null
-        val next = resolveQueue.pollFirst()
-        if (next != null && running) {
+        if (resolveQueue.isNotEmpty()) {
+            val next = resolveQueue.removeFirst()
             pendingResolve = next
             nsdManager.resolveService(next, ResolveListener(this))
         }
