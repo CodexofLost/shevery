@@ -18,17 +18,22 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -42,6 +47,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
@@ -70,6 +76,7 @@ import moe.shizuku.manager.ui.compose.SwitchSettingsRow
 import moe.shizuku.manager.ui.compose.htmlToPlainText
 import moe.shizuku.manager.utils.CustomTabsHelper
 import rikka.core.util.ResourceUtils
+import rikka.core.util.ClipboardUtils
 import rikka.material.app.LocaleDelegate
 import rikka.shizuku.Shizuku
 import rikka.shizuku.manager.ShizukuLocales
@@ -158,6 +165,7 @@ fun SettingsScreen() {
     }
     var showApiKeyDialog by remember { mutableStateOf(false) }
     var showGeminiModelDialog by remember { mutableStateOf(false) }
+    var showMissingPermissionDialog by remember { mutableStateOf(false) }
     var recreateTick by remember { mutableIntStateOf(0) }
     var showUpdateSettings by remember { mutableStateOf(false) }
 
@@ -265,12 +273,21 @@ fun SettingsScreen() {
     val localeOptions = remember(languageTag) {
         buildLocaleOptions(context, languageTag)
     }
-    val languageSummary = localeOptions.firstOrNull { it.tag == languageTag }?.summary
+    val languageSummary = localeOptions.firstOrNull { it.tag == languageTag }
+        ?.let { it.summary ?: it.title }
         ?: stringResource(rikka.core.R.string.follow_system)
     val nightValues = context.resources.getIntArray(R.array.night_mode_value).toList()
     val nightLabels = stringArrayResource(R.array.night_mode).toList()
-    val nightSummary = nightLabels.getOrElse(nightValues.indexOf(nightMode)) {
-        stringResource(rikka.core.R.string.follow_system)
+    val nightSummary = when (nightMode) {
+        AppCompatDelegate.MODE_NIGHT_NO -> nightLabels.getOrElse(0) {
+            stringResource(rikka.core.R.string.follow_system)
+        }
+        AppCompatDelegate.MODE_NIGHT_YES -> nightLabels.getOrElse(1) {
+            stringResource(rikka.core.R.string.follow_system)
+        }
+        else -> nightLabels.getOrElse(2) {
+            stringResource(rikka.core.R.string.follow_system)
+        }
     }
     val contributors = htmlToPlainText(context.getString(R.string.translation_contributors))
 
@@ -337,36 +354,28 @@ fun SettingsScreen() {
                     onCheckedChange = { enabled ->
                         if (enabled) {
                             scope.launch {
-                                if (!Shizuku.pingBinder()) {
-                                    Toast.makeText(
-                                        context,
-                                        R.string.settings_start_on_boot_adb_not_running,
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                    return@launch
-                                }
-                                if (!grantWriteSecureSettings(context)) {
-                                    Toast.makeText(
-                                        context,
-                                        R.string.settings_start_on_boot_adb_grant_failed,
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                    return@launch
-                                }
-                                ShizukuSettings.setStartOnBootAdb(true)
-                                adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
-                                packageManager.setComponentEnabled(componentName, true)
-                                Toast.makeText(
-                                    context,
-                                    R.string.settings_start_on_boot_adb_granted,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                if (!tcpMode) {
-                                    Toast.makeText(
-                                        context,
-                                        R.string.settings_start_on_boot_adb_warning_no_tcp,
-                                        Toast.LENGTH_LONG
-                                    ).show()
+                                val wasGranted = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
+                                PackageManager.PERMISSION_GRANTED
+                                if (Shizuku.pingBinder() && grantWriteSecureSettings(context)) {
+                                    ShizukuSettings.setStartOnBootAdb(true)
+                                    adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
+                                    packageManager.setComponentEnabled(componentName, true)
+                                    if (!wasGranted) {
+                                        Toast.makeText(
+                                            context,
+                                            R.string.settings_start_on_boot_adb_granted,
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                    if (!tcpMode && wasGranted) {
+                                        Toast.makeText(
+                                            context,
+                                            R.string.settings_start_on_boot_adb_warning_no_tcp,
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+                                } else {
+                                    showMissingPermissionDialog = true
                                 }
                             }
                         } else {
@@ -609,7 +618,7 @@ fun SettingsScreen() {
         }
 
         item {
-            SettingsGroup(title = stringResource(R.string.backup_restore_title)) {
+            SettingsGroup(title = stringResource(R.string.settings_sections_title)) {
                 SectionHeader(stringResource(R.string.lab_features_title))
                 SettingsRow(
                     icon = R.drawable.ic_settings_outline_24dp,
@@ -618,6 +627,7 @@ fun SettingsScreen() {
                     onClick = { context.startActivity(Intent(context, LabFeaturesActivity::class.java)) }
                 )
                 GroupDivider()
+                SectionHeader(stringResource(R.string.backup_section_title))
                 SettingsRow(
                     icon = R.drawable.ic_outline_arrow_upward_24,
                     title = stringResource(R.string.backup_title),
@@ -681,7 +691,11 @@ fun SettingsScreen() {
                     }
                 )
             },
-            selectedIndex = nightValues.indexOf(nightMode),
+            selectedIndex = when (nightMode) {
+                AppCompatDelegate.MODE_NIGHT_NO -> 0
+                AppCompatDelegate.MODE_NIGHT_YES -> 1
+                else -> 2
+            },
             onDismiss = { showNightDialog = false },
             onSelect = { index ->
                 val value = nightValues[index]
@@ -830,6 +844,93 @@ fun SettingsScreen() {
                 computGeminiModel = selected
                 showGeminiModelDialog = false
             }
+        )
+    }
+
+    if (showMissingPermissionDialog) {
+        val grantCommand = "pm grant ${context.packageName} android.permission.WRITE_SECURE_SETTINGS"
+        AlertDialog(
+            onDismissRequest = { showMissingPermissionDialog = false },
+            title = { Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_title)) },
+            text = {
+                Column(modifier = Modifier.padding(horizontal = 4.dp)) {
+                    Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_message))
+                    Spacer(Modifier.height(12.dp))
+                    Surface(
+                        color = MaterialTheme.colorScheme.surfaceVariant,
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Text(
+                            text = grantCommand,
+                            fontFamily = FontFamily.Monospace,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .horizontalScroll(rememberScrollState())
+                                .padding(12.dp)
+                        )
+                    }
+                    Spacer(Modifier.height(8.dp))
+                    Text(
+                        text = stringResource(R.string.settings_start_on_boot_adb_missing_permission_instruction),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    if (!tcpMode) {
+                        Spacer(Modifier.height(12.dp))
+                        Text(
+                            text = stringResource(R.string.settings_start_on_boot_adb_warning_no_tcp),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        ClipboardUtils.put(context, grantCommand)
+                        showMissingPermissionDialog = false
+                    }
+                ) {
+                    Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_copy))
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        scope.launch {
+                            if (!Shizuku.pingBinder()) {
+                                Toast.makeText(
+                                    context,
+                                    R.string.settings_start_on_boot_adb_shevery_not_running,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                return@launch
+                            }
+                            if (!grantWriteSecureSettings(context)) {
+                                return@launch
+                            }
+                            val wasGranted = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
+                                    PackageManager.PERMISSION_GRANTED
+                            ShizukuSettings.setStartOnBootAdb(true)
+                            adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
+                            packageManager.setComponentEnabled(componentName, true)
+                            showMissingPermissionDialog = false
+                            if (!wasGranted) {
+                                Toast.makeText(
+                                    context,
+                                    R.string.settings_start_on_boot_adb_granted,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    }
+                ) {
+                    Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_use_shevery))
+                }
+            },
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            shape = MaterialTheme.shapes.extraLarge
         )
     }
 }

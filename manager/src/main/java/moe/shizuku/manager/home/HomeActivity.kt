@@ -14,7 +14,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -124,7 +126,6 @@ import rikka.lifecycle.Status
 import rikka.lifecycle.viewModels
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuApiConstants
-import rikka.html.text.HtmlCompat as RikkaHtmlCompat
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.compat.StubManager
 import androidx.lifecycle.lifecycleScope
@@ -388,16 +389,11 @@ abstract class HomeActivity : AppActivity() {
     }
 
     private fun showAdbCommandDialog() {
+        val view = LayoutInflater.from(this).inflate(R.layout.command_dialog, null)
+        view.findViewById<TextView>(R.id.command_text).text = Starter.adbCommand
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.home_adb_button_view_command)
-            .setMessage(
-                RikkaHtmlCompat.fromHtml(
-                    getString(
-                        R.string.home_adb_dialog_view_command_message,
-                        Starter.adbCommand
-                    )
-                )
-            )
+            .setView(view)
             .setPositiveButton(R.string.home_adb_dialog_view_command_copy_button) { _, _ ->
                 if (ClipboardUtils.put(this, Starter.adbCommand)) {
                     Toast.makeText(
@@ -849,6 +845,11 @@ private fun HomeScreen(
                         onShowAdbCommand = onShowAdbCommand,
                         onOpenAdbHelp = onOpenAdbHelp
                     )
+                }
+                if (isRooted && !running) {
+                    item {
+                        RootCard(onStartRoot)
+                    }
                 }
                 if (dhizukuEnabled) {
                     item {
@@ -1410,6 +1411,26 @@ private fun buildDiagnostics(
     }.trim()
 }
 
+
+@Composable
+private fun RootCard(onStartRoot: () -> Unit) {
+    HomeCard(
+        icon = R.drawable.ic_server_start_24dp,
+        title = htmlStringResource(R.string.home_root_title),
+        body = htmlStringResource(R.string.home_root_description, Helps.SUI.get())
+    ) {
+        HomeButtons(
+            listOf(
+                HomeButtonSpec(
+                    label = R.string.home_root_button_start,
+                    icon = R.drawable.ic_server_start_24dp,
+                    primary = true,
+                    onClick = onStartRoot
+                )
+            )
+        )
+    }
+}
 
 @Composable
 private fun DhizukuCard(onStartDhizuku: () -> Unit) {

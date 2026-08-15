@@ -9,7 +9,6 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import java.io.IOException
 import java.net.InetSocketAddress
-import java.net.NetworkInterface
 import java.net.ServerSocket
 
 @RequiresApi(Build.VERSION_CODES.R)
@@ -61,15 +60,7 @@ class AdbMdns(
     }
 
     private fun onServiceResolved(resolvedService: NsdServiceInfo) {
-        if (running && NetworkInterface.getNetworkInterfaces()
-                .asSequence()
-                .any { networkInterface ->
-                    networkInterface.inetAddresses
-                        .asSequence()
-                        .any { resolvedService.host.hostAddress == it.hostAddress }
-                }
-            && isPortAvailable(resolvedService.port)
-        ) {
+        if (running && isPortAvailable(resolvedService.port)) {
             serviceName = resolvedService.serviceName
             observer.onChanged(resolvedService.port)
         }
