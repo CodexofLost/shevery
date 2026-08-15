@@ -7,9 +7,6 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.net.ServerSocket
@@ -20,13 +17,17 @@ class AdbMdns(
     private val observer: Observer<Int>
 ) {
 
+    @Volatile
     private var registered = false
+    @Volatile
     private var running = false
+    @Volatile
     private var serviceName: String? = null
     private val listener = DiscoveryListener(this)
     private val nsdManager: NsdManager = context.getSystemService(NsdManager::class.java)
     // On API 30-33, NsdManager can only resolve one service at a time.
     // Queue discovered services and resolve them one by one.
+    @Volatile
     private var pendingResolve: NsdServiceInfo? = null
     private val resolveQueue = ArrayDeque<NsdServiceInfo>()
 
@@ -74,11 +75,18 @@ class AdbMdns(
     }
 
     private fun onServiceResolved(resolvedService: NsdServiceInfo) {
-        if (running && isPortAvailable(resolvedService.port)) {
+        if (running && isPortInUse(resolvedService.port)) {
             serviceName = resolvedService.serviceName
             observer.onChanged(resolvedService.port)
         }
-        // Resolve the next queued service after this one completes.
+        drainResolveQueue()
+    }
+
+    private fun onResolveFailed() {
+        drainResolveQueue()
+    }
+
+    private fun drainResolveQueue() {
         pendingResolve = null
         if (resolveQueue.isNotEmpty()) {
             val next = resolveQueue.removeFirst()
@@ -87,15 +95,22 @@ class AdbMdns(
         }
     }
 
-    private fun isPortAvailable(port: Int) = runBlocking(Dispatchers.IO) {
-        try {
-            ServerSocket().use {
-                it.bind(InetSocketAddress("127.0.0.1", port), 1)
-                false
-            }
-        } catch (e: IOException) {
-            true
+    // Returns true if the port is already bound (in use by adbd).
+    // Synchronous socket bind — no runBlocking needed. NsdManager callbacks
+    // run on a dedicated thread, not the main thread, so this won't ANR.
+    // Catch SecurityException for API 37 loopback enforcement (EPERM).
+    private fun isPortInUse(port: Int): Boolean = try {
+        ServerSocket().use {
+            it.bind(InetSocketAddress("127.0.0.1", port), 1)
+            false
         }
+    } catch (e: IOException) {
+        true
+    } catch (e: SecurityException) {
+        // API 37+ may throw SecurityException if USE_LOOPBACK_INTERFACE isn't granted.
+        // Assume the port is in use — safer to let adbd proceed than to skip it.
+        Log.w(TAG, "SecurityException checking port ${port}: ${e.message}")
+        true
     }
 
     internal class DiscoveryListener(private val adbMdns: AdbMdns) : NsdManager.DiscoveryListener {
@@ -133,7 +148,10 @@ class AdbMdns(
     }
 
     internal class ResolveListener(private val adbMdns: AdbMdns) : NsdManager.ResolveListener {
-        override fun onResolveFailed(nsdServiceInfo: NsdServiceInfo, i: Int) {}
+        override fun onResolveFailed(nsdServiceInfo: NsdServiceInfo, i: Int) {
+            Log.w(TAG, "onResolveFailed: ${nsdServiceInfo.serviceName}, code=$i")
+            adbMdns.onResolveFailed()
+        }
 
         override fun onServiceResolved(nsdServiceInfo: NsdServiceInfo) {
             adbMdns.onServiceResolved(nsdServiceInfo)

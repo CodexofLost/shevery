@@ -26,8 +26,15 @@ import moe.shizuku.manager.utils.UserHandleCompat
 import rikka.shizuku.Shizuku
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicBoolean
 
 class BootCompleteReceiver : BroadcastReceiver() {
+
+    companion object {
+        // Re-entrancy guard: LOCKED_BOOT_COMPLETED and BOOT_COMPLETED both fire.
+        // Prevent two concurrent adbStart() calls fighting over adb_wifi_enabled.
+        private val adbStarting = AtomicBoolean(false)
+    }
 
     override fun onReceive(context: Context, intent: Intent) {
         if (Intent.ACTION_LOCKED_BOOT_COMPLETED != intent.action
@@ -61,6 +68,13 @@ class BootCompleteReceiver : BroadcastReceiver() {
 
     @RequiresApi(Build.VERSION_CODES.R)
     private fun adbStart(context: Context) {
+        // Re-entrancy guard: if LOCKED_BOOT_COMPLETED already started the ADB
+        // boot flow, don't start a second one from BOOT_COMPLETED.
+        if (!adbStarting.compareAndSet(false, true)) {
+            Log.i(AppConstants.TAG, "adbStart already in progress, skipping")
+            return
+        }
+
         StartupNotificationManager.showProgress(
             context,
             context.getString(R.string.notification_startup_enabling_wifi)
@@ -94,9 +108,11 @@ class BootCompleteReceiver : BroadcastReceiver() {
                                 context,
                                 context.getString(R.string.notification_startup_connecting)
                             )
-                            AdbStarter.start(port = port, context = context.applicationContext) {
-                                lastError = it
-                            }
+                            AdbStarter.start(
+                                port = port,
+                                context = context.applicationContext,
+                                listener = { errorMsg -> lastError = String(errorMsg) }
+                            )
                             if (waitForServer(3000)) {
                                 StartupNotificationManager.showStarted(
                                     context,
@@ -138,8 +154,9 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 while (!portFound.await(step, TimeUnit.MILLISECONDS) && waited < deadline) {
                     waited += step
                     // Force adbd to re-announce the wireless debugging port over mDNS.
+                    // Toggle off, wait 1.5s for adbd to tear down, then re-enable.
                     Settings.Global.putInt(cr, "adb_wifi_enabled", 0)
-                    delay(500)
+                    delay(1500)
                     Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
                 }
                 adbMdns.stop()
@@ -152,6 +169,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     )
                 }
             } finally {
+                adbStarting.set(false)
                 try {
                     pending.finish()
                 } catch (e: IllegalStateException) {
