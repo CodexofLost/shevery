@@ -2,9 +2,12 @@
 
 package moe.shizuku.manager.settings
 
+import android.Manifest
 import android.app.Activity
 import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatDelegate
@@ -61,6 +64,7 @@ import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.receiver.BootCompleteReceiver
 import moe.shizuku.manager.adb.AdbStarter
+import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.service.WatchdogManager
 import moe.shizuku.manager.starter.StarterActivity
 import moe.shizuku.manager.utils.EnvironmentUtils
@@ -104,6 +108,9 @@ fun SettingsScreen() {
             ShizukuSettings.getStartOnBoot()
                 || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
         )
+    }
+    var adbStartOnBoot by remember {
+        mutableStateOf(ShizukuSettings.getStartOnBootAdb())
     }
     var errorProtect by remember {
         mutableStateOf(ModuleSettings.isErrorProtectEnabled())
@@ -183,6 +190,25 @@ fun SettingsScreen() {
                 putExtra(StarterActivity.EXTRA_PORT, port)
             }
         )
+    }
+
+    suspend fun grantWriteSecureSettings(context: Context): Boolean {
+        if (context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
+            return true
+        }
+        val binder = Shizuku.getBinder() ?: return false
+        return try {
+            val service = IShizukuService.Stub.asInterface(binder)
+            val process = service.newProcess(
+                arrayOf("sh", "-c", "pm grant ${context.packageName} android.permission.WRITE_SECURE_SETTINGS"),
+                null,
+                null
+            )
+            process.waitFor() == 0
+                    && context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
+        } catch (e: Throwable) {
+            false
+        }
     }
 
     fun applyTcpMode(enabled: Boolean, restart: Boolean = false) {
