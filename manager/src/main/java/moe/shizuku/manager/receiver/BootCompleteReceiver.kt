@@ -37,10 +37,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
 
         if (UserHandleCompat.myUserId() > 0 || Shizuku.pingBinder()) return
 
-        if (ShizukuSettings.getStartOnBootAdb() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
-            && context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
-            adbStart(context)
-        } else if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
+        if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
             rootStart(context)
         } else {
             Log.w(AppConstants.TAG, "No support start on boot")
@@ -57,7 +54,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
         Shell.cmd(Starter.internalCommand).exec()
     }
 
-    @RequiresApi(Build.VERSION_CODES.R)
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun adbStart(context: Context) {
         StartupNotificationManager.showProgress(
             context,
