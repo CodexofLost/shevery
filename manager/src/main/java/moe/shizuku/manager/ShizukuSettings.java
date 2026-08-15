@@ -27,6 +27,7 @@ public class ShizukuSettings {
     public static final String KEEP_START_ON_BOOT = "start_on_boot";
     public static final String TCP_MODE = "tcp_mode";
     public static final String AUTO_DISABLE_USB_DEBUGGING = "auto_disable_usb_debugging";
+    public static final String START_ON_BOOT_ADB = "start_on_boot_adb";
 
 
     private static SharedPreferences sPreferences;
