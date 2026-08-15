@@ -70,7 +70,8 @@ class BootCompleteReceiver : BroadcastReceiver() {
         Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
         val pending = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
-            suspend fun waitForServer(maxMs: Long): Boolean {
+            try {
+                suspend fun waitForServer(maxMs: Long): Boolean {
                 var running = Shizuku.pingBinder()
                 var waited = 0L
                 while (!running && waited < maxMs) {
@@ -138,6 +139,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 waited += step
                 // Force adbd to re-announce the wireless debugging port over mDNS.
                 Settings.Global.putInt(cr, "adb_wifi_enabled", 0)
+                delay(500)
                 Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
             }
             adbMdns.stop()
@@ -149,10 +151,9 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     context.getString(R.string.notification_startup_no_port)
                 )
             }
+            } finally {
+                pending.finish()
+            }
         }
-        // The receiver must not hold goAsync() while the coroutine waits up to
-        // tens of seconds; finish immediately so the system never kills the
-        // process for a "timed out" broadcast receiver.
-        pending.finish()
     }
 }

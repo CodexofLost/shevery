@@ -7,6 +7,9 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.net.ServerSocket
@@ -66,13 +69,15 @@ class AdbMdns(
         }
     }
 
-    private fun isPortAvailable(port: Int) = try {
-        ServerSocket().use {
-            it.bind(InetSocketAddress("127.0.0.1", port), 1)
-            false
+    private fun isPortAvailable(port: Int) = runBlocking(Dispatchers.IO) {
+        try {
+            ServerSocket().use {
+                it.bind(InetSocketAddress("127.0.0.1", port), 1)
+                false
+            }
+        } catch (e: IOException) {
+            true
         }
-    } catch (e: IOException) {
-        true
     }
 
     internal class DiscoveryListener(private val adbMdns: AdbMdns) : NsdManager.DiscoveryListener {
