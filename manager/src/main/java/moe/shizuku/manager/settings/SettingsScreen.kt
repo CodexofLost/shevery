@@ -64,7 +64,6 @@ import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.receiver.BootCompleteReceiver
 import moe.shizuku.manager.adb.AdbStarter
-import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.service.WatchdogManager
 import moe.shizuku.manager.starter.StarterActivity
 import moe.shizuku.manager.utils.EnvironmentUtils
@@ -190,25 +189,6 @@ fun SettingsScreen() {
                 putExtra(StarterActivity.EXTRA_PORT, port)
             }
         )
-    }
-
-    suspend fun grantWriteSecureSettings(context: Context): Boolean {
-        if (context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
-            return true
-        }
-        val binder = Shizuku.getBinder() ?: return false
-        return try {
-            val service = IShizukuService.Stub.asInterface(binder)
-            val process = service.newProcess(
-                arrayOf("sh", "-c", "pm grant ${context.packageName} android.permission.WRITE_SECURE_SETTINGS"),
-                null,
-                null
-            )
-            process.waitFor() == 0
-                    && context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
-        } catch (e: Throwable) {
-            false
-        }
     }
 
     fun applyTcpMode(enabled: Boolean, restart: Boolean = false) {
@@ -362,37 +342,28 @@ fun SettingsScreen() {
                     checked = adbStartOnBoot,
                     onCheckedChange = { enabled ->
                         if (enabled) {
-                            scope.launch {
-                                val wasGranted = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
-                                PackageManager.PERMISSION_GRANTED
-                                if (Shizuku.pingBinder() && grantWriteSecureSettings(context)) {
-                                    ShizukuSettings.setStartOnBootAdb(true)
-                                    adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
-                                    packageManager.setComponentEnabled(
-                                        componentName,
-                                        ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
-                                    )
-                                    if (!wasGranted) {
-                                        Toast.makeText(
-                                            context,
-                                            R.string.settings_start_on_boot_adb_granted,
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                                    if (!tcpMode && wasGranted) {
-                                        Toast.makeText(
-                                            context,
-                                            R.string.settings_start_on_boot_adb_warning_no_tcp,
-                                            Toast.LENGTH_LONG
-                                        ).show()
-                                    }
-                                } else {
-                                    showMissingPermissionDialog = true
+                            val hasPermission = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
+                                    PackageManager.PERMISSION_GRANTED
+                            if (hasPermission) {
+                                ShizukuSettings.setStartOnBootAdb(true)
+                                adbStartOnBoot = true
+                                packageManager.setComponentEnabled(
+                                    componentName,
+                                    ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                                )
+                                if (!tcpMode) {
+                                    Toast.makeText(
+                                        context,
+                                        R.string.settings_start_on_boot_adb_warning_no_tcp,
+                                        Toast.LENGTH_LONG
+                                    ).show()
                                 }
+                            } else {
+                                showMissingPermissionDialog = true
                             }
                         } else {
                             ShizukuSettings.setStartOnBootAdb(false)
-                            adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
+                            adbStartOnBoot = false
                             packageManager.setComponentEnabled(
                                 componentName,
                                 ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
@@ -863,85 +834,64 @@ fun SettingsScreen() {
     }
 
     if (showMissingPermissionDialog) {
+        val serviceRunning = Shizuku.pingBinder()
         val grantCommand = "pm grant ${context.packageName} android.permission.WRITE_SECURE_SETTINGS"
         AlertDialog(
             onDismissRequest = { showMissingPermissionDialog = false },
             title = { Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_title)) },
             text = {
                 Column(modifier = Modifier.padding(horizontal = 4.dp)) {
-                    Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_message))
-                    Spacer(Modifier.height(12.dp))
-                    Surface(
-                        color = MaterialTheme.colorScheme.surfaceVariant,
-                        shape = RoundedCornerShape(8.dp)
-                    ) {
-                        Text(
-                            text = grantCommand,
-                            fontFamily = FontFamily.Monospace,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .horizontalScroll(rememberScrollState())
-                                .padding(12.dp)
-                        )
-                    }
-                    Spacer(Modifier.height(8.dp))
-                    Text(
-                        text = stringResource(R.string.settings_start_on_boot_adb_missing_permission_instruction),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                    if (!tcpMode) {
+                    if (!serviceRunning) {
+                        Text(stringResource(R.string.settings_start_on_boot_adb_not_running))
+                    } else {
+                        Text(stringResource(R.string.settings_start_on_boot_adb_grant_failed))
                         Spacer(Modifier.height(12.dp))
+                        Surface(
+                            color = MaterialTheme.colorScheme.surfaceVariant,
+                            shape = RoundedCornerShape(8.dp)
+                        ) {
+                            Text(
+                                text = grantCommand,
+                                fontFamily = FontFamily.Monospace,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .horizontalScroll(rememberScrollState())
+                                    .padding(12.dp)
+                            )
+                        }
+                        Spacer(Modifier.height(8.dp))
                         Text(
-                            text = stringResource(R.string.settings_start_on_boot_adb_warning_no_tcp),
+                            text = stringResource(R.string.settings_start_on_boot_adb_missing_permission_instruction),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
+                        if (!tcpMode) {
+                            Spacer(Modifier.height(12.dp))
+                            Text(
+                                text = stringResource(R.string.settings_start_on_boot_adb_warning_no_tcp),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
                     }
                 }
             },
             confirmButton = {
-                TextButton(
-                    onClick = {
-                        ClipboardUtils.put(context, grantCommand)
-                        showMissingPermissionDialog = false
-                    }
-                ) {
-                    Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_copy))
-                }
-            },
-            dismissButton = {
-                TextButton(
-                    onClick = {
-                        scope.launch {
-                            if (!Shizuku.pingBinder()) {
-                                Toast.makeText(
-                                    context,
-                                    R.string.settings_start_on_boot_adb_shevery_not_running,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                return@launch
-                            }
-                            if (!grantWriteSecureSettings(context)) {
-                                return@launch
-                            }
-                            val wasGranted = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
-                                    PackageManager.PERMISSION_GRANTED
-                            ShizukuSettings.setStartOnBootAdb(true)
-                            adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
-                            packageManager.setComponentEnabled(componentName, true)
+                if (serviceRunning) {
+                    TextButton(
+                        onClick = {
+                            ClipboardUtils.put(context, grantCommand)
                             showMissingPermissionDialog = false
-                            if (!wasGranted) {
-                                Toast.makeText(
-                                    context,
-                                    R.string.settings_start_on_boot_adb_granted,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
                         }
+                    ) {
+                        Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_copy))
                     }
-                ) {
-                    Text(stringResource(R.string.settings_start_on_boot_adb_missing_permission_use_shevery))
+                } else {
+                    TextButton(
+                        onClick = { showMissingPermissionDialog = false }
+                    ) {
+                        Text(stringResource(android.R.string.ok))
+                    }
                 }
             },
             containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
