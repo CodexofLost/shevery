@@ -25,6 +25,10 @@ class AdbMdns(
     private var serviceName: String? = null
     private val listener = DiscoveryListener(this)
     private val nsdManager: NsdManager = context.getSystemService(NsdManager::class.java)
+    // On API 30-33, NsdManager can only resolve one service at a time.
+    // Queue discovered services and resolve them one by one.
+    private var pendingResolve: NsdServiceInfo? = null
+    private val resolveQueue = ArrayDeque<NsdServiceInfo>()
 
     fun start() {
         if (running) return
@@ -55,7 +59,14 @@ class AdbMdns(
     }
 
     private fun onServiceFound(info: NsdServiceInfo) {
-        nsdManager.resolveService(info, ResolveListener(this))
+        // On API 30-33, NsdManager can only resolve one service at a time.
+        // Queue the service and resolve sequentially.
+        if (pendingResolve == null) {
+            pendingResolve = info
+            nsdManager.resolveService(info, ResolveListener(this))
+        } else {
+            resolveQueue.add(info)
+        }
     }
 
     private fun onServiceLost(info: NsdServiceInfo) {
@@ -66,6 +77,13 @@ class AdbMdns(
         if (running && isPortAvailable(resolvedService.port)) {
             serviceName = resolvedService.serviceName
             observer.onChanged(resolvedService.port)
+        }
+        // Resolve the next queued service after this one completes.
+        pendingResolve = null
+        val next = resolveQueue.pollFirst()
+        if (next != null && running) {
+            pendingResolve = next
+            nsdManager.resolveService(next, ResolveListener(this))
         }
     }
 

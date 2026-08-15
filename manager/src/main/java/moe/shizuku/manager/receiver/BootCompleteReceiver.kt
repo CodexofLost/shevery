@@ -152,7 +152,11 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     )
                 }
             } finally {
-                pending.finish()
+                try {
+                    pending.finish()
+                } catch (e: IllegalStateException) {
+                    // Broadcast was already recycled (timeout) — ignore.
+                }
             }
         }
     }
