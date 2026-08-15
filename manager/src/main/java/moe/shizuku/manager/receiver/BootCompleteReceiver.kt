@@ -34,10 +34,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
 
         if (UserHandleCompat.myUserId() > 0 || Shizuku.pingBinder()) return
 
-        if (ShizukuSettings.getStartOnBootAdb() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
-            && context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
-            adbStart(context)
-        } else if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
+        if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
             rootStart(context)
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU // https://r.android.com/2128832
             && context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
@@ -58,7 +55,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
         Shell.cmd(Starter.internalCommand).exec()
     }
 
-    @RequiresApi(Build.VERSION_CODES.R)
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun adbStart(context: Context) {
         val cr = context.contentResolver
         Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
