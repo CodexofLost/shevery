@@ -88,6 +88,13 @@
     <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="settings_start_on_boot_summary">На устройствах с root правами Shevery может автоматически запускаться после загрузки системы</string>
     <string name="settings_start_on_boot">Автозапуск (с root правами)</string>
+    <string name="settings_start_on_boot_adb">Автостарт через беспроводную отладку</string>
+    <string name="settings_start_on_boot_adb_summary">При загрузке кратковременно включает беспроводную отладку и запускает Shevery через ADB (TCP-порт 5555). Root не нужен, Wi-Fi требуется лишь на мгновение.</string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp">При загрузке кратковременно включает беспроводную отладку и запускает Shevery через ADB. Root не нужен, Wi-Fi требуется лишь на мгновение.</string>
+    <string name="settings_start_on_boot_adb_not_running">Shevery не запущена. Сначала запустите Shevery, затем включите этот параметр.</string>
+    <string name="settings_start_on_boot_adb_grant_failed">Не удалось выдать WRITE_SECURE_SETTINGS через Shevery.</string>
+    <string name="settings_start_on_boot_adb_granted">WRITE_SECURE_SETTINGS выдано через Shevery.</string>
+    <string name="settings_start_on_boot_adb_warning_no_tcp">Привязка TCP (порт 5555) отключена: беспроводная отладка НЕ будет отключена после запуска.</string>
     <string name="grant_dialog_button_allow_always">Разрешить всегда</string>
     <string name="grant_dialog_button_deny">Запретить</string>
     <string name="permission_warning_template">Разрешить <b>%1$s</b> следующее: %2$s?</string>
