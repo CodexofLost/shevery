@@ -105,12 +105,12 @@ class BootCompleteReceiver : BroadcastReceiver() {
         }
 
         val pending: BroadcastReceiver.PendingResult
+        val cr = context.contentResolver
         try {
             StartupNotificationManager.showProgress(
                 context,
                 context.getString(R.string.notification_startup_enabling_wifi)
             )
-            val cr = context.contentResolver
             Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
             Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
             pending = goAsync()
