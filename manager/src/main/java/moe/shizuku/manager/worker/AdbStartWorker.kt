@@ -40,6 +40,10 @@ import java.util.concurrent.TimeoutException
 
 class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
 
+    companion object {
+        private const val MAX_RETRY_COUNT = 3
+    }
+
     override suspend fun doWork(): Result {
         try {
             ShizukuReceiverStarter.updateNotification(
@@ -124,11 +128,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                     }
 
                     Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
-                    cr.registerContentObserver(
-                        Settings.Global.getUriFor("adb_wifi_enabled"),
-                        false,
-                        observer
-                    )
+                    val uri = Settings.Global.getUriFor("adb_wifi_enabled")
+                    if (uri != null) {
+                        cr.registerContentObserver(uri, false, observer)
+                    } else {
+                        // If the URI is null (unsupported ROM), fall through to mDNS discovery directly
+                        startDiscoveryWithTimeout()
+                    }
                     startDiscoveryWithTimeout()
 
                     awaitClose {
@@ -176,11 +182,20 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             if (ShizukuStateMachine.update() == ShizukuStateMachine.State.RUNNING) {
                 return Result.success()
             } else {
-                ShizukuReceiverStarter.updateNotification(
-                    applicationContext,
-                    ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
-                )
-                return Result.retry()
+                val attemptCount = runAttemptCount
+                if (attemptCount < MAX_RETRY_COUNT) {
+                    ShizukuReceiverStarter.updateNotification(
+                        applicationContext,
+                        ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+                    )
+                    return Result.retry()
+                } else {
+                    ShizukuReceiverStarter.updateNotification(
+                        applicationContext,
+                        ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+                    )
+                    return Result.failure()
+                }
             }
         }
     }
@@ -230,6 +245,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             val request = OneTimeWorkRequestBuilder<AdbStartWorker>()
                 .setConstraints(constraints)
+                .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30_000L, TimeUnit.MILLISECONDS)
                 .build()
 
             WorkManager.getInstance(context).enqueueUniqueWork(

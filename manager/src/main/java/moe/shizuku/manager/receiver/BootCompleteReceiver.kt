@@ -40,9 +40,6 @@ class BootCompleteReceiver : BroadcastReceiver() {
             if (tcpPort > 0 && (EnvironmentUtils.isTV(context) || ShizukuSettings.isTcpMode())) {
                 ShizukuReceiverStarter.start(context)
             } else if (hasLocalNetworkPermission(context)) {
-                // On LOCKED_BOOT_COMPLETED (pre-S), WorkManager may not auto-promote
-                // to foreground service, so the worker dies silently. Pre-check keyguard
-                // here on API < 34 to defer until unlock.
                 val km = context.getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
                 val isPreS = Build.VERSION.SDK_INT < Build.VERSION_CODES.S
                 if (km != null && km.isKeyguardLocked && isPreS) {
@@ -51,7 +48,6 @@ class BootCompleteReceiver : BroadcastReceiver() {
                         context,
                         context.getString(moe.shizuku.manager.R.string.notification_startup_waiting_unlock)
                     )
-                    // Register one-shot USER_PRESENT receiver to trigger worker when unlocked
                     val appContext = context.applicationContext
                     val unlockReceiver = object : BroadcastReceiver() {
                         override fun onReceive(ctx: Context, intent: Intent) {
@@ -74,6 +70,15 @@ class BootCompleteReceiver : BroadcastReceiver() {
                             context,
                             context.getString(moe.shizuku.manager.R.string.notification_startup_failed)
                         )
+                    }
+                    // Re-check keyguard after registration: if user unlocked between
+                    // the isKeyguardLocked check and the registerReceiver call,
+                    // the USER_PRESENT broadcast may have already fired and been missed.
+                    if (km != null && !km.isKeyguardLocked) {
+                        try {
+                            appContext.unregisterReceiver(unlockReceiver)
+                        } catch (_: Exception) {}
+                        ShizukuReceiverStarter.start(context)
                     }
                     // Timeout: if user never unlocks, clean up
                     val timeoutHandler = android.os.Handler(android.os.Looper.getMainLooper())

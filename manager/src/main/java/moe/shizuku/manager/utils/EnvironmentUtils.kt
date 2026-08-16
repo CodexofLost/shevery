@@ -65,11 +65,16 @@ object EnvironmentUtils {
 
     /**
      * Returns true if wireless debugging (mDNS) discovery is required to find
-     * the ADB port — i.e. no pre-configured TCP port or not in TCP mode.
+     * the ADB port. Returns false (use TCP directly) when:
+     * - A TCP port is configured AND we're in TCP mode, OR
+     * - A TCP port is configured AND the device is a TV (TVs use static TCP without mDNS)
      */
     @JvmStatic
     fun isWifiRequired(): Boolean {
-        return getAdbTcpPort() <= 0 || !ShizukuSettings.isTcpMode()
+        val hasTcpPort = getAdbTcpPort() > 0
+        val isTv = isTelevision()
+        val inTcpMode = ShizukuSettings.isTcpMode()
+        // Use TCP directly if: port configured + (TCP mode OR TV device)
+        return !(hasTcpPort && (inTcpMode || isTv))
     }
 }
-

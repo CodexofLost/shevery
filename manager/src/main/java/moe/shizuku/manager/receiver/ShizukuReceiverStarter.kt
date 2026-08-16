@@ -22,11 +22,13 @@ import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import moe.shizuku.manager.utils.UserHandleCompat
 import moe.shizuku.manager.worker.AdbStartWorker
+import java.util.concurrent.atomic.AtomicBoolean
 
 object ShizukuReceiverStarter {
 
     const val NOTIFICATION_ID = 1447
     const val CHANNEL_ID = "AdbStartWorker"
+    private val adbStarting = AtomicBoolean(false)
 
     enum class WorkerState {
         AWAITING_WIFI,
@@ -38,22 +40,34 @@ object ShizukuReceiverStarter {
     fun start(context: Context, forceStart: Boolean = false) {
         if ((UserHandleCompat.myUserId() > 0 || ShizukuStateMachine.isRunning()) && !forceStart) return
 
-        if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
-            rootStart(context)
-        } else if (
-            (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
-                || EnvironmentUtils.isTelevision()
-                || EnvironmentUtils.getAdbTcpPort() > 0)
-            && ShizukuSettings.getLastLaunchMode() == LaunchMethod.ADB
-        ) {
-            if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
-                AdbStartWorker.enqueue(context)
-                updateNotification(context, WorkerState.AWAITING_WIFI)
+        if (!adbStarting.compareAndSet(false, true)) {
+            Log.i(AppConstants.TAG, "adbStart already in progress, skipping")
+            return
+        }
+
+        try {
+            if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
+                rootStart(context)
+            } else if (
+                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                    || EnvironmentUtils.isTelevision()
+                    || EnvironmentUtils.getAdbTcpPort() > 0)
+                && ShizukuSettings.getLastLaunchMode() == LaunchMethod.ADB
+            ) {
+                if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
+                    AdbStartWorker.enqueue(context)
+                    // Cancel the startup notification (id 1003) since the worker
+                    // notification (id 1447/1448) is now the source of truth.
+                    moe.shizuku.manager.service.StartupNotificationManager.dismiss(context)
+                    updateNotification(context, WorkerState.AWAITING_WIFI)
+                } else {
+                    showPermissionErrorNotification(context)
+                }
             } else {
-                showPermissionErrorNotification(context)
+                Log.w(AppConstants.TAG, "Background start not supported")
             }
-        } else {
-            Log.w(AppConstants.TAG, "Background start not supported")
+        } finally {
+            adbStarting.set(false)
         }
     }
 
