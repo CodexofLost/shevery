@@ -51,7 +51,20 @@ class BootCompleteReceiver : BroadcastReceiver() {
                         context.getString(moe.shizuku.manager.R.string.notification_startup_waiting_unlock)
                     )
                     val appContext = context.applicationContext
-                    val unlockReceiver = object : BroadcastReceiver() {
+                    val timeoutHandler = Handler(Looper.getMainLooper())
+                    var unlockReceiver: BroadcastReceiver? = null
+                    val timeoutRunnable = Runnable {
+                        unlockReceiver?.let { r ->
+                            try { appContext.unregisterReceiver(r) } catch (_: Exception) {}
+                        }
+                        moe.shizuku.manager.service.StartupNotificationManager.showFailed(
+                            appContext,
+                            appContext.getString(moe.shizuku.manager.R.string.notification_startup_failed)
+                        )
+                        Log.w(AppConstants.TAG, "Keyguard timeout on pre-S — aborting ADB boot start")
+                    }
+                    timeoutHandler.postDelayed(timeoutRunnable, KEYGUARD_WAIT_TIMEOUT_MS)
+                    unlockReceiver = object : BroadcastReceiver() {
                         override fun onReceive(ctx: Context, intent: Intent) {
                             if (intent.action == Intent.ACTION_USER_PRESENT) {
                                 timeoutHandler.removeCallbacks(timeoutRunnable)
@@ -60,16 +73,6 @@ class BootCompleteReceiver : BroadcastReceiver() {
                             }
                         }
                     }
-                    val timeoutHandler = Handler(Looper.getMainLooper())
-                    val timeoutRunnable = Runnable {
-                        try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
-                        moe.shizuku.manager.service.StartupNotificationManager.showFailed(
-                            appContext,
-                            appContext.getString(moe.shizuku.manager.R.string.notification_startup_failed)
-                        )
-                        Log.w(AppConstants.TAG, "Keyguard timeout on pre-S — aborting ADB boot start")
-                    }
-                    timeoutHandler.postDelayed(timeoutRunnable, KEYGUARD_WAIT_TIMEOUT_MS)
                     try {
                         ContextCompat.registerReceiver(
                             appContext,
