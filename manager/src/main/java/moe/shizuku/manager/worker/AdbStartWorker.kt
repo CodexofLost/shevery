@@ -35,6 +35,8 @@ import moe.shizuku.manager.service.SheveryNotificationManager
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
+import java.io.EOFException
+import java.util.concurrent.TimeoutException
 
 class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
 
