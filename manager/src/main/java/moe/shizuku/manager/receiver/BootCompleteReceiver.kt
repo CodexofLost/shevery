@@ -23,7 +23,7 @@ import rikka.shizuku.Shizuku
 class BootCompleteReceiver : BroadcastReceiver() {
 
     companion object {
-        private const val KEYGUARD_WAIT_TIMEOUT_MS = 120_000L // 2 minutes
+        private const val KEYGUARD_WAIT_TIMEOUT_MS = 120_000L
     }
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -45,68 +45,12 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 val km = context.getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
                 val isPreS = Build.VERSION.SDK_INT < Build.VERSION_CODES.S
                 if (km != null && km.isKeyguardLocked && isPreS) {
-                    Log.i(AppConstants.TAG, "Device locked at boot (pre-S), deferring ADB start until unlock")
-                    moe.shizuku.manager.service.StartupNotificationManager.showProgress(
-                        context,
-                        context.getString(moe.shizuku.manager.R.string.notification_startup_waiting_unlock)
-                    )
-                    val appContext = context.applicationContext
-                    val timeoutHandler = Handler(Looper.getMainLooper())
-                    var unlockReceiver: BroadcastReceiver? = null
-                    val timeoutRunnable = Runnable {
-                        unlockReceiver?.let { r ->
-                            try { appContext.unregisterReceiver(r) } catch (_: Exception) {}
-                        }
-                        moe.shizuku.manager.service.StartupNotificationManager.showFailed(
-                            appContext,
-                            appContext.getString(moe.shizuku.manager.R.string.notification_startup_failed)
-                        )
-                        Log.w(AppConstants.TAG, "Keyguard timeout on pre-S — aborting ADB boot start")
-                    }
-                    timeoutHandler.postDelayed(timeoutRunnable, KEYGUARD_WAIT_TIMEOUT_MS)
-                    unlockReceiver = object : BroadcastReceiver() {
-                        override fun onReceive(ctx: Context, intent: Intent) {
-                            if (intent.action == Intent.ACTION_USER_PRESENT) {
-                                timeoutHandler.removeCallbacks(timeoutRunnable)
-                                try { ctx.unregisterReceiver(this) } catch (_: Exception) {}
-                                ShizukuReceiverStarter.start(ctx)
-                            }
-                        }
-                    }
-                    try {
-                        ContextCompat.registerReceiver(
-                            appContext,
-                            unlockReceiver,
-                            IntentFilter(Intent.ACTION_USER_PRESENT),
-                            ContextCompat.RECEIVER_EXPORTED
-                        )
-                    } catch (e: Exception) {
-                        Log.w(AppConstants.TAG, "Failed to register unlock receiver", e)
-                        moe.shizuku.manager.service.StartupNotificationManager.showFailed(
-                            context,
-                            context.getString(moe.shizuku.manager.R.string.notification_startup_failed)
-                        )
-                        return
-                    }
-                    // Re-check keyguard after registration: if user unlocked between
-                    // the isKeyguardLocked check and the registerReceiver call,
-                    // the USER_PRESENT broadcast may have already fired and been missed.
-                    if (km != null && !km.isKeyguardLocked) {
-                        try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
-                        timeoutHandler.removeCallbacks(timeoutRunnable)
-                        ShizukuReceiverStarter.start(context)
-                        return
-                    }
-                    // Timeout handles the case where user never unlocks
+                    handlePreSKeyguard(context, km)
                 } else {
                     ShizukuReceiverStarter.start(context)
                 }
             } else {
-                Log.w(
-                    AppConstants.TAG,
-                    "Start-on-boot ADB skipped: missing local network permission " +
-                    "(NEARBY_WIFI_DEVICES on 33+, ACCESS_LOCAL_NETWORK on 37+)"
-                )
+                Log.w(AppConstants.TAG, "Start-on-boot ADB skipped: missing local network permission")
                 moe.shizuku.manager.service.StartupNotificationManager.showFailed(
                     context,
                     context.getString(moe.shizuku.manager.R.string.notification_startup_no_permission)
@@ -118,6 +62,67 @@ class BootCompleteReceiver : BroadcastReceiver() {
         } else {
             Log.w(AppConstants.TAG, "No support start on boot")
         }
+    }
+
+    private fun handlePreSKeyguard(context: Context, km: KeyguardManager) {
+        Log.i(AppConstants.TAG, "Device locked at boot (pre-S), deferring ADB start until unlock")
+        moe.shizuku.manager.service.StartupNotificationManager.showProgress(
+            context,
+            context.getString(moe.shizuku.manager.R.string.notification_startup_waiting_unlock)
+        )
+
+        val appContext = context.applicationContext
+        val timeoutHandler = Handler(Looper.getMainLooper())
+        var unlockReceiver: BroadcastReceiver? = null
+        val timeoutRunnable = Runnable {
+            unlockReceiver?.let { r ->
+                try { appContext.unregisterReceiver(r) } catch (_: Exception) {}
+            }
+            moe.shizuku.manager.service.StartupNotificationManager.showFailed(
+                appContext,
+                appContext.getString(moe.shizuku.manager.R.string.notification_startup_failed)
+            )
+            Log.w(AppConstants.TAG, "Keyguard timeout on pre-S — aborting ADB boot start")
+        }
+
+        timeoutHandler.postDelayed(timeoutRunnable, KEYGUARD_WAIT_TIMEOUT_MS)
+
+        unlockReceiver = object : BroadcastReceiver() {
+            override fun onReceive(ctx: Context, intent: Intent) {
+                if (intent.action == Intent.ACTION_USER_PRESENT) {
+                    timeoutHandler.removeCallbacks(timeoutRunnable)
+                    try { ctx.unregisterReceiver(this) } catch (_: Exception) {}
+                    ShizukuReceiverStarter.start(ctx)
+                }
+            }
+        }
+
+        try {
+            ContextCompat.registerReceiver(
+                appContext,
+                unlockReceiver,
+                IntentFilter(Intent.ACTION_USER_PRESENT),
+                ContextCompat.RECEIVER_EXPORTED
+            )
+        } catch (e: Exception) {
+            Log.w(AppConstants.TAG, "Failed to register unlock receiver", e)
+            moe.shizuku.manager.service.StartupNotificationManager.showFailed(
+                context,
+                context.getString(moe.shizuku.manager.R.string.notification_startup_failed)
+            )
+            return
+        }
+
+        // Re-check keyguard after registration: if user unlocked between
+        // the isKeyguardLocked check and the registerReceiver call,
+        // the USER_PRESENT broadcast may have already fired and been missed.
+        if (!km.isKeyguardLocked) {
+            try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
+            timeoutHandler.removeCallbacks(timeoutRunnable)
+            ShizukuReceiverStarter.start(context)
+            return
+        }
+        // Timeout handles the case where user never unlocks
     }
 
     private fun hasLocalNetworkPermission(context: Context): Boolean {
