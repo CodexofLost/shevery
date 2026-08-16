@@ -230,6 +230,10 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".receiver.NotifAttemptReceiver" />
+        <receiver android:name=".receiver.NotifCancelReceiver" />
+        <receiver android:name=".receiver.NotifRestoreReceiver" />
+
         <receiver
             android:name=".accessibility.AccessibilityBootReceiver"
             android:enabled="true"

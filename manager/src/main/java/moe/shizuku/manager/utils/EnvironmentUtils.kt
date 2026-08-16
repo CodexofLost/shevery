@@ -4,11 +4,15 @@ import android.app.UiModeManager
 import android.content.Context
 import android.content.res.Configuration
 import android.os.SystemProperties
+import android.util.Log
+import com.topjohnwu.superuser.Shell
 import java.io.File
 import java.net.InetSocketAddress
 import java.net.Socket
 
 object EnvironmentUtils {
+
+    private const val TAG = "EnvironmentUtils"
 
     @JvmStatic
     fun isWatch(context: Context): Boolean {
@@ -22,8 +26,13 @@ object EnvironmentUtils {
                 == Configuration.UI_MODE_TYPE_TELEVISION)
     }
 
+    @JvmStatic
+    fun isTelevision(): Boolean {
+        return isTV(moe.shizuku.manager.ShizukuApplication.application)
+    }
+
     fun isRooted(): Boolean {
-        return System.getenv("PATH")?.split(File.pathSeparatorChar)?.find { File("$it/su").exists() } != null
+        return Shell.getShell().isRoot
     }
 
     fun getAdbTcpPort(): Int {
@@ -51,4 +60,14 @@ object EnvironmentUtils {
             false
         }
     }
+
+    /**
+     * Returns true if wireless debugging (mDNS) discovery is required to find
+     * the ADB port — i.e. no pre-configured TCP port or not in TCP mode.
+     */
+    @JvmStatic
+    fun isWifiRequired(): Boolean {
+        return getAdbTcpPort() <= 0 || !ShizukuSettings.isTcpMode()
+    }
 }
+

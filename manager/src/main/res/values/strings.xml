@@ -354,6 +354,18 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_startup_waiting_unlock">Waiting for device unlock to start…</string>
     <string name="notification_startup_cancel">Cancel</string>
     <string name="notification_startup_attempt_now">Attempt now</string>
+
+    <!-- WADB Starter (WorkManager-based boot start) -->
+    <string name="wadb_notification_title">Starting Shevery…</string>
+    <string name="wadb_notification_wifi_required">Awaiting Wi-Fi connection before proceeding</string>
+    <string name="wadb_notification_retry">Waiting to retry</string>
+    <string name="wadb_error_title">Error while starting on boot</string>
+    <string name="wadb_error_notify_dev">Tap to notify the developer.</string>
+    <string name="wadb_permission_error_notification_title">Permission Error</string>
+    <string name="wadb_permission_error_notification_content">Shevery needs WRITE_SECURE_SETTINGS to start on boot. Tap to learn how to grant it.</string>
+    <string name="wadb_notification_channel">ADB auto-start service</string>
+    <string name="wadb_notification_attempt_now">Attempt now</string>
+
     <string name="notification_control_title_running">Shevery is running</string>
     <string name="notification_control_title_stopped">Shevery is stopped</string>
     <string name="notification_control_text_running">Tap to open Shevery, or expand this notification to stop it.</string>
