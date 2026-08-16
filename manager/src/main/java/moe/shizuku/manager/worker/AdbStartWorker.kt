@@ -42,13 +42,35 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
     companion object {
         private const val MAX_RETRY_COUNT = 3
+
+        fun enqueue(context: Context) {
+            val cb = Constraints.Builder()
+            if (EnvironmentUtils.isWifiRequired()) {
+                cb.setRequiredNetworkType(NetworkType.UNMETERED)
+            }
+            val constraints = cb.build()
+
+            val request = OneTimeWorkRequestBuilder<AdbStartWorker>()
+                .setConstraints(constraints)
+                .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30_000L, TimeUnit.MILLISECONDS)
+                .build()
+
+            WorkManager.getInstance(context).enqueueUniqueWork(
+                "adb_start_worker",
+                ExistingWorkPolicy.REPLACE,
+                request
+            )
+        }
+
+        const val CHANNEL_ID = "AdbStartWorker"
+        const val NOTIFICATION_ID = 1448
     }
 
     override suspend fun doWork(): Result {
         try {
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
-                ShizukuReceiverStarter.WorkerState.RUNNING
+                WorkerState.RUNNING
             )
 
             val cr = applicationContext.contentResolver
@@ -57,14 +79,10 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
 
             val tcpPort = EnvironmentUtils.getAdbTcpPort()
-            // Note: thedjchi calls stopTcp() here to clear stale TCP connections,
-            // but shevery doesn't have that method. AdbStarter.start() will handle
-            // TCP mode switching internally via connectWithRetry.
 
             val port = if (!EnvironmentUtils.isWifiRequired()) {
                 tcpPort
             } else {
-                // mDNS discovery + content observer pattern from thedjchi
                 callbackFlow {
                     val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { port ->
                         if (port > 0) trySend(port)
@@ -132,7 +150,6 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                     if (uri != null) {
                         cr.registerContentObserver(uri, false, observer)
                     } else {
-                        // If the URI is null (unsupported ROM), fall through to mDNS discovery directly
                         startDiscoveryWithTimeout()
                     }
                     startDiscoveryWithTimeout()
@@ -159,12 +176,12 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             return Result.success()
         } catch (e: CancellationException) {
             val state = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+                WorkerState.AWAITING_RETRY
             } else {
                 when (stopReason) {
-                    WorkInfo.STOP_REASON_CONSTRAINT_CONNECTIVITY -> ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
-                    WorkInfo.STOP_REASON_CANCELLED_BY_APP -> ShizukuReceiverStarter.WorkerState.STOPPED
-                    else -> ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+                    WorkInfo.STOP_REASON_CONSTRAINT_CONNECTIVITY -> WorkerState.AWAITING_WIFI
+                    WorkInfo.STOP_REASON_CANCELLED_BY_APP -> WorkerState.STOPPED
+                    else -> WorkerState.AWAITING_RETRY
                 }
             }
             ShizukuReceiverStarter.updateNotification(applicationContext, state)
@@ -233,29 +250,5 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
         val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         nm.notify(ShizukuReceiverStarter.NOTIFICATION_ID, notification)
-    }
-
-    companion object {
-        fun enqueue(context: Context) {
-            val cb = Constraints.Builder()
-            if (EnvironmentUtils.isWifiRequired()) {
-                cb.setRequiredNetworkType(NetworkType.UNMETERED)
-            }
-            val constraints = cb.build()
-
-            val request = OneTimeWorkRequestBuilder<AdbStartWorker>()
-                .setConstraints(constraints)
-                .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30_000L, TimeUnit.MILLISECONDS)
-                .build()
-
-            WorkManager.getInstance(context).enqueueUniqueWork(
-                "adb_start_worker",
-                ExistingWorkPolicy.REPLACE,
-                request
-            )
-        }
-
-        const val CHANNEL_ID = "AdbStartWorker"
-        const val NOTIFICATION_ID = 1448
     }
 }
