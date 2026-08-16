@@ -1,6 +1,5 @@
 package moe.shizuku.manager.receiver
 
-import android.Manifest.permission.ACCESS_LOCAL_NETWORK
 import android.Manifest.permission.NEARBY_WIFI_DEVICES
 import android.Manifest.permission.WRITE_SECURE_SETTINGS
 import android.content.BroadcastReceiver
@@ -81,7 +80,9 @@ class BootCompleteReceiver : BroadcastReceiver() {
      */
     private fun hasLocalNetworkPermission(context: Context): Boolean = when {
         Build.VERSION.SDK_INT >= 37 -> // API 37 (Android 17)
-            context.checkSelfPermission(ACCESS_LOCAL_NETWORK) == PackageManager.PERMISSION_GRANTED
+            // String literal — ACCESS_LOCAL_NETWORK constant may not exist on
+            // older compile SDKs. Matches HomeActivity's PERMISSION_ACCESS_LOCAL_NETWORK.
+            context.checkSelfPermission("android.permission.ACCESS_LOCAL_NETWORK") == PackageManager.PERMISSION_GRANTED
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> // API 33
             context.checkSelfPermission(NEARBY_WIFI_DEVICES) == PackageManager.PERMISSION_GRANTED
         else -> true
