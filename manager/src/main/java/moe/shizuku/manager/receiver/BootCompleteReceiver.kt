@@ -214,11 +214,17 @@ class BootCompleteReceiver : BroadcastReceiver() {
         // If locked, defer enabling wireless debugging until USER_PRESENT.
         val km = context.getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
         if (km != null && km.isKeyguardLocked) {
-            Log.i(AppConstants.TAG, "Device locked at boot, deferring ADB start until unlock")
-            StartupNotificationManager.showProgress(
-                context,
-                context.getString(R.string.notification_startup_waiting_unlock)
-            )
+            try {
+                Log.i(AppConstants.TAG, "Device locked at boot, deferring ADB start until unlock")
+                StartupNotificationManager.showProgress(
+                    context,
+                    context.getString(R.string.notification_startup_waiting_unlock)
+                )
+            } catch (e: Exception) {
+                Log.w(AppConstants.TAG, "Failed to show waiting notification", e)
+                adbStarting.set(false)
+                return
+            }
             // Register a one-shot USER_PRESENT receiver that will call adbStartInternal
             // once the device is unlocked. Include a timeout to avoid leaking the receiver
             // and permanently blocking the re-entrancy guard if the user never unlocks.
@@ -254,8 +260,8 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     ContextCompat.RECEIVER_EXPORTED
                 )
             } catch (e: Exception) {
-                // If registration fails, don't crash the boot receiver —
-                // reset guard and show failure.
+                // If registration fails, cancel the timeout and clean up.
+                timeoutHandler.removeCallbacksAndMessages(null)
                 Log.w(AppConstants.TAG, "Failed to register unlock receiver", e)
                 adbStarting.set(false)
                 StartupNotificationManager.showFailed(
