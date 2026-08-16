@@ -121,13 +121,14 @@ class AdbMdns(
 
     // Returns true if the given InetAddress belongs to a local network interface.
     // Prevents connecting to stale or remote mDNS announcements.
-    // Compares InetAddress objects directly (not strings) to handle IPv6
-    // formatting differences (compressed zeroes, scope IDs, etc.).
+    // Compares raw address bytes (not InetAddress.equals) to handle IPv6
+    // scope ID differences (e.g., fe80::1%wlan0 vs fe80::1%eth0).
     private fun isLocalAddress(target: InetAddress): Boolean = try {
+        val targetBytes = target.address
         NetworkInterface.getNetworkInterfaces()
             .asSequence()
             .flatMap { it.inetAddresses.asSequence() }
-            .any { it == target }
+            .any { it.address.contentEquals(targetBytes) }
     } catch (e: Exception) {
         // If we can't enumerate interfaces, allow the connection —
         // false negative is worse than false positive here.

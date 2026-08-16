@@ -9,9 +9,12 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,6 +41,8 @@ class BootCompleteReceiver : BroadcastReceiver() {
         // Re-entrancy guard: LOCKED_BOOT_COMPLETED and BOOT_COMPLETED both fire.
         // Prevent two concurrent adbStart() calls fighting over adb_wifi_enabled.
         private val adbStarting = AtomicBoolean(false)
+        // Max time to wait for device unlock before aborting ADB boot start.
+        private const val KEYGUARD_WAIT_TIMEOUT_MS = 120_000L // 2 minutes
     }
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -213,16 +218,36 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 context,
                 context.getString(R.string.notification_startup_waiting_unlock)
             )
-            // Register a one-shot USER_PRESENT receiver that will call adbStart
-            // once the device is unlocked.
+            // Register a one-shot USER_PRESENT receiver that will call adbStartInternal
+            // once the device is unlocked. Include a timeout to avoid leaking the receiver
+            // and permanently blocking the re-entrancy guard if the user never unlocks.
+            val appContext = context.applicationContext
             val unlockReceiver = object : BroadcastReceiver() {
                 override fun onReceive(ctx: Context, intent: Intent) {
                     if (intent.action != Intent.ACTION_USER_PRESENT) return
-                    try { ctx.unregisterReceiver(this) } catch (_: Exception) {}
-                    adbStartInternal(ctx)
+                    timeoutHandler.removeCallbacksAndMessages(null)
+                    try { appContext.unregisterReceiver(this) } catch (_: Exception) {}
+                    adbStartInternal(ctx.applicationContext)
                 }
             }
-            context.applicationContext.registerReceiver(unlockReceiver, IntentFilter(Intent.ACTION_USER_PRESENT))
+            // Timeout: if user doesn't unlock within 2 minutes, clean up.
+            val timeoutHandler = Handler(Looper.getMainLooper())
+            timeoutHandler.postDelayed({
+                try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
+                adbStarting.set(false)
+                StartupNotificationManager.showFailed(
+                    appContext,
+                    appContext.getString(R.string.notification_startup_failed)
+                )
+                Log.w(AppConstants.TAG, "Keyguard unlock timeout — aborting ADB boot start")
+            }, KEYGUARD_WAIT_TIMEOUT_MS)
+            // API 34+ requires explicit RECEIVER_EXPORTED flag for system broadcasts.
+            ContextCompat.registerReceiver(
+                appContext,
+                unlockReceiver,
+                IntentFilter(Intent.ACTION_USER_PRESENT),
+                ContextCompat.RECEIVER_EXPORTED
+            )
             return
         }
 
