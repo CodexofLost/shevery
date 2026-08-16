@@ -67,7 +67,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
         try {
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
-                WorkerState.RUNNING
+                ShizukuReceiverStarter.WorkerState.RUNNING
             )
 
             val cr = applicationContext.contentResolver
