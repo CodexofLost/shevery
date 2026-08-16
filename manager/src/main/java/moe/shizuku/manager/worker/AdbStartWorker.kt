@@ -117,7 +117,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                                 ShizukuReceiverStarter.NOTIFICATION_ID,
                                 notification
                             )
-                            setForegroundAsync(foregroundInfo).await
+                            setForeground(foregroundInfo)
 
                             val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
                             unlockReceiver = object : BroadcastReceiver() {

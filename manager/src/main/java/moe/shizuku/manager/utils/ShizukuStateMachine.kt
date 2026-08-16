@@ -70,7 +70,7 @@ object ShizukuStateMachine {
      * If it was STOPPING (explicit stop), optionally auto-disable USB debugging
      * and transition to STOPPED.
      */
-    fun setDead() = transition {
+    fun setDead() = transitionAtomic {
         when (it) {
             State.RUNNING -> State.CRASHED
             State.STOPPING -> {

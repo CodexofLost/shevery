@@ -51,6 +51,15 @@ class BootCompleteReceiver : BroadcastReceiver() {
                         context.getString(moe.shizuku.manager.R.string.notification_startup_waiting_unlock)
                     )
                     val appContext = context.applicationContext
+                    val unlockReceiver = object : BroadcastReceiver() {
+                        override fun onReceive(ctx: Context, intent: Intent) {
+                            if (intent.action == Intent.ACTION_USER_PRESENT) {
+                                timeoutHandler.removeCallbacks(timeoutRunnable)
+                                try { ctx.unregisterReceiver(this) } catch (_: Exception) {}
+                                ShizukuReceiverStarter.start(ctx)
+                            }
+                        }
+                    }
                     val timeoutHandler = Handler(Looper.getMainLooper())
                     val timeoutRunnable = Runnable {
                         try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
@@ -61,15 +70,6 @@ class BootCompleteReceiver : BroadcastReceiver() {
                         Log.w(AppConstants.TAG, "Keyguard timeout on pre-S — aborting ADB boot start")
                     }
                     timeoutHandler.postDelayed(timeoutRunnable, KEYGUARD_WAIT_TIMEOUT_MS)
-                    val unlockReceiver = object : BroadcastReceiver() {
-                        override fun onReceive(ctx: Context, intent: Intent) {
-                            if (intent.action == Intent.ACTION_USER_PRESENT) {
-                                timeoutHandler.removeCallbacks(timeoutRunnable)
-                                try { ctx.unregisterReceiver(this) } catch (_: Exception) {}
-                                ShizukuReceiverStarter.start(ctx)
-                            }
-                        }
-                    }
                     try {
                         ContextCompat.registerReceiver(
                             appContext,
