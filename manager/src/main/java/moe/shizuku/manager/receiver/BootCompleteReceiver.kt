@@ -251,6 +251,13 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 IntentFilter(Intent.ACTION_USER_PRESENT),
                 ContextCompat.RECEIVER_EXPORTED
             )
+            // Race condition: user may have unlocked between the isKeyguardLocked
+            // check and the registerReceiver call. Re-check and proceed if unlocked.
+            if (!km.isKeyguardLocked) {
+                timeoutHandler.removeCallbacksAndMessages(null)
+                try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
+                adbStartInternal(context, goAsync())
+            }
             return
         }
 
