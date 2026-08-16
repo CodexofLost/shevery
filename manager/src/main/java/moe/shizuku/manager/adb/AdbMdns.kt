@@ -33,6 +33,7 @@ class AdbMdns(
     @Volatile
     private var pendingResolve: NsdServiceInfo? = null
     private val resolveQueue = ConcurrentLinkedQueue<NsdServiceInfo>()
+    private val queueLock = Any()
 
     fun start() {
         if (running) return
@@ -49,8 +50,10 @@ class AdbMdns(
         if (!running) return
         running = false
         // Clear any pending resolves so orphaned callbacks don't trigger new ones.
-        resolveQueue.clear()
-        pendingResolve = null
+        synchronized(queueLock) {
+            resolveQueue.clear()
+            pendingResolve = null
+        }
         try {
             nsdManager.stopServiceDiscovery(listener)
         } catch (e: Exception) {
@@ -69,11 +72,15 @@ class AdbMdns(
     private fun onServiceFound(info: NsdServiceInfo) {
         // On API 30-33, NsdManager can only resolve one service at a time.
         // Queue the service and resolve sequentially.
-        if (pendingResolve == null) {
-            pendingResolve = info
-            nsdManager.resolveService(info, ResolveListener(this))
-        } else {
-            resolveQueue.add(info)
+        // Synchronized to prevent TOCTOU race between onServiceFound and
+        // drainResolveQueue on different NsdManager binder threads.
+        synchronized(queueLock) {
+            if (pendingResolve == null) {
+                pendingResolve = info
+                nsdManager.resolveService(info, ResolveListener(this))
+            } else {
+                resolveQueue.add(info)
+            }
         }
     }
 
@@ -94,12 +101,14 @@ class AdbMdns(
     }
 
     private fun drainResolveQueue() {
-        pendingResolve = null
-        if (running) {
-            val next = resolveQueue.poll()
-            if (next != null) {
-                pendingResolve = next
-                nsdManager.resolveService(next, ResolveListener(this))
+        synchronized(queueLock) {
+            pendingResolve = null
+            if (running) {
+                val next = resolveQueue.poll()
+                if (next != null) {
+                    pendingResolve = next
+                    nsdManager.resolveService(next, ResolveListener(this))
+                }
             }
         }
     }

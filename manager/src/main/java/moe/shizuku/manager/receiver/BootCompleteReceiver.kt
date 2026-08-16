@@ -11,7 +11,7 @@ import android.os.Build
 import android.provider.Settings
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.topjohnwu.superuser.Shell
+import com.topjohnfu.superuser.Shell
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -104,6 +104,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
             return
         }
 
+        val pending: BroadcastReceiver.PendingResult
         try {
             StartupNotificationManager.showProgress(
                 context,
@@ -112,7 +113,18 @@ class BootCompleteReceiver : BroadcastReceiver() {
             val cr = context.contentResolver
             Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
             Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
-            val pending = goAsync()
+            pending = goAsync()
+        } catch (e: Exception) {
+            // Synchronous failure before coroutine launches — reset guard.
+            Log.w(AppConstants.TAG, "adbStart synchronous failure", e)
+            adbStarting.set(false)
+            StartupNotificationManager.showFailed(
+                context,
+                context.getString(R.string.notification_startup_failed)
+            )
+            return
+        }
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 suspend fun waitForServer(maxMs: Long): Boolean {
@@ -128,9 +140,13 @@ class BootCompleteReceiver : BroadcastReceiver() {
 
                 val portFound = CountDownLatch(1)
                 val startDone = CountDownLatch(1)
+                val alreadyConnecting = AtomicBoolean(false)
                 var lastError: String? = null
                 val adbMdns = AdbMdns(context, AdbMdns.TLS_CONNECT) { port ->
                     if (port <= 0) return@AdbMdns
+                    // NsdManager can fire onServiceResolved multiple times for
+                    // cached mDNS records. Only start the connection sequence once.
+                    if (!alreadyConnecting.compareAndSet(false, true)) return@AdbMdns
                     portFound.countDown()
                     CoroutineScope(Dispatchers.IO).launch {
                         try {
@@ -199,21 +215,14 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     )
                 }
             } finally {
+                // Reset re-entrancy guard AFTER async work completes.
+                adbStarting.set(false)
                 try {
                     pending.finish()
                 } catch (e: IllegalStateException) {
                     // Broadcast was already recycled (timeout) — ignore.
                 }
             }
-        }
-        } catch (e: Exception) {
-            Log.w(AppConstants.TAG, "adbStart synchronous failure", e)
-            StartupNotificationManager.showFailed(
-                context,
-                context.getString(R.string.notification_startup_failed)
-            )
-        } finally {
-            adbStarting.set(false)
         }
     }
 }
