@@ -61,11 +61,11 @@ class BootCompleteReceiver : BroadcastReceiver() {
                         }
                     }
                     try {
-                        android.content.ContextCompat.registerReceiver(
+                        ContextCompat.registerReceiver(
                             appContext,
                             unlockReceiver,
-                            android.content.IntentFilter(android.content.Intent.ACTION_USER_PRESENT),
-                            android.content.ContextCompat.RECEIVER_EXPORTED
+                            IntentFilter(Intent.ACTION_USER_PRESENT),
+                            ContextCompat.RECEIVER_EXPORTED
                         )
                     } catch (e: Exception) {
                         Log.w(AppConstants.TAG, "Failed to register unlock receiver", e)
