@@ -349,7 +349,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_startup_connecting">Connecting to ADB…</string>
     <string name="notification_startup_started">Shevery started.</string>
     <string name="notification_startup_failed">Failed to start Shevery.</string>
-    <string name="notification_startup_no_port">Wireless debugging port not found within 20 seconds.</string>
+    <string name="notification_startup_no_port">Wireless debugging port not found within 15 seconds.</string>
     <string name="notification_startup_no_permission">Cannot start on boot: local network permission not granted. Open Shevery and grant the permission first.</string>
     <string name="notification_control_title_running">Shevery is running</string>
     <string name="notification_control_title_stopped">Shevery is stopped</string>

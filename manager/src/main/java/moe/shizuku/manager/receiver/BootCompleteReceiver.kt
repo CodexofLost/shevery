@@ -76,9 +76,11 @@ class BootCompleteReceiver : BroadcastReceiver() {
      * mDNS discovery (NsdManager) needs NEARBY_WIFI_DEVICES on API 33+ and
      * ACCESS_LOCAL_NETWORK on API 37+. Without them, discovery silently
      * produces no results and boot start fails with a confusing timeout.
+     * Use literal 37 to match HomeActivity's SDK_ANDROID_17 constant —
+     * Build.VERSION_CODES may not have the API 37 constant on older compile SDKs.
      */
     private fun hasLocalNetworkPermission(context: Context): Boolean = when {
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM -> // API 37
+        Build.VERSION.SDK_INT >= 37 -> // API 37 (Android 17)
             context.checkSelfPermission(ACCESS_LOCAL_NETWORK) == PackageManager.PERMISSION_GRANTED
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> // API 33
             context.checkSelfPermission(NEARBY_WIFI_DEVICES) == PackageManager.PERMISSION_GRANTED
