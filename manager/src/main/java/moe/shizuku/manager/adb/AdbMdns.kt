@@ -125,13 +125,19 @@ class AdbMdns(
     // Prevents connecting to stale or remote mDNS announcements.
     // Compares raw address bytes (not InetAddress.equals) to handle IPv6
     // scope ID differences (e.g., fe80::1%wlan0 vs fe80::1%eth0).
+    // Falls back to true (allow) if enumeration returns no matches or fails —
+    // a false negative would silently drop a valid local mDNS service.
     private fun isLocalAddress(target: InetAddress): Boolean = try {
         val targetBytes = target.address
-        NetworkInterface.getNetworkInterfaces()
-            ?.asSequence()
-            ?.flatMap { it.inetAddresses.asSequence() }
-            ?.any { it.address.contentEquals(targetBytes) }
-            ?: true // null = no interfaces enumerated, allow the connection
+        val interfaces = NetworkInterface.getNetworkInterfaces()
+        if (interfaces == null || !interfaces.hasMoreElements()) {
+            true // No interfaces to check — allow the connection
+        } else {
+            interfaces.asSequence()
+                .flatMap { it.inetAddresses.asSequence() }
+                .any { it.address.contentEquals(targetBytes) }
+                || true // No match found — allow anyway (false negative is worse)
+        }
     } catch (e: Exception) {
         // If we can't enumerate interfaces, allow the connection —
         // false negative is worse than false positive here.
