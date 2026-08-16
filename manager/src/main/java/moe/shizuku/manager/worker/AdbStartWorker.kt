@@ -15,15 +15,12 @@ import android.provider.Settings
 import androidx.core.app.NotificationCompat
 import androidx.work.*
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
@@ -31,7 +28,6 @@ import moe.shizuku.manager.adb.AdbMdns
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.receiver.SheveryControlReceiver
 import moe.shizuku.manager.receiver.ShizukuReceiverStarter
-import moe.shizuku.manager.service.SheveryNotificationManager
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
@@ -71,7 +67,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
         try {
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
-                ShizukuReceiverStarter.WorkerState.RUNNING
+                WorkerState.RUNNING
             )
 
             val cr = applicationContext.contentResolver
@@ -89,8 +85,8 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 if (tcpPort > 0) tcpPort else throw SecurityException("TV device requires TCP ADB port to be configured")
             } else {
                 callbackFlow {
-                    val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { port ->
-                        if (port > 0) trySend(port)
+                    val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { p ->
+                        if (p > 0) trySend(p)
                     }
 
                     var awaitingAuth = false
@@ -106,21 +102,24 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                         }
                     }
 
-                    // If keyguard is locked, establish a USER_PRESENT receiver so we can
-                    // retry discovery once the user unlocks.
-                    val km = applicationContext.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-                    if (km.isKeyguardLocked) {
-                        val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
-                        unlockReceiver = object : BroadcastReceiver() {
-                            override fun onReceive(context: Context, intent: Intent) {
-                                if (intent.action == Intent.ACTION_USER_PRESENT) {
-                                    context.unregisterReceiver(this)
-                                    unlockReceiver = null
-                                    Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+                    fun handleAuth() {
+                        val km = applicationContext.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+                        if (km.isKeyguardLocked) {
+                            val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
+                            val receiver = object : BroadcastReceiver() {
+                                override fun onReceive(context: Context, intent: Intent) {
+                                    if (intent.action == Intent.ACTION_USER_PRESENT) {
+                                        context.unregisterReceiver(this)
+                                        Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+                                    }
                                 }
                             }
+                            applicationContext.registerReceiver(receiver, filter)
+                        } else {
+                            awaitingAuth = true
                         }
-                        applicationContext.registerReceiver(unlockReceiver, filter)
+                        timeoutJob?.cancel()
+                        adbMdns.stop()
                     }
 
                     val observer = object : ContentObserver(null) {
