@@ -143,7 +143,7 @@ All code files in this project are licensed under Apache 2.0
 * [RikkaApps/Shizuku](https://github.com/rikkaapps/Shizuku) - for Shizuku API and main sources.
 * [Landon Moran](https://github.com/LandonMoran) - for Dhizuku, TCP and etc. fixes.
 * [DP-Hridayan](https://github.com/DP-Hridayan/aShellYou) - for parts of "Comput" UI.
-* [protonpony](https://github.com/protonpony/Shizuku-Keeper) - for parts of "Autostart on boot via Wireless Debugging".
+* [protonpony/Shizuku-Keeper](https://github.com/protonpony/Shizuku-Keeper) - for parts of "Autostart on boot via Wireless Debugging".
 
 
 ## And...
