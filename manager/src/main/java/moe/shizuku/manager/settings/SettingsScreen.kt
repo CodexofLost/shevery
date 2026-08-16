@@ -332,45 +332,47 @@ fun SettingsScreen() {
                         )
                     }
                 )
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_wadb_24,
-                    title = stringResource(R.string.settings_start_on_boot_adb),
-                    summary = stringResource(
-                        if (tcpMode) R.string.settings_start_on_boot_adb_summary
-                        else R.string.settings_start_on_boot_adb_summary_no_tcp
-                    ),
-                    checked = adbStartOnBoot,
-                    onCheckedChange = { enabled ->
-                        if (enabled) {
-                            val hasPermission = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
-                                    PackageManager.PERMISSION_GRANTED
-                            if (hasPermission) {
-                                ShizukuSettings.setStartOnBootAdb(true)
-                                adbStartOnBoot = true
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    SwitchSettingsRow(
+                        icon = R.drawable.ic_wadb_24,
+                        title = stringResource(R.string.settings_start_on_boot_adb),
+                        summary = stringResource(
+                            if (tcpMode) R.string.settings_start_on_boot_adb_summary
+                            else R.string.settings_start_on_boot_adb_summary_no_tcp
+                        ),
+                        checked = adbStartOnBoot,
+                        onCheckedChange = { enabled ->
+                            if (enabled) {
+                                val hasPermission = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
+                                        PackageManager.PERMISSION_GRANTED
+                                if (hasPermission) {
+                                    ShizukuSettings.setStartOnBootAdb(true)
+                                    adbStartOnBoot = true
+                                    packageManager.setComponentEnabled(
+                                        componentName,
+                                        ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                                    )
+                                    if (!tcpMode) {
+                                        Toast.makeText(
+                                            context,
+                                            R.string.settings_start_on_boot_adb_warning_no_tcp,
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+                                } else {
+                                    showMissingPermissionDialog = true
+                                }
+                            } else {
+                                ShizukuSettings.setStartOnBootAdb(false)
+                                adbStartOnBoot = false
                                 packageManager.setComponentEnabled(
                                     componentName,
                                     ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
                                 )
-                                if (!tcpMode) {
-                                    Toast.makeText(
-                                        context,
-                                        R.string.settings_start_on_boot_adb_warning_no_tcp,
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
-                            } else {
-                                showMissingPermissionDialog = true
                             }
-                        } else {
-                            ShizukuSettings.setStartOnBootAdb(false)
-                            adbStartOnBoot = false
-                            packageManager.setComponentEnabled(
-                                componentName,
-                                ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
-                            )
                         }
-                    }
-                )
+                    )
+                }
                 GroupDivider()
                 SectionHeader(stringResource(R.string.settings_service_group))
                 SwitchSettingsRow(

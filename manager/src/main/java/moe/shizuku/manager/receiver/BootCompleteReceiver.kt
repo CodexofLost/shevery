@@ -64,7 +64,8 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     context.getString(R.string.notification_startup_no_permission)
                 )
             }
-        } else if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
+        } else if (ShizukuSettings.getStartOnBoot()
+            && ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
             rootStart(context)
         } else {
             Log.w(AppConstants.TAG, "No support start on boot")
@@ -73,19 +74,23 @@ class BootCompleteReceiver : BroadcastReceiver() {
 
     /**
      * mDNS discovery (NsdManager) needs NEARBY_WIFI_DEVICES on API 33+ and
-     * ACCESS_LOCAL_NETWORK on API 37+. Without them, discovery silently
-     * produces no results and boot start fails with a confusing timeout.
+     * ACCESS_LOCAL_NETWORK on API 37+. On API 37, BOTH are required —
+     * NsdManager still checks NEARBY_WIFI_DEVICES even with ACCESS_LOCAL_NETWORK.
      * Use literal 37 to match HomeActivity's SDK_ANDROID_17 constant —
      * Build.VERSION_CODES may not have the API 37 constant on older compile SDKs.
      */
-    private fun hasLocalNetworkPermission(context: Context): Boolean = when {
-        Build.VERSION.SDK_INT >= 37 -> // API 37 (Android 17)
-            // String literal — ACCESS_LOCAL_NETWORK constant may not exist on
-            // older compile SDKs. Matches HomeActivity's PERMISSION_ACCESS_LOCAL_NETWORK.
-            context.checkSelfPermission("android.permission.ACCESS_LOCAL_NETWORK") == PackageManager.PERMISSION_GRANTED
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> // API 33
-            context.checkSelfPermission(NEARBY_WIFI_DEVICES) == PackageManager.PERMISSION_GRANTED
-        else -> true
+    private fun hasLocalNetworkPermission(context: Context): Boolean {
+        // NEARBY_WIFI_DEVICES is required on API 33+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+            && context.checkSelfPermission(NEARBY_WIFI_DEVICES) != PackageManager.PERMISSION_GRANTED) {
+            return false
+        }
+        // ACCESS_LOCAL_NETWORK is additionally required on API 37+
+        if (Build.VERSION.SDK_INT >= 37
+            && context.checkSelfPermission("android.permission.ACCESS_LOCAL_NETWORK") != PackageManager.PERMISSION_GRANTED) {
+            return false
+        }
+        return true
     }
 
     private fun rootStart(context: Context) {
