@@ -212,8 +212,8 @@ class BootCompleteReceiver : BroadcastReceiver() {
         // On LOCKED_BOOT_COMPLETED, the device may still be locked. Some OEMs
         // require an unlocked device for wireless debugging authorization.
         // If locked, defer enabling wireless debugging until USER_PRESENT.
-        val km = context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-        if (km.isKeyguardLocked) {
+        val km = context.getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
+        if (km != null && km.isKeyguardLocked) {
             Log.i(AppConstants.TAG, "Device locked at boot, deferring ADB start until unlock")
             StartupNotificationManager.showProgress(
                 context,
@@ -266,7 +266,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
             }
             // Race condition: user may have unlocked between the isKeyguardLocked
             // check and the registerReceiver call. Re-check and proceed if unlocked.
-            if (!km.isKeyguardLocked) {
+            if (km != null && !km.isKeyguardLocked) {
                 timeoutHandler.removeCallbacksAndMessages(null)
                 try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
                 adbStartInternal(context, goAsync())
