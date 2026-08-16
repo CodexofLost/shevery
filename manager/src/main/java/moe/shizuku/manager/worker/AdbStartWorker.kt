@@ -4,6 +4,7 @@ import android.app.KeyguardManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.app.ServiceInfo
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -74,10 +75,16 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             // Promote to a foreground service so the worker survives
             // the mDNS discovery + keyguard wait on Android 12+.
             val fgNotification = ShizukuReceiverStarter.buildNotification(applicationContext, null)
-            setForegroundAsync(ForegroundInfo(
-                ShizukuReceiverStarter.NOTIFICATION_ID,
-                fgNotification
-            ))
+            val fgInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                ForegroundInfo(
+                    ShizukuReceiverStarter.NOTIFICATION_ID,
+                    fgNotification,
+                    ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
+                )
+            } else {
+                ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, fgNotification)
+            }
+            setForegroundAsync(fgInfo)
 
             val cr = applicationContext.contentResolver
 
@@ -123,7 +130,12 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                                     }
                                 }
                             }
-                            applicationContext.registerReceiver(unlockReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED)
+                            ContextCompat.registerReceiver(
+                                applicationContext,
+                                unlockReceiver,
+                                filter,
+                                ContextCompat.RECEIVER_EXPORTED
+                            )
                         } else {
                             awaitingAuth = true
                         }
@@ -217,7 +229,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
     private fun showErrorNotification(context: Context, e: Exception) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                ShizukuReceiverStarter.CHANNEL_ID,
+                CHANNEL_ID,
                 context.getString(R.string.wadb_notification_title),
                 NotificationManager.IMPORTANCE_LOW
             )
