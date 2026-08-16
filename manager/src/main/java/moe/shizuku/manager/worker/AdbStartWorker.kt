@@ -4,7 +4,6 @@ import android.app.KeyguardManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.app.ServiceInfo
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -79,7 +78,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ForegroundInfo(
                     ShizukuReceiverStarter.NOTIFICATION_ID,
                     fgNotification,
-                    ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
+                    "specialUse"
                 )
             } else {
                 ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, fgNotification)
