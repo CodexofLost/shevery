@@ -106,35 +106,21 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                         }
                     }
 
-                    fun handleAuth() {
-                        val km = applicationContext.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-                        if (km.isKeyguardLocked) {
-                            val notification = ShizukuReceiverStarter.buildNotification(
-                                applicationContext,
-                                null
-                            )
-                            val foregroundInfo = ForegroundInfo(
-                                ShizukuReceiverStarter.NOTIFICATION_ID,
-                                notification
-                            )
-                            setForeground(foregroundInfo)
-
-                            val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
-                            unlockReceiver = object : BroadcastReceiver() {
-                                override fun onReceive(context: Context, intent: Intent) {
-                                    if (intent.action == Intent.ACTION_USER_PRESENT) {
-                                        context.unregisterReceiver(this)
-                                        unlockReceiver = null
-                                        Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
-                                    }
+                    // If keyguard is locked, establish a USER_PRESENT receiver so we can
+                    // retry discovery once the user unlocks.
+                    val km = applicationContext.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+                    if (km.isKeyguardLocked) {
+                        val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
+                        unlockReceiver = object : BroadcastReceiver() {
+                            override fun onReceive(context: Context, intent: Intent) {
+                                if (intent.action == Intent.ACTION_USER_PRESENT) {
+                                    context.unregisterReceiver(this)
+                                    unlockReceiver = null
+                                    Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
                                 }
                             }
-                            applicationContext.registerReceiver(unlockReceiver, filter)
-                        } else {
-                            awaitingAuth = true
                         }
-                        timeoutJob?.cancel()
-                        adbMdns.stop()
+                        applicationContext.registerReceiver(unlockReceiver, filter)
                     }
 
                     val observer = object : ContentObserver(null) {
