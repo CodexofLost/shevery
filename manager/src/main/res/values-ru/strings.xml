@@ -108,6 +108,7 @@
     <string name="notification_startup_started">Shevery запущена.</string>
     <string name="notification_startup_failed">Не удалось запустить Shevery.</string>
     <string name="notification_startup_no_port">Порт беспроводной отладки не найден в течение 20 секунд.</string>
+    <string name="notification_startup_no_permission">Не удалось запустить при загрузке: не предоставлено разрешение на доступ к локальной сети. Откройте Shevery и предоставьте разрешение.</string>
     <string name="grant_dialog_button_allow_always">Разрешить всегда</string>
     <string name="grant_dialog_button_deny">Запретить</string>
     <string name="permission_warning_template">Разрешить <b>%1$s</b> следующее: %2$s?</string>

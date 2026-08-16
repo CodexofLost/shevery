@@ -41,6 +41,7 @@ class AdbMdns(
             nsdManager.discoverServices(serviceType, NsdManager.PROTOCOL_DNS_SD, listener)
         } catch (e: Exception) {
             Log.e(TAG, "Failed to start service discovery", e)
+            running = false
         }
     }
 

@@ -1,5 +1,7 @@
 package moe.shizuku.manager.receiver
 
+import android.Manifest.permission.ACCESS_LOCAL_NETWORK
+import android.Manifest.permission.NEARBY_WIFI_DEVICES
 import android.Manifest.permission.WRITE_SECURE_SETTINGS
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -48,12 +50,39 @@ class BootCompleteReceiver : BroadcastReceiver() {
             && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
             && context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
         ) {
-            adbStart(context)
+            if (hasLocalNetworkPermission(context)) {
+                adbStart(context)
+            } else {
+                // Can't request runtime permissions from a boot receiver.
+                // Notify the user so the failure isn't silent.
+                Log.w(
+                    AppConstants.TAG,
+                    "Start-on-boot ADB skipped: missing local network permission " +
+                            "(NEARBY_WIFI_DEVICES on 33+, ACCESS_LOCAL_NETWORK on 37+)"
+                )
+                StartupNotificationManager.showFailed(
+                    context,
+                    context.getString(R.string.notification_startup_no_permission)
+                )
+            }
         } else if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
             rootStart(context)
         } else {
             Log.w(AppConstants.TAG, "No support start on boot")
         }
+    }
+
+    /**
+     * mDNS discovery (NsdManager) needs NEARBY_WIFI_DEVICES on API 33+ and
+     * ACCESS_LOCAL_NETWORK on API 37+. Without them, discovery silently
+     * produces no results and boot start fails with a confusing timeout.
+     */
+    private fun hasLocalNetworkPermission(context: Context): Boolean = when {
+        Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM -> // API 37
+            context.checkSelfPermission(ACCESS_LOCAL_NETWORK) == PackageManager.PERMISSION_GRANTED
+        Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> // API 33
+            context.checkSelfPermission(NEARBY_WIFI_DEVICES) == PackageManager.PERMISSION_GRANTED
+        else -> true
     }
 
     private fun rootStart(context: Context) {
@@ -75,14 +104,15 @@ class BootCompleteReceiver : BroadcastReceiver() {
             return
         }
 
-        StartupNotificationManager.showProgress(
-            context,
-            context.getString(R.string.notification_startup_enabling_wifi)
-        )
-        val cr = context.contentResolver
-        Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
-        Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
-        val pending = goAsync()
+        try {
+            StartupNotificationManager.showProgress(
+                context,
+                context.getString(R.string.notification_startup_enabling_wifi)
+            )
+            val cr = context.contentResolver
+            Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+            Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
+            val pending = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 suspend fun waitForServer(maxMs: Long): Boolean {
@@ -169,13 +199,21 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     )
                 }
             } finally {
-                adbStarting.set(false)
                 try {
                     pending.finish()
                 } catch (e: IllegalStateException) {
                     // Broadcast was already recycled (timeout) — ignore.
                 }
             }
+        }
+        } catch (e: Exception) {
+            Log.w(AppConstants.TAG, "adbStart synchronous failure", e)
+            StartupNotificationManager.showFailed(
+                context,
+                context.getString(R.string.notification_startup_failed)
+            )
+        } finally {
+            adbStarting.set(false)
         }
     }
 }
