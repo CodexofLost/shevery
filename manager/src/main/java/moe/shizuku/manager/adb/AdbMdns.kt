@@ -9,8 +9,8 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import java.io.IOException
 import java.net.InetSocketAddress
-import java.net.NetworkInterface
 import java.net.ServerSocket
+import java.util.concurrent.ConcurrentLinkedQueue
 
 @RequiresApi(Build.VERSION_CODES.R)
 class AdbMdns(
@@ -18,11 +18,22 @@ class AdbMdns(
     private val observer: Observer<Int>
 ) {
 
+    @Volatile
     private var registered = false
+    @Volatile
     private var running = false
+    @Volatile
     private var serviceName: String? = null
     private val listener = DiscoveryListener(this)
     private val nsdManager: NsdManager = context.getSystemService(NsdManager::class.java)
+    // On API 30-33, NsdManager can only resolve one service at a time.
+    // Queue discovered services and resolve them one by one.
+    // ConcurrentLinkedQueue for thread safety — NsdManager callbacks can
+    // fire from different binder/handler threads on some OEM implementations.
+    @Volatile
+    private var pendingResolve: NsdServiceInfo? = null
+    private val resolveQueue = ConcurrentLinkedQueue<NsdServiceInfo>()
+    private val queueLock = Any()
 
     fun start() {
         if (running) return
@@ -31,12 +42,18 @@ class AdbMdns(
             nsdManager.discoverServices(serviceType, NsdManager.PROTOCOL_DNS_SD, listener)
         } catch (e: Exception) {
             Log.e(TAG, "Failed to start service discovery", e)
+            running = false
         }
     }
 
     fun stop() {
         if (!running) return
         running = false
+        // Clear any pending resolves so orphaned callbacks don't trigger new ones.
+        synchronized(queueLock) {
+            resolveQueue.clear()
+            pendingResolve = null
+        }
         try {
             nsdManager.stopServiceDiscovery(listener)
         } catch (e: Exception) {
@@ -53,7 +70,18 @@ class AdbMdns(
     }
 
     private fun onServiceFound(info: NsdServiceInfo) {
-        nsdManager.resolveService(info, ResolveListener(this))
+        // On API 30-33, NsdManager can only resolve one service at a time.
+        // Queue the service and resolve sequentially.
+        // Synchronized to prevent TOCTOU race between onServiceFound and
+        // drainResolveQueue on different NsdManager binder threads.
+        synchronized(queueLock) {
+            if (pendingResolve == null) {
+                pendingResolve = info
+                nsdManager.resolveService(info, ResolveListener(this))
+            } else {
+                resolveQueue.add(info)
+            }
+        }
     }
 
     private fun onServiceLost(info: NsdServiceInfo) {
@@ -61,26 +89,45 @@ class AdbMdns(
     }
 
     private fun onServiceResolved(resolvedService: NsdServiceInfo) {
-        if (running && NetworkInterface.getNetworkInterfaces()
-                .asSequence()
-                .any { networkInterface ->
-                    networkInterface.inetAddresses
-                        .asSequence()
-                        .any { resolvedService.host.hostAddress == it.hostAddress }
-                }
-            && isPortAvailable(resolvedService.port)
-        ) {
+        if (running && isPortInUse(resolvedService.port)) {
             serviceName = resolvedService.serviceName
             observer.onChanged(resolvedService.port)
         }
+        drainResolveQueue()
     }
 
-    private fun isPortAvailable(port: Int) = try {
+    private fun onResolveFailed() {
+        drainResolveQueue()
+    }
+
+    private fun drainResolveQueue() {
+        synchronized(queueLock) {
+            pendingResolve = null
+            if (running) {
+                val next = resolveQueue.poll()
+                if (next != null) {
+                    pendingResolve = next
+                    nsdManager.resolveService(next, ResolveListener(this))
+                }
+            }
+        }
+    }
+
+    // Returns true if the port is already bound (in use by adbd).
+    // Synchronous socket bind — no runBlocking needed. NsdManager callbacks
+    // run on a dedicated thread, not the main thread, so this won't ANR.
+    // Catch SecurityException for API 37 loopback enforcement (EPERM).
+    private fun isPortInUse(port: Int): Boolean = try {
         ServerSocket().use {
             it.bind(InetSocketAddress("127.0.0.1", port), 1)
             false
         }
     } catch (e: IOException) {
+        true
+    } catch (e: SecurityException) {
+        // API 37+ may throw SecurityException if USE_LOOPBACK_INTERFACE isn't granted.
+        // Assume the port is in use — safer to let adbd proceed than to skip it.
+        Log.w(TAG, "SecurityException checking port ${port}: ${e.message}")
         true
     }
 
@@ -119,7 +166,10 @@ class AdbMdns(
     }
 
     internal class ResolveListener(private val adbMdns: AdbMdns) : NsdManager.ResolveListener {
-        override fun onResolveFailed(nsdServiceInfo: NsdServiceInfo, i: Int) {}
+        override fun onResolveFailed(nsdServiceInfo: NsdServiceInfo, i: Int) {
+            Log.w(TAG, "onResolveFailed: ${nsdServiceInfo.serviceName}, code=$i")
+            adbMdns.onResolveFailed()
+        }
 
         override fun onServiceResolved(nsdServiceInfo: NsdServiceInfo) {
             adbMdns.onServiceResolved(nsdServiceInfo)

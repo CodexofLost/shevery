@@ -60,7 +60,7 @@
 \n
 \nПосле начала процесса вы сможете ввести код подключения.</string>
     <string name="dialog_wireless_adb_not_enabled">Отладка по Wi-Fi не включена.
-\nВнимание: на системах старше Android 11 для включения этой отладки необходимо соединение с компьютером.</string>
+\nВнимание: до Android 11 для включения этой отладки необходимо соединение с компьютером.</string>
     <string name="cannot_connect_port">Не удается подключиться к службе отладки по Wi-Fi.</string>
     <string name="paring_code_is_wrong">Неверный код сопряжения.</string>
     <string name="dialog_adb_pairing_paring_code">Код сопряжения</string>
@@ -81,13 +81,34 @@
     <string name="home_adb_button_view_help">Читать справку</string>
     <string name="home_adb_description">Для устройств без root прав потребуется обращаться к adb для запуска Shevery (не обойтись без соединения с компьютером). Этот процесс нужно повторять каждый раз, когда устройство перезагружается. Пожалуйста, <b><a href="%1$s">прочтите справку</a></b>.</string>
     <string name="home_adb_title">Запуск через соединение с ПК</string>
-    <string name="home_status_service_version_update"><![CDATA[Версия %2$s, %1$s<br>Запустите снова что бы обновиться до версии %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Версия %2$s, %1$s<br>Запустите снова, чтобы обновиться до версии %3$s]]></string>
     <string name="home_status_service_version">Версия %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s не запущен</string>
     <string name="home_status_service_is_running">%1$s запущен</string>
     <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="settings_start_on_boot_summary">На устройствах с root правами Shevery может автоматически запускаться после загрузки системы</string>
-    <string name="settings_start_on_boot">Автозапуск (с root правами)</string>
+    <string name="settings_start_on_boot">Автозапуск через root</string>
+    <string name="settings_start_on_boot_adb">Автостарт через беспроводную отладку</string>
+    <string name="settings_start_on_boot_adb_summary">При загрузке кратковременно включает беспроводную отладку и запускает Shevery через ADB (TCP-порт 5555). Root не нужен, Wi-Fi требуется лишь на мгновение.</string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp">При загрузке кратковременно включает беспроводную отладку и запускает Shevery через ADB. Root не нужен, Wi-Fi требуется лишь на мгновение.</string>
+    <string name="settings_start_on_boot_adb_granted">WRITE_SECURE_SETTINGS выдано.</string>
+    <string name="settings_start_on_boot_adb_warning_no_tcp">Привязка TCP (порт 5555) отключена: беспроводная отладка НЕ будет отключена после запуска.</string>
+    <string name="settings_start_on_boot_adb_missing_permission_title">Отсутствует разрешение</string>
+    <string name="settings_start_on_boot_adb_not_running">Shevery не запущена. Сначала запустите службу, затем вернитесь и включите этот параметр.</string>
+    <string name="settings_start_on_boot_adb_grant_failed">Автоматическое предоставление разрешения не удалось. Выполните эту команду с компьютера, чтобы выдать его вручную:</string>
+    <string name="settings_start_on_boot_adb_missing_permission_copy">Скопировать команду</string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction">Как использовать:\n1. Подключите устройство к компьютеру (USB или беспроводная отладка).\n2. В терминале выполните команду из поля выше.</string>
+    <string name="settings_sections_title">Бэкапы и другое</string>
+    <string name="backup_section_title">Бэкапы</string>
+    <string name="home_adb_dialog_view_command_notice">Есть и другие важные замечания — сначала, пожалуйста, прочитайте справку.</string>
+    <string name="notification_startup_title">Запуск Shevery</string>
+    <string name="notification_startup_channel_name">Запуск Shevery</string>
+    <string name="notification_startup_enabling_wifi">Включаю отладку по Wi-Fi…</string>
+    <string name="notification_startup_connecting">Подключаюсь к ADB…</string>
+    <string name="notification_startup_started">Shevery запущена.</string>
+    <string name="notification_startup_failed">Не удалось запустить Shevery.</string>
+    <string name="notification_startup_no_port">Порт беспроводной отладки не найден в течение 15 секунд.</string>
+    <string name="notification_startup_no_permission">Не удалось запустить при загрузке: не предоставлено разрешение на доступ к локальной сети. Откройте Shevery и предоставьте разрешение.</string>
     <string name="grant_dialog_button_allow_always">Разрешить всегда</string>
     <string name="grant_dialog_button_deny">Запретить</string>
     <string name="permission_warning_template">Разрешить <b>%1$s</b> следующее: %2$s?</string>
@@ -116,7 +137,7 @@
     <string name="notification_adb_pairing_failed_title">Не удалось выполнить сопряжение</string>
     <string name="notification_adb_pairing_retry">Повторить попытку</string>
     <string name="adb_pairing_tutorial_title">Сопряжение Shevery с вашим устройством</string>
-    <string name="home_wireless_adb_description_pre_11">"Для отладки по Wi-Fi в Android до 11 версии  потребуется соединения с компьютером."</string>
+    <string name="home_wireless_adb_description_pre_11">"Для отладки по Wi-Fi в Android до 11 версии потребуется соединение с компьютером."</string>
     <string name="home_wireless_adb_view_guide_button">Пошаговая инструкция</string>
     <string name="notification_settings">Настройки уведомлений</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Процедура сопряжения подразумевает взаимодействие с уведомлением от Shevery. Для продолжения выдайте Shevery разрешение на показ уведомлений.</string>
