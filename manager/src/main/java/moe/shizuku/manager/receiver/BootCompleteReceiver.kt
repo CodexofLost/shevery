@@ -130,9 +130,9 @@ class BootCompleteReceiver : BroadcastReceiver() {
             && context.checkSelfPermission(NEARBY_WIFI_DEVICES) != PackageManager.PERMISSION_GRANTED) {
             return false
         }
-        if (Build.VERSION.SDK_INT >= 37
+        if (Build.VERSION.SDK_INT >= 36
             && context.checkSelfPermission("android.permission.ACCESS_LOCAL_NETWORK")
-                != PackageManager.PERMISSION_GRANTED) {
+                    != PackageManager.PERMISSION_GRANTED) {
             return false
         }
         return true

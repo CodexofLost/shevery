@@ -72,13 +72,15 @@ object ShizukuReceiverStarter {
     }
 
     fun buildNotification(context: Context, msg: String? = null): Notification {
-        val channel = NotificationChannel(
-            CHANNEL_ID,
-            context.getString(R.string.wadb_notification_title),
-            NotificationManager.IMPORTANCE_LOW
-        )
         val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        nm.createNotificationChannel(channel)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                CHANNEL_ID,
+                context.getString(R.string.wadb_notification_title),
+                NotificationManager.IMPORTANCE_LOW
+            )
+            nm.createNotificationChannel(channel)
+        }
 
         val cancelIntent = Intent(context, NotifCancelReceiver::class.java)
         val cancelPendingIntent = PendingIntent.getBroadcast(
@@ -123,7 +125,6 @@ object ShizukuReceiverStarter {
                 context.getString(android.R.string.cancel),
                 cancelPendingIntent
             )
-            .setDeleteIntent(restorePendingIntent)
             .setContentIntent(wifiPendingIntent)
             .build()
     }

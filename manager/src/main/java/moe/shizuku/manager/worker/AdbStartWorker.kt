@@ -13,6 +13,7 @@ import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import androidx.work.*
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
@@ -70,6 +71,14 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ShizukuReceiverStarter.WorkerState.RUNNING
             )
 
+            // Promote to a foreground service so the worker survives
+            // the mDNS discovery + keyguard wait on Android 12+.
+            val fgNotification = ShizukuReceiverStarter.buildNotification(applicationContext, null)
+            setForegroundAsync(ForegroundInfo(
+                ShizukuReceiverStarter.NOTIFICATION_ID,
+                fgNotification
+            ))
+
             val cr = applicationContext.contentResolver
 
             Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
@@ -106,7 +115,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                         val km = applicationContext.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
                         if (km.isKeyguardLocked) {
                             val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
-                            val receiver = object : BroadcastReceiver() {
+                            unlockReceiver = object : BroadcastReceiver() {
                                 override fun onReceive(context: Context, intent: Intent) {
                                     if (intent.action == Intent.ACTION_USER_PRESENT) {
                                         context.unregisterReceiver(this)
@@ -114,7 +123,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                                     }
                                 }
                             }
-                            applicationContext.registerReceiver(receiver, filter)
+                            applicationContext.registerReceiver(unlockReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED)
                         } else {
                             awaitingAuth = true
                         }
@@ -139,8 +148,6 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                     val uri = Settings.Global.getUriFor("adb_wifi_enabled")
                     if (uri != null) {
                         cr.registerContentObserver(uri, false, observer)
-                    } else {
-                        startDiscoveryWithTimeout()
                     }
                     startDiscoveryWithTimeout()
 
@@ -199,7 +206,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 } else {
                     ShizukuReceiverStarter.updateNotification(
                         applicationContext,
-                        ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+                        ShizukuReceiverStarter.WorkerState.STOPPED
                     )
                     return Result.failure()
                 }
@@ -218,24 +225,20 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             nm.createNotificationChannel(channel)
         }
 
-        val msgNotif = "$e. ${context.getString(R.string.wadb_error_notify_dev)}"
-
         val intent = Intent(context, SheveryControlReceiver::class.java).apply {
             action = SheveryControlReceiver.ACTION_START_SERVER
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
-        val pendingIntent = PendingIntent.getActivity(
+        val pendingIntent = PendingIntent.getBroadcast(
             context, 0, intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        val notification = NotificationCompat.Builder(context, ShizukuReceiverStarter.CHANNEL_ID)
+        val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_system_icon)
             .setContentTitle(context.getString(R.string.wadb_error_title))
-            .setContentText(msgNotif)
+            .setContentText(context.getString(R.string.wadb_error_notify_dev))
             .setContentIntent(pendingIntent)
             .setSilent(true)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(msgNotif))
             .build()
 
         val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
