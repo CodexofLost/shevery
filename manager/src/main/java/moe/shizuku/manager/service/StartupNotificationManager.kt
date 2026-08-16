@@ -49,7 +49,7 @@ object StartupNotificationManager {
     }
 
     fun showFailed(context: Context, message: String) {
-        show(context, message, indeterminate = false, cancellable = true, isFailed = true, attemptAction = true)
+        show(context, message, indeterminate = false, cancellable = false, attemptAction = true)
     }
 
     private fun show(
@@ -57,7 +57,6 @@ object StartupNotificationManager {
         message: String,
         indeterminate: Boolean,
         cancellable: Boolean = false,
-        isFailed: Boolean = false,
         attemptAction: Boolean = false
     ) {
         ensureChannel(context)

@@ -55,7 +55,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
             // TV devices or systems with a persisted ADB TCP port can connect
             // directly without mDNS discovery. Phones/tablets use mDNS.
             val tcpPort = EnvironmentUtils.getAdbTcpPort()
-            if (tcpPort > 0 && (EnvironmentUtils.isTV(context) || !ShizukuSettings.isTcpMode())) {
+            if (tcpPort > 0 && (EnvironmentUtils.isTV(context) || ShizukuSettings.isTcpMode())) {
                 // Direct TCP connection — no mDNS needed, no local-network permissions needed.
                 adbTcpStart(context, tcpPort)
             } else if (hasLocalNetworkPermission(context)) {
@@ -120,12 +120,23 @@ class BootCompleteReceiver : BroadcastReceiver() {
         }
 
         val cr = context.contentResolver
-        StartupNotificationManager.showProgress(
-            context,
-            context.getString(R.string.notification_startup_connecting)
-        )
-        // Reset the wireless debugging session timer for OEM ROMs that enforce it.
-        Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
+        val pending: BroadcastReceiver.PendingResult
+        try {
+            StartupNotificationManager.showProgress(
+                context,
+                context.getString(R.string.notification_startup_connecting)
+            )
+            // Reset the wireless debugging session timer for OEM ROMs that enforce it.
+            Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
+            pending = goAsync()
+        } catch (e: Exception) {
+            adbStarting.set(false)
+            StartupNotificationManager.showFailed(
+                context,
+                context.getString(R.string.notification_startup_failed)
+            )
+            return
+        }
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -163,6 +174,11 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 }
             } finally {
                 adbStarting.set(false)
+                try {
+                    pending.finish()
+                } catch (e: IllegalStateException) {
+                    // Broadcast was already recycled (timeout) — ignore.
+                }
             }
         }
     }
@@ -206,7 +222,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     adbStartInternal(ctx)
                 }
             }
-            context.registerReceiver(unlockReceiver, IntentFilter(Intent.ACTION_USER_PRESENT))
+            context.applicationContext.registerReceiver(unlockReceiver, IntentFilter(Intent.ACTION_USER_PRESENT))
             return
         }
 
