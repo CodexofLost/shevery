@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import java.io.IOException
 import java.net.InetSocketAddress
+import java.net.NetworkInterface
 import java.net.ServerSocket
 import java.util.concurrent.ConcurrentLinkedQueue
 
@@ -89,7 +90,11 @@ class AdbMdns(
     }
 
     private fun onServiceResolved(resolvedService: NsdServiceInfo) {
-        if (running && isPortInUse(resolvedService.port)) {
+        // Validate that the resolved host is on a local network interface
+        // before attempting to connect. This prevents connecting to stale
+        // or remote mDNS announcements that somehow pass discovery.
+        val host = resolvedService.host?.hostAddress
+        if (running && host != null && isLocalAddress(host) && isPortInUse(resolvedService.port)) {
             serviceName = resolvedService.serviceName
             observer.onChanged(resolvedService.port)
         }
@@ -111,6 +116,23 @@ class AdbMdns(
                 }
             }
         }
+    }
+
+    // Returns true if the given IP address belongs to a local network interface.
+    // Prevents connecting to stale or remote mDNS announcements.
+    private fun isLocalAddress(host: String): Boolean = try {
+        NetworkInterface.getNetworkInterfaces()
+            .asSequence()
+            .any { iface ->
+                iface.inetAddresses
+                    .asSequence()
+                    .any { it.hostAddress == host }
+            }
+    } catch (e: Exception) {
+        // If we can't enumerate interfaces, allow the connection —
+        // false negative is worse than false positive here.
+        Log.w(TAG, "Failed to enumerate network interfaces: ${e.message}")
+        true
     }
 
     // Returns true if the port is already bound (in use by adbd).
