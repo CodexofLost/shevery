@@ -48,16 +48,22 @@ object ShizukuStateMachine {
 
     fun get(): State = state.get()
 
-    private fun transition(transform: (State) -> State) {
-        val oldState = state.getAndUpdate(transform)
-        val newState = transform(oldState)
-        if (oldState != newState) {
-            Log.d(TAG, "ShizukuStateMachine: $oldState -> $newState")
-            listeners.forEach { it(newState) }
-        }
+    private fun transitionAtomic(transform: (State) -> State) {
+        var oldState: State
+        var newState: State
+        do {
+            oldState = state.get()
+            newState = transform(oldState)
+            if (oldState == newState) return
+        } while (!state.compareAndSet(oldState, newState))
+
+        Log.d(TAG, "ShizukuStateMachine: $oldState -> $newState")
+        java.util.ArrayList<(State) -> Unit>().apply {
+            listeners.forEach { add(it) }
+        }.forEach { it(newState) }
     }
 
-    fun set(newState: State) = transition { newState }
+    fun set(newState: State) = transitionAtomic { newState }
 
     /**
      * Called when the binder dies. If the server was RUNNING, it crashed.

@@ -37,6 +37,7 @@ import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import java.io.EOFException
 import java.util.concurrent.TimeoutException
+import java.util.concurrent.TimeUnit
 
 class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
 
@@ -70,7 +71,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
         try {
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
-                WorkerState.RUNNING
+                ShizukuReceiverStarter.WorkerState.RUNNING
             )
 
             val cr = applicationContext.contentResolver
@@ -82,6 +83,10 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             val port = if (!EnvironmentUtils.isWifiRequired()) {
                 tcpPort
+            } else if (EnvironmentUtils.isTelevision()) {
+                // TV devices with a configured/static TCP port use TCP directly;
+                // avoid mDNS discovery which is unreliable on LEANBACK.
+                if (tcpPort > 0) tcpPort else throw SecurityException("TV device requires TCP ADB port to be configured")
             } else {
                 callbackFlow {
                     val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { port ->
@@ -112,7 +117,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                                 ShizukuReceiverStarter.NOTIFICATION_ID,
                                 notification
                             )
-                            setForegroundAsync(foregroundInfo)
+                            setForegroundAsync(foregroundInfo).await
 
                             val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
                             unlockReceiver = object : BroadcastReceiver() {
@@ -176,12 +181,12 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             return Result.success()
         } catch (e: CancellationException) {
             val state = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-                WorkerState.AWAITING_RETRY
+                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
             } else {
                 when (stopReason) {
-                    WorkInfo.STOP_REASON_CONSTRAINT_CONNECTIVITY -> WorkerState.AWAITING_WIFI
-                    WorkInfo.STOP_REASON_CANCELLED_BY_APP -> WorkerState.STOPPED
-                    else -> WorkerState.AWAITING_RETRY
+                    WorkInfo.STOP_REASON_CONSTRAINT_CONNECTIVITY -> ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
+                    WorkInfo.STOP_REASON_CANCELLED_BY_APP -> ShizukuReceiverStarter.WorkerState.STOPPED
+                    else -> ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
                 }
             }
             ShizukuReceiverStarter.updateNotification(applicationContext, state)

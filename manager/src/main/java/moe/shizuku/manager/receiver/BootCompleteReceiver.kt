@@ -9,6 +9,8 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.core.content.ContextCompat
 import moe.shizuku.manager.AppConstants
@@ -49,10 +51,21 @@ class BootCompleteReceiver : BroadcastReceiver() {
                         context.getString(moe.shizuku.manager.R.string.notification_startup_waiting_unlock)
                     )
                     val appContext = context.applicationContext
+                    val timeoutHandler = Handler(Looper.getMainLooper())
+                    val timeoutRunnable = Runnable {
+                        try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
+                        moe.shizuku.manager.service.StartupNotificationManager.showFailed(
+                            appContext,
+                            appContext.getString(moe.shizuku.manager.R.string.notification_startup_failed)
+                        )
+                        Log.w(AppConstants.TAG, "Keyguard timeout on pre-S — aborting ADB boot start")
+                    }
+                    timeoutHandler.postDelayed(timeoutRunnable, KEYGUARD_WAIT_TIMEOUT_MS)
                     val unlockReceiver = object : BroadcastReceiver() {
                         override fun onReceive(ctx: Context, intent: Intent) {
                             if (intent.action == Intent.ACTION_USER_PRESENT) {
-                                ctx.unregisterReceiver(this)
+                                timeoutHandler.removeCallbacks(timeoutRunnable)
+                                try { ctx.unregisterReceiver(this) } catch (_: Exception) {}
                                 ShizukuReceiverStarter.start(ctx)
                             }
                         }
@@ -70,26 +83,18 @@ class BootCompleteReceiver : BroadcastReceiver() {
                             context,
                             context.getString(moe.shizuku.manager.R.string.notification_startup_failed)
                         )
+                        return
                     }
                     // Re-check keyguard after registration: if user unlocked between
                     // the isKeyguardLocked check and the registerReceiver call,
                     // the USER_PRESENT broadcast may have already fired and been missed.
                     if (km != null && !km.isKeyguardLocked) {
-                        try {
-                            appContext.unregisterReceiver(unlockReceiver)
-                        } catch (_: Exception) {}
-                        ShizukuReceiverStarter.start(context)
-                    }
-                    // Timeout: if user never unlocks, clean up
-                    val timeoutHandler = android.os.Handler(android.os.Looper.getMainLooper())
-                    timeoutHandler.postDelayed({
                         try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
-                        moe.shizuku.manager.service.StartupNotificationManager.showFailed(
-                            appContext,
-                            appContext.getString(moe.shizuku.manager.R.string.notification_startup_failed)
-                        )
-                        Log.w(AppConstants.TAG, "Keyguard timeout on pre-S — aborting ADB boot start")
-                    }, KEYGUARD_WAIT_TIMEOUT_MS)
+                        timeoutHandler.removeCallbacks(timeoutRunnable)
+                        ShizukuReceiverStarter.start(context)
+                        return
+                    }
+                    // Timeout handles the case where user never unlocks
                 } else {
                     ShizukuReceiverStarter.start(context)
                 }
@@ -97,7 +102,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 Log.w(
                     AppConstants.TAG,
                     "Start-on-boot ADB skipped: missing local network permission " +
-                            "(NEARBY_WIFI_DEVICES on 33+, ACCESS_LOCAL_NETWORK on 37+)"
+                    "(NEARBY_WIFI_DEVICES on 33+, ACCESS_LOCAL_NETWORK on 37+)"
                 )
                 moe.shizuku.manager.service.StartupNotificationManager.showFailed(
                     context,
@@ -118,7 +123,8 @@ class BootCompleteReceiver : BroadcastReceiver() {
             return false
         }
         if (Build.VERSION.SDK_INT >= 37
-            && context.checkSelfPermission("android.permission.ACCESS_LOCAL_NETWORK") != PackageManager.PERMISSION_GRANTED) {
+            && context.checkSelfPermission("android.permission.ACCESS_LOCAL_NETWORK")
+                != PackageManager.PERMISSION_GRANTED) {
             return false
         }
         return true

@@ -24,8 +24,10 @@ object EnvironmentUtils {
 
     @JvmStatic
     fun isTV(context: Context): Boolean {
-        return (context.getSystemService(UiModeManager::class.java).currentModeType
-                == Configuration.UI_MODE_TYPE_TELEVISION)
+        val uiModeManager = context.getSystemService(UiModeManager::class.java)
+        val isLeanback = context.packageManager.hasSystemFeature("android.hardware.leanback")
+        return (uiModeManager.currentModeType == Configuration.UI_MODE_TYPE_TELEVISION)
+            || (isLeanback && uiModeManager.currentModeType == Configuration.UI_MODE_TYPE_NORMAL)
     }
 
     @JvmStatic
