@@ -222,6 +222,8 @@ class BootCompleteReceiver : BroadcastReceiver() {
             // once the device is unlocked. Include a timeout to avoid leaking the receiver
             // and permanently blocking the re-entrancy guard if the user never unlocks.
             val appContext = context.applicationContext
+            // Timeout: if user doesn't unlock within 2 minutes, clean up.
+            val timeoutHandler = Handler(Looper.getMainLooper())
             val unlockReceiver = object : BroadcastReceiver() {
                 override fun onReceive(ctx: Context, intent: Intent) {
                     if (intent.action != Intent.ACTION_USER_PRESENT) return
@@ -230,8 +232,6 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     adbStartInternal(ctx.applicationContext)
                 }
             }
-            // Timeout: if user doesn't unlock within 2 minutes, clean up.
-            val timeoutHandler = Handler(Looper.getMainLooper())
             timeoutHandler.postDelayed({
                 try { appContext.unregisterReceiver(unlockReceiver) } catch (_: Exception) {}
                 adbStarting.set(false)
