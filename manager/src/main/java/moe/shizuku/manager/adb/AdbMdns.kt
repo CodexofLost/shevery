@@ -95,9 +95,11 @@ class AdbMdns(
         // before attempting to connect. This prevents connecting to stale
         // or remote mDNS announcements that somehow pass discovery.
         val host = resolvedService.host
-        if (running && host != null && isLocalAddress(host) && isPortInUse(resolvedService.port)) {
-            serviceName = resolvedService.serviceName
-            observer.onChanged(resolvedService.port)
+        if (running && isPortInUse(resolvedService.port)) {
+            if (host == null || isLocalAddress(host)) {
+                serviceName = resolvedService.serviceName
+                observer.onChanged(resolvedService.port)
+            }
         }
         drainResolveQueue()
     }

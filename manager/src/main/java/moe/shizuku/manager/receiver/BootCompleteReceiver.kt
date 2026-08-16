@@ -133,6 +133,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
             )
             // Reset the wireless debugging session timer for OEM ROMs that enforce it.
             Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
+            Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
             pending = goAsync()
         } catch (e: Exception) {
             adbStarting.set(false)
@@ -245,12 +246,24 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 Log.w(AppConstants.TAG, "Keyguard unlock timeout — aborting ADB boot start")
             }, KEYGUARD_WAIT_TIMEOUT_MS)
             // API 34+ requires explicit RECEIVER_EXPORTED flag for system broadcasts.
-            ContextCompat.registerReceiver(
-                appContext,
-                unlockReceiver,
-                IntentFilter(Intent.ACTION_USER_PRESENT),
-                ContextCompat.RECEIVER_EXPORTED
-            )
+            try {
+                ContextCompat.registerReceiver(
+                    appContext,
+                    unlockReceiver,
+                    IntentFilter(Intent.ACTION_USER_PRESENT),
+                    ContextCompat.RECEIVER_EXPORTED
+                )
+            } catch (e: Exception) {
+                // If registration fails, don't crash the boot receiver —
+                // reset guard and show failure.
+                Log.w(AppConstants.TAG, "Failed to register unlock receiver", e)
+                adbStarting.set(false)
+                StartupNotificationManager.showFailed(
+                    context,
+                    context.getString(R.string.notification_startup_failed)
+                )
+                return
+            }
             // Race condition: user may have unlocked between the isKeyguardLocked
             // check and the registerReceiver call. Re-check and proceed if unlocked.
             if (!km.isKeyguardLocked) {
