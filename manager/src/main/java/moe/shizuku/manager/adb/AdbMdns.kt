@@ -8,7 +8,9 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import java.io.IOException
+import java.net.InetAddress
 import java.net.InetSocketAddress
+import java.net.NetworkInterface
 import java.net.ServerSocket
 import java.util.concurrent.ConcurrentLinkedQueue
 
@@ -89,9 +91,15 @@ class AdbMdns(
     }
 
     private fun onServiceResolved(resolvedService: NsdServiceInfo) {
+        // Validate that the resolved host is on a local network interface
+        // before attempting to connect. This prevents connecting to stale
+        // or remote mDNS announcements that somehow pass discovery.
+        val host = resolvedService.host
         if (running && isPortInUse(resolvedService.port)) {
-            serviceName = resolvedService.serviceName
-            observer.onChanged(resolvedService.port)
+            if (host == null || isLocalAddress(host)) {
+                serviceName = resolvedService.serviceName
+                observer.onChanged(resolvedService.port)
+            }
         }
         drainResolveQueue()
     }
@@ -111,6 +119,30 @@ class AdbMdns(
                 }
             }
         }
+    }
+
+    // Returns true if the given InetAddress belongs to a local network interface.
+    // Prevents connecting to stale or remote mDNS announcements.
+    // Compares raw address bytes (not InetAddress.equals) to handle IPv6
+    // scope ID differences (e.g., fe80::1%wlan0 vs fe80::1%eth0).
+    // Falls back to true (allow) if enumeration returns no matches or fails —
+    // a false negative would silently drop a valid local mDNS service.
+    private fun isLocalAddress(target: InetAddress): Boolean = try {
+        val targetBytes = target.address
+        val interfaces = NetworkInterface.getNetworkInterfaces()
+        if (interfaces == null || !interfaces.hasMoreElements()) {
+            true // No interfaces to check — allow the connection
+        } else {
+            interfaces.asSequence()
+                .flatMap { it.inetAddresses.asSequence() }
+                .any { it.address.contentEquals(targetBytes) }
+                || true // No match found — allow anyway (false negative is worse)
+        }
+    } catch (e: Exception) {
+        // If we can't enumerate interfaces, allow the connection —
+        // false negative is worse than false positive here.
+        Log.w(TAG, "Failed to enumerate network interfaces: ${e.message}")
+        true
     }
 
     // Returns true if the port is already bound (in use by adbd).
