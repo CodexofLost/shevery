@@ -1,13 +1,13 @@
 package moe.shizuku.manager.starter
 
-import kotlinx.coroutines.TimeoutCancellationException
-import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.delay
 import java.io.File
 import java.util.concurrent.TimeoutException
+import moe.shizuku.manager.application
 import moe.shizuku.manager.ShizukuApplication
 import moe.shizuku.manager.utils.ShizukuStateMachine
 
-private val app = ShizukuApplication.application
+private val app = application
 
 object Starter {
 

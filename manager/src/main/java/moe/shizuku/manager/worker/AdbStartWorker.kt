@@ -14,12 +14,13 @@ import android.os.Build
 import android.provider.Settings
 import androidx.core.app.NotificationCompat
 import androidx.work.*
-import java.io.EOFException
-import java.util.concurrent.TimeoutException
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -41,7 +42,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
         try {
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
-                WorkerState.RUNNING
+                ShizukuReceiverStarter.WorkerState.RUNNING
             )
 
             val cr = applicationContext.contentResolver
@@ -59,8 +60,8 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             } else {
                 // mDNS discovery + content observer pattern from thedjchi
                 callbackFlow {
-                    val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { p ->
-                        if (p.second > 0) trySend(p.second)
+                    val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { port ->
+                        if (port > 0) trySend(port)
                     }
 
                     var awaitingAuth = false
@@ -70,7 +71,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                     fun startDiscoveryWithTimeout() {
                         adbMdns.start()
                         timeoutJob?.cancel()
-                        timeoutJob = launch {
+                        timeoutJob = this.launch {
                             delay(15_000)
                             close(TimeoutException("Timed out during mDNS port discovery"))
                         }
@@ -150,12 +151,12 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             return Result.success()
         } catch (e: CancellationException) {
             val state = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-                WorkerState.AWAITING_RETRY
+                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
             } else {
                 when (stopReason) {
-                    WorkInfo.STOP_REASON_CONSTRAINT_CONNECTIVITY -> WorkerState.AWAITING_WIFI
-                    WorkInfo.STOP_REASON_CANCELLED_BY_APP -> WorkerState.STOPPED
-                    else -> WorkerState.AWAITING_RETRY
+                    WorkInfo.STOP_REASON_CONSTRAINT_CONNECTIVITY -> ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
+                    WorkInfo.STOP_REASON_CANCELLED_BY_APP -> ShizukuReceiverStarter.WorkerState.STOPPED
+                    else -> ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
                 }
             }
             ShizukuReceiverStarter.updateNotification(applicationContext, state)
@@ -175,7 +176,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             } else {
                 ShizukuReceiverStarter.updateNotification(
                     applicationContext,
-                    WorkerState.AWAITING_RETRY
+                    ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
                 )
                 return Result.retry()
             }

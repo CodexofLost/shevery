@@ -6,6 +6,8 @@ import android.content.res.Configuration
 import android.os.SystemProperties
 import android.util.Log
 import com.topjohnwu.superuser.Shell
+import moe.shizuku.manager.ShizukuSettings
+import moe.shizuku.manager.application
 import java.io.File
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -28,7 +30,7 @@ object EnvironmentUtils {
 
     @JvmStatic
     fun isTelevision(): Boolean {
-        return isTV(moe.shizuku.manager.ShizukuApplication.application)
+        return isTV(application)
     }
 
     fun isRooted(): Boolean {
