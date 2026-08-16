@@ -229,7 +229,10 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     if (intent.action != Intent.ACTION_USER_PRESENT) return
                     timeoutHandler.removeCallbacksAndMessages(null)
                     try { appContext.unregisterReceiver(this) } catch (_: Exception) {}
-                    adbStartInternal(ctx.applicationContext)
+                    // Call goAsync() on the active unlockReceiver, NOT the
+                    // expired BootCompleteReceiver — calling goAsync() after
+                    // onReceive() returns throws IllegalStateException.
+                    adbStartInternal(ctx.applicationContext, goAsync())
                 }
             }
             timeoutHandler.postDelayed({
@@ -251,12 +254,12 @@ class BootCompleteReceiver : BroadcastReceiver() {
             return
         }
 
-        adbStartInternal(context)
+        // Direct path: device already unlocked, call goAsync() on ourselves.
+        adbStartInternal(context, goAsync())
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
-    private fun adbStartInternal(context: Context) {
-        val pending: BroadcastReceiver.PendingResult
+    private fun adbStartInternal(context: Context, pending: BroadcastReceiver.PendingResult) {
         val cr = context.contentResolver
         try {
             StartupNotificationManager.showProgress(
@@ -268,7 +271,6 @@ class BootCompleteReceiver : BroadcastReceiver() {
             // Reset the wireless debugging session timer so the system doesn't
             // expire the connection mid-boot-start on OEM ROMs that enforce it.
             Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
-            pending = goAsync()
         } catch (e: Exception) {
             // Synchronous failure before coroutine launches — reset guard.
             Log.w(AppConstants.TAG, "adbStart synchronous failure", e)
@@ -277,6 +279,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 context,
                 context.getString(R.string.notification_startup_failed)
             )
+            try { pending.finish() } catch (_: IllegalStateException) {}
             return
         }
 

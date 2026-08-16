@@ -126,9 +126,10 @@ class AdbMdns(
     private fun isLocalAddress(target: InetAddress): Boolean = try {
         val targetBytes = target.address
         NetworkInterface.getNetworkInterfaces()
-            .asSequence()
-            .flatMap { it.inetAddresses.asSequence() }
-            .any { it.address.contentEquals(targetBytes) }
+            ?.asSequence()
+            ?.flatMap { it.inetAddresses.asSequence() }
+            ?.any { it.address.contentEquals(targetBytes) }
+            ?: true // null = no interfaces enumerated, allow the connection
     } catch (e: Exception) {
         // If we can't enumerate interfaces, allow the connection —
         // false negative is worse than false positive here.
