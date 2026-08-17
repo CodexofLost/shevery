@@ -36,6 +36,17 @@ class BootCompleteReceiver : BroadcastReceiver() {
 
         if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ROOT) {
             rootStart(context)
+        } else if (ShizukuSettings.isTcpMode()) {
+            val pending = goAsync()
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    AdbStarter.start(port = AdbStarter.TCP_MODE_PORT, context = context.applicationContext)
+                } catch (e: Exception) {
+                    Log.w(AppConstants.TAG, "ADB TCP boot start failed", e)
+                } finally {
+                    pending.finish()
+                }
+            }
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU // https://r.android.com/2128832
             && context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
             && ShizukuSettings.getLastLaunchMode() == LaunchMethod.ADB) {
