@@ -375,6 +375,21 @@ abstract class HomeActivity : AppActivity() {
             return
         }
 
+        val livePort = EnvironmentUtils.getLiveAdbTcpPort().takeIf { it > 0 }
+            ?: EnvironmentUtils.getAdbTcpPort().takeIf { it > 0 && EnvironmentUtils.isAdbPortLive(it) }
+            ?: if (EnvironmentUtils.isAdbPortLive(AdbStarter.TCP_MODE_PORT)) AdbStarter.TCP_MODE_PORT else null
+
+        if (livePort != null) {
+            startActivity(
+                Intent(this, StarterActivity::class.java).apply {
+                    putExtra(StarterActivity.EXTRA_IS_ROOT, false)
+                    putExtra(StarterActivity.EXTRA_HOST, "127.0.0.1")
+                    putExtra(StarterActivity.EXTRA_PORT, livePort)
+                }
+            )
+            return
+        }
+
         WadbNotEnabledDialogFragment().show(supportFragmentManager, "wadb_not_enabled")
     }
 
@@ -605,6 +620,13 @@ abstract class HomeActivity : AppActivity() {
             withContext(Dispatchers.Main) {
                 if (success) {
                     Toast.makeText(this@HomeActivity, R.string.settings_tcp_5555_bind_success, Toast.LENGTH_SHORT).show()
+                    startActivity(
+                        Intent(this@HomeActivity, StarterActivity::class.java).apply {
+                            putExtra(StarterActivity.EXTRA_IS_ROOT, false)
+                            putExtra(StarterActivity.EXTRA_HOST, "127.0.0.1")
+                            putExtra(StarterActivity.EXTRA_PORT, AdbStarter.TCP_MODE_PORT)
+                        }
+                    )
                 } else {
                     Toast.makeText(
                         this@HomeActivity,
@@ -697,6 +719,9 @@ private fun HomeScreen(
     val running = status.isRunning
     val adbPermission = status.permission
     val canUseWirelessAdb = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+        || EnvironmentUtils.isAdbPortLive(AdbStarter.TCP_MODE_PORT)
+        || EnvironmentUtils.getLiveAdbTcpPort() > 0
+        || ShizukuSettings.isTcpMode()
     val diagnostics = remember(status, grantedCount, localNetworkPermissionState) {
         buildDiagnostics(context, status, grantedCount, localNetworkPermissionState)
     }

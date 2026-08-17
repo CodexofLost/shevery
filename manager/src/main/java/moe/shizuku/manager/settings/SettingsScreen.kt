@@ -777,7 +777,7 @@ fun SettingsScreen() {
                     value = tempKey,
                     onValueChange = { tempKey = it },
                     label = { Text(stringResource(R.string.comput_api_key_label)) },
-                    placeholder = { Text("AIzaSy...") },
+                    placeholder = { Text("AQ.Ab8...") },
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true,
                     visualTransformation = if (keyVisible) VisualTransformation.None else PasswordVisualTransformation(),
