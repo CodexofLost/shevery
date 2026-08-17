@@ -1,7 +1,6 @@
 package moe.shizuku.manager.worker
 
 import android.app.KeyguardManager
-import android.app.ForegroundService
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -75,15 +74,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             // Promote to a foreground service so the worker survives
             // the mDNS discovery + keyguard wait on Android 12+.
             val fgNotification = ShizukuReceiverStarter.buildNotification(applicationContext, null)
-            val fgInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-                ForegroundInfo(
-                    ShizukuReceiverStarter.NOTIFICATION_ID,
-                    fgNotification,
-                    android.app.ForegroundService.TYPE_SPECIAL_USE
-                )
-            } else {
-                ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, fgNotification)
-            }
+            val fgInfo = ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, fgNotification)
             setForegroundAsync(fgInfo)
 
             val cr = applicationContext.contentResolver
