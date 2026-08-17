@@ -1,6 +1,7 @@
 package moe.shizuku.manager.worker
 
 import android.app.ForegroundService
+import android.app.KeyguardManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
