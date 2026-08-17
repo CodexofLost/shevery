@@ -154,3 +154,6 @@ Follow this steps:
 - Create GH Repository for this module.
 - Add topic "shevery-modules"
 - Add sources and Release with module.
+
+## Attention!
+- Shevery r32 gonna be 22.08.26
