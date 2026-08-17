@@ -1,6 +1,6 @@
 package moe.shizuku.manager.worker
 
-import android.app.KeyguardManager
+import android.app.ForegroundService
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -78,7 +78,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ForegroundInfo(
                     ShizukuReceiverStarter.NOTIFICATION_ID,
                     fgNotification,
-                    "specialUse"
+                    android.app.ForegroundService.TYPE_SPECIAL_USE
                 )
             } else {
                 ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, fgNotification)
