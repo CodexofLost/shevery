@@ -134,7 +134,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                                 applicationContext,
                                 unlockReceiver,
                                 filter,
-                                ContextCompat.RECEIVER_EXPORTED
+                                ContextCompat.RECEIVER_NOT_EXPORTED
                             )
                         } else {
                             awaitingAuth = true

@@ -84,19 +84,19 @@ object ShizukuReceiverStarter {
 
         val cancelIntent = Intent(context, NotifCancelReceiver::class.java)
         val cancelPendingIntent = PendingIntent.getBroadcast(
-            context, 0, cancelIntent,
+            context, 1, cancelIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val attemptNowIntent = Intent(context, NotifAttemptReceiver::class.java)
         val attemptNowPendingIntent = PendingIntent.getBroadcast(
-            context, 0, attemptNowIntent,
+            context, 2, attemptNowIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val restoreIntent = Intent(context, NotifRestoreReceiver::class.java)
         val restorePendingIntent = PendingIntent.getBroadcast(
-            context, 0, restoreIntent,
+            context, 3, restoreIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
