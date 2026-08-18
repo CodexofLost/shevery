@@ -14,7 +14,7 @@ import moe.shizuku.manager.receiver.SheveryControlReceiver
 
 object StartupNotificationManager {
     private const val CHANNEL_ID = "shevery_startup"
-    private const val NOTIFICATION_ID = 1003
+    private const val NOTIFICATION_ID = 1005
     private var channelCreated = false
 
     private fun ensureChannel(context: Context) {
@@ -77,7 +77,7 @@ object StartupNotificationManager {
                 action = SheveryControlReceiver.ACTION_STOP_SERVER
             }
             val cancelPendingIntent = PendingIntent.getBroadcast(
-                context, 0, cancelIntent,
+                context, 201, cancelIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
             builder.addAction(
@@ -93,7 +93,7 @@ object StartupNotificationManager {
                 action = SheveryControlReceiver.ACTION_START_SERVER
             }
             val attemptPendingIntent = PendingIntent.getBroadcast(
-                context, 1, attemptIntent,
+                context, 601, attemptIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
             builder.addAction(

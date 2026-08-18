@@ -64,7 +64,7 @@ object SheveryNotificationManager {
 
         val mainIntent = Intent(context, MainActivity::class.java)
         val mainPendingIntent = PendingIntent.getActivity(
-            context, 0, mainIntent,
+            context, 401, mainIntent,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
 
@@ -84,7 +84,7 @@ object SheveryNotificationManager {
                 action = SheveryControlReceiver.ACTION_STOP_SERVER
             }
             val stopPendingIntent = PendingIntent.getBroadcast(
-                context, 1, stopIntent,
+                context, 501, stopIntent,
                 PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
             builder.addAction(
@@ -97,7 +97,7 @@ object SheveryNotificationManager {
                 action = SheveryControlReceiver.ACTION_START_SERVER
             }
             val startPendingIntent = PendingIntent.getBroadcast(
-                context, 2, startIntent,
+                context, 502, startIntent,
                 PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
             builder.addAction(

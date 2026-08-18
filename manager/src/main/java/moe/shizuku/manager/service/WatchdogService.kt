@@ -110,7 +110,7 @@ class WatchdogService : Service() {
         }
         val launchPendingIntent = PendingIntent.getActivity(
             this,
-            0,
+            302,
             launchIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -128,7 +128,7 @@ class WatchdogService : Service() {
 
     companion object {
         private const val CHANNEL_ID = "service_watchdog"
-        private const val NOTIFICATION_ID = 1003
+        private const val NOTIFICATION_ID = 1004
 
         fun reconcile(context: Context) {
             val appContext = context.applicationContext

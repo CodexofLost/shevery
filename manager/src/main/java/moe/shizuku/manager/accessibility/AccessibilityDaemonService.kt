@@ -174,7 +174,7 @@ class AccessibilityDaemonService : Service() {
         createChannel()
         val notificationIntent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
-            this, 0, notificationIntent,
+            this, 101, notificationIntent,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
@@ -188,7 +188,7 @@ class AccessibilityDaemonService : Service() {
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             startForeground(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
         } else {
             startForeground(NOTIFICATION_ID, notification)
@@ -211,7 +211,7 @@ class AccessibilityDaemonService : Service() {
 
     companion object {
         private const val CHANNEL_ID = "accessibility_keep_alive"
-        private const val NOTIFICATION_ID = 1003
+        private const val NOTIFICATION_ID = 1006
         private const val HEARTBEAT_INTERVAL_MS = 60_000L
         private const val MIN_CHECK_INTERVAL_MS = 2_000L
 

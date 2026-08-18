@@ -41,6 +41,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
     companion object {
         private const val MAX_RETRY_COUNT = 3
+        private const val CHANNEL_ID = "AdbStartWorker"
 
         fun enqueue(context: Context) {
             val cb = Constraints.Builder()
@@ -60,9 +61,6 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 request
             )
         }
-
-        const val CHANNEL_ID = "AdbStartWorker"
-        const val NOTIFICATION_ID = 1448
     }
 
     override suspend fun doWork(): Result {
@@ -126,6 +124,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                                 override fun onReceive(context: Context, intent: Intent) {
                                     if (intent.action == Intent.ACTION_USER_PRESENT) {
                                         context.unregisterReceiver(this)
+                                        unlockReceiver = null
                                         Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
                                     }
                                 }
@@ -241,7 +240,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             action = SheveryControlReceiver.ACTION_START_SERVER
         }
         val pendingIntent = PendingIntent.getBroadcast(
-            context, 0, intent,
+            context, 6, intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
