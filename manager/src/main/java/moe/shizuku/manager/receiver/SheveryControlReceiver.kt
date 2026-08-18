@@ -8,6 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.AppConstants
+import moe.shizuku.manager.ktx.logw
 import moe.shizuku.manager.service.SheveryNotificationManager
 import moe.shizuku.manager.service.WatchdogManager
 

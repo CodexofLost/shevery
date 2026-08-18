@@ -26,9 +26,9 @@ import moe.shizuku.manager.worker.AdbStartWorker
 object ShizukuReceiverStarter {
 
     const val NOTIFICATION_ID = 1447
-    private const val CHANNEL_ID = "shizuku_receiver_starter"
+    internal const val CHANNEL_ID = "shizuku_receiver_starter"
     private val adbStarting = java.util.concurrent.atomic.AtomicBoolean(false)
-    private var channelCreated = false
+    internal var channelCreated = false
 
     enum class WorkerState {
         AWAITING_WIFI,
@@ -162,7 +162,7 @@ object ShizukuReceiverStarter {
         nm.notify(NOTIFICATION_ID, builder.build())
     }
 
-    private fun ensureChannel(context: Context) {
+    internal fun ensureChannel(context: Context) {
         if (channelCreated) return
         channelCreated = true
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

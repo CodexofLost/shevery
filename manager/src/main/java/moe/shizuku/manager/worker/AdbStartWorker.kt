@@ -9,6 +9,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.database.ContentObserver
 import android.net.Uri
 import android.os.Build
@@ -93,7 +94,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
                 Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
             } else {
-                logd("WRITE_SECURE_SETTINGS not granted, skipping ADB secure settings")
+                Log.d(AppConstants.TAG, "WRITE_SECURE_SETTINGS not granted, skipping ADB secure settings")
             }
 
             val tcpPort = EnvironmentUtils.getAdbTcpPort()
