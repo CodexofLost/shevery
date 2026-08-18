@@ -350,7 +350,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_startup_started">Shevery started.</string>
     <string name="notification_startup_failed">Failed to start Shevery.</string>
     <string name="notification_startup_no_port">Wireless debugging port not found within 15 seconds.</string>
-    <string name="notification_startup_no_permission">Cannot start on boot: WRITE_SECURE_SETTINGS permission not granted. Open Shevery and grant the permission first.</string>
+    <string name="notification_startup_no_permission">Cannot start on boot: a required permission is not granted. Open Shevery and grant the permission first.</string>
     <string name="notification_startup_waiting_unlock">Waiting for device unlock to start…</string>
     <string name="notification_startup_cancel">Cancel</string>
     <string name="notification_startup_attempt_now">Attempt now</string>

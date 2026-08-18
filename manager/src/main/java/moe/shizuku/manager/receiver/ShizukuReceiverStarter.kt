@@ -49,11 +49,15 @@ object ShizukuReceiverStarter {
                 rootStart(context)
             } else if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.R || EnvironmentUtils.isTelevision() || EnvironmentUtils.getAdbTcpPort() > 0)
                 && ShizukuSettings.getLastLaunchMode() == LaunchMethod.ADB) {
-                    AdbStartWorker.enqueue(context)
-                    // Cancel the startup notification (id 1005) since the worker
-                    // notification (id 1447) is now the source of truth.
-                    moe.shizuku.manager.service.StartupNotificationManager.dismiss(context)
-                    updateNotification(context, WorkerState.AWAITING_WIFI)
+                    if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
+                        AdbStartWorker.enqueue(context)
+                        // Cancel the startup notification (id 1005) since the worker
+                        // notification (id 1447) is now the source of truth.
+                        moe.shizuku.manager.service.StartupNotificationManager.dismiss(context)
+                        updateNotification(context, WorkerState.AWAITING_WIFI)
+                    } else {
+                        showPermissionErrorNotification(context)
+                    }
                 } else {
                     showPermissionErrorNotification(context)
                 }

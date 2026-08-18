@@ -52,6 +52,16 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 )
                 return
             }
+            // On API 36+ (Android 16+), local network access requires ACCESS_LOCAL_NETWORK
+            if (Build.VERSION.SDK_INT >= 36
+                && context.checkSelfPermission("android.permission.ACCESS_LOCAL_NETWORK")
+                        != PackageManager.PERMISSION_GRANTED) {
+                moe.shizuku.manager.service.StartupNotificationManager.showFailed(
+                    context,
+                    context.getString(moe.shizuku.manager.R.string.notification_startup_no_permission)
+                )
+                return
+            }
             val tcpPort = EnvironmentUtils.getAdbTcpPort()
             if (tcpPort > 0 && (EnvironmentUtils.isTV(context) || ShizukuSettings.isTcpMode())) {
                 ShizukuReceiverStarter.start(context)
@@ -131,6 +141,19 @@ class BootCompleteReceiver : BroadcastReceiver() {
             return
         }
         // Timeout handles the case where user never unlocks
+    }
+
+    private fun hasLocalNetworkPermission(context: Context): Boolean {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+            && context.checkSelfPermission(NEARBY_WIFI_DEVICES) != PackageManager.PERMISSION_GRANTED) {
+            return false
+        }
+        if (Build.VERSION.SDK_INT >= 36
+            && context.checkSelfPermission("android.permission.ACCESS_LOCAL_NETWORK")
+                    != PackageManager.PERMISSION_GRANTED) {
+            return false
+        }
+        return true
     }
 
     private fun rootStart(context: Context) {
