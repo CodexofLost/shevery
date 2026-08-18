@@ -19,8 +19,8 @@ object TokenStore {
             context,
             PREFS_NAME,
             masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM_HKDF_4KB,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM_HKDF_4KB
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
         return encryptedPrefs.getString(KEY_GITHUB_PAT, null)
     }
@@ -33,8 +33,8 @@ object TokenStore {
             context,
             PREFS_NAME,
             masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM_HKDF_4KB,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM_HKDF_4KB
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
         encryptedPrefs.edit().putString(KEY_GITHUB_PAT, token).apply()
     }
@@ -47,8 +47,8 @@ object TokenStore {
             context,
             PREFS_NAME,
             masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM_HKDF_4KB,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM_HKDF_4KB
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
         encryptedPrefs.edit().remove(KEY_GITHUB_PAT).apply()
     }
