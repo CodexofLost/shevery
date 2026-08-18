@@ -9,8 +9,6 @@ import rikka.shizuku.Shizuku
 
 object ShellBinderRequestHandler {
 
-    private val pkgManager by lazy { context.getSystemService(Context.PACKAGE_MANAGER_SERVICE) as PackageManager }
-
     fun handleRequest(context: Context, intent: Intent): Boolean {
         if (intent.action != "rikka.shizuku.intent.action.REQUEST_BINDER") {
             return false
@@ -19,10 +17,11 @@ object ShellBinderRequestHandler {
         // Verify the calling package holds the API_V23 permission before granting access
         val callingUid = Binder.getCallingUid()
         if (callingUid != Process.SYSTEM_UID) {
-            val packageName = pkgManager.getPackageName(callingUid, 0)
+            val pm = context.packageManager
+            val packageName = pm.getPackageName(callingUid, 0)
             if (packageName != null) {
                 val perm = "${context.packageName}.permission.API_V23"
-                if (pkgManager.checkPermission(perm, packageName) != PackageManager.PERMISSION_GRANTED) {
+                if (pm.checkPermission(perm, packageName) != PackageManager.PERMISSION_GRANTED) {
                     Log.w(AppConstants.TAG, "Denied binder request from $packageName (no API_V23)")
                     return false
                 }
