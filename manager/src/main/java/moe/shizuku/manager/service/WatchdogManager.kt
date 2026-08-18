@@ -83,13 +83,19 @@ object WatchdogManager {
 
         logi("Initializing service watchdog")
 
-        Shizuku.addBinderReceivedListenerSticky {
+        binderReceivedListener = Shizuku.addBinderReceivedListenerSticky {
             expectingDeath = false
         }
-
-        Shizuku.addBinderDeadListener {
+        binderDeadListener = Shizuku.addBinderDeadListener {
             onServiceDied(appContext)
         }
+    }
+
+    fun close() {
+        if (!initialized) return
+        binderReceivedListener?.let { Shizuku.removeBinderReceivedListener(it) }
+        binderDeadListener?.let { Shizuku.removeBinderDeadListener(it) }
+        initialized = false
     }
 
     fun isEnabled(): Boolean {
@@ -298,7 +304,7 @@ object WatchdogManager {
             val binder = Shizuku.getBinder() ?: return "binder was null"
             val service = IShizukuService.Stub.asInterface(binder)
             val process = service.newProcess(
-                arrayOf("sh", "-c", "for pid in $(pidof shevery_server 2>/dev/null); do kill -9 \"\$pid\"; done"),
+                arrayOf("sh", "-c", "for pid in $(pidof shevery_server 2>/dev/null); do kill -9 \"\\$pid\"; done"),
                 null,
                 null
             )

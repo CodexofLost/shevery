@@ -32,7 +32,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
             return
         }
 
-        if (UserHandleCompat.myUserId() > 0 || !Shizuku.pingBinder()) return
+        if (UserHandleCompat.myUserId() > 0 || ShizukuStateMachine.isRunning()) return
 
         if (ShizukuSettings.getStartOnBootAdb()
             && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -53,8 +53,12 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 return
             }
             // On API 36+ (Android 16+), local network access requires ACCESS_LOCAL_NETWORK
-            val ACCESS_LOCAL_NETWORK_PERMISSION = "android.permission.ACCESS_LOCAL_NETWORK"
-            if (Build.VERSION.SDK_INT >= 36
+            val ACCESS_LOCAL_NETWORK_PERMISSION =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM)
+                    "android.permission.ACCESS_LOCAL_NETWORK"
+                else
+                    "android.permission.ACCESS_LOCAL_NETWORK"
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM
                 && context.checkSelfPermission(ACCESS_LOCAL_NETWORK_PERMISSION)
                         != PackageManager.PERMISSION_GRANTED) {
                 moe.shizuku.manager.service.StartupNotificationManager.showFailed(
@@ -116,17 +120,14 @@ class BootCompleteReceiver : BroadcastReceiver() {
             }
         }
 
-        try {
-            val receiverFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                ContextCompat.RECEIVER_EXPORTED
-            } else {
-                0 // No flag needed on pre-S
-            }
             ContextCompat.registerReceiver(
                 appContext,
                 unlockReceiver,
                 IntentFilter(Intent.ACTION_USER_PRESENT),
-                receiverFlags
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                    ContextCompat.RECEIVER_EXPORTED
+                else
+                    0
             )
         } catch (e: Exception) {
             Log.w(AppConstants.TAG, "Failed to register unlock receiver", e)

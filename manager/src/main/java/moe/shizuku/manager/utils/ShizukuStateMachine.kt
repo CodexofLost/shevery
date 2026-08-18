@@ -57,17 +57,18 @@ object ShizukuStateMachine {
 
     private fun transitionAtomic(transform: (State) -> State) {
         var oldState: State
-        var newState: State
         do {
             oldState = state.get()
-            newState = transform(oldState)
+            val newState = transform(oldState)
             if (oldState == newState) return
-        } while (!state.compareAndSet(oldState, newState))
-
-        Log.d(TAG, "ShizukuStateMachine: $oldState -> $newState")
-        java.util.ArrayList<(State) -> Unit>().apply {
-            listeners.forEach { add(it) }
-        }.forEach { it(newState) }
+            if (state.compareAndSet(oldState, newState)) {
+                Log.d(TAG, "ShizukuStateMachine: $oldState -> $newState")
+                java.util.ArrayList<(State) -> Unit>().apply {
+                    listeners.forEach { add(it) }
+                }.forEach { it(newState) }
+                return
+            }
+        } while (true)
     }
 
     fun set(newState: State) = transitionAtomic { newState }
