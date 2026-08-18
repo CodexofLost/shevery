@@ -364,8 +364,8 @@
     <string name="home_diagnostics_title">Диагностика</string>
     <string name="home_diagnostics_copy">Скопировать диагностику</string>
     <string name="home_diagnostics_copied">Данные диагностики скопированы.</string>
-    <string name="permission_group_label">Shevery</string>
-    <string name="permission_group_description">@string/permission_label</string>
+    <string name="permission_group_label" translatable="false">Shevery</string>
+    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="starting_root_shell">Запуск root-оболочки…</string>
     <string name="home_dhizuku_title">Запуск (через Dhizuku)</string>
     <string name="home_dhizuku_description">Для устройств под управлением Dhizuku вы можете запустить Shevery напрямую, используя привилегии владельца устройства.</string>

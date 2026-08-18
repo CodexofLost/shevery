@@ -121,12 +121,12 @@ class AccessibilityDaemonService : Service() {
             addAction(Intent.ACTION_SCREEN_ON)
             addAction(Intent.ACTION_USER_PRESENT)
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(screenOnReceiver, filter, RECEIVER_NOT_EXPORTED)
+        val receiverFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ContextCompat.RECEIVER_NOT_EXPORTED
         } else {
-            @Suppress("UnspecifiedRegisterReceiverFlag")
-            registerReceiver(screenOnReceiver, filter)
+            ContextCompat.RECEIVER_EXPORTED
         }
+        ContextCompat.registerReceiver(this, screenOnReceiver, filter, receiverFlags)
     }
 
     private fun unregisterReceiverSafe(receiver: BroadcastReceiver) {
@@ -196,6 +196,8 @@ class AccessibilityDaemonService : Service() {
     }
 
     private fun createChannel() {
+        if (channelCreated) return
+        channelCreated = true
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             val channel = NotificationChannel(
@@ -214,6 +216,7 @@ class AccessibilityDaemonService : Service() {
         private const val NOTIFICATION_ID = 1006
         private const val HEARTBEAT_INTERVAL_MS = 60_000L
         private const val MIN_CHECK_INTERVAL_MS = 2_000L
+        private var channelCreated = false
 
         /**
          * Start the daemon if the master switch is on and there is at least

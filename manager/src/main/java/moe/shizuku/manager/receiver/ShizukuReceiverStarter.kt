@@ -26,8 +26,9 @@ import moe.shizuku.manager.worker.AdbStartWorker
 object ShizukuReceiverStarter {
 
     const val NOTIFICATION_ID = 1447
-    private const val CHANNEL_ID = "AdbStartWorker"
+    private const val CHANNEL_ID = "shizuku_receiver_starter"
     private val adbStarting = java.util.concurrent.atomic.AtomicBoolean(false)
+    private var channelCreated = false
 
     enum class WorkerState {
         AWAITING_WIFI,
@@ -70,37 +71,29 @@ object ShizukuReceiverStarter {
 
     fun buildNotification(context: Context, msg: String? = null): Notification {
         val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            nm.createNotificationChannel(
-                NotificationChannel(
-                    CHANNEL_ID,
-                    context.getString(R.string.wadb_notification_title),
-                    NotificationManager.IMPORTANCE_LOW
-                )
-            )
-        }
+        ensureChannel(context)
 
         val cancelIntent = Intent(context, NotifCancelReceiver::class.java)
         val cancelPendingIntent = PendingIntent.getBroadcast(
-            context, 1, cancelIntent,
+            context, 0x7F010001, cancelIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val attemptNowIntent = Intent(context, NotifAttemptReceiver::class.java)
         val attemptNowPendingIntent = PendingIntent.getBroadcast(
-            context, 2, attemptNowIntent,
+            context, 0x7F010002, attemptNowIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val restoreIntent = Intent(context, NotifRestoreReceiver::class.java)
         val restorePendingIntent = PendingIntent.getBroadcast(
-            context, 3, restoreIntent,
+            context, 0x7F010003, restoreIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val wifiIntent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://github.com/HmnDev-Tech/shevery/wiki#shizuku-isnt-starting-on-boot-for-me"))
         val wifiPendingIntent = PendingIntent.getActivity(
-            context, 4, wifiIntent,
+            context, 0x7F010004, wifiIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
@@ -149,15 +142,7 @@ object ShizukuReceiverStarter {
 
     private fun showPermissionErrorNotification(context: Context) {
         val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            nm.createNotificationChannel(
-                NotificationChannel(
-                    CHANNEL_ID,
-                    context.getString(R.string.wadb_notification_title),
-                    NotificationManager.IMPORTANCE_LOW
-                )
-            )
-        }
+        ensureChannel(context)
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_server_error_24dp)
@@ -169,11 +154,26 @@ object ShizukuReceiverStarter {
         val wikiUrl = "https://github.com/HmnDev-Tech/shevery/wiki#shizuku-isnt-starting-on-boot-for-me"
         val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(wikiUrl))
         val pendingIntent = PendingIntent.getActivity(
-            context, 5, intent,
+            context, 0x7F010005, intent,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
         builder.setContentIntent(pendingIntent)
 
         nm.notify(NOTIFICATION_ID, builder.build())
+    }
+
+    private fun ensureChannel(context: Context) {
+        if (channelCreated) return
+        channelCreated = true
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            nm.createNotificationChannel(
+                NotificationChannel(
+                    CHANNEL_ID,
+                    context.getString(R.string.wadb_notification_title),
+                    NotificationManager.IMPORTANCE_LOW
+                )
+            )
+        }
     }
 }
