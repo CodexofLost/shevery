@@ -82,7 +82,12 @@ class ModuleInstaller private constructor() {
                 "main"
             } else {
                 val body = resp.body?.string() ?: "main"
-                json.decodeFromString<GitHubRepo>(body).defaultBranch
+                try {
+                    json.decodeFromString<GitHubRepo>(body).defaultBranch
+                } catch (e: Exception) {
+                    Log.w(TAG, "Failed to parse repo response, using 'main'", e)
+                    "main"
+                }
             }
         }
 
@@ -107,10 +112,10 @@ class ModuleInstaller private constructor() {
             val dirsToFetch = ArrayDeque<String>()
 
             for (item in items) {
-                if (item.type == "file") {
-                    allFiles.add(item)
-                } else if (item.type == "dir") {
-                    dirsToFetch.add(item.name)
+                when (item.type) {
+                    "file" -> allFiles.add(item)
+                    "dir" -> dirsToFetch.add(item.name)
+                    else -> Log.w(TAG, "Unexpected item type: ${item.type}")
                 }
             }
 
@@ -130,10 +135,10 @@ class ModuleInstaller private constructor() {
                     val dirBody = dirResp.body?.string() ?: return@use
                     val dirItems = json.decodeFromString<List<ContentItem>>(dirBody)
                     for (dirItem in dirItems) {
-                        if (dirItem.type == "file") {
-                            allFiles.add(dirItem)
-                        } else if (dirItem.type == "dir") {
-                            dirsToFetch.add(dirItem.name)
+                        when (dirItem.type) {
+                            "file" -> allFiles.add(dirItem)
+                            "dir" -> dirsToFetch.add(dirItem.name)
+                            else -> Log.w(TAG, "Unexpected subdir item type: ${dirItem.type}")
                         }
                     }
                 }
@@ -147,8 +152,7 @@ class ModuleInstaller private constructor() {
         val zipFile = sourceZipBuilder.buildZip(context, moduleId, allFiles, githubPat, subPath)
             ?: return null
 
-            return Uri.fromFile(zipFile)
-        }
+        return Uri.fromFile(zipFile)
     }
 
     private suspend fun downloadRelease(

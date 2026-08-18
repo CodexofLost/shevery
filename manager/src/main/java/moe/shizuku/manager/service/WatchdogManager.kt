@@ -69,6 +69,9 @@ object WatchdogManager {
     @Volatile
     private var initialized = false
 
+    private var binderReceivedListener: rikka.shizuku.Shizuku.OnBinderReceivedListener? = null
+    private var binderDeadListener: rikka.shizuku.Shizuku.OnBinderDeadListener? = null
+
     private val restartInProgress = AtomicBoolean(false)
 
     @Volatile

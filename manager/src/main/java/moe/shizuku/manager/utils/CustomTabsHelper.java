@@ -44,6 +44,7 @@ public class CustomTabsHelper {
         }
 
         Uri.Builder uriBuilder = uri.buildUpon();
+        // Append query params before handling fragment to avoid invalid URL concatenation
         if ((context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_YES) > 0) {
             uriBuilder.appendQueryParameter("night", "1");
         }

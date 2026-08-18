@@ -154,8 +154,12 @@ fun CatalogScreen(onNavigateUp: () -> Unit) {
             if (cached.isNotEmpty()) { modules = cached; isLoading = false }
             else {
                 isLoading = true; error = null
-                try { modules = discoveryManager.getModules(forceRefresh = true) }
-                catch (e: Exception) { error = e.message }
+                try {
+                    val fresh = withContext(Dispatchers.IO) {
+                        discoveryManager.getModules(forceRefresh = true)
+                    }
+                    modules = fresh
+                } catch (e: Exception) { error = e.message }
                 finally { isLoading = false }
             }
         }

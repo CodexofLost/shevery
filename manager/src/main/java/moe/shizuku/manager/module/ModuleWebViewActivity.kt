@@ -62,7 +62,7 @@ class ModuleWebViewActivity : AppActivity() {
                     AndroidView(
                         factory = { context ->
                             WebView(context).apply {
-                                settings.javaScriptEnabled = true
+                                settings.javaScriptEnabled = trusted && webNetworkAllowed
                                 settings.domStorageEnabled = true
                                 settings.allowFileAccess = true
                                 settings.allowContentAccess = false
@@ -131,6 +131,8 @@ class ModuleWebViewActivity : AppActivity() {
             }
         }
         pendingCommands.clear()
+        // WebView is created inside Composable AndroidView — destroy to release native resources
+        // Note: This activity uses setContent {}, WebView lifecycle is managed by composition
     }
 
     private suspend fun confirmCommand(request: ModuleCommandRequest): Boolean = suspendCancellableCoroutine { continuation ->

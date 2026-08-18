@@ -101,8 +101,9 @@ object BackupRestoreUtil {
         
         // Before extracting modules, clear current modules
         val modulesRoot = AdbModuleManager.modulesRoot(context)
+        if (modulesRoot == null) return
         modulesRoot.deleteRecursively()
-        modulesRoot.mkdirs()
+        if (!modulesRoot.mkdirs() && !modulesRoot.isDirectory) return
 
         var entry = zipInputStream.getNextEntry()
         while (entry != null) {
@@ -176,14 +177,12 @@ object BackupRestoreUtil {
                 val relativePath = cleanName.substring("modules/".length)
                 if (relativePath.isNotEmpty()) {
                     val outFile = File(modulesRoot, relativePath)
-                    val rootPath = modulesRoot.canonicalFile.toPath()
-                    val childPath = outFile.canonicalFile.toPath()
-                    if (childPath.startsWith(rootPath)) {
+                    if (outFile.canonicalPath.startsWith(modulesRoot.canonicalPath + File.separator)) {
                         if (entry.isDirectory) {
                             outFile.mkdirs()
                         } else {
                             outFile.parentFile?.mkdirs()
-                            outFile.outputStream().use { output ->
+                            FileOutputStream(outFile).use { output ->
                                 val buffer = ByteArray(4096)
                                 var len: Int
                                 while (zipInputStream.read(buffer).also { len = it } > 0) {
