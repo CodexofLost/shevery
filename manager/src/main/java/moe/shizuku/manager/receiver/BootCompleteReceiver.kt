@@ -121,6 +121,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
             }
         }
 
+        try {
             ContextCompat.registerReceiver(
                 appContext,
                 unlockReceiver,

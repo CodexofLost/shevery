@@ -129,7 +129,7 @@ fun CatalogScreen(onNavigateUp: () -> Unit) {
     }
     val context = LocalContext.current
     val discoveryManager = remember { ModuleDiscoveryManager.getInstance(context) }
-    val installer = remember { ModuleInstaller.getInstance() }
+    val installer = remember { ModuleInstaller.getInstance(context) }
 
     var modules by remember { mutableStateOf<List<DiscoveredModule>>(emptyList()) }
     var installedIds by remember { mutableStateOf<Set<String>>(emptySet()) }

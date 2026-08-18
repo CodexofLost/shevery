@@ -2,8 +2,13 @@ package moe.shizuku.manager.shell
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Binder
 import android.os.IBinder
+import android.os.Process
 import android.os.Parcel
+import android.util.Log
+import moe.shizuku.manager.BuildConfig.AppConstants
 import moe.shizuku.manager.utils.Logger.LOGGER
 import rikka.shizuku.Shizuku
 
@@ -18,8 +23,9 @@ object ShellBinderRequestHandler {
         val callingUid = Binder.getCallingUid()
         if (callingUid != Process.SYSTEM_UID) {
             val pm = context.packageManager
-            val packageName = pm.getPackageName(callingUid, 0)
-            if (packageName != null) {
+            val packages = pm.getPackagesForUid(callingUid)
+            if (packages != null && packages.isNotEmpty()) {
+                val packageName = packages[0]
                 val perm = "${context.packageName}.permission.API_V23"
                 if (pm.checkPermission(perm, packageName) != PackageManager.PERMISSION_GRANTED) {
                     Log.w(AppConstants.TAG, "Denied binder request from $packageName (no API_V23)")
