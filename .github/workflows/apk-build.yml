@@ -23,21 +23,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up JDK 21
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
+          cache: gradle
 
       - name: Accept Android SDK licenses
         run: |
           yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null 2>&1 || true
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
 
       - name: Determine build type
         run: |
@@ -56,16 +52,7 @@ jobs:
             -dname "CN=Android Debug,O=Android,C=US" -keyalg RSA -keysize 2048 -validity 10000
 
       - name: Build APK
-        run: |
-          chmod +x gradlew.bin
-          # Clear Gradle cache dirs that may contain stale Kotlin IC metadata
-          rm -rf .gradle/kotlin* .gradle/caches/build-cache-* 2>/dev/null || true
-          ./gradlew.bin clean :manager:assemble${{ env.build_type == 'release' && 'Release' || 'Debug' }} \
-            --no-daemon \
-            --no-configuration-cache \
-            --no-build-cache \
-            -Pkotlin.incremental=false \
-            --stacktrace
+        run: sh gradlew.bin :manager:assemble${{ env.build_type == 'release' && 'Release' || 'Debug' }}
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4

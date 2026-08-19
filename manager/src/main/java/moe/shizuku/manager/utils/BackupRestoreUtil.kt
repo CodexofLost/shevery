@@ -8,7 +8,6 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.io.File
-import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
 import java.util.zip.ZipEntry
@@ -102,9 +101,8 @@ object BackupRestoreUtil {
         
         // Before extracting modules, clear current modules
         val modulesRoot = AdbModuleManager.modulesRoot(context)
-        if (modulesRoot == null) return
         modulesRoot.deleteRecursively()
-        if (!modulesRoot.mkdirs() && !modulesRoot.isDirectory) return
+        modulesRoot.mkdirs()
 
         var entry = zipInputStream.getNextEntry()
         while (entry != null) {
@@ -178,12 +176,14 @@ object BackupRestoreUtil {
                 val relativePath = cleanName.substring("modules/".length)
                 if (relativePath.isNotEmpty()) {
                     val outFile = File(modulesRoot, relativePath)
-                    if (outFile.canonicalPath.startsWith(modulesRoot.canonicalPath + File.separator)) {
+                    val rootPath = modulesRoot.canonicalFile.toPath()
+                    val childPath = outFile.canonicalFile.toPath()
+                    if (childPath.startsWith(rootPath)) {
                         if (entry.isDirectory) {
                             outFile.mkdirs()
                         } else {
                             outFile.parentFile?.mkdirs()
-                            FileOutputStream(outFile).use { output ->
+                            outFile.outputStream().use { output ->
                                 val buffer = ByteArray(4096)
                                 var len: Int
                                 while (zipInputStream.read(buffer).also { len = it } > 0) {

@@ -69,26 +69,10 @@ object WatchdogManager {
     @Volatile
     private var initialized = false
 
-    private var binderReceivedListener: rikka.shizuku.Shizuku.OnBinderReceivedListener? = null
-    private var binderDeadListener: rikka.shizuku.Shizuku.OnBinderDeadListener? = null
-
     private val restartInProgress = AtomicBoolean(false)
 
     @Volatile
     private var userStopRequested = false
-
-    private val binderReceivedListenerImpl: rikka.shizuku.Shizuku.OnBinderReceivedListener = object : rikka.shizuku.Shizuku.OnBinderReceivedListener {
-        override fun onBinderReceived() {
-            expectingDeath = false
-        }
-    }
-
-    private val binderDeadListenerImpl: rikka.shizuku.Shizuku.OnBinderDeadListener = object : rikka.shizuku.Shizuku.OnBinderDeadListener {
-        override fun onBinderDead() {
-            // Called when the Shizuku binder service dies; triggers onServiceDied logic
-            // in stopServerAndWait via binder ping checks
-        }
-    }
 
     fun init(context: Context) {
         val appContext = context.applicationContext
@@ -99,17 +83,13 @@ object WatchdogManager {
 
         logi("Initializing service watchdog")
 
-        binderReceivedListener = binderReceivedListenerImpl
-        Shizuku.addBinderReceivedListenerSticky(binderReceivedListenerImpl)
-        binderDeadListener = binderDeadListenerImpl
-        Shizuku.addBinderDeadListener(binderDeadListenerImpl)
-    }
+        Shizuku.addBinderReceivedListenerSticky {
+            expectingDeath = false
+        }
 
-    fun close() {
-        if (!initialized) return
-        binderReceivedListener?.let { Shizuku.removeBinderReceivedListener(it) }
-        binderDeadListener?.let { Shizuku.removeBinderDeadListener(it) }
-        initialized = false
+        Shizuku.addBinderDeadListener {
+            onServiceDied(appContext)
+        }
     }
 
     fun isEnabled(): Boolean {
@@ -318,7 +298,7 @@ object WatchdogManager {
             val binder = Shizuku.getBinder() ?: return "binder was null"
             val service = IShizukuService.Stub.asInterface(binder)
             val process = service.newProcess(
-                arrayOf("sh", "-c", "for pid in \$(pidof shevery_server 2>/dev/null); do kill -9 \"\$pid\"; done"),
+                arrayOf("sh", "-c", "for pid in $(pidof shevery_server 2>/dev/null); do kill -9 \"\$pid\"; done"),
                 null,
                 null
             )

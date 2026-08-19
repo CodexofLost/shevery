@@ -1,8 +1,6 @@
 package moe.shizuku.manager.module.catalog
 
 import android.content.Context
-import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKey
 
 object TokenStore {
     private const val PREFS_NAME = "catalog_token_prefs"
@@ -12,45 +10,15 @@ object TokenStore {
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
     fun getToken(context: Context): String? {
-        val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-            .build()
-        val encryptedPrefs = EncryptedSharedPreferences.create(
-            context,
-            PREFS_NAME,
-            masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
-        return encryptedPrefs.getString(KEY_GITHUB_PAT, null)
+        return getPrefs(context).getString(KEY_GITHUB_PAT, null)
     }
 
     fun setToken(context: Context, token: String) {
-        val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-            .build()
-        val encryptedPrefs = EncryptedSharedPreferences.create(
-            context,
-            PREFS_NAME,
-            masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
-        encryptedPrefs.edit().putString(KEY_GITHUB_PAT, token).apply()
+        getPrefs(context).edit().putString(KEY_GITHUB_PAT, token).apply()
     }
 
     fun clearToken(context: Context) {
-        val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-            .build()
-        val encryptedPrefs = EncryptedSharedPreferences.create(
-            context,
-            PREFS_NAME,
-            masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
-        encryptedPrefs.edit().remove(KEY_GITHUB_PAT).apply()
+        getPrefs(context).edit().remove(KEY_GITHUB_PAT).apply()
     }
 
     fun isValidTokenFormat(token: String): Boolean {

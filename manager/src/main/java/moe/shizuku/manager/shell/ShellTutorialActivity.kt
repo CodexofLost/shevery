@@ -22,12 +22,10 @@ import moe.shizuku.manager.utils.CustomTabsHelper
 class ShellTutorialActivity : AppActivity() {
 
     companion object {
+
         private const val SH_NAME = "rish"
         private const val DEX_NAME = "rish_shizuku.dex"
     }
-
-    private var rishFileUri: Uri? = null
-    private var dexFileUri: Uri? = null
 
     private val openDocumentsTree =
         registerForActivityResult(ActivityResultContracts.OpenDocumentTree()) { tree: Uri? ->
@@ -55,30 +53,14 @@ class ShellTutorialActivity : AppActivity() {
             }
 
             fun writeToDocument(name: String) {
-                val uri = DocumentsContract.createDocument(contentResolver, doc, "application/octet-stream", name)
-                if (uri != null) {
-                    if (name == SH_NAME) rishFileUri = uri
-                    if (name == DEX_NAME) dexFileUri = uri
-                    cr.openOutputStream(uri)?.use { assets.open(name).copyTo(it) }
+                DocumentsContract.createDocument(contentResolver, doc, "application/octet-stream", name)?.runCatching {
+                    cr.openOutputStream(this)?.let { assets.open(name).copyTo(it) }
                 }
             }
 
             writeToDocument(SH_NAME)
             writeToDocument(DEX_NAME)
         }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        // Clean up exported shell script files to prevent info leak
-        try {
-            rishFileUri?.let { uri ->
-                contentResolver.delete(uri, null, null)
-            }
-            dexFileUri?.let { uri ->
-                contentResolver.delete(uri, null, null)
-            }
-        } catch (_: Exception) {}
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

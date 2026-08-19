@@ -34,48 +34,32 @@ class ModuleInstaller private constructor() {
         owner: String,
         repo: String,
         subPath: String? = null
-    ): Result<moe.shizuku.manager.module.AdbModule> {
-        return withContext(Dispatchers.IO) {
-            try {
-                cleanupOldZips(context)
+    ): Result<moe.shizuku.manager.module.AdbModule> = withContext(Dispatchers.IO) {
+        try {
+            cleanupOldZips(context)
 
-                val installMode = ModuleSettings.getInstallMode()
-                val githubPat = TokenStore.getToken(context)
-                Log.d(TAG, "Installing $moduleId mode=$installMode token=${if (githubPat.isNullOrBlank()) "null" else "set"}")
+            val installMode = ModuleSettings.getInstallMode()
+            val githubPat = TokenStore.getToken(context)
+            Log.d(TAG, "Installing $moduleId mode=$installMode token=${if (githubPat.isNullOrBlank()) "null" else "set"}")
 
-                val zipUri = installMode.let { mode ->
-                    when (mode) {
-                        ModuleSettings.InstallMode.SOURCES -> {
-                            val ctx = context;
-                            val id = moduleId;
-                            val own = owner;
-                            val r = repo;
-                            val sp = subPath;
-                            val t = githubPat;
-                            buildFromSources(ctx, id, own, r, sp, t)
-                        }
-                        ModuleSettings.InstallMode.RELEASE -> {
-                            val ctx = context;
-                            val id = moduleId;
-                            val own = owner;
-                            val r = repo;
-                            val t = githubPat;
-                            downloadRelease(ctx, id, own, r, t)
-                        }
-                        else -> null
-                    }
+            val zipUri = when (installMode) {
+                ModuleSettings.InstallMode.SOURCES -> {
+                    buildFromSources(context, moduleId, owner, repo, subPath, githubPat)
                 }
-
-                if (zipUri == null) {
-                    Result.failure(Exception("Failed to prepare module ZIP"))
-                } else {
-                    val module = AdbModuleManager.install(context, zipUri)
-                    Result.success(module)
+                ModuleSettings.InstallMode.RELEASE -> {
+                    downloadRelease(context, moduleId, owner, repo, githubPat)
                 }
-            } catch (e: Exception) {
-                Log.e(TAG, "Install failed for $moduleId", e)
-                Result.failure(e)
             }
+
+            if (zipUri == null) {
+                return@withContext Result.failure(Exception("Failed to prepare module ZIP"))
+            }
+
+            val module = AdbModuleManager.install(context, zipUri)
+            Result.success(module)
+        } catch (e: Exception) {
+            Log.e(TAG, "Install failed for $moduleId", e)
+            Result.failure(e)
         }
     }
 
@@ -98,12 +82,7 @@ class ModuleInstaller private constructor() {
                 "main"
             } else {
                 val body = resp.body?.string() ?: "main"
-                try {
-                    json.decodeFromString<GitHubRepo>(body).defaultBranch
-                } catch (e: Exception) {
-                    Log.w(TAG, "Failed to parse repo response, using 'main'", e)
-                    "main"
-                }
+                json.decodeFromString<GitHubRepo>(body).defaultBranch
             }
         }
 
@@ -128,10 +107,10 @@ class ModuleInstaller private constructor() {
             val dirsToFetch = ArrayDeque<String>()
 
             for (item in items) {
-                when (item.type) {
-                    "file" -> allFiles.add(item)
-                    "dir" -> dirsToFetch.add(item.name)
-                    else -> Log.w(TAG, "Unexpected item type: ${item.type}")
+                if (item.type == "file") {
+                    allFiles.add(item)
+                } else if (item.type == "dir") {
+                    dirsToFetch.add(item.name)
                 }
             }
 
@@ -151,10 +130,10 @@ class ModuleInstaller private constructor() {
                     val dirBody = dirResp.body?.string() ?: return@use
                     val dirItems = json.decodeFromString<List<ContentItem>>(dirBody)
                     for (dirItem in dirItems) {
-                        when (dirItem.type) {
-                            "file" -> allFiles.add(dirItem)
-                            "dir" -> dirsToFetch.add(dirItem.name)
-                            else -> Log.w(TAG, "Unexpected subdir item type: ${dirItem.type}")
+                        if (dirItem.type == "file") {
+                            allFiles.add(dirItem)
+                        } else if (dirItem.type == "dir") {
+                            dirsToFetch.add(dirItem.name)
                         }
                     }
                 }
@@ -165,8 +144,8 @@ class ModuleInstaller private constructor() {
                 return null
             }
 
-            val zipFile = sourceZipBuilder.buildZip(context, moduleId, allFiles, githubPat, subPath)
-                ?: return null
+        val zipFile = sourceZipBuilder.buildZip(context, moduleId, allFiles, githubPat, subPath)
+            ?: return null
 
             return Uri.fromFile(zipFile)
         }

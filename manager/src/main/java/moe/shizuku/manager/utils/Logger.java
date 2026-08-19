@@ -15,7 +15,7 @@ public class Logger {
     }
 
     public boolean isLoggable(String tag, int level) {
-        return BuildConfig.DEBUG || level <= Log.INFO;
+        return true;
     }
 
     public void v(String msg) {
