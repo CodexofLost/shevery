@@ -27,7 +27,10 @@ object TokenStore {
             )
         } catch (e: Exception) {
             Log.w(TAG, "EncryptedSharedPreferences creation failed, migrating: ${e.message}")
-            context.deleteSharedPreferences(PREFS_NAME)
+            // Delete plain SharedPreferences file so encrypted version can be created
+            val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            prefs.edit().clear().apply()
+            prefs.close()
             EncryptedSharedPreferences.create(
                 context,
                 PREFS_NAME,
