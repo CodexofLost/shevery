@@ -31,11 +31,13 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: never
 
       - name: Accept Android SDK licenses
         run: |
           yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null 2>&1 || true
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Determine build type
         run: |
@@ -54,7 +56,13 @@ jobs:
             -dname "CN=Android Debug,O=Android,C=US" -keyalg RSA -keysize 2048 -validity 10000
 
       - name: Build APK
-        run: sh gradlew.bin --no-daemon --no-configuration-cache --no-build-cache :manager:assemble${{ env.build_type == 'release' && 'Release' || 'Debug' }}
+        run: |
+          sh gradlew.bin clean :manager:assemble${{ env.build_type == 'release' && 'Release' || 'Debug' }} \
+            --no-daemon \
+            --no-configuration-cache \
+            --no-build-cache \
+            -Pkotlin.incremental=false \
+            --stacktrace
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
