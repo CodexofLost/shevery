@@ -10,6 +10,9 @@ object TokenStore {
     private const val KEY_GITHUB_PAT = "github_pat"
     private const val TAG = "TokenStore"
 
+    @Volatile
+    private var cachedPrefs: EncryptedSharedPreferences? = null
+
     private fun getOrCreateEncryptedPrefs(context: Context): EncryptedSharedPreferences {
         val masterKey = MasterKey.Builder(context)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
@@ -35,12 +38,8 @@ object TokenStore {
         }
     }
 
-    companion object {
-        private var cachedPrefs: EncryptedSharedPreferences? = null
-
-        fun getCachedPrefs(context: Context): EncryptedSharedPreferences {
-            return cachedPrefs ?: getOrCreateEncryptedPrefs(context).also { cachedPrefs = it }
-        }
+    private fun getCachedPrefs(context: Context): EncryptedSharedPreferences {
+        return cachedPrefs ?: getOrCreateEncryptedPrefs(context).also { cachedPrefs = it }
     }
 
     fun getToken(context: Context): String? {
