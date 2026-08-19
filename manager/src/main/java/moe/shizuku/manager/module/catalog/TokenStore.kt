@@ -35,16 +35,24 @@ object TokenStore {
         }
     }
 
+    companion object {
+        private var cachedPrefs: EncryptedSharedPreferences? = null
+
+        fun getCachedPrefs(context: Context): EncryptedSharedPreferences {
+            return cachedPrefs ?: getOrCreateEncryptedPrefs(context).also { cachedPrefs = it }
+        }
+    }
+
     fun getToken(context: Context): String? {
-        return getOrCreateEncryptedPrefs(context).getString(KEY_GITHUB_PAT, null)
+        return getCachedPrefs(context).getString(KEY_GITHUB_PAT, null)
     }
 
     fun setToken(context: Context, token: String) {
-        getOrCreateEncryptedPrefs(context).edit().putString(KEY_GITHUB_PAT, token).apply()
+        getCachedPrefs(context).edit().putString(KEY_GITHUB_PAT, token).apply()
     }
 
     fun clearToken(context: Context) {
-        getOrCreateEncryptedPrefs(context).edit().remove(KEY_GITHUB_PAT).apply()
+        getCachedPrefs(context).edit().remove(KEY_GITHUB_PAT).apply()
     }
 
     fun isValidTokenFormat(token: String): Boolean {
