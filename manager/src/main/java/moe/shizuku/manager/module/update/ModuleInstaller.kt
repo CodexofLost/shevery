@@ -34,32 +34,34 @@ class ModuleInstaller private constructor() {
         owner: String,
         repo: String,
         subPath: String? = null
-    ): Result<moe.shizuku.manager.module.AdbModule> = withContext(Dispatchers.IO) {
-        try {
-            cleanupOldZips(context)
+    ): Result<moe.shizuku.manager.module.AdbModule> {
+        return withContext(Dispatchers.IO) {
+            try {
+                cleanupOldZips(context)
 
-            val installMode = ModuleSettings.getInstallMode()
-            val githubPat = TokenStore.getToken(context)
-            Log.d(TAG, "Installing $moduleId mode=$installMode token=${if (githubPat.isNullOrBlank()) "null" else "set"}")
+                val installMode = ModuleSettings.getInstallMode()
+                val githubPat = TokenStore.getToken(context)
+                Log.d(TAG, "Installing $moduleId mode=$installMode token=${if (githubPat.isNullOrBlank()) "null" else "set"}")
 
-            val zipUri = when (installMode) {
-                ModuleSettings.InstallMode.SOURCES -> {
-                    buildFromSources(context, moduleId, owner, repo, subPath, githubPat)
+                val zipUri = when (installMode) {
+                    ModuleSettings.InstallMode.SOURCES -> {
+                        buildFromSources(context, moduleId, owner, repo, subPath, githubPat)
+                    }
+                    ModuleSettings.InstallMode.RELEASE -> {
+                        downloadRelease(context, moduleId, owner, repo, githubPat)
+                    }
                 }
-                ModuleSettings.InstallMode.RELEASE -> {
-                    downloadRelease(context, moduleId, owner, repo, githubPat)
+
+                if (zipUri == null) {
+                    return@withContext Result.failure(Exception("Failed to prepare module ZIP"))
                 }
-            }
 
-            if (zipUri == null) {
-                return@withContext Result.failure(Exception("Failed to prepare module ZIP"))
+                val module = AdbModuleManager.install(context, zipUri)
+                Result.success(module)
+            } catch (e: Exception) {
+                Log.e(TAG, "Install failed for $moduleId", e)
+                Result.failure(e)
             }
-
-            val module = AdbModuleManager.install(context, zipUri)
-            Result.success(module)
-        } catch (e: Exception) {
-            Log.e(TAG, "Install failed for $moduleId", e)
-            Result.failure(e)
         }
     }
 

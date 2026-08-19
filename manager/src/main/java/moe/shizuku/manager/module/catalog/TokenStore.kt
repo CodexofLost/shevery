@@ -13,42 +13,42 @@ object TokenStore {
 
     fun getToken(context: Context): String? {
         val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM_HKDF_4KB)
             .build()
         val encryptedPrefs = EncryptedSharedPreferences.create(
             context,
             PREFS_NAME,
             masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM_HKDF_4KB,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM_HKDF_4KB
         )
         return encryptedPrefs.getString(KEY_GITHUB_PAT, null)
     }
 
     fun setToken(context: Context, token: String) {
         val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM_HKDF_4KB)
             .build()
         val encryptedPrefs = EncryptedSharedPreferences.create(
             context,
             PREFS_NAME,
             masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM_HKDF_4KB,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM_HKDF_4KB
         )
         encryptedPrefs.edit().putString(KEY_GITHUB_PAT, token).apply()
     }
 
     fun clearToken(context: Context) {
         val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM_HKDF_4KB)
             .build()
         val encryptedPrefs = EncryptedSharedPreferences.create(
             context,
             PREFS_NAME,
             masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_GCM_HKDF_4KB,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM_HKDF_4KB
         )
         encryptedPrefs.edit().remove(KEY_GITHUB_PAT).apply()
     }

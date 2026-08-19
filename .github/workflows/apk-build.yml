@@ -57,7 +57,7 @@ jobs:
 
       - name: Build APK
         run: |
-          sh gradlew.bin clean :manager:assemble${{ env.build_type == 'release' && 'Release' || 'Debug' }} \
+          ./gradlew.bin clean :manager:assemble${{ env.build_type == 'release' && 'Release' || 'Debug' }} \
             --no-daemon \
             --no-configuration-cache \
             --no-build-cache \

@@ -8,7 +8,7 @@ import android.os.IBinder
 import android.os.Process
 import android.os.Parcel
 import android.util.Log
-import moe.shizuku.manager.BuildConfig.AppConstants
+import moe.shizuku.manager.AppConstants
 import moe.shizuku.manager.utils.Logger.LOGGER
 import rikka.shizuku.Shizuku
 
