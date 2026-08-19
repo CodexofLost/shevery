@@ -151,10 +151,11 @@ class ModuleInstaller private constructor() {
                 return null
             }
 
-        val zipFile = sourceZipBuilder.buildZip(context, moduleId, allFiles, githubPat, subPath)
-            ?: return null
+            val zipFile = sourceZipBuilder.buildZip(context, moduleId, allFiles, githubPat, subPath)
+                ?: return null
 
-        return Uri.fromFile(zipFile)
+            return Uri.fromFile(zipFile)
+        }
     }
 
     private suspend fun downloadRelease(

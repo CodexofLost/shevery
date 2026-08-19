@@ -13,7 +13,7 @@ object TokenStore {
 
     fun getToken(context: Context): String? {
         val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM_HKDF_4KB)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
         val encryptedPrefs = EncryptedSharedPreferences.create(
             context,
@@ -27,7 +27,7 @@ object TokenStore {
 
     fun setToken(context: Context, token: String) {
         val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM_HKDF_4KB)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
         val encryptedPrefs = EncryptedSharedPreferences.create(
             context,
@@ -41,7 +41,7 @@ object TokenStore {
 
     fun clearToken(context: Context) {
         val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM_HKDF_4KB)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
         val encryptedPrefs = EncryptedSharedPreferences.create(
             context,

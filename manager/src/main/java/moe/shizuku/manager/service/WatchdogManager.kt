@@ -86,16 +86,12 @@ object WatchdogManager {
 
         logi("Initializing service watchdog")
 
-        binderReceivedListener = Shizuku.addBinderReceivedListenerSticky(
-            onBinderReceived = {
-                expectingDeath = false
-            }
-        )
-        binderDeadListener = Shizuku.addBinderDeadListener(
-            onServiceDied = {
-                onServiceDied(appContext)
-            }
-        )
+        binderReceivedListener = Shizuku.addBinderReceivedListenerSticky { _ ->
+            expectingDeath = false
+        }
+        binderDeadListener = Shizuku.addBinderDeadListener { _ ->
+            onServiceDied(appContext)
+        }
     }
 
     fun close() {

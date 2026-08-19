@@ -58,6 +58,8 @@ jobs:
       - name: Build APK
         run: |
           chmod +x gradlew.bin
+          # Clear Gradle cache dirs that may contain stale Kotlin IC metadata
+          rm -rf .gradle/kotlin* .gradle/caches/build-cache-* 2>/dev/null || true
           ./gradlew.bin clean :manager:assemble${{ env.build_type == 'release' && 'Release' || 'Debug' }} \
             --no-daemon \
             --no-configuration-cache \
