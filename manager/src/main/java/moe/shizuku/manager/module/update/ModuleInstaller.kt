@@ -53,11 +53,11 @@ class ModuleInstaller private constructor() {
                 }
 
                 if (zipUri == null) {
-                    return@withContext Result.failure(Exception("Failed to prepare module ZIP"))
+                    Result.failure(Exception("Failed to prepare module ZIP"))
+                } else {
+                    val module = AdbModuleManager.install(context, zipUri)
+                    Result.success(module)
                 }
-
-                val module = AdbModuleManager.install(context, zipUri)
-                Result.success(module)
             } catch (e: Exception) {
                 Log.e(TAG, "Install failed for $moduleId", e)
                 Result.failure(e)

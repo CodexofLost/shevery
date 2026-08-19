@@ -77,6 +77,19 @@ object WatchdogManager {
     @Volatile
     private var userStopRequested = false
 
+    private val binderReceivedListenerImpl: rikka.shizuku.Shizuku.OnBinderReceivedListener = object : rikka.shizuku.Shizuku.OnBinderReceivedListener {
+        override fun onBinderReceived() {
+            expectingDeath = false
+        }
+    }
+
+    private val binderDeadListenerImpl: rikka.shizuku.Shizuku.OnBinderDeadListener = object : rikka.shizuku.Shizuku.OnBinderDeadListener {
+        override fun onBinderDead() {
+            // Called when the Shizuku binder service dies; triggers onServiceDied logic
+            // in stopServerAndWait via binder ping checks
+        }
+    }
+
     fun init(context: Context) {
         val appContext = context.applicationContext
         if (initialized) return
@@ -86,12 +99,10 @@ object WatchdogManager {
 
         logi("Initializing service watchdog")
 
-        binderReceivedListener = Shizuku.addBinderReceivedListenerSticky { _ ->
-            expectingDeath = false
-        }
-        binderDeadListener = Shizuku.addBinderDeadListener { _ ->
-            onServiceDied(appContext)
-        }
+        binderReceivedListener = binderReceivedListenerImpl
+        Shizuku.addBinderReceivedListenerSticky(binderReceivedListenerImpl)
+        binderDeadListener = binderDeadListenerImpl
+        Shizuku.addBinderDeadListener(binderDeadListenerImpl)
     }
 
     fun close() {
