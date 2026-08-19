@@ -1,6 +1,7 @@
 package moe.shizuku.manager.module.catalog
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
@@ -11,9 +12,9 @@ object TokenStore {
     private const val TAG = "TokenStore"
 
     @Volatile
-    private var cachedPrefs: EncryptedSharedPreferences? = null
+    private var cachedPrefs: SharedPreferences? = null
 
-    private fun getOrCreateEncryptedPrefs(context: Context): EncryptedSharedPreferences {
+    private fun getOrCreateEncryptedPrefs(context: Context): SharedPreferences {
         val masterKey = MasterKey.Builder(context)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
@@ -27,10 +28,7 @@ object TokenStore {
             )
         } catch (e: Exception) {
             Log.w(TAG, "EncryptedSharedPreferences creation failed, migrating: ${e.message}")
-            // Delete plain SharedPreferences file so encrypted version can be created
-            val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-            prefs.edit().clear().apply()
-            prefs.close()
+            context.deleteSharedPreferences(PREFS_NAME)
             EncryptedSharedPreferences.create(
                 context,
                 PREFS_NAME,
@@ -41,8 +39,10 @@ object TokenStore {
         }
     }
 
-    private fun getCachedPrefs(context: Context): EncryptedSharedPreferences {
-        return cachedPrefs ?: getOrCreateEncryptedPrefs(context).also { cachedPrefs = it }
+    private fun getCachedPrefs(context: Context): SharedPreferences {
+        return cachedPrefs ?: synchronized(this) {
+            cachedPrefs ?: getOrCreateEncryptedPrefs(context).also { cachedPrefs = it }
+        }
     }
 
     fun getToken(context: Context): String? {
