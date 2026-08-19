@@ -43,12 +43,26 @@ class ModuleInstaller private constructor() {
                 val githubPat = TokenStore.getToken(context)
                 Log.d(TAG, "Installing $moduleId mode=$installMode token=${if (githubPat.isNullOrBlank()) "null" else "set"}")
 
-                val zipUri = when (installMode) {
-                    ModuleSettings.InstallMode.SOURCES -> {
-                        buildFromSources(context, moduleId, owner, repo, subPath, githubPat)
-                    }
-                    ModuleSettings.InstallMode.RELEASE -> {
-                        downloadRelease(context, moduleId, owner, repo, githubPat)
+                val zipUri = installMode.let { mode ->
+                    when (mode) {
+                        ModuleSettings.InstallMode.SOURCES -> {
+                            val ctx = context;
+                            val id = moduleId;
+                            val own = owner;
+                            val r = repo;
+                            val sp = subPath;
+                            val t = githubPat;
+                            buildFromSources(ctx, id, own, r, sp, t)
+                        }
+                        ModuleSettings.InstallMode.RELEASE -> {
+                            val ctx = context;
+                            val id = moduleId;
+                            val own = owner;
+                            val r = repo;
+                            val t = githubPat;
+                            downloadRelease(ctx, id, own, r, t)
+                        }
+                        else -> null
                     }
                 }
 
