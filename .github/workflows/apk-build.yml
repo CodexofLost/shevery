@@ -29,7 +29,7 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: false
+          cache: never
 
       - name: Accept Android SDK licenses
         run: |
