@@ -37,6 +37,10 @@ class ShellTutorialActivity : AppActivity() {
             val child =
                 DocumentsContract.buildChildDocumentsUriUsingTree(tree, DocumentsContract.getTreeDocumentId(tree))
 
+            // Collect existing documents so we can replace our own rish files on re-export
+            // (prevents stale binaries and duplicate "rish (1)" entries) without touching
+            // anything else the user keeps in this directory.
+            val existing = mutableListOf<Pair<String, String>>() // (documentId, displayName)
             cr.query(
                 child,
                 arrayOf(DocumentsContract.Document.COLUMN_DOCUMENT_ID, DocumentsContract.Document.COLUMN_DISPLAY_NAME),
@@ -44,16 +48,25 @@ class ShellTutorialActivity : AppActivity() {
                 null,
                 null
             )?.use { cursor ->
-                val existingNames = mutableSetOf<String>()
                 while (cursor.moveToNext()) {
-                    existingNames.add(cursor.getString(1) ?: "")
+                    existing.add(Pair(cursor.getString(0) ?: "", cursor.getString(1) ?: ""))
                 }
-                // If rish / rish_shizuku.dex already exist the user may want to keep them;
-                // DocumentsContract.createDocument will suffix duplicates (e.g. "rish (1)").
-                // Allow the write helper to handle the naming collision explicitly.
+            }
+
+            fun deleteExisting(name: String) {
+                existing.firstOrNull { it.second == name }?.let { target ->
+                    try {
+                        val uri = DocumentsContract.buildDocumentUriUsingTree(tree, target.first)
+                        DocumentsContract.deleteDocument(cr, uri)
+                        Log.i("ShellTutorial", "Deleted stale $name before re-export")
+                    } catch (e: Exception) {
+                        Log.w("ShellTutorial", "Could not delete stale $name (continuing)", e)
+                    }
+                }
             }
 
             fun writeToDocument(name: String) {
+                deleteExisting(name)
                 val docUri = DocumentsContract.createDocument(contentResolver, doc, "application/octet-stream", name)
                 if (docUri == null) {
                     Log.w("ShellTutorial", "createDocument returned null for $name")

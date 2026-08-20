@@ -42,8 +42,13 @@ object TokenStore {
         }
     }
 
+    /**
+     * Atomic-ish migration: read the legacy plaintext token, create the new encrypted
+     * prefs and copy the token in BEFORE deleting the legacy file. If any step fails,
+     * the legacy file (and the token) survives.
+     */
     private fun migrateAndRecreate(appContext: Context, masterKey: MasterKey): SharedPreferences {
-        // Try to read the old plaintext token before wiping, so upgrades don't silently lose it
+        // 1) Best-effort read of the legacy plaintext token
         var legacyToken: String? = null
         try {
             val plain = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -51,19 +56,33 @@ object TokenStore {
         } catch (_: Exception) {
             // ignore — best-effort migration
         }
-        // Invalidate stale cached instance before deleting file
-        synchronized(this) { cachedPrefs = null }
-        appContext.deleteSharedPreferences(PREFS_NAME)
-        return try {
-            createEncryptedPrefs(appContext, masterKey).also { prefs ->
-                if (!legacyToken.isNullOrBlank()) {
-                    try { prefs.edit().putString(KEY_GITHUB_PAT, legacyToken).apply() } catch (_: Exception) {}
-                }
-            }
+
+        // 2) Create the encrypted prefs FIRST — if this throws, legacy file is untouched
+        val fresh = try {
+            createEncryptedPrefs(appContext, masterKey)
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to recreate EncryptedSharedPreferences after migration", e)
+            Log.e(TAG, "Failed to recreate EncryptedSharedPreferences during migration; legacy file kept", e)
             throw e
         }
+
+        // 3) Copy token into encrypted prefs BEFORE deleting legacy file
+        if (!legacyToken.isNullOrBlank()) {
+            try {
+                fresh.edit().putString(KEY_GITHUB_PAT, legacyToken).apply()
+            } catch (e: Exception) {
+                Log.w(TAG, "Failed to persist migrated token into encrypted prefs", e)
+                throw e
+            }
+        }
+
+        // 4) Only now invalidate cache + delete the legacy plaintext file
+        synchronized(this) { cachedPrefs = null }
+        try {
+            appContext.deleteSharedPreferences(PREFS_NAME)
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to delete legacy prefs after migration (non-fatal)", e)
+        }
+        return fresh
     }
 
     private fun getCachedPrefs(context: Context): SharedPreferences {
