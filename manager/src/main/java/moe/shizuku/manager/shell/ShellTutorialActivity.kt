@@ -3,6 +3,7 @@ package moe.shizuku.manager.shell
 import android.net.Uri
 import android.os.Bundle
 import android.provider.DocumentsContract
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material3.Button
@@ -42,17 +43,28 @@ class ShellTutorialActivity : AppActivity() {
                 null,
                 null,
                 null
-            )?.use {
-                while (it.moveToNext()) {
-                    val id = it.getString(0)
-                    val name = it.getString(1)
-                    // Only write files — don't delete existing ones the user may want to keep
+            )?.use { cursor ->
+                val existingNames = mutableSetOf<String>()
+                while (cursor.moveToNext()) {
+                    existingNames.add(cursor.getString(1) ?: "")
                 }
+                // If rish / rish_shizuku.dex already exist the user may want to keep them;
+                // DocumentsContract.createDocument will suffix duplicates (e.g. "rish (1)").
+                // Allow the write helper to handle the naming collision explicitly.
             }
 
             fun writeToDocument(name: String) {
-                DocumentsContract.createDocument(contentResolver, doc, "application/octet-stream", name)?.runCatching {
-                    cr.openOutputStream(this)?.let { assets.open(name).copyTo(it) }
+                val docUri = DocumentsContract.createDocument(contentResolver, doc, "application/octet-stream", name)
+                if (docUri == null) {
+                    Log.w("ShellTutorial", "createDocument returned null for $name")
+                    return
+                }
+                try {
+                    cr.openOutputStream(docUri)?.use { out ->
+                        assets.open(name).copyTo(out)
+                    } ?: Log.w("ShellTutorial", "openOutputStream returned null for $name")
+                } catch (e: Exception) {
+                    Log.w("ShellTutorial", "Failed to write $name to $docUri", e)
                 }
             }
 

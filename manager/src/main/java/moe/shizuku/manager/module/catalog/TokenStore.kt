@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 import android.util.Log
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import java.io.IOException
+import java.security.GeneralSecurityException
 
 object TokenStore {
     private const val PREFS_NAME = "catalog_token_prefs"
@@ -14,28 +16,53 @@ object TokenStore {
     @Volatile
     private var cachedPrefs: SharedPreferences? = null
 
+    private fun createEncryptedPrefs(appContext: Context, masterKey: MasterKey): SharedPreferences {
+        return EncryptedSharedPreferences.create(
+            appContext,
+            PREFS_NAME,
+            masterKey,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+        )
+    }
+
     private fun getOrCreateEncryptedPrefs(context: Context): SharedPreferences {
-        val masterKey = MasterKey.Builder(context)
+        val appContext = context.applicationContext
+        val masterKey = MasterKey.Builder(appContext)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
         return try {
-            EncryptedSharedPreferences.create(
-                context,
-                PREFS_NAME,
-                masterKey,
-                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-            )
+            createEncryptedPrefs(appContext, masterKey)
+        } catch (e: GeneralSecurityException) {
+            Log.w(TAG, "EncryptedSharedPreferences creation failed (keystore), migrating: ${e.message}")
+            migrateAndRecreate(appContext, masterKey)
+        } catch (e: IOException) {
+            Log.w(TAG, "EncryptedSharedPreferences creation failed (IO), migrating: ${e.message}")
+            migrateAndRecreate(appContext, masterKey)
+        }
+    }
+
+    private fun migrateAndRecreate(appContext: Context, masterKey: MasterKey): SharedPreferences {
+        // Try to read the old plaintext token before wiping, so upgrades don't silently lose it
+        var legacyToken: String? = null
+        try {
+            val plain = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            legacyToken = plain.getString(KEY_GITHUB_PAT, null)
+        } catch (_: Exception) {
+            // ignore — best-effort migration
+        }
+        // Invalidate stale cached instance before deleting file
+        synchronized(this) { cachedPrefs = null }
+        appContext.deleteSharedPreferences(PREFS_NAME)
+        return try {
+            createEncryptedPrefs(appContext, masterKey).also { prefs ->
+                if (!legacyToken.isNullOrBlank()) {
+                    try { prefs.edit().putString(KEY_GITHUB_PAT, legacyToken).apply() } catch (_: Exception) {}
+                }
+            }
         } catch (e: Exception) {
-            Log.w(TAG, "EncryptedSharedPreferences creation failed, migrating: ${e.message}")
-            context.deleteSharedPreferences(PREFS_NAME)
-            EncryptedSharedPreferences.create(
-                context,
-                PREFS_NAME,
-                masterKey,
-                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-            )
+            Log.e(TAG, "Failed to recreate EncryptedSharedPreferences after migration", e)
+            throw e
         }
     }
 
