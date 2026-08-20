@@ -32,7 +32,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
             return
         }
 
-        if (UserHandleCompat.myUserId() > 0 || !Shizuku.pingBinder()) return
+        if (UserHandleCompat.myUserId() > 0 || Shizuku.pingBinder()) return
 
         if (ShizukuSettings.getStartOnBootAdb()
             && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
