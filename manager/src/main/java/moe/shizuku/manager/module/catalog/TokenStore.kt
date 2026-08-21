@@ -12,6 +12,8 @@ object TokenStore {
     private const val PREFS_NAME = "catalog_token_prefs"
     private const val KEY_GITHUB_PAT = "github_pat"
     private const val TAG = "TokenStore"
+    private const val ENCRYPTED_PREFS_NAME_SUFFIX = ".enc"
+    private val encryptedPrefsName: String get() = "$PREFS_NAME$ENCRYPTED_PREFS_NAME_SUFFIX"
 
     @Volatile
     private var cachedPrefs: SharedPreferences? = null
@@ -19,11 +21,22 @@ object TokenStore {
     private fun createEncryptedPrefs(appContext: Context, masterKey: MasterKey): SharedPreferences {
         return EncryptedSharedPreferences.create(
             appContext,
-            PREFS_NAME,
+            encryptedPrefsName,
             masterKey,
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
+    }
+
+    private fun checkFileCollision(appContext: Context): Boolean {
+        // Delete any leftover encrypted prefs with the same base name that may have been
+        // created before this fix was deployed — otherwise the new file can't be created.
+        try {
+            appContext.deleteSharedPreferences(encryptedPrefsName)
+        } catch (_: Exception) {
+            // ignore — file may not exist yet
+        }
+        return true
     }
 
     private fun getOrCreateEncryptedPrefs(context: Context): SharedPreferences {
@@ -32,6 +45,7 @@ object TokenStore {
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
         return try {
+            checkFileCollision(appContext)
             createEncryptedPrefs(appContext, masterKey)
         } catch (e: GeneralSecurityException) {
             Log.w(TAG, "EncryptedSharedPreferences creation failed (keystore), migrating: ${e.message}")
@@ -44,7 +58,8 @@ object TokenStore {
 
     /**
      * Atomic-ish migration: read the legacy plaintext token, create the new encrypted
-     * prefs and copy the token in BEFORE deleting the legacy file. If any step fails,
+     * prefs on a SEPARATE filename (so the legacy plaintext file is never clobbered),
+     * copy the token in, then delete the legacy plaintext file. If any step fails,
      * the legacy file (and the token) survives.
      */
     private fun migrateAndRecreate(appContext: Context, masterKey: MasterKey): SharedPreferences {
@@ -57,11 +72,14 @@ object TokenStore {
             // ignore — best-effort migration
         }
 
-        // 2) Create the encrypted prefs FIRST — if this throws, legacy file is untouched
+        // 2) Create the encrypted prefs on a different filename so the legacy file
+        //    is never clobbered. If the encrypted prefs already existed from a prior
+        //    partial migration, delete it first so we start clean.
+        checkFileCollision(appContext)
         val fresh = try {
             createEncryptedPrefs(appContext, masterKey)
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to recreate EncryptedSharedPreferences during migration; legacy file kept", e)
+            Log.e(TAG, "Failed to create new encrypted prefs; legacy file kept", e)
             throw e
         }
 
