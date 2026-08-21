@@ -47,9 +47,23 @@ object TokenStore {
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
         return try {
-            // Normal path: just create (or open existing) the encrypted prefs.
-            // DO NOT delete anything here — that would lose the persisted token.
-            createEncryptedPrefs(appContext, masterKey)
+            val prefs = createEncryptedPrefs(appContext, masterKey)
+            // One-time happy-path migration: if legacy plaintext has a token
+            // and the new encrypted prefs is empty, copy it over and delete
+            // the legacy file. This covers the normal first-launch-after-upgrade
+            // case where createEncryptedPrefs succeeds (no keystore issue).
+            try {
+                val legacy = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                val legacyToken = legacy.getString(KEY_GITHUB_PAT, null)
+                if (!legacyToken.isNullOrBlank() &&
+                    prefs.getString(KEY_GITHUB_PAT, null).isNullOrBlank()) {
+                    prefs.edit().putString(KEY_GITHUB_PAT, legacyToken).commit()
+                    appContext.deleteSharedPreferences(PREFS_NAME)
+                }
+            } catch (e: Exception) {
+                Log.w(TAG, "Happy-path legacy migration check failed (non-fatal)", e)
+            }
+            prefs
         } catch (e: GeneralSecurityException) {
             Log.w(TAG, "EncryptedSharedPreferences creation failed (keystore), migrating: ${e.message}")
             migrateAndRecreate(appContext, masterKey)
@@ -75,8 +89,13 @@ object TokenStore {
             // ignore — best-effort migration
         }
 
-        // 2) Clean any stale .enc file from a prior partial migration, then create fresh
-        cleanupStaleEncrypedPrefs(appContext)
+        // 2) Clean any stale .enc file ONLY if we have a legacy token to migrate.
+        //    If legacyToken is null (already migrated, or never existed), do NOT
+        //    delete the .enc file — that would wipe a valid user token on keystore
+        //    invalidation. Guard against silent data loss.
+        if (!legacyToken.isNullOrBlank()) {
+            cleanupStaleEncrypedPrefs(appContext)
+        }
         val fresh = try {
             createEncryptedPrefs(appContext, masterKey)
         } catch (e: Exception) {
@@ -87,7 +106,7 @@ object TokenStore {
         // 3) Copy token into encrypted prefs BEFORE deleting legacy file
         if (!legacyToken.isNullOrBlank()) {
             try {
-                fresh.edit().putString(KEY_GITHUB_PAT, legacyToken).apply()
+                fresh.edit().putString(KEY_GITHUB_PAT, legacyToken).commit()
             } catch (e: Exception) {
                 Log.w(TAG, "Failed to persist migrated token into encrypted prefs", e)
                 throw e
