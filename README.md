@@ -156,4 +156,4 @@ Follow this steps:
 - Add sources and Release with module.
 
 ## Attention!
-- Shevery r32 gonna be 22.08.26
+- Shevery r32 gonna be 25.08.26, because HmnDev-Tech got some problems with laptop.
