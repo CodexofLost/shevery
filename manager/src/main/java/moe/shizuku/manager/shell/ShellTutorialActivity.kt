@@ -3,6 +3,7 @@ package moe.shizuku.manager.shell
 import android.net.Uri
 import android.os.Bundle
 import android.provider.DocumentsContract
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material3.Button
@@ -36,25 +37,47 @@ class ShellTutorialActivity : AppActivity() {
             val child =
                 DocumentsContract.buildChildDocumentsUriUsingTree(tree, DocumentsContract.getTreeDocumentId(tree))
 
+            // Collect existing documents so we can replace our own rish files on re-export
+            // (prevents stale binaries and duplicate "rish (1)" entries) without touching
+            // anything else the user keeps in this directory.
+            val existing = mutableListOf<Pair<String, String>>() // (documentId, displayName)
             cr.query(
                 child,
                 arrayOf(DocumentsContract.Document.COLUMN_DOCUMENT_ID, DocumentsContract.Document.COLUMN_DISPLAY_NAME),
                 null,
                 null,
                 null
-            )?.use {
-                while (it.moveToNext()) {
-                    val id = it.getString(0)
-                    val name = it.getString(1)
-                    if (name == SH_NAME || name == DEX_NAME) {
-                        DocumentsContract.deleteDocument(cr, DocumentsContract.buildDocumentUriUsingTree(tree, id))
+            )?.use { cursor ->
+                while (cursor.moveToNext()) {
+                    existing.add(Pair(cursor.getString(0) ?: "", cursor.getString(1) ?: ""))
+                }
+            }
+
+            fun deleteExisting(name: String) {
+                existing.firstOrNull { it.second == name }?.let { target ->
+                    try {
+                        val uri = DocumentsContract.buildDocumentUriUsingTree(tree, target.first)
+                        DocumentsContract.deleteDocument(cr, uri)
+                        Log.i("ShellTutorial", "Deleted stale $name before re-export")
+                    } catch (e: Exception) {
+                        Log.w("ShellTutorial", "Could not delete stale $name (continuing)", e)
                     }
                 }
             }
 
             fun writeToDocument(name: String) {
-                DocumentsContract.createDocument(contentResolver, doc, "application/octet-stream", name)?.runCatching {
-                    cr.openOutputStream(this)?.let { assets.open(name).copyTo(it) }
+                deleteExisting(name)
+                val docUri = DocumentsContract.createDocument(contentResolver, doc, "application/octet-stream", name)
+                if (docUri == null) {
+                    Log.w("ShellTutorial", "createDocument returned null for $name")
+                    return
+                }
+                try {
+                    cr.openOutputStream(docUri)?.use { out ->
+                        assets.open(name).copyTo(out)
+                    } ?: Log.w("ShellTutorial", "openOutputStream returned null for $name")
+                } catch (e: Exception) {
+                    Log.w("ShellTutorial", "Failed to write $name to $docUri", e)
                 }
             }
 
