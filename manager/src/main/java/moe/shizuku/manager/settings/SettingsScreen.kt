@@ -60,8 +60,6 @@ import moe.shizuku.manager.ShizukuSettings.NIGHT_MODE
 import moe.shizuku.manager.app.ThemeHelper
 import moe.shizuku.manager.app.ThemeHelper.KEY_BLACK_NIGHT_THEME
 import moe.shizuku.manager.app.ThemeHelper.KEY_USE_SYSTEM_COLOR
-import moe.shizuku.manager.utils.EnvironmentUtils
-import moe.shizuku.manager.ktx.isComponentEnabled
 import moe.shizuku.manager.ktx.setComponentEnabled
 import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.module.ModuleSettings
@@ -95,8 +93,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Lifecycle.State
 import android.widget.Toast
-import moe.shizuku.manager.accessibility.AccessibilityManagerActivity
-import moe.shizuku.manager.ui.compose.SectionHeader
 import moe.shizuku.manager.utils.BackupRestoreUtil
 
 
@@ -386,7 +382,6 @@ fun SettingsScreen() {
                                         componentName,
                                         ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
                                     )
-                                    EnvironmentUtils.requestIgnoreBatteryOptimizations(context)
                                     if (!tcpMode) {
                                         Toast.makeText(
                                             context,
@@ -642,14 +637,6 @@ fun SettingsScreen() {
 
         item {
             SettingsGroup(title = stringResource(R.string.settings_sections_title)) {
-                SectionHeader(stringResource(R.string.accessibility_manager_lab_group))
-                SettingsRow(
-                    icon = R.drawable.ic_system_icon,
-                    title = stringResource(R.string.accessibility_manager_lab_title),
-                    summary = stringResource(R.string.accessibility_manager_lab_summary),
-                    onClick = { context.startActivity(Intent(context, AccessibilityManagerActivity::class.java)) }
-                )
-                GroupDivider()
                 SectionHeader(stringResource(R.string.lab_features_title))
                 SettingsRow(
                     icon = R.drawable.ic_settings_outline_24dp,
@@ -945,13 +932,22 @@ fun SettingsScreen() {
     }
 }
 
+@Composable
+private fun SectionHeader(title: String) {
+    Text(
+        text = title,
+        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 14.dp, bottom = 4.dp),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+        fontWeight = FontWeight.SemiBold
+    )
+}
+
 private data class LocaleOption(
     val tag: String,
     val title: String,
     val summary: String?
-)
-
-private fun buildLocaleOptions(context: android.content.Context, currentTag: String): List<LocaleOption> {
+)private fun buildLocaleOptions(context: android.content.Context, currentTag: String): List<LocaleOption> {
     val localeTags = ShizukuLocales.LOCALES
     val displayLocaleTags = ShizukuLocales.DISPLAY_LOCALES
     val currentLocale = ShizukuSettings.getLocale()
