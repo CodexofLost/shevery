@@ -329,6 +329,25 @@
     <string name="update_settings_github_pat_delete">Удалить токен</string>
     <string name="update_settings_github_pat_delete_summary">Удалить сохранённый токен GitHub</string>
 
+    <!-- Shevery App Updates -->
+    <string name="shevery_update_check_title">Проверить обновления Shevery</string>
+    <string name="shevery_update_check_summary">Проверить наличие новой версии менеджера Shevery</string>
+    <string name="shevery_update_checking">Проверка обновлений Shevery…</string>
+    <string name="shevery_update_up_to_date">У вас установлена последняя версия Shevery (%s)</string>
+    <string name="shevery_update_available_title">Доступно обновление Shevery!</string>
+    <string name="shevery_update_available_msg">Доступна версия %1$s (текущая: %2$s)</string>
+    <string name="shevery_update_download_apk">Скачать APK</string>
+    <string name="shevery_update_view_release">Открыть на GitHub</string>
+    <string name="shevery_update_channel">Канал обновлений</string>
+    <string name="shevery_update_channel_summary">Выбор канала релизов обновлений</string>
+    <string name="app_update_channel_stable">Стабильный</string>
+    <string name="app_update_channel_beta">Бета и предварительные версии</string>
+    <string name="shevery_update_auto_check">Проверять при запуске</string>
+    <string name="shevery_update_auto_check_summary">Автоматически проверять обновления Shevery при запуске</string>
+    <string name="shevery_update_group_title">Обновления приложения Shevery</string>
+    <string name="shevery_update_modules_group_title">Обновления модулей и каталог</string>
+    <string name="shevery_update_check_failed">Ошибка проверки обновлений: %s</string>
+
     <!-- Module Catalog -->
     <string name="modules_catalog">Каталог</string>
     <string name="modules_catalog_title">Каталог модулей</string>

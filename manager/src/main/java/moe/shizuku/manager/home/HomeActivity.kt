@@ -264,8 +264,7 @@ abstract class HomeActivity : AppActivity() {
                                         requestLocalNetworkPermission { permissionRefreshTick.intValue++ }
                                     },
                                     onStartDhizuku = { startDhizukuMode() },
-                                    dhizukuEnabled = ModuleSettings.isDhizukuEnabled(),
-                                    onStartTcp5555 = { runWithLocalNetworkAccess(::bindTcp5555) }
+                                    dhizukuEnabled = ModuleSettings.isDhizukuEnabled()
                                 )
                                 1 -> moe.shizuku.manager.module.ModulesScreen(onOpenWebUi = {
                                     startActivity(
@@ -710,8 +709,7 @@ private fun HomeScreen(
     onCopyDiagnostics: (String) -> Unit,
     onRequestLocalNetworkPermission: () -> Unit,
     onStartDhizuku: () -> Unit,
-    dhizukuEnabled: Boolean,
-    onStartTcp5555: () -> Unit
+    dhizukuEnabled: Boolean
 ) {
     val context = LocalContext.current
     val status = serviceResource?.data ?: ServiceStatus()
@@ -819,7 +817,6 @@ private fun HomeScreen(
                     onTerminal = onTerminal,
                     onStartWirelessAdb = onStartWirelessAdb,
                     onPairWirelessAdb = onPairWirelessAdb,
-                    onStartTcp5555 = onStartTcp5555,
                     onOpenWirelessGuide = onOpenWirelessGuide
                 )
             }
@@ -1082,7 +1079,6 @@ private fun QuickActionsPills(
     onTerminal: () -> Unit,
     onStartWirelessAdb: () -> Unit,
     onPairWirelessAdb: () -> Unit,
-    onStartTcp5555: () -> Unit,
     onOpenWirelessGuide: () -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -1106,11 +1102,6 @@ private fun QuickActionsPills(
                     icon = Icons.Rounded.NearMe,
                     label = stringResource(R.string.adb_pairing),
                     onClick = onPairWirelessAdb
-                )
-                QuickActionPill(
-                    icon = Icons.Rounded.Link,
-                    label = stringResource(R.string.home_quick_tcp),
-                    onClick = onStartTcp5555
                 )
             }
         }

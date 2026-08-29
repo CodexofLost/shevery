@@ -90,6 +90,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import android.widget.Toast
+import moe.shizuku.manager.accessibility.AccessibilityManagerActivity
+import moe.shizuku.manager.ui.compose.SectionHeader
 import moe.shizuku.manager.utils.BackupRestoreUtil
 
 
@@ -607,6 +609,14 @@ fun SettingsScreen() {
 
         item {
             SettingsGroup(title = stringResource(R.string.settings_sections_title)) {
+                SectionHeader(stringResource(R.string.accessibility_manager_lab_group))
+                SettingsRow(
+                    icon = R.drawable.ic_system_icon,
+                    title = stringResource(R.string.accessibility_manager_lab_title),
+                    summary = stringResource(R.string.accessibility_manager_lab_summary),
+                    onClick = { context.startActivity(Intent(context, AccessibilityManagerActivity::class.java)) }
+                )
+                GroupDivider()
                 SectionHeader(stringResource(R.string.lab_features_title))
                 SettingsRow(
                     icon = R.drawable.ic_settings_outline_24dp,
