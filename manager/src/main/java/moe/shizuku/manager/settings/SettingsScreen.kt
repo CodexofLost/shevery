@@ -106,18 +106,15 @@ fun SettingsScreen() {
 
     var startOnBoot by remember {
         mutableStateOf(
-            ShizukuSettings.getStartOnBoot()
-                || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
+            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
         )
     }
     var rooted by remember { mutableStateOf(false) }
-    var hasCheckedRoot by remember { mutableStateOf(false) }
     val lifecycleOwner = LocalLifecycleOwner.current
 
     // Initial root check on first composition (off main thread)
     LaunchedEffect(Unit) {
         rooted = withContext(Dispatchers.IO) { EnvironmentUtils.isRooted() }
-        hasCheckedRoot = true
         if (!rooted && startOnBoot) {
             // One-time cleanup: stale pref from a previous rooted session
             ShizukuSettings.setStartOnBoot(false)
