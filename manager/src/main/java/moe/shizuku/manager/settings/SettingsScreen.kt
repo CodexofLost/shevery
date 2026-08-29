@@ -108,6 +108,7 @@ fun SettingsScreen() {
                 || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
         )
     }
+    var rooted by remember { mutableStateOf(EnvironmentUtils.isRooted()) }
     var adbStartOnBoot by remember {
         mutableStateOf(ShizukuSettings.getStartOnBootAdb())
     }
@@ -318,21 +319,35 @@ fun SettingsScreen() {
         item {
             SettingsGroup(title = stringResource(R.string.settings_application)) {
                 SectionHeader(stringResource(R.string.settings_startup))
-                if (EnvironmentUtils.isRooted()) {
-                    SwitchSettingsRow(
-                        icon = R.drawable.ic_server_restart,
-                        title = stringResource(R.string.settings_start_on_boot),
-                        summary = stringResource(R.string.settings_start_on_boot_summary),
-                        checked = startOnBoot,
-                        onCheckedChange = { enabled ->
-                            ShizukuSettings.setStartOnBoot(enabled)
-                            startOnBoot = ShizukuSettings.getStartOnBoot()
-                            packageManager.setComponentEnabled(
-                                componentName,
-                                ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
-                            )
-                        }
-                    )
+                SwitchSettingsRow(
+                    icon = R.drawable.ic_server_restart,
+                    title = stringResource(R.string.settings_start_on_boot),
+                    summary = stringResource(
+                        if (rooted) R.string.settings_start_on_boot_summary
+                        else R.string.settings_start_on_boot_summary_no_root
+                    ),
+                    enabled = rooted,
+                    checked = startOnBoot,
+                    onCheckedChange = { enabled ->
+                        if (!rooted) return@SwitchSettingsRow
+                        ShizukuSettings.setStartOnBoot(enabled)
+                        startOnBoot = ShizukuSettings.getStartOnBoot()
+                        packageManager.setComponentEnabled(
+                            componentName,
+                            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                        )
+                    }
+                )
+                if (!rooted && startOnBoot) {
+                    // One-time cleanup: stale pref from a previous rooted session
+                    LaunchedEffect(Unit) {
+                        ShizukuSettings.setStartOnBoot(false)
+                        startOnBoot = false
+                        packageManager.setComponentEnabled(
+                            componentName,
+                            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                        )
+                    }
                 }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     SwitchSettingsRow(
