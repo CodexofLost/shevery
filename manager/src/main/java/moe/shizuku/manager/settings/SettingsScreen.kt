@@ -42,7 +42,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -86,12 +86,11 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.lifecycle.Lifecycle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.Lifecycle.State
 import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
 
@@ -112,8 +111,23 @@ fun SettingsScreen() {
         )
     }
     var rooted by remember { mutableStateOf(false) }
+    var hasCheckedRoot by remember { mutableStateOf(false) }
     val lifecycleOwner = LocalLifecycleOwner.current
 
+    // Initial root check on first composition (off main thread)
+    LaunchedEffect(Unit) {
+        rooted = withContext(Dispatchers.IO) { EnvironmentUtils.isRooted() }
+        hasCheckedRoot = true
+        if (!rooted && startOnBoot) {
+            // One-time cleanup: stale pref from a previous rooted session
+            ShizukuSettings.setStartOnBoot(false)
+            startOnBoot = false
+            packageManager.setComponentEnabled(
+                componentName,
+                ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+            )
+        }
+    }
 
     // Re-check root whenever the activity is in the foreground
     LaunchedEffect(lifecycleOwner) {
@@ -352,17 +366,6 @@ fun SettingsScreen() {
                         )
                     }
                 )
-                if (!rooted && startOnBoot) {
-                    // One-time cleanup: stale pref from a previous rooted session
-                    LaunchedEffect(Unit) {
-                        ShizukuSettings.setStartOnBoot(false)
-                        startOnBoot = false
-                        packageManager.setComponentEnabled(
-                            componentName,
-                            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
-                        )
-                    }
-                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     SwitchSettingsRow(
                         icon = R.drawable.ic_wadb_24,
