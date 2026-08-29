@@ -156,8 +156,6 @@ Follow this steps:
 - Add sources and Release with module.
 
 ## Attention!
-- Shevery r32 gonna be 30.08.26, because HmnDev-Tech got some problems with laptop.
-- You can test the beta of r32 by pre-release.
 
 **New builds** here: [actions](http://github.com/kerneldroid/shevery-fork/actions) / [releases](https://github.com/kerneldroid/shevery-fork/releases)
 
