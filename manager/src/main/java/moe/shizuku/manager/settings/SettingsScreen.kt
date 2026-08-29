@@ -318,20 +318,22 @@ fun SettingsScreen() {
         item {
             SettingsGroup(title = stringResource(R.string.settings_application)) {
                 SectionHeader(stringResource(R.string.settings_startup))
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_server_restart,
-                    title = stringResource(R.string.settings_start_on_boot),
-                    summary = stringResource(R.string.settings_start_on_boot_summary),
-                    checked = startOnBoot,
-                    onCheckedChange = { enabled ->
-                        ShizukuSettings.setStartOnBoot(enabled)
-                        startOnBoot = ShizukuSettings.getStartOnBoot()
-                        packageManager.setComponentEnabled(
-                            componentName,
-                            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
-                        )
-                    }
-                )
+                if (EnvironmentUtils.isRooted()) {
+                    SwitchSettingsRow(
+                        icon = R.drawable.ic_server_restart,
+                        title = stringResource(R.string.settings_start_on_boot),
+                        summary = stringResource(R.string.settings_start_on_boot_summary),
+                        checked = startOnBoot,
+                        onCheckedChange = { enabled ->
+                            ShizukuSettings.setStartOnBoot(enabled)
+                            startOnBoot = ShizukuSettings.getStartOnBoot()
+                            packageManager.setComponentEnabled(
+                                componentName,
+                                ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                            )
+                        }
+                    )
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     SwitchSettingsRow(
                         icon = R.drawable.ic_wadb_24,
