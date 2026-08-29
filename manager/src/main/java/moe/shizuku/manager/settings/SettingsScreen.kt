@@ -89,6 +89,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
 import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
 
@@ -108,7 +110,29 @@ fun SettingsScreen() {
                 || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
         )
     }
-    var rooted by remember { mutableStateOf(EnvironmentUtils.isRooted()) }
+    var rooted by remember { mutableStateOf(false) }
+    var isCheckingRoot by remember { mutableStateOf(true) }
+    val coroutineScope = rememberCoroutineScope()
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    // Initial root check on first composition (off main thread)
+    LaunchedEffect(Unit) {
+        rooted = withContext(Dispatchers.IO) { EnvironmentUtils.isRooted() }
+        isCheckingRoot = false
+    }
+
+    // Re-check root when activity resumes
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                coroutineScope.launch(Dispatchers.IO) {
+                    rooted = EnvironmentUtils.isRooted()
+                }
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
     var adbStartOnBoot by remember {
         mutableStateOf(ShizukuSettings.getStartOnBootAdb())
     }
@@ -338,7 +362,7 @@ fun SettingsScreen() {
                         )
                     }
                 )
-                if (!rooted && startOnBoot) {
+                if (!isCheckingRoot && !rooted && startOnBoot) {
                     // One-time cleanup: stale pref from a previous rooted session
                     LaunchedEffect(Unit) {
                         ShizukuSettings.setStartOnBoot(false)
