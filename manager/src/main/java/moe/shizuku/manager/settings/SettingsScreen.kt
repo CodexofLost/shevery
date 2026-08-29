@@ -43,8 +43,10 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -85,10 +87,12 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Lifecycle.State
 import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
 
@@ -104,9 +108,33 @@ fun SettingsScreen() {
 
     var startOnBoot by remember {
         mutableStateOf(
-            ShizukuSettings.getStartOnBoot()
-                || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
+            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
         )
+    }
+    var rooted by remember { mutableStateOf(false) }
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    // Initial root check on first composition (off main thread)
+    LaunchedEffect(Unit) {
+        rooted = withContext(Dispatchers.IO) { EnvironmentUtils.isRooted() }
+        if (!rooted && startOnBoot) {
+            // One-time cleanup: stale pref from a previous rooted session
+            ShizukuSettings.setStartOnBoot(false)
+            startOnBoot = false
+            packageManager.setComponentEnabled(
+                componentName,
+                ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+            )
+        }
+    }
+
+    // Re-check root whenever the activity is in the foreground
+    LaunchedEffect(lifecycleOwner) {
+        lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            withContext(Dispatchers.IO) {
+                rooted = EnvironmentUtils.isRooted()
+            }
+        }
     }
     var adbStartOnBoot by remember {
         mutableStateOf(ShizukuSettings.getStartOnBootAdb())
@@ -318,20 +346,22 @@ fun SettingsScreen() {
         item {
             SettingsGroup(title = stringResource(R.string.settings_application)) {
                 SectionHeader(stringResource(R.string.settings_startup))
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_server_restart,
-                    title = stringResource(R.string.settings_start_on_boot),
-                    summary = stringResource(R.string.settings_start_on_boot_summary),
-                    checked = startOnBoot,
-                    onCheckedChange = { enabled ->
-                        ShizukuSettings.setStartOnBoot(enabled)
-                        startOnBoot = ShizukuSettings.getStartOnBoot()
-                        packageManager.setComponentEnabled(
-                            componentName,
-                            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
-                        )
-                    }
-                )
+                if (rooted) {
+                    SwitchSettingsRow(
+                        icon = R.drawable.ic_server_restart,
+                        title = stringResource(R.string.settings_start_on_boot),
+                        summary = stringResource(R.string.settings_start_on_boot_summary),
+                        checked = startOnBoot,
+                        onCheckedChange = { enabled ->
+                            ShizukuSettings.setStartOnBoot(enabled)
+                            startOnBoot = ShizukuSettings.getStartOnBoot()
+                            packageManager.setComponentEnabled(
+                                componentName,
+                                ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                            )
+                        }
+                    )
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     SwitchSettingsRow(
                         icon = R.drawable.ic_wadb_24,
