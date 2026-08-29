@@ -112,14 +112,8 @@ fun SettingsScreen() {
         )
     }
     var rooted by remember { mutableStateOf(false) }
-    var isCheckingRoot by remember { mutableStateOf(true) }
     val lifecycleOwner = LocalLifecycleOwner.current
 
-    // Initial root check on first composition (off main thread)
-    LaunchedEffect(Unit) {
-        rooted = withContext(Dispatchers.IO) { EnvironmentUtils.isRooted() }
-        isCheckingRoot = false
-    }
 
     // Re-check root whenever the activity is in the foreground
     LaunchedEffect(lifecycleOwner) {
