@@ -196,6 +196,15 @@ class AboutActivity : AppActivity() {
                     CustomTabsHelper.launchUrlOrCopy(context, "https://t.me/rikkacommunity")
                 }
             )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_baseline_link_24,
+                title = "Buy me a coffee",
+                summary = "Ko-fi.com/hmndevtech",
+                onClick = {
+                    CustomTabsHelper.launchUrlOrCopy(context, "https://Ko-fi.com/hmndevtech")
+                }
+            )
         }
     }
 }
