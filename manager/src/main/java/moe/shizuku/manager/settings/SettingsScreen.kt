@@ -91,7 +91,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.Lifecycle.State
-import androidx.lifecycle.Lifecycle
 import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
 
