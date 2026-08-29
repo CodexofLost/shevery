@@ -60,7 +60,6 @@ import moe.shizuku.manager.ShizukuSettings.NIGHT_MODE
 import moe.shizuku.manager.app.ThemeHelper
 import moe.shizuku.manager.app.ThemeHelper.KEY_BLACK_NIGHT_THEME
 import moe.shizuku.manager.app.ThemeHelper.KEY_USE_SYSTEM_COLOR
-import moe.shizuku.manager.ktx.isComponentEnabled
 import moe.shizuku.manager.ktx.setComponentEnabled
 import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.module.ModuleSettings
@@ -260,7 +259,6 @@ fun SettingsScreen() {
             }.onSuccess {
                 Toast.makeText(context, "Restore completed successfully", Toast.LENGTH_SHORT).show()
                 startOnBoot = ShizukuSettings.getStartOnBoot()
-                    || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
                 adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
                 errorProtect = ModuleSettings.isErrorProtectEnabled()
                 languageTag = prefs.getString(LANGUAGE, "SYSTEM") ?: "SYSTEM"
