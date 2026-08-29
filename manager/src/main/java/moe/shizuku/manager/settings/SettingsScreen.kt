@@ -86,11 +86,12 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.Lifecycle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Lifecycle
 import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
 
@@ -357,7 +358,7 @@ fun SettingsScreen() {
                         )
                     }
                 )
-                if (!isCheckingRoot && !rooted && startOnBoot) {
+                if (!rooted && startOnBoot) {
                     // One-time cleanup: stale pref from a previous rooted session
                     LaunchedEffect(Unit) {
                         ShizukuSettings.setStartOnBoot(false)
