@@ -40,10 +40,10 @@ jobs:
 
       - name: Determine build type
         run: |
-          if [ "${{ github.event.inputs.build_type }}" == "release" ]; then
-            echo "build_type=release" >> "$GITHUB_ENV"
-          else
+          if [ "${{ github.event.inputs.build_type }}" == "debug" ]; then
             echo "build_type=debug" >> "$GITHUB_ENV"
+          else
+            echo "build_type=release" >> "$GITHUB_ENV"
           fi
 
       - name: Configure signing
@@ -60,7 +60,7 @@ jobs:
           fi
           printf '%s' "$KEYSTORE_BASE64" | base64 --decode > key.jks
           {
-            printf 'KEYSTORE_FILE=../key.jks\n'
+            printf 'KEYSTORE_FILE=key.jks\n'
             printf 'KEYSTORE_PASSWORD=%s\n' "$SIGNING_STORE_PASSWORD"
             printf 'KEYSTORE_ALIAS=%s\n' "$SIGNING_KEY_ALIAS"
             printf 'KEYSTORE_ALIAS_PASSWORD=%s\n' "$SIGNING_KEY_PASSWORD"
@@ -75,7 +75,9 @@ jobs:
             -dname "CN=Android Debug,O=Android,C=US" -keyalg RSA -keysize 2048 -validity 10000
 
       - name: Build APK
-        run: sh gradlew.bin :manager:assemble${{ env.build_type == 'release' && 'Release' || 'Debug' }}
+        run: |
+          chmod +x gradlew gradlew.bin 2>/dev/null || true
+          ./gradlew :manager:assemble${{ env.build_type == 'release' && 'Release' || 'Debug' }}
 
       - name: Verify APK signature
         if: env.build_type == 'release'

@@ -912,22 +912,13 @@ fun SettingsScreen() {
     }
 }
 
-@Composable
-private fun SectionHeader(title: String) {
-    Text(
-        text = title,
-        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 14.dp, bottom = 4.dp),
-        style = MaterialTheme.typography.labelLarge,
-        color = MaterialTheme.colorScheme.primary,
-        fontWeight = FontWeight.SemiBold
-    )
-}
-
 private data class LocaleOption(
     val tag: String,
     val title: String,
     val summary: String?
-)private fun buildLocaleOptions(context: android.content.Context, currentTag: String): List<LocaleOption> {
+)
+
+private fun buildLocaleOptions(context: android.content.Context, currentTag: String): List<LocaleOption> {
     val localeTags = ShizukuLocales.LOCALES
     val displayLocaleTags = ShizukuLocales.DISPLAY_LOCALES
     val currentLocale = ShizukuSettings.getLocale()

@@ -584,6 +584,17 @@ fun SettingsGroup(
 }
 
 @Composable
+fun SectionHeader(title: String) {
+    Text(
+        text = title,
+        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 14.dp, bottom = 4.dp),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+        fontWeight = FontWeight.SemiBold
+    )
+}
+
+@Composable
 fun SettingsRow(
     @DrawableRes icon: Int?,
     title: String,
