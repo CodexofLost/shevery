@@ -150,6 +150,7 @@ private fun UpdateFrequencyDropdown(
         onExpandedChange = { expanded = !expanded }
     ) {
         SettingsRow(
+            modifier = Modifier.menuAnchor(),
             icon = R.drawable.ic_outline_notifications_active_24,
             title = stringResource(R.string.update_settings_frequency_label),
             summary = stringResource(when (selected) {
@@ -204,6 +205,7 @@ private fun InstallModeDropdown(
         onExpandedChange = { expanded = !expanded }
     ) {
         SettingsRow(
+            modifier = Modifier.menuAnchor(),
             icon = R.drawable.ic_outline_arrow_upward_24,
             title = stringResource(R.string.update_settings_install_mode_label),
             summary = stringResource(when (selected) {

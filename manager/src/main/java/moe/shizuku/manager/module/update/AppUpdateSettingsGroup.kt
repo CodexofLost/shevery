@@ -61,6 +61,19 @@ fun AppUpdateSettingsGroup() {
                     isCheckingAppUpdate = true
                     try {
                         appUpdateResult = SheveryUpdateChecker.getInstance().checkAppUpdate(context)
+                    } catch (e: Exception) {
+                        appUpdateResult = SheveryAppUpdateResult(
+                            hasUpdate = false,
+                            currentVersion = BuildConfig.VERSION_NAME,
+                            latestVersion = null,
+                            releaseTitle = null,
+                            releaseNotes = null,
+                            downloadUrl = null,
+                            htmlUrl = null,
+                            isPreRelease = false,
+                            publishedAt = null,
+                            error = e.message ?: "check_failed"
+                        )
                     } finally {
                         isCheckingAppUpdate = false
                     }
@@ -98,7 +111,7 @@ fun AppUpdateSettingsGroup() {
 
     if (isCheckingAppUpdate) {
         AlertDialog(
-            onDismissRequest = {},
+            onDismissRequest = { isCheckingAppUpdate = false },
             title = { Text(stringResource(R.string.shevery_update_check_title)) },
             text = {
                 Row(
