@@ -168,6 +168,12 @@ class BootCompleteReceiver : BroadcastReceiver() {
             com.topjohnwu.superuser.Shell.getCachedShell()?.close()
             return
         }
-        com.topjohnwu.superuser.Shell.cmd(moe.shizuku.manager.starter.Starter.internalCommand).exec()
+        try {
+            moe.shizuku.manager.utils.ShizukuStateMachine.set(moe.shizuku.manager.utils.ShizukuStateMachine.State.STARTING)
+            com.topjohnwu.superuser.Shell.cmd(moe.shizuku.manager.starter.Starter.internalCommand).exec()
+        } catch (e: Exception) {
+            Log.e(AppConstants.TAG, "Failed to start Shizuku with root on boot", e)
+            moe.shizuku.manager.utils.ShizukuStateMachine.update()
+        }
     }
 }
