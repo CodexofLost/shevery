@@ -373,7 +373,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_control_action_start">Start</string>
     <string name="notification_control_action_stop">Stop</string>
     <string name="settings_update_group_title">Update</string>
-
     <!-- Update Settings -->
     <string name="update_settings_title">Update Settings</string>
     <string name="update_settings_catalog">Module Catalog</string>
