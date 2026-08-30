@@ -59,8 +59,11 @@ fun AppUpdateSettingsGroup() {
             onClick = {
                 scope.launch {
                     isCheckingAppUpdate = true
-                    appUpdateResult = SheveryUpdateChecker.getInstance().checkAppUpdate(context)
-                    isCheckingAppUpdate = false
+                    try {
+                        appUpdateResult = SheveryUpdateChecker.getInstance().checkAppUpdate(context)
+                    } finally {
+                        isCheckingAppUpdate = false
+                    }
                 }
             }
         )
@@ -132,6 +135,7 @@ private fun AppUpdateChannelDropdown(
         onExpandedChange = { expanded = !expanded }
     ) {
         SettingsRow(
+            modifier = Modifier.menuAnchor(),
             icon = R.drawable.ic_outline_info_24,
             title = stringResource(R.string.shevery_update_channel),
             summary = stringResource(selected.labelRes),
@@ -170,6 +174,7 @@ private fun UpdateFrequencyDropdownForApp(
         onExpandedChange = { expanded = !expanded }
     ) {
         SettingsRow(
+            modifier = Modifier.menuAnchor(),
             icon = R.drawable.ic_outline_notifications_active_24,
             title = stringResource(R.string.update_settings_frequency_label),
             summary = stringResource(when (selected) {
