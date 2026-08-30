@@ -192,30 +192,6 @@ class AboutActivity : AppActivity() {
                     )
                 }
 
-                if (isCheckingUpdate) {
-                    androidx.compose.material3.AlertDialog(
-                        onDismissRequest = {},
-                        title = { Text(stringResource(R.string.shevery_update_check_title)) },
-                        text = {
-                            androidx.compose.foundation.layout.Row(
-                                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
-                                horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp),
-                                modifier = Modifier.padding(vertical = 8.dp)
-                            ) {
-                                androidx.compose.material3.CircularProgressIndicator(modifier = Modifier.size(28.dp))
-                                Text(stringResource(R.string.shevery_update_checking))
-                            }
-                        },
-                        confirmButton = {}
-                    )
-                }
-
-                appUpdateResult?.let { result ->
-                    SheveryAppUpdateDialog(
-                        result = result,
-                        onDismiss = { appUpdateResult = null }
-                    )
-                }
             }
         }
     }
