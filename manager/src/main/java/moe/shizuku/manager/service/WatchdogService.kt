@@ -21,6 +21,17 @@ class WatchdogService : Service() {
     private var errorProtectJob: Job? = null
     private val errorProtectScope = CoroutineScope(Dispatchers.Default)
 
+    private val binderReceivedListener = object : rikka.shizuku.Shizuku.OnBinderReceivedListener {
+        override fun onBinderReceived() {
+            startAsForeground()
+        }
+    }
+    private val binderDeadListener = object : rikka.shizuku.Shizuku.OnBinderDeadListener {
+        override fun onBinderDead() {
+            startAsForeground()
+        }
+    }
+
     override fun onCreate() {
         super.onCreate()
         WatchdogManager.init(applicationContext)
@@ -34,10 +45,14 @@ class WatchdogService : Service() {
 
         startAsForeground()
         startErrorProtectLoop()
+        rikka.shizuku.Shizuku.addBinderReceivedListenerSticky(binderReceivedListener)
+        rikka.shizuku.Shizuku.addBinderDeadListener(binderDeadListener)
         return START_STICKY
     }
 
     override fun onDestroy() {
+        rikka.shizuku.Shizuku.removeBinderReceivedListener(binderReceivedListener)
+        rikka.shizuku.Shizuku.removeBinderDeadListener(binderDeadListener)
         stopErrorProtectLoop()
         super.onDestroy()
     }
