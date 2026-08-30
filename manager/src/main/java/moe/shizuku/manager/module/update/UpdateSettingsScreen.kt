@@ -449,7 +449,7 @@ private fun AppUpdateChannelDropdown(
 }
 
 @Composable
-private fun SheveryAppUpdateDialog(
+internal fun SheveryAppUpdateDialog(
     result: SheveryAppUpdateResult,
     onDismiss: () -> Unit
 ) {

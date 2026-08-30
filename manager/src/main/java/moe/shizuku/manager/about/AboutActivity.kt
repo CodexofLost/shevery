@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -21,9 +22,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.drawable.toBitmap
+import androidx.compose.runtime.mutableStateOf
+import kotlinx.coroutines.launch
 import moe.shizuku.manager.BuildConfig
 import moe.shizuku.manager.R
 import moe.shizuku.manager.app.AppActivity
+import moe.shizuku.manager.module.update.SheveryAppUpdateDialog
+import moe.shizuku.manager.module.update.SheveryAppUpdateResult
+import moe.shizuku.manager.module.update.SheveryUpdateChecker
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import moe.shizuku.manager.ui.compose.SettingsGroup
@@ -38,6 +44,10 @@ class AboutActivity : AppActivity() {
         val versionName = packageManager.getPackageInfo(packageName, 0).versionName ?: "Unknown"
 
         setContent {
+            val scope = rememberCoroutineScope()
+            var isCheckingUpdate by remember { mutableStateOf(false) }
+            var appUpdateResult by remember { mutableStateOf<SheveryAppUpdateResult?>(null) }
+
             ShizukuExpressiveTheme {
                 ShizukuLazyScaffold(
                     title = stringResource(R.string.action_about),
@@ -53,6 +63,23 @@ class AboutActivity : AppActivity() {
 
                     item {
                         AboutDescriptionCard()
+                    }
+
+                    item {
+                        SettingsGroup(title = stringResource(R.string.shevery_update_group_title)) {
+                            SettingsRow(
+                                icon = R.drawable.ic_outline_notifications_active_24,
+                                title = stringResource(R.string.shevery_update_check_title),
+                                summary = stringResource(R.string.shevery_update_check_summary),
+                                onClick = {
+                                    scope.launch {
+                                        isCheckingUpdate = true
+                                        appUpdateResult = SheveryUpdateChecker.getInstance().checkAppUpdate(this@AboutActivity)
+                                        isCheckingUpdate = false
+                                    }
+                                }
+                            )
+                        }
                     }
 
                     item {
@@ -204,6 +231,31 @@ class AboutActivity : AppActivity() {
                 onClick = {
                     CustomTabsHelper.launchUrlOrCopy(context, "https://Ko-fi.com/hmndevtech")
                 }
+            )
+        }
+
+        if (isCheckingUpdate) {
+            androidx.compose.material3.AlertDialog(
+                onDismissRequest = {},
+                title = { Text(stringResource(R.string.shevery_update_check_title)) },
+                text = {
+                    androidx.compose.foundation.layout.Row(
+                        verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                        horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp),
+                        modifier = Modifier.padding(vertical = 8.dp)
+                    ) {
+                        androidx.compose.material3.CircularProgressIndicator(modifier = Modifier.size(28.dp))
+                        Text(stringResource(R.string.shevery_update_checking))
+                    }
+                },
+                confirmButton = {}
+            )
+        }
+
+        appUpdateResult?.let { result ->
+            SheveryAppUpdateDialog(
+                result = result,
+                onDismiss = { appUpdateResult = null }
             )
         }
     }
