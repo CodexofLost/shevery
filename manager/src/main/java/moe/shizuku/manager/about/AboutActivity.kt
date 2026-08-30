@@ -9,8 +9,11 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -22,16 +25,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.drawable.toBitmap
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.BuildConfig
-import moe.shizuku.manager.R
-import moe.shizuku.manager.app.AppActivity
 import moe.shizuku.manager.module.update.SheveryAppUpdateDialog
 import moe.shizuku.manager.module.update.SheveryAppUpdateResult
 import moe.shizuku.manager.module.update.SheveryUpdateChecker
+import moe.shizuku.manager.R
+import moe.shizuku.manager.app.AppActivity
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import moe.shizuku.manager.ui.compose.SettingsGroup
@@ -65,6 +65,10 @@ class AboutActivity : AppActivity() {
 
                     item {
                         AboutDescriptionCard()
+                    }
+
+                    item {
+                        Spacer(modifier = Modifier.height(8.dp))
                     }
 
                     item {
@@ -102,6 +106,31 @@ class AboutActivity : AppActivity() {
                             modifier = Modifier.fillMaxWidth().padding(bottom = 32.dp)
                         )
                     }
+                }
+
+                if (isCheckingUpdate) {
+                    androidx.compose.material3.AlertDialog(
+                        onDismissRequest = {},
+                        title = { Text(stringResource(R.string.shevery_update_check_title)) },
+                        text = {
+                            androidx.compose.foundation.layout.Row(
+                                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                                horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp),
+                                modifier = Modifier.padding(vertical = 8.dp)
+                            ) {
+                                androidx.compose.material3.CircularProgressIndicator(modifier = Modifier.size(28.dp))
+                                Text(stringResource(R.string.shevery_update_checking))
+                            }
+                        },
+                        confirmButton = {}
+                    )
+                }
+
+                appUpdateResult?.let { result ->
+                    SheveryAppUpdateDialog(
+                        result = result,
+                        onDismiss = { appUpdateResult = null }
+                    )
                 }
             }
         }
@@ -160,6 +189,31 @@ class AboutActivity : AppActivity() {
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
+                    )
+                }
+
+                if (isCheckingUpdate) {
+                    androidx.compose.material3.AlertDialog(
+                        onDismissRequest = {},
+                        title = { Text(stringResource(R.string.shevery_update_check_title)) },
+                        text = {
+                            androidx.compose.foundation.layout.Row(
+                                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                                horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp),
+                                modifier = Modifier.padding(vertical = 8.dp)
+                            ) {
+                                androidx.compose.material3.CircularProgressIndicator(modifier = Modifier.size(28.dp))
+                                Text(stringResource(R.string.shevery_update_checking))
+                            }
+                        },
+                        confirmButton = {}
+                    )
+                }
+
+                appUpdateResult?.let { result ->
+                    SheveryAppUpdateDialog(
+                        result = result,
+                        onDismiss = { appUpdateResult = null }
                     )
                 }
             }
@@ -233,31 +287,6 @@ class AboutActivity : AppActivity() {
                 onClick = {
                     CustomTabsHelper.launchUrlOrCopy(context, "https://Ko-fi.com/hmndevtech")
                 }
-            )
-        }
-
-        if (isCheckingUpdate) {
-            androidx.compose.material3.AlertDialog(
-                onDismissRequest = {},
-                title = { Text(stringResource(R.string.shevery_update_check_title)) },
-                text = {
-                    androidx.compose.foundation.layout.Row(
-                        verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
-                        horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp),
-                        modifier = Modifier.padding(vertical = 8.dp)
-                    ) {
-                        androidx.compose.material3.CircularProgressIndicator(modifier = Modifier.size(28.dp))
-                        Text(stringResource(R.string.shevery_update_checking))
-                    }
-                },
-                confirmButton = {}
-            )
-        }
-
-        appUpdateResult?.let { result ->
-            SheveryAppUpdateDialog(
-                result = result,
-                onDismiss = { appUpdateResult = null }
             )
         }
     }
