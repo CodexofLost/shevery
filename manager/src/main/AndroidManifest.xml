@@ -196,8 +196,12 @@
             android:name=".adb.AdbPairingService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="shortService"
-            tools:targetApi="34" />
+            android:foregroundServiceType="specialUse"
+            tools:targetApi="34">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Handles wireless ADB pairing flow, including mDNS discovery, user code entry, and TLS handshake with the remote device." />
+        </service>
 
         <service
             android:name=".dhizuku.DhizukuService"
