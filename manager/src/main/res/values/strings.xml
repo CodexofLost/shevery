@@ -373,21 +373,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_control_action_start">Start</string>
     <string name="notification_control_action_stop">Stop</string>
     <!-- Update Settings -->
-    <string name="shevery_update_check_title">Check for Shevery updates</string>
-    <string name="shevery_update_check_summary">Check for a new version of Shevery Manager</string>
-    <string name="shevery_update_checking">Checking for Shevery updates…</string>
-    <string name="shevery_update_up_to_date">You're on the latest Shevery version (%s)</string>
-    <string name="shevery_update_available_title">Shevery update available!</string>
-    <string name="shevery_update_available_msg">Version %1$s is available (current: %2$s)</string>
-    <string name="shevery_update_download_apk">Download APK</string>
-    <string name="shevery_update_view_release">View on GitHub</string>
-    <string name="shevery_update_channel">Update channel</string>
-    <string name="shevery_update_channel_summary">Choose which release channel to track</string>
-    <string name="shevery_update_auto_check">Check on startup</string>
-    <string name="shevery_update_auto_check_summary">Automatically check for Shevery updates on launch</string>
-    <string name="shevery_update_group_title">Shevery Manager updates</string>
-    <string name="shevery_update_modules_group_title">Module updates and catalog</string>
-    <string name="shevery_update_check_failed">Update check failed: %s</string>
     <string name="update_settings_title">Update Settings</string>
     <string name="update_settings_catalog">Module Catalog</string>
     <string name="update_settings_catalog_enabled">Enable catalog</string>
