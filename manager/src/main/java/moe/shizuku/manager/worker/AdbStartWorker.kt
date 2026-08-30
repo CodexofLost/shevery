@@ -216,7 +216,12 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 TimeoutException::class
             )
             if (ignored.none { it.isInstance(e) }) {
-                showErrorNotification(applicationContext, e)
+                // Only surface the error if the service did not actually start —
+                // avoids a stale "stopped/failed" notification coexisting with a
+                // running service (e.g. binder arrived while we were unwinding).
+                if (ShizukuStateMachine.update() != ShizukuStateMachine.State.RUNNING) {
+                    showErrorNotification(applicationContext, e)
+                }
             }
 
             if (ShizukuStateMachine.update() == ShizukuStateMachine.State.RUNNING) {
