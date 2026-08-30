@@ -399,6 +399,25 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="update_settings_github_pat_delete">Delete token</string>
     <string name="update_settings_github_pat_delete_summary">Remove stored GitHub token</string>
 
+    <!-- Shevery App Updates -->
+    <string name="shevery_update_check_title">Check for Shevery updates</string>
+    <string name="shevery_update_check_summary">Check for newer versions of Shevery manager</string>
+    <string name="shevery_update_checking">Checking for Shevery updates…</string>
+    <string name="shevery_update_up_to_date">Shevery is up to date (%s)</string>
+    <string name="shevery_update_available_title">New Shevery update available!</string>
+    <string name="shevery_update_available_msg">Version %1$s is available (current: %2$s)</string>
+    <string name="shevery_update_download_apk">Download APK</string>
+    <string name="shevery_update_view_release">View on GitHub</string>
+    <string name="shevery_update_channel">Update channel</string>
+    <string name="shevery_update_channel_summary">Choose update release channel</string>
+    <string name="app_update_channel_stable">Stable</string>
+    <string name="app_update_channel_beta">Pre-release &amp; Beta</string>
+    <string name="shevery_update_auto_check">Auto-check on launch</string>
+    <string name="shevery_update_auto_check_summary">Automatically check for Shevery updates on start</string>
+    <string name="shevery_update_group_title">Shevery App Updates</string>
+    <string name="shevery_update_modules_group_title">Module Updates &amp; Catalog</string>
+    <string name="shevery_update_check_failed">Update check failed: %s</string>
+
     <!-- Module Catalog -->
     <string name="modules_catalog">Catalog</string>
     <string name="modules_catalog_title">Module Catalog</string>
