@@ -70,13 +70,6 @@ fun UpdateSettingsScreen(
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
 
-    // Shevery App Update state
-    var appUpdateChannel by remember { mutableStateOf(ModuleSettings.getAppUpdateChannel()) }
-    var appAutoCheck by remember { mutableStateOf(ModuleSettings.isAppUpdateAutoCheckEnabled()) }
-    var appUpdateFrequency by remember { mutableStateOf(ModuleSettings.getAppUpdateFrequency()) }
-    var isCheckingAppUpdate by remember { mutableStateOf(false) }
-    var appUpdateResult by remember { mutableStateOf<SheveryAppUpdateResult?>(null) }
-
     // Module Update state
     var catalogEnabled by remember { mutableStateOf(ModuleSettings.isCatalogEnabled()) }
     var updateFrequency by remember { mutableStateOf(ModuleSettings.getUpdateFrequency()) }
@@ -89,56 +82,7 @@ fun UpdateSettingsScreen(
             title = stringResource(R.string.update_settings_title),
             onNavigateUp = onNavigateUp
         ) {
-            // Group 1: Shevery Manager Updates
-            item {
-                SettingsGroup(title = stringResource(R.string.shevery_update_group_title)) {
-                    SettingsRow(
-                        icon = R.drawable.ic_server_restart,
-                        title = stringResource(R.string.shevery_update_check_title),
-                        summary = stringResource(R.string.shevery_update_check_summary) + " (${BuildConfig.VERSION_NAME})",
-                        onClick = {
-                            scope.launch {
-                                isCheckingAppUpdate = true
-                                appUpdateResult = SheveryUpdateChecker.getInstance().checkAppUpdate(context)
-                                isCheckingAppUpdate = false
-                            }
-                        }
-                    )
-                    GroupDivider()
-                    AppUpdateChannelDropdown(
-                        selected = appUpdateChannel,
-                        onSelect = {
-                            appUpdateChannel = it
-                            ModuleSettings.setAppUpdateChannel(it)
-                        }
-                    )
-                    GroupDivider()
-                    SwitchSettingsRow(
-                        icon = R.drawable.ic_outline_notifications_active_24,
-                        title = stringResource(R.string.shevery_update_auto_check),
-                        summary = stringResource(R.string.shevery_update_auto_check_summary),
-                        checked = appAutoCheck,
-                        onCheckedChange = {
-                            appAutoCheck = it
-                            ModuleSettings.setAppUpdateAutoCheckEnabled(it)
-                        }
-                    )
-                    GroupDivider()
-                    UpdateFrequencyDropdown(
-                        selected = appUpdateFrequency,
-                        onSelect = {
-                            appUpdateFrequency = it
-                            ModuleSettings.setAppUpdateFrequency(it)
-                        }
-                    )
-                }
-            }
-
-            item {
-                Spacer(Modifier.height(8.dp))
-            }
-
-            // Group 2: Module Catalog & Updates
+            // Group: Module Catalog & Updates
             item {
                 SettingsGroup(title = stringResource(R.string.shevery_update_modules_group_title)) {
                     SwitchSettingsRow(
@@ -192,31 +136,6 @@ fun UpdateSettingsScreen(
                     }
                 }
             }
-        }
-
-        if (isCheckingAppUpdate) {
-            AlertDialog(
-                onDismissRequest = {},
-                title = { Text(stringResource(R.string.shevery_update_check_title)) },
-                text = {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(16.dp),
-                        modifier = Modifier.padding(vertical = 8.dp)
-                    ) {
-                        CircularProgressIndicator(modifier = Modifier.size(28.dp))
-                        Text(stringResource(R.string.shevery_update_checking))
-                    }
-                },
-                confirmButton = {}
-            )
-        }
-
-        appUpdateResult?.let { result ->
-            SheveryAppUpdateDialog(
-                result = result,
-                onDismiss = { appUpdateResult = null }
-            )
         }
 
         if (showPatDialog) {
@@ -406,46 +325,6 @@ private fun PatInputDialog(
             }
         }
     )
-}
-
-@Composable
-private fun AppUpdateChannelDropdown(
-    selected: ModuleSettings.AppUpdateChannel,
-    onSelect: (ModuleSettings.AppUpdateChannel) -> Unit
-) {
-    val context = LocalContext.current
-    var expanded by remember { mutableStateOf(false) }
-    val entries = ModuleSettings.AppUpdateChannel.entries
-
-    ExposedDropdownMenuBox(
-        expanded = expanded,
-        onExpandedChange = { expanded = !expanded }
-    ) {
-        SettingsRow(
-            icon = R.drawable.ic_outline_info_24,
-            title = stringResource(R.string.shevery_update_channel),
-            summary = stringResource(selected.labelRes),
-            onClick = { expanded = true },
-            trailing = {
-                ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
-            }
-        )
-
-        ExposedDropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
-        ) {
-            entries.forEach { channel ->
-                DropdownMenuItem(
-                    text = { Text(stringResource(channel.labelRes)) },
-                    onClick = {
-                        onSelect(channel)
-                        expanded = false
-                    }
-                )
-            }
-        }
-    }
 }
 
 @Composable
