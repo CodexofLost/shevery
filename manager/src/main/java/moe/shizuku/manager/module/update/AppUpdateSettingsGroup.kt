@@ -15,7 +15,10 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.TextButton
+import moe.shizuku.manager.utils.CustomTabsHelper
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -207,4 +210,85 @@ private fun UpdateFrequencyDropdownForApp(
             )
         }
     }
+}
+
+@Composable
+internal fun SheveryAppUpdateDialog(
+    result: SheveryAppUpdateResult,
+    onDismiss: () -> Unit
+) {
+    val context = LocalContext.current
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(
+                text = if (result.hasUpdate) {
+                    stringResource(R.string.shevery_update_available_title)
+                } else if (result.error != null) {
+                    stringResource(R.string.shevery_update_check_failed, result.error)
+                } else {
+                    stringResource(R.string.shevery_update_up_to_date, result.currentVersion)
+                }
+            )
+        },
+        text = {
+            if (result.hasUpdate && result.latestVersion != null) {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        text = stringResource(
+                            R.string.shevery_update_available_msg,
+                            result.latestVersion,
+                            result.currentVersion
+                        ),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    if (!result.releaseNotes.isNullOrBlank()) {
+                        Text(
+                            text = result.releaseNotes.take(400).let {
+                                if (result.releaseNotes.length > 400) "$it…" else it
+                            },
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                    if (result.isPreRelease) {
+                        Text(
+                            text = "⚠ Pre-release / Beta",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.error
+                        )
+                    }
+                }
+            } else if (result.error != null) {
+                Text(result.error, style = MaterialTheme.typography.bodyMedium)
+            } else {
+                null
+            }
+        },
+        confirmButton = {
+            if (result.hasUpdate && result.downloadUrl != null) {
+                TextButton(onClick = {
+                    CustomTabsHelper.launchUrlOrCopy(context, result.downloadUrl)
+                    onDismiss()
+                }) {
+                    Text(stringResource(R.string.shevery_update_download_apk))
+                }
+            }
+        },
+        dismissButton = {
+            if (result.hasUpdate && result.htmlUrl != null) {
+                TextButton(onClick = {
+                    CustomTabsHelper.launchUrlOrCopy(context, result.htmlUrl)
+                    onDismiss()
+                }) {
+                    Text(stringResource(R.string.shevery_update_view_release))
+                }
+            } else {
+                TextButton(onClick = onDismiss) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            }
+        }
+    )
 }

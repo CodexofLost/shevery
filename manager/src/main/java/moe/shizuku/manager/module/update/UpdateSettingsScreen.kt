@@ -6,34 +6,22 @@
 package moe.shizuku.manager.module.update
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -44,21 +32,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.launch
-import moe.shizuku.manager.BuildConfig
 import moe.shizuku.manager.R
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.module.catalog.TokenStore
 import moe.shizuku.manager.ui.compose.GroupDivider
-import moe.shizuku.manager.ui.compose.SectionHeader
 import moe.shizuku.manager.ui.compose.SettingsGroup
 import moe.shizuku.manager.ui.compose.SettingsRow
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
-import moe.shizuku.manager.ui.compose.ShizukuIcon
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import moe.shizuku.manager.ui.compose.SwitchSettingsRow
 import moe.shizuku.manager.utils.CustomTabsHelper
@@ -68,7 +51,6 @@ fun UpdateSettingsScreen(
     onNavigateUp: () -> Unit
 ) {
     val context = LocalContext.current
-    val scope = rememberCoroutineScope()
 
     // Module Update state
     var catalogEnabled by remember { mutableStateOf(ModuleSettings.isCatalogEnabled()) }
@@ -327,83 +309,4 @@ private fun PatInputDialog(
     )
 }
 
-@Composable
-internal fun SheveryAppUpdateDialog(
-    result: SheveryAppUpdateResult,
-    onDismiss: () -> Unit
-) {
-    val context = LocalContext.current
 
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Text(
-                text = if (result.hasUpdate) {
-                    stringResource(R.string.shevery_update_available_title)
-                } else if (result.error != null) {
-                    stringResource(R.string.shevery_update_check_failed, result.error)
-                } else {
-                    stringResource(R.string.shevery_update_up_to_date, result.currentVersion)
-                }
-            )
-        },
-        text = {
-            if (result.hasUpdate && result.latestVersion != null) {
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text(
-                        text = stringResource(
-                            R.string.shevery_update_available_msg,
-                            result.latestVersion,
-                            result.currentVersion
-                        ),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    if (!result.releaseNotes.isNullOrBlank()) {
-                        Text(
-                            text = result.releaseNotes.take(400).let {
-                                if (result.releaseNotes.length > 400) "$it…" else it
-                            },
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
-                    if (result.isPreRelease) {
-                        Text(
-                            text = "⚠ Pre-release / Beta",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.error
-                        )
-                    }
-                }
-            } else if (result.error != null) {
-                Text(result.error, style = MaterialTheme.typography.bodyMedium)
-            } else {
-                null
-            }
-        },
-        confirmButton = {
-            if (result.hasUpdate && result.downloadUrl != null) {
-                TextButton(onClick = {
-                    CustomTabsHelper.launchUrlOrCopy(context, result.downloadUrl)
-                    onDismiss()
-                }) {
-                    Text(stringResource(R.string.shevery_update_download_apk))
-                }
-            }
-        },
-        dismissButton = {
-            if (result.hasUpdate && result.htmlUrl != null) {
-                TextButton(onClick = {
-                    CustomTabsHelper.launchUrlOrCopy(context, result.htmlUrl)
-                    onDismiss()
-                }) {
-                    Text(stringResource(R.string.shevery_update_view_release))
-                }
-            } else {
-                TextButton(onClick = onDismiss) {
-                    Text(stringResource(android.R.string.ok))
-                }
-            }
-        }
-    )
-}
