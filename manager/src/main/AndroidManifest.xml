@@ -301,6 +301,10 @@
             android:name=".connector.ShizukuConnectorProvider"
             android:authorities="${applicationId}.connector;moe.shizuku.privileged.api.connector"
             android:exported="true" />
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
     </application>
 
 </manifest>
