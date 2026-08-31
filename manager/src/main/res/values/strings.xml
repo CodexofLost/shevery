@@ -413,8 +413,8 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="shevery_update_channel_summary">Choose update release channel</string>
     <string name="app_update_channel_stable">Stable</string>
     <string name="app_update_channel_beta">Pre-release &amp; Beta</string>
-    <string name="shevery_update_auto_check">Auto-check on launch</string>
-    <string name="shevery_update_auto_check_summary">Automatically check for Shevery updates on start</string>
+    <string name="shevery_update_auto_check">Periodic background check</string>
+    <string name="shevery_update_auto_check_summary">Check for updates at set intervals even when closed</string>
     <string name="shevery_update_group_title">Shevery App Updates</string>
     <string name="shevery_update_modules_group_title">Module Updates &amp; Catalog</string>
     <string name="shevery_update_check_failed">Update check failed: %s</string>
