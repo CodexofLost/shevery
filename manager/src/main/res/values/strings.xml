@@ -48,7 +48,7 @@
     <string name="dialog_adb_pairing_discovery">Searching for pairing service</string>
     <string name="dialog_adb_pairing_paring_code">Pairing code</string>
     <string name="paring_code_is_wrong">Pairing code is wrong.</string>
-    <string name="cannot_connect_port">Can't connect to wireless debugging service.</string>
+    <string name="cannot_connect_port">Can\'t connect to wireless debugging service.</string>
     <string name="dialog_wireless_adb_not_enabled">Wireless debugging is not enabled.\nNote, before Android 11, to enable wireless debugging, computer connection is a must.</string>
     <string name="dialog_adb_pairing_message"><![CDATA[Please start paring by the following steps: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nAfter the pairing process starts, you will able to input the pairing code.]]></string>
     <string name="adb_pairing_requires_multi_window">Please enter split-screen (multi-window) mode first.</string>
@@ -110,7 +110,7 @@
     <string name="app_management_select_all">Select all</string>
     <string name="app_management_deselect_all">Deselect all</string>
     <string name="app_management_dialog_adb_is_limited_title">The permission of adb is limited</string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[It's highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href="%1$s">this document</a></b>.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[It\'s highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href="%1$s">this document</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* requires Shevery runs with root</string>
     <string name="app_management_loading">Loading apps…</string>
 
@@ -118,7 +118,7 @@
     <string name="home_terminal_title">Use Shevery in terminal apps</string>
     <string name="home_terminal_description">Run commands through Shevery in terminal apps you like</string>
     <string name="terminal_tutorial_1">First, Export files to any where you want. You will find two files, %1$s and %2$s.</string>
-    <string name="terminal_tutorial_1_description">If there are files with the same name in the selected folder, they will be deleted.\n\nThe export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.</string>
+    <string name="terminal_tutorial_1_description">If there are files with the same name in the selected folder, they will be deleted.\n\nThe export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.</string>
     <string name="terminal_export_files">Export files</string>
     <string name="terminal_tutorial_2">Then, use any text editor to open and edit %1$s.</string>
     <string name="terminal_tutorial_2_description">For example, if you want to use Shevery in %1$s, you should replace %2$s with %3$s (%4$s is the package name of %1$s).</string>
@@ -282,10 +282,10 @@ With %1$s, in any terminal app, you can connect to and interact with the shell r
     <!-- Starter -->
     <string name="starter">Starter</string>
     <string name="starting_root_shell" translatable="false">Starting root shell…</string>
-    <string name="start_with_root_failed">Can't start service because root permission is not granted or this device is not rooted.</string>
+    <string name="start_with_root_failed">Can\'t start service because root permission is not granted or this device is not rooted.</string>
 
     <!-- Misc -->
-    <string name="dialog_cannot_open_browser_title">Can't start browser</string>
+    <string name="dialog_cannot_open_browser_title">Can\'t start browser</string>
     <string name="toast_copied_to_clipboard">%s\nhas been copied to clipboard.</string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> has been copied to clipboard.]]></string>
 
@@ -293,7 +293,7 @@ With %1$s, in any terminal app, you can connect to and interact with the shell r
     <string name="dialog_legacy_not_support_title">%1$s does not support modern Shevery</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery has been deprecated since March 2019. Also, legacy Shevery does not work on newer Android systems.<p>Please ask the developer of <b>%1$s</b> to update.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s is requesting legacy Shevery</string>
-    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> has modern Shevery support, but it's requesting legacy Shevery. This could because Shevery is not running, please check in Shevery app.<p>Legacy Shevery has been deprecated since March 2019.]]></string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> has modern Shevery support, but it\'s requesting legacy Shevery. This could because Shevery is not running, please check in Shevery app.<p>Legacy Shevery has been deprecated since March 2019.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Open Shevery</string>
 
     <!-- Lab Features -->
@@ -532,7 +532,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_record_macro">Record Macro</string>
     <string name="comput_recording_active">Recording active. Run commands using the main input to add them to this macro.</string>
     <string name="comput_saved_macros">Saved Macros</string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
+    <string name="comput_no_macros">No saved macros yet. Click \'Record Macro\' to start recording console commands.</string>
     <string name="comput_delete">Delete</string>
     <string name="comput_recommand_confirmation_title">ReCommand confirmation</string>
     <string name="comput_execute">Execute</string>
