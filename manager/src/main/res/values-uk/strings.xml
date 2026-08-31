@@ -331,7 +331,7 @@
     <string name="update_settings_catalog_enabled">Увімкнути каталог</string>
     <string name="update_settings_catalog_enabled_summary">Показувати модулі з GitHub Topics</string>
     <string name="update_settings_frequency">Частота оновлення</string>
-    <string name="update_settings_frequency_label">Перевірка оновлень</string>
+    <string name="update_settings_frequency_label">Частота перевірки</string>
     <string name="update_settings_frequency_manual">Вручну</string>
     <string name="update_settings_frequency_daily">Щодня</string>
     <string name="update_settings_frequency_weekly">Щотижня</string>
@@ -491,4 +491,8 @@
     <string name="settings_tcp_5555_bind_success">Успішно прив’язано ADB до TCP-порту 5555</string>
     <string name="settings_tcp_5555_bind_failed">Помилка прив’язки ADB до порту 5555: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Потрібні Root, Dhizuku або активний Shevery.</string>
+    <string name="shevery_update_auto_check">Перевіряти оновлення у фоновому режимі</string>
+    <string name="shevery_update_auto_check_summary">Шукати нові версії навіть коли додаток закрито</string>
+    <string name="home_update_available_title">Доступне оновлення Shevery: %s</string>
+    <string name="home_update_available_body">Нова версія готова. Натисніть, щоб завантажити.</string>
 </resources>

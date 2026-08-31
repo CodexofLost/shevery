@@ -488,4 +488,9 @@
     <string name="settings_tcp_5555_bind_success">ADBサーバーをTCP 5555ポートにバインドしました</string>
     <string name="settings_tcp_5555_bind_failed">ADBの5555ポートへのバインドに失敗しました: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root、Dhizuku、またはアクティブなSheveryが必要です。</string>
+
+    <string name="shevery_update_auto_check"></string>
+    <string name="shevery_update_auto_check_summary"></string>
+    <string name="home_update_available_title"></string>
+    <string name="home_update_available_body"></string>
 </resources>

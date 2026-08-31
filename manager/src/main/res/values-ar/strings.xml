@@ -300,7 +300,7 @@ Wi-Fi مطلوب لأول إعادة تشغيل لأن Shevery يجب أن يت�
     <string name="update_settings_catalog_enabled">تفعيل الكتالوج</string>
     <string name="update_settings_catalog_enabled_summary">عرض الوحدات المكتشفة من GitHub Topics</string>
     <string name="update_settings_frequency">تكرار التحديث</string>
-    <string name="update_settings_frequency_label">التحقق من التحديثات</string>
+    <string name="update_settings_frequency_label">تكرار التحقق</string>
     <string name="update_settings_frequency_manual">يدوي</string>
     <string name="update_settings_frequency_daily">يوميًا</string>
     <string name="update_settings_frequency_weekly">أسبوعيًا</string>
@@ -465,4 +465,9 @@ Wi-Fi مطلوب لأول إعادة تشغيل لأن Shevery يجب أن يت�
     <string name="settings_tcp_5555_bind_success">تم ربط ADB بنجاح بالمنفذ TCP 5555</string>
     <string name="settings_tcp_5555_bind_failed">فشل ربط ADB بالمنفذ 5555: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root أو Dhizuku أو Shevery النشط مطلوب.</string>
+
+    <string name="shevery_update_auto_check">التحقق من التحديثات في الخلفية</string>
+    <string name="shevery_update_auto_check_summary">البحث عن إصدارات جديدة حتى عند إغلاق التطبيق</string>
+    <string name="home_update_available_title">تحديث Shevery متاح: %s</string>
+    <string name="home_update_available_body">إصدار أحدث جاهز. اضغط للتحميل.</string>
 </resources>

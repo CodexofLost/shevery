@@ -489,4 +489,9 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="settings_tcp_5555_bind_success">Servidor ADB vinculado con éxito al puerto TCP 5555</string>
     <string name="settings_tcp_5555_bind_failed">Fallo al vincular ADB al puerto 5555: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Se requiere Root, Dhizuku o un servicio Shevery activo.</string>
+
+    <string name="shevery_update_auto_check"></string>
+    <string name="shevery_update_auto_check_summary"></string>
+    <string name="home_update_available_title"></string>
+    <string name="home_update_available_body"></string>
 </resources>

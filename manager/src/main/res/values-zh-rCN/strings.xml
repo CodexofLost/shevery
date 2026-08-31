@@ -316,7 +316,7 @@
     <string name="update_settings_catalog_enabled">启用目录</string>
     <string name="update_settings_catalog_enabled_summary">显示通过 GitHub Topics 探索到的模块</string>
     <string name="update_settings_frequency">更新检查频率</string>
-    <string name="update_settings_frequency_label">检查更新</string>
+    <string name="update_settings_frequency_label">检查频率</string>
     <string name="update_settings_frequency_manual">手动</string>
     <string name="update_settings_frequency_daily">每天</string>
     <string name="update_settings_frequency_weekly">每周</string>
@@ -518,4 +518,9 @@
     <string name="settings_compat_stub_uninstalled">旧版存根已移除</string>
     <string name="settings_compat_stub_failed">通过 %2$s %1$s 旧版存根失败：%3$s</string>
     <string name="settings_compat_stub_none">无可用通道（请先启动 Shevery）</string>
+
+    <string name="shevery_update_auto_check">在后台检查更新</string>
+    <string name="shevery_update_auto_check_summary">即使应用关闭也会查找新版本</string>
+    <string name="home_update_available_title">Shevery 有可用更新: %s</string>
+    <string name="home_update_available_body">有新版本可用。点击下载。</string>
 </resources>

@@ -308,7 +308,7 @@
     <string name="update_settings_catalog_enabled">Включить каталог</string>
     <string name="update_settings_catalog_enabled_summary">Показывать обнаруженные модули из GitHub Topics</string>
     <string name="update_settings_frequency">Частота обновлений</string>
-    <string name="update_settings_frequency_label">Проверять обновления</string>
+    <string name="update_settings_frequency_label">Частота проверки</string>
     <string name="update_settings_frequency_manual">Вручную</string>
     <string name="update_settings_frequency_daily">Ежедневно</string>
     <string name="update_settings_frequency_weekly">Еженедельно</string>
@@ -342,8 +342,8 @@
     <string name="shevery_update_channel_summary">Выбор канала релизов обновлений</string>
     <string name="app_update_channel_stable">Стабильный</string>
     <string name="app_update_channel_beta">Бета и предварительные версии</string>
-    <string name="shevery_update_auto_check">Проверять при запуске</string>
-    <string name="shevery_update_auto_check_summary">Автоматически проверять обновления Shevery при запуске</string>
+    <string name="shevery_update_auto_check">Проверять обновления в фоне</string>
+    <string name="shevery_update_auto_check_summary">Искать новые версии даже когда приложение закрыто</string>
     <string name="shevery_update_group_title">Обновления приложения Shevery</string>
     <string name="shevery_update_modules_group_title">Обновления модулей и каталог</string>
     <string name="shevery_update_check_failed">Ошибка проверки обновлений: %s</string>
@@ -569,4 +569,7 @@
     <string name="settings_compat_stub_uninstalled">Устаревший стаб удалён</string>
     <string name="settings_compat_stub_failed">Не удалось %1$s устаревший стаб через %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Нет доступного канала (сначала запустите Shevery)</string>
+
+    <string name="home_update_available_title">Доступно обновление Shevery: %s</string>
+    <string name="home_update_available_body">Доступна новая версия. Нажмите, чтобы скачать.</string>
 </resources>

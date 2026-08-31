@@ -134,4 +134,10 @@
     <string name="home_app_management_empty">Apps, die Shizuku angefordert oder deklariert haben, werden hier angezeigt.</string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Bitte beachte, dass der linke Teil der "Wireless debugging"-Option anklickbar ist; wird es angetippt öffnet es eine neue Seite. Lediglich den Schalter auf der rechten Seite umzulegen ist falsch.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Bitte versuche "Wireless debugging" aus- und einzuschalten, falls es weiterhin sucht.]]></string>
+
+    <string name="shevery_update_auto_check">Prüfe im Hintergrund auf Updates</string>
+    <string name="shevery_update_auto_check_summary">Suche nach neuen Versionen, auch wenn die App geschlossen ist</string>
+    <string name="update_settings_frequency_label">Prüfhäufigkeit</string>
+    <string name="home_update_available_title">Shevery-Update verfügbar: %s</string>
+    <string name="home_update_available_body">Eine neuere Version ist verfügbar. Tippe, um herunterzuladen.</string>
 </resources>

@@ -329,7 +329,7 @@ Le Wi-Fi est requis lors du premier redémarrage car Shevery doit se connecter a
     <string name="update_settings_catalog_enabled">Activer le catalogue</string>
     <string name="update_settings_catalog_enabled_summary">Afficher les modules découverts via GitHub Topics</string>
     <string name="update_settings_frequency">Fréquence des mises à jour</string>
-    <string name="update_settings_frequency_label">Rechercher les mises à jour</string>
+    <string name="update_settings_frequency_label">Fréquence de vérification</string>
     <string name="update_settings_frequency_manual">Manuelle</string>
     <string name="update_settings_frequency_daily">Quotidienne</string>
     <string name="update_settings_frequency_weekly">Hebdomadaire</string>
@@ -489,4 +489,9 @@ Le Wi-Fi est requis lors du premier redémarrage car Shevery doit se connecter a
     <string name="settings_tcp_5555_bind_success">Serveur ADB lié avec succès au port TCP 5555</string>
     <string name="settings_tcp_5555_bind_failed">Échec de la liaison ADB au port 5555 : %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Droits Root, Dhizuku ou un service Shevery actif sont requis.</string>
+
+    <string name="shevery_update_auto_check">Vérifier les mises à jour en arrière-plan</string>
+    <string name="shevery_update_auto_check_summary">Rechercher de nouvelles versions même lorsque l'application est fermée</string>
+    <string name="home_update_available_title">Mise à jour Shevery disponible : %s</string>
+    <string name="home_update_available_body">Une version plus récente est prête. Appuyez pour télécharger.</string>
 </resources>

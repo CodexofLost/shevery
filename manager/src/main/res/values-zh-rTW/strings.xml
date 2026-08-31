@@ -285,7 +285,7 @@
     <string name="update_settings_catalog_enabled">啟用目錄</string>
     <string name="update_settings_catalog_enabled_summary">顯示透過 GitHub Topics 探索到的模組</string>
     <string name="update_settings_frequency">更新檢查頻率</string>
-    <string name="update_settings_frequency_label">檢查更新</string>
+    <string name="update_settings_frequency_label">檢查頻率</string>
     <string name="update_settings_frequency_manual">手動</string>
     <string name="update_settings_frequency_daily">每天</string>
     <string name="update_settings_frequency_weekly">每週</string>
@@ -447,4 +447,9 @@
     <string name="settings_tcp_5555_bind_success">已成功將 ADB 服務繫結至 TCP 5555 連接埠</string>
     <string name="settings_tcp_5555_bind_failed">繫結 ADB 到 5555 連接埠失敗：%1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">需要 Root、Dhizuku 或活躍的 Shevery 服務。</string>
+
+    <string name="shevery_update_auto_check">在背景中檢查更新</string>
+    <string name="shevery_update_auto_check_summary">即使應用程式關閉時也會尋找新版本</string>
+    <string name="home_update_available_title">Shevery 有可用更新：%s</string>
+    <string name="home_update_available_body">有較新版本可用。點擊以下載。</string>
 </resources>

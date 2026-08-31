@@ -299,7 +299,7 @@ Shevery가 ADB를 5555로 전환하기 전에 현재 무선 디버깅 포트에 
     <string name="update_settings_catalog_enabled">카탈로그 활성화</string>
     <string name="update_settings_catalog_enabled_summary">GitHub Topics에서 발견된 모듈 표시</string>
     <string name="update_settings_frequency">업데이트 빈도</string>
-    <string name="update_settings_frequency_label">업데이트 확인</string>
+    <string name="update_settings_frequency_label">확인 주기</string>
     <string name="update_settings_frequency_manual">수동</string>
     <string name="update_settings_frequency_daily">매일</string>
     <string name="update_settings_frequency_weekly">매주</string>
@@ -464,4 +464,8 @@ Shevery가 ADB를 5555로 전환하기 전에 현재 무선 디버깅 포트에 
     <string name="settings_tcp_5555_bind_success">ADB가 TCP 포트 5555에 성공적으로 바인딩되었습니다</string>
     <string name="settings_tcp_5555_bind_failed">ADB를 포트 5555에 바인딩 실패: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root, Dhizuku 또는 활성 Shevery가 필요합니다.</string>
+    <string name="shevery_update_auto_check">백그라운드에서 업데이트 확인</string>
+    <string name="shevery_update_auto_check_summary">앱이 닫혀 있을 때도 새 버전 확인</string>
+    <string name="home_update_available_title">Shevery 업데이트 사용 가능: %s</string>
+    <string name="home_update_available_body">새 버전이 준비되었습니다. 다운로드하려면 탭하세요.</string>
 </resources>

@@ -464,4 +464,9 @@ Pronto para comandos.</string>
     <string name="settings_tcp_5555_bind_success">ADB vinculado com sucesso à porta TCP 5555</string>
     <string name="settings_tcp_5555_bind_failed">Falha ao vincular ADB à porta 5555: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root, Dhizuku ou Shevery ativo é necessário.</string>
+
+    <string name="shevery_update_auto_check"></string>
+    <string name="shevery_update_auto_check_summary"></string>
+    <string name="home_update_available_title"></string>
+    <string name="home_update_available_body"></string>
 </resources>

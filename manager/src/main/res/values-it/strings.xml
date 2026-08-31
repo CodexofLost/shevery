@@ -135,4 +135,10 @@
 \nPotrebbe essere necessario riavviare Shizuku per rendere effettiva l\'operazione.]]></string>
     <string name="home_app_management_empty">Le app che hanno richiesto o dichiarato Shizuku verranno visualizzate qui</string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Prova a disabilitare e abilitare "Debug Wireless" se continua a cercare.]]></string>
+
+    <string name="shevery_update_auto_check">Controlla aggiornamenti in background</string>
+    <string name="shevery_update_auto_check_summary">Cerca nuove versioni anche quando l'app è chiusa</string>
+    <string name="update_settings_frequency_label">Frequenza controllo</string>
+    <string name="home_update_available_title">Aggiornamento Shevery disponibile: %s</string>
+    <string name="home_update_available_body">Una versione più recente è pronta. Tocca per scaricare.</string>
 </resources>
