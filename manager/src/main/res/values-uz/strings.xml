@@ -26,7 +26,7 @@
     <string name="home_local_network_grant">Ruxsat berish</string>
     <string name="home_local_network_permission_denied">Simsiz nosozliklarni bartaraf etish uchun mahalliy tarmoq ruxsati talab qilinadi.</string>
     <string name="dialog_adb_discovery">Simsiz nosozliklarni bartaraf etish xizmati izlanmoqda</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Qidiruv davom etaveradi bo\'lsa, "Simsiz nosozliklarni bartaraf etish"ni o\'chirib qayta yoqing.</string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Qidiruv davom etaveradi bo\'lsa, "Simsiz nosozliklarni bartaraf etish"ni o\'chirib qayta yoqing.]]></string>
     <string name="dialog_adb_port">Port</string>
     <string name="dialog_adb_invalid_port">Port 1 dan 65535 gacha bo\'lgan butun son bo\'lishi kerak.</string>
     <string name="adb_pairing">Juftlash</string>
@@ -44,12 +44,12 @@
     <string name="notification_settings">Bildirishnoma sozlamalari</string>
     <string name="adb_pairing_tutorial_title">Shevery dasturini qurilmangiz bilan juftlang</string>
     <string name="adb_pairing_tutorial_content_notification">Shevery bildirishnomasi juftlashni yakunlashga yordam beradi.</string>
-    <string name="adb_pairing_tutorial_content_steps">"Dasturchi opsiyalari" - "Simsiz nosozliklarni bartaraf etish" menyusiga kiring. Olti xonali kodni ko\'rasiz.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA["Dasturchi opsiyalari" - "Simsiz nosozliklarni bartaraf etish" menyusiga kiring. Olti xonali kodni ko\'rasiz.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Juftlashni yakunlash uchun kiritish kodi bildirishnomasiga yozing.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Juftlash jarayoni bildirishnomalar bilan ishlashni talab qiladi.</string>
     <string name="adb_pairing_tutorial_content_miui">MIUI foydalanuvchilari bildirishnoma uslubini Android rejimiga o\'tkazishlari kerak bo\'lishi mumkin.</string>
     <string name="adb_pairing_tutorial_content_miui_2">Aks holda siz kodingizni kirita olmaysiz.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Eslatma: "Simsiz nosozliklarni bartaraf etish" bandining chap tomonini bosish mumkin.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Eslatma: "Simsiz nosozliklarni bartaraf etish" bandining chap tomonini bosish mumkin.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Shevery dasturiga qayting va uni ishga tushiring.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery mahalliy tarmoqqa kirishi kerak.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Bazi tizimlar ilovalar ko\'rinmayotganda tarmoqdan foydalanishni cheklaydi.</string>
@@ -214,7 +214,7 @@
     <string name="permission_description">Ilovaga Shevery xizmatidan foydalanishga ruxsat berish.</string>
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b> ilovasiga %2$s ruxsati berilsinmi?]]></string>
     <string name="grant_dialog_button_allow_always">Har doim ruxsat berish</string>
-    <string name="grant_dialog_button_deny">"Rad etish"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Rad etish"]]></string>
     <string name="starter">Starter</string>
     <string name="start_with_root_failed">Root ruxsati berilmaganligi sababli xizmatni ishga tushirib bo\'lmadi.</string>
     <string name="dialog_cannot_open_browser_title">Brauzerni ochib bo\'lmadi</string>
@@ -444,8 +444,8 @@
     <string name="accessibility_manager_service_no_description">Keine Beschreibung vom Dienst bereitgestellt.</string>
     <string name="app_name">Uchuvchi</string>
     <string name="home_adb_dialog_view_command_notice">Boshqa ba'zi jihatlar ham mavjud, iltimos, avvalo yordamni o'qiganingizga ishonch hosil qiling.</string>
-    <string name="dialog_adb_discovery_message">Iltimos, "Rivojlantiruvchi sozlamalar"da "Simsiz xatoliklarni tuzatish"ni yoqing. Tarmoq o'zgarganda "Simsiz xatoliklarni tuzatish" avtomatik ravishda o'chiriladi. Eslatma: "Rivojlantiruvchi sozlamalar" yoki "USB xatoliklarni tuzatish"ni o'chirib qo'ymang, aks holda Shevery to'xtab qoladi.</string>
-    <string name="dialog_adb_pairing_message">Iltimos, quyidagi bosqichlar bo'yicha juftlashni boshlang: "Rivojlantiruvchi sozlamalari" - "Simsiz xatolikni tuzatish" - "Juftlash kodidan foydalanib qurilmani juftlash". Juftlash jarayoni boshlangandan so'ng, juftlash kodini kiritishingiz mumkin bo'ladi.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Iltimos, "Rivojlantiruvchi sozlamalar"da "Simsiz xatoliklarni tuzatish"ni yoqing. Tarmoq o'zgarganda "Simsiz xatoliklarni tuzatish" avtomatik ravishda o'chiriladi. Eslatma: "Rivojlantiruvchi sozlamalar" yoki "USB xatoliklarni tuzatish"ni o'chirib qo'ymang, aks holda Shevery to'xtab qoladi.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Iltimos, quyidagi bosqichlar bo'yicha juftlashni boshlang: "Rivojlantiruvchi sozlamalari" - "Simsiz xatolikni tuzatish" - "Juftlash kodidan foydalanib qurilmani juftlash". Juftlash jarayoni boshlangandan so'ng, juftlash kodini kiritishingiz mumkin bo'ladi.]]></string>
     <string name="app_management_loading">Ilovalar yuklanmoqda…</string>
     <string name="settings_start_on_boot_adb">Qayta yuklanishda simsiz xatolik tuzatishni yoqish</string>
     <string name="settings_start_on_boot_adb_summary">Qayta yuklanishda Wi-Fi orqali simsiz xatolik tuzatishni qisqa muddatga yoqib, ADB (TCP port 5555) orqali Sheveryni ishga tushiring. Root talab qilinmaydi, Wi-Fi faqat bir lahzaga kerak bo'ladi.</string>

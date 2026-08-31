@@ -33,8 +33,8 @@
     <string name="home_local_network_grant">Dopusti pristup</string>
     <string name="home_local_network_permission_denied">Za bežično otklanjanje pogrešaka potreban je pristup lokalnoj mreži.</string>
     <string name="dialog_adb_discovery">Traženje usluge bežičnog otklanjanja pogrešaka</string>
-    <string name="dialog_adb_discovery_message">Molimo omogućite "Bežično otklanjanje pogrešaka" u "Opcijama za programere". "Bežično otklanjanje pogrešaka" se automatski onemogućuje pri promjeni mreže. Napomena: ne onemogućujte "Opcije za programere" ili "USB otklanjanje pogrešaka", inače će se Shevery zaustaviti.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Molimo pokušajte onemogućiti i ponovno omogućiti "bežično otklanjanje pogrešaka" ako stalno pretražuje.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Molimo omogućite "Bežično otklanjanje pogrešaka" u "Opcijama za programere". "Bežično otklanjanje pogrešaka" se automatski onemogućuje pri promjeni mreže. Napomena: ne onemogućujte "Opcije za programere" ili "USB otklanjanje pogrešaka", inače će se Shevery zaustaviti.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Molimo pokušajte onemogućiti i ponovno omogućiti "bežično otklanjanje pogrešaka" ako stalno pretražuje.]]></string>
     <string name="dialog_adb_port">Luka</string>
     <string name="dialog_adb_invalid_port">Port je cijeli broj u rasponu od 1 do 65535.</string>
     <string name="adb_pairing">Upairavanje</string>
@@ -44,7 +44,7 @@
     <string name="paring_code_is_wrong">Pariranje koda je pogrešno.</string>
     <string name="cannot_connect_port">Ne može se povezati s bežičnom uslugom za otklanjanje pogrešaka.</string>
     <string name="dialog_wireless_adb_not_enabled">Bežično otklanjanje pogrešaka nije omogućeno. Napomena: prije Android 11, za omogućavanje bežičnog otklanjanja pogrešaka potrebna je veza s računalom.</string>
-    <string name="dialog_adb_pairing_message">Molimo započnite uparivanje slijedećim koracima: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nNakon što proces uparivanja započne, moći ćete unijeti kod za uparivanje.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Molimo započnite uparivanje slijedećim koracima: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nNakon što proces uparivanja započne, moći ćete unijeti kod za uparivanje.]]></string>
     <string name="adb_pairing_requires_multi_window">Molimo prvo prijeđite u način rada s podijeljenim zaslonom (više prozora).</string>
     <string name="adb_pairing_requires_multi_window_reason">Sustav zahtijeva da je dijalog za uparivanje uvijek vidljiv; korištenje načina podijeljenog zaslona jedini je način da ova aplikacija i sustavni dijalog budu istovremeno vidljivi.</string>
     <string name="adb_error_key_store">Nije moguće generirati ključ za bežično otklanjanje pogrešaka. Ovo može biti zato što je mehanizam KeyStorea na ovom uređaju oštećen.</string>
@@ -53,12 +53,12 @@
     <string name="notification_settings">Opcije obavještavanja</string>
     <string name="adb_pairing_tutorial_title">Poveži Shevery sa svojim uređajem</string>
     <string name="adb_pairing_tutorial_content_notification">Obavijest od Shevery pomoći će vam dovršiti uparivanje.</string>
-    <string name="adb_pairing_tutorial_content_steps">Uđite u "Developer opcije" – "Bežično otklanjanje pogrešaka". Dodirnite "Poveži uređaj pomoću koda za uparivanje" i vidjet ćete šestoznamenkasti kod.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Uđite u "Developer opcije" – "Bežično otklanjanje pogrešaka". Dodirnite "Poveži uređaj pomoću koda za uparivanje" i vidjet ćete šestoznamenkasti kod.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Unesite kod iz obavijesti kako biste dovršili uparivanje.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Za proces uparivanja potrebno je da stupite u interakciju s obaviješću od Sheveryja. Molimo dopustite Sheveryju da šalje obavijesti.</string>
-    <string name="adb_pairing_tutorial_content_miui">Korisnici MIUI-ja možda će morati promijeniti stil obavijesti na "Android" iz "Obavijesti" – "Zavjesa obavijesti" u postavkama sustava.</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Korisnici MIUI-ja možda će morati promijeniti stil obavijesti na "Android" iz "Obavijesti" – "Zavjesa obavijesti" u postavkama sustava.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">U suprotnom možda nećete moći unijeti kod za uparivanje iz obavijesti.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Imajte na umu da je lijevi dio opcije "Bežično otklanjanje pogrešaka" klikabilan; dodirom na njega otvorit će se nova stranica. Samo je uključivanje prekidača s desne strane netočno.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Imajte na umu da je lijevi dio opcije "Bežično otklanjanje pogrešaka" klikabilan; dodirom na njega otvorit će se nova stranica. Samo je uključivanje prekidača s desne strane netočno.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Vratite se na Shevery i pokrenite Shevery.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery treba pristupiti lokalnoj mreži. To je kontrolirano mrežnim dopuštenjem.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Neki sustavi (kao što je MIUI) ne dopuštaju aplikacijama pristup mreži kada nisu vidljive, čak i ako aplikacija standardno koristi uslugu u prvom planu. Molimo onemogućite značajke optimizacije baterije za Shevery na takvim sustavima.</string>
@@ -82,7 +82,7 @@
     <string name="home_diagnostics_copied">Dijagnostika kopirana.</string>
     <string name="home_modules_description">Instalirajte i upravljajte modulima podržanim od strane ADB-a</string>
     <string name="home_adb_is_limited_title">Morate poduzeti dodatni korak.</string>
-    <string name="home_adb_is_limited_description">Proizvođač vašeg uređaja ograničio je ADB dozvole pa aplikacije koje koriste Shevery neće raditi ispravno. Obično se ovo ograničenje može ukloniti podešavanjem nekih opcija u "Opcijama za programere". Molimo pročitajte upute za detalje o tome kako to učiniti. Možda ćete morati ponovno pokrenuti Shevery da bi promjena stupila na snagu.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Proizvođač vašeg uređaja ograničio je ADB dozvole pa aplikacije koje koriste Shevery neće raditi ispravno. Obično se ovo ograničenje može ukloniti podešavanjem nekih opcija u "Opcijama za programere". Molimo pročitajte upute za detalje o tome kako to učiniti. Možda ćete morati ponovno pokrenuti Shevery da bi promjena stupila na snagu.]]></string>
     <string name="app_management_select_all">Odaberi sve</string>
     <string name="app_management_deselect_all">Odaberi sve</string>
     <string name="app_management_dialog_adb_is_limited_title">Dozvola za adb je ograničena</string>

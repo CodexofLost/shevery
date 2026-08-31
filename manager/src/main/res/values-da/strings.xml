@@ -235,7 +235,7 @@
     <string name="permission_description">Giv appen tilladelse til at bruge Shevery.</string>
     <string name="permission_warning_template"><![CDATA[Skal <b>%1$s</b> have lov til at %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Giv det al den tid, der skal til</string>
-    <string name="grant_dialog_button_deny">"Afvis"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Afvis"]]></string>
     <string name="starter">Starter</string>
     <string name="starting_root_shell">Start af root-shell…</string>
     <string name="start_with_root_failed">Tjenesten kan ikke startes, fordi der ikke er tildelt root-rettigheder, eller fordi denne enhed ikke er rodet.</string>

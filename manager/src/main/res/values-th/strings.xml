@@ -127,9 +127,9 @@
     <string name="home_local_network_missing">%1$s ไม่ได้รับอนุญาต</string>
     <string name="home_local_network_grant">ให้สิทธิ์การเข้าถึง</string>
     <string name="home_local_network_permission_denied">การดีบักแบบไร้สายจำเป็นต้องมีการเข้าถึงเครือข่ายท้องถิ่น</string>
-    <string name="dialog_adb_discovery_message">โปรดเปิดใช้งาน "Wireless debugging" ใน "Developer options" "Wireless debugging" จะถูกปิดอัตโนมัติเมื่อมีการเปลี่ยนแปลงเครือข่าย\n\nหมายเหตุ: อย่าปิด "Developer options" หรือ "USB debugging" มิฉะนั้น Shevery จะถูกหยุดทำงาน</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[โปรดเปิดใช้งาน "Wireless debugging" ใน "Developer options" "Wireless debugging" จะถูกปิดอัตโนมัติเมื่อมีการเปลี่ยนแปลงเครือข่าย\n\nหมายเหตุ: อย่าปิด "Developer options" หรือ "USB debugging" มิฉะนั้น Shevery จะถูกหยุดทำงาน]]></string>
     <string name="dialog_wireless_adb_not_enabled">การดีบักแบบไร้สายยังไม่ถูกเปิดใช้งาน\nหมายเหตุ: ก่อน Android 11 หากต้องการเปิดใช้งานการดีบักแบบไร้สาย ต้องมีการเชื่อมต่อกับคอมพิวเตอร์ก่อน</string>
-    <string name="dialog_adb_pairing_message">โปรดเริ่มการจับคู่ตามขั้นตอนต่อไปนี้: "ตัวเลือกผู้พัฒนา" - "การดีบักแบบไร้สาย" - "จับคู่เครื่องใช้อุปกรณ์โดยใช้รหัสจับคู่".\n\nหลังจากกระบวนการจับคู่เริ่มขึ้น คุณจะสามารถป้อนรหัสจับคู่ได้</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[โปรดเริ่มการจับคู่ตามขั้นตอนต่อไปนี้: "ตัวเลือกผู้พัฒนา" - "การดีบักแบบไร้สาย" - "จับคู่เครื่องใช้อุปกรณ์โดยใช้รหัสจับคู่".\n\nหลังจากกระบวนการจับคู่เริ่มขึ้น คุณจะสามารถป้อนรหัสจับคู่ได้]]></string>
     <string name="adb_error_key_store">ไม่สามารถสร้างกุญแจสำหรับการดีบักแบบไร้สายได้.\nสาเหตุอาจเกิดจากกลไก KeyStore ของอุปกรณ์นี้ไม่ทำงาน</string>
     <string name="home_quick_terminal">เทอร์มินัล</string>
     <string name="home_quick_wireless">ADB แบบไร้สาย</string>
@@ -140,7 +140,7 @@
     <string name="home_diagnostics_copy">คัดลอกผลการวินิจฉัย</string>
     <string name="home_diagnostics_copied">ข้อมูลวินิจฉัยได้คัดลอกแล้ว</string>
     <string name="home_modules_description">ติดตั้งและจัดการโมดูลที่ได้รับการสนับสนุนจาก ADB</string>
-    <string name="home_adb_is_limited_description">ผู้ผลิตอุปกรณ์ของคุณได้จำกัดสิทธิ์ของ adb และแอปที่ใช้ Shevery จะทำงานไม่ถูกต้อง\n\nโดยทั่วไป สามารถยกเลิกข้อจำกัดนี้ได้โดยการปรับตั้งค่าบางอย่างใน "ตัวเลือกผู้พัฒนา" โปรดอ่านส่วนช่วยเหลือเพื่อทราบรายละเอียดเกี่ยวกับวิธีการดำเนินการ\n\nคุณอาจต้องรีสตาร์ท Shevery เพื่อให้การเปลี่ยนแปลงมีผล</string>
+    <string name="home_adb_is_limited_description"><![CDATA[ผู้ผลิตอุปกรณ์ของคุณได้จำกัดสิทธิ์ของ adb และแอปที่ใช้ Shevery จะทำงานไม่ถูกต้อง\n\nโดยทั่วไป สามารถยกเลิกข้อจำกัดนี้ได้โดยการปรับตั้งค่าบางอย่างใน "ตัวเลือกผู้พัฒนา" โปรดอ่านส่วนช่วยเหลือเพื่อทราบรายละเอียดเกี่ยวกับวิธีการดำเนินการ\n\nคุณอาจต้องรีสตาร์ท Shevery เพื่อให้การเปลี่ยนแปลงมีผล]]></string>
     <string name="app_management_select_all">เลือกทั้งหมด</string>
     <string name="app_management_deselect_all">ยกเลิกการเลือกทั้งหมด</string>
     <string name="app_management_loading">กำลังโหลดแอป…</string>

@@ -213,7 +213,7 @@
     <string name="permission_description">Allow the app to use Shevery.</string>
     <string name="permission_warning_template"><![CDATA[Allow <b>%1$s</b> to %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Allow all the time</string>
-    <string name="grant_dialog_button_deny">"Deny"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Deny"]]></string>
     <string name="starter">Starter</string>
     <string name="start_with_root_failed">Can\'t start service because root permission is not granted or this device is not rooted.</string>
     <string name="dialog_cannot_open_browser_title">Can\'t start browser</string>
@@ -442,8 +442,8 @@
     <string name="home_adb_dialog_view_command_notice">ישנם עוד כמה שיקולים נוספים; אנא ודא שקראת תחילה את מדריך העזרה.</string>
     <string name="app_management_loading">טוען אפליקציות…</string>
     <string name="settings_start_on_boot_adb">התחל בעת האתחול באמצעות ניפוי באגים אלחוטי</string>
-    <string name="settings_start_on_boot_adb_summary">בעת האתחול, הפעל לזמן קצר את "ניפוי באגים אלחוטי" והפעל את Shevery באמצעות ADB (יציאת TCP 5555). אין צורך בהרשאות root, וה-Wi-Fi נדרש רק לרגע קצר.</string>
-    <string name="settings_start_on_boot_adb_summary_no_tcp">בעת האתחול, הפעל לזמן קצר את "ניפוי באגים אלחוטי" והפעל את Shevery באמצעות ADB. אין צורך ב-root, וה-Wi-Fi נדרש רק לרגע.</string>
+    <string name="settings_start_on_boot_adb_summary"><![CDATA[בעת האתחול, הפעל לזמן קצר את "ניפוי באגים אלחוטי" והפעל את Shevery באמצעות ADB (יציאת TCP 5555). אין צורך בהרשאות root, וה-Wi-Fi נדרש רק לרגע קצר.]]></string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[בעת האתחול, הפעל לזמן קצר את "ניפוי באגים אלחוטי" והפעל את Shevery באמצעות ADB. אין צורך ב-root, וה-Wi-Fi נדרש רק לרגע.]]></string>
     <string name="settings_start_on_boot_adb_granted">הרשאה ל-WRITE_SECURE_SETTINGS הוענקה.</string>
     <string name="settings_start_on_boot_adb_warning_no_tcp">קישור ה-TCP (יציאה 5555) כבוי: איתור באגים אלחוטי יישאר מופעל.</string>
     <string name="settings_start_on_boot_adb_missing_permission_title">הרשאה חסרה</string>
@@ -452,7 +452,7 @@
     <string name="settings_start_on_boot_adb_missing_permission_copy">פקודת העתקה</string>
     <string name="settings_start_on_boot_adb_missing_permission_instruction">אופן השימוש:\n1. חברו את המכשיר למחשב (באמצעות USB או ניפוי באגים אלחוטי).\n2. במסוף, הפעילו את הפקודה המופיעה בשדה שלמעלה.</string>
     <string name="notification_startup_channel_name">סטארט-אפ Shevery</string>
-    <string name="notification_startup_title">התחלת "שברי"</string>
+    <string name="notification_startup_title"><![CDATA[התחלת "שברי"]]></string>
     <string name="notification_startup_enabling_wifi">הפעלת ניפוי באגים ב-Wi-Fi…</string>
     <string name="notification_startup_connecting">מתחבר ל-ADB…</string>
     <string name="notification_startup_started">שבררי התחיל.</string>
@@ -462,7 +462,7 @@
     <string name="notification_startup_waiting_unlock">ממתינים להתחלת תהליך נעילת המכשיר…</string>
     <string name="notification_startup_cancel">ביטול</string>
     <string name="notification_startup_attempt_now">נסה עכשיו</string>
-    <string name="wadb_notification_title">מתחילים עם "שברי"…</string>
+    <string name="wadb_notification_title"><![CDATA[מתחילים עם "שברי"…]]></string>
     <string name="wadb_notification_wifi_required">ממתין לחיבור Wi-Fi לפני המשך</string>
     <string name="wadb_notification_retry">ממתין לניסיון חוזר</string>
     <string name="wadb_error_title">שגיאה בעת ההפעלה עם האתחול</string>
@@ -525,7 +525,7 @@
     <string name="settings_compat_stub_failed">לא הצליח %1$s את הסטאב הישן באמצעות %2$s: %3$s</string>
     <string name="settings_compat_stub_none">אין ערוץ זמין (התחל קודם ב-Shevery)</string>
     <string name="app_name">שברי</string>
-    <string name="home_adb_is_limited_description">יצרן המכשיר שלך הגביל את ההרשאות של adb, ולכן יישומים המשתמשים ב-Shevery לא יפעלו כראוי.\n\nבדרך כלל, ניתן להסיר מגבלה זו על ידי שינוי מספר הגדרות ב"אפשרויות מפתחים". אנא קרא את מדריך העזרה לקבלת פרטים על אופן ביצוע הפעולה.\n\nייתכן שתצטרך להפעיל מחדש את Shevery כדי שהשינוי ייכנס לתוקף.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[יצרן המכשיר שלך הגביל את ההרשאות של adb, ולכן יישומים המשתמשים ב-Shevery לא יפעלו כראוי.\n\nבדרך כלל, ניתן להסיר מגבלה זו על ידי שינוי מספר הגדרות ב"אפשרויות מפתחים". אנא קרא את מדריך העזרה לקבלת פרטים על אופן ביצוע הפעולה.\n\nייתכן שתצטרך להפעיל מחדש את Shevery כדי שהשינוי ייכנס לתוקף.]]></string>
     <string name="terminal_tutorial_1_description">אם קיימים קבצים בעלי אותו שם בתיקייה שנבחרה, הם יימחקו.\n\nפונקציית הייצוא משתמשת ב-SAF (Storage Access Framework). דווח כי MIUI פוגעת בתפקוד ה-SAF. אם אתה משתמש ב-MIUI, ייתכן שתצטרך לחלץ את הקובץ מה-APK של Shevery או להוריד אותו מ-GitHub.</string>
     <string name="rish_description"><![CDATA[באמצעות %1$s, בכל אפליקציית מסוף, תוכלו להתחבר ולפעול עם מעטפת הפקודה המופעלת על ידי Shevery.
 <p>למידע מפורט על השימוש ב-%1$s, לחצו כדי להציג את המסמך.]]></string>

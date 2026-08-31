@@ -33,8 +33,8 @@
     <string name="home_local_network_grant">Дозволи пристап</string>
     <string name="home_local_network_permission_denied">За безжично отстранување на грешки потребен е пристап до локалната мрежа.</string>
     <string name="dialog_adb_discovery">Барање на услуга за безжибно отстранување на грешки</string>
-    <string name="dialog_adb_discovery_message">Ве молиме овозможете "Безжично отстранување грешки" во "Опции за програмери". "Безжично отстранување грешки" автоматски се оневозможува кога се менува мрежата. Забелешка: не ги оневозможувајте "Опции за програмери" или "USB отстранување грешки", во спротивно Shevery ќе се запре.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Ве молиме обидете се да ја оневозможите и повторно овозможите "Безжично отстранување на грешки" ако продолжува да пребарува.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Ве молиме овозможете "Безжично отстранување грешки" во "Опции за програмери". "Безжично отстранување грешки" автоматски се оневозможува кога се менува мрежата. Забелешка: не ги оневозможувајте "Опции за програмери" или "USB отстранување грешки", во спротивно Shevery ќе се запре.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Ве молиме обидете се да ја оневозможите и повторно овозможите "Безжично отстранување на грешки" ако продолжува да пребарува.]]></string>
     <string name="dialog_adb_port">Пристаниште</string>
     <string name="dialog_adb_invalid_port">Порт е цел број во опсег од 1 до 65535.</string>
     <string name="adb_pairing">Спарување</string>
@@ -44,7 +44,7 @@
     <string name="paring_code_is_wrong">Кодот за спарување е погрешен.</string>
     <string name="cannot_connect_port">Не може да се поврзе со безжичната услуга за отстранување грешки.</string>
     <string name="dialog_wireless_adb_not_enabled">Безжичното отстранување грешки не е овозможено. Забелешка: пред Android 11, за да се овозможи безжично отстранување грешки, мора да биде поврзан компјутер.</string>
-    <string name="dialog_adb_pairing_message">Ве молиме започнете со спарување преку следниве чекори: "Развивачки опции" – "Безжично отстранување грешки" – "Спарување на уред со код за спарување". Откако ќе започне процесот на спарување, ќе можете да го внесете кодот за спарување.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Ве молиме започнете со спарување преку следниве чекори: "Развивачки опции" – "Безжично отстранување грешки" – "Спарување на уред со код за спарување". Откако ќе започне процесот на спарување, ќе можете да го внесете кодот за спарување.]]></string>
     <string name="adb_pairing_requires_multi_window">Ве молиме прво вклучете го режимот со разделен екран (многу прозорци).</string>
     <string name="adb_pairing_requires_multi_window_reason">Системот бара дијалогот за спарување да биде секогаш видлив; користењето режим на разделен екран е единствениот начин да се прикажат истовремено оваа апликација и системскиот дијалог.</string>
     <string name="adb_error_key_store">Не може да се генерира клуч за безжично отстранување на грешки. Ова може да биде затоа што механизмот KeyStore на овој уред е расипан.</string>
@@ -53,12 +53,12 @@
     <string name="notification_settings">Опции за известување</string>
     <string name="adb_pairing_tutorial_title">Спарете го Shevery со вашиот уред</string>
     <string name="adb_pairing_tutorial_content_notification">Известување од Shevery ќе ви помогне да го завршите поврзувањето.</string>
-    <string name="adb_pairing_tutorial_content_steps">Влезете во "Опции за развивач" – "Безжично отстранување грешки". Допрете на "Спарување на уред со код за спарување" и ќе видите шестцифрен код.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Влезете во "Опции за развивач" – "Безжично отстранување грешки". Допрете на "Спарување на уред со код за спарување" и ќе видите шестцифрен код.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Внесете го кодот од известувањето за да го завршите спарувањето.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">За процесот на спарување е потребно да дејствувате на известување од Shevery. Ве молиме дозволете на Shevery да испраќа известувања.</string>
-    <string name="adb_pairing_tutorial_content_miui">Корисниците на MIUI можеби ќе треба да го променат стилот на известувања од "Известување" – "Завеса за известувања" во системските поставки на "Android".</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Корисниците на MIUI можеби ќе треба да го променат стилот на известувања од "Известување" – "Завеса за известувања" во системските поставки на "Android".]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">Во спротивно, можеби нема да можете да го внесете кодот за спарување од известувањето.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Ве молиме имајте предвид дека левиот дел од опцијата "Безжично отстранување на грешки" е кликлив; доколку го допрете, ќе се отвори нова страница. Само вклучувањето на прекинувачот од десната страна е неправилно.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Ве молиме имајте предвид дека левиот дел од опцијата "Безжично отстранување на грешки" е кликлив; доколку го допрете, ќе се отвори нова страница. Само вклучувањето на прекинувачот од десната страна е неправилно.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Вратете се во Шевери и стартувајте го Шевери.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery треба да пристапи до локалната мрежа. Тоа се контролира со мрежната дозвола.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Некои системи (како што е MIUI) не дозволуваат апликациите да пристапуваат до мрежата кога не се видливи, дури и ако апликацијата стандардно користи услуга во преден план. Ве молиме оневозможете ги функциите за оптимизација на батеријата за Shevery на такви системи.</string>
@@ -82,7 +82,7 @@
     <string name="home_diagnostics_copied">Дијагностиката е копирана.</string>
     <string name="home_modules_description">Инсталирајте и управувајте со модули поддржани од ADB</string>
     <string name="home_adb_is_limited_title">Треба да направите дополнителен чекор.</string>
-    <string name="home_adb_is_limited_description">Производителот на вашиот уред ги ограничил дозволите за adb и апликациите што користат Shevery нема да работат правилно. Обично ова ограничување може да се отстрани со прилагодување на некои опции во "Опции за развивачи". Ве молиме прочитајте ја помошта за детали како да го направите тоа. Можеби ќе треба да го рестартирате Shevery за промената да стапи на сила.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Производителот на вашиот уред ги ограничил дозволите за adb и апликациите што користат Shevery нема да работат правилно. Обично ова ограничување може да се отстрани со прилагодување на некои опции во "Опции за развивачи". Ве молиме прочитајте ја помошта за детали како да го направите тоа. Можеби ќе треба да го рестартирате Shevery за промената да стапи на сила.]]></string>
     <string name="app_management_select_all">Избери сè</string>
     <string name="app_management_deselect_all">Отселектирај сè</string>
     <string name="app_management_dialog_adb_is_limited_title">Дозволата на adb е ограничена</string>
@@ -453,7 +453,7 @@
     <string name="comput_record_macro">Сними макро</string>
     <string name="comput_recording_active">Снимањето е активно. Извршувајте команди преку главниот влез за да ги додадете во овој макро.</string>
     <string name="comput_saved_macros">Зачувани макроси</string>
-    <string name="comput_no_macros">Сè уште нема зачувани макроси. Кликнете на "Сними макро" за да започнете со снимање на конзолни команди.</string>
+    <string name="comput_no_macros"><![CDATA[Сè уште нема зачувани макроси. Кликнете на "Сними макро" за да започнете со снимање на конзолни команди.]]></string>
     <string name="comput_delete">Избриши</string>
     <string name="comput_recommand_confirmation_title">Потврди повторно</string>
     <string name="comput_execute">Изврши</string>

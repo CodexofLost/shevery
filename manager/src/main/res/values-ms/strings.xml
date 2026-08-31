@@ -34,8 +34,8 @@
     <string name="home_local_network_grant">Benarkan akses</string>
     <string name="home_local_network_permission_denied">Akses rangkaian tempatan diperlukan untuk penyahpepijat tanpa wayar.</string>
     <string name="dialog_adb_discovery">Mencari perkhidmatan penyahpepijat tanpa wayar</string>
-    <string name="dialog_adb_discovery_message">Sila aktifkan "Pemecahan ralat tanpa wayar" dalam "Pilihan pembangun". "Pemecahan ralat tanpa wayar" akan dinyahdayakan secara automatik apabila rangkaian berubah. Nota, jangan nyahdayakan "Pilihan pembangun" atau "Pemecahan ralat USB", jika tidak Shevery akan dihentikan.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Sila cuba mematikan dan mengaktifkan semula "Pemecahan ralat tanpa wayar" jika ia terus mencari.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Sila aktifkan "Pemecahan ralat tanpa wayar" dalam "Pilihan pembangun". "Pemecahan ralat tanpa wayar" akan dinyahdayakan secara automatik apabila rangkaian berubah. Nota, jangan nyahdayakan "Pilihan pembangun" atau "Pemecahan ralat USB", jika tidak Shevery akan dihentikan.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Sila cuba mematikan dan mengaktifkan semula "Pemecahan ralat tanpa wayar" jika ia terus mencari.]]></string>
     <string name="dialog_adb_port">Pelabuhan</string>
     <string name="dialog_adb_invalid_port">Port adalah integer yang berkisar dari 1 hingga 65535.</string>
     <string name="adb_pairing">Padanan</string>
@@ -45,7 +45,7 @@
     <string name="paring_code_is_wrong">Kod pemadanan salah.</string>
     <string name="cannot_connect_port">Tidak dapat menyambung ke perkhidmatan penyahpepijat wayarles.</string>
     <string name="dialog_wireless_adb_not_enabled">Penyahpepijat tanpa wayar tidak diaktifkan. Nota, sebelum Android 11, untuk mengaktifkan penyahpepijat tanpa wayar, sambungan komputer adalah wajib.</string>
-    <string name="dialog_adb_pairing_message">Sila mulakan penjodohan dengan langkah-langkah berikut: "Pilihan Pembangun" - "Salisir tanpa wayar" - "Menjodohkan peranti menggunakan kod penjodohan".\n\nSelepas proses penjodohan bermula, anda akan dapat memasukkan kod penjodohan.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Sila mulakan penjodohan dengan langkah-langkah berikut: "Pilihan Pembangun" - "Salisir tanpa wayar" - "Menjodohkan peranti menggunakan kod penjodohan".\n\nSelepas proses penjodohan bermula, anda akan dapat memasukkan kod penjodohan.]]></string>
     <string name="adb_pairing_requires_multi_window">Sila masukkan mod skrin berpecah (jendela berbilang) terlebih dahulu.</string>
     <string name="adb_error_key_store">Tidak dapat menjana kunci untuk penyahpepijat tanpa wayar. Ini mungkin kerana mekanisme KeyStore peranti ini rosak.</string>
     <string name="adb_pair_required">Sila jalankan langkah penjodohan terlebih dahulu.</string>
@@ -53,12 +53,12 @@
     <string name="notification_settings">Pilihan pemberitahuan</string>
     <string name="adb_pairing_tutorial_title">Pasangkan Shevery dengan peranti anda</string>
     <string name="adb_pairing_tutorial_content_notification">Notifikasi daripada Shevery akan membantu anda melengkapkan penjodohan.</string>
-    <string name="adb_pairing_tutorial_content_steps">Masuk ke "Pilihan Pembangun" - "Penyahpepijat tanpa wayar". Ketik "Pasangkan peranti dengan kod pasangan", anda akan melihat kod enam digit.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Masuk ke "Pilihan Pembangun" - "Penyahpepijat tanpa wayar". Ketik "Pasangkan peranti dengan kod pasangan", anda akan melihat kod enam digit.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Masukkan kod dalam pemberitahuan untuk melengkapkan penjodohan.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Proses padanan memerlukan anda berinteraksi dengan pemberitahuan daripada Shevery. Sila benarkan Shevery menghantar pemberitahuan.</string>
-    <string name="adb_pairing_tutorial_content_miui">Pengguna MIUI mungkin perlu menukar gaya pemberitahuan kepada "Android" daripada "Pemberitahuan" - "Tirai pemberitahuan" dalam tetapan sistem.</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Pengguna MIUI mungkin perlu menukar gaya pemberitahuan kepada "Android" daripada "Pemberitahuan" - "Tirai pemberitahuan" dalam tetapan sistem.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">Jika tidak, anda mungkin tidak dapat memasukkan kod pasangan daripada pemberitahuan.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Sila ambil perhatian, bahagian kiri pilihan "Wireless debugging" boleh diklik; menekannya akan membuka halaman baru. Hanya menghidupkan suis di sebelah kanan adalah salah.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Sila ambil perhatian, bahagian kiri pilihan "Wireless debugging" boleh diklik; menekannya akan membuka halaman baru. Hanya menghidupkan suis di sebelah kanan adalah salah.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Kembali ke Shevery dan mulakan Shevery.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery perlu mengakses rangkaian tempatan. Ia dikawal oleh kebenaran rangkaian.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Sesetengah sistem (seperti MIUI) tidak membenarkan aplikasi mengakses rangkaian apabila ia tidak kelihatan, walaupun aplikasi tersebut menggunakan perkhidmatan latar hadapan secara lalai. Sila nyahaktifkan ciri pengoptimuman bateri untuk Shevery pada sistem sedemikian.</string>
@@ -82,7 +82,7 @@
     <string name="home_diagnostics_copied">Diagnostik disalin.</string>
     <string name="home_modules_description">Pasang danuruskan modul yang disokong oleh ADB</string>
     <string name="home_adb_is_limited_title">Anda perlu mengambil langkah tambahan.</string>
-    <string name="home_adb_is_limited_description">Pengeluar peranti anda telah mengehadkan kebenaran ADB dan aplikasi yang menggunakan Shevery tidak akan berfungsi dengan betul.  Biasanya, had ini boleh diangkat dengan melaraskan beberapa pilihan dalam "Pilihan Pembangun". Sila baca bantuan untuk maklumat lanjut tentang cara melakukannya.  Anda mungkin perlu memulakan semula Shevery supaya perubahan itu berkesan.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Pengeluar peranti anda telah mengehadkan kebenaran ADB dan aplikasi yang menggunakan Shevery tidak akan berfungsi dengan betul.  Biasanya, had ini boleh diangkat dengan melaraskan beberapa pilihan dalam "Pilihan Pembangun". Sila baca bantuan untuk maklumat lanjut tentang cara melakukannya.  Anda mungkin perlu memulakan semula Shevery supaya perubahan itu berkesan.]]></string>
     <string name="app_management_select_all">Pilih semua</string>
     <string name="app_management_deselect_all">Batalkan semua pilihan</string>
     <string name="app_management_dialog_adb_is_limited_title">Kebenaran adb adalah terhad</string>

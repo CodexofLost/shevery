@@ -128,7 +128,7 @@
     <string name="notification_adb_pairing_failed_title">Не удалось выполнить сопряжение</string>
     <string name="notification_adb_pairing_retry">Повторить попытку</string>
     <string name="adb_pairing_tutorial_title">Сопряжение Shevery с вашим устройством</string>
-    <string name="home_wireless_adb_description_pre_11">"Для отладки по Wi-Fi в Android до 11 версии потребуется соединение с компьютером."</string>
+    <string name="home_wireless_adb_description_pre_11"><![CDATA["Для отладки по Wi-Fi в Android до 11 версии потребуется соединение с компьютером."]]></string>
     <string name="home_wireless_adb_view_guide_button">Пошаговая инструкция</string>
     <string name="notification_settings">Настройки уведомлений</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Процедура сопряжения подразумевает взаимодействие с уведомлением от Shevery. Для продолжения выдайте Shevery разрешение на показ уведомлений.</string>

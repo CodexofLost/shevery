@@ -33,8 +33,8 @@
     <string name="home_local_network_grant">Zougang ginn</string>
     <string name="home_local_network_permission_denied">Fir drahtlos Debugging ass Zougang zum lokalen Netzwierk erfuerderlech.</string>
     <string name="dialog_adb_discovery">Op der Sich no engem drahtlosen Debugging-Service</string>
-    <string name="dialog_adb_discovery_message">Schalt w.e.g. "Wireless debugging" an "Entwéckleroptiounen" un. "Wireless debugging" gëtt automatesch desaktivéiert, wann d'Netzwierk geännert gëtt. Notiz: Desaktivéiert net "Entwéckleroptiounen" oder "USB debugging", soss gëtt Shevery gestoppt.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">W.e.g. probéiert "Wireless debugging" auszeschalten an nees unzeschalten, wann et ëmmer weider sicht.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Schalt w.e.g. "Wireless debugging" an "Entwéckleroptiounen" un. "Wireless debugging" gëtt automatesch desaktivéiert, wann d'Netzwierk geännert gëtt. Notiz: Desaktivéiert net "Entwéckleroptiounen" oder "USB debugging", soss gëtt Shevery gestoppt.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[W.e.g. probéiert "Wireless debugging" auszeschalten an nees unzeschalten, wann et ëmmer weider sicht.]]></string>
     <string name="dialog_adb_port">Port</string>
     <string name="dialog_adb_invalid_port">Port ass eng ganz Zuel, déi vun 1 bis 65535 geet.</string>
     <string name="adb_pairing">Koppelen</string>
@@ -44,7 +44,7 @@
     <string name="paring_code_is_wrong">De Pairing-Code ass falsch.</string>
     <string name="cannot_connect_port">Kann net mam drahtlosen Debugging-Service verbonne ginn.</string>
     <string name="dialog_wireless_adb_not_enabled">Drahtlos-Debugging ass net aktivéiert. Notiz: Virun Android 11 muss de Computer fir d'Drahtlos-Debugging ze aktivéieren ugeschloss sinn.</string>
-    <string name="dialog_adb_pairing_message">W.e.g. fänkt d'Paarung mat de folgende Schrëtt un: "Entwéckleroptiounen" - "Wireless-Debugging" - "Apparat mat engem Pairing-Code paaren".\n\nNodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[W.e.g. fänkt d'Paarung mat de folgende Schrëtt un: "Entwéckleroptiounen" - "Wireless-Debugging" - "Apparat mat engem Pairing-Code paaren".\n\nNodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]></string>
     <string name="adb_pairing_requires_multi_window">Gitt w.e.g. als éischt an de Split-Screen-(Multi-Fënster-)Modus.</string>
     <string name="adb_pairing_requires_multi_window_reason">D'System verlaangt, datt de Pairing-Dialog ëmmer sichtbar ass; de Split-Screen-Modus ass déi eenzeg Manéier, fir dës App an de Systemdialog gläichzäiteg sichtbar ze maachen.</string>
     <string name="adb_error_key_store">Et ass net méiglech, e Schlëssel fir drahtlos Debugging ze generéieren. Dëst kéint sinn, well de KeyStore-Mechanismus vun dësem Apparat defekt ass.</string>
@@ -53,12 +53,12 @@
     <string name="notification_settings">Notifikatiounsoptiounen</string>
     <string name="adb_pairing_tutorial_title">Pairt Shevery mat Ärem Apparat</string>
     <string name="adb_pairing_tutorial_content_notification">Eng Notifikatioun vun Shevery hëlleft Iech d'Paarung ofzeschléissen.</string>
-    <string name="adb_pairing_tutorial_content_steps">Gitt an "Entwéckleroptiounen" - "Drahtlos-Debugging". Tippt op "Gerät mam Pairing-Code paaren", da gesitt Dir e sechsstellge Code.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Gitt an "Entwéckleroptiounen" - "Drahtlos-Debugging". Tippt op "Gerät mam Pairing-Code paaren", da gesitt Dir e sechsstellge Code.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Gitt de Code an der Notifikatioun an, fir d'Paarung ofzeschléissen.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Fir de Paarungsprozess musst Dir op eng Notifikatioun vun Shevery reagéieren. Erlaabt w.e.g. Shevery, Notifikatiounen ze posten.</string>
-    <string name="adb_pairing_tutorial_content_miui">MIUI-Benotzer mussen eventuell de Notifikatiounsstil an de Systemastellungen vun "Notifikatioun" op "Android" änneren.</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI-Benotzer mussen eventuell de Notifikatiounsstil an de Systemastellungen vun "Notifikatioun" op "Android" änneren.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">Soss kënnt Dir de Pairing-Code vläicht net aus der Notifikatioun aginn.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">W.e.g. bemierkt, datt de lénksen Deel vun der Optioun "Wireless debugging" klickbar ass; wann Dir drop tippt, geet eng nei Säit op. Et ass onkorrekt, nëmmen de Schalter op der rietser Säit unzeschalten.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[W.e.g. bemierkt, datt de lénksen Deel vun der Optioun "Wireless debugging" klickbar ass; wann Dir drop tippt, geet eng nei Säit op. Et ass onkorrekt, nëmmen de Schalter op der rietser Säit unzeschalten.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Zréck bei Shevery a Shevery starten.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery muss op d'lokal Netzwierk zougräifen. Et gëtt duerch d'Netzwierkpermissioun kontrolléiert.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">E puer Systemer (sou wéi MIUI) erlaben Apps net, op d'Netzwierk zouzegräifen, wann se net sichtbar sinn, och wann d'App standardméisseg eng Foreground-Service benotzt. Schalt w.e.g. d'Batterieoptimisatiounsfunktiounen fir Shevery op esou Systemer aus.</string>
@@ -82,7 +82,7 @@
     <string name="home_diagnostics_copied">Diagnostik kopéiert.</string>
     <string name="home_modules_description">ADB-ënnerstëtzte Moduler installéieren a verwalten</string>
     <string name="home_adb_is_limited_title">Du muss e weidere Schrëtt maachen.</string>
-    <string name="home_adb_is_limited_description">Äre Geräterefabrikant huet d'ADB-Erlaabnisser agechränkt, an Apps, déi Shevery benotzen, funktionéieren net richteg. Normalerweis kann dës Beschränkung duerch d'Upassung vun e puer Optiounen an de "Entwéckleroptiounen" opgehuewe ginn. Liest w.e.g. d'Hëllef fir Detailer, wéi dat geet. Et kann néideg sinn, Shevery nei ze starten, fir datt d'Ännerung a Kraaft trëtt.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Äre Geräterefabrikant huet d'ADB-Erlaabnisser agechränkt, an Apps, déi Shevery benotzen, funktionéieren net richteg. Normalerweis kann dës Beschränkung duerch d'Upassung vun e puer Optiounen an de "Entwéckleroptiounen" opgehuewe ginn. Liest w.e.g. d'Hëllef fir Detailer, wéi dat geet. Et kann néideg sinn, Shevery nei ze starten, fir datt d'Ännerung a Kraaft trëtt.]]></string>
     <string name="app_management_select_all">Alles auswielen</string>
     <string name="app_management_deselect_all">Alles deselektéieren</string>
     <string name="app_management_dialog_adb_is_limited_title">D'Erlaabnis vun der adb ass limitéiert.</string>

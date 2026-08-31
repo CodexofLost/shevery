@@ -104,7 +104,7 @@
     <string name="permission_description">Engedélyezze az app számára a Shizuku használatát.</string>
     <string name="permission_warning_template"><![CDATA[Engedélyezi <b>%1$s</b> ide, %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Mindig engedje meg</string>
-    <string name="grant_dialog_button_deny">"Megtagad"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Megtagad"]]></string>
     <string name="starter">Indító</string>
     <string name="start_with_root_failed">A szolgáltatás nem indítható el, mert nincs root jogosultság megadva, vagy ez az eszköz nincs rootolva.</string>
     <string name="dialog_cannot_open_browser_title">Nem lehet elindítani a böngészőt</string>

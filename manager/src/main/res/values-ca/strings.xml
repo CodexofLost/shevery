@@ -44,7 +44,7 @@
     <string name="dialog_adb_port">Port</string>
     <string name="cannot_connect_port">No es pot connectar al servei de depuració sense fil.</string>
     <string name="dialog_wireless_adb_not_enabled">La depuració sense fils no està habilitada. Nota: abans d'Android 11, per habilitar la depuració sense fils, és imprescindible una connexió a un ordinador.</string>
-    <string name="dialog_adb_pairing_message">Si us plau, comenceu el parellament seguint aquests passos: "Opcions de desenvolupador" - "Depuració sense fils" - "Parellar dispositiu mitjançant codi de parellament". Un cop comenci el procés de parellament, podreu introduir el codi de parellament.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Si us plau, comenceu el parellament seguint aquests passos: "Opcions de desenvolupador" - "Depuració sense fils" - "Parellar dispositiu mitjançant codi de parellament". Un cop comenci el procés de parellament, podreu introduir el codi de parellament.]]></string>
     <string name="adb_pairing_requires_multi_window">Si us plau, activeu primer el mode de pantalla dividida (multiventana).</string>
     <string name="adb_pairing_requires_multi_window_reason">El sistema requereix que el diàleg d'emparellament estigui sempre visible; l'ús del mode de pantalla dividida és l'única manera de mantenir visibles alhora aquesta aplicació i el diàleg del sistema.</string>
     <string name="adb_error_key_store">No es pot generar la clau per a la depuració sense fils. Això pot ser perquè el mecanisme KeyStore d'aquest dispositiu està malmès.</string>
@@ -53,12 +53,12 @@
     <string name="notification_settings">Opcions de notificació</string>
     <string name="adb_pairing_tutorial_title">Parella Shevery amb el teu dispositiu</string>
     <string name="adb_pairing_tutorial_content_notification">Una notificació de Shevery t'ajudarà a completar l'aparellament.</string>
-    <string name="adb_pairing_tutorial_content_steps">Accedeix a "Opcions de desenvolupador" - "Depuració sense fils". Toca "Emparella el dispositiu amb el codi d'emparellament" i veuràs un codi de sis dígits.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Accedeix a "Opcions de desenvolupador" - "Depuració sense fils". Toca "Emparella el dispositiu amb el codi d'emparellament" i veuràs un codi de sis dígits.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Introdueix el codi de la notificació per completar l'aparellament.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">El procés d'aparellament requereix que interactueu amb una notificació de Shevery. Si us plau, permeteu que Shevery enviï notificacions.</string>
-    <string name="adb_pairing_tutorial_content_miui">Els usuaris de MIUI poden haver de canviar l'estil de notificació a "Android" des de "Notificacions" - "Persiana de notificacions" a la configuració del sistema.</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Els usuaris de MIUI poden haver de canviar l'estil de notificació a "Android" des de "Notificacions" - "Persiana de notificacions" a la configuració del sistema.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">En cas contrari, pot ser que no puguis introduir el codi de parell des de la notificació.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Tingueu en compte que la part esquerra de l'opció "Desbugat sense fil" és clicable; si la toqueu, s'obrirà una nova pàgina. Només encendre l'interruptor de la dreta és incorrecte.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Tingueu en compte que la part esquerra de l'opció "Desbugat sense fil" és clicable; si la toqueu, s'obrirà una nova pàgina. Només encendre l'interruptor de la dreta és incorrecte.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Tornar a Shevery i iniciar Shevery.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery necessita accedir a la xarxa local. Està controlat pel permís de xarxa.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Alguns sistemes (com MIUI) no permeten que les aplicacions accedeixin a la xarxa quan no són visibles, fins i tot si l'aplicació utilitza un servei de primer pla per defecte. Si us plau, desactiva les funcions d'optimització de la bateria per a Shevery en aquests sistemes.</string>
@@ -82,7 +82,7 @@
     <string name="home_diagnostics_copied">Diagnòstics copiats.</string>
     <string name="home_modules_description">Instal·lar i gestionar mòduls amb suport ADB</string>
     <string name="home_adb_is_limited_title">Necessites fer un pas més.</string>
-    <string name="home_adb_is_limited_description">El fabricant del teu dispositiu ha restringit els permisos d'adb i les aplicacions que utilitzen Shevery no funcionaran correctament. Normalment, aquesta limitació es pot eliminar ajustant algunes opcions a "Opcions de desenvolupador". Consulta la secció d'ajuda per obtenir més detalls sobre com fer-ho. És possible que hagis de reiniciar Shevery perquè el canvi tingui efecte.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[El fabricant del teu dispositiu ha restringit els permisos d'adb i les aplicacions que utilitzen Shevery no funcionaran correctament. Normalment, aquesta limitació es pot eliminar ajustant algunes opcions a "Opcions de desenvolupador". Consulta la secció d'ajuda per obtenir més detalls sobre com fer-ho. És possible que hagis de reiniciar Shevery perquè el canvi tingui efecte.]]></string>
     <string name="app_management_select_all">Selecciona-ho tot</string>
     <string name="app_management_deselect_all">Deselecciona-ho tot</string>
     <string name="app_management_dialog_adb_is_limited_title">El permís d'adb és limitat</string>
@@ -532,7 +532,7 @@
     <string name="settings_compat_stub_uninstalled">El stub de Legacy ha estat eliminat</string>
     <string name="settings_compat_stub_failed">S'ha fallat a l'hora de %1$s el stub legat mitjançant %2$s: %3$s</string>
     <string name="settings_compat_stub_none">No hi ha cap canal disponible (comença Shevery primer)</string>
-    <string name="dialog_adb_discovery_message">Si us plau, activeu "Depuració sense fil" a "Opcions de desenvolupador". "Depuració sense fil" s'inactiva automàticament quan canvia la xarxa. Nota: no desactiveu "Opcions de desenvolupador" ni "Depuració per USB", o Shevery s'aturarà.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Si us plau, activeu "Depuració sense fil" a "Opcions de desenvolupador". "Depuració sense fil" s'inactiva automàticament quan canvia la xarxa. Nota: no desactiveu "Opcions de desenvolupador" ni "Depuració per USB", o Shevery s'aturarà.]]></string>
     <string name="rish_description">Amb %1$s, a qualsevol aplicació de terminal, podeu connectar-vos i interactuar amb les execucions de la shell de Shevery.
 Sobre l'ús detallat de %1$s, toqueu per veure el document.</string>
 </resources>

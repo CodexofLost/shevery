@@ -34,7 +34,7 @@
     <string name="home_local_network_permission_denied">Voor het opsporen van fouten in het draadloze netwerk is toegang tot het lokale netwerk vereist.</string>
     <string name="dialog_adb_discovery">Op zoek naar een dienst voor draadloos debuggen</string>
     <string name="dialog_adb_discovery_message">Schakel ‘Draadloos foutopsporen’ in onder ‘Ontwikkelaarsopties’. ‘Draadloos foutopsporen’ wordt automatisch uitgeschakeld wanneer het netwerk verandert.\n\nLet op: schakel ‘Ontwikkelaarsopties’ of ‘USB-foutopsporen’ niet uit, anders wordt Shevery gestopt.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Probeer "Draadloos foutopsporen" eens uit te schakelen en weer in te schakelen als het blijft zoeken.</string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Probeer "Draadloos foutopsporen" eens uit te schakelen en weer in te schakelen als het blijft zoeken.]]></string>
     <string name="dialog_adb_port">Haven</string>
     <string name="dialog_adb_invalid_port">Port is een geheel getal tussen 1 en 65535.</string>
     <string name="adb_pairing">Combineren</string>
@@ -44,7 +44,7 @@
     <string name="paring_code_is_wrong">De koppelingscode is onjuist.</string>
     <string name="cannot_connect_port">Er kan geen verbinding worden gemaakt met de draadloze foutopsporingsdienst.</string>
     <string name="dialog_wireless_adb_not_enabled">Draadloos debuggen is niet ingeschakeld.\nLet op: vóór Android 11 is een verbinding met een computer vereist om draadloos debuggen in te schakelen.</string>
-    <string name="dialog_adb_pairing_message">Ga als volgt te werk om het koppelen te starten: "Opties voor ontwikkelaars" - "Draadloos foutopsporen" - "Apparaat koppelen met koppelingscode".\n\nZodra het koppelingsproces is gestart, kunt u de koppelingscode invoeren.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Ga als volgt te werk om het koppelen te starten: "Opties voor ontwikkelaars" - "Draadloos foutopsporen" - "Apparaat koppelen met koppelingscode".\n\nZodra het koppelingsproces is gestart, kunt u de koppelingscode invoeren.]]></string>
     <string name="adb_pairing_requires_multi_window">Schakel eerst over naar de modus met gesplitst scherm (meerdere vensters).</string>
     <string name="adb_pairing_requires_multi_window_reason">Het systeem vereist dat het koppelingsvenster altijd zichtbaar blijft; het gebruik van de gesplitste-schermmodus is de enige manier om deze app en het systeemvenster tegelijkertijd zichtbaar te houden.</string>
     <string name="adb_error_key_store">Er kan geen sleutel worden gegenereerd voor draadloos debuggen.\nDit kan komen doordat het KeyStore-mechanisme van dit apparaat niet goed werkt.</string>
@@ -53,7 +53,7 @@
     <string name="notification_settings">Meldingsopties</string>
     <string name="adb_pairing_tutorial_title">Koppel Shevery aan je apparaat</string>
     <string name="adb_pairing_tutorial_content_notification">Een melding van Shevery helpt je bij het voltooien van de koppeling.</string>
-    <string name="adb_pairing_tutorial_content_steps">Ga naar "Ontwikkelaarsopties" - "Draadloos foutopsporen". Tik op "Apparaat koppelen met koppelingscode"; er verschijnt dan een zescijferige code.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Ga naar "Ontwikkelaarsopties" - "Draadloos foutopsporen". Tik op "Apparaat koppelen met koppelingscode"; er verschijnt dan een zescijferige code.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Voer de code uit de melding in om het koppelen te voltooien.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Voor het koppelingsproces moet je reageren op een melding van Shevery. Geef Shevery toestemming om meldingen te plaatsen.</string>
     <string name="adb_pairing_tutorial_content_miui">MIUI-gebruikers moeten mogelijk de meldingsstijl wijzigen van „Melding“ – „Meldingenbalk“ naar „Android“ in de systeeminstellingen.</string>
@@ -237,7 +237,7 @@
     <string name="permission_description">Geef de app toestemming om Shevery te gebruiken.</string>
     <string name="permission_warning_template"><![CDATA[Mag <b>%1$s</b> %2$s doen?]]></string>
     <string name="grant_dialog_button_allow_always">Neem er ruim de tijd voor</string>
-    <string name="grant_dialog_button_deny">"Ontkennen"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Ontkennen"]]></string>
     <string name="starter">Start</string>
     <string name="starting_root_shell">Root-shell wordt gestart…</string>
     <string name="start_with_root_failed">De service kan niet worden gestart omdat er geen root-rechten zijn verleend of omdat dit apparaat niet is geroot.</string>

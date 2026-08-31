@@ -214,7 +214,7 @@
     <string name="permission_label">access Shevery</string>
     <string name="permission_description">Allow the app to use Shevery.</string>
     <string name="grant_dialog_button_allow_always">Allow all the time</string>
-    <string name="grant_dialog_button_deny">"Deny"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Deny"]]></string>
     <string name="starter">Starter</string>
     <string name="start_with_root_failed">Can\'t start service because root permission is not granted or this device is not rooted.</string>
     <string name="dialog_cannot_open_browser_title">Can\'t start browser</string>
@@ -514,8 +514,8 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="home_adb_description"><![CDATA[بالنسبة للأجهزة التي لم يتم عمل روت لها، يتعين عليك استخدام adb لتشغيل Shevery (يتطلب اتصالاً بالكمبيوتر). يجب تكرار هذه العملية في كل مرة يتم فيها إعادة تشغيل الجهاز. يرجى <b><a href="%1$s">قراءة دليل المساعدة</a></b>.]]></string>
     <string name="home_wireless_adb_description"><![CDATA[في نظام أندرويد 11 أو الإصدارات الأحدث، يمكنك تمكين ميزة «التصحيح اللاسلكي» وتشغيل Shevery مباشرةً من جهازك، دون الحاجة إلى توصيله بجهاز كمبيوتر.<p>يرجى الاطلاع أولاً على الدليل التفصيلي خطوة بخطوة.]]></string>
     <string name="home_wireless_adb_description_pre_11">قبل إصدار Android 11، كان من الضروري توصيل الجهاز بجهاز كمبيوتر لتمكين ميزة التصحيح اللاسلكي.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">يرجى محاولة تعطيل ميزة "تصحيح الأخطاء لاسلكيًا" ثم إعادة تمكينها إذا استمر الجهاز في البحث.</string>
-    <string name="dialog_adb_pairing_message">يرجى بدء عملية الاقتران باتباع الخطوات التالية: "خيارات المطور" - "تصحيح الأخطاء لاسلكيًا" - "اقتران الجهاز باستخدام رمز الاقتران".\n\nبعد بدء عملية الاقتران، ستتمكن من إدخال رمز الاقتران.</string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[يرجى محاولة تعطيل ميزة "تصحيح الأخطاء لاسلكيًا" ثم إعادة تمكينها إذا استمر الجهاز في البحث.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[يرجى بدء عملية الاقتران باتباع الخطوات التالية: "خيارات المطور" - "تصحيح الأخطاء لاسلكيًا" - "اقتران الجهاز باستخدام رمز الاقتران".\n\nبعد بدء عملية الاقتران، ستتمكن من إدخال رمز الاقتران.]]></string>
     <string name="adb_pairing_tutorial_content_steps">ادخل إلى «خيارات المطور» - «تصحيح الأخطاء لاسلكيًا». اضغط على «إقران الجهاز باستخدام رمز الإقران»، وسترى رمزًا مكونًا من ستة أرقام.</string>
     <string name="adb_pairing_tutorial_content_miui">قد يحتاج مستخدمو MIUI إلى تغيير نمط الإشعارات إلى «Android» من «الإشعارات» - «شريط الإشعارات» في إعدادات النظام.</string>
     <string name="adb_pairing_tutorial_content_left_is_clickable">يرجى ملاحظة أن الجزء الأيسر من خيار «التصحيح اللاسلكي» قابل للنقر، والنقر عليه سيؤدي إلى فتح صفحة جديدة. أما تشغيل المفتاح الموجود على اليمين فقط فهو خطأ.</string>
@@ -523,7 +523,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="home_root_description"><![CDATA[بالإضافة إلى ذلك، يمكن تشغيل Shevery تلقائيًا عند بدء التشغيل. وإذا لم يحدث ذلك، يرجى التحقق مما إذا كان نظامك أو أدوات الجهات الخارجية قد فرضت قيودًا على Shevery.<br/>يمكنك الرجوع إلى %s.]]></string>
     <string name="home_root_description_sui">إذا كنت تستخدم Magisk، فيمكنك تجربة %1$s. بالنسبة لمستخدمي الجذر، سيحل هذا البرنامج محل Shevery في نهاية المطاف. لاحظ أن التطبيقات الحالية تحتاج إلى تعديل بسيط لاستخدام %2$s.</string>
     <string name="home_app_management_view_authorized_apps">انقر لإدارة التطبيقات المصرح بها</string>
-    <string name="home_adb_is_limited_description">لقد قامت الشركة المصنعة لجهازك بتقييد أذونات adb، ولن تعمل التطبيقات التي تستخدم Shevery بشكل صحيح.\n\nعادةً ما يمكن رفع هذا التقييد عن طريق تعديل بعض الخيارات في "خيارات المطور". يرجى قراءة دليل المساعدة للحصول على تفاصيل حول كيفية القيام بذلك.\n\nقد تحتاج إلى إعادة تشغيل Shevery حتى تصبح التغييرات سارية المفعول.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[لقد قامت الشركة المصنعة لجهازك بتقييد أذونات adb، ولن تعمل التطبيقات التي تستخدم Shevery بشكل صحيح.\n\nعادةً ما يمكن رفع هذا التقييد عن طريق تعديل بعض الخيارات في "خيارات المطور". يرجى قراءة دليل المساعدة للحصول على تفاصيل حول كيفية القيام بذلك.\n\nقد تحتاج إلى إعادة تشغيل Shevery حتى تصبح التغييرات سارية المفعول.]]></string>
     <string name="app_management_dialog_adb_is_limited_message"><![CDATA[من المحتمل جدًّا أن تكون الشركة المصنعة لجهازك قد فرضت قيودًا على أذونات adb.<p>قد تجد حلاً مناسبًا لنظامك في <b><a href="%1$s">هذا المستند</a></b>.]]></string>
     <string name="rish_description"><![CDATA[باستخدام %1$s، في أي تطبيق محطة طرفية، يمكنك الاتصال ببيئة التشغيل التي تديرها Shevery والتفاعل معها.
 <p>لمعرفة تفاصيل استخدام %1$s، انقر لعرض الوثيقة.]]></string>

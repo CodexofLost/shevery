@@ -235,7 +235,7 @@
     <string name="permission_description">Atļaujiet lietotnei izmantot „Shevery“.</string>
     <string name="permission_warning_template"><![CDATA[Atļaut <b>%1$s</b> veikt %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Atvēlēt visu laiku</string>
-    <string name="grant_dialog_button_deny">"Noraidīt"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Noraidīt"]]></string>
     <string name="starter">Sākums</string>
     <string name="starting_root_shell">Sākas root komandu rīka darbība…</string>
     <string name="start_with_root_failed">Pakalpojumu nevar uzsākt, jo nav piešķirtas root tiesības vai šī ierīce nav rootēta.</string>

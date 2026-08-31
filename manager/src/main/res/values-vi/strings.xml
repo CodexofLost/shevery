@@ -140,7 +140,7 @@
     <string name="home_diagnostics_copied">Đã sao chép các thông tin chẩn đoán.</string>
     <string name="home_modules_description">Cài đặt và quản lý các mô-đun được hỗ trợ bởi ADB</string>
     <string name="home_adb_is_limited_title">Bạn cần thực hiện thêm một bước nữa</string>
-    <string name="home_adb_is_limited_description">Nhà sản xuất thiết bị của bạn đã hạn chế quyền truy cập adb và các ứng dụng sử dụng Shevery sẽ không hoạt động bình thường.\n\nThông thường, bạn có thể gỡ bỏ hạn chế này bằng cách điều chỉnh một số tùy chọn trong mục "Tùy chọn nhà phát triển". Vui lòng tham khảo phần trợ giúp để biết chi tiết về cách thực hiện.\n\nBạn có thể cần khởi động lại Shevery để thay đổi có hiệu lực.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Nhà sản xuất thiết bị của bạn đã hạn chế quyền truy cập adb và các ứng dụng sử dụng Shevery sẽ không hoạt động bình thường.\n\nThông thường, bạn có thể gỡ bỏ hạn chế này bằng cách điều chỉnh một số tùy chọn trong mục "Tùy chọn nhà phát triển". Vui lòng tham khảo phần trợ giúp để biết chi tiết về cách thực hiện.\n\nBạn có thể cần khởi động lại Shevery để thay đổi có hiệu lực.]]></string>
     <string name="app_management_select_all">Chọn tất cả</string>
     <string name="app_management_deselect_all">Bỏ chọn tất cả</string>
     <string name="app_management_loading">Đang tải ứng dụng…</string>

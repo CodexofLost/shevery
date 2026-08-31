@@ -124,7 +124,7 @@
     <string name="home_local_network_missing">%1$s verilmir.</string>
     <string name="home_local_network_grant">Giriş icazə verin</string>
     <string name="home_local_network_permission_denied">Simsiz səhvləri aradan qaldırmaq üçün yerli şəbəkəyə çıxış tələb olunur.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Əgər cihaz daim axtarışda qalırsa, zəhmət olmasa "Simsiz səhvləri düzəltmə"ni söndürüb yenidən qoşmağa cəhd edin.</string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Əgər cihaz daim axtarışda qalırsa, zəhmət olmasa "Simsiz səhvləri düzəltmə"ni söndürüb yenidən qoşmağa cəhd edin.]]></string>
     <string name="home_app_management_empty">Shevery-ni tələb edən və ya elan edən tətbiqlər burada göstəriləcək.</string>
     <string name="home_quick_terminal">Terminal</string>
     <string name="home_quick_wireless">Simsiz ADB</string>
@@ -136,7 +136,7 @@
     <string name="home_diagnostics_copied">Diaqnostika kopyalandı.</string>
     <string name="home_modules_description">ADB tərəfindən dəstəklənən modulları quraşdırın və idarə edin</string>
     <string name="home_adb_is_limited_title">Siz əlavə bir addım atmalısınız.</string>
-    <string name="home_adb_is_limited_description">Cihazınızın istehsalçısı adb icazələrini məhdudlaşdırıb və Shevery-dən istifadə edən tətbiqlər düzgün işləməyəcək.  Adətən bu məhdudiyyət "İnkişaf seçimləri"ndə bəzi parametrləri tənzimləməklə aradan qaldırıla bilər. Bunu necə edəcəyiniz barədə ətraflı məlumat üçün kömək bölməsinə baxın.  Əməliyyatın qüvvəyə minməsi üçün Shevery-ni yenidən işə salmağınız lazım ola bilər.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Cihazınızın istehsalçısı adb icazələrini məhdudlaşdırıb və Shevery-dən istifadə edən tətbiqlər düzgün işləməyəcək.  Adətən bu məhdudiyyət "İnkişaf seçimləri"ndə bəzi parametrləri tənzimləməklə aradan qaldırıla bilər. Bunu necə edəcəyiniz barədə ətraflı məlumat üçün kömək bölməsinə baxın.  Əməliyyatın qüvvəyə minməsi üçün Shevery-ni yenidən işə salmağınız lazım ola bilər.]]></string>
     <string name="app_management_select_all">Həmin hamısını seçin</string>
     <string name="app_management_deselect_all">Həmini seçməyi ləğv et</string>
     <string name="app_management_loading">Tətbiqləri yükləyir…</string>
@@ -529,9 +529,9 @@
     <string name="settings_compat_stub_uninstalled">Miras qalıntısı silindi</string>
     <string name="settings_compat_stub_failed">Mirası stubu %2$s vasitəsilə %1$s etməyi bacarmadı: %3$s</string>
     <string name="settings_compat_stub_none">Heç bir kanal mövcud deyil (əvvəlcə Shevery-ni işə salın)</string>
-    <string name="dialog_adb_discovery_message">Zəhmət olmasa "İnkişafçı seçimləri"ndə "Simsiz səhvləri düzəltmə"ni aktivləşdirin. Şəbəkə dəyişdikdə "Simsiz səhvləri düzəltmə" avtomatik olaraq deaktiv edilir. Qeyd: "İnkişafçı seçimləri"ni və ya "USB səhvləri düzəltmə"ni deaktiv etməyin, yoxsa Shevery dayandırılacaq.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Zəhmət olmasa "İnkişafçı seçimləri"ndə "Simsiz səhvləri düzəltmə"ni aktivləşdirin. Şəbəkə dəyişdikdə "Simsiz səhvləri düzəltmə" avtomatik olaraq deaktiv edilir. Qeyd: "İnkişafçı seçimləri"ni və ya "USB səhvləri düzəltmə"ni deaktiv etməyin, yoxsa Shevery dayandırılacaq.]]></string>
     <string name="dialog_wireless_adb_not_enabled">Simsiz səhvləri aradan qaldırma aktivləşdirilməyib. Qeyd: Android 11-dən əvvəl simsiz səhvləri aradan qaldırmanı aktivləşdirmək üçün kompüterə qoşulmaq mütləqdir.</string>
-    <string name="dialog_adb_pairing_message">Zəhmət olmasa cütləşdirməyə aşağıdakı addımlarla başlayın: "İnkişaf parametrləri" - "Simsiz səhvləri aradan qaldırma" - "Cütləşdirmə kodundan istifadə edərək cihazı cütləşdirin". Cütləşdirmə prosesi başladıqdan sonra cütləşdirmə kodunu daxil edə biləcəksiniz.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Zəhmət olmasa cütləşdirməyə aşağıdakı addımlarla başlayın: "İnkişaf parametrləri" - "Simsiz səhvləri aradan qaldırma" - "Cütləşdirmə kodundan istifadə edərək cihazı cütləşdirin". Cütləşdirmə prosesi başladıqdan sonra cütləşdirmə kodunu daxil edə biləcəksiniz.]]></string>
     <string name="adb_error_key_store">Simsiz səhvləri düzəltmək üçün açar yaradılmadı. Bu, bu cihazın KeyStore mexanizminin sıradan çıxması səbəbindən ola bilər.</string>
     <string name="terminal_tutorial_1_description">Əgər seçilmiş qovluqda eyni adla fayllar varsa, onlar silinəcək.  Eksport funksiyası SAF (Storage Access Framework) istifadə edir. Bildirilir ki, MIUI SAF-ın funksiyalarını pozur. Əgər MIUI istifadə edirsinizsə, faylı Shevery-nin APK-sından çıxarmalı və ya GitHub-dan yükləməlisiniz.</string>
     <string name="toast_copied_to_clipboard">%s\nkopyalanıb kəsim lövhəsinə.</string>

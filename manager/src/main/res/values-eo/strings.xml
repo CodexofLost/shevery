@@ -40,8 +40,8 @@
     <string name="home_local_network_grant">Donu aliron</string>
     <string name="home_local_network_permission_denied">Por sendrata depanado necesas aliro al la loka reto.</string>
     <string name="dialog_adb_discovery">Serĉante senfadenan erar-detektan servon</string>
-    <string name="dialog_adb_discovery_message">Bonvolu ebligi "Senfadenan depurigadon" en "Disvolvopcioj". "Senfadena depurigado" estas aŭtomate malŝaltita kiam la reto ŝanĝiĝas. Noto: ne malŝaltu "Disvolvopciojn" aŭ "USB-depurigadon", alie Shevery ĉesos.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Bonvolu provi malŝalti kaj reŝalti "Sendratan depanadon", se ĝi daŭre serĉas.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Bonvolu ebligi "Senfadenan depurigadon" en "Disvolvopcioj". "Senfadena depurigado" estas aŭtomate malŝaltita kiam la reto ŝanĝiĝas. Noto: ne malŝaltu "Disvolvopciojn" aŭ "USB-depurigadon", alie Shevery ĉesos.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Bonvolu provi malŝalti kaj reŝalti "Sendratan depanadon", se ĝi daŭre serĉas.]]></string>
     <string name="dialog_adb_port">Pordo</string>
     <string name="dialog_adb_invalid_port">Porto estas entjero inter 1 kaj 65535.</string>
     <string name="adb_pairing">Parigo</string>
@@ -51,7 +51,7 @@
     <string name="paring_code_is_wrong">La pariga kodo estas malĝusta.</string>
     <string name="cannot_connect_port">Ne eblas konekti al la sendrata depana servo.</string>
     <string name="dialog_wireless_adb_not_enabled">Sendrata depanado ne estas ebligita. Noto: antaŭ Android 11, por ebligi sendratan depanadon, komputila konekto estas nepra.</string>
-    <string name="dialog_adb_pairing_message">Bonvolu komenci la parigon per la jenaj paŝoj: "Disvolvopcioj" - "Sendrata depanado" - "Parigi aparaton per pariga kodo". Post kiam la pariga procezo komenciĝos, vi povos enigi la parigan kodon.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Bonvolu komenci la parigon per la jenaj paŝoj: "Disvolvopcioj" - "Sendrata depanado" - "Parigi aparaton per pariga kodo". Post kiam la pariga procezo komenciĝos, vi povos enigi la parigan kodon.]]></string>
     <string name="adb_pairing_requires_multi_window">Bonvolu unue eniri split-ekranan (multfenestran) reĝimon.</string>
     <string name="adb_pairing_requires_multi_window_reason">La sistemo postulas, ke la pariga dialogo ĉiam estu videbla; uzi dividitan ekranan reĝimon estas la sola maniero, por ke ĉi tiu aplikaĵo kaj la sistema dialogo estu videblaj samtempe.</string>
     <string name="adb_error_key_store">Ne eblas generi ŝlosilon por sendrata depanado. Ĉi tio eble estas ĉar la KeyStore-mekanismo de ĉi tiu aparato estas rompita.</string>
@@ -59,12 +59,12 @@
     <string name="notification_settings">Opcioj pri sciigoj</string>
     <string name="adb_pairing_tutorial_title">Parigu Shevery kun via aparato</string>
     <string name="adb_pairing_tutorial_content_notification">Noto de Shevery helpos vin kompletigi la parigon.</string>
-    <string name="adb_pairing_tutorial_content_steps">Eniru "Disvolvopcioj" - "Sendrata depanado". Tuŝu "Parigu aparaton per pariga kodo", vi vidos sesciferan kodon.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Eniru "Disvolvopcioj" - "Sendrata depanado". Tuŝu "Parigu aparaton per pariga kodo", vi vidos sesciferan kodon.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Enigu la kodon en la sciigo por kompletigi la parigon.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Por la parigprocezo vi devas interagi kun sciigo de Shevery. Bonvolu permesi al Shevery afiŝi sciigojn.</string>
-    <string name="adb_pairing_tutorial_content_miui">Uzantoj de MIUI eble bezonos ŝanĝi la stilon de sciigoj de "Notification" al "Android" en la sistemaj agordoj sub "Notification" - "Notification shade".</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Uzantoj de MIUI eble bezonos ŝanĝi la stilon de sciigoj de "Notification" al "Android" en la sistemaj agordoj sub "Notification" - "Notification shade".]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">Alie, eble vi ne povos enigi la parigkodon el la sciigo.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Bonvolu noti, ke la maldekstra parto de la opcio "Senfada depanado" estas klakebla; tuŝi ĝin malfermos novan paĝon. Nur ŝalti la ŝaltilon dekstre estas malĝusta.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Bonvolu noti, ke la maldekstra parto de la opcio "Senfada depanado" estas klakebla; tuŝi ĝin malfermos novan paĝon. Nur ŝalti la ŝaltilon dekstre estas malĝusta.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Reen al Shevery kaj startu Shevery.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery bezonas aliri la lokan reton. Ĝi estas kontrolata per la reta permeso.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Kelkaj sistemoj (kiel MIUI) malpermesas al programoj aliri la reton kiam ili ne estas videblaj, eĉ se la programo normale uzas antaŭgrundan servon. Bonvolu malŝalti la baterio-optimumigajn funkciojn por Shevery en tiaj sistemoj.</string>
@@ -86,7 +86,7 @@
     <string name="home_diagnostics_copied">Diagnostiko kopiita.</string>
     <string name="home_modules_description">Instali kaj administri ADB-subtenatajn modulojn</string>
     <string name="home_adb_is_limited_title">Vi devas fari plian paŝon.</string>
-    <string name="home_adb_is_limited_description">Via aparata fabrikanto limigis la permesojn de ADB, kaj programoj uzantaj Shevery ne funkcios ĝuste. Kutime ĉi tiun limigon eblas forigi per agordi kelkajn opciojn en "Opcioj por programistoj". Bonvolu legi la helpon por detaloj pri kiel fari tion. Vi eble bezonos restartigi Shevery por ke la ŝanĝo ekvalidu.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Via aparata fabrikanto limigis la permesojn de ADB, kaj programoj uzantaj Shevery ne funkcios ĝuste. Kutime ĉi tiun limigon eblas forigi per agordi kelkajn opciojn en "Opcioj por programistoj". Bonvolu legi la helpon por detaloj pri kiel fari tion. Vi eble bezonos restartigi Shevery por ke la ŝanĝo ekvalidu.]]></string>
     <string name="app_management_select_all">Elektu ĉion</string>
     <string name="app_management_deselect_all">Malelektu ĉiujn</string>
     <string name="app_management_dialog_adb_is_limited_title">La permeso de adb estas limigita</string>
@@ -453,7 +453,7 @@
     <string name="comput_record_macro">Registri makron</string>
     <string name="comput_recording_active">Registrado aktiva. Plenumu komandojn per la ĉefa enigo por aldoni ilin al ĉi tiu makroo.</string>
     <string name="comput_saved_macros">Savitaj makrooj</string>
-    <string name="comput_no_macros">Ankoraŭ neniuj konservitaj makrooj. Alklaku "Registri makroo" por komenci registri konzolajn komandojn.</string>
+    <string name="comput_no_macros"><![CDATA[Ankoraŭ neniuj konservitaj makrooj. Alklaku "Registri makroo" por komenci registri konzolajn komandojn.]]></string>
     <string name="comput_delete">Forigi</string>
     <string name="comput_recommand_confirmation_title">Konfirmo de ReCommand</string>
     <string name="comput_execute">Efektivigi</string>

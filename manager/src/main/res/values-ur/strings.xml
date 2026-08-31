@@ -33,8 +33,8 @@
     <string name="home_local_network_grant">رسائی دیں</string>
     <string name="home_local_network_permission_denied">وائرلیس ڈیبگنگ کے لیے مقامی نیٹ ورک تک رسائی ضروری ہے۔</string>
     <string name="dialog_adb_discovery">وائرلیس ڈیبگنگ سروس کی تلاش</string>
-    <string name="dialog_adb_discovery_message">براہ کرم "Developer options" میں "Wireless debugging" کو فعال کریں۔ جب نیٹ ورک تبدیل ہوتا ہے تو "Wireless debugging" خود بخود غیر فعال ہو جاتی ہے۔ نوٹ: "Developer options" یا "USB debugging" کو غیر فعال نہ کریں، ورنہ Shevery رک جائے گا۔</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">اگر یہ بار بار تلاش کرتا رہے تو براہِ کرم "وائرلیس ڈیبگنگ" کو غیر فعال اور پھر فعال کرنے کی کوشش کریں۔</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[براہ کرم "Developer options" میں "Wireless debugging" کو فعال کریں۔ جب نیٹ ورک تبدیل ہوتا ہے تو "Wireless debugging" خود بخود غیر فعال ہو جاتی ہے۔ نوٹ: "Developer options" یا "USB debugging" کو غیر فعال نہ کریں، ورنہ Shevery رک جائے گا۔]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[اگر یہ بار بار تلاش کرتا رہے تو براہِ کرم "وائرلیس ڈیبگنگ" کو غیر فعال اور پھر فعال کرنے کی کوشش کریں۔]]></string>
     <string name="dialog_adb_port">بندرگاہ</string>
     <string name="dialog_adb_invalid_port">پورٹ ایک عدد ہے جو 1 سے 65535 تک ہوتا ہے۔</string>
     <string name="adb_pairing">جوڑا بنانا</string>
@@ -44,7 +44,7 @@
     <string name="paring_code_is_wrong">جوڑنے کا کوڈ غلط ہے۔</string>
     <string name="cannot_connect_port">وائرلیس ڈیبگنگ سروس سے کنیکٹ نہیں ہو سکتا۔</string>
     <string name="dialog_wireless_adb_not_enabled">وائرلیس ڈیبگنگ فعال نہیں ہے۔ نوٹ: اینڈرائیڈ 11 سے پہلے، وائرلیس ڈیبگنگ کو فعال کرنے کے لیے کمپیوٹر سے کنکشن ضروری ہے۔</string>
-    <string name="dialog_adb_pairing_message">براہ کرم درج ذیل مراحل کے مطابق جوڑنا شروع کریں: "ڈویلپر آپشنز" - "وائرلیس ڈیبگنگ" - "پیرنگ کوڈ استعمال کرتے ہوئے ڈیوائس کو جوڑنا"۔ جوڑنے کا عمل شروع ہونے کے بعد آپ پیرنگ کوڈ درج کر سکیں گے۔</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[براہ کرم درج ذیل مراحل کے مطابق جوڑنا شروع کریں: "ڈویلپر آپشنز" - "وائرلیس ڈیبگنگ" - "پیرنگ کوڈ استعمال کرتے ہوئے ڈیوائس کو جوڑنا"۔ جوڑنے کا عمل شروع ہونے کے بعد آپ پیرنگ کوڈ درج کر سکیں گے۔]]></string>
     <string name="adb_pairing_requires_multi_window">براہ کرم پہلے سپلٹ اسکرین (ملٹی ونڈو) موڈ میں داخل ہوں۔</string>
     <string name="adb_pairing_requires_multi_window_reason">سسٹم کو جوڑنے کا ڈائیلاگ ہمیشہ دکھائی دینا ضروری ہے، اس لیے اس ایپ اور سسٹم کے ڈائیلاگ کو ایک ساتھ دکھانے کا واحد طریقہ سکرین کو تقسیم کرنے والا موڈ ہے۔</string>
     <string name="adb_error_key_store">وائرلیس ڈیبگنگ کے لیے کلید پیدا نہیں کی جا سکتی۔ یہ اس لیے ہو سکتا ہے کہ اس ڈیوائس کا KeyStore میکانزم خراب ہے۔</string>
@@ -53,12 +53,12 @@
     <string name="notification_settings">اطلاع کے اختیارات</string>
     <string name="adb_pairing_tutorial_title">اپنے آلے کے ساتھ شیوری کو جوڑیں</string>
     <string name="adb_pairing_tutorial_content_notification">شیوری کی اطلاع آپ کو جوڑا مکمل کرنے میں مدد دے گی۔</string>
-    <string name="adb_pairing_tutorial_content_steps">"ڈیولپر آپشنز" میں جائیں - "وائرلیس ڈیبگنگ"۔  "جوڑے کے کوڈ کے ساتھ ڈیوائس کو جوڑیں" پر ٹیپ کریں، آپ کو ایک چھ ہندسوں پر مشتمل کوڈ نظر آئے گا۔</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA["ڈیولپر آپشنز" میں جائیں - "وائرلیس ڈیبگنگ"۔  "جوڑے کے کوڈ کے ساتھ ڈیوائس کو جوڑیں" پر ٹیپ کریں، آپ کو ایک چھ ہندسوں پر مشتمل کوڈ نظر آئے گا۔]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">جوڑنے کے عمل کو مکمل کرنے کے لیے نوٹیفکیشن میں کوڈ درج کریں۔</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">جوڑنے کے عمل کے لیے آپ کو Shevery کی نوٹیفکیشن کے ساتھ تعامل کرنا ضروری ہے۔ براہ کرم Shevery کو نوٹیفکیشنز بھیجنے کی اجازت دیں۔</string>
-    <string name="adb_pairing_tutorial_content_miui">MIUI صارفین کو ممکنہ طور پر سسٹم سیٹنگز میں نوٹیفیکیشن اسٹائل کو "Notification" سے "Android" میں تبدیل کرنا پڑ سکتا ہے۔</string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI صارفین کو ممکنہ طور پر سسٹم سیٹنگز میں نوٹیفیکیشن اسٹائل کو "Notification" سے "Android" میں تبدیل کرنا پڑ سکتا ہے۔]]></string>
     <string name="adb_pairing_tutorial_content_miui_2">ورنہ آپ نوٹیفیکیشن سے پیئرنگ کوڈ درج نہیں کر سکیں گے۔</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">براہ کرم نوٹ کریں کہ "وائرلیس ڈیبگنگ" کے آپشن کا بائیں حصہ کلک کے قابل ہے، اس پر ٹیپ کرنے سے ایک نیا صفحہ کھل جائے گا۔ صرف دائیں جانب موجود سوئچ کو آن کرنا غلط ہے۔</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[براہ کرم نوٹ کریں کہ "وائرلیس ڈیبگنگ" کے آپشن کا بائیں حصہ کلک کے قابل ہے، اس پر ٹیپ کرنے سے ایک نیا صفحہ کھل جائے گا۔ صرف دائیں جانب موجود سوئچ کو آن کرنا غلط ہے۔]]></string>
     <string name="adb_pairing_tutorial_content_finish">شیوری پر واپس جائیں اور شیوری شروع کریں۔</string>
     <string name="adb_pairing_tutorial_content_network">Shevery کو مقامی نیٹ ورک تک رسائی کی ضرورت ہے۔ یہ نیٹ ورک اجازت نامے سے کنٹرول ہوتا ہے۔</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">کچھ سسٹمز (جیسے MIUI) ایپس کو نیٹ ورک تک رسائی کی اجازت نہیں دیتے جب وہ نظر نہیں آتیں، چاہے ایپ معیاری طور پر فورگراؤنڈ سروس استعمال کرتی ہو۔ براہ کرم ایسے سسٹمز پر Shevery کے لیے بیٹری آپٹیمائزیشن خصوصیات کو غیر فعال کر دیں۔</string>
@@ -82,7 +82,7 @@
     <string name="home_diagnostics_copied">تشخیصی معلومات کاپی کر لی گئی۔</string>
     <string name="home_modules_description">ADB کی معاونت یافتہ ماڈیولز انسٹال اور منظم کریں۔</string>
     <string name="home_adb_is_limited_title">آپ کو ایک اضافی قدم اٹھانا ہوگا۔</string>
-    <string name="home_adb_is_limited_description">آپ کے ڈیوائس بنانے والے نے adb کی اجازتوں کو محدود کر دیا ہے اور Shevery استعمال کرنے والی ایپس صحیح طریقے سے کام نہیں کریں گی۔  عام طور پر، اس پابندی کو "Developer options" میں کچھ ترتیبات تبدیل کرکے ختم کیا جا سکتا ہے۔ براہ کرم تفصیلات کے لیے مدد دیکھیں۔  آپریشن کے اثر کرنے کے لیے آپ کو Shevery کو دوبارہ شروع کرنے کی ضرورت پڑ سکتی ہے۔</string>
+    <string name="home_adb_is_limited_description"><![CDATA[آپ کے ڈیوائس بنانے والے نے adb کی اجازتوں کو محدود کر دیا ہے اور Shevery استعمال کرنے والی ایپس صحیح طریقے سے کام نہیں کریں گی۔  عام طور پر، اس پابندی کو "Developer options" میں کچھ ترتیبات تبدیل کرکے ختم کیا جا سکتا ہے۔ براہ کرم تفصیلات کے لیے مدد دیکھیں۔  آپریشن کے اثر کرنے کے لیے آپ کو Shevery کو دوبارہ شروع کرنے کی ضرورت پڑ سکتی ہے۔]]></string>
     <string name="app_management_select_all">سب منتخب کریں</string>
     <string name="app_management_deselect_all">سب کو غیر منتخب کریں</string>
     <string name="app_management_dialog_adb_is_limited_title">ای ڈی بی کی اجازت محدود ہے۔</string>

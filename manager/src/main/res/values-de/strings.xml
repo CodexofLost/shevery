@@ -25,7 +25,7 @@
     <string name="grant_dialog_button_deny">Verweigern</string>
     <string name="grant_dialog_button_allow_always">Immer zulassen</string>
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b> erlauben %2$s zu verwenden?]]></string>
-    <string name="translation_contributors">" "</string>
+    <string name="translation_contributors"><![CDATA[" "]]></string>
     <string name="notification_service_start_failed">Shizuku-Dienst starten fehlgeschlagen.</string>
     <string name="notification_channel_service_status">Status des Dienststarts</string>
     <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Es ist sehr wahrscheinlich, dass Ihr Gerätehersteller die Berechtigung von adb einschränkt. <p>Vielleicht finden Sie in <b><a href="%1$s">diesem Dokument</a></b> eine Lösung für Ihr System.]]></string>

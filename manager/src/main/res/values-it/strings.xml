@@ -147,7 +147,7 @@
     <string name="settings_start_on_boot_adb_missing_permission_title">Autorizzazione mancante</string>
     <string name="settings_start_on_boot_adb_not_running">Shevery non è in esecuzione. Avvia prima il servizio, poi torna qui e abilita questa impostazione.</string>
     <string name="settings_start_on_boot_adb_grant_failed">La concessione automatica dell'autorizzazione non è andata a buon fine. Esegui questo comando da un computer per concederla manualmente:</string>
-    <string name="settings_start_on_boot_adb_missing_permission_copy">Comando "Copia"</string>
+    <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Comando "Copia"]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_instruction">Istruzioni per l'uso:\n1. Collegare il dispositivo a un computer (tramite USB o debug wireless).\n2. Nel terminale, eseguire il comando riportato nel campo sopra.</string>
     <string name="modules_title">Moduli ADB</string>
     <string name="modules_settings_title">Moduli</string>
@@ -169,7 +169,7 @@
     <string name="modules_permission_service">Esegui servizio</string>
     <string name="modules_permission_service_summary">Consenti l'esecuzione di service.sh anche quando sono attive le azioni in background.</string>
     <string name="modules_permission_web_bridge">Bridge della shell WebUI</string>
-    <string name="modules_permission_web_bridge_summary">Mostra la finestra "Shevery" solo per l'interfaccia utente web locale e solo quando la connessione Internet di WebView è disattivata.</string>
+    <string name="modules_permission_web_bridge_summary"><![CDATA[Mostra la finestra "Shevery" solo per l'interfaccia utente web locale e solo quando la connessione Internet di WebView è disattivata.]]></string>
     <string name="modules_permission_web_network">WebView Internet</string>
     <string name="modules_permission_web_network_summary">Consenti la navigazione/i risorse HTTPS. Questa opzione disabilita l'esposizione del bridge della shell per quella WebView.</string>
     <string name="modules_permission_web_download">WebUI download()</string>
@@ -229,7 +229,7 @@
     <string name="modules_update_button">Aggiornamento</string>
     <string name="modules_updating">Aggiornamento del modulo…</string>
     <string name="modules_update_success">Modulo aggiornato alla versione %s</string>
-    <string name="modules_download_downloads">Scarica nella cartella "Download"</string>
+    <string name="modules_download_downloads"><![CDATA[Scarica nella cartella "Download"]]></string>
     <string name="modules_download_install">Scarica e installa</string>
     <string name="modules_downloading">Scaricamento in corso…</string>
     <string name="modules_download_enqueued">Il download è stato avviato in background</string>
@@ -324,7 +324,7 @@
     <string name="update_settings_github_pat_set">Set di gettoni</string>
     <string name="update_settings_github_pat_unset">Non impostato (60 richieste/ora)</string>
     <string name="update_settings_github_pat_title">Token di accesso personale GitHub</string>
-    <string name="update_settings_github_pat_description">Facoltativo. Un PAT di GitHub aumenta i limiti di frequenza dell'API da 60 a 5000 richieste all'ora. Richiede solo l'ambito "public_repo" per i repository pubblici.</string>
+    <string name="update_settings_github_pat_description"><![CDATA[Facoltativo. Un PAT di GitHub aumenta i limiti di frequenza dell'API da 60 a 5000 richieste all'ora. Richiede solo l'ambito "public_repo" per i repository pubblici.]]></string>
     <string name="update_settings_github_pat_label">Token</string>
     <string name="update_settings_github_pat_show">Mostra</string>
     <string name="update_settings_github_pat_hide">Nascondi</string>
@@ -361,7 +361,7 @@
     <string name="modules_catalog_token_required">È richiesto un token GitHub</string>
     <string name="modules_catalog_token_hint">Token di accesso personale GitHub</string>
     <string name="modules_catalog_token_description">Per cercare i moduli su GitHub è necessario un token. Puoi crearne uno all'indirizzo github.com/settings/tokens</string>
-    <string name="modules_catalog_token_format_warning">Il token deve iniziare con "ghp_" o "github_pat_" e deve contenere almeno 30 caratteri</string>
+    <string name="modules_catalog_token_format_warning"><![CDATA[Il token deve iniziare con "ghp_" o "github_pat_" e deve contenere almeno 30 caratteri]]></string>
     <string name="modules_catalog_loading">Caricamento del catalogo in corso…</string>
     <string name="modules_catalog_error">Impossibile caricare il catalogo</string>
     <string name="modules_catalog_install">Installa</string>
@@ -436,7 +436,7 @@
     <string name="comput_command_pasted">Comando incollato nel campo di immissione</string>
     <string name="comput_use_command">Utilizza il comando</string>
     <string name="comput_copied_to_clipboard">Copiato negli appunti</string>
-    <string name="comput_copy_command">Comando "Copia"</string>
+    <string name="comput_copy_command"><![CDATA[Comando "Copia"]]></string>
     <string name="comput_hero_title">Console Shevery</string>
     <string name="comput_hero_subtitle">Un potente terminale shell sul tuo dispositivo, basato su Shizuku.</string>
     <string name="comput_status_ready">Pronto</string>
@@ -448,7 +448,7 @@
     <string name="comput_record_macro">Registra macro</string>
     <string name="comput_recording_active">Registrazione attiva. Esegui i comandi utilizzando l'input principale per aggiungerli a questa macro.</string>
     <string name="comput_saved_macros">Macro salvate</string>
-    <string name="comput_no_macros">Non ci sono ancora macro salvate. Fare clic su "Registra macro" per avviare la registrazione dei comandi della console.</string>
+    <string name="comput_no_macros"><![CDATA[Non ci sono ancora macro salvate. Fare clic su "Registra macro" per avviare la registrazione dei comandi della console.]]></string>
     <string name="comput_delete">Elimina</string>
     <string name="comput_recommand_confirmation_title">Conferma ReCommand</string>
     <string name="comput_execute">Esegui</string>
@@ -475,7 +475,7 @@
     <string name="comput_history_title">Storia</string>
     <string name="comput_history_empty">Non c'è ancora alcuna cronologia dei comandi</string>
     <string name="comput_run_desc">Esegui comando</string>
-    <string name="comput_stop_desc">Comando "Stop"</string>
+    <string name="comput_stop_desc"><![CDATA[Comando "Stop"]]></string>
     <string name="comput_scroll_bottom_desc">Scorri fino in fondo alla pagina</string>
     <string name="comput_cancelled">Comando annullato dall'utente.</string>
     <string name="diagnostics_app">App</string>
@@ -530,9 +530,9 @@
     <string name="settings_compat_stub_none">Nessun canale disponibile (inizia prima da Shevery)</string>
     <string name="dialog_adb_discovery_message">Si prega di abilitare la funzione “Debug wireless” nelle “Opzioni sviluppatore”. La funzione “Debug wireless” viene disabilitata automaticamente in caso di modifiche alla rete.\n\nAttenzione: non disabilitare le “Opzioni sviluppatore” né il “Debug USB”, altrimenti Shevery verrà interrotto.</string>
     <string name="dialog_wireless_adb_not_enabled">Il debug wireless non è abilitato.\nNota: prima di Android 11, per abilitare il debug wireless è indispensabile la connessione a un computer.</string>
-    <string name="dialog_adb_pairing_message">Per avviare l'accoppiamento, segui questi passaggi: "Opzioni sviluppatore" - "Debug wireless" - "Accoppia dispositivo tramite codice di accoppiamento".\n\nUna volta avviato il processo di accoppiamento, potrai inserire il codice di accoppiamento.</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Per avviare l'accoppiamento, segui questi passaggi: "Opzioni sviluppatore" - "Debug wireless" - "Accoppia dispositivo tramite codice di accoppiamento".\n\nUna volta avviato il processo di accoppiamento, potrai inserire il codice di accoppiamento.]]></string>
     <string name="adb_error_key_store">Impossibile generare la chiave per il debug wireless.\nCiò potrebbe essere dovuto al malfunzionamento del meccanismo KeyStore di questo dispositivo.</string>
-    <string name="home_adb_is_limited_description">Il produttore del tuo dispositivo ha limitato le autorizzazioni ADB e le app che utilizzano Shevery non funzioneranno correttamente.\n\nDi solito, è possibile rimuovere questa limitazione modificando alcune impostazioni nelle "Opzioni sviluppatore". Consulta la guida per maggiori dettagli su come procedere.\n\nPotrebbe essere necessario riavviare Shevery affinché la modifica abbia effetto.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Il produttore del tuo dispositivo ha limitato le autorizzazioni ADB e le app che utilizzano Shevery non funzioneranno correttamente.\n\nDi solito, è possibile rimuovere questa limitazione modificando alcune impostazioni nelle "Opzioni sviluppatore". Consulta la guida per maggiori dettagli su come procedere.\n\nPotrebbe essere necessario riavviare Shevery affinché la modifica abbia effetto.]]></string>
     <string name="terminal_tutorial_1_description">Se nella cartella selezionata sono presenti file con lo stesso nome, questi verranno eliminati.\n\nLa funzione di esportazione utilizza SAF (Storage Access Framework). È stato segnalato che MIUI compromette il corretto funzionamento di SAF. Se utilizzi MIUI, potrebbe essere necessario estrarre il file dall'apk di Shevery o scaricarlo da GitHub.</string>
     <string name="toast_copied_to_clipboard">%s\nè stato copiato negli appunti.</string>
 </resources>

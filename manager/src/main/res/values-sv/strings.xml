@@ -237,7 +237,7 @@
     <string name="permission_description">Tillåt appen att använda Shevery.</string>
     <string name="permission_warning_template"><![CDATA[Ska <b>%1$s</b> tillåtas att %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Ta god tid på dig</string>
-    <string name="grant_dialog_button_deny">"Förneka"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Förneka"]]></string>
     <string name="starter">Start</string>
     <string name="starting_root_shell">Startar root-shell…</string>
     <string name="start_with_root_failed">Tjänsten kan inte startas eftersom root-behörighet saknas eller eftersom enheten inte är rootad.</string>

@@ -213,7 +213,7 @@
     <string name="permission_description">به برنامه اجازه دهید از Shizuku استفاده کند.</string>
     <string name="permission_warning_template"><![CDATA[اجازه <b>%1$s</b> برای %2$s؟]]></string>
     <string name="grant_dialog_button_allow_always">همیشه اجازه داده شود</string>
-    <string name="grant_dialog_button_deny">"رد"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["رد"]]></string>
     <string name="starter">شروع کننده</string>
     <string name="start_with_root_failed">نمی‌توان خدمات را راه‌اندازی کرد زیرا مجوز ریشه داده نشده است یا این دستگاه روت نشده است.</string>
     <string name="dialog_cannot_open_browser_title">نمی توان مرورگر را راه اندازی کرد</string>

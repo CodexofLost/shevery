@@ -235,7 +235,7 @@
     <string name="permission_description">Salli sovelluksen käyttää Sheveryä.</string>
     <string name="permission_warning_template"><![CDATA[Sallitaanko <b>%1$s</b>:n %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Anna aikaa niin paljon kuin tarvitaan</string>
-    <string name="grant_dialog_button_deny">"Hylkää"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Hylkää"]]></string>
     <string name="starter">Aloitus</string>
     <string name="starting_root_shell">Käynnistetään root-komentotulkkia…</string>
     <string name="start_with_root_failed">Palvelua ei voi käynnistää, koska root-oikeuksia ei ole myönnetty tai laitteeseen ei ole tehty root-oikeuksien hankintaa.</string>

@@ -212,7 +212,7 @@
     <string name="permission_label">access Shevery</string>
     <string name="permission_description">Allow the app to use Shevery.</string>
     <string name="grant_dialog_button_allow_always">Allow all the time</string>
-    <string name="grant_dialog_button_deny">"Deny"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Deny"]]></string>
     <string name="starter">Starter</string>
     <string name="start_with_root_failed">Can\'t start service because root permission is not granted or this device is not rooted.</string>
     <string name="dialog_cannot_open_browser_title">Can\'t start browser</string>
@@ -513,17 +513,17 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="home_wireless_adb_title">Start via Wireless debugging</string>
     <string name="home_wireless_adb_description"><![CDATA[On Android 11 or above, you can enable Wireless debugging and start Shevery directly from your device, without connecting to a computer.<p>Please view the step-by-step guide first.]]></string>
     <string name="home_wireless_adb_description_pre_11">Before Android 11, connecting to a computer is required to enable Wireless debugging.</string>
-    <string name="dialog_adb_discovery_message">Please enable "Wireless debugging" in "Developer options". "Wireless debugging" is automatically disabled when network changes.\n\nNote, do not disable "Developer options" or "USB debugging", or Shevery will be stopped.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Please try to disable and enable "Wireless debugging" if it keeps searching.</string>
-    <string name="dialog_adb_pairing_message">Please start paring by the following steps: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nAfter the pairing process starts, you will able to input the pairing code.</string>
-    <string name="adb_pairing_tutorial_content_steps">Enter "Developer options" - "Wireless debugging". Tap "Pair device with pairing code", you will see a six-digit code.</string>
-    <string name="adb_pairing_tutorial_content_miui">MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Please note, left part of the "Wireless debugging" option is clickable, tapping it will open a new page. Only turing on the switch on the right is incorrect.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Please enable "Wireless debugging" in "Developer options". "Wireless debugging" is automatically disabled when network changes.\n\nNote, do not disable "Developer options" or "USB debugging", or Shevery will be stopped.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Please try to disable and enable "Wireless debugging" if it keeps searching.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Please start paring by the following steps: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nAfter the pairing process starts, you will able to input the pairing code.]]></string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Enter "Developer options" - "Wireless debugging". Tap "Pair device with pairing code", you will see a six-digit code.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Please note, left part of the "Wireless debugging" option is clickable, tapping it will open a new page. Only turing on the switch on the right is incorrect.]]></string>
     <string name="home_root_title">Start (for rooted devices)</string>
     <string name="home_root_description"><![CDATA[In addition, Shevery can be started automatically on boot. If not, please check if your system or third-party tools have restricted Shevery.<br/>You can refer to %s.]]></string>
     <string name="home_root_description_sui">If you are using Magisk, you can try %1$s. For root users, it will eventually replace Shevery. Note, existing applications needs to change a little to use %2$s.</string>
     <string name="home_app_management_view_authorized_apps">Tap to manage authorized apps</string>
-    <string name="home_adb_is_limited_description">Your device manufacturer has restricted adb permissions and apps using Shevery will not work properly.\n\nUsually, this limitation can be lifted by adjusting some options in "Developer options". Please read the help for details on how to do this.\n\nYou may need to restart Shevery for the operation to take effect.</string>
+    <string name="home_adb_is_limited_description"><![CDATA[Your device manufacturer has restricted adb permissions and apps using Shevery will not work properly.\n\nUsually, this limitation can be lifted by adjusting some options in "Developer options". Please read the help for details on how to do this.\n\nYou may need to restart Shevery for the operation to take effect.]]></string>
     <string name="app_management_dialog_adb_is_limited_message"><![CDATA[It\'s highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href="%1$s">this document</a></b>.]]></string>
     <string name="rish_description"><![CDATA[With %1$s, in any terminal app, you can connect to and interact with the shell runs by Shevery.
 <p>About the detailed usage %1$s, tap to view the document.]]></string>

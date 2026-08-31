@@ -33,8 +33,8 @@
     <string name="home_local_network_grant">पहुँच प्रदान करें</string>
     <string name="home_local_network_permission_denied">वायरलेस डिबगिंग के लिए स्थानीय नेटवर्क एक्सेस आवश्यक है।</string>
     <string name="dialog_adb_discovery">वायरलेस डिबगिंग सेवा की तलाश</string>
-    <string name="dialog_adb_discovery_message">कृपया "डेवलपर विकल्प" में "वायरलेस डिबगिंग" सक्षम करें। नेटवर्क बदलने पर "वायरलेस डिबगिंग" स्वचालित रूप से अक्षम हो जाती है।\n\nनोट: "डेवलपर विकल्प" या "यूएसबी डिबगिंग" को अक्षम न करें, अन्यथा Shevery रुक जाएगा।</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">यदि यह बार-बार खोजता रहता है, तो कृपया "वायरलेस डिबगिंग" को अक्षम और सक्षम करने का प्रयास करें।</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[कृपया "डेवलपर विकल्प" में "वायरलेस डिबगिंग" सक्षम करें। नेटवर्क बदलने पर "वायरलेस डिबगिंग" स्वचालित रूप से अक्षम हो जाती है।\n\nनोट: "डेवलपर विकल्प" या "यूएसबी डिबगिंग" को अक्षम न करें, अन्यथा Shevery रुक जाएगा।]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[यदि यह बार-बार खोजता रहता है, तो कृपया "वायरलेस डिबगिंग" को अक्षम और सक्षम करने का प्रयास करें।]]></string>
     <string name="dialog_adb_port">बंदरगाह</string>
     <string name="dialog_adb_invalid_port">पोर्ट 1 से 65535 तक का एक पूर्णांक है।</string>
     <string name="adb_pairing">जोड़ी बनाना</string>
@@ -44,7 +44,7 @@
     <string name="paring_code_is_wrong">पेयरिंग कोड गलत है।</string>
     <string name="cannot_connect_port">वायरलेस डिबगिंग सेवा से कनेक्ट नहीं हो सका।</string>
     <string name="dialog_wireless_adb_not_enabled">वायरलेस डिबगिंग सक्षम नहीं है।\nनोट, Android 11 से पहले, वायरलेस डिबगिंग को सक्षम करने के लिए कंप्यूटर कनेक्शन अनिवार्य है।</string>
-    <string name="dialog_adb_pairing_message">कृपया निम्नलिखित चरणों के अनुसार पेयरिंग शुरू करें: "डेवलपर विकल्प" - "वायरलेस डिबगिंग" - "पेयरिंग कोड का उपयोग करके डिवाइस पेयर करें"। पेयरिंग प्रक्रिया शुरू होने के बाद आप पेयरिंग कोड दर्ज कर सकेंगे।</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[कृपया निम्नलिखित चरणों के अनुसार पेयरिंग शुरू करें: "डेवलपर विकल्प" - "वायरलेस डिबगिंग" - "पेयरिंग कोड का उपयोग करके डिवाइस पेयर करें"। पेयरिंग प्रक्रिया शुरू होने के बाद आप पेयरिंग कोड दर्ज कर सकेंगे।]]></string>
     <string name="adb_pairing_requires_multi_window">कृपया पहले स्प्लिट-स्क्रीन (मल्टी-विंडो) मोड में प्रवेश करें।</string>
     <string name="adb_pairing_requires_multi_window_reason">सिस्टम को पेयरिंग डायलॉग हमेशा दिखाई देने की आवश्यकता है। स्प्लिट-स्क्रीन मोड का उपयोग ही एकमात्र तरीका है जिससे यह ऐप और सिस्टम डायलॉग एक साथ दिखाई दे सकते हैं।</string>
     <string name="adb_error_key_store">वायरलेस डिबगिंग के लिए कुंजी उत्पन्न नहीं हो पा रही है।\nयह इस डिवाइस के KeyStore तंत्र के टूटने के कारण हो सकता है।</string>
@@ -53,12 +53,12 @@
     <string name="notification_settings">सूचना विकल्प</string>
     <string name="adb_pairing_tutorial_title">अपने डिवाइस के साथ शेवरी को जोड़ें</string>
     <string name="adb_pairing_tutorial_content_notification">Shevery से एक सूचना आपको पेयरिंग पूरी करने में मदद करेगी।</string>
-    <string name="adb_pairing_tutorial_content_steps">"डेवलपर विकल्प" में "वायरलेस डिबगिंग" चुनें। "पेयरिंग कोड के साथ डिवाइस पेयर करें" पर टैप करें, आपको एक छह-अंकीय कोड दिखाई देगा।</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA["डेवलपर विकल्प" में "वायरलेस डिबगिंग" चुनें। "पेयरिंग कोड के साथ डिवाइस पेयर करें" पर टैप करें, आपको एक छह-अंकीय कोड दिखाई देगा।]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">पेयरिंग पूरी करने के लिए सूचना में कोड दर्ज करें।</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">पेयरिंग प्रक्रिया के लिए आपको Shevery की सूचना के साथ इंटरैक्ट करना होगा। कृपया Shevery को सूचनाएँ पोस्ट करने की अनुमति दें।</string>
     <string name="adb_pairing_tutorial_content_miui">MIUI उपयोगकर्ताओं को सिस्टम सेटिंग्स में 'सूचना' - 'सूचना शेड' से सूचना शैली को 'एंड्रॉइड' में बदलने की आवश्यकता हो सकती है।</string>
     <string name="adb_pairing_tutorial_content_miui_2">अन्यथा, आप सूचना से पेयरिंग कोड दर्ज नहीं कर पाएंगे।</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">कृपया ध्यान दें कि "वायरलेस डिबगिंग" विकल्प का बायाँ भाग क्लिक करने योग्य है; उस पर टैप करने से एक नया पृष्ठ खुलेगा। केवल दाईं ओर स्थित स्विच को चालू करना गलत है।</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[कृपया ध्यान दें कि "वायरलेस डिबगिंग" विकल्प का बायाँ भाग क्लिक करने योग्य है; उस पर टैप करने से एक नया पृष्ठ खुलेगा। केवल दाईं ओर स्थित स्विच को चालू करना गलत है।]]></string>
     <string name="adb_pairing_tutorial_content_finish">शेवरी पर वापस जाएँ और शेवरी शुरू करें।</string>
     <string name="adb_pairing_tutorial_content_network">Shevery को स्थानीय नेटवर्क तक पहुँच की आवश्यकता है। यह नेटवर्क अनुमति द्वारा नियंत्रित है।</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">कुछ सिस्टम (जैसे MIUI) ऐप्स को तब नेटवर्क तक पहुँचने की अनुमति नहीं देते जब वे दृश्यमान नहीं होते, भले ही ऐप मानक रूप से फॉरग्राउंड सर्विस का उपयोग करता हो। कृपया ऐसे सिस्टम पर Shevery के लिए बैटरी ऑप्टिमाइज़ेशन सुविधाएँ अक्षम कर दें।</string>
@@ -82,7 +82,7 @@
     <string name="home_diagnostics_copied">निदान की प्रतिलिपि बनाई गई।</string>
     <string name="home_modules_description">ADB-समर्थित मॉड्यूल स्थापित और प्रबंधित करें</string>
     <string name="home_adb_is_limited_title">आपको एक अतिरिक्त कदम उठाना होगा।</string>
-    <string name="home_adb_is_limited_description">आपके डिवाइस निर्माता ने adb अनुमतियों को प्रतिबंधित कर दिया है और Shevery का उपयोग करने वाले ऐप्स ठीक से काम नहीं करेंगे।\n\nआमतौर पर, इस प्रतिबंध को "डेवलपर विकल्प" में कुछ विकल्पों को समायोजित करके हटाया जा सकता है। कृपया ऐसा करने के विवरण के लिए सहायता पढ़ें।\n\nइस परिवर्तन को प्रभावी होने के लिए आपको Shevery को पुनः आरंभ करने की आवश्यकता हो सकती है।</string>
+    <string name="home_adb_is_limited_description"><![CDATA[आपके डिवाइस निर्माता ने adb अनुमतियों को प्रतिबंधित कर दिया है और Shevery का उपयोग करने वाले ऐप्स ठीक से काम नहीं करेंगे।\n\nआमतौर पर, इस प्रतिबंध को "डेवलपर विकल्प" में कुछ विकल्पों को समायोजित करके हटाया जा सकता है। कृपया ऐसा करने के विवरण के लिए सहायता पढ़ें।\n\nइस परिवर्तन को प्रभावी होने के लिए आपको Shevery को पुनः आरंभ करने की आवश्यकता हो सकती है।]]></string>
     <string name="app_management_select_all">सभी चुनें</string>
     <string name="app_management_deselect_all">सभी को अनचुनें</string>
     <string name="app_management_dialog_adb_is_limited_title">एडीबी की अनुमति सीमित है।</string>

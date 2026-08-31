@@ -26,8 +26,8 @@
     <string name="home_local_network_grant">Уруксат берүү</string>
     <string name="home_local_network_permission_denied">Зымсыз оңдоо үчүн жергиликтүү тармакка кирүү уруксаты талап кылынат.</string>
     <string name="dialog_adb_discovery">Зымсыз оңдоо кызматы изделүүдө</string>
-    <string name="dialog_adb_discovery_message">Сураныч, "Иштеп чыгуучу параметрлеринен" "Зымсыз оңдоону" күйгүзүңүз. Тармактык өзгөрүү болгондо бул функция автоматтык түрдө өчөт.</string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Издеп жатса, "Зымсыз оңдоону" өчүрүп кайра күйгүзүп көрүңүз.</string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Сураныч, "Иштеп чыгуучу параметрлеринен" "Зымсыз оңдоону" күйгүзүңүз. Тармактык өзгөрүү болгондо бул функция автоматтык түрдө өчөт.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Издеп жатса, "Зымсыз оңдоону" өчүрүп кайра күйгүзүп көрүңүз.]]></string>
     <string name="dialog_adb_port">Порт</string>
     <string name="dialog_adb_invalid_port">Порт 1ден 65535ке чейинки бүтүн сан болушу керек.</string>
     <string name="adb_pairing">Жупташтыруу</string>
@@ -37,7 +37,7 @@
     <string name="paring_code_is_wrong">Жупташтыруу коду туура эмес.</string>
     <string name="cannot_connect_port">Зымсыз оңдоо кызматына туташуу мүмкүн эмес.</string>
     <string name="dialog_wireless_adb_not_enabled">Зымсыз оңдоо күйгүзүлгөн эмес.</string>
-    <string name="dialog_adb_pairing_message">Сураныч, жупташтырууну төмөнкү тартипте баштаңыз: "Иштеп чыгуучу параметрлери" - "Зымсыз оңдоо" - "Жупташтыруу кодун колдонуу".</string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Сураныч, жупташтырууну төмөнкү тартипте баштаңыз: "Иштеп чыгуучу параметрлери" - "Зымсыз оңдоо" - "Жупташтыруу кодун колдонуу".]]></string>
     <string name="adb_pairing_requires_multi_window">Адегенде көп терезелүү (бөлүнүп кезектешкен) режимге өтүңүз.</string>
     <string name="adb_pairing_requires_multi_window_reason">Тус тутум жупташтыруу диалогун дайыма көрүнүп турууну талап кылат.</string>
     <string name="adb_error_key_store">Зымсыз оңдоо үчүн ачкыч түзүү мүмкүн болгон жок.</string>
@@ -46,12 +46,12 @@
     <string name="notification_settings">Билдирүү параметрлери</string>
     <string name="adb_pairing_tutorial_title">Shevery тиркемесин түзмөгүңүз менен жупташтырыңыз</string>
     <string name="adb_pairing_tutorial_content_notification">Shevery билдирүүсү жупташтырууну аяктоого жардам берет.</string>
-    <string name="adb_pairing_tutorial_content_steps">"Иштеп чыгуучу параметрлери" - "Зымсыз оңдоо" бөлүмүнө кириңиз. Сиз 6 орундуу кодду көрөсүз.</string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA["Иштеп чыгуучу параметрлери" - "Зымсыз оңдоо" бөлүмүнө кириңиз. Сиз 6 орундуу кодду көрөсүз.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code">Кодду билдирүү талаасына киргизиңиз.</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Жупташтыруу процесси билдирүүлөр менен иштөөнү талап кылат.</string>
     <string name="adb_pairing_tutorial_content_miui">MIUI колдонуучулары билдирүү стилин Android режимине өзгөртүүсү керек болушу мүмкүн.</string>
     <string name="adb_pairing_tutorial_content_miui_2">Болбосо жупташтыруу кодун киргизе албай каласыз.</string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable">Эскертүү: "Зымсыз оңдоо" пунктунун сол жагы басылат.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Эскертүү: "Зымсыз оңдоо" пунктунун сол жагы басылат.]]></string>
     <string name="adb_pairing_tutorial_content_finish">Shevery тиркемесине кайтып келип, аны иштетиңиз.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery жергиликтүү тармакка кириши керек.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Кээ бир тутумдар колдонмо көрүнбөй турган кезде тармакты чектейт.</string>
@@ -216,7 +216,7 @@
     <string name="permission_description">Тиркемеге Shevery кызматын колдонууга уруксат берүү.</string>
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b> тиркемесине %2$s уруксаты берилсинби?]]></string>
     <string name="grant_dialog_button_allow_always">Дайыма уруксат берүү</string>
-    <string name="grant_dialog_button_deny">"Тартуу"</string>
+    <string name="grant_dialog_button_deny"><![CDATA["Тартуу"]]></string>
     <string name="starter">Starter</string>
     <string name="start_with_root_failed">Root укугу берилбегендиктен кызматты иштетүү мүмкүн эмес.</string>
     <string name="dialog_cannot_open_browser_title">Brauzerди ачуу мүмкүн болгон жок</string>
