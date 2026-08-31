@@ -385,7 +385,7 @@
     <string name="comput_record_macro">Gravar Macro</string>
     <string name="comput_recording_active">Gravação ativa. Execute comandos usando a entrada principal para adicioná-los a esta macro.</string>
     <string name="comput_saved_macros">Macros Salvas</string>
-    <string name="comput_no_macros">Nenhuma macro salva ainda. Clique em \'Gravar Macro\' para começar a gravar comandos.</string>
+    <string name="comput_no_macros">Nenhuma macro salva ainda. Clique em 'Gravar Macro' para começar a gravar comandos.</string>
     <string name="comput_delete">Excluir</string>
     <string name="comput_recommand_confirmation_title">Confirmação ReCommand</string>
     <string name="comput_execute">Executar</string>

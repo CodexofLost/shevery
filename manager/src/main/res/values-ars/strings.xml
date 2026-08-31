@@ -35,7 +35,7 @@
     <string name="dialog_adb_pairing_discovery">Searching for pairing service</string>
     <string name="dialog_adb_pairing_paring_code">Pairing code</string>
     <string name="paring_code_is_wrong">Pairing code is wrong.</string>
-    <string name="cannot_connect_port">Can\'t connect to wireless debugging service.</string>
+    <string name="cannot_connect_port">Can't connect to wireless debugging service.</string>
     <string name="dialog_wireless_adb_not_enabled">Wireless debugging is not enabled.\nNote, before Android 11, to enable wireless debugging, computer connection is a must.</string>
     <string name="adb_pairing_requires_multi_window">Please enter split-screen (multi-window) mode first.</string>
     <string name="adb_pairing_requires_multi_window_reason">The system requires the pairing dialog always visible, using split-screen mode is the only way to let this app and system dialog visible at the same time.</string>
@@ -75,7 +75,7 @@
     <string name="home_terminal_title">Use Shevery in terminal apps</string>
     <string name="home_terminal_description">Run commands through Shevery in terminal apps you like</string>
     <string name="terminal_tutorial_1">First, Export files to any where you want. You will find two files, %1$s and %2$s.</string>
-    <string name="terminal_tutorial_1_description">If there are files with the same name in the selected folder, they will be deleted.\n\nThe export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.</string>
+    <string name="terminal_tutorial_1_description">If there are files with the same name in the selected folder, they will be deleted.\n\nThe export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.</string>
     <string name="terminal_export_files">Export files</string>
     <string name="terminal_tutorial_2">Then, use any text editor to open and edit %1$s.</string>
     <string name="terminal_tutorial_2_description">For example, if you want to use Shevery in %1$s, you should replace %2$s with %3$s (%4$s is the package name of %1$s).</string>
@@ -216,8 +216,8 @@
     <string name="grant_dialog_button_allow_always">Allow all the time</string>
     <string name="grant_dialog_button_deny"><![CDATA["Deny"]]></string>
     <string name="starter">Starter</string>
-    <string name="start_with_root_failed">Can\'t start service because root permission is not granted or this device is not rooted.</string>
-    <string name="dialog_cannot_open_browser_title">Can\'t start browser</string>
+    <string name="start_with_root_failed">Can't start service because root permission is not granted or this device is not rooted.</string>
+    <string name="dialog_cannot_open_browser_title">Can't start browser</string>
     <string name="toast_copied_to_clipboard">%s\nhas been copied to clipboard.</string>
     <string name="dialog_legacy_not_support_title">%1$s does not support modern Shevery</string>
     <string name="dialog_requesting_legacy_title">%1$s is requesting legacy Shevery</string>
@@ -428,7 +428,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_record_macro">Record Macro</string>
     <string name="comput_recording_active">Recording active. Run commands using the main input to add them to this macro.</string>
     <string name="comput_saved_macros">Saved Macros</string>
-    <string name="comput_no_macros">No saved macros yet. Click \'Record Macro\' to start recording console commands.</string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete">Delete</string>
     <string name="comput_recommand_confirmation_title">ReCommand confirmation</string>
     <string name="comput_execute">Execute</string>

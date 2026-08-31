@@ -384,7 +384,7 @@
     <string name="comput_record_macro">Записати макрос</string>
     <string name="comput_recording_active">Запис активний. Запускайте команди з основного поля для додавання в макрос.</string>
     <string name="comput_saved_macros">Збережені макроси</string>
-    <string name="comput_no_macros">Немає збережених макросів. Натисніть \'Записати макрос\' для початку.</string>
+    <string name="comput_no_macros">Немає збережених макросів. Натисніть 'Записати макрос' для початку.</string>
     <string name="comput_delete">Видалити</string>
     <string name="comput_recommand_confirmation_title">Підтвердження ReCommand</string>
     <string name="comput_execute">Виконати</string>

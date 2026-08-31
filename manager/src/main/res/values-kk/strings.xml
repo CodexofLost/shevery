@@ -384,7 +384,7 @@
     <string name="comput_record_macro">Макрос жазу</string>
     <string name="comput_recording_active">Жазу белсенді. Бұл макросқа қосу үшін командаларды іске қосыңыз.</string>
     <string name="comput_saved_macros">Сақталған макростар</string>
-    <string name="comput_no_macros">Сақталған макростар жоқ. Бастау үшін \'Макрос жазу\' түймесін басыңыз.</string>
+    <string name="comput_no_macros">Сақталған макростар жоқ. Бастау үшін 'Макрос жазу' түймесін басыңыз.</string>
     <string name="comput_delete">Жою</string>
     <string name="comput_recommand_confirmation_title">ReCommand растау</string>
     <string name="comput_execute">Орындау</string>

@@ -384,7 +384,7 @@
     <string name="comput_record_macro">تسجيل ماكرو</string>
     <string name="comput_recording_active">التسجيل نشط. شغّل الأوامر باستخدام الإدخال الرئيسي لإضافتها إلى هذا الماكرو.</string>
     <string name="comput_saved_macros">الماكروهات المحفوظة</string>
-    <string name="comput_no_macros">لا توجد ماكروهات محفوظة حتى الآن. انقر على \'تسجيل ماكرو\' للبدء.</string>
+    <string name="comput_no_macros">لا توجد ماكروهات محفوظة حتى الآن. انقر على 'تسجيل ماكرو' للبدء.</string>
     <string name="comput_delete">حذف</string>
     <string name="comput_recommand_confirmation_title">تأكيد ReCommand</string>
     <string name="comput_execute">تنفيذ</string>
