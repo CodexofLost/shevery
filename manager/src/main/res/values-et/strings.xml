@@ -16,14 +16,14 @@
     <string name="accessibility_open_on_github">Ava GitHubis</string>
     <string name="home_status_service_is_running">%1$s töötab</string>
     <string name="home_status_service_not_running">%1$s ei tööta</string>
-    <string name="home_status_service_version_update">Versioon %2$s, %1$s<br/>Alusta uuesti, et uuendada versioonile %3$s</string>
+    <string name="home_status_service_version_update"><![CDATA[Versioon %2$s, %1$s<br/>Alusta uuesti, et uuendada versioonile %3$s]]></string>
     <string name="home_adb_title">Alusta arvutiga ühenduse loomisest</string>
-    <string name="home_adb_description">Seadmete puhul, millel puudub juurõigus, tuleb Shevery käivitamiseks kasutada adb-d (nõuab ühendust arvutiga). Seda protsessi tuleb korrata iga kord, kui seade taaskäivitatakse. Palun <b><a href="%1$s">lugege abijuhendit</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Seadmete puhul, millel puudub juurõigus, tuleb Shevery käivitamiseks kasutada adb-d (nõuab ühendust arvutiga). Seda protsessi tuleb korrata iga kord, kui seade taaskäivitatakse. Palun <b><a href="%1$s">lugege abijuhendit</a></b>.]]></string>
     <string name="home_adb_button_view_help">Loe abi</string>
     <string name="home_adb_button_view_command">Käsu „Vaata”</string>
     <string name="home_adb_dialog_view_command_notice">On veel mõned muud asjaolud, mida tuleks arvesse võtta – palun veenduge, et olete esmalt abiinfo läbi lugenud.</string>
     <string name="home_wireless_adb_title">Alusta traadita silumise kaudu</string>
-    <string name="home_wireless_adb_description">Android 11 või uuemate versioonide puhul saate lubada traadita silumise ja käivitada Shevery otse oma seadmest, ilma arvutiga ühendust loomata. <p>Palun lugege kõigepealt samm-sammult juhendit.</string>
+    <string name="home_wireless_adb_description"><![CDATA[Android 11 või uuemate versioonide puhul saate lubada traadita silumise ja käivitada Shevery otse oma seadmest, ilma arvutiga ühendust loomata. <p>Palun lugege kõigepealt samm-sammult juhendit.]]></string>
     <string name="home_wireless_adb_description_pre_11">Enne Android 11 versiooni on traadita silumise lubamiseks vaja ühenduda arvutiga.</string>
     <string name="home_wireless_adb_view_guide_button">Juhend samm-sammult</string>
     <string name="home_local_network_title">Juurdepääs kohalikule võrgule</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery peab pääsema juurde kohalikule võrgule. Seda reguleerib võrguõigus.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Mõned süsteemid (näiteks MIUI) ei luba rakendustel võrgule juurde pääseda, kui need ei ole ekraanil nähtavad, isegi kui rakendus kasutab vaikimisi esiplaaniteenust. Palun lülitage sellistes süsteemides Shevery jaoks aku optimeerimise funktsioonid välja.</string>
     <string name="home_root_title">Alusta (juurõigustega seadmete puhul)</string>
-    <string name="home_root_description">Lisaks on võimalik Shevery käivitada automaatselt süsteemi käivitamisel. Kui see nii ei ole, kontrollige palun, kas teie süsteem või kolmanda osapoole tööriistad on Shevery tegevust piiranud.<br/>Võite tutvuda %s-ga.</string>
+    <string name="home_root_description"><![CDATA[Lisaks on võimalik Shevery käivitada automaatselt süsteemi käivitamisel. Kui see nii ei ole, kontrollige palun, kas teie süsteem või kolmanda osapoole tööriistad on Shevery tegevust piiranud.<br/>Võite tutvuda %s-ga.]]></string>
     <string name="home_root_description_sui">Kui kasutad Magiskit, võid proovida %1$s. Root-kasutajate jaoks asendab see lõpuks Shevery. Pane tähele, et olemasolevaid rakendusi tuleb %2$s kasutamiseks veidi kohandada.</string>
     <string name="home_root_button_start">Alusta</string>
     <string name="home_root_button_restart">Taaskäivita</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Vali kõik</string>
     <string name="app_management_deselect_all">Tühista kõik valikud</string>
     <string name="app_management_dialog_adb_is_limited_title">Adb-le antud õigused on piiratud</string>
-    <string name="app_management_dialog_adb_is_limited_message">On väga tõenäoline, et teie seadme tootja piirab adb-i õigusi.<p>Teie süsteemi jaoks võib lahendus olla leitav <b><a href="%1$s">selles dokumendis</a></b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[On väga tõenäoline, et teie seadme tootja piirab adb-i õigusi.<p>Teie süsteemi jaoks võib lahendus olla leitav <b><a href="%1$s">selles dokumendis</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* eeldab, et Shevery töötab root-õigustega</string>
     <string name="app_management_loading">Rakenduste laadimine…</string>
     <string name="home_terminal_title">Shevery kasutamine terminali rakendustes</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/õiguse_märge</string>
     <string name="permission_label">juurdepääs Sheveryle</string>
     <string name="permission_description">Luba rakendusel kasutada Sheveryt.</string>
-    <string name="permission_warning_template">Kas lubada <b>%1$s</b>-l %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Kas lubada <b>%1$s</b>-l %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Võta aega</string>
     <string name="grant_dialog_button_deny">"Keelata"</string>
     <string name="starter">Starter</string>
@@ -241,11 +241,11 @@
     <string name="start_with_root_failed">Teenust ei saa käivitada, kuna puuduvad root-õigused või seadmel ei ole root-juurdepääsu.</string>
     <string name="dialog_cannot_open_browser_title">Brauserit ei saa käivitada</string>
     <string name="toast_copied_to_clipboard">%s\non kopeeritud lõikelauale.</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> on kopeeritud lõikelauale.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> on kopeeritud lõikelauale.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s ei toeta kaasaegset Sheveryt</string>
-    <string name="dialog_legacy_not_support_message">Vana Shevery versioon on alates 2019. aasta märtsist kasutuselt kõrvaldatud. Lisaks ei tööta vana Shevery uuemates Androidi süsteemides.<p>Palun paluge <b>%1$s</b> arendajal rakendust uuendada.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Vana Shevery versioon on alates 2019. aasta märtsist kasutuselt kõrvaldatud. Lisaks ei tööta vana Shevery uuemates Androidi süsteemides.<p>Palun paluge <b>%1$s</b> arendajal rakendust uuendada.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s soovib vana versiooni Sheveryt</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> toetab uut Shevery versiooni, kuid nõuab vana Shevery versiooni. See võib olla tingitud sellest, et Shevery ei tööta – palun kontrollige seda Shevery rakenduses.<p>Vana Shevery versioon on alates 2019. aasta märtsist kasutuselt kõrvaldatud.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> toetab uut Shevery versiooni, kuid nõuab vana Shevery versiooni. See võib olla tingitud sellest, et Shevery ei tööta – palun kontrollige seda Shevery rakenduses.<p>Vana Shevery versioon on alates 2019. aasta märtsist kasutuselt kõrvaldatud.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Ava Shevery</string>
     <string name="lab_features_title">Labori omadused</string>
     <string name="lab_features_summary">Eksperimentaalsed omadused</string>
@@ -426,7 +426,7 @@
     <string name="comput_timed_out">[E] Käsu täitmise aeg lõppes 120 sekundi pärast.</string>
     <string name="comput_exit_code">[E] Käsk lõpetati koodiga %1$d.</string>
     <string name="comput_running_macro">Makro käivitamine: %1$s</string>
-    <string name="comput_executing_cmd">> Käsu täitmine: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Käsu täitmine: %1$s]]></string>
     <string name="comput_error_not_running">Viga: Privileged Shevery teenus ei tööta. Palun käivitage teenus esmalt.</string>
     <string name="comput_error_no_binder">Viga: Shevery kaustat ei õnnestunud leida.</string>
     <string name="comput_console_initialized">Konsol on käivitatud. Shevery privileegitud teenus on ühendatud.\nValmis käskude vastuvõtmiseks.</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Vana viide eemaldatud</string>
     <string name="settings_compat_stub_failed">Vana stubi %1$s-imisel %2$s kaudu tekkis viga: %3$s</string>
     <string name="settings_compat_stub_none">Kanalit pole saadaval (alusta kõigepealt Sheveryst)</string>
+    <string name="rish_description"><![CDATA[Kasutades %1$s-i, saate mis tahes terminali rakenduses ühenduda Shevery poolt käivitatud shelliga ja sellega suhelda.
+<p>%1$s-i üksikasjaliku kasutusjuhendi vaatamiseks puudutage seda.]]></string>
 </resources>

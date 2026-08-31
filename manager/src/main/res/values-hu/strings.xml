@@ -423,7 +423,7 @@
     <string name="comput_timed_out">[E] A parancs 120 másodperc után időtúllépés miatt megszakadt.</string>
     <string name="comput_exit_code">[E] A parancs %1$d kóddal fejeződött be.</string>
     <string name="comput_running_macro">Makró futtatása: %1$s</string>
-    <string name="comput_executing_cmd">> Parancs végrehajtása: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Parancs végrehajtása: %1$s]]></string>
     <string name="comput_error_not_running">Hiba: A Privileged Shevery szolgáltatás nem fut. Kérjük, először indítsa el a szolgáltatást.</string>
     <string name="comput_error_no_binder">Hiba: Nem sikerült betölteni a „Shevery” mappát.</string>
     <string name="comput_console_initialized">A konzol inicializálva. A Shevery privilegizált szolgáltatás csatlakozott.\nKészen áll a parancsok fogadására.</string>
@@ -530,4 +530,10 @@
     <string name="settings_compat_stub_uninstalled">A régi hivatkozás eltávolítva</string>
     <string name="settings_compat_stub_failed">Nem sikerült %1$s-t végrehajtani a régi stubon %2$s segítségével: %3$s</string>
     <string name="settings_compat_stub_none">Nincs elérhető csatorna (először indítsd el a Shevery-t)</string>
+    <string name="app_name">Shevery</string>
+    <string name="rish_description"><![CDATA[A %1$s segítségével bármely terminálalkalmazásból csatlakozhat a Shevery által futtatott parancssorhoz, és ott műveleteket hajthat végre.
+<p>A %1$s részletes használatáról: érintse meg a dokumentum megtekintéséhez.]]></string>
+    <string name="permission_group_label">Shevery</string>
+    <string name="permission_group_description">@string/permission_label</string>
+    <string name="starting_root_shell">A root shell elindítása…</string>
 </resources>

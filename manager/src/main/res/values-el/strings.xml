@@ -12,7 +12,7 @@
     <string name="home_wireless_adb_description_pre_11">Πριν από το Android 11, είναι απαραίτητη η σύνδεση με έναν υπολογιστή για την ενεργοποίηση του ασύρματου εντοπισμού σφαλμάτων.</string>
     <string name="home_adb_button_view_command">Προβολή εντολής</string>
     <string name="home_adb_button_view_help">Ανάγνωση βοήθειας</string>
-    <string name="home_adb_description">Για συσκευές χωρίς πρόσβαση root, πρέπει να χρησιμοποιήσετε το adb για την εκκίνηση του Shizuku (απαιτεί σύνδεση σε υπολογιστή). Αυτή η διαδικασία θα πρέπει να επαναλαμβάνεται κάθε φορά που επανεκκινείται η συσκευή. <b><a href="%1$s">Διαβάστε τη βοήθεια</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Για συσκευές χωρίς πρόσβαση root, πρέπει να χρησιμοποιήσετε το adb για την εκκίνηση του Shizuku (απαιτεί σύνδεση σε υπολογιστή). Αυτή η διαδικασία θα πρέπει να επαναλαμβάνεται κάθε φορά που επανεκκινείται η συσκευή. <b><a href="%1$s">Διαβάστε τη βοήθεια</a></b>.]]></string>
     <string name="home_adb_title">Έναρξη μέσω σύνδεσης με υπολογιστή</string>
     <string name="home_status_service_version_update"><![CDATA[Έκδοση %2$s, %1$s<br/>Κάντε ξανά εκκίνηση για ενημέρωση στην έκδοση %3$s]]></string>
     <string name="home_status_service_not_running">Το %1$s δεν εκτελείται</string>
@@ -34,7 +34,7 @@
     <string name="home_adb_dialog_view_command_notice">Υπάρχουν και ορισμένα άλλα θέματα που πρέπει να λάβετε υπόψη· παρακαλώ βεβαιωθείτε ότι έχετε διαβάσει πρώτα τη βοήθεια.</string>
     <string name="home_adb_dialog_view_command_copy_button">Αντιγραφή</string>
     <string name="home_adb_dialog_view_command_button_send">Αποστολή</string>
-    <string name="home_wireless_adb_description">Στο Android 11 ή νεότερη έκδοση, μπορείτε να ενεργοποιήσετε τον ασύρματο εντοπισμό σφαλμάτων και να ξεκινήσετε το Shevery απευθείας από τη συσκευή σας, χωρίς να τη συνδέσετε σε υπολογιστή.<p>Παρακαλούμε διαβάστε πρώτα τον αναλυτικό οδηγό.</string>
+    <string name="home_wireless_adb_description"><![CDATA[Στο Android 11 ή νεότερη έκδοση, μπορείτε να ενεργοποιήσετε τον ασύρματο εντοπισμό σφαλμάτων και να ξεκινήσετε το Shevery απευθείας από τη συσκευή σας, χωρίς να τη συνδέσετε σε υπολογιστή.<p>Παρακαλούμε διαβάστε πρώτα τον αναλυτικό οδηγό.]]></string>
     <string name="home_local_network_title">Πρόσβαση στο τοπικό δίκτυο</string>
     <string name="home_local_network_description">Για τον ασύρματο εντοπισμό σφαλμάτων απαιτείται το %1$s σε αυτή την έκδοση του Android.</string>
     <string name="home_local_network_granted">Το %1$s έχει εγκριθεί.</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Το Shevery πρέπει να έχει πρόσβαση στο τοπικό δίκτυο. Αυτό ρυθμίζεται από τα δικαιώματα δικτύου.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Ορισμένα λειτουργικά συστήματα (όπως το MIUI) δεν επιτρέπουν στις εφαρμογές να έχουν πρόσβαση στο δίκτυο όταν δεν είναι ορατές, ακόμη και αν η εφαρμογή χρησιμοποιεί υπηρεσία στο προσκήνιο ως προεπιλογή. Παρακαλούμε απενεργοποιήστε τις λειτουργίες βελτιστοποίησης της μπαταρίας για το Shevery σε τέτοια λειτουργικά συστήματα.</string>
     <string name="home_root_title">Έναρξη (για συσκευές με root)</string>
-    <string name="home_root_description">Επιπλέον, το Shevery μπορεί να ξεκινά αυτόματα κατά την εκκίνηση του συστήματος. Εάν αυτό δεν συμβαίνει, παρακαλούμε να ελέγξετε αν το σύστημά σας ή κάποια εργαλεία τρίτων έχουν περιορίσει τη λειτουργία του Shevery.<br/>Μπορείτε να ανατρέξετε στο %s.</string>
+    <string name="home_root_description"><![CDATA[Επιπλέον, το Shevery μπορεί να ξεκινά αυτόματα κατά την εκκίνηση του συστήματος. Εάν αυτό δεν συμβαίνει, παρακαλούμε να ελέγξετε αν το σύστημά σας ή κάποια εργαλεία τρίτων έχουν περιορίσει τη λειτουργία του Shevery.<br/>Μπορείτε να ανατρέξετε στο %s.]]></string>
     <string name="home_root_description_sui">Αν χρησιμοποιείτε το Magisk, μπορείτε να δοκιμάσετε το %1$s. Για τους χρήστες με δικαιώματα root, θα αντικαταστήσει τελικά το Shevery. Σημειώστε ότι οι υπάρχουσες εφαρμογές θα πρέπει να τροποποιηθούν ελαφρώς για να χρησιμοποιούν το %2$s.</string>
     <string name="home_root_button_start">Έναρξη</string>
     <string name="home_root_button_restart">Επανεκκίνηση</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Επιλογή όλων</string>
     <string name="app_management_deselect_all">Αποεπιλογή όλων</string>
     <string name="app_management_dialog_adb_is_limited_title">Τα δικαιώματα του adb είναι περιορισμένα</string>
-    <string name="app_management_dialog_adb_is_limited_message">Είναι πολύ πιθανό ο κατασκευαστής της συσκευής σας να περιορίζει τα δικαιώματα του adb.<p>Ίσως υπάρχει μια λύση για το σύστημά σας στο <b><a href="%1$s">αυτό το έγγραφο</a></b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Είναι πολύ πιθανό ο κατασκευαστής της συσκευής σας να περιορίζει τα δικαιώματα του adb.<p>Ίσως υπάρχει μια λύση για το σύστημά σας στο <b><a href="%1$s">αυτό το έγγραφο</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* απαιτεί η εκτέλεση του Shevery με δικαιώματα root</string>
     <string name="app_management_loading">Φόρτωση εφαρμογών…</string>
     <string name="home_terminal_title">Χρήση του Shevery σε εφαρμογές τερματικού</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/ετικέτα_δικαιώματος</string>
     <string name="permission_label">πρόσβαση στο Shevery</string>
     <string name="permission_description">Επιτρέψτε στην εφαρμογή να χρησιμοποιεί το Shevery.</string>
-    <string name="permission_warning_template">Να επιτραπεί στο <b>%1$s</b> να %2$s;</string>
+    <string name="permission_warning_template"><![CDATA[Να επιτραπεί στο <b>%1$s</b> να %2$s;]]></string>
     <string name="grant_dialog_button_allow_always">Αφήστε αρκετό χρόνο</string>
     <string name="grant_dialog_button_deny">«Άρνηση»</string>
     <string name="starter">Έναρξη</string>
@@ -241,11 +241,11 @@
     <string name="start_with_root_failed">Δεν είναι δυνατή η εκκίνηση της υπηρεσίας, καθώς δεν έχουν παραχωρηθεί δικαιώματα root ή η συσκευή δεν έχει υποστεί root.</string>
     <string name="dialog_cannot_open_browser_title">Δεν είναι δυνατή η εκκίνηση του προγράμματος περιήγησης</string>
     <string name="toast_copied_to_clipboard">Το %s\nαντιγράφηκε στο πρόχειρο.</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> αντιγράφηκε στο πρόχειρο.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> αντιγράφηκε στο πρόχειρο.]]></string>
     <string name="dialog_legacy_not_support_title">Το %1$s δεν υποστηρίζει το σύγχρονο Shevery</string>
-    <string name="dialog_legacy_not_support_message">Η παλαιά έκδοση του Shevery έχει καταργηθεί από τον Μάρτιο του 2019. Επιπλέον, η παλαιά έκδοση του Shevery δεν λειτουργεί σε νεότερα συστήματα Android.<p>Παρακαλούμε ζητήστε από τον προγραμματιστή του <b>%1$s</b> να πραγματοποιήσει ενημέρωση.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Η παλαιά έκδοση του Shevery έχει καταργηθεί από τον Μάρτιο του 2019. Επιπλέον, η παλαιά έκδοση του Shevery δεν λειτουργεί σε νεότερα συστήματα Android.<p>Παρακαλούμε ζητήστε από τον προγραμματιστή του <b>%1$s</b> να πραγματοποιήσει ενημέρωση.]]></string>
     <string name="dialog_requesting_legacy_title">Το %1$s ζητά το παλαιό Shevery</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> διαθέτει υποστήριξη για τη σύγχρονη έκδοση του Shevery, αλλά ζητά την παλαιά έκδοση του Shevery. Αυτό μπορεί να οφείλεται στο ότι το Shevery δεν εκτελείται· παρακαλώ, ελέγξτε την εφαρμογή Shevery.<p>Η παλαιά έκδοση του Shevery έχει καταργηθεί από τον Μάρτιο του 2019.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> διαθέτει υποστήριξη για τη σύγχρονη έκδοση του Shevery, αλλά ζητά την παλαιά έκδοση του Shevery. Αυτό μπορεί να οφείλεται στο ότι το Shevery δεν εκτελείται· παρακαλώ, ελέγξτε την εφαρμογή Shevery.<p>Η παλαιά έκδοση του Shevery έχει καταργηθεί από τον Μάρτιο του 2019.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Άνοιξε το Shevery</string>
     <string name="lab_features_title">Χαρακτηριστικά του εργαστηρίου</string>
     <string name="lab_features_summary">Πειραματικά χαρακτηριστικά</string>
@@ -347,9 +347,9 @@
     <string name="shevery_update_channel">Κανάλι ενημέρωσης</string>
     <string name="shevery_update_channel_summary">Επιλογή καναλιού κυκλοφορίας ενημερώσεων</string>
     <string name="app_update_channel_stable">Σταθερό</string>
-    <string name="app_update_channel_beta">Προ-κυκλοφορία &amp; Beta</string>
+    <string name="app_update_channel_beta"><![CDATA[Προ-κυκλοφορία &amp; Beta]]></string>
     <string name="shevery_update_group_title">Ενημερώσεις της εφαρμογής Shevery</string>
-    <string name="shevery_update_modules_group_title">Ενημερώσεις ενοτήτων &amp; Κατάλογος</string>
+    <string name="shevery_update_modules_group_title"><![CDATA[Ενημερώσεις ενοτήτων &amp; Κατάλογος]]></string>
     <string name="shevery_update_check_failed">Αποτυχία ελέγχου ενημέρωσης: %s</string>
     <string name="modules_catalog">Κατάλογος</string>
     <string name="modules_catalog_title">Κατάλογος ενοτήτων</string>
@@ -403,7 +403,7 @@
     <string name="comput_api_key_label">Κλειδί API</string>
     <string name="comput_show_api_key">Εμφάνιση κλειδιού API</string>
     <string name="comput_hide_api_key">Απόκρυψη κλειδιού API</string>
-    <string name="comput_gemini_model_performance">Κωδικοποίηση υψηλής απόδοσης &amp; agentic (Συνιστάται)</string>
+    <string name="comput_gemini_model_performance"><![CDATA[Κωδικοποίηση υψηλής απόδοσης &amp; agentic (Συνιστάται)]]></string>
     <string name="comput_gemini_model_lightweight">Ελαφρύ μοντέλο υψηλής ταχύτητας</string>
     <string name="comput_gemini_api_error">Το API του Gemini επέστρεψε τον κωδικό σφάλματος %1$d: %2$s</string>
     <string name="comput_gemini_connection_error">Σφάλμα σύνδεσης.</string>
@@ -426,7 +426,7 @@
     <string name="comput_timed_out">[E] Η εντολή έληξε μετά από 120 δευτερόλεπτα.</string>
     <string name="comput_exit_code">[E] Η εντολή τερματίστηκε με κωδικό %1$d.</string>
     <string name="comput_running_macro">Εκτέλεση μακροεντολής: %1$s</string>
-    <string name="comput_executing_cmd">> Εκτέλεση εντολής: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Εκτέλεση εντολής: %1$s]]></string>
     <string name="comput_error_not_running">Σφάλμα: Η υπηρεσία Privileged Shevery δεν εκτελείται. Παρακαλώ, ξεκινήστε πρώτα την υπηρεσία.</string>
     <string name="comput_error_no_binder">Σφάλμα: Δεν είναι δυνατή η ανάκτηση του φακέλου «Shevery».</string>
     <string name="comput_console_initialized">Η κονσόλα έχει αρχικοποιηθεί. Η υπηρεσία Shevery με δικαιώματα πρόσβασης είναι συνδεδεμένη.\nΈτοιμη για εντολές.</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Αφαίρεση του παλαιού συντομεύματος</string>
     <string name="settings_compat_stub_failed">Αποτυχία %1$s του παλαιού stub μέσω %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Δεν υπάρχει διαθέσιμο κανάλι (ξεκινήστε πρώτα με το Shevery)</string>
+    <string name="rish_description"><![CDATA[Με το %1$s, σε οποιαδήποτε εφαρμογή τερματικού, μπορείτε να συνδεθείτε και να αλληλεπιδράσετε με το shell που εκτελεί το Shevery.
+<p>Για λεπτομερείς πληροφορίες σχετικά με τη χρήση του %1$s, πατήστε εδώ για να δείτε το έγγραφο.]]></string>
 </resources>

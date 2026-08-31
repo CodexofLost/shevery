@@ -363,7 +363,7 @@
     <string name="comput_timed_out">[E] Команда 120 секундтан кейін уақыты өтті.</string>
     <string name="comput_exit_code">[E] Команда %1$d кодымен аяқталды.</string>
     <string name="comput_running_macro">Макрос орындалуда: %1$s</string>
-    <string name="comput_executing_cmd">> Команда орындалуда: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Команда орындалуда: %1$s]]></string>
     <string name="comput_error_not_running">Қате: Shevery артықшылықты қызметі жұмыс істемейді. Алдымен қызметті іске қосыңыз.</string>
     <string name="comput_error_no_binder">Қате: Shevery binder алу мүмкін болмады.</string>
     <string name="comput_console_initialized">Консоль инициализацияланды. Қосылды.\nДайын.</string>
@@ -534,4 +534,5 @@
     <string name="settings_compat_stub_uninstalled">Мұраға қалған қалдық жойылды</string>
     <string name="settings_compat_stub_failed">Мұраға қалған stub-ты %2$s арқылы %1$s жасау мүмкін болмады: %3$s</string>
     <string name="settings_compat_stub_none">Ешқандай арна қолжетімді емес (алдымен Shevery-ді іске қосыңыз)</string>
+    <string name="settings_restart_dialog_message_wifi_required">Wi-Fi алғашқы қайта жүктеу үшін қажет, себебі Shevery ADB-ны 5555 портына ауыстырмас бұрын ағымдағы сымсыз ақаулық түзету портына қосылуы керек.</string>
 </resources>

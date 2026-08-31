@@ -57,7 +57,7 @@
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* May iba pang mga dapat ikonsidera, siguraduhin munang nabasa mo na ang gabay.]]></string>
     <string name="home_adb_button_view_command">Tingnan ang command</string>
     <string name="home_adb_button_view_help">Sumangguni sa gabay</string>
-    <string name="home_adb_description">Kailangan mong gumamit ng adb para masimulan ang Shizuku kung walang root ang device mo (kailangang kumonekta sa kompyuter). Dapat ulitin ito tuwing nare-restart ang device mo. Mangyaring <b><a href="%1$s">sumangguni sa gabay</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Kailangan mong gumamit ng adb para masimulan ang Shizuku kung walang root ang device mo (kailangang kumonekta sa kompyuter). Dapat ulitin ito tuwing nare-restart ang device mo. Mangyaring <b><a href="%1$s">sumangguni sa gabay</a></b>.]]></string>
     <string name="home_adb_title">Magsimula sa pamamagitan ng pagkonekta sa kompyuter</string>
     <string name="home_status_service_version_update"><![CDATA[Bersyon %2$s, %1$s<br/>Simulan ulit para maka-update patungong bersyon %3$s]]></string>
     <string name="home_status_service_version">Bersyon %2$s, %1$s</string>
@@ -97,14 +97,14 @@
     <string name="rish_description"><![CDATA[Gamit ang %1$s, makakakonekta ka sa shell ng Shizuku gamit ang anumang terminal app. <p>Pindutin para makita ang detalyadong impormasyon tungkol sa %1$s.]]></string>
     <string name="grant_dialog_button_deny">Tanggihan</string>
     <string name="grant_dialog_button_allow_always">Laging payagan</string>
-    <string name="permission_warning_template">Payagan ang <b>%1$s</b> na %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Payagan ang <b>%1$s</b> na %2$s?]]></string>
     <string name="permission_description">Payagan ang app na gamitin ang Shizuku.</string>
     <string name="permission_label">ma-access ang Shizuku</string>
     <string name="notification_adb_pairing_retry">Subukan ulit</string>
     <string name="starter">Panimula</string>
     <string name="start_with_root_failed">Hindi masimulan ang serbisyo sapagkat walang pahintulot sa root o hindi na-root ang device na ito.</string>
     <string name="dialog_cannot_open_browser_title">Hindi mabuksan ang browser</string>
-    <string name="toast_copied_to_clipboard_with_text">Nakopya ang <b>%s</b> sa clipboard.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[Nakopya ang <b>%s</b> sa clipboard.]]></string>
     <string name="dialog_legacy_not_support_title">Hindi sinusuportahan ng %1$s ang makabagong Shizuku (API v11+)</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Inihinto na ang suporta sa makalumang Shizuku (API v10-). Hindi na rin gagana ang makalumang Shizuku sa mga mas bagong bersyon ng Android.<p>Mangyaring ipaalam sa may-akda ng <b>%1$s</b> na kailangan na nitong mag-update.]]></string>
     <string name="dialog_requesting_legacy_title">Humihiling ng makalumang Shizuku ang %1$s</string>
@@ -528,4 +528,11 @@
     <string name="settings_compat_stub_uninstalled">Tinanggal ang legacy stub</string>
     <string name="settings_compat_stub_failed">Hindi nagawa ang %1$s sa legacy stub gamit ang %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Walang magagamit na channel (simulan muna ang Shevery)</string>
+    <string name="dialog_adb_discovery_message">Mangyaring paganahin ang "Wireless debugging" sa "Developer options". Awtomatikong napapatay ang "Wireless debugging" kapag nagbabago ang network. Tandaan, huwag patayin ang "Developer options" o "USB debugging", kung hindi titigil ang Shevery.</string>
+    <string name="dialog_wireless_adb_not_enabled">Hindi naka-enable ang wireless debugging. Tandaan, bago ang Android 11, upang paganahin ang wireless debugging, kinakailangan ang koneksyon sa kompyuter.</string>
+    <string name="dialog_adb_pairing_message">Magsimula sa pag-paring sa pamamagitan ng mga sumusunod na hakbang: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nPagkatapos magsimula ang proseso ng pag-paring, maaari mo nang ilagay ang pairing code.</string>
+    <string name="adb_error_key_store">Hindi makabuo ng susi para sa wireless debugging. Maaaring dahil nasira ang mekanismo ng KeyStore ng aparatong ito.</string>
+    <string name="home_adb_is_limited_description">Ang gumawa ng iyong aparato ay naglilimita sa mga pahintulot ng adb at ang mga app na gumagamit ng Shevery ay hindi gagana nang maayos. Karaniwan, maaaring maalis ang limitasyong ito sa pamamagitan ng pag-aayos ng ilang pagpipilian sa "Developer options". Mangyaring basahin ang tulong para sa mga detalye kung paano ito gawin. Maaaring kailanganin mong i-restart ang Shevery para maging epektibo ang operasyon.</string>
+    <string name="terminal_tutorial_1_description">Kung may mga file na magkapangalan sa napiling folder, mabubura ang mga ito.   Gumagamit ang export function ng SAF (Storage Access Framework). Iniulat na sinisira ng MIUI ang mga function ng SAF. Kung gumagamit ka ng MIUI, maaaring kailangan mong i-extract ang file mula sa apk ni Shevery o i-download ito mula sa GitHub.</string>
+    <string name="toast_copied_to_clipboard">Na-kopya na sa clipboard ang %s\n.</string>
 </resources>

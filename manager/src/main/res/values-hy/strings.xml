@@ -70,7 +70,7 @@
     <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b>-ն օժտված է նոր Shizuku-ից օգտվելու հատկությունից, բայց այն փորձում է օգտվել հին Shizuku-ից։ Հնարավոր է, որ Shizuku-ն միացված չէ, ստուգեք Shizuku ծրագիրը։<p>Հին Shizuku-ն համարվում է հնացած 2019-ի մարտից։]]></string>
     <string name="grant_dialog_button_deny">Մերժել</string>
     <string name="grant_dialog_button_allow_always">Միշտ թույլատրել</string>
-    <string name="permission_warning_template">Թույլատրե՞լ <b>%1$s</b> հավելվածին %2$s:</string>
+    <string name="permission_warning_template"><![CDATA[Թույլատրե՞լ <b>%1$s</b> հավելվածին %2$s:]]></string>
     <string name="shevery_update_auto_check">Check for updates in background</string>
     <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
     <string name="update_settings_frequency_label">Check frequency</string>
@@ -529,4 +529,11 @@
     <string name="settings_compat_stub_uninstalled">Հնացած հատվածը հեռացվել է</string>
     <string name="settings_compat_stub_failed">Չհաջողվեց %1$s-ով ժառանգված ստուբը %2$s-ի միջոցով՝ %3$s</string>
     <string name="settings_compat_stub_none">Շատալիքներ հասանելի չեն (սկսեք Shevery առաջին)</string>
+    <string name="dialog_adb_discovery_message">Խնդրում ենք ակտիվացնել «Անլար դեբագավորումը» «Ծրագրավորողի ընտրանքներում»: «Անլար դեբագավորումը» ավտոմատ կերպով անջատվում է ցանցի փոփոխության ժամանակ։\n\nՆշում. մի անջատեք «Ծրագրավորողի ընտրանքները» կամ «USB դեբագավորումը», հակառակ դեպքում Shevery-ն կդադարի աշխատել։</string>
+    <string name="dialog_wireless_adb_not_enabled">Անլար դեբագավորումը չի միացված։\nՆշում. Android 11-ից առաջ անլար դեբագավորումը միացնելու համար համակարգչի միացումը պարտադիր է։</string>
+    <string name="dialog_adb_pairing_message">Խնդրում ենք զուգակցումը սկսել հետևյալ քայլերով՝ «Ծրագրավորողի ընտրանքներ» – «Անլար սխալազերծում» – «Սարքի զուգակցում զուգակցման կոդով»։\n\nԶուգակցման գործընթացը սկսվելուց հետո դուք կկարողանաք մուտքագրել զուգակցման կոդը։</string>
+    <string name="adb_error_key_store">Անհնար է ստեղծել անլար թերհաշվարկման բանալի։\nՍա կարող է լինել այն պատճառով, որ այս սարքի KeyStore մեխանիզմը խափանված է։</string>
+    <string name="rish_description">%1$s-ով ցանկացած տերմինալային հավելվածում կարող եք միացնել և շփվել Shevery-ի կողմից գործարկված շել-հրամանների հետ։
+%1$s-ի մանրամասն օգտագործման մասին տեղեկությունների համար սեղմեք՝ փաստաթուղթը դիտելու համար։</string>
+    <string name="toast_copied_to_clipboard">%s\nկպցվել է կլիպբորդին։</string>
 </resources>

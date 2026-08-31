@@ -16,7 +16,7 @@
     <string name="home_status_service_version">संस्करण %2$s, %1$s</string>
     <string name="home_status_service_version_update">संस्करण %2$s, %1$s संस्करण %3$s पर अपडेट करने के लिए फिर से शुरू करें</string>
     <string name="home_adb_title">कंप्यूटर से कनेक्ट करके शुरू करें।</string>
-    <string name="home_adb_description">रूट के बिना डिवाइसों के लिए, आपको Shevery शुरू करने के लिए adb का उपयोग करना होगा (कंप्यूटर कनेक्शन आवश्यक है)। यह प्रक्रिया हर बार डिवाइस को पुनः आरंभ करने पर दोहराई जानी चाहिए। कृपया <b><a href="%1$s">सहायता पढ़ें</b>।</string>
+    <string name="home_adb_description"><![CDATA[रूट के बिना डिवाइसों के लिए, आपको Shevery शुरू करने के लिए adb का उपयोग करना होगा (कंप्यूटर कनेक्शन आवश्यक है)। यह प्रक्रिया हर बार डिवाइस को पुनः आरंभ करने पर दोहराई जानी चाहिए। कृपया <b><a href="%1$s">सहायता पढ़ें</b>।]]></string>
     <string name="home_adb_button_view_help">मदद पढ़ें</string>
     <string name="home_adb_button_view_command">देखने का आदेश</string>
     <string name="home_adb_dialog_view_command_notice">कुछ अन्य विचार हैं, कृपया पहले यह सुनिश्चित कर लें कि आपने सहायता पढ़ ली है।</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">सभी चुनें</string>
     <string name="app_management_deselect_all">सभी को अनचुनें</string>
     <string name="app_management_dialog_adb_is_limited_title">एडीबी की अनुमति सीमित है।</string>
-    <string name="app_management_dialog_adb_is_limited_message">यह बहुत संभव है कि आपके डिवाइस निर्माता ने adb की अनुमति सीमित कर दी हो। आपके सिस्टम के लिए <b><a href="%1$s">इस दस्तावेज़ में</b> एक समाधान हो सकता है।</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[यह बहुत संभव है कि आपके डिवाइस निर्माता ने adb की अनुमति सीमित कर दी हो। आपके सिस्टम के लिए <b><a href="%1$s">इस दस्तावेज़ में</b> एक समाधान हो सकता है।]]></string>
     <string name="app_management_item_summary_requires_root">* शेवरी को रूट के साथ चलाने की आवश्यकता है</string>
     <string name="app_management_loading">ऐप्स लोड हो रहे हैं…</string>
     <string name="home_terminal_title">टर्मिनल ऐप्स में Shevery का उपयोग करें</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/अनुमति_लेबल</string>
     <string name="permission_label">एक्सेस शेवरी</string>
     <string name="permission_description">ऐप को Shevery का उपयोग करने की अनुमति दें।</string>
-    <string name="permission_warning_template">क्या <b>%1$s</b> को %2$s करने की अनुमति दें?</string>
+    <string name="permission_warning_template"><![CDATA[क्या <b>%1$s</b> को %2$s करने की अनुमति दें?]]></string>
     <string name="grant_dialog_button_allow_always">सभी समय की अनुमति दें</string>
     <string name="grant_dialog_button_deny">इनकार करना</string>
     <string name="starter">स्टार्टर</string>
@@ -243,9 +243,9 @@
     <string name="toast_copied_to_clipboard">%s\nक्लिपबोर्ड पर कॉपी कर दिया गया है।</string>
     <string name="toast_copied_to_clipboard_with_text">%s क्लिपबोर्ड पर कॉपी कर दिया गया है।</string>
     <string name="dialog_legacy_not_support_title">%1$s आधुनिक शेवरी का समर्थन नहीं करता है।</string>
-    <string name="dialog_legacy_not_support_message">लेगेसी शेवरी को मार्च 2019 से अप्रचलित कर दिया गया है। साथ ही, लेगेसी शेवरी नए एंड्रॉइड सिस्टम पर काम नहीं करती है। कृपया <b>%1$s</b> के डेवलपर से इसे अपडेट करने के लिए कहें।</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[लेगेसी शेवरी को मार्च 2019 से अप्रचलित कर दिया गया है। साथ ही, लेगेसी शेवरी नए एंड्रॉइड सिस्टम पर काम नहीं करती है। कृपया <b>%1$s</b> के डेवलपर से इसे अपडेट करने के लिए कहें।]]></string>
     <string name="dialog_requesting_legacy_title">%1$s लेगेसी शेवरी का अनुरोध कर रहा है</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> में आधुनिक Shevery समर्थन है, लेकिन यह लेगेसी Shevery का अनुरोध कर रहा है। ऐसा इसलिए हो सकता है क्योंकि Shevery चल नहीं रहा है, कृपया Shevery ऐप में जांच करें।लेगेसी Shevery को मार्च 2019 से अप्रचलित कर दिया गया है।</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> में आधुनिक Shevery समर्थन है, लेकिन यह लेगेसी Shevery का अनुरोध कर रहा है। ऐसा इसलिए हो सकता है क्योंकि Shevery चल नहीं रहा है, कृपया Shevery ऐप में जांच करें।लेगेसी Shevery को मार्च 2019 से अप्रचलित कर दिया गया है।]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">ओपन शेवरी</string>
     <string name="lab_features_title">प्रयोगशाला की विशेषताएँ</string>
     <string name="lab_features_summary">प्रयोगात्मक विशेषताएँ</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">विरासत स्टब हटाया गया</string>
     <string name="settings_compat_stub_failed">%2$s के माध्यम से %1$s करने में विफल: %3$s</string>
     <string name="settings_compat_stub_none">कोई चैनल उपलब्ध नहीं है (सबसे पहले Shevery शुरू करें)</string>
+    <string name="rish_description">किसी भी टर्मिनल ऐप में %1$s के साथ, आप Shevery द्वारा चलाए गए शेल से कनेक्ट कर सकते हैं और उसके साथ इंटरैक्ट कर सकते हैं।
+%1$s के विस्तृत उपयोग के बारे में जानने के लिए, दस्तावेज़ देखने हेतु टैप करें।</string>
 </resources>

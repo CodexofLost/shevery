@@ -9,7 +9,7 @@
     <string name="home_status_service_version">الإصدار %2$s, %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[الإصدار %2$s, %1$s<br/>اعد تشغيل التطبيق من جديد للتحديث إلى الإصدار %3$s]]></string>
     <string name="home_adb_title">ابدأ بالاتصال بجهاز كمبيوتر</string>
-    <string name="home_adb_description">بالنسبة للأجهزة التي لا تحتوي على الجذر (Root) ، تحتاج إلى استخدام adb لبدء Shizuku (يتطلب اتصال الكمبيوتر). يجب تكرار هذه العملية في كل مرة يتم فيها إعادة تشغيل الجهاز. يرجى <b><a href="%1$s"> قراءة التعليمات </a></b>.</string>
+    <string name="home_adb_description"><![CDATA[بالنسبة للأجهزة التي لا تحتوي على الجذر (Root) ، تحتاج إلى استخدام adb لبدء Shizuku (يتطلب اتصال الكمبيوتر). يجب تكرار هذه العملية في كل مرة يتم فيها إعادة تشغيل الجهاز. يرجى <b><a href="%1$s"> قراءة التعليمات </a></b>.]]></string>
     <string name="home_adb_button_view_help">اقرأ التعليمات</string>
     <string name="home_adb_button_view_command">عرض الأمر</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[font face=monospace>%1$s</font><br/><br/>* هناك بعض الاعتبارات الأخرى، يرجى تأكيد أنك قرأت التعليمات أولا.]]></string>
@@ -206,13 +206,13 @@
     <string name="notification_adb_pairing_retry">أعد المحاولة</string>
     <string name="permission_label">الوصول إلى Shizuku</string>
     <string name="permission_description">اسمح للتطبيق باستخدام Shizuku.</string>
-    <string name="permission_warning_template">هل تريد السماح لـ <b>%1$s</b> بـ %2$s؟</string>
+    <string name="permission_warning_template"><![CDATA[هل تريد السماح لـ <b>%1$s</b> بـ %2$s؟]]></string>
     <string name="grant_dialog_button_allow_always">السماح في كل وقت</string>
     <string name="grant_dialog_button_deny">منع</string>
     <string name="starter">مفتاح التشغيل</string>
     <string name="start_with_root_failed">لا يمكن بدء الخدمة لأنه لم يتم منح إذن الجذر (الروت) أو قد يكون هذا الجهاز ليس مزوّدًا بحق الوصول إلى الجذر (الروت).</string>
     <string name="dialog_cannot_open_browser_title">لا يمكن بدء المتصفح</string>
-    <string name="toast_copied_to_clipboard_with_text">تم نسخ <b>%s</b> إلى الحافظة.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[تم نسخ <b>%s</b> إلى الحافظة.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s لا يدعم النسخة الحديثة من Shizuku</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[تم إهمال Legacy Shizuku منذ آذار (مارس) 2019. أيضًا ، لا يعمل Shizuku القديم على أنظمة Android الأحدث. <p> يُرجى مطالبة مطور <b> %1$s </b> بالتحديث.]]></string>
     <string name="dialog_requesting_legacy_title">يطلب %1$s تطبيق Shizuku القديم</string>
@@ -358,7 +358,7 @@
     <string name="comput_timed_out">[E] انتهت مهلة الأمر بعد 120 ثانية.</string>
     <string name="comput_exit_code">[E] خرج الأمر بالرمز %1$d.</string>
     <string name="comput_running_macro">جاري تشغيل الماكرو: %1$s</string>
-    <string name="comput_executing_cmd">> جاري تنفيذ الأمر: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> جاري تنفيذ الأمر: %1$s]]></string>
     <string name="comput_error_not_running">خطأ: خدمة Shevery المتميزة غير قيد التشغيل. يرجى تشغيل الخدمة أولاً.</string>
     <string name="comput_error_no_binder">خطأ: تعذّر استرداد binder الخاص بـ Shevery.</string>
     <string name="comput_ai_explanation">شرح الذكاء الاصطناعي</string>
@@ -518,4 +518,21 @@
     <string name="settings_compat_stub_uninstalled">تمت إزالة الرابط القديم</string>
     <string name="settings_compat_stub_failed">فشل في %1$s الكود المقتضب القديم عبر %2$s: %3$s</string>
     <string name="settings_compat_stub_none">لا توجد قناة متاحة (ابدأ بـ «شيفي» أولاً)</string>
+    <string name="app_name">شيفري</string>
+    <string name="dialog_adb_discovery_message">يرجى تمكين "التصحيح اللاسلكي" في "خيارات المطور". يتم تعطيل "التصحيح اللاسلكي" تلقائيًا عند حدوث تغييرات في الشبكة.\n\nملاحظة: لا تقم بتعطيل "خيارات المطور" أو "التصحيح عبر USB"، وإلا سيتوقف تطبيق Shevery عن العمل.</string>
+    <string name="dialog_wireless_adb_not_enabled">التصحيح اللاسلكي غير ممكّن.\nيرجى ملاحظة أنه قبل إصدار Android 11، كان الاتصال بالكمبيوتر ضروريًّا لتمكين التصحيح اللاسلكي.</string>
+    <string name="dialog_adb_pairing_message">يرجى البدء في إجراء عملية الاقتران باتباع الخطوات التالية: «خيارات المطور» - «تصحيح الأخطاء لاسلكيًا» - «اقتران الجهاز باستخدام رمز الاقتران».\n\nبعد بدء عملية الاقتران، ستتمكن من إدخال رمز الاقتران.</string>
+    <string name="adb_error_key_store">تعذر إنشاء مفتاح للتصحيح اللاسلكي.\nقد يكون السبب في ذلك هو تعطل آلية KeyStore في هذا الجهاز.</string>
+    <string name="home_root_description"><![CDATA[بالإضافة إلى ذلك، يمكن تشغيل Shevery تلقائيًا عند بدء التشغيل. وإذا لم يحدث ذلك، يرجى التحقق مما إذا كان نظامك أو أدوات الجهات الخارجية قد فرضت قيودًا على Shevery.<br>يمكنك الرجوع إلى %s.]]></string>
+    <string name="home_adb_is_limited_description">لقد قامت الشركة المصنعة لجهازك بتقييد أذونات adb، ولن تعمل التطبيقات التي تستخدم Shevery بشكل صحيح.\n\nعادةً ما يمكن رفع هذا التقييد عن طريق تعديل بعض الخيارات في «خيارات المطور». يرجى قراءة دليل المساعدة للحصول على تفاصيل حول كيفية القيام بذلك.\n\nقد تحتاج إلى إعادة تشغيل Shevery حتى تصبح التغييرات سارية المفعول.</string>
+    <string name="terminal_tutorial_1_description">إذا كانت هناك ملفات تحمل الاسم نفسه في المجلد المحدد، فسيتم حذفها.\n\nتستخدم وظيفة التصدير نظام SAF (Storage Access Framework). وقد أُفيد بأن نظام MIUI يعطل وظائف SAF. إذا كنت تستخدم MIUI، فقد تضطر إلى استخراج الملف من ملف apk الخاص بـ Shevery أو تنزيله من GitHub.</string>
+    <string name="rish_description"><![CDATA[باستخدام %1$s، في أي تطبيق محطة طرفية، يمكنك الاتصال ببيئة العمل التي تديرها Shevery والتفاعل معها.
+<p>لمعرفة المزيد عن كيفية استخدام %1$s بالتفصيل، انقر لعرض الوثيقة.]]></string>
+    <string name="permission_group_label">شيفري</string>
+    <string name="permission_group_description">@string/تسمية_الإذن</string>
+    <string name="starting_root_shell">بدء تشغيل شل الجذر…</string>
+    <string name="toast_copied_to_clipboard">تم نسخ %s\n إلى الحافظة.</string>
+    <string name="settings_restart_dialog_message_wifi_required">يلزم توفر شبكة Wi-Fi عند إعادة التشغيل الأولى، لأن برنامج «Shevery» يجب أن يتصل بمنفذ التصحيح اللاسلكي الحالي قبل تغيير منفذ ADB إلى 5555.</string>
+    <string name="comput_adb_translate">وضع الترجمة التلقائية لـ ADB نشط\nالنص الأصلي: %1$s\nجاري التنفيذ...</string>
+    <string name="comput_console_initialized">تم تهيئة وحدة التحكم. تم الاتصال بخدمة Shevery ذات الصلاحيات الخاصة.\nجاهز لتلقي الأوامر.</string>
 </resources>

@@ -14,16 +14,16 @@
     <string name="home_status_service_is_running">%1$s on käynnissä</string>
     <string name="home_status_service_not_running">%1$s ei ole käynnissä</string>
     <string name="home_status_service_version">Versio %2$s, %1$s</string>
-    <string name="home_status_service_version_update">Versio %2$s, %1$s<br/>Aloita alusta, jotta voit päivittää versioon %3$s</string>
+    <string name="home_status_service_version_update"><![CDATA[Versio %2$s, %1$s<br/>Aloita alusta, jotta voit päivittää versioon %3$s]]></string>
     <string name="home_adb_title">Aloita muodostamalla yhteys tietokoneeseen</string>
-    <string name="home_adb_description">Laitteissa, joissa ei ole root-oikeuksia, Sheveryn käynnistämiseen on käytettävä adb:tä (vaatii yhteyden tietokoneeseen). Tämä toimenpide on toistettava aina, kun laite käynnistetään uudelleen. Lue ohjeet osoitteista <b><a href="%1$s"></a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Laitteissa, joissa ei ole root-oikeuksia, Sheveryn käynnistämiseen on käytettävä adb:tä (vaatii yhteyden tietokoneeseen). Tämä toimenpide on toistettava aina, kun laite käynnistetään uudelleen. Lue ohjeet osoitteista <b><a href="%1$s"></a></b>.]]></string>
     <string name="home_adb_button_view_help">Lue ohjeet</string>
     <string name="home_adb_button_view_command">Näytä-komento</string>
     <string name="home_adb_dialog_view_command_notice">On myös joitakin muita seikkoja, joita kannattaa ottaa huomioon. Varmista, että olet lukenut ohjeet ensin.</string>
     <string name="home_adb_dialog_view_command_copy_button">Kopioi</string>
     <string name="home_adb_dialog_view_command_button_send">Lähetä</string>
     <string name="home_wireless_adb_title">Aloita langattoman virheenkorjauksen kautta</string>
-    <string name="home_wireless_adb_description">Android 11:ssä tai uudemmissa versioissa voit ottaa langattoman virheenkorjauksen käyttöön ja käynnistää Sheveryn suoraan laitteeltasi ilman, että sinun tarvitsee muodostaa yhteyttä tietokoneeseen.<p>Tutustu ensin vaiheittaiseen ohjeeseen.</string>
+    <string name="home_wireless_adb_description"><![CDATA[Android 11:ssä tai uudemmissa versioissa voit ottaa langattoman virheenkorjauksen käyttöön ja käynnistää Sheveryn suoraan laitteeltasi ilman, että sinun tarvitsee muodostaa yhteyttä tietokoneeseen.<p>Tutustu ensin vaiheittaiseen ohjeeseen.]]></string>
     <string name="home_wireless_adb_description_pre_11">Ennen Android 11:tä langattoman virheenkorjauksen käyttöönotto edellyttää yhteyden muodostamista tietokoneeseen.</string>
     <string name="home_wireless_adb_view_guide_button">Vaiheittainen opas</string>
     <string name="home_local_network_title">Paikallisverkkoon pääsy</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Sheveryn on päästävä paikallisverkkoon. Tätä hallitaan verkko-oikeuksien avulla.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Jotkin järjestelmät (kuten MIUI) estävät sovelluksia käyttämästä verkkoa, kun ne eivät ole näkyvissä, vaikka sovellus käyttäisikin oletuksena etualapalvelua. Poista Sheveryn akkun säästötoiminnot käytöstä tällaisissa järjestelmissä.</string>
     <string name="home_root_title">Aloita (juurioikeudet saaneille laitteille)</string>
-    <string name="home_root_description">Lisäksi Shevery voidaan käynnistää automaattisesti järjestelmän käynnistyksen yhteydessä. Jos näin ei tapahdu, tarkista, onko järjestelmäsi tai kolmannen osapuolen työkalut rajoittaneet Sheveryn toimintaa.<br/>Lisätietoja löytyy osoitteesta %s.</string>
+    <string name="home_root_description"><![CDATA[Lisäksi Shevery voidaan käynnistää automaattisesti järjestelmän käynnistyksen yhteydessä. Jos näin ei tapahdu, tarkista, onko järjestelmäsi tai kolmannen osapuolen työkalut rajoittaneet Sheveryn toimintaa.<br/>Lisätietoja löytyy osoitteesta %s.]]></string>
     <string name="home_root_description_sui">Jos käytät Magiskia, voit kokeilla %1$s:ää. Root-käyttäjille se tulee lopulta korvaamaan Sheveryn. Huomaa, että olemassa olevia sovelluksia on muutettava hieman, jotta niitä voidaan käyttää %2$s:n kanssa.</string>
     <string name="home_root_button_start">Aloita</string>
     <string name="home_root_button_restart">Käynnistä uudelleen</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Valitse kaikki</string>
     <string name="app_management_deselect_all">Poista kaikki valinnat</string>
     <string name="app_management_dialog_adb_is_limited_title">adb:n käyttöoikeudet ovat rajoitettuja</string>
-    <string name="app_management_dialog_adb_is_limited_message">On hyvin mahdollista, että laitteesi valmistaja rajoittaa adb:n käyttöoikeuksia. <p>Järjestelmällesi saattaa löytyä ratkaisu <b><a href="%1$s">tästä asiakirjasta</a></b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[On hyvin mahdollista, että laitteesi valmistaja rajoittaa adb:n käyttöoikeuksia. <p>Järjestelmällesi saattaa löytyä ratkaisu <b><a href="%1$s">tästä asiakirjasta</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* edellyttää, että Shevery suoritetaan pääkäyttäjän oikeuksilla</string>
     <string name="app_management_loading">Sovelluksia ladataan…</string>
     <string name="home_terminal_title">Käytä Sheveryä terminaalisovelluksissa</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/permission_label</string>
     <string name="permission_label">siirry Sheveryyn</string>
     <string name="permission_description">Salli sovelluksen käyttää Sheveryä.</string>
-    <string name="permission_warning_template">Sallitaanko <b>%1$s</b>:n %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Sallitaanko <b>%1$s</b>:n %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Anna aikaa niin paljon kuin tarvitaan</string>
     <string name="grant_dialog_button_deny">"Hylkää"</string>
     <string name="starter">Aloitus</string>
@@ -241,11 +241,11 @@
     <string name="start_with_root_failed">Palvelua ei voi käynnistää, koska root-oikeuksia ei ole myönnetty tai laitteeseen ei ole tehty root-oikeuksien hankintaa.</string>
     <string name="dialog_cannot_open_browser_title">Selaimen käynnistäminen ei onnistu</string>
     <string name="toast_copied_to_clipboard">%s\non kopioitu leikepöydälle.</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> on kopioitu leikepöydälle.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> on kopioitu leikepöydälle.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s ei tue nykyaikaista Sheveryä</string>
-    <string name="dialog_legacy_not_support_message">Vanha Shevery-versio on poistettu käytöstä maaliskuusta 2019 lähtien. Vanha Shevery-versio ei myöskään toimi uudemmissa Android-käyttöjärjestelmissä.<p>Pyydä <b>%1$s</b>-sovelluksen kehittäjää päivittämään sovellus.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Vanha Shevery-versio on poistettu käytöstä maaliskuusta 2019 lähtien. Vanha Shevery-versio ei myöskään toimi uudemmissa Android-käyttöjärjestelmissä.<p>Pyydä <b>%1$s</b>-sovelluksen kehittäjää päivittämään sovellus.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s pyytää vanhaa Shevery-versiota</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> tukee uutta Shevery-versiota, mutta se pyytää vanhaa Shevery-versiota. Tämä voi johtua siitä, että Shevery ei ole käynnissä. Tarkista asia Shevery-sovelluksesta.<p>Vanha Shevery-versio on poistettu käytöstä maaliskuusta 2019 lähtien.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> tukee uutta Shevery-versiota, mutta se pyytää vanhaa Shevery-versiota. Tämä voi johtua siitä, että Shevery ei ole käynnissä. Tarkista asia Shevery-sovelluksesta.<p>Vanha Shevery-versio on poistettu käytöstä maaliskuusta 2019 lähtien.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Avaa Shevery</string>
     <string name="lab_features_title">Laboratorion ominaisuudet</string>
     <string name="lab_features_summary">Kokeelliset ominaisuudet</string>
@@ -426,7 +426,7 @@
     <string name="comput_timed_out">[E] Komennon aikakatkaisu 120 sekunnin kuluttua.</string>
     <string name="comput_exit_code">[E] Komento päättyi koodilla %1$d.</string>
     <string name="comput_running_macro">Suoritetaan makro: %1$s</string>
-    <string name="comput_executing_cmd">> Komennon suorittaminen: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Komennon suorittaminen: %1$s]]></string>
     <string name="comput_error_not_running">Virhe: Privileged Shevery -palvelu ei ole käynnissä. Käynnistä palvelu ensin.</string>
     <string name="comput_error_no_binder">Virhe: Shevery-kansiota ei voitu hakea.</string>
     <string name="comput_console_initialized">Konsoli on alustettu. Shevery-palvelu, jolla on laajennetut oikeudet, on kytketty.\nValmis ottamaan komentoja vastaan.</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Vanha viitepoisto</string>
     <string name="settings_compat_stub_failed">Vanhan stubin %1$s-toiminto epäonnistui %2$s:n kautta: %3$s</string>
     <string name="settings_compat_stub_none">Kanavaa ei ole käytettävissä (aloita ensin Shevery)</string>
+    <string name="rish_description"><![CDATA[%1$s:n avulla voit missä tahansa päätesovelluksessa muodostaa yhteyden Sheveryn suorittamiin komentotulkkeihin ja käyttää niitä.
+<p>Katso %1$s:n yksityiskohtaiset käyttöohjeet napauttamalla tätä.]]></string>
 </resources>

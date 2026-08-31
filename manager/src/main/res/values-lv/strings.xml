@@ -14,16 +14,16 @@
     <string name="home_status_service_is_running">%1$s darbojas</string>
     <string name="home_status_service_not_running">%1$s nedarbojas</string>
     <string name="home_status_service_version">Versija %2$s, %1$s</string>
-    <string name="home_status_service_version_update">Versija %2$s, %1$s<br/>Sāciet no jauna, lai atjauninātu uz versiju %3$s</string>
+    <string name="home_status_service_version_update"><![CDATA[Versija %2$s, %1$s<br/>Sāciet no jauna, lai atjauninātu uz versiju %3$s]]></string>
     <string name="home_adb_title">Sāciet ar savienošanos ar datoru</string>
-    <string name="home_adb_description">Ierīcēm bez root piekļuves, lai palaistu Shevery, ir jāizmanto adb (nepieciešama savienojums ar datoru). Šis process ir jāatkārto katru reizi, kad ierīce tiek pārstartēta. Lūdzu, <b><a href="%1$s">izlasiet palīdzību</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Ierīcēm bez root piekļuves, lai palaistu Shevery, ir jāizmanto adb (nepieciešama savienojums ar datoru). Šis process ir jāatkārto katru reizi, kad ierīce tiek pārstartēta. Lūdzu, <b><a href="%1$s">izlasiet palīdzību</a></b>.]]></string>
     <string name="home_adb_button_view_help">Lasīt palīdzību</string>
     <string name="home_adb_button_view_command">Komanda „Skatīt”</string>
     <string name="home_adb_dialog_view_command_notice">Ir vēl daži citi apsvērumi; lūdzu, apstipriniet, ka esat vispirms izlasījis palīdzības sadaļu.</string>
     <string name="home_adb_dialog_view_command_copy_button">Kopēt</string>
     <string name="home_adb_dialog_view_command_button_send">Nosūtīt</string>
     <string name="home_wireless_adb_title">Sākt, izmantojot bezvadu atkļūdošanu</string>
-    <string name="home_wireless_adb_description">Izmantojot Android 11 vai jaunāku versiju, varat ieslēgt bezvadu atkļūdošanu un palaist Shevery tieši no savas ierīces, nepievienojoties datoram.<p>Lūdzu, vispirms izlasiet soli pa solim izklāstīto rokasgrāmatu.</string>
+    <string name="home_wireless_adb_description"><![CDATA[Izmantojot Android 11 vai jaunāku versiju, varat ieslēgt bezvadu atkļūdošanu un palaist Shevery tieši no savas ierīces, nepievienojoties datoram.<p>Lūdzu, vispirms izlasiet soli pa solim izklāstīto rokasgrāmatu.]]></string>
     <string name="home_wireless_adb_description_pre_11">Pirms „Android 11” versijas, lai ieslēgtu bezvadu atkļūdošanu, ir nepieciešams savienot ierīci ar datoru.</string>
     <string name="home_wireless_adb_view_guide_button">Soli pa solim izstrādāta rokasgrāmata</string>
     <string name="home_local_network_title">Piekļuve vietējam tīklam</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">„Shevery“ ir nepieciešama piekļuve vietējam tīklam. To regulē tīkla atļauja.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Dažas sistēmas (piemēram, MIUI) neļauj lietotnēm piekļūt tīklam, ja tās nav redzamas, pat ja lietotne pēc noklusējuma izmanto priekšplāna pakalpojumu. Lūdzu, šādās sistēmās atspējojiet „Shevery“ akumulatora optimizācijas funkcijas.</string>
     <string name="home_root_title">Sākt (ierīcēm ar root piekļuvi)</string>
-    <string name="home_root_description">Turklāt programmu „Shevery“ var iestatīt tā, lai tā palaistos automātiski sistēmas uzsākšanas brīdī. Ja tā nenotiek, lūdzu, pārbaudiet, vai jūsu sistēma vai trešo pušu rīki nav ierobežojuši programmas „Shevery“ darbību.<br/>Vairāk informācijas varat atrast %s.</string>
+    <string name="home_root_description"><![CDATA[Turklāt programmu „Shevery“ var iestatīt tā, lai tā palaistos automātiski sistēmas uzsākšanas brīdī. Ja tā nenotiek, lūdzu, pārbaudiet, vai jūsu sistēma vai trešo pušu rīki nav ierobežojuši programmas „Shevery“ darbību.<br/>Vairāk informācijas varat atrast %s.]]></string>
     <string name="home_root_description_sui">Ja izmantojat Magisk, varat izmēģināt %1$s. Root lietotājiem tas galu galā aizstās Shevery. Ņemiet vērā, ka esošajām lietotnēm būs nepieciešamas nelielas izmaiņas, lai tās varētu izmantot %2$s.</string>
     <string name="home_root_button_start">Sākums</string>
     <string name="home_root_button_restart">Pārstartēt</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Atlasīt visu</string>
     <string name="app_management_deselect_all">Atcelt visu atlasi</string>
     <string name="app_management_dialog_adb_is_limited_title">Adb atļaujas ir ierobežotas</string>
-    <string name="app_management_dialog_adb_is_limited_message">Ir ļoti iespējams, ka jūsu ierīces ražotājs ierobežo adb atļaujas.<p>Jūsu sistēmai piemērots risinājums varētu būt atrodams <b><a href="%1$s">šajā dokumentā</a></b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Ir ļoti iespējams, ka jūsu ierīces ražotājs ierobežo adb atļaujas.<p>Jūsu sistēmai piemērots risinājums varētu būt atrodams <b><a href="%1$s">šajā dokumentā</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* nepieciešams, lai programma „Shevery“ tiktu palaista ar root tiesībām</string>
     <string name="app_management_loading">Tiek ielādētas lietotnes…</string>
     <string name="home_terminal_title">Izmantojiet „Shevery“ termināļa lietotnēs</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/atļaujas_nosaukums</string>
     <string name="permission_label">piekļuve Shevery</string>
     <string name="permission_description">Atļaujiet lietotnei izmantot „Shevery“.</string>
-    <string name="permission_warning_template">Atļaut <b>%1$s</b> veikt %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Atļaut <b>%1$s</b> veikt %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Atvēlēt visu laiku</string>
     <string name="grant_dialog_button_deny">"Noraidīt"</string>
     <string name="starter">Sākums</string>
@@ -241,11 +241,11 @@
     <string name="start_with_root_failed">Pakalpojumu nevar uzsākt, jo nav piešķirtas root tiesības vai šī ierīce nav rootēta.</string>
     <string name="dialog_cannot_open_browser_title">Neizdodas palaist pārlūku</string>
     <string name="toast_copied_to_clipboard">%s\n ir kopēts uz starpliktuvi.</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> ir kopēts uz starpliktni.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> ir kopēts uz starpliktni.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s neatbalsta mūsdienīgo Shevery</string>
-    <string name="dialog_legacy_not_support_message">Vecā versija „Shevery“ ir novecojusi kopš 2019. gada marta. Turklāt vecā versija „Shevery“ nedarbojas jaunākajās „Android“ sistēmās.<p>Lūdzu, lūdziet <b>%1$s</b> izstrādātāju veikt atjauninājumu.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Vecā versija „Shevery“ ir novecojusi kopš 2019. gada marta. Turklāt vecā versija „Shevery“ nedarbojas jaunākajās „Android“ sistēmās.<p>Lūdzu, lūdziet <b>%1$s</b> izstrādātāju veikt atjauninājumu.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s pieprasa vecā versija Shevery</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> atbalsta modernāko Shevery versiju, taču tiek pieprasīta vecā Shevery versija. Iespējams, tas notiek tāpēc, ka Shevery nedarbojas; lūdzu, pārbaudiet Shevery lietotnē.<p>Vecā Shevery versija vairs netiek atbalstīta kopš 2019. gada marta.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> atbalsta modernāko Shevery versiju, taču tiek pieprasīta vecā Shevery versija. Iespējams, tas notiek tāpēc, ka Shevery nedarbojas; lūdzu, pārbaudiet Shevery lietotnē.<p>Vecā Shevery versija vairs netiek atbalstīta kopš 2019. gada marta.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Atvērt Shevery</string>
     <string name="lab_features_title">Laboratorijas iespējas</string>
     <string name="lab_features_summary">Eksperimentālās funkcijas</string>
@@ -426,7 +426,7 @@
     <string name="comput_timed_out">[E] Komandas izpildes laiks beidzās pēc 120 sekundēm.</string>
     <string name="comput_exit_code">[E] Komanda tika pārtraukta ar kodu %1$d.</string>
     <string name="comput_running_macro">Makro izpilde: %1$s</string>
-    <string name="comput_executing_cmd">> Komandas izpilde: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Komandas izpilde: %1$s]]></string>
     <string name="comput_error_not_running">Kļūda: Privilēgētais „Shevery“ pakalpojums nedarbojas. Lūdzu, vispirms palaidiet šo pakalpojumu.</string>
     <string name="comput_error_no_binder">Kļūda: neizdevās atvērt Shevery mapīti.</string>
     <string name="comput_console_initialized">Konsoles inicializēšana pabeigta. Pieslēgts privileģētais „Shevery“ pakalpojums.\nGatava komandu pieņemšanai.</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Noņemts novecojušais saites fragments</string>
     <string name="settings_compat_stub_failed">Neizdevās %1$s veco stabu, izmantojot %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Kanāls nav pieejams (sāciet ar „Shevery“ vispirms)</string>
+    <string name="rish_description"><![CDATA[Izmantojot %1$s, jebkurā termināļa lietotnē varat izveidot savienojumu ar Shevery palaistajām čaulām un strādāt ar tām.
+<p>Lai uzzinātu sīkāku informāciju par %1$s lietošanu, pieskarieties, lai apskatītu dokumentu.]]></string>
 </resources>

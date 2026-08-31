@@ -364,7 +364,7 @@
     <string name="comput_timed_out">[E] دستور پس از ۱۲۰ ثانیه پایان وقت یافت.</string>
     <string name="comput_exit_code">[E] دستور با کد %1$d خارج شد.</string>
     <string name="comput_running_macro">در حال اجرای ماکرو: %1$s</string>
-    <string name="comput_executing_cmd">> در حال اجرای دستور: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> در حال اجرای دستور: %1$s]]></string>
     <string name="comput_error_not_running">خطا: سرویس Shevery با امتیاز در حال اجرا نیست. ابتدا سرویس را شروع کنید.</string>
     <string name="comput_error_no_binder">خطا: بازیابی binder Shevery امکان‌پذیر نبود.</string>
     <string name="comput_ai_explanation">توضیح هوش مصنوعی</string>
@@ -524,4 +524,15 @@
     <string name="settings_compat_stub_uninstalled">پیش‌نویس ارثی حذف شد</string>
     <string name="settings_compat_stub_failed">در %1$s کردن stub قدیمی از طریق %2$s ناموفق بود: %3$s</string>
     <string name="settings_compat_stub_none">هیچ کانالی در دسترس نیست (ابتدا Shevery را شروع کنید)</string>
+    <string name="app_name">شِوِری</string>
+    <string name="home_adb_is_limited_description">تولیدکنندهٔ دستگاه شما مجوزهای adb را محدود کرده است و برنامه‌هایی که از Shevery استفاده می‌کنند به‌درستی کار نخواهند کرد.  معمولاً می‌توان این محدودیت را با تنظیم برخی گزینه‌ها در «گزینه‌های توسعه‌دهنده» رفع کرد. لطفاً برای جزئیات نحوه انجام این کار به بخش راهنما مراجعه کنید.  ممکن است لازم باشد Shevery را مجدداً راه‌اندازی کنید تا تغییرات اعمال شود.</string>
+    <string name="terminal_tutorial_1_description">اگر در پوشهٔ انتخاب‌شده فایل‌هایی با نام یکسان وجود داشته باشند، حذف خواهند شد.  عملکرد خروجی از SAF (چارچوب دسترسی به ذخیره‌سازی) استفاده می‌کند. گزارش شده است که MIUI عملکردهای SAF را مختل می‌کند. اگر از MIUI استفاده می‌کنید، ممکن است لازم باشد فایل را از APK شِوِری استخراج کنید یا از گیت‌هاب دانلود نمایید.</string>
+    <string name="rish_description">با %1$s، در هر اپلیکیشن ترمینال، می‌توانید به اجراهای شل Shevery متصل شده و با آن‌ها تعامل کنید.
+برای مشاهدهٔ راهنمای استفادهٔ دقیق از %1$s، ضربه بزنید.</string>
+    <string name="permission_group_label">شِوِری</string>
+    <string name="permission_group_description">@string/برچسب_مجوز</string>
+    <string name="starting_root_shell">شروع پوستهٔ ریشه…</string>
+    <string name="settings_restart_dialog_message_wifi_required">برای اولین راه‌اندازی مجدد به وای‌فای نیاز است، زیرا Shevery باید قبل از تغییر پورت ADB به ۵۵۵۵ به پورت عیب‌یابی بی‌سیم فعلی متصل شود.</string>
+    <string name="comput_adb_translate">حالت ترجمه فرمان ADB فعال\nاصلی: %1$s\nدر حال اجرا...</string>
+    <string name="comput_console_initialized">کنسول راه‌اندازی شد. سرویس ویژه Shevery متصل شد. آماده دریافت دستورات.</string>
 </resources>

@@ -363,7 +363,7 @@
     <string name="comput_timed_out">[E] La commande a expiré après 120 secondes.</string>
     <string name="comput_exit_code">[E] La commande s\'est terminée avec le code %1$d.</string>
     <string name="comput_running_macro">Exécution de la macro : %1$s</string>
-    <string name="comput_executing_cmd">> Exécution de la commande : %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Exécution de la commande : %1$s]]></string>
     <string name="comput_error_not_running">Erreur : Le service privilégié Shevery n\'est pas en cours d\'exécution. Veuillez démarrer le service d\'abord.</string>
     <string name="comput_error_no_binder">Erreur : Impossible de récupérer le binder Shevery.</string>
     <string name="comput_console_initialized">Console initialisée. Service privilégié Shevery connecté.\nPrêt pour les commandes.</string>
@@ -534,4 +534,5 @@
     <string name="settings_compat_stub_uninstalled">Suppression d'un stub obsolète</string>
     <string name="settings_compat_stub_failed">Échec de %1$s du stub hérité via %2$s : %3$s</string>
     <string name="settings_compat_stub_none">Aucune chaîne disponible (commencez par Shevery)</string>
+    <string name="settings_restart_dialog_message_wifi_required">Une connexion Wi-Fi est nécessaire lors du premier redémarrage, car Shevery doit se connecter au port de débogage sans fil actuel avant de basculer ADB sur le port 5555.</string>
 </resources>

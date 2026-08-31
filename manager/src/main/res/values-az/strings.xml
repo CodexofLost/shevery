@@ -7,13 +7,13 @@
     <string name="dialog_requesting_legacy_title">%1$s köhnə Şizuku tələb edir</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Köhnə Shizuku 2019-cu ilin mart ayından ləğv edilib. Həmçinin, köhnə Shizuku daha yeni Android sistemlərində işləmir.<p>Lütfən, <b>%1$s</b> tərtibatçısından yeniləməsini xahiş edin.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s müasir Shizukunu dəstəkləmir</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> kopyalandı.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> kopyalandı.]]></string>
     <string name="dialog_cannot_open_browser_title">Brauzeri başlatmaq mümkün deyil</string>
     <string name="start_with_root_failed">Root icazəsi verilmədiyi və ya bu cihaz rootlu olmadığı üçün xidməti başlatmaq mümkün deyil.</string>
     <string name="starter">Başlanğıc</string>
     <string name="grant_dialog_button_deny">Ləğv et</string>
     <string name="grant_dialog_button_allow_always">Hər zaman icazə ver</string>
-    <string name="permission_warning_template"><b>%1$s</b> - ya %2$s üçün icazə verilsin?</string>
+    <string name="permission_warning_template"><![CDATA[<b>%1$s</b> - ya %2$s üçün icazə verilsin?]]></string>
     <string name="permission_description">Proqramın Shizukudan istifadə etməsinə icazə verin</string>
     <string name="permission_label">Shizukuya daxil olun</string>
     <string name="notification_adb_pairing_retry">Yenidən cəhd edin</string>
@@ -101,7 +101,7 @@
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Bəzi başqa mülahizələr də var, lütfən, əvvəlcə yardımı oxuduğunuzu təsdiqləyin.]]></string>
     <string name="home_adb_button_view_command">Əmirə baxın</string>
     <string name="home_adb_button_view_help">Yardım</string>
-    <string name="home_adb_description">Root olmayan cihazlarda Shizuku-nu işə salmaq üçün adb-dən istifadə etməlisiniz (kompüter bağlantısı tələb olunur). Cihaz hər dəfə yenidən işə salındıqda bu proses təkrarlanmalıdır. Lütfən, <b><a href="%1$s">yardımı oxuyun</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Root olmayan cihazlarda Shizuku-nu işə salmaq üçün adb-dən istifadə etməlisiniz (kompüter bağlantısı tələb olunur). Cihaz hər dəfə yenidən işə salındıqda bu proses təkrarlanmalıdır. Lütfən, <b><a href="%1$s">yardımı oxuyun</a></b>.]]></string>
     <string name="home_adb_title">Kompüterə qoşularaq başlayın</string>
     <string name="home_status_service_version_update"><![CDATA[Versiya %2$s, %1$s <br/> %3$s Versiyasına güncəlləmək üçün proqramı yenidən başladın]]></string>
     <string name="home_status_service_version">Versiya %2$s, %1$s</string>
@@ -529,4 +529,10 @@
     <string name="settings_compat_stub_uninstalled">Miras qalıntısı silindi</string>
     <string name="settings_compat_stub_failed">Mirası stubu %2$s vasitəsilə %1$s etməyi bacarmadı: %3$s</string>
     <string name="settings_compat_stub_none">Heç bir kanal mövcud deyil (əvvəlcə Shevery-ni işə salın)</string>
+    <string name="dialog_adb_discovery_message">Zəhmət olmasa "İnkişafçı seçimləri"ndə "Simsiz səhvləri düzəltmə"ni aktivləşdirin. Şəbəkə dəyişdikdə "Simsiz səhvləri düzəltmə" avtomatik olaraq deaktiv edilir. Qeyd: "İnkişafçı seçimləri"ni və ya "USB səhvləri düzəltmə"ni deaktiv etməyin, yoxsa Shevery dayandırılacaq.</string>
+    <string name="dialog_wireless_adb_not_enabled">Simsiz səhvləri aradan qaldırma aktivləşdirilməyib. Qeyd: Android 11-dən əvvəl simsiz səhvləri aradan qaldırmanı aktivləşdirmək üçün kompüterə qoşulmaq mütləqdir.</string>
+    <string name="dialog_adb_pairing_message">Zəhmət olmasa cütləşdirməyə aşağıdakı addımlarla başlayın: "İnkişaf parametrləri" - "Simsiz səhvləri aradan qaldırma" - "Cütləşdirmə kodundan istifadə edərək cihazı cütləşdirin". Cütləşdirmə prosesi başladıqdan sonra cütləşdirmə kodunu daxil edə biləcəksiniz.</string>
+    <string name="adb_error_key_store">Simsiz səhvləri düzəltmək üçün açar yaradılmadı. Bu, bu cihazın KeyStore mexanizminin sıradan çıxması səbəbindən ola bilər.</string>
+    <string name="terminal_tutorial_1_description">Əgər seçilmiş qovluqda eyni adla fayllar varsa, onlar silinəcək.  Eksport funksiyası SAF (Storage Access Framework) istifadə edir. Bildirilir ki, MIUI SAF-ın funksiyalarını pozur. Əgər MIUI istifadə edirsinizsə, faylı Shevery-nin APK-sından çıxarmalı və ya GitHub-dan yükləməlisiniz.</string>
+    <string name="toast_copied_to_clipboard">%s\nkopyalanıb kəsim lövhəsinə.</string>
 </resources>

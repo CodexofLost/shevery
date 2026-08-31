@@ -367,7 +367,7 @@
     <string name="comput_timed_out">[E] Команда 120 секунддан ашык убакыт алды.</string>
     <string name="comput_exit_code">[E] Команда код %1$d менен аяктады.</string>
     <string name="comput_running_macro">Макрос аткарылууда: %1$s</string>
-    <string name="comput_executing_cmd">> Команда аткарылууда: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Команда аткарылууда: %1$s]]></string>
     <string name="comput_error_not_running">Ката: Shevery кызматы иштебей жатат.</string>
     <string name="comput_error_no_binder">Ката: Shevery binder алынган жок.</string>
     <string name="comput_console_initialized">Консоль даяр. Shevery кызматы туташты.</string>
@@ -528,4 +528,10 @@
     <string name="settings_compat_stub_uninstalled">Мураска калган калдык жок кылынды</string>
     <string name="settings_compat_stub_failed">%2$s аркылуу мураска калган stubди %1$s кылуу мүмкүн болбоду: %3$s</string>
     <string name="settings_compat_stub_none">Канал жок (алгач Sheveryди баштаңыз)</string>
+    <string name="app_name">Шевери</string>
+    <string name="permission_group_label">Шевери</string>
+    <string name="permission_group_description">@string/уруксат_белгиси</string>
+    <string name="starting_root_shell">Баштапкы root-командалык сап…</string>
+    <string name="toast_copied_to_clipboard">%s\nбуйрук тактасына көчүрүлдү.</string>
+    <string name="comput_adb_translate">ADB буйрук которуу режими активдүү\nОригинал: %1$s\nАткарылып жатат...</string>
 </resources>

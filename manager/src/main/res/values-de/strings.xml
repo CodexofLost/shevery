@@ -6,7 +6,7 @@
     <string name="home_adb_dialog_view_command_copy_button">Kopieren</string>
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Es gibt noch einige andere Überlegungen, bitte vergewissern, dass Sie zuerst die Hilfe gelesen haben.]]></string>
     <string name="home_adb_button_view_command">Befehl anzeigen</string>
-    <string name="home_adb_description">Bei Geräten ohne Root müssen Sie adb verwenden, um Shizuku zu starten (erfordert Computerverbindung). Dieser Vorgang muss bei jedem Neustart des Geräts wiederholt werden. Bitte <b><a href="%1$s">die Hilfe lesen</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Bei Geräten ohne Root müssen Sie adb verwenden, um Shizuku zu starten (erfordert Computerverbindung). Dieser Vorgang muss bei jedem Neustart des Geräts wiederholt werden. Bitte <b><a href="%1$s">die Hilfe lesen</a></b>.]]></string>
     <string name="home_adb_button_view_help">Hilfe lesen</string>
     <string name="home_adb_title">Verbindung mit dem Compter herstellen</string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Erneut starten, um auf Version %3$s zu aktualisieren]]></string>
@@ -24,7 +24,7 @@
     <string name="adb_pairing_requires_multi_window"><![CDATA[Bitte zuerst in den Modus "Geteilter Bildschirm" (Mehrfenster) gehen.]]></string>
     <string name="grant_dialog_button_deny">Verweigern</string>
     <string name="grant_dialog_button_allow_always">Immer zulassen</string>
-    <string name="permission_warning_template"><b>%1$s</b> erlauben %2$s zu verwenden?</string>
+    <string name="permission_warning_template"><![CDATA[<b>%1$s</b> erlauben %2$s zu verwenden?]]></string>
     <string name="translation_contributors">" "</string>
     <string name="notification_service_start_failed">Shizuku-Dienst starten fehlgeschlagen.</string>
     <string name="notification_channel_service_status">Status des Dienststarts</string>
@@ -37,7 +37,7 @@
     <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shizuku ist seit März 2019 veraltet. Außerdem funktioniert Legacy Shizuku nicht auf neueren Android-Systemen.<p>Bitte bitten Sie den Entwickler von <b>%1$s</b> es zu aktualisieren.]]></string>
     <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> hat moderne Shizuku-Unterstützung, aber es fordert Legacy Shizuku an. Dies könnte daran liegen, dass Shizuku nicht läuft. Bitte in der Shizuku-App überprüfen.<p>Legacy Shizuku wird seit März 2019 nicht mehr unterstützt.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s unterstützt das moderne Shizuku nicht</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> wurde in Zwischenablage kopiert.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> wurde in Zwischenablage kopiert.]]></string>
     <string name="dialog_cannot_open_browser_title">Browser starten nicht möglich</string>
     <string name="start_with_root_failed">Dienst starten nicht möglich, da keine Root-Rechte erteilt wurden oder das Gerät nicht gerootet ist.</string>
     <string name="starter">Starter</string>
@@ -230,7 +230,7 @@
     <string name="modules_updating">Modul wird aktualisiert…</string>
     <string name="modules_update_success">Modul auf Version %s aktualisiert</string>
     <string name="modules_download_downloads">In den Download-Ordner herunterladen</string>
-    <string name="modules_download_install">Herunterladen &amp; Installieren</string>
+    <string name="modules_download_install"><![CDATA[Herunterladen &amp; Installieren]]></string>
     <string name="modules_downloading">Wird heruntergeladen…</string>
     <string name="modules_download_enqueued">Der Download wurde im Hintergrund gestartet</string>
     <string name="modules_search_placeholder">Katalogmodule suchen…</string>
@@ -342,9 +342,9 @@
     <string name="shevery_update_channel">Update-Kanal</string>
     <string name="shevery_update_channel_summary">Update-Veröffentlichungskanal auswählen</string>
     <string name="app_update_channel_stable">Stall</string>
-    <string name="app_update_channel_beta">Vorabversion &amp; Beta</string>
+    <string name="app_update_channel_beta"><![CDATA[Vorabversion &amp; Beta]]></string>
     <string name="shevery_update_group_title">Aktualisierungen der Shevery-App</string>
-    <string name="shevery_update_modules_group_title">Modul-Updates &amp; Katalog</string>
+    <string name="shevery_update_modules_group_title"><![CDATA[Modul-Updates &amp; Katalog]]></string>
     <string name="shevery_update_check_failed">Überprüfung auf Aktualisierungen fehlgeschlagen: %s</string>
     <string name="modules_catalog">Katalog</string>
     <string name="modules_catalog_title">Modulkatalog</string>
@@ -398,7 +398,7 @@
     <string name="comput_api_key_label">API-Schlüssel</string>
     <string name="comput_show_api_key">API-Schlüssel anzeigen</string>
     <string name="comput_hide_api_key">API-Schlüssel ausblenden</string>
-    <string name="comput_gemini_model_performance">Hochleistungs-Codierung &amp; Agentic (empfohlen)</string>
+    <string name="comput_gemini_model_performance"><![CDATA[Hochleistungs-Codierung &amp; Agentic (empfohlen)]]></string>
     <string name="comput_gemini_model_lightweight">Leichtes Hochgeschwindigkeitsmodell</string>
     <string name="comput_gemini_api_error">Die Gemini-API hat den Fehlercode %1$d zurückgegeben: %2$s</string>
     <string name="comput_gemini_connection_error">Verbindungsfehler.</string>
@@ -421,7 +421,7 @@
     <string name="comput_timed_out">[E] Zeitüberschreitung beim Befehl nach 120 Sekunden.</string>
     <string name="comput_exit_code">[E] Der Befehl wurde mit dem Code %1$d beendet.</string>
     <string name="comput_running_macro">Makro ausführen: %1$s</string>
-    <string name="comput_executing_cmd">> Befehl wird ausgeführt: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Befehl wird ausgeführt: %1$s]]></string>
     <string name="comput_error_not_running">Fehler: Der privilegierte Shevery-Dienst wird nicht ausgeführt. Bitte starten Sie den Dienst zunächst.</string>
     <string name="comput_error_no_binder">Fehler: Der Shevery-Ordner kann nicht abgerufen werden.</string>
     <string name="comput_console_initialized">Konsole initialisiert. Der privilegierte Shevery-Dienst ist verbunden.\nBereit für Befehle.</string>
@@ -528,4 +528,11 @@
     <string name="settings_compat_stub_uninstalled">Veralteter Platzhalter entfernt</string>
     <string name="settings_compat_stub_failed">Der Versuch, den Legacy-Stub über %2$s zu %1$s, ist fehlgeschlagen: %3$s</string>
     <string name="settings_compat_stub_none">Kein Kanal verfügbar (erst Shevery starten)</string>
+    <string name="dialog_adb_discovery_message">Bitte aktivieren Sie „Drahtloses Debugging“ in den „Entwickleroptionen“. Das „Drahtlose Debugging“ wird automatisch deaktiviert, wenn sich die Netzwerkeinstellungen ändern.\n\nBitte beachten Sie: Deaktivieren Sie weder die „Entwickleroptionen“ noch das „USB-Debugging“, da Shevery sonst beendet wird.</string>
+    <string name="dialog_wireless_adb_not_enabled">Das drahtlose Debugging ist nicht aktiviert.\nHinweis: Vor Android 11 ist für die Aktivierung des drahtlosen Debuggings eine Verbindung zum Computer erforderlich.</string>
+    <string name="dialog_adb_pairing_message">Bitte führen Sie die Kopplung anhand der folgenden Schritte durch: „Entwickleroptionen“ – „Drahtloses Debugging“ – „Gerät über Kopplungscode koppeln“.\n\nSobald der Kopplungsvorgang gestartet ist, können Sie den Kopplungscode eingeben.</string>
+    <string name="adb_error_key_store">Der Schlüssel für das drahtlose Debugging kann nicht generiert werden.\nDies kann daran liegen, dass der KeyStore-Mechanismus dieses Geräts nicht ordnungsgemäß funktioniert.</string>
+    <string name="home_adb_is_limited_description">Der Hersteller Ihres Geräts hat die ADB-Berechtigungen eingeschränkt, sodass Apps, die Shevery nutzen, nicht ordnungsgemäß funktionieren.\n\nIn der Regel lässt sich diese Einschränkung durch das Anpassen einiger Einstellungen in den „Entwickleroptionen“ aufheben. Weitere Informationen dazu finden Sie in der Hilfe.\n\nMöglicherweise müssen Sie Shevery neu starten, damit die Änderung wirksam wird.</string>
+    <string name="terminal_tutorial_1_description">Wenn sich im ausgewählten Ordner Dateien mit demselben Namen befinden, werden diese gelöscht.\n\nDie Exportfunktion nutzt SAF (Storage Access Framework). Es gibt Berichte, dass MIUI die Funktionen von SAF beeinträchtigt. Wenn Sie MIUI verwenden, müssen Sie die Datei möglicherweise aus der APK-Datei von Shevery extrahieren oder von GitHub herunterladen.</string>
+    <string name="toast_copied_to_clipboard">%s\nwurde in die Zwischenablage kopiert.</string>
 </resources>

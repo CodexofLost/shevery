@@ -27,7 +27,7 @@
     <string name="accessibility_more_options">Pli da opcioj</string>
     <string name="accessibility_open_on_github">Malfermi en GitHub</string>
     <string name="home_status_service_version_update">Versio %2$s, %1$s Rekomencu por ĝisdatigi al versio %3$s</string>
-    <string name="home_adb_description">Por aparatoj sen root, vi devas uzi adb por lanĉi Shevery (postulas komputilan konekton). Ĉi tiu procezo devas esti ripetita ĉiufoje kiam la aparato estas restartigita. Bonvolu <b><a href="%1$s">legi la helpon</b>.</string>
+    <string name="home_adb_description"><![CDATA[Por aparatoj sen root, vi devas uzi adb por lanĉi Shevery (postulas komputilan konekton). Ĉi tiu procezo devas esti ripetita ĉiufoje kiam la aparato estas restartigita. Bonvolu <b><a href="%1$s">legi la helpon</b>.]]></string>
     <string name="home_adb_dialog_view_command_notice">Estas kelkaj aliaj konsideroj; bonvolu unue konfirmi, ke vi legis la helpon.</string>
     <string name="home_wireless_adb_title">Komencu per sendrata depanado</string>
     <string name="home_wireless_adb_description">En Android 11 aŭ pli nova, vi povas ebligi sendratan depanadon kaj lanĉi Shevery rekte de via aparato, sen konekti ĝin al komputilo. Bonvolu unue konsulti la paŝon-post-paŝan gvidilon.</string>
@@ -90,7 +90,7 @@
     <string name="app_management_select_all">Elektu ĉion</string>
     <string name="app_management_deselect_all">Malelektu ĉiujn</string>
     <string name="app_management_dialog_adb_is_limited_title">La permeso de adb estas limigita</string>
-    <string name="app_management_dialog_adb_is_limited_message">Estas tre verŝajne, ke la fabrikanto de via aparato limigas la permeson de adb.Eble ekzistas solvo por via sistemo en <b><a href="%1$s">ĉi tiu dokumento</b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Estas tre verŝajne, ke la fabrikanto de via aparato limigas la permeson de adb.Eble ekzistas solvo por via sistemo en <b><a href="%1$s">ĉi tiu dokumento</b>.]]></string>
     <string name="app_management_item_summary_requires_root">* postulas, ke Shevery ruliĝas kun root</string>
     <string name="app_management_loading">Ŝarĝante programojn…</string>
     <string name="home_terminal_title">Uzu Shevery en terminalaj aplikaĵoj.</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/permes-etikedo</string>
     <string name="permission_label">aliro Shevery</string>
     <string name="permission_description">Permesu al la aplikaĵo uzi Shevery.</string>
-    <string name="permission_warning_template">Permesi <b>%1$s</b> fari %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Permesi <b>%1$s</b> fari %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Permesi ĉiam</string>
     <string name="grant_dialog_button_deny">Ne agnosku</string>
     <string name="starter">Komencaĵo</string>
@@ -243,7 +243,7 @@
     <string name="toast_copied_to_clipboard">%s\nkopiita al la tondujo.</string>
     <string name="toast_copied_to_clipboard_with_text">%s estis kopiita al la tondujo.</string>
     <string name="dialog_legacy_not_support_title">%1$s ne subtenas modernan Shevery</string>
-    <string name="dialog_legacy_not_support_message">La malnova Shevery estas malrekomendata ekde marto 2019. Krome, la malnova Shevery ne funkcias en pli novaj Android-sistemoj.Bonvolu peti la programiston de <b>%1$s</b> ĝisdatigi.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[La malnova Shevery estas malrekomendata ekde marto 2019. Krome, la malnova Shevery ne funkcias en pli novaj Android-sistemoj.Bonvolu peti la programiston de <b>%1$s</b> ĝisdatigi.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s petas tradician Shevery</string>
     <string name="dialog_requesting_legacy_message">%1$s havas modernan Shevery-subtenon, sed ĝi petas malnovan Shevery. Tio povus esti ĉar Shevery ne funkcias; bonvolu kontroli en la Shevery-aplikaĵo. Malnova Shevery estas malrekomendita ekde marto 2019.</string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Malferma Ŝevrio</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Heredaĵo forigita</string>
     <string name="settings_compat_stub_failed">Malsukcesis %1$s la heredaĵan stubon per %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Neniu kanalo disponebla (komencu per Shevery unue)</string>
+    <string name="rish_description">Per %1$s, en ajna terminala aplikaĵo, vi povas konektiĝi al kaj interagi kun la ŝelaj rutoj de Shevery.
+Pri la detala uzado de %1$s, frapetu por vidi la dokumenton.</string>
 </resources>

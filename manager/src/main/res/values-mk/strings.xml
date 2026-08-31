@@ -16,7 +16,7 @@
     <string name="home_status_service_version">Верзија %2$s, %1$s</string>
     <string name="home_status_service_version_update">Верзија %2$s, %1$s Почнете повторно за да се ажурирате на верзија %3$s</string>
     <string name="home_adb_title">Започнете со поврзување на компјутер.</string>
-    <string name="home_adb_description">За уреди без root, треба да користите adb за да го стартувате Shevery (потребна е конекција со компјутер). Овој процес треба да се повтори секој пат кога уредот ќе се рестартира. Ве молиме <b><a href="%1$s">прочитајте ја помошта</b>.</string>
+    <string name="home_adb_description"><![CDATA[За уреди без root, треба да користите adb за да го стартувате Shevery (потребна е конекција со компјутер). Овој процес треба да се повтори секој пат кога уредот ќе се рестартира. Ве молиме <b><a href="%1$s">прочитајте ја помошта</b>.]]></string>
     <string name="home_adb_button_view_help">Прочитај помош</string>
     <string name="home_adb_button_view_command">Приказ на командата</string>
     <string name="home_adb_dialog_view_command_notice">Постојат и некои други размислувања, ве молиме потврдете дека прво сте ја прочитале помошта.</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Избери сè</string>
     <string name="app_management_deselect_all">Отселектирај сè</string>
     <string name="app_management_dialog_adb_is_limited_title">Дозволата на adb е ограничена</string>
-    <string name="app_management_dialog_adb_is_limited_message">Многу е веројатно дека производителот на вашиот уред ја ограничува дозволата за adb.Можеби постои решение за вашиот систем во <b><a href="%1$s">овој документ</b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Многу е веројатно дека производителот на вашиот уред ја ограничува дозволата за adb.Можеби постои решение за вашиот систем во <b><a href="%1$s">овој документ</b>.]]></string>
     <string name="app_management_item_summary_requires_root">* бара Shevery да се извршува со root</string>
     <string name="app_management_loading">Се вчитуваат апликации…</string>
     <string name="home_terminal_title">Користете Shevery во терминалски апликации</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/ознака_за_дозвола</string>
     <string name="permission_label">пристап Шевери</string>
     <string name="permission_description">Дозволете на апликацијата да користи Shevery.</string>
-    <string name="permission_warning_template">Дозволи <b>%1$s</b> да %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Дозволи <b>%1$s</b> да %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Дозволи цело време</string>
     <string name="grant_dialog_button_deny">Откажи</string>
     <string name="starter">Започна</string>
@@ -243,7 +243,7 @@
     <string name="toast_copied_to_clipboard">%s\n е копирано во меморијата.</string>
     <string name="toast_copied_to_clipboard_with_text">%s е копирано во меморијата на клипборд.</string>
     <string name="dialog_legacy_not_support_title">%1$s не поддржува модерна Шевери</string>
-    <string name="dialog_legacy_not_support_message">Старата Shevery е застарена од март 2019 година. Исто така, старата Shevery не работи на поновите Android системи. Ве молиме замолете го развивачот на <b>%1$s</b> да ја ажурира.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Старата Shevery е застарена од март 2019 година. Исто така, старата Shevery не работи на поновите Android системи. Ве молиме замолете го развивачот на <b>%1$s</b> да ја ажурира.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s бара старомоден Шевери</string>
     <string name="dialog_requesting_legacy_message">%1$s има поддршка за модерна Shevery, но бара наследна Shevery. Ова може да биде затоа што Shevery не е во функција, ве молиме проверете во апликацијата Shevery. Наследната Shevery е застарена од март 2019 година.</string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Отворена шевери</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Наследениот stub е отстранет</string>
     <string name="settings_compat_stub_failed">Не успеа да се %1$s на наследениот stub преку %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Нема достапен канал (прво започнете со Shevery)</string>
+    <string name="rish_description">Со %1$s, во која било терминалска апликација, можете да се поврзете и да комуницирате со извршувањата на shell од Shevery.
+За детална употреба на %1$s, допрете за да го видите документот.</string>
 </resources>

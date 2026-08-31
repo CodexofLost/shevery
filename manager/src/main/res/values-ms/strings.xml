@@ -19,7 +19,7 @@
     <string name="home_status_service_is_running">%1$s sedang berjalan</string>
     <string name="home_status_service_version_update">Versi %2$s, %1$s Mulakan semula untuk mengemas kini ke versi %3$s</string>
     <string name="home_adb_title">Mulakan dengan menyambungkan ke komputer.</string>
-    <string name="home_adb_description">Untuk peranti tanpa root, anda perlu menggunakan adb untuk memulakan Shevery (memerlukan sambungan komputer). Proses ini perlu diulang setiap kali peranti dihidupkan semula. Sila <b><a href="%1$s">baca bantuan</b>.</string>
+    <string name="home_adb_description"><![CDATA[Untuk peranti tanpa root, anda perlu menggunakan adb untuk memulakan Shevery (memerlukan sambungan komputer). Proses ini perlu diulang setiap kali peranti dihidupkan semula. Sila <b><a href="%1$s">baca bantuan</b>.]]></string>
     <string name="home_adb_button_view_help">Baca bantuan</string>
     <string name="home_adb_button_view_command">Tonton arahan</string>
     <string name="home_adb_dialog_view_command_notice">Terdapat beberapa pertimbangan lain, sila pastikan anda telah membaca bantuan terlebih dahulu.</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Pilih semua</string>
     <string name="app_management_deselect_all">Batalkan semua pilihan</string>
     <string name="app_management_dialog_adb_is_limited_title">Kebenaran adb adalah terhad</string>
-    <string name="app_management_dialog_adb_is_limited_message">Adalah sangat mungkin pengeluar peranti anda mengehadkan kebenaran adb.Mungkin terdapat penyelesaian untuk sistem anda dalam <b><a href="%1$s">dokumen ini</b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Adalah sangat mungkin pengeluar peranti anda mengehadkan kebenaran adb.Mungkin terdapat penyelesaian untuk sistem anda dalam <b><a href="%1$s">dokumen ini</b>.]]></string>
     <string name="app_management_item_summary_requires_root">* memerlukan Shevery berjalan dengan root</string>
     <string name="app_management_loading">Memuatkan aplikasi…</string>
     <string name="home_terminal_title">Gunakan Shevery dalam aplikasi terminal</string>
@@ -201,7 +201,7 @@
     <string name="modules_updating">Mengemas kini modul…</string>
     <string name="modules_update_success">Modul dikemas kini ke v%s</string>
     <string name="modules_download_downloads">Muat turun ke Muat Turun</string>
-    <string name="modules_download_install">Muat turun &amp; pasang</string>
+    <string name="modules_download_install"><![CDATA[Muat turun &amp; pasang]]></string>
     <string name="modules_downloading">Muat turun…</string>
     <string name="modules_download_enqueued">Muat turun bermula di latar belakang</string>
     <string name="modules_search_placeholder">Cari modul katalog…</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/label_kebenaran</string>
     <string name="permission_label">akses Shevery</string>
     <string name="permission_description">Benarkan aplikasi menggunakan Shevery.</string>
-    <string name="permission_warning_template">Benarkan <b>%1$s</b> untuk %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Benarkan <b>%1$s</b> untuk %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Benarkan sepanjang masa</string>
     <string name="grant_dialog_button_deny">Tolak</string>
     <string name="starter">Pembuka selera</string>
@@ -243,7 +243,7 @@
     <string name="toast_copied_to_clipboard">%s\n telah disalin ke papan pemotong.</string>
     <string name="toast_copied_to_clipboard_with_text">%s telah disalin ke papan pemotong.</string>
     <string name="dialog_legacy_not_support_title">%1$s tidak menyokong Shevery moden</string>
-    <string name="dialog_legacy_not_support_message">Shevery warisan telah ditinggalkan sejak Mac 2019. Selain itu, Shevery warisan tidak berfungsi pada sistem Android yang lebih baharu. Sila minta pembangun <b>%1$s</b> untuk mengemas kini.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Shevery warisan telah ditinggalkan sejak Mac 2019. Selain itu, Shevery warisan tidak berfungsi pada sistem Android yang lebih baharu. Sila minta pembangun <b>%1$s</b> untuk mengemas kini.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s sedang meminta Shevery warisan</string>
     <string name="dialog_requesting_legacy_message">%1$s mempunyai sokongan Shevery moden, tetapi ia meminta Shevery warisan. Ini mungkin kerana Shevery tidak berjalan, sila semak dalam aplikasi Shevery. Shevery warisan telah ditamatkan sokongannya sejak Mac 2019.</string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Open Shevery</string>
@@ -347,9 +347,9 @@
     <string name="shevery_update_channel">Kemas kini saluran</string>
     <string name="shevery_update_channel_summary">Pilih saluran keluaran kemas kini</string>
     <string name="app_update_channel_stable">Teguh</string>
-    <string name="app_update_channel_beta">Pra-pelepasan &amp; Beta</string>
+    <string name="app_update_channel_beta"><![CDATA[Pra-pelepasan &amp; Beta]]></string>
     <string name="shevery_update_group_title">Kemas Kini Aplikasi Shevery</string>
-    <string name="shevery_update_modules_group_title">Kemas Kini Modul &amp; Katalog</string>
+    <string name="shevery_update_modules_group_title"><![CDATA[Kemas Kini Modul &amp; Katalog]]></string>
     <string name="shevery_update_check_failed">Semakan kemas kini gagal: %s</string>
     <string name="modules_catalog">Katalog</string>
     <string name="modules_catalog_title">Katalog Modul</string>
@@ -382,10 +382,10 @@
     <string name="wear_catalog_sort_official">Rasmi</string>
     <string name="wear_catalog_sort_by">Susun mengikut</string>
     <string name="wear_catalog_filter">Penapis</string>
-    <string name="backup_restore_title">Sandaran &amp; Pemulihan</string>
-    <string name="backup_title">Seting &amp; Modul Sandaran</string>
+    <string name="backup_restore_title"><![CDATA[Sandaran &amp; Pemulihan]]></string>
+    <string name="backup_title"><![CDATA[Seting &amp; Modul Sandaran]]></string>
     <string name="backup_summary">Eksport konfigurasi dan modul ke dalam fail ZIP</string>
-    <string name="restore_title">Pulihkan Tetapan &amp; Modul</string>
+    <string name="restore_title"><![CDATA[Pulihkan Tetapan &amp; Modul]]></string>
     <string name="restore_summary">Import konfigurasi dan modul daripada fail ZIP</string>
     <string name="settings_sections_title">Sandaran dan lain-lain</string>
     <string name="backup_section_title">Sandaran</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Sisa warisan telah dialihkan</string>
     <string name="settings_compat_stub_failed">Gagal %1$s stub warisan melalui %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Tiada saluran tersedia (mulakan Shevery terlebih dahulu)</string>
+    <string name="rish_description">Dengan %1$s, dalam mana-mana aplikasi terminal, anda boleh menyambung dan berinteraksi dengan pelaksanaan shell oleh Shevery.
+Mengenai penggunaan terperinci %1$s, ketik untuk melihat dokumen.</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources>
     <string name="home_adb_button_view_command">ბრძანების ნახვა</string>
     <string name="home_adb_button_view_help">წაიკითხეთ დახმარება</string>
-    <string name="home_adb_description">არა დარუთული მოწყობილობებისთვის, Shizuku რომ ჩართო შენ გჭირდება ადბ-ს გამოყენება(საჭიროებს კომპიუტერთან კავშირს). ეს პროცესი უნდა გაიმეოროთ თქვენი მოწყობილობის ყოველ გადატვირთვაზე. გთხოვთ <b><a href="%1$s">წაიკითხოთ დახმარება</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[არა დარუთული მოწყობილობებისთვის, Shizuku რომ ჩართო შენ გჭირდება ადბ-ს გამოყენება(საჭიროებს კომპიუტერთან კავშირს). ეს პროცესი უნდა გაიმეოროთ თქვენი მოწყობილობის ყოველ გადატვირთვაზე. გთხოვთ <b><a href="%1$s">წაიკითხოთ დახმარება</a></b>.]]></string>
     <string name="home_adb_title">დაიწყე კომპიუტერთან დაკავშირებით</string>
     <string name="home_status_service_version_update"><![CDATA[ვერსია %2$, %1$<br/>თავიდან ჩართე, რომ განაახლო %3$s ვერსიაზე]]></string>
     <string name="home_status_service_version">ვერსია</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">ყველას მონიშვნა</string>
     <string name="app_management_deselect_all">ყველას მოხსნა</string>
     <string name="app_management_dialog_adb_is_limited_title">adb-ის ნებართვა შეზღუდულია</string>
-    <string name="app_management_dialog_adb_is_limited_message">მაღალი ალბათობით, თქვენი მოწყობილობის მწარმოებელი ზღუდავს adb-ის უფლებებს.თქვენი სისტემისთვის გადაწყვეტა შესაძლოა იპოვოთ <b><a href="%1$s">ამ დოკუმენტში</b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[მაღალი ალბათობით, თქვენი მოწყობილობის მწარმოებელი ზღუდავს adb-ის უფლებებს.თქვენი სისტემისთვის გადაწყვეტა შესაძლოა იპოვოთ <b><a href="%1$s">ამ დოკუმენტში</b>.]]></string>
     <string name="app_management_item_summary_requires_root">* მოითხოვს, რომ Shevery-ს root-ის უფლებებით გაუშვან</string>
     <string name="app_management_loading">აპლიკაციების ჩატვირთვა…</string>
     <string name="home_terminal_title">გამოიყენეთ Shevery ტერმინალის აპლიკაციებში</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@სტრიქონი/ნებართვის_ნიშნული</string>
     <string name="permission_label">შეღწევა შივერი</string>
     <string name="permission_description">მიეცით აპლიკაციას Shevery-ს გამოყენების უფლება.</string>
-    <string name="permission_warning_template">მიეცეს <b>%1$s</b>-ს %2$s-ის უფლება?</string>
+    <string name="permission_warning_template"><![CDATA[მიეცეს <b>%1$s</b>-ს %2$s-ის უფლება?]]></string>
     <string name="grant_dialog_button_allow_always">ყოველთვის დაუშვა</string>
     <string name="grant_dialog_button_deny">უარყოფა</string>
     <string name="starter">სტარტერი</string>
@@ -243,9 +243,9 @@
     <string name="toast_copied_to_clipboard">%s\nკოპირებულია ბუფერში.</string>
     <string name="toast_copied_to_clipboard_with_text">%s დააკოპირდა ბუფერში.</string>
     <string name="dialog_legacy_not_support_title">%1$s არ უჭერს მხარს თანამედროვე Shevery-ს</string>
-    <string name="dialog_legacy_not_support_message">Legacy Shevery-ს მხარდაჭერა შეწყვეტილია 2019 წლის მარტიდან. ასევე, legacy Shevery-ს არ მუშაობს Android-ის ახალ სისტემებზე.გთხოვთ, სთხოვოთ <b>%1$s-ის</b> დეველოპერს განახლების გამოშვება.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery-ს მხარდაჭერა შეწყვეტილია 2019 წლის მარტიდან. ასევე, legacy Shevery-ს არ მუშაობს Android-ის ახალ სისტემებზე.გთხოვთ, სთხოვოთ <b>%1$s-ის</b> დეველოპერს განახლების გამოშვება.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s ითხოვს ძველ Shevery-ს</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b>-ს აქვს თანამედროვე Shevery-ს მხარდაჭერა, მაგრამ ის ითხოვს ძველ Shevery-ს. ეს შეიძლება იმიტომ ხდებოდეს, რომ Shevery არ მუშაობს. გთხოვთ, შეამოწმოთ Shevery-ს აპლიკაცია.ძველი Shevery მოძველებულია 2019 წლის მარტიდან.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b>-ს აქვს თანამედროვე Shevery-ს მხარდაჭერა, მაგრამ ის ითხოვს ძველ Shevery-ს. ეს შეიძლება იმიტომ ხდებოდეს, რომ Shevery არ მუშაობს. გთხოვთ, შეამოწმოთ Shevery-ს აპლიკაცია.ძველი Shevery მოძველებულია 2019 წლის მარტიდან.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">ღია შევერი</string>
     <string name="lab_features_title">ლაბორატორიის მახასიათებლები</string>
     <string name="lab_features_summary">ექსპერიმენტული მახასიათებლები</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">მემკვიდრეობის ნაშთი წაშლილია</string>
     <string name="settings_compat_stub_failed">მემკვიდრეობით მიღებული stub-ის %1$s %2$s-ის მეშვეობით ვერ მოხერხდა: %3$s</string>
     <string name="settings_compat_stub_none">არხი არ არის ხელმისაწვდომი (დაიწყეთ Shevery პირველი)</string>
+    <string name="rish_description">%1$s-ის გამოყენებით, ნებისმიერ ტერმინალის აპლიკაციაში შეგიძლიათ დაუკავშირდეთ და იმუშაოთ Shevery-ს მიერ გაშვებულ შელებთან.
+%1$s-ის დეტალური გამოყენებისთვის, დააჭირეთ დოკუმენტის სანახავად.</string>
 </resources>

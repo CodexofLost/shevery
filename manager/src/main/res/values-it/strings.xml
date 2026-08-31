@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home_adb_button_view_help">Leggi la guida</string>
-    <string name="home_adb_description">Per i dispositivi non rootati occorre usare adb per avviare Shizuku (serve una connessione ad un computer). Questo processo deve essere ripetuto ogni volta che il dispositivo viene riavviato. Per favore <b><a href="%1$s">leggi la guida</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Per i dispositivi non rootati occorre usare adb per avviare Shizuku (serve una connessione ad un computer). Questo processo deve essere ripetuto ogni volta che il dispositivo viene riavviato. Per favore <b><a href="%1$s">leggi la guida</a></b>.]]></string>
     <string name="home_adb_title">Avvia collegandoti ad un computer</string>
     <string name="home_status_service_version_update"><![CDATA[Versione %2$s, %1$s<br/>Riavvia per aggiornare alla versione %3$s]]></string>
     <string name="home_status_service_version">Versione %2$s, %1$s</string>
@@ -71,8 +71,8 @@
     <string name="grant_dialog_button_allow_always">Consenti sempre</string>
     <string name="notification_service_starting">Il servizio Shizuku si sta avviando…</string>
     <string name="dialog_requesting_legacy_title">%1$s sta richiedendo Shizuku legacy</string>
-    <string name="permission_warning_template">Consentire a <b>%1$s</b> di %2$s?</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> è stato copiato negli appunti.</string>
+    <string name="permission_warning_template"><![CDATA[Consentire a <b>%1$s</b> di %2$s?]]></string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> è stato copiato negli appunti.]]></string>
     <string name="rish_description"><![CDATA[Con %1$s, in qualsiasi app terminale, puoi connetterti e interagire con la shell eseguita da Shizuku. <p>Per info sull\'utilizzo dettagliato di %1$s, tocca per visualizzare il documento.]]></string>
     <string name="notification_adb_pairing_searching_for_service_title">Ricerca del servizio di accoppiamento</string>
     <string name="terminal_tutorial_2_description">Ad esempio, se vuoi utilizzare Shizuku in %1$s, devi sostituire %2$s con %3$s (%4$s è il nome del pacchetto di %1$s).</string>
@@ -421,7 +421,7 @@
     <string name="comput_timed_out">[E] Il comando ha superato il limite di tempo dopo 120 secondi.</string>
     <string name="comput_exit_code">[E] Il comando è terminato con il codice %1$d.</string>
     <string name="comput_running_macro">Esecuzione macro: %1$s</string>
-    <string name="comput_executing_cmd">> Esecuzione del comando: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Esecuzione del comando: %1$s]]></string>
     <string name="comput_error_not_running">Errore: il servizio Privileged Shevery non è in esecuzione. Avviare prima il servizio.</string>
     <string name="comput_error_no_binder">Errore: impossibile recuperare il raccoglitore Shevery.</string>
     <string name="comput_console_initialized">Console inizializzata. Servizio Shevery con privilegi connesso.\nPronto per i comandi.</string>
@@ -528,4 +528,11 @@
     <string name="settings_compat_stub_uninstalled">Rimosso lo stub legacy</string>
     <string name="settings_compat_stub_failed">Impossibile %1$s lo stub legacy tramite %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Nessun canale disponibile (inizia prima da Shevery)</string>
+    <string name="dialog_adb_discovery_message">Si prega di abilitare la funzione “Debug wireless” nelle “Opzioni sviluppatore”. La funzione “Debug wireless” viene disabilitata automaticamente in caso di modifiche alla rete.\n\nAttenzione: non disabilitare le “Opzioni sviluppatore” né il “Debug USB”, altrimenti Shevery verrà interrotto.</string>
+    <string name="dialog_wireless_adb_not_enabled">Il debug wireless non è abilitato.\nNota: prima di Android 11, per abilitare il debug wireless è indispensabile la connessione a un computer.</string>
+    <string name="dialog_adb_pairing_message">Per avviare l'accoppiamento, segui questi passaggi: "Opzioni sviluppatore" - "Debug wireless" - "Accoppia dispositivo tramite codice di accoppiamento".\n\nUna volta avviato il processo di accoppiamento, potrai inserire il codice di accoppiamento.</string>
+    <string name="adb_error_key_store">Impossibile generare la chiave per il debug wireless.\nCiò potrebbe essere dovuto al malfunzionamento del meccanismo KeyStore di questo dispositivo.</string>
+    <string name="home_adb_is_limited_description">Il produttore del tuo dispositivo ha limitato le autorizzazioni ADB e le app che utilizzano Shevery non funzioneranno correttamente.\n\nDi solito, è possibile rimuovere questa limitazione modificando alcune impostazioni nelle "Opzioni sviluppatore". Consulta la guida per maggiori dettagli su come procedere.\n\nPotrebbe essere necessario riavviare Shevery affinché la modifica abbia effetto.</string>
+    <string name="terminal_tutorial_1_description">Se nella cartella selezionata sono presenti file con lo stesso nome, questi verranno eliminati.\n\nLa funzione di esportazione utilizza SAF (Storage Access Framework). È stato segnalato che MIUI compromette il corretto funzionamento di SAF. Se utilizzi MIUI, potrebbe essere necessario estrarre il file dall'apk di Shevery o scaricarlo da GitHub.</string>
+    <string name="toast_copied_to_clipboard">%s\nè stato copiato negli appunti.</string>
 </resources>

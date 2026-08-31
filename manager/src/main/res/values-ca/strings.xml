@@ -32,7 +32,7 @@
     <string name="home_status_service_not_running">%1$s no s'està executant</string>
     <string name="home_status_service_version">Versió %2$s, %1$s</string>
     <string name="home_status_service_version_update">Versió %2$s, %1$s Recomenceu per actualitzar a la versió %3$s</string>
-    <string name="home_adb_description">Per a dispositius sense root, cal utilitzar adb per iniciar Shevery (requereix connexió a l'ordinador). Aquest procés s'ha de repetir cada vegada que el dispositiu es reinicia. Si us plau, <b><a href="%1$s">llegiu l'ajuda</b>.</string>
+    <string name="home_adb_description"><![CDATA[Per a dispositius sense root, cal utilitzar adb per iniciar Shevery (requereix connexió a l'ordinador). Aquest procés s'ha de repetir cada vegada que el dispositiu es reinicia. Si us plau, <b><a href="%1$s">llegiu l'ajuda</b>.]]></string>
     <string name="home_adb_dialog_view_command_notice">Hi ha algunes altres consideracions, si us plau, confirmeu que heu llegit primer l'ajuda.</string>
     <string name="home_wireless_adb_description">A Android 11 o superior, podeu activar la depuració sense fil i iniciar Shevery directament des del dispositiu, sense connectar-lo a un ordinador. Si us plau, consulteu primer la guia pas a pas.</string>
     <string name="home_local_network_title">Accés a la xarxa local</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Selecciona-ho tot</string>
     <string name="app_management_deselect_all">Deselecciona-ho tot</string>
     <string name="app_management_dialog_adb_is_limited_title">El permís d'adb és limitat</string>
-    <string name="app_management_dialog_adb_is_limited_message">És molt possible que el fabricant del teu dispositiu limiti els permisos d'adb. Pot ser que hi hagi una solució per al teu sistema en <b><a href="%1$s">aquest document</b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[És molt possible que el fabricant del teu dispositiu limiti els permisos d'adb. Pot ser que hi hagi una solució per al teu sistema en <b><a href="%1$s">aquest document</b>.]]></string>
     <string name="app_management_item_summary_requires_root">* requereix que Shevery s'executi amb root</string>
     <string name="app_management_loading">Cargant aplicacions…</string>
     <string name="home_terminal_title">Utilitza Shevery en les aplicacions de terminal</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/etiqueta_de_permisos</string>
     <string name="permission_label">accés Shevery</string>
     <string name="permission_description">Permet que l'aplicació utilitzi Shevery.</string>
-    <string name="permission_warning_template">Permetre que <b>%1$s</b> %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Permetre que <b>%1$s</b> %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Permetre tot el temps</string>
     <string name="grant_dialog_button_deny">Negar</string>
     <string name="starter">Entrant</string>
@@ -243,7 +243,7 @@
     <string name="toast_copied_to_clipboard">%s s'ha copiat al porta-retalls.</string>
     <string name="toast_copied_to_clipboard_with_text">%s s'ha copiat al porta-retalls.</string>
     <string name="dialog_legacy_not_support_title">%1$s no admet Shevery modern.</string>
-    <string name="dialog_legacy_not_support_message">Legacy Shevery ha quedat obsolet des del març de 2019. A més, legacy Shevery no funciona en sistemes Android més nous.Si us plau, demani al desenvolupador de <b>%1$s</b> que actualitzi l'aplicació.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery ha quedat obsolet des del març de 2019. A més, legacy Shevery no funciona en sistemes Android més nous.Si us plau, demani al desenvolupador de <b>%1$s</b> que actualitzi l'aplicació.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s està sol·licitant Shevery tradicional</string>
     <string name="dialog_requesting_legacy_message">%1$s té suport modern per a Shevery, però sol·licita Shevery antic. Això podria ser perquè Shevery no s'està executant; si us plau, comproveu-ho a l'aplicació Shevery.Shevery antic ha estat obsolet des del març de 2019.</string>
     <string name="lab_features_title">Característiques del laboratori</string>
@@ -532,4 +532,7 @@
     <string name="settings_compat_stub_uninstalled">El stub de Legacy ha estat eliminat</string>
     <string name="settings_compat_stub_failed">S'ha fallat a l'hora de %1$s el stub legat mitjançant %2$s: %3$s</string>
     <string name="settings_compat_stub_none">No hi ha cap canal disponible (comença Shevery primer)</string>
+    <string name="dialog_adb_discovery_message">Si us plau, activeu "Depuració sense fil" a "Opcions de desenvolupador". "Depuració sense fil" s'inactiva automàticament quan canvia la xarxa. Nota: no desactiveu "Opcions de desenvolupador" ni "Depuració per USB", o Shevery s'aturarà.</string>
+    <string name="rish_description">Amb %1$s, a qualsevol aplicació de terminal, podeu connectar-vos i interactuar amb les execucions de la shell de Shevery.
+Sobre l'ús detallat de %1$s, toqueu per veure el document.</string>
 </resources>

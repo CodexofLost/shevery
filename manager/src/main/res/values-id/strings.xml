@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home_status_service_version_update"><![CDATA[Versi %2$s, %1$s <br/> Mulai ulang untuk upgrade ke versi %3$s]]></string>
-    <string name="home_adb_description">Untuk perangkat tanpa akses root, Anda harus menggunakan adb untuk memulai Shizuku (perlu terhubung dengan komputer). Proses ini harus diulang setiap kali perangkat di-restart. Harap <b><a href="%1$s">baca dokumentasi</a></b> untuk info lebih lanjut.</string>
+    <string name="home_adb_description"><![CDATA[Untuk perangkat tanpa akses root, Anda harus menggunakan adb untuk memulai Shizuku (perlu terhubung dengan komputer). Proses ini harus diulang setiap kali perangkat di-restart. Harap <b><a href="%1$s">baca dokumentasi</a></b> untuk info lebih lanjut.]]></string>
     <string name="adb_pairing_requires_multi_window_reason">Sistem mengharuskan dialog penyambungan untuk selalu terlihat, hal ini hanya bisa diakali dengan mode layar pisah (split-screen) untuk membuat Shizuku dan dialog sistem muncul secara bersamaan.</string>
     <string name="home_root_description"><![CDATA[Sebagai tambahan, Shizuku bisa dimulai secara otomatis saat perangkat dimulai. Kalau hal ini tak bisa dilakukan, harap cek apakah sistem Anda atau aplikasi pihak-ketiga telah membatasi Shizuku.<br/>Lebih lanjut, cek %s.]]></string>
     <string name="home_learn_more_description">Pelajari cara mengembangkan dengan Shizuku</string>
@@ -69,12 +69,12 @@
     <string name="notification_working">Sedang bekerja…</string>
     <string name="permission_description">Izinkan aplikasi menggunakan Shizuku.</string>
     <string name="permission_label">mengakses Shizuku</string>
-    <string name="permission_warning_template">Izinkan <b>%1$s</b> untuk %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Izinkan <b>%1$s</b> untuk %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Selalu izinkan</string>
     <string name="grant_dialog_button_deny">Tolak</string>
     <string name="starter">Pemulaian</string>
     <string name="dialog_cannot_open_browser_title">Tidak bisa membuka browser</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> telah disalin ke papan klip.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> telah disalin ke papan klip.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s tidak mendukung Shizuku modern</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Shizuku Kuno sudah dihentikan sejak Maret 2019. Selain itu, Shizuku kuno tidak bisa bekerja pada sistem Android yang lebih baru.<p>Coba minta kepada pengembang dari <b>%1$s</b> untuk memperbarui aplikasinya.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s meminta akses Shizuku kuno</string>
@@ -230,7 +230,7 @@
     <string name="modules_updating">Memperbarui modul…</string>
     <string name="modules_update_success">Modul telah diperbarui ke versi %s</string>
     <string name="modules_download_downloads">Unduh ke Folder Unduhan</string>
-    <string name="modules_download_install">Unduh &amp; Pasang</string>
+    <string name="modules_download_install"><![CDATA[Unduh &amp; Pasang]]></string>
     <string name="modules_downloading">Sedang mengunduh…</string>
     <string name="modules_download_enqueued">Pengunduhan telah dimulai di latar belakang</string>
     <string name="modules_search_placeholder">Cari modul katalog…</string>
@@ -342,9 +342,9 @@
     <string name="shevery_update_channel">Saluran pembaruan</string>
     <string name="shevery_update_channel_summary">Pilih saluran rilis pembaruan</string>
     <string name="app_update_channel_stable">Stabil</string>
-    <string name="app_update_channel_beta">Pra-rilis &amp; Beta</string>
+    <string name="app_update_channel_beta"><![CDATA[Pra-rilis &amp; Beta]]></string>
     <string name="shevery_update_group_title">Pembaruan Aplikasi Shevery</string>
-    <string name="shevery_update_modules_group_title">Pembaruan Modul &amp; Katalog</string>
+    <string name="shevery_update_modules_group_title"><![CDATA[Pembaruan Modul &amp; Katalog]]></string>
     <string name="shevery_update_check_failed">Pemeriksaan pembaruan gagal: %s</string>
     <string name="modules_catalog">Katalog</string>
     <string name="modules_catalog_title">Katalog Modul</string>
@@ -377,10 +377,10 @@
     <string name="wear_catalog_sort_official">Resmi</string>
     <string name="wear_catalog_sort_by">Urutkan berdasarkan</string>
     <string name="wear_catalog_filter">Filter</string>
-    <string name="backup_restore_title">Pencadangan &amp; Pemulihan</string>
-    <string name="backup_title">Pengaturan &amp; Modul Cadangan</string>
+    <string name="backup_restore_title"><![CDATA[Pencadangan &amp; Pemulihan]]></string>
+    <string name="backup_title"><![CDATA[Pengaturan &amp; Modul Cadangan]]></string>
     <string name="backup_summary">Ekspor konfigurasi dan modul ke berkas ZIP</string>
-    <string name="restore_title">Kembalikan Pengaturan &amp; Modul</string>
+    <string name="restore_title"><![CDATA[Kembalikan Pengaturan &amp; Modul]]></string>
     <string name="restore_summary">Impor konfigurasi dan modul dari berkas ZIP</string>
     <string name="settings_sections_title">Cadangan dan lainnya</string>
     <string name="backup_section_title">Cadangan</string>
@@ -398,7 +398,7 @@
     <string name="comput_api_key_label">API Key</string>
     <string name="comput_show_api_key">Show API key</string>
     <string name="comput_hide_api_key">Hide API key</string>
-    <string name="comput_gemini_model_performance">Pengkodean berkinerja tinggi &amp; berbasis agen (Disarankan)</string>
+    <string name="comput_gemini_model_performance"><![CDATA[Pengkodean berkinerja tinggi &amp; berbasis agen (Disarankan)]]></string>
     <string name="comput_gemini_model_lightweight">Model ringan berkecepatan tinggi</string>
     <string name="comput_gemini_api_error">API Gemini mengembalikan kode kesalahan %1$d: %2$s</string>
     <string name="comput_gemini_connection_error">Kesalahan koneksi.</string>
@@ -421,7 +421,7 @@
     <string name="comput_timed_out">[E] Perintah kedaluwarsa setelah 120 detik.</string>
     <string name="comput_exit_code">[E] Perintah telah berakhir dengan kode %1$d.</string>
     <string name="comput_running_macro">Menjalankan makro: %1$s</string>
-    <string name="comput_executing_cmd">> Menjalankan perintah: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Menjalankan perintah: %1$s]]></string>
     <string name="comput_error_not_running">Kesalahan: Layanan Shevery dengan hak akses khusus tidak sedang berjalan. Silakan jalankan layanan tersebut terlebih dahulu.</string>
     <string name="comput_error_no_binder">Kesalahan: Tidak dapat mengambil binder Shevery.</string>
     <string name="comput_console_initialized">Konsol telah diinisialisasi. Layanan Shevery dengan hak istimewa telah terhubung.\nSiap menerima perintah.</string>
@@ -528,4 +528,11 @@
     <string name="settings_compat_stub_uninstalled">Stub warisan telah dihapus</string>
     <string name="settings_compat_stub_failed">Gagal melakukan %1$s pada stub lama melalui %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Tidak ada saluran yang tersedia (mulai dari Shevery terlebih dahulu)</string>
+    <string name="dialog_adb_discovery_message">Harap aktifkan "Debugging nirkabel" di "Opsi pengembang". "Debugging nirkabel" akan dinonaktifkan secara otomatis saat terjadi perubahan jaringan.\n\nPerhatikan, jangan menonaktifkan "Opsi pengembang" atau "Debugging USB", karena hal itu akan menghentikan Shevery.</string>
+    <string name="dialog_wireless_adb_not_enabled">Debugging nirkabel belum diaktifkan.\nPerhatikan, sebelum Android 11, untuk mengaktifkan debugging nirkabel, koneksi ke komputer wajib ada.</string>
+    <string name="dialog_adb_pairing_message">Silakan mulai proses pemasangan dengan mengikuti langkah-langkah berikut: "Opsi Pengembang" - "Debugging nirkabel" - "Memasangkan perangkat menggunakan kode pemasangan".\n\nSetelah proses pemasangan dimulai, Anda dapat memasukkan kode pemasangan.</string>
+    <string name="adb_error_key_store">Tidak dapat membuat kunci untuk debugging nirkabel.\nHal ini mungkin disebabkan oleh mekanisme KeyStore pada perangkat ini yang tidak berfungsi.</string>
+    <string name="home_adb_is_limited_description">Pabrikan perangkat Anda telah membatasi izin adb, sehingga aplikasi yang menggunakan Shevery tidak akan berfungsi dengan baik.\n\nBiasanya, pembatasan ini dapat dicabut dengan menyesuaikan beberapa pengaturan di "Opsi Pengembang". Silakan baca panduan bantuan untuk detail cara melakukannya.\n\nAnda mungkin perlu me-restart Shevery agar perubahan tersebut berlaku.</string>
+    <string name="terminal_tutorial_1_description">Jika terdapat file dengan nama yang sama di dalam folder yang dipilih, file-file tersebut akan dihapus.\n\nFungsi ekspor ini menggunakan SAF (Storage Access Framework). Dilaporkan bahwa MIUI mengganggu fungsi SAF. Jika Anda menggunakan MIUI, Anda mungkin perlu mengekstrak file tersebut dari apk Shevery atau mengunduhnya dari GitHub.</string>
+    <string name="toast_copied_to_clipboard">%s\n telah disalin ke papan klip.</string>
 </resources>

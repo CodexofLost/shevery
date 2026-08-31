@@ -401,7 +401,7 @@
     <string name="comput_timed_out">[E] 命令在 120 秒后超时。</string>
     <string name="comput_exit_code">[E] 命令以退出码 %1$d 结束。</string>
     <string name="comput_running_macro">正在运行宏：%1$s</string>
-    <string name="comput_executing_cmd">> 正在执行命令：%1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> 正在执行命令：%1$s]]></string>
     <string name="comput_error_not_running">错误：Shevery 特权服务未运行，请先启动服务。</string>
     <string name="comput_error_no_binder">错误：无法获取 Shevery Binder。</string>
     <string name="comput_console_initialized">控制台已初始化。已连接到特权服务。\n就绪。</string>
@@ -513,4 +513,24 @@
     <string name="home_update_available_title">Shevery 有可用更新: %s</string>
     <string name="home_update_available_body">有新版本可用。点击下载。</string>
     <string name="shevery_update_check_failed">Aktualisierungsprüfung fehlgeschlagen: %s</string>
+    <string name="app_name">谢弗里</string>
+    <string name="permission_group_label">谢维里</string>
+    <string name="permission_group_description">@string/permission_label</string>
+    <string name="starting_root_shell">正在启动 root 终端……</string>
+    <string name="settings_restart_dialog_message_wifi_required">首次重启时需要连接 Wi-Fi，因为 Shevery 必须先连接到当前的无线调试端口，然后才能将 ADB 切换到 5555。</string>
+    <string name="settings_update_group_title">更新</string>
+    <string name="shevery_update_check_title">检查 Shevery 的更新</string>
+    <string name="shevery_update_check_summary">检查是否有 Shevery Manager 的新版本</string>
+    <string name="shevery_update_checking">正在检查 Shevery 的更新……</string>
+    <string name="shevery_update_up_to_date">Shevery 已更新至最新版本 (%s)</string>
+    <string name="shevery_update_available_title">Shevery 发布了新更新！</string>
+    <string name="shevery_update_available_msg">版本 %1$s 已发布（当前版本：%2$s）</string>
+    <string name="shevery_update_download_apk">下载 APK</string>
+    <string name="shevery_update_view_release">在 GitHub 上查看</string>
+    <string name="shevery_update_channel">更新频道</string>
+    <string name="shevery_update_channel_summary">选择更新发布通道</string>
+    <string name="app_update_channel_stable">稳定</string>
+    <string name="app_update_channel_beta">预发布版与测试版</string>
+    <string name="shevery_update_group_title">Shevery 应用更新</string>
+    <string name="shevery_update_modules_group_title">模块更新与目录</string>
 </resources>

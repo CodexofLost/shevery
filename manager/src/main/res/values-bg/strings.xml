@@ -14,16 +14,16 @@
     <string name="home_status_service_is_running">%1$s работи</string>
     <string name="home_status_service_not_running">%1$s не работи</string>
     <string name="home_status_service_version">Версия %2$s, %1$s</string>
-    <string name="home_status_service_version_update">Версия %2$s, %1$s<br/>Започнете отново, за да актуализирате до версия %3$s</string>
+    <string name="home_status_service_version_update"><![CDATA[Версия %2$s, %1$s<br/>Започнете отново, за да актуализирате до версия %3$s]]></string>
     <string name="home_adb_title">Започнете, като се свържете с компютър</string>
-    <string name="home_adb_description">За устройства без root достъп е необходимо да използвате adb, за да стартирате Shevery (изисква връзка с компютър). Този процес трябва да се повтаря при всяко рестартиране на устройството. Моля, <b><a href="%1$s">прочетете помощната информация</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[За устройства без root достъп е необходимо да използвате adb, за да стартирате Shevery (изисква връзка с компютър). Този процес трябва да се повтаря при всяко рестартиране на устройството. Моля, <b><a href="%1$s">прочетете помощната информация</a></b>.]]></string>
     <string name="home_adb_button_view_help">Прочетете помощта</string>
     <string name="home_adb_button_view_command">Команда „Преглед“</string>
     <string name="home_adb_dialog_view_command_notice">Има и някои други съображения – моля, потвърдете, че първо сте прочели помощната информация.</string>
     <string name="home_adb_dialog_view_command_copy_button">Копирай</string>
     <string name="home_adb_dialog_view_command_button_send">Изпрати</string>
     <string name="home_wireless_adb_title">Започнете чрез безжично отстраняване на грешки</string>
-    <string name="home_wireless_adb_description">В Android 11 или по-нова версия можете да активирате безжичното отстраняване на грешки и да стартирате Shevery директно от вашето устройство, без да се свързвате с компютър.<p>Моля, първо прегледайте подробното ръководство.</string>
+    <string name="home_wireless_adb_description"><![CDATA[В Android 11 или по-нова версия можете да активирате безжичното отстраняване на грешки и да стартирате Shevery директно от вашето устройство, без да се свързвате с компютър.<p>Моля, първо прегледайте подробното ръководство.]]></string>
     <string name="home_wireless_adb_description_pre_11">Преди Android 11 е необходимо да се свържете с компютър, за да активирате безжичното отстраняване на грешки.</string>
     <string name="home_wireless_adb_view_guide_button">Ръководство стъпка по стъпка</string>
     <string name="home_local_network_title">Достъп до локална мрежа</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery трябва да има достъп до локалната мрежа. Това се регулира чрез мрежовите разрешения.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Някои системи (като например MIUI) не позволяват на приложенията да имат достъп до мрежата, когато не са активни, дори ако приложението по подразбиране използва услуга на преден план. Моля, деактивирайте функциите за оптимизация на батерията за Shevery на такива системи.</string>
     <string name="home_root_title">Старт (за устройства с root достъп)</string>
-    <string name="home_root_description">Освен това Shevery може да се стартира автоматично при зареждането на системата. Ако това не се случва, моля, проверете дали вашата система или инструменти на трети страни не са ограничили работата на Shevery.<br/>Можете да се запознаете с %s.</string>
+    <string name="home_root_description"><![CDATA[Освен това Shevery може да се стартира автоматично при зареждането на системата. Ако това не се случва, моля, проверете дали вашата система или инструменти на трети страни не са ограничили работата на Shevery.<br/>Можете да се запознаете с %s.]]></string>
     <string name="home_root_description_sui">Ако използвате Magisk, можете да опитате %1$s. За потребителите с root права то в крайна сметка ще замести Shevery. Имайте предвид, че съществуващите приложения трябва да бъдат леко променени, за да могат да използват %2$s.</string>
     <string name="home_root_button_start">Начало</string>
     <string name="home_root_button_restart">Рестартиране</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Избери всичко</string>
     <string name="app_management_deselect_all">Отмени избора на всички</string>
     <string name="app_management_dialog_adb_is_limited_title">Правата на adb са ограничени</string>
-    <string name="app_management_dialog_adb_is_limited_message">Много вероятно е производителят на вашето устройство да е ограничил правата на adb.<p>Възможно е да има решение за вашата система в <b><a href="%1$s">този документ</a></b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Много вероятно е производителят на вашето устройство да е ограничил правата на adb.<p>Възможно е да има решение за вашата система в <b><a href="%1$s">този документ</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* изисква Shevery да се изпълнява с права на root</string>
     <string name="app_management_loading">Зареждане на приложения…</string>
     <string name="home_terminal_title">Използвайте Shevery в терминални приложения</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/permission_label</string>
     <string name="permission_label">достъп до „Шевери“</string>
     <string name="permission_description">Разрешете на приложението да използва Shevery.</string>
-    <string name="permission_warning_template">Да се разреши на <b>%1$s</b> да %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Да се разреши на <b>%1$s</b> да %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Оставете достатъчно време</string>
     <string name="grant_dialog_button_deny">„Отричам“</string>
     <string name="starter">Старт</string>
@@ -241,11 +241,11 @@
     <string name="start_with_root_failed">Услугата не може да бъде стартирана, тъй като нямат права на root или устройството не е рутирано.</string>
     <string name="dialog_cannot_open_browser_title">Не мога да стартирам браузъра</string>
     <string name="toast_copied_to_clipboard">%s\nбеше копирано в клипборда.</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> беше копирано в клипборда.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> беше копирано в клипборда.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s не поддържа съвременния Shevery</string>
-    <string name="dialog_legacy_not_support_message">Старата версия на Shevery вече не се поддържа от март 2019 г. Освен това старата версия на Shevery не работи на по-новите версии на Android.<p>Моля, помолете разработчика на <b>%1$s</b> да я актуализира.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Старата версия на Shevery вече не се поддържа от март 2019 г. Освен това старата версия на Shevery не работи на по-новите версии на Android.<p>Моля, помолете разработчика на <b>%1$s</b> да я актуализира.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s иска старата версия на Shevery</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> поддържа съвременната версия на Shevery, но изисква старата версия на Shevery. Това може да се дължи на факта, че Shevery не работи – моля, проверете в приложението Shevery.<p>Старата версия на Shevery вече не се поддържа от март 2019 г.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> поддържа съвременната версия на Shevery, но изисква старата версия на Shevery. Това може да се дължи на факта, че Shevery не работи – моля, проверете в приложението Shevery.<p>Старата версия на Shevery вече не се поддържа от март 2019 г.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Отвори Шевери</string>
     <string name="lab_features_title">Характеристики на лабораторията</string>
     <string name="lab_features_summary">Експериментални характеристики</string>
@@ -426,7 +426,7 @@
     <string name="comput_timed_out">[E] Изтече времето за изпълнение на командата след 120 секунди.</string>
     <string name="comput_exit_code">[E] Командата приключи с код %1$d.</string>
     <string name="comput_running_macro">Изпълнение на макрос: %1$s</string>
-    <string name="comput_executing_cmd">> Изпълнява се командата: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Изпълнява се командата: %1$s]]></string>
     <string name="comput_error_not_running">Грешка: Службата „Privileged Shevery“ не работи. Моля, първо стартирайте услугата.</string>
     <string name="comput_error_no_binder">Грешка: Не е възможно да се извлече папката „Shevery“.</string>
     <string name="comput_console_initialized">Конзолата е инициализирана. Услугата „Privileged Shevery“ е свързана.\nГотова за команди.</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Премахнат е остатъкът от старата версия</string>
     <string name="settings_compat_stub_failed">Не успях да %1$s стария стъб чрез %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Няма наличен канал (започнете първо с „Shevery“)</string>
+    <string name="rish_description"><![CDATA[С помощта на %1$s във всяко терминално приложение можете да се свържете и да взаимодействате с шела, изпълняван от Shevery.
+<p>За подробна информация относно използването на %1$s, натиснете, за да видите документа.]]></string>
 </resources>

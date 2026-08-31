@@ -363,7 +363,7 @@
     <string name="comput_timed_out">[E] 120秒後にコマンドがタイムアウトしました。</string>
     <string name="comput_exit_code">[E] コード %1$d で終了しました。</string>
     <string name="comput_running_macro">マクロを実行中: %1$s</string>
-    <string name="comput_executing_cmd">> コマンド実行中: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> コマンド実行中: %1$s]]></string>
     <string name="comput_error_not_running">エラー: 特権Sheveryサービスが実行されていません。先にサービスを開始してください。</string>
     <string name="comput_error_no_binder">エラー: Sheveryバインダーを取得できませんでした。</string>
     <string name="comput_console_initialized">コンソールが初期化されました。特権Sheveryサービスに接続完了。\n準備完了。</string>
@@ -534,4 +534,5 @@
     <string name="settings_compat_stub_uninstalled">レガシースタブを削除しました</string>
     <string name="settings_compat_stub_failed">%2$s を使用してレガシースタブを %1$s できませんでした: %3$s</string>
     <string name="settings_compat_stub_none">利用可能なチャンネルはありません（まずは「Shevery」から始めてください）</string>
+    <string name="settings_restart_dialog_message_wifi_required">最初の再起動時にはWi-Fiが必要です。これは、ADBを5555に切り替える前に、Sheveryが現在のワイヤレスデバッグポートに接続する必要があるためです。</string>
 </resources>

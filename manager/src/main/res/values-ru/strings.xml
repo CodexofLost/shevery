@@ -61,7 +61,7 @@
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Есть и другие способы; сначала убедитесь, что сперва прочли справку.]]></string>
     <string name="home_adb_button_view_command">Просмотр команды</string>
     <string name="home_adb_button_view_help">Читать справку</string>
-    <string name="home_adb_description">Для устройств без root прав потребуется обращаться к adb для запуска Shevery (не обойтись без соединения с компьютером). Этот процесс нужно повторять каждый раз, когда устройство перезагружается. Пожалуйста, <b><a href="%1$s">прочтите справку</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Для устройств без root прав потребуется обращаться к adb для запуска Shevery (не обойтись без соединения с компьютером). Этот процесс нужно повторять каждый раз, когда устройство перезагружается. Пожалуйста, <b><a href="%1$s">прочтите справку</a></b>.]]></string>
     <string name="home_adb_title">Запуск через соединение с ПК</string>
     <string name="home_status_service_version_update"><![CDATA[Версия %2$s, %1$s<br/>Запустите снова, чтобы обновиться до версии %3$s]]></string>
     <string name="home_status_service_version">Версия %2$s, %1$s</string>
@@ -105,7 +105,7 @@
     <string name="wadb_notification_attempt_now">Попробуй сейчас</string>
     <string name="grant_dialog_button_allow_always">Разрешить всегда</string>
     <string name="grant_dialog_button_deny">Запретить</string>
-    <string name="permission_warning_template">Разрешить <b>%1$s</b> следующее: %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Разрешить <b>%1$s</b> следующее: %2$s?]]></string>
     <string name="home_root_description_sui">Если вы пользуетесь Magisk, можете попробовать %1$s. Для пользователей с root правами он в конечном итоге заменит Shevery. Обратите внимание, что в уже вышедшие приложения должны внести небольшие изменения, чтобы они заработали с %2$s.</string>
     <string name="permission_description">Разрешить приложению использовать Shevery.</string>
     <string name="terminal_tutorial_3_description">Небольшой совет: выдайте %1$s права на выполнение и пропишите в %2$s, чтобы обращаться к %1$s напрямую.</string>
@@ -441,7 +441,7 @@
     <string name="comput_timed_out">[E] Время выполнения команды истекло через 120 секунд.</string>
     <string name="comput_exit_code">[E] Команда завершилась с кодом %1$d.</string>
     <string name="comput_running_macro">Выполнение макроса: %1$s</string>
-    <string name="comput_executing_cmd">> Выполнение команды: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Выполнение команды: %1$s]]></string>
     <string name="comput_error_not_running">Ошибка: привилегированная служба Shevery не запущена. Сначала запустите службу.</string>
     <string name="comput_error_no_binder">Ошибка: не удалось получить binder Shevery.</string>
     <string name="comput_console_initialized">Консоль инициализирована. Привилегированная служба Shevery подключена.\nГотово к выполнению команд.</string>
@@ -525,4 +525,14 @@
     <string name="settings_compat_stub_none">Нет доступного канала (сначала запустите Shevery)</string>
     <string name="home_update_available_title">Доступно обновление Shevery: %s</string>
     <string name="home_update_available_body">Доступна новая версия. Нажмите, чтобы скачать.</string>
+    <string name="dialog_adb_discovery_message">Пожалуйста, включите «Беспроводную отладку» в «Параметрах для разработчиков». «Беспроводная отладка» автоматически отключается при изменении сетевых настроек.\n\nОбратите внимание: не отключайте «Параметры для разработчиков» или «Отладку по USB», иначе приложение Shevery перестанет работать.</string>
+    <string name="dialog_wireless_adb_not_enabled">Беспроводная отладка не включена.\nОбратите внимание: до версии Android 11 для включения беспроводной отладки необходимо подключение к компьютеру.</string>
+    <string name="dialog_adb_pairing_message">Пожалуйста, начните сопряжение, выполнив следующие действия: «Параметры для разработчиков» — «Беспроводное отлаживание» — «Сопряжение устройства с помощью кода сопряжения».\n\nПосле запуска процесса сопряжения вы сможете ввести код сопряжения.</string>
+    <string name="adb_error_key_store">Не удалось сгенерировать ключ для отладки по беспроводной сети.\nВозможно, это связано с нарушением работы механизма KeyStore на данном устройстве.</string>
+    <string name="home_adb_is_limited_description">Производитель вашего устройства ограничил права доступа adb, и приложения, использующие Shevery, не будут работать должным образом.\n\nОбычно это ограничение можно снять, изменив некоторые настройки в разделе «Параметры для разработчиков». Подробную инструкцию по этому вопросу вы найдете в справке.\n\nВозможно, для вступления изменений в силу потребуется перезапустить приложение Shevery.</string>
+    <string name="terminal_tutorial_1_description">Если в выбранной папке есть файлы с таким же именем, они будут удалены.\n\nФункция экспорта использует SAF (Storage Access Framework). Сообщается, что MIUI нарушает работу функций SAF. Если вы используете MIUI, вам, возможно, придётся извлечь файл из APK-файла Shevery или скачать его с GitHub.</string>
+    <string name="permission_group_label">Шевери</string>
+    <string name="permission_group_description">@string/permission_label</string>
+    <string name="toast_copied_to_clipboard">%s\nскопировано в буфер обмена.</string>
+    <string name="settings_update_group_title">Обновление</string>
 </resources>

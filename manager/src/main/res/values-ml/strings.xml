@@ -16,7 +16,7 @@
     <string name="home_status_service_version">പതിപ്പ് %2$s, %1$s</string>
     <string name="home_status_service_version_update">പതിപ്പ് %2$s, %1$s പതിപ്പ് %3$s-ലേക്ക് അപ്‌ഡേറ്റ് ചെയ്യാൻ വീണ്ടും ആരംഭിക്കുക</string>
     <string name="home_adb_title">ഒരു കമ്പ്യൂട്ടറുമായി ബന്ധിപ്പിച്ചുകൊണ്ട് ആരംഭിക്കുക</string>
-    <string name="home_adb_description">റൂട്ട് ചെയ്യാത്ത ഉപകരണങ്ങളിൽ, Shevery ആരംഭിക്കുന്നതിന് നിങ്ങൾ adb ഉപയോഗിക്കേണ്ടതുണ്ട് (കമ്പ്യൂട്ടർ കണക്ഷൻ ആവശ്യമാണ്). ഉപകരണം ഓരോ തവണ റീസ്റ്റാർട്ട് ചെയ്യുമ്പോഴും ഈ പ്രക്രിയ ആവർത്തിക്കേണ്ടതുണ്ട്. ദയവായി <b><a href="%1$s">സഹായം വായിക്കുക</b>.</string>
+    <string name="home_adb_description"><![CDATA[റൂട്ട് ചെയ്യാത്ത ഉപകരണങ്ങളിൽ, Shevery ആരംഭിക്കുന്നതിന് നിങ്ങൾ adb ഉപയോഗിക്കേണ്ടതുണ്ട് (കമ്പ്യൂട്ടർ കണക്ഷൻ ആവശ്യമാണ്). ഉപകരണം ഓരോ തവണ റീസ്റ്റാർട്ട് ചെയ്യുമ്പോഴും ഈ പ്രക്രിയ ആവർത്തിക്കേണ്ടതുണ്ട്. ദയവായി <b><a href="%1$s">സഹായം വായിക്കുക</b>.]]></string>
     <string name="home_adb_button_view_help">സഹായം വായിക്കുക</string>
     <string name="home_adb_button_view_command">കാഴ്ച കമാൻഡ്</string>
     <string name="home_adb_dialog_view_command_notice">മറ്റ് ചില കാര്യങ്ങൾ കൂടിയുണ്ട്, ദയവായി ആദ്യം സഹായം വായിച്ചുവെന്ന് ഉറപ്പുവരുത്തുക.</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">എല്ലാം തിരഞ്ഞെടുക്കുക</string>
     <string name="app_management_deselect_all">എല്ലാം തിരഞ്ഞെടുപ്പ് നീക്കുക</string>
     <string name="app_management_dialog_adb_is_limited_title">എഡിബിയുടെ അനുമതി പരിമിതമാണ്</string>
-    <string name="app_management_dialog_adb_is_limited_message">നിങ്ങളുടെ ഉപകരണ നിർമ്മാതാവ് adb-യുടെ അനുമതി പരിമിതപ്പെടുത്തിയിരിക്കാൻ സാധ്യതയുണ്ട്. നിങ്ങളുടെ സിസ്റ്റത്തിനുള്ള ഒരു പരിഹാരം <b><a href="%1$s">ഈ ഡോക്യുമെൻ്റിൽ</b> ഉണ്ടാകാം.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[നിങ്ങളുടെ ഉപകരണ നിർമ്മാതാവ് adb-യുടെ അനുമതി പരിമിതപ്പെടുത്തിയിരിക്കാൻ സാധ്യതയുണ്ട്. നിങ്ങളുടെ സിസ്റ്റത്തിനുള്ള ഒരു പരിഹാരം <b><a href="%1$s">ഈ ഡോക്യുമെൻ്റിൽ</b> ഉണ്ടാകാം.]]></string>
     <string name="app_management_item_summary_requires_root">* ഷെവറി റൂട്ടിനൊപ്പം പ്രവർത്തിക്കണം</string>
     <string name="app_management_loading">ആപ്പുകൾ ലോഡ് ചെയ്യുന്നു...</string>
     <string name="home_terminal_title">ടെർമിനൽ ആപ്പുകളിൽ ഷെവറി ഉപയോഗിക്കുക</string>
@@ -201,7 +201,7 @@
     <string name="modules_updating">മൊഡ്യൂൾ അപ്ഡേറ്റ് ചെയ്യുന്നു…</string>
     <string name="modules_update_success">മൊഡ്യൂൾ v%s ആയി അപ്ഡേറ്റ് ചെയ്തു</string>
     <string name="modules_download_downloads">ഡൗൺലോഡ് ചെയ്യുക ഡൗൺലോഡുകളിലേക്ക്</string>
-    <string name="modules_download_install">ഡൗൺലോഡ് ചെയ്യുക &amp; ഇൻസ്റ്റാൾ ചെയ്യുക</string>
+    <string name="modules_download_install"><![CDATA[ഡൗൺലോഡ് ചെയ്യുക &amp; ഇൻസ്റ്റാൾ ചെയ്യുക]]></string>
     <string name="modules_downloading">ഡൗൺലോഡ് ചെയ്യുന്നു...</string>
     <string name="modules_download_enqueued">പശ്ചാത്തലത്തിൽ ഡൗൺലോഡ് ആരംഭിച്ചു</string>
     <string name="modules_search_placeholder">കാറ്റലോഗ് മൊഡ്യൂളുകൾ തിരയുക…</string>
@@ -347,9 +347,9 @@
     <string name="shevery_update_channel">ചാനൽ പുതുക്കുക</string>
     <string name="shevery_update_channel_summary">അപ്ഡേറ്റ് റിലീസ് ചാനൽ തിരഞ്ഞെടുക്കുക</string>
     <string name="app_update_channel_stable">സ്ഥിരമായ</string>
-    <string name="app_update_channel_beta">മുൻ-പുറത്തിറക്കൽ &amp; ബീറ്റ</string>
+    <string name="app_update_channel_beta"><![CDATA[മുൻ-പുറത്തിറക്കൽ &amp; ബീറ്റ]]></string>
     <string name="shevery_update_group_title">ഷെവറി ആപ്പ് അപ്ഡേറ്റുകൾ</string>
-    <string name="shevery_update_modules_group_title">മൊഡ്യൂൾ അപ്ഡേറ്റുകൾ &amp; കാറ്റലോഗ്</string>
+    <string name="shevery_update_modules_group_title"><![CDATA[മൊഡ്യൂൾ അപ്ഡേറ്റുകൾ &amp; കാറ്റലോഗ്]]></string>
     <string name="shevery_update_check_failed">അപ്ഡേറ്റ് പരിശോധന പരാജയപ്പെട്ടു: %s</string>
     <string name="modules_catalog">പട്ടിക</string>
     <string name="modules_catalog_title">മൊഡ്യൂൾ കാറ്റലോഗ്</string>
@@ -382,7 +382,7 @@
     <string name="wear_catalog_sort_official">ഔദ്യോഗികം</string>
     <string name="wear_catalog_sort_by">ക്രമീകരിക്കുക</string>
     <string name="wear_catalog_filter">ഫിൽട്ടർ ചെയ്യുക</string>
-    <string name="backup_restore_title">ബാക്കപ്പ് &amp; പുനഃസ്ഥാപിക്കുക</string>
+    <string name="backup_restore_title"><![CDATA[ബാക്കപ്പ് &amp; പുനഃസ്ഥാപിക്കുക]]></string>
     <string name="backup_title">ബാക്കപ്പ് ക്രമീകരണങ്ങളും മൊഡ്യൂളുകളും</string>
     <string name="backup_summary">കോൺഫിഗറേഷനും മൊഡ്യൂളുകളും ഒരു ZIP ഫയലിലേക്ക് എക്സ്പോർട്ട് ചെയ്യുക</string>
     <string name="restore_title">സെറ്റിംഗ്‌സുകളും മോഡ്യൂളുകളും പുനഃസ്ഥാപിക്കുക</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">പഴയ സ്റ്റബ് നീക്കം ചെയ്തു</string>
     <string name="settings_compat_stub_failed">%2$s വഴി ലെഗസി സ്റ്റബ് %1$s ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു: %3$s</string>
     <string name="settings_compat_stub_none">ചാനലുകളൊന്നും ലഭ്യമല്ല (ഷെവറി ആദ്യം ആരംഭിക്കുക)</string>
+    <string name="rish_description">ഏതൊരു ടെർമിനൽ ആപ്പിലും %1$s ഉപയോഗിച്ച്, നിങ്ങൾക്ക് Shevery-യുടെ ഷെൽ റണ്ണുകളുമായി ബന്ധിപ്പിക്കാനും അവയുമായി സംവദിക്കാനും കഴിയും.
+%1$s-ന്റെ വിശദമായ ഉപയോഗം കാണുന്നതിന് ഡോക്യുമെന്റ് കാണുക.</string>
 </resources>

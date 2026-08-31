@@ -16,7 +16,7 @@
     <string name="home_status_service_version">Versioun %2$s, %1$s</string>
     <string name="home_status_service_version_update">Versioun %2$s, %1$s Fänkt erëm un fir op d'Versioun %3$s ze aktualiséieren</string>
     <string name="home_adb_title">Fänkt un, andeems Dir Iech mat engem Computer verbënnt.</string>
-    <string name="home_adb_description">Fir Apparater ouni Root musst Dir adb benotzen, fir Shevery ze starten (erfuerdert eng Verbindung mam Computer). Dëse Prozess muss all Kéier widderholl ginn, wann den Apparat nees gestart gëtt. W.e.g. <b><a href="%1$s">lies d'Hëllef</b>.</string>
+    <string name="home_adb_description"><![CDATA[Fir Apparater ouni Root musst Dir adb benotzen, fir Shevery ze starten (erfuerdert eng Verbindung mam Computer). Dëse Prozess muss all Kéier widderholl ginn, wann den Apparat nees gestart gëtt. W.e.g. <b><a href="%1$s">lies d'Hëllef</b>.]]></string>
     <string name="home_adb_button_view_help">Hëllef liesen</string>
     <string name="home_adb_button_view_command">Usiicht-Befehl</string>
     <string name="home_adb_dialog_view_command_notice">Et ginn nach e puer aner Aspekter; w.e.g. bestätegt, datt Dir d'Hëllef éischt gelies hutt.</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Alles auswielen</string>
     <string name="app_management_deselect_all">Alles deselektéieren</string>
     <string name="app_management_dialog_adb_is_limited_title">D'Erlaabnis vun der adb ass limitéiert.</string>
-    <string name="app_management_dialog_adb_is_limited_message">Et ass héich méiglech, datt Äre Gerätegersteller d'Erlaabnis fir adb limitéiert. Et kann eng Léisung fir Äert System an <b><a href="%1$s">dësem Dokument</b> ginn.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Et ass héich méiglech, datt Äre Gerätegersteller d'Erlaabnis fir adb limitéiert. Et kann eng Léisung fir Äert System an <b><a href="%1$s">dësem Dokument</b> ginn.]]></string>
     <string name="app_management_item_summary_requires_root">* verlaangt datt Shevery mat root leeft</string>
     <string name="app_management_loading">Luedt Apps…</string>
     <string name="home_terminal_title">Benotzt Shevery an Terminal-Apps.</string>
@@ -201,7 +201,7 @@
     <string name="modules_updating">Modul aktualiséieren…</string>
     <string name="modules_update_success">Modul op v%s aktualiséiert</string>
     <string name="modules_download_downloads">Eroflueden op Erofluedungen</string>
-    <string name="modules_download_install">Eroflueden &amp; installéieren</string>
+    <string name="modules_download_install"><![CDATA[Eroflueden &amp; installéieren]]></string>
     <string name="modules_downloading">Luedt erof…</string>
     <string name="modules_download_enqueued">Den Download huet am Hannergrond ugefaang.</string>
     <string name="modules_search_placeholder">Sicht no Katalogmoduler…</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/permissiouns-label</string>
     <string name="permission_label">Zougang Shevery</string>
     <string name="permission_description">Erlaabt der App, Shevery ze benotzen.</string>
-    <string name="permission_warning_template">Erlaabt <b>%1$s</b> %2$s ze maachen?</string>
+    <string name="permission_warning_template"><![CDATA[Erlaabt <b>%1$s</b> %2$s ze maachen?]]></string>
     <string name="grant_dialog_button_allow_always">Erlaabt all d'Zäit</string>
     <string name="grant_dialog_button_deny">Verweigeren</string>
     <string name="starter">Ufanksspiller</string>
@@ -243,7 +243,7 @@
     <string name="toast_copied_to_clipboard">%s\nass op d'Zouschneidplack kopéiert ginn.</string>
     <string name="toast_copied_to_clipboard_with_text">%s gouf an d'Ausschnëttspuffer kopéiert.</string>
     <string name="dialog_legacy_not_support_title">%1$s ënnerstëtzt keng modern Shevery.</string>
-    <string name="dialog_legacy_not_support_message">Legacy Shevery ass zënter Mäerz 2019 obsolet. Och funktionéiert legacy Shevery net op méi neie Android-Systemer.W.e.g. frot de Entwéckler vun <b>%1$s</b>, et ze aktualiséieren.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery ass zënter Mäerz 2019 obsolet. Och funktionéiert legacy Shevery net op méi neie Android-Systemer.W.e.g. frot de Entwéckler vun <b>%1$s</b>, et ze aktualiséieren.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s freet no dem Legacy Shevery</string>
     <string name="dialog_requesting_legacy_message">%1$s huet modern Shevery-Ënnerstëtzung, mä et freet no der legacy Shevery. Dëst kéint sinn, well Shevery net leeft; w.e.g. kontrolléiert an der Shevery-App.Legacy Shevery gouf zënter Mäerz 2019 obsolet.</string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Open Shevery</string>
@@ -347,9 +347,9 @@
     <string name="shevery_update_channel">Kanal aktualiséieren</string>
     <string name="shevery_update_channel_summary">Wielt de Kanal fir d'Aktualiséierungsverëffentlechung</string>
     <string name="app_update_channel_stable">Stall</string>
-    <string name="app_update_channel_beta">Virverëffentlechung &amp; Beta</string>
+    <string name="app_update_channel_beta"><![CDATA[Virverëffentlechung &amp; Beta]]></string>
     <string name="shevery_update_group_title">Shevery App-Updates</string>
-    <string name="shevery_update_modules_group_title">Modul-Updates &amp; Katalog</string>
+    <string name="shevery_update_modules_group_title"><![CDATA[Modul-Updates &amp; Katalog]]></string>
     <string name="shevery_update_check_failed">D'Aktualiséierungsprouf huet net geklappt: %s</string>
     <string name="modules_catalog">Katalog</string>
     <string name="modules_catalog_title">Modulkatalog</string>
@@ -383,9 +383,9 @@
     <string name="wear_catalog_sort_by">No sortéieren</string>
     <string name="wear_catalog_filter">Filter</string>
     <string name="backup_restore_title">Sécherungs- a Restauratioun</string>
-    <string name="backup_title">Backup-Astellungen &amp; Moduler</string>
+    <string name="backup_title"><![CDATA[Backup-Astellungen &amp; Moduler]]></string>
     <string name="backup_summary">Konfiguratioun an Moduler an eng ZIP-Datei exportéieren</string>
-    <string name="restore_title">Astellungen &amp; Moduler zréckzestellen</string>
+    <string name="restore_title"><![CDATA[Astellungen &amp; Moduler zréckzestellen]]></string>
     <string name="restore_summary">Konfiguratioun an Moduler aus enger ZIP-Datei importéieren</string>
     <string name="settings_sections_title">Sécherungen an aner</string>
     <string name="backup_section_title">Sécherungen</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Legacy-Stub ewechgeholl</string>
     <string name="settings_compat_stub_failed">Et huet net geklappt, de legacy-Stub iwwer %2$s ze %1$s: %3$s</string>
     <string name="settings_compat_stub_none">Kee Kanal verfügbar (start Shevery first)</string>
+    <string name="rish_description">Mat %1$s kënnt Dir an all Terminal-App mat de Shell-Ausféierungen vu Shevery verbannen an interagéieren.
+Fir méi Informatiounen iwwer den detailléierten Asaz vu %1$s, tippt op d'Dokument fir et ze gesinn.</string>
 </resources>

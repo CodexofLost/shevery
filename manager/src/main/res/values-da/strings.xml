@@ -14,16 +14,16 @@
     <string name="home_status_service_is_running">%1$s kører</string>
     <string name="home_status_service_not_running">%1$s kører ikke</string>
     <string name="home_status_service_version">Version %2$s, %1$s</string>
-    <string name="home_status_service_version_update">Version %2$s, %1$s<br/>Start forfra for at opdatere til version %3$s</string>
+    <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Start forfra for at opdatere til version %3$s]]></string>
     <string name="home_adb_title">Start med at oprette forbindelse til en computer</string>
-    <string name="home_adb_description">På enheder uden root-adgang skal du bruge adb til at starte Shevery (kræver forbindelse til en computer). Denne fremgangsmåde skal gentages hver gang enheden genstartes. Læs venligst <b><a href="%1$s">hjælpen</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[På enheder uden root-adgang skal du bruge adb til at starte Shevery (kræver forbindelse til en computer). Denne fremgangsmåde skal gentages hver gang enheden genstartes. Læs venligst <b><a href="%1$s">hjælpen</a></b>.]]></string>
     <string name="home_adb_button_view_help">Læs hjælpen</string>
     <string name="home_adb_button_view_command">Vis-kommando</string>
     <string name="home_adb_dialog_view_command_notice">Der er nogle andre forhold, du skal tage højde for. Bekræft venligst, at du først har læst hjælpen.</string>
     <string name="home_adb_dialog_view_command_copy_button">Kopier</string>
     <string name="home_adb_dialog_view_command_button_send">Send</string>
     <string name="home_wireless_adb_title">Start via trådløs fejlfinding</string>
-    <string name="home_wireless_adb_description">På Android 11 eller nyere kan du aktivere trådløs fejlfinding og starte Shevery direkte fra din enhed uden at skulle tilslutte den til en computer.<p>Læs venligst den trinvise vejledning først.</string>
+    <string name="home_wireless_adb_description"><![CDATA[På Android 11 eller nyere kan du aktivere trådløs fejlfinding og starte Shevery direkte fra din enhed uden at skulle tilslutte den til en computer.<p>Læs venligst den trinvise vejledning først.]]></string>
     <string name="home_wireless_adb_description_pre_11">Før Android 11 er det nødvendigt at oprette forbindelse til en computer for at aktivere trådløs fejlfinding.</string>
     <string name="home_wireless_adb_view_guide_button">Trin-for-trin-vejledning</string>
     <string name="home_local_network_title">Adgang til det lokale netværk</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery skal have adgang til det lokale netværk. Dette styres af netværksrettighederne.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Nogle systemer (f.eks. MIUI) forhindrer apps i at få adgang til netværket, når de ikke er synlige, selvom appen som standard bruger en forgrundstjeneste. De bedes deaktivere batterioptimeringsfunktionerne for Shevery på sådanne systemer.</string>
     <string name="home_root_title">Start (til enheder med root-adgang)</string>
-    <string name="home_root_description">Derudover kan Shevery startes automatisk ved opstart. Hvis dette ikke er tilfældet, bedes du kontrollere, om dit system eller tredjepartsværktøjer har begrænset Shevery.<br/>Du kan læse mere her: %s.</string>
+    <string name="home_root_description"><![CDATA[Derudover kan Shevery startes automatisk ved opstart. Hvis dette ikke er tilfældet, bedes du kontrollere, om dit system eller tredjepartsværktøjer har begrænset Shevery.<br/>Du kan læse mere her: %s.]]></string>
     <string name="home_root_description_sui">Hvis du bruger Magisk, kan du prøve %1$s. For root-brugere vil det på sigt erstatte Shevery. Bemærk, at eksisterende applikationer skal tilpasses en smule for at kunne bruge %2$s.</string>
     <string name="home_root_button_start">Start</string>
     <string name="home_root_button_restart">Genstart</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Vælg alt</string>
     <string name="app_management_deselect_all">Fjern markeringen fra alle</string>
     <string name="app_management_dialog_adb_is_limited_title">adb’s tilladelse er begrænset</string>
-    <string name="app_management_dialog_adb_is_limited_message">Det er meget sandsynligt, at producenten af din enhed begrænser adb-tilladelsen.<p>Der findes muligvis en løsning til dit system i <b><a href="%1$s">dette dokument</a></b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Det er meget sandsynligt, at producenten af din enhed begrænser adb-tilladelsen.<p>Der findes muligvis en løsning til dit system i <b><a href="%1$s">dette dokument</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* forudsætter, at Shevery kører med root-rettigheder</string>
     <string name="app_management_loading">Indlæser apps…</string>
     <string name="home_terminal_title">Brug Shevery i terminal-apps</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/permission_label</string>
     <string name="permission_label">Gå til Shevery</string>
     <string name="permission_description">Giv appen tilladelse til at bruge Shevery.</string>
-    <string name="permission_warning_template">Skal <b>%1$s</b> have lov til at %2$s?</string>
+    <string name="permission_warning_template"><![CDATA[Skal <b>%1$s</b> have lov til at %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Giv det al den tid, der skal til</string>
     <string name="grant_dialog_button_deny">"Afvis"</string>
     <string name="starter">Starter</string>
@@ -241,11 +241,11 @@
     <string name="start_with_root_failed">Tjenesten kan ikke startes, fordi der ikke er tildelt root-rettigheder, eller fordi denne enhed ikke er rodet.</string>
     <string name="dialog_cannot_open_browser_title">Kan ikke starte browseren</string>
     <string name="toast_copied_to_clipboard">%s\nh er blevet kopieret til udklipsholderen.</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> er blevet kopieret til udklipsholderen.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> er blevet kopieret til udklipsholderen.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s understøtter ikke moderne Shevery</string>
-    <string name="dialog_legacy_not_support_message">Den gamle version af Shevery er udfaset siden marts 2019. Desuden fungerer den gamle version af Shevery ikke på nyere Android-systemer.<p>Bed udvikleren af <b>%1$s</b> om at opdatere appen.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Den gamle version af Shevery er udfaset siden marts 2019. Desuden fungerer den gamle version af Shevery ikke på nyere Android-systemer.<p>Bed udvikleren af <b>%1$s</b> om at opdatere appen.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s anmoder om den gamle version af Shevery</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> understøtter den moderne version af Shevery, men anmoder om den ældre version af Shevery. Dette kan skyldes, at Shevery ikke kører; tjek venligst i Shevery-appen.<p>Den ældre version af Shevery er udfaset siden marts 2019.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> understøtter den moderne version af Shevery, men anmoder om den ældre version af Shevery. Dette kan skyldes, at Shevery ikke kører; tjek venligst i Shevery-appen.<p>Den ældre version af Shevery er udfaset siden marts 2019.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Åbn Shevery</string>
     <string name="lab_features_title">Laboratoriets faciliteter</string>
     <string name="lab_features_summary">Eksperimentelle funktioner</string>
@@ -426,7 +426,7 @@
     <string name="comput_timed_out">[E] Kommandoen udløb efter 120 sekunder.</string>
     <string name="comput_exit_code">[E] Kommandoen afsluttedes med koden %1$d.</string>
     <string name="comput_running_macro">Kører makro: %1$s</string>
-    <string name="comput_executing_cmd">> Udfører kommando: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Udfører kommando: %1$s]]></string>
     <string name="comput_error_not_running">Fejl: Tjenesten »Privileged Shevery« kører ikke. Start venligst tjenesten først.</string>
     <string name="comput_error_no_binder">Fejl: Det var ikke muligt at hente Shevery-mappen.</string>
     <string name="comput_console_initialized">Konsollen er initialiseret. Shevery-tjenesten med udvidede rettigheder er tilsluttet.\nKlar til kommandoer.</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">Gammel stub fjernet</string>
     <string name="settings_compat_stub_failed">Det lykkedes ikke at %1$s den gamle stub via %2$s: %3$s</string>
     <string name="settings_compat_stub_none">Ingen kanal tilgængelig (start med Shevery først)</string>
+    <string name="rish_description"><![CDATA[Med %1$s kan du i enhver terminal-app oprette forbindelse til og interagere med de shell-processer, der køres af Shevery.
+<p>Om den detaljerede brug af %1$s: Tryk her for at se dokumentet.]]></string>
 </resources>

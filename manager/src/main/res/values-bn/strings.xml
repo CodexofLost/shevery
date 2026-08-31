@@ -19,7 +19,7 @@
     <string name="accessibility_close">বন্ধ করুন</string>
     <string name="accessibility_more_options">আরও বিকল্প</string>
     <string name="accessibility_open_on_github">GitHub-এ খুলুন</string>
-    <string name="home_adb_description">রুট ছাড়া ডিভাইসগুলির জন্য, আপনাকে adb ব্যবহার করে Shevery শুরু করতে হবে (কম্পিউটার সংযোগ প্রয়োজন)। ডিভাইসটি প্রতিবার রিস্টার্ট করার পর এই প্রক্রিয়াটি পুনরাবৃত্তি করতে হবে। অনুগ্রহ করে <b><a href="%1$s">সহায়িকা পড়ুন</b>।</string>
+    <string name="home_adb_description"><![CDATA[রুট ছাড়া ডিভাইসগুলির জন্য, আপনাকে adb ব্যবহার করে Shevery শুরু করতে হবে (কম্পিউটার সংযোগ প্রয়োজন)। ডিভাইসটি প্রতিবার রিস্টার্ট করার পর এই প্রক্রিয়াটি পুনরাবৃত্তি করতে হবে। অনুগ্রহ করে <b><a href="%1$s">সহায়িকা পড়ুন</b>।]]></string>
     <string name="home_adb_dialog_view_command_notice">আরও কিছু বিবেচ্য বিষয় রয়েছে, অনুগ্রহ করে প্রথমে নিশ্চিত করুন যে আপনি সাহায্য বিভাগ পড়েছেন।</string>
     <string name="home_adb_dialog_view_command_button_send">প্রেরণ করুন</string>
     <string name="home_wireless_adb_title">ওয়্যারলেস ডিবাগিংয়ের মাধ্যমে শুরু করুন</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">সব নির্বাচন করুন</string>
     <string name="app_management_deselect_all">সব নির্বাচন বাতিল করুন</string>
     <string name="app_management_dialog_adb_is_limited_title">এডিবি-র অনুমতি সীমিত।</string>
-    <string name="app_management_dialog_adb_is_limited_message">এটি অত্যন্ত সম্ভাব্য যে আপনার ডিভাইস নির্মাতা adb-এর অনুমতি সীমিত করে। আপনার সিস্টেমের জন্য <b><a href="%1$s">এই নথিতে</b> একটি সমাধান থাকতে পারে।</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[এটি অত্যন্ত সম্ভাব্য যে আপনার ডিভাইস নির্মাতা adb-এর অনুমতি সীমিত করে। আপনার সিস্টেমের জন্য <b><a href="%1$s">এই নথিতে</b> একটি সমাধান থাকতে পারে।]]></string>
     <string name="app_management_item_summary_requires_root">* শর্ত: শেভারি রুটসহ চলতে হবে</string>
     <string name="app_management_loading">অ্যাপ লোড হচ্ছে…</string>
     <string name="home_terminal_title">টার্মিনাল অ্যাপে Shevery ব্যবহার করুন</string>
@@ -233,7 +233,7 @@
     <string name="permission_group_description">@string/অনুমতি_লেবেল</string>
     <string name="permission_label">অ্যাক্সেস শেভরি</string>
     <string name="permission_description">অ্যাপটিকে Shevery ব্যবহার করতে দিন।</string>
-    <string name="permission_warning_template"><b>%1$s</b>-কে %2$s করতে দিন?</string>
+    <string name="permission_warning_template"><![CDATA[<b>%1$s</b>-কে %2$s করতে দিন?]]></string>
     <string name="grant_dialog_button_allow_always">সমস্ত সময় অনুমতি দিন</string>
     <string name="grant_dialog_button_deny">অস্বীকার করুন</string>
     <string name="starter">স্টার্টার</string>
@@ -243,9 +243,9 @@
     <string name="toast_copied_to_clipboard">%s\nক্লিপবোর্ডে অনুলিপি করা হয়েছে।</string>
     <string name="toast_copied_to_clipboard_with_text">%s কপি করা হয়েছে ক্লিপবোর্ডে।</string>
     <string name="dialog_legacy_not_support_title">%1$s আধুনিক শেভারি সমর্থন করে না।</string>
-    <string name="dialog_legacy_not_support_message">লেগ্যাসি শেভারি মার্চ ২০১৯ থেকে অবচয়িত হয়েছে। এছাড়াও, লেগ্যাসি শেভারি নতুন অ্যান্ড্রয়েড সিস্টেমে কাজ করে না। অনুগ্রহ করে <b>%1$s</b>-এর ডেভেলপারকে আপডেট করতে বলুন।</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[লেগ্যাসি শেভারি মার্চ ২০১৯ থেকে অবচয়িত হয়েছে। এছাড়াও, লেগ্যাসি শেভারি নতুন অ্যান্ড্রয়েড সিস্টেমে কাজ করে না। অনুগ্রহ করে <b>%1$s</b>-এর ডেভেলপারকে আপডেট করতে বলুন।]]></string>
     <string name="dialog_requesting_legacy_title">%1$s লিগ্যাসি শেভরি অনুরোধ করছে</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> আধুনিক Shevery সমর্থন করে, কিন্তু এটি লিগ্যাসি Shevery অনুরোধ করছে। এর কারণ হতে পারে Shevery চলছে না, অনুগ্রহ করে Shevery অ্যাপে পরীক্ষা করুন। লিগ্যাসি Shevery মার্চ 2019 থেকে অব্যবহৃত।</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> আধুনিক Shevery সমর্থন করে, কিন্তু এটি লিগ্যাসি Shevery অনুরোধ করছে। এর কারণ হতে পারে Shevery চলছে না, অনুগ্রহ করে Shevery অ্যাপে পরীক্ষা করুন। লিগ্যাসি Shevery মার্চ 2019 থেকে অব্যবহৃত।]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">ওপেন শেভরি</string>
     <string name="lab_features_title">ল্যাবের বৈশিষ্ট্যসমূহ</string>
     <string name="lab_features_summary">প্রায়োগিক বৈশিষ্ট্যসমূহ</string>
@@ -533,4 +533,6 @@
     <string name="settings_compat_stub_uninstalled">লেগ্যাসি স্টাব সরানো হয়েছে</string>
     <string name="settings_compat_stub_failed">%2$s এর মাধ্যমে legacy stub %1$s করতে ব্যর্থ: %3$s</string>
     <string name="settings_compat_stub_none">কোনও চ্যানেল উপলব্ধ নেই (প্রথমে Shevery শুরু করুন)</string>
+    <string name="rish_description">যেকোনো টার্মিনাল অ্যাপে %1$s ব্যবহার করে আপনি Shevery-এর শেল রানগুলির সাথে সংযোগ করতে এবং সেগুলির সাথে ইন্টারঅ্যাক্ট করতে পারেন।
+%1$s-এর বিস্তারিত ব্যবহারের জন্য ডকুমেন্ট দেখতে ট্যাপ করুন।</string>
 </resources>

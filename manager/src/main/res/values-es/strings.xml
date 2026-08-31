@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="translation_contributors">NoelFeijooIglesias &amp; Community</string>
+    <string name="translation_contributors"><![CDATA[NoelFeijooIglesias &amp; Community]]></string>
     <string name="accessibility_navigate_up">Navegar hacia arriba</string>
     <string name="accessibility_close">Cerrar</string>
     <string name="accessibility_more_options">Más opciones</string>
@@ -363,7 +363,7 @@
     <string name="comput_timed_out">[E] Tiempo de espera del comando agotado tras 120 segundos.</string>
     <string name="comput_exit_code">[E] El comando finalizó con código %1$d.</string>
     <string name="comput_running_macro">Ejecutando macro: %1$s</string>
-    <string name="comput_executing_cmd">> Ejecutando comando: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Ejecutando comando: %1$s]]></string>
     <string name="comput_error_not_running">Error: El servicio privilegiado Shevery no está en ejecución. Inícielo primero.</string>
     <string name="comput_error_no_binder">Error: No se pudo obtener el binder de Shevery.</string>
     <string name="comput_console_initialized">Consola inicializada. Servicio privilegiado Shevery conectado.\nListo para comandos.</string>
@@ -534,4 +534,5 @@
     <string name="settings_compat_stub_uninstalled">Se ha eliminado el stub heredado</string>
     <string name="settings_compat_stub_failed">No se ha podido %1$s el stub heredado mediante %2$s: %3$s</string>
     <string name="settings_compat_stub_none">No hay ningún canal disponible (empieza primero por Shevery)</string>
+    <string name="settings_restart_dialog_message_wifi_required">Se necesita conexión Wi-Fi para el primer reinicio, ya que Shevery debe conectarse al puerto de depuración inalámbrico actual antes de cambiar el ADB al 5555.</string>
 </resources>
