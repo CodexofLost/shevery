@@ -496,4 +496,39 @@ object ModuleSettings {
     fun setAppLastCheckTime(time: Long) {
         ShizukuSettings.getPreferences().edit().putLong(KEY_APP_LAST_CHECK_TIME, time).apply()
     }
+
+    // Persisted pending update (survives process death)
+    private const val KEY_APP_PENDING_UPDATE_VERSION = "app_pending_update_version"
+    private const val KEY_APP_PENDING_UPDATE_URL = "app_pending_update_url"
+    private const val KEY_APP_PENDING_UPDATE_DETECTED_AT = "app_pending_update_detected_at"
+
+    fun setPendingUpdate(version: String, url: String, detectedAt: Long) {
+        ShizukuSettings.getPreferences().edit()
+            .putString(KEY_APP_PENDING_UPDATE_VERSION, version)
+            .putString(KEY_APP_PENDING_UPDATE_URL, url)
+            .putLong(KEY_APP_PENDING_UPDATE_DETECTED_AT, detectedAt)
+            .apply()
+    }
+
+    fun getPendingUpdateVersion(): String? {
+        return ShizukuSettings.getPreferences().getString(KEY_APP_PENDING_UPDATE_VERSION, null)
+            ?.takeIf { it.isNotBlank() }
+    }
+
+    fun getPendingUpdateUrl(): String? {
+        return ShizukuSettings.getPreferences().getString(KEY_APP_PENDING_UPDATE_URL, null)
+            ?.takeIf { it.isNotBlank() }
+    }
+
+    fun getPendingUpdateDetectedAt(): Long {
+        return ShizukuSettings.getPreferences().getLong(KEY_APP_PENDING_UPDATE_DETECTED_AT, 0L)
+    }
+
+    fun clearPendingUpdate() {
+        ShizukuSettings.getPreferences().edit()
+            .remove(KEY_APP_PENDING_UPDATE_VERSION)
+            .remove(KEY_APP_PENDING_UPDATE_URL)
+            .remove(KEY_APP_PENDING_UPDATE_DETECTED_AT)
+            .apply()
+    }
 }

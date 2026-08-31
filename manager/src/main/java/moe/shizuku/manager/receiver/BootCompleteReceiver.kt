@@ -34,6 +34,9 @@ class BootCompleteReceiver : BroadcastReceiver() {
 
         if (UserHandleCompat.myUserId() > 0 || Shizuku.pingBinder()) return
 
+        // Schedule app auto-update check (cheap, no-op if already scheduled)
+        moe.shizuku.manager.module.update.SheveryAutoUpdateWorker.maybeSchedule(context)
+
         if (ShizukuSettings.getStartOnBootAdb()
             && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) != PackageManager.PERMISSION_GRANTED) {
