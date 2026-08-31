@@ -40,7 +40,9 @@ class SheveryUpdateCheckWorker(
 
         return try {
             val result = SheveryUpdateChecker.getInstance().checkAppUpdate(applicationContext)
-            moe.shizuku.manager.module.ModuleSettings.setAppLastCheckTime(now)
+            if (result.error == null) {
+                moe.shizuku.manager.module.ModuleSettings.setAppLastCheckTime(now)
+            }
 
             if (result.hasUpdate && result.downloadUrl != null) {
                 moe.shizuku.manager.module.ModuleSettings.setPendingUpdate(
