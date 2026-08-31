@@ -14,16 +14,16 @@
     <string name="accessibility_close">Sluiten</string>
     <string name="accessibility_more_options">Meer opties</string>
     <string name="accessibility_open_on_github">Openen op GitHub</string>
-    <string name="home_status_service_version_update">Versie %2$s, %1$s<br>Opnieuw starten om bij te werken naar versie %3$s</string>
+    <string name="home_status_service_version_update"><![CDATA[Versie %2$s, %1$s<br>Opnieuw starten om bij te werken naar versie %3$s]]></string>
     <string name="home_adb_title">Begin met het aansluiten op een computer</string>
-    <string name="home_adb_description">Bij toestellen zonder root-toegang moet je adb gebruiken om Shevery te starten (hiervoor is een verbinding met een computer nodig). Dit proces moet elke keer dat het toestel opnieuw wordt opgestart, worden herhaald. Lees alstublieft <b><a href="%1$s">de help</a></b>.</string>
+    <string name="home_adb_description"><![CDATA[Bij toestellen zonder root-toegang moet je adb gebruiken om Shevery te starten (hiervoor is een verbinding met een computer nodig). Dit proces moet elke keer dat het toestel opnieuw wordt opgestart, worden herhaald. Lees alstublieft <b><a href="%1$s">de help</a></b>.]]></string>
     <string name="home_adb_button_view_help">Lees de help-pagina</string>
     <string name="home_adb_button_view_command">Commando ‘Bekijken’</string>
     <string name="home_adb_dialog_view_command_notice">Er zijn nog enkele andere zaken waarmee u rekening moet houden; controleer alstublieft of u de helptekst eerst hebt gelezen.</string>
     <string name="home_adb_dialog_view_command_copy_button">Kopiëren</string>
     <string name="home_adb_dialog_view_command_button_send">Verzenden</string>
     <string name="home_wireless_adb_title">Start via draadloos debuggen</string>
-    <string name="home_wireless_adb_description">Op Android 11 of hoger kun je draadloos debuggen inschakelen en Shevery rechtstreeks vanaf je apparaat starten, zonder verbinding te maken met een computer.<p>Bekijk eerst de stapsgewijze handleiding.</string>
+    <string name="home_wireless_adb_description"><![CDATA[Op Android 11 of hoger kun je draadloos debuggen inschakelen en Shevery rechtstreeks vanaf je apparaat starten, zonder verbinding te maken met een computer.<p>Bekijk eerst de stapsgewijze handleiding.]]></string>
     <string name="home_wireless_adb_description_pre_11">Vóór Android 11 moet je verbinding maken met een computer om draadloos foutopsporen in te schakelen.</string>
     <string name="home_wireless_adb_view_guide_button">Stapsgewijze handleiding</string>
     <string name="home_local_network_title">Toegang tot het lokale netwerk</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery moet toegang hebben tot het lokale netwerk. Dit wordt geregeld door de netwerktoegangsrechten.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Sommige systemen (zoals MIUI) staan niet toe dat apps toegang krijgen tot het netwerk wanneer ze niet zichtbaar zijn, zelfs als de app standaard gebruikmaakt van een voorgronddienst. Schakel op dergelijke systemen de batterijoptimalisatiefuncties voor Shevery uit.</string>
     <string name="home_root_title">Start (voor apparaten met root-toegang)</string>
-    <string name="home_root_description">Bovendien kan Shevery automatisch worden gestart bij het opstarten. Als dat niet het geval is, controleer dan of Shevery wordt geblokkeerd door uw systeem of door tools van derden.<br>Raadpleeg %s voor meer informatie.</string>
+    <string name="home_root_description"><![CDATA[Bovendien kan Shevery automatisch worden gestart bij het opstarten. Als dat niet het geval is, controleer dan of Shevery wordt geblokkeerd door uw systeem of door tools van derden.<br>Raadpleeg %s voor meer informatie.]]></string>
     <string name="home_root_description_sui">Als je Magisk gebruikt, kun je %1$s eens proberen. Voor root-gebruikers zal dit op termijn Shevery vervangen. Let wel: bestaande apps moeten enigszins worden aangepast om %2$s te kunnen gebruiken.</string>
     <string name="home_root_button_start">Start</string>
     <string name="home_root_button_restart">Opnieuw starten</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">Alles selecteren</string>
     <string name="app_management_deselect_all">Alles deselecteren</string>
     <string name="app_management_dialog_adb_is_limited_title">De bevoegdheden van adb zijn beperkt</string>
-    <string name="app_management_dialog_adb_is_limited_message">Het is zeer waarschijnlijk dat de fabrikant van je apparaat de rechten van adb beperkt.<p>Mogelijk staat er een oplossing voor jouw systeem in <b><a href="%1$s">dit document</a></b>.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Het is zeer waarschijnlijk dat de fabrikant van je apparaat de rechten van adb beperkt.<p>Mogelijk staat er een oplossing voor jouw systeem in <b><a href="%1$s">dit document</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* Shevery moet als root worden uitgevoerd</string>
     <string name="app_management_loading">Apps worden geladen…</string>
     <string name="home_terminal_title">Gebruik Shevery in terminal-apps</string>
@@ -98,8 +98,8 @@
     <string name="terminal_tutorial_2_description">Als je bijvoorbeeld Shevery in %1$s wilt gebruiken, moet je %2$s vervangen door %3$s (%4$s is de pakketnaam van %1$s).</string>
     <string name="terminal_tutorial_3">Verplaats de bestanden ten slotte naar een locatie waar je terminal-app toegang toe heeft; je kunt dan %1$s gebruiken om commando’s via Shevery uit te voeren.</string>
     <string name="terminal_tutorial_3_description">Enkele tips: geef %1$s uitvoerrechten en voeg het toe aan %2$s, dan kun je %1$s direct gebruiken.</string>
-    <string name="rish_description">Met %1$s kun je in elke terminal-app verbinding maken met de door Shevery uitgevoerde shell en hiermee werken.
-<p>Voor meer informatie over het gebruik van %1$s: tik hier om het document te bekijken.</string>
+    <string name="rish_description"><![CDATA[Met %1$s kun je in elke terminal-app verbinding maken met de door Shevery uitgevoerde shell en hiermee werken.
+<p>Voor meer informatie over het gebruik van %1$s: tik hier om het document te bekijken.]]></string>
     <string name="settings_title">Instellingen</string>
     <string name="settings_language">Taal</string>
     <string name="settings_user_interface">Uiterlijk</string>
@@ -235,7 +235,7 @@
     <string name="permission_group_description">@string/toestemmingslabel</string>
     <string name="permission_label">toegang tot Shevery</string>
     <string name="permission_description">Geef de app toestemming om Shevery te gebruiken.</string>
-    <string name="permission_warning_template">Mag <b>%1$s</b> %2$s doen?</string>
+    <string name="permission_warning_template"><![CDATA[Mag <b>%1$s</b> %2$s doen?]]></string>
     <string name="grant_dialog_button_allow_always">Neem er ruim de tijd voor</string>
     <string name="grant_dialog_button_deny">"Ontkennen"</string>
     <string name="starter">Start</string>
@@ -243,11 +243,11 @@
     <string name="start_with_root_failed">De service kan niet worden gestart omdat er geen root-rechten zijn verleend of omdat dit apparaat niet is geroot.</string>
     <string name="dialog_cannot_open_browser_title">De browser kan niet worden gestart</string>
     <string name="toast_copied_to_clipboard">%s\n is naar het klembord gekopieerd.</string>
-    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> is naar het klembord gekopieerd.</string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> is naar het klembord gekopieerd.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s ondersteunt geen moderne Shevery</string>
-    <string name="dialog_legacy_not_support_message">De oude versie van Shevery wordt sinds maart 2019 niet meer ondersteund. Bovendien werkt de oude versie van Shevery niet op nieuwere Android-systemen.<p>Vraag de ontwikkelaar van <b>%1$s</b> om een update uit te brengen.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[De oude versie van Shevery wordt sinds maart 2019 niet meer ondersteund. Bovendien werkt de oude versie van Shevery niet op nieuwere Android-systemen.<p>Vraag de ontwikkelaar van <b>%1$s</b> om een update uit te brengen.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s vraagt om de oude Shevery</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> ondersteunt de moderne versie van Shevery, maar vraagt om de verouderde versie van Shevery. Dit kan komen doordat Shevery niet actief is; controleer dit alstublieft in de Shevery-app.<p>De verouderde versie van Shevery wordt sinds maart 2019 niet meer ondersteund.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> ondersteunt de moderne versie van Shevery, maar vraagt om de verouderde versie van Shevery. Dit kan komen doordat Shevery niet actief is; controleer dit alstublieft in de Shevery-app.<p>De verouderde versie van Shevery wordt sinds maart 2019 niet meer ondersteund.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Open Shevery</string>
     <string name="lab_features_title">Kenmerken van het laboratorium</string>
     <string name="lab_features_summary">Experimentele functies</string>
@@ -351,7 +351,7 @@
     <string name="app_update_channel_stable">Stabiel</string>
     <string name="app_update_channel_beta">Pre-release en bèta</string>
     <string name="shevery_update_group_title">Updates voor de Shevery-app</string>
-    <string name="shevery_update_modules_group_title">Module-updates & catalogus</string>
+    <string name="shevery_update_modules_group_title"><![CDATA[Module-updates & catalogus]]></string>
     <string name="shevery_update_check_failed">Controle op updates is mislukt: %s</string>
     <string name="modules_catalog">Catalogus</string>
     <string name="modules_catalog_title">Modulecatalogus</string>
@@ -405,7 +405,7 @@
     <string name="comput_api_key_label">API-sleutel</string>
     <string name="comput_show_api_key">API-sleutel weergeven</string>
     <string name="comput_hide_api_key">API-sleutel verbergen</string>
-    <string name="comput_gemini_model_performance">Krachtige codering & agentic (aanbevolen)</string>
+    <string name="comput_gemini_model_performance"><![CDATA[Krachtige codering & agentic (aanbevolen)]]></string>
     <string name="comput_gemini_model_lightweight">Lichtgewicht model voor hoge snelheden</string>
     <string name="comput_gemini_api_error">De Gemini-API heeft foutcode %1$d geretourneerd: %2$s</string>
     <string name="comput_gemini_connection_error">Verbindingsfout.</string>
@@ -428,7 +428,7 @@
     <string name="comput_timed_out">[E] De opdracht is na 120 seconden verlopen.</string>
     <string name="comput_exit_code">[E] Het commando is beëindigd met code %1$d.</string>
     <string name="comput_running_macro">Macro wordt uitgevoerd: %1$s</string>
-    <string name="comput_executing_cmd">> Commando wordt uitgevoerd: %1$s</string>
+    <string name="comput_executing_cmd"><![CDATA[> Commando wordt uitgevoerd: %1$s]]></string>
     <string name="comput_error_not_running">Fout: De bevoorrechte Shevery-service is niet actief. Start de service eerst op.</string>
     <string name="comput_error_no_binder">Fout: Het is niet gelukt om de map ‘Shevery’ op te halen.</string>
     <string name="comput_console_initialized">Console geïnitialiseerd. Shevery-service met verhoogde rechten is verbonden.\nKlaar voor opdrachten.</string>

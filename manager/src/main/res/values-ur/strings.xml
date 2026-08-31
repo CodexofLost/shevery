@@ -16,7 +16,7 @@
     <string name="home_status_service_version">ورژن %2$s, %1$s</string>
     <string name="home_status_service_version_update">ورژن %2$s, %1$s ورژن %3$s میں اپ ڈیٹ کرنے کے لیے دوبارہ شروع کریں</string>
     <string name="home_adb_title">کمپیوٹر سے کنکٹ کرکے شروع کریں۔</string>
-    <string name="home_adb_description">روٹ کے بغیر ڈیوائسز کے لیے، آپ کو Shevery شروع کرنے کے لیے adb استعمال کرنا ہوگا (کمپیوٹر کنکشن درکار ہے)۔ یہ عمل ہر بار ڈیوائس کے دوبارہ شروع ہونے پر دہرایا جانا چاہیے۔ براہ کرم <b><a href="%1$s">مدد پڑھیں</b>۔</string>
+    <string name="home_adb_description"><![CDATA[روٹ کے بغیر ڈیوائسز کے لیے، آپ کو Shevery شروع کرنے کے لیے adb استعمال کرنا ہوگا (کمپیوٹر کنکشن درکار ہے)۔ یہ عمل ہر بار ڈیوائس کے دوبارہ شروع ہونے پر دہرایا جانا چاہیے۔ براہ کرم <b><a href="%1$s">مدد پڑھیں</b>۔]]></string>
     <string name="home_adb_button_view_help">مدد پڑھیں</string>
     <string name="home_adb_button_view_command">ویو کمانڈ</string>
     <string name="home_adb_dialog_view_command_notice">کچھ اور امور ہیں، براہِ کرم پہلے تصدیق کریں کہ آپ نے مدد پڑھ لی ہے۔</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">سب منتخب کریں</string>
     <string name="app_management_deselect_all">سب کو غیر منتخب کریں</string>
     <string name="app_management_dialog_adb_is_limited_title">ای ڈی بی کی اجازت محدود ہے۔</string>
-    <string name="app_management_dialog_adb_is_limited_message">یہ بہت ممکن ہے کہ آپ کے ڈیوائس بنانے والا adb کی اجازت محدود کر دیتا ہو۔ آپ کے سسٹم کے لیے <b><a href="%1$s">اس دستاویز میں</b> ایک حل موجود ہو سکتا ہے۔</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[یہ بہت ممکن ہے کہ آپ کے ڈیوائس بنانے والا adb کی اجازت محدود کر دیتا ہو۔ آپ کے سسٹم کے لیے <b><a href="%1$s">اس دستاویز میں</b> ایک حل موجود ہو سکتا ہے۔]]></string>
     <string name="app_management_item_summary_requires_root">* اس کے لیے ضروری ہے کہ شیوری روٹ کے ساتھ چلے۔</string>
     <string name="app_management_loading">ایپس لوڈ ہو رہی ہیں…</string>
     <string name="home_terminal_title">ٹرمینل ایپس میں Shevery استعمال کریں۔</string>
@@ -235,7 +235,7 @@
     <string name="permission_group_description">@string/اجازت نامہ لیبل</string>
     <string name="permission_label">شیوری تک رسائی</string>
     <string name="permission_description">ایپ کو Shevery استعمال کرنے کی اجازت دیں۔</string>
-    <string name="permission_warning_template">کیا <b>%1$s</b> کو %2$s کرنے کی اجازت دیں؟</string>
+    <string name="permission_warning_template"><![CDATA[کیا <b>%1$s</b> کو %2$s کرنے کی اجازت دیں؟]]></string>
     <string name="grant_dialog_button_allow_always">ہمیشہ اجازت دیں</string>
     <string name="grant_dialog_button_deny">انکار کرو</string>
     <string name="starter">شروع کرنے والا</string>
@@ -245,7 +245,7 @@
     <string name="toast_copied_to_clipboard">%s\nکلپ بورڈ پر کاپی کر دیا گیا ہے۔</string>
     <string name="toast_copied_to_clipboard_with_text">%s کو کلپ بورڈ میں کاپی کر لیا گیا ہے۔</string>
     <string name="dialog_legacy_not_support_title">%1$s جدید شیوری کی حمایت نہیں کرتا۔</string>
-    <string name="dialog_legacy_not_support_message">لیگیسی شیوری مارچ 2019 سے منسوخ ہے۔ نیز، لیگیسی شیوری نئے اینڈرائیڈ سسٹمز پر کام نہیں کرتی۔ براہ کرم <b>%1$s</b> کے ڈویلپر سے اپ ڈیٹ کرنے کو کہیں۔</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[لیگیسی شیوری مارچ 2019 سے منسوخ ہے۔ نیز، لیگیسی شیوری نئے اینڈرائیڈ سسٹمز پر کام نہیں کرتی۔ براہ کرم <b>%1$s</b> کے ڈویلپر سے اپ ڈیٹ کرنے کو کہیں۔]]></string>
     <string name="dialog_requesting_legacy_title">%1$s لیگیسی شیوری کی درخواست کر رہا ہے۔</string>
     <string name="dialog_requesting_legacy_message">%1$s میں جدید Shevery سپورٹ موجود ہے، لیکن یہ پرانی Shevery کی درخواست کر رہا ہے۔ اس کی وجہ یہ ہو سکتی ہے کہ Shevery چل نہیں رہا، براہ کرم Shevery ایپ میں چیک کریں۔   پرانی Shevery کو مارچ 2019 سے منسوخ کر دیا گیا ہے۔</string>
     <string name="dialog_requesting_legacy_button_open_shizuku">اوپن شیوری</string>

@@ -506,4 +506,35 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="settings_compat_stub_uninstalled">Legacy stub removed</string>
     <string name="settings_compat_stub_failed">Failed to %1$s the legacy stub via %2$s: %3$s</string>
     <string name="settings_compat_stub_none">No channel available (start Shevery first)</string>
+    <string name="app_name">Shevery</string>
+    <string name="home_status_service_version_update">Version %2$s, %1$s<br>Start again to update to version %3$s</string>
+    <string name="home_adb_title">Start by connecting to a computer</string>
+    <string name="home_adb_description">For devices without root, you need to use adb to start Shevery (requires computer connection). This process needs to be repeated every time the device is restarted. Please <b><a href="%1$s">read the help</a></b>.</string>
+    <string name="home_wireless_adb_title">Start via Wireless debugging</string>
+    <string name="home_wireless_adb_description">On Android 11 or above, you can enable Wireless debugging and start Shevery directly from your device, without connecting to a computer.<p>Please view the step-by-step guide first.</string>
+    <string name="home_wireless_adb_description_pre_11">Before Android 11, connecting to a computer is required to enable Wireless debugging.</string>
+    <string name="dialog_adb_discovery_message">Please enable "Wireless debugging" in "Developer options". "Wireless debugging" is automatically disabled when network changes.\n\nNote, do not disable "Developer options" or "USB debugging", or Shevery will be stopped.</string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Please try to disable and enable "Wireless debugging" if it keeps searching.</string>
+    <string name="dialog_adb_pairing_message">Please start paring by the following steps: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nAfter the pairing process starts, you will able to input the pairing code.</string>
+    <string name="adb_pairing_tutorial_content_steps">Enter "Developer options" - "Wireless debugging". Tap "Pair device with pairing code", you will see a six-digit code.</string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable">Please note, left part of the "Wireless debugging" option is clickable, tapping it will open a new page. Only turing on the switch on the right is incorrect.</string>
+    <string name="home_root_title">Start (for rooted devices)</string>
+    <string name="home_root_description">In addition, Shevery can be started automatically on boot. If not, please check if your system or third-party tools have restricted Shevery.<br>You can refer to %s.</string>
+    <string name="home_root_description_sui">If you are using Magisk, you can try %1$s. For root users, it will eventually replace Shevery. Note, existing applications needs to change a little to use %2$s.</string>
+    <string name="home_app_management_view_authorized_apps">Tap to manage authorized apps</string>
+    <string name="home_adb_is_limited_description">Your device manufacturer has restricted adb permissions and apps using Shevery will not work properly.\n\nUsually, this limitation can be lifted by adjusting some options in "Developer options". Please read the help for details on how to do this.\n\nYou may need to restart Shevery for the operation to take effect.</string>
+    <string name="app_management_dialog_adb_is_limited_message">It\'s highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href="%1$s">this document</a></b>.</string>
+    <string name="rish_description">With %1$s, in any terminal app, you can connect to and interact with the shell runs by Shevery.
+<p>About the detailed usage %1$s, tap to view the document.</string>
+    <string name="about_view_source_code">View source code at %s</string>
+    <string name="permission_group_label">Shevery</string>
+    <string name="permission_group_description">@string/permission_label</string>
+    <string name="permission_warning_template">Allow <b>%1$s</b> to %2$s?</string>
+    <string name="starting_root_shell">Starting root shell…</string>
+    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> has been copied to clipboard.</string>
+    <string name="dialog_legacy_not_support_message">Legacy Shevery has been deprecated since March 2019. Also, legacy Shevery does not work on newer Android systems.<p>Please ask the developer of <b>%1$s</b> to update.</string>
+    <string name="dialog_requesting_legacy_message"><b>%1$s</b> has modern Shevery support, but it\'s requesting legacy Shevery. This could because Shevery is not running, please check in Shevery app.<p>Legacy Shevery has been deprecated since March 2019.</string>
+    <string name="home_dhizuku_title">Start (via Dhizuku)</string>
+    <string name="home_dhizuku_description">For devices managed by Dhizuku, you can start Shevery directly using Device Owner privileges.</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="app_management_select_all">அனைத்தையும் தேர்ந்தெடுக்கவும்</string>
     <string name="app_management_deselect_all">அனைத்தையும் தேர்ந்தெடுப்பை நீக்கு</string>
     <string name="app_management_dialog_adb_is_limited_title">adb-இன் அனுமதி வரையறுக்கப்பட்டது</string>
-    <string name="app_management_dialog_adb_is_limited_message">உங்கள் சாதன உற்பத்தியாளர் adb-க்கான அனுமதியைக் கட்டுப்படுத்தியிருக்க அதிக வாய்ப்புள்ளது. உங்கள் அமைப்புக்கு ஒரு தீர்வு <b><a href="%1$s">இந்த ஆவணத்தில்</b> இருக்கலாம்.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[உங்கள் சாதன உற்பத்தியாளர் adb-க்கான அனுமதியைக் கட்டுப்படுத்தியிருக்க அதிக வாய்ப்புள்ளது. உங்கள் அமைப்புக்கு ஒரு தீர்வு <b><a href="%1$s">இந்த ஆவணத்தில்</b> இருக்கலாம்.]]></string>
     <string name="app_management_item_summary_requires_root">* ஷெவரி ரூட்டுடன் இயங்க வேண்டும்</string>
     <string name="app_management_loading">செயலிகள் ஏற்றப்படுகின்றன…</string>
     <string name="home_terminal_title">டெர்மினல் செயலிகளில் ஷெவரி பயன்படுத்தவும்</string>
@@ -235,7 +235,7 @@
     <string name="permission_group_description">@சரடு/அனுமதிக்_குறிச்சொல்</string>
     <string name="permission_label">அணுகல் ஷெவரி</string>
     <string name="permission_description">ஷெவரி பயன்படுத்துவதற்கு செயலியை அனுமதிக்கவும்.</string>
-    <string name="permission_warning_template"><b>%1$s</b>-ஐ %2$s செய்ய அனுமதிக்கவா?</string>
+    <string name="permission_warning_template"><![CDATA[<b>%1$s</b>-ஐ %2$s செய்ய அனுமதிக்கவா?]]></string>
     <string name="grant_dialog_button_allow_always">எல்லா நேரமும் அனுமதிக்கவும்</string>
     <string name="grant_dialog_button_deny">மறு</string>
     <string name="starter">தொடக்க உணவு</string>
@@ -247,7 +247,7 @@
     <string name="dialog_legacy_not_support_title">%1$s நவீன ஷெவரிக்கு ஆதரவளிக்கவில்லை</string>
     <string name="dialog_legacy_not_support_message">லெகசி ஷெவரி மார்ச் 2019 முதல் வழக்கற்றதாகிவிட்டது. மேலும், லெகசி ஷெவரி புதிய ஆண்ட்ராய்டு அமைப்புகளில் வேலை செய்யாது. %1$s-இன் டெவலப்பரிடம் புதுப்பிக்கச் சொல்லவும்.</string>
     <string name="dialog_requesting_legacy_title">%1$s பாரம்பரிய ஷெவரி கோருகிறார்</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b>-க்கு நவீன Shevery ஆதரவு உள்ளது, ஆனால் அது பழைய Shevery-ஐக் கோருகிறது. Shevery இயங்காததால் இது நிகழலாம், Shevery செயலியில் சரிபார்க்கவும்.பழைய Shevery மார்ச் 2019 முதல் கைவிடப்பட்டுள்ளது.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b>-க்கு நவீன Shevery ஆதரவு உள்ளது, ஆனால் அது பழைய Shevery-ஐக் கோருகிறது. Shevery இயங்காததால் இது நிகழலாம், Shevery செயலியில் சரிபார்க்கவும்.பழைய Shevery மார்ச் 2019 முதல் கைவிடப்பட்டுள்ளது.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">திறந்த ஷெவரி</string>
     <string name="lab_features_title">ஆய்வக அம்சங்கள்</string>
     <string name="lab_features_summary">சோதனை அம்சங்கள்</string>
@@ -384,7 +384,7 @@
     <string name="wear_catalog_sort_official">அதிகாரப்பூர்வமான</string>
     <string name="wear_catalog_sort_by">வரிசைப்படுத்து</string>
     <string name="wear_catalog_filter">வடிகட்டி</string>
-    <string name="backup_restore_title">காப்புப் பிரதி & மீட்டெடுப்பு</string>
+    <string name="backup_restore_title"><![CDATA[காப்புப் பிரதி & மீட்டெடுப்பு]]></string>
     <string name="backup_title">காப்பு அமைப்புகள் மற்றும் தொகுதிகள்</string>
     <string name="backup_summary">கட்டமைப்பு மற்றும் மாட்யூல்களை ஒரு ZIP கோப்பில் ஏற்றுமதி செய்யவும்</string>
     <string name="restore_title">அமைப்புகள் மற்றும் மாட்யூல்களை மீட்டமை</string>

@@ -508,4 +508,33 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="settings_compat_stub_uninstalled">Legacy stub removed</string>
     <string name="settings_compat_stub_failed">Failed to %1$s the legacy stub via %2$s: %3$s</string>
     <string name="settings_compat_stub_none">No channel available (start Shevery first)</string>
+    <string name="app_name">شيفري</string>
+    <string name="home_status_service_version_update">الإصدار %2$s، %1$s<br>ابدأ من جديد للتحديث إلى الإصدار %3$s</string>
+    <string name="home_adb_title">ابدأ بالاتصال بجهاز كمبيوتر</string>
+    <string name="home_adb_description">بالنسبة للأجهزة التي لم يتم عمل روت لها، يتعين عليك استخدام adb لتشغيل Shevery (يتطلب اتصالاً بالكمبيوتر). يجب تكرار هذه العملية في كل مرة يتم فيها إعادة تشغيل الجهاز. يرجى <b><a href="%1$s">قراءة دليل المساعدة</a></b>.</string>
+    <string name="home_wireless_adb_description">في نظام أندرويد 11 أو الإصدارات الأحدث، يمكنك تمكين ميزة «التصحيح اللاسلكي» وتشغيل Shevery مباشرةً من جهازك، دون الحاجة إلى توصيله بجهاز كمبيوتر.<p>يرجى الاطلاع أولاً على الدليل التفصيلي خطوة بخطوة.</string>
+    <string name="home_wireless_adb_description_pre_11">قبل إصدار Android 11، كان من الضروري توصيل الجهاز بجهاز كمبيوتر لتمكين ميزة التصحيح اللاسلكي.</string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">يرجى محاولة تعطيل ميزة "تصحيح الأخطاء لاسلكيًا" ثم إعادة تمكينها إذا استمر الجهاز في البحث.</string>
+    <string name="dialog_adb_pairing_message">يرجى بدء عملية الاقتران باتباع الخطوات التالية: "خيارات المطور" - "تصحيح الأخطاء لاسلكيًا" - "اقتران الجهاز باستخدام رمز الاقتران".\n\nبعد بدء عملية الاقتران، ستتمكن من إدخال رمز الاقتران.</string>
+    <string name="adb_pairing_tutorial_content_steps">ادخل إلى «خيارات المطور» - «تصحيح الأخطاء لاسلكيًا». اضغط على «إقران الجهاز باستخدام رمز الإقران»، وسترى رمزًا مكونًا من ستة أرقام.</string>
+    <string name="adb_pairing_tutorial_content_miui">قد يحتاج مستخدمو MIUI إلى تغيير نمط الإشعارات إلى «Android» من «الإشعارات» - «شريط الإشعارات» في إعدادات النظام.</string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable">يرجى ملاحظة أن الجزء الأيسر من خيار «التصحيح اللاسلكي» قابل للنقر، والنقر عليه سيؤدي إلى فتح صفحة جديدة. أما تشغيل المفتاح الموجود على اليمين فقط فهو خطأ.</string>
+    <string name="home_root_title">ابدأ (للأجهزة التي تم عمل روت لها)</string>
+    <string name="home_root_description">بالإضافة إلى ذلك، يمكن تشغيل Shevery تلقائيًا عند بدء التشغيل. وإذا لم يحدث ذلك، يرجى التحقق مما إذا كان نظامك أو أدوات الجهات الخارجية قد فرضت قيودًا على Shevery.<br>يمكنك الرجوع إلى %s.</string>
+    <string name="home_root_description_sui">إذا كنت تستخدم Magisk، فيمكنك تجربة %1$s. بالنسبة لمستخدمي الجذر، سيحل هذا البرنامج محل Shevery في نهاية المطاف. لاحظ أن التطبيقات الحالية تحتاج إلى تعديل بسيط لاستخدام %2$s.</string>
+    <string name="home_app_management_view_authorized_apps">انقر لإدارة التطبيقات المصرح بها</string>
+    <string name="home_adb_is_limited_description">لقد قامت الشركة المصنعة لجهازك بتقييد أذونات adb، ولن تعمل التطبيقات التي تستخدم Shevery بشكل صحيح.\n\nعادةً ما يمكن رفع هذا التقييد عن طريق تعديل بعض الخيارات في "خيارات المطور". يرجى قراءة دليل المساعدة للحصول على تفاصيل حول كيفية القيام بذلك.\n\nقد تحتاج إلى إعادة تشغيل Shevery حتى تصبح التغييرات سارية المفعول.</string>
+    <string name="app_management_dialog_adb_is_limited_message">من المحتمل جدًّا أن تكون الشركة المصنعة لجهازك قد فرضت قيودًا على أذونات adb.<p>قد تجد حلاً مناسبًا لنظامك في <b><a href="%1$s">هذا المستند</a></b>.</string>
+    <string name="rish_description">باستخدام %1$s، في أي تطبيق محطة طرفية، يمكنك الاتصال ببيئة التشغيل التي تديرها Shevery والتفاعل معها.
+<p>لمعرفة تفاصيل استخدام %1$s، انقر لعرض الوثيقة.</string>
+    <string name="about_view_source_code">عرض شفرة المصدر على %s</string>
+    <string name="permission_group_label">شيفري</string>
+    <string name="permission_group_description">@string/تسمية_الترخيص</string>
+    <string name="permission_warning_template">هل تسمح لـ <b>%1$s</b> بـ %2$s؟</string>
+    <string name="starting_root_shell">بدء تشغيل شل الجذر…</string>
+    <string name="toast_copied_to_clipboard_with_text"><b>%s</b> تم نسخه إلى الحافظة.</string>
+    <string name="dialog_legacy_not_support_message">تم إيقاف دعم الإصدار القديم من Shevery منذ مارس 2019. كما أن الإصدار القديم من Shevery لا يعمل على أنظمة أندرويد الأحدث.<p>يرجى مطالبة مطور <b>%1$s</b> بتحديث التطبيق.</string>
+    <string name="dialog_requesting_legacy_message"><b>%1$s</b> يدعم الإصدار الحديث من Shevery، لكنه يطلب الإصدار القديم من Shevery. قد يكون السبب في ذلك أن Shevery غير قيد التشغيل، يرجى التحقق من ذلك في تطبيق Shevery.<p>تم إيقاف دعم الإصدار القديم من Shevery منذ مارس 2019.</string>
+    <string name="home_dhizuku_title">البدء (عبر Dhizuku)</string>
+    <string name="home_dhizuku_description">بالنسبة للأجهزة التي تديرها Dhizuku، يمكنك تشغيل Shevery مباشرةً باستخدام صلاحيات «مالك الجهاز».</string>
 </resources>

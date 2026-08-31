@@ -16,7 +16,7 @@
     <string name="home_status_service_version">ఆవృత్తి %2$s, %1$s</string>
     <string name="home_status_service_version_update">వెర్షన్ %2$s, %1$s వెర్షన్ %3$sకు అప్‌డేట్ చేయడానికి మళ్లీ ప్రారంభించండి</string>
     <string name="home_adb_title">కంప్యూటర్‌కు కనెక్ట్ చేయడం ద్వారా ప్రారంభించండి</string>
-    <string name="home_adb_description">రూట్ లేని పరికరాల కోసం, Sheveryని ప్రారంభించడానికి మీరు adbని ఉపయోగించాలి (కంప్యూటర్ కనెక్షన్ అవసరం). పరికరాన్ని రీస్టార్ట్ చేసిన ప్రతిసారీ ఈ ప్రక్రియను పునరావృతం చేయాలి. దయచేసి <b><a href="%1$s">సహాయం చదవండి</b>.</string>
+    <string name="home_adb_description"><![CDATA[రూట్ లేని పరికరాల కోసం, Sheveryని ప్రారంభించడానికి మీరు adbని ఉపయోగించాలి (కంప్యూటర్ కనెక్షన్ అవసరం). పరికరాన్ని రీస్టార్ట్ చేసిన ప్రతిసారీ ఈ ప్రక్రియను పునరావృతం చేయాలి. దయచేసి <b><a href="%1$s">సహాయం చదవండి</b>.]]></string>
     <string name="home_adb_button_view_help">సహాయం చదవండి</string>
     <string name="home_adb_button_view_command">వీక్షణ ఆజ్ఞ</string>
     <string name="home_adb_dialog_view_command_notice">ఇంకా కొన్ని ఇతర పరిగణనలు ఉన్నాయి, దయచేసి ముందుగా మీరు సహాయం చదివారని నిర్ధారించుకోండి.</string>
@@ -86,7 +86,7 @@
     <string name="app_management_select_all">అన్నింటినీ ఎంచుకోండి</string>
     <string name="app_management_deselect_all">అన్నింటినీ ఎంపిక తీయండి</string>
     <string name="app_management_dialog_adb_is_limited_title">ADB అనుమతి పరిమితం</string>
-    <string name="app_management_dialog_adb_is_limited_message">మీ పరికర తయారీదారు adb అనుమతిని పరిమితం చేసే అవకాశం ఎక్కువగా ఉంది. మీ సిస్టమ్‌కు <b><a href="%1$s">ఈ పత్రంలో</b> ఒక పరిష్కారం ఉండవచ్చు.</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[మీ పరికర తయారీదారు adb అనుమతిని పరిమితం చేసే అవకాశం ఎక్కువగా ఉంది. మీ సిస్టమ్‌కు <b><a href="%1$s">ఈ పత్రంలో</b> ఒక పరిష్కారం ఉండవచ్చు.]]></string>
     <string name="app_management_item_summary_requires_root">* షెవరీ రూట్‌తో నడవాల్సి ఉంటుంది</string>
     <string name="app_management_loading">యాప్‌లు లోడ్ అవుతున్నాయి…</string>
     <string name="home_terminal_title">టర్మినల్ యాప్‌లలో షెవరీని ఉపయోగించండి</string>
@@ -203,7 +203,7 @@
     <string name="modules_updating">మాడ్యూల్‌ను అప్‌డేట్ చేస్తోంది…</string>
     <string name="modules_update_success">మాడ్యూల్ v%s కు అప్‌డేట్ చేయబడింది</string>
     <string name="modules_download_downloads">డౌన్‌లోడ్‌లకు డౌన్‌లోడ్ చేయండి</string>
-    <string name="modules_download_install">డౌన్‌లోడ్ & ఇన్‌స్టాల్</string>
+    <string name="modules_download_install"><![CDATA[డౌన్‌లోడ్ & ఇన్‌స్టాల్]]></string>
     <string name="modules_downloading">డౌన్‌లోడ్ అవుతోంది…</string>
     <string name="modules_download_enqueued">పొందుపరిచేది నేపథ్యంలో ప్రారంభమైంది</string>
     <string name="modules_search_placeholder">కేటలాగ్ మాడ్యూల్స్ కోసం వెతకండి…</string>
@@ -245,9 +245,9 @@
     <string name="toast_copied_to_clipboard">%s\nక్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది.</string>
     <string name="toast_copied_to_clipboard_with_text">%s క్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది.</string>
     <string name="dialog_legacy_not_support_title">%1$s ఆధునిక షెవరిని మద్దతు ఇవ్వదు</string>
-    <string name="dialog_legacy_not_support_message">లెగసీ షెవరీ మార్చి 2019 నుండి నిష్క్రియం చేయబడింది. అలాగే, లెగసీ షెవరీ కొత్త ఆండ్రాయిడ్ సిస్టమ్‌లలో పనిచేయదు. దయచేసి <b>%1$s</b> డెవలపర్‌ను అప్‌డేట్ చేయమని అడగండి.</string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[లెగసీ షెవరీ మార్చి 2019 నుండి నిష్క్రియం చేయబడింది. అలాగే, లెగసీ షెవరీ కొత్త ఆండ్రాయిడ్ సిస్టమ్‌లలో పనిచేయదు. దయచేసి <b>%1$s</b> డెవలపర్‌ను అప్‌డేట్ చేయమని అడగండి.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s వారసత్వపు షెవరీని అభ్యర్థిస్తున్నారు</string>
-    <string name="dialog_requesting_legacy_message"><b>%1$s</b> ఆధునిక షెవరి సపోర్ట్‌ను కలిగి ఉంది, కానీ ఇది లెగసీ షెవరిని అభ్యర్థిస్తోంది. షెవరి రన్ అవ్వకపోవడం దీనికి కారణం కావచ్చు, దయచేసి షెవరి యాప్‌లో తనిఖీ చేయండి.లెగసీ షెవరి మార్చి 2019 నుండి నిలిపివేయబడింది.</string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> ఆధునిక షెవరి సపోర్ట్‌ను కలిగి ఉంది, కానీ ఇది లెగసీ షెవరిని అభ్యర్థిస్తోంది. షెవరి రన్ అవ్వకపోవడం దీనికి కారణం కావచ్చు, దయచేసి షెవరి యాప్‌లో తనిఖీ చేయండి.లెగసీ షెవరి మార్చి 2019 నుండి నిలిపివేయబడింది.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">ఓపెన్ షెవరి</string>
     <string name="lab_features_title">ప్రయోగశాల లక్షణాలు</string>
     <string name="lab_features_summary">ప్రయోగాత్మక లక్షణాలు</string>
@@ -349,9 +349,9 @@
     <string name="shevery_update_channel">ఛానెల్‌ను నవీకరించండి</string>
     <string name="shevery_update_channel_summary">అప్‌డేట్ విడుదల ఛానెల్‌ను ఎంచుకోండి</string>
     <string name="app_update_channel_stable">స్థిరమైన</string>
-    <string name="app_update_channel_beta">ముందస్తు విడుదల & బీటా</string>
+    <string name="app_update_channel_beta"><![CDATA[ముందస్తు విడుదల & బీటా]]></string>
     <string name="shevery_update_group_title">షెవరీ యాప్ అప్‌డేట్స్</string>
-    <string name="shevery_update_modules_group_title">మాడ్యూల్ అప్‌డేట్‌లు & కేటలాగ్</string>
+    <string name="shevery_update_modules_group_title"><![CDATA[మాడ్యూల్ అప్‌డేట్‌లు & కేటలాగ్]]></string>
     <string name="shevery_update_check_failed">అప్‌డేట్ తనిఖీ విఫలమైంది: %s</string>
     <string name="modules_catalog">జాబితా</string>
     <string name="modules_catalog_title">మాడ్యూల్ క్యాటలాగ్</string>
@@ -384,10 +384,10 @@
     <string name="wear_catalog_sort_official">అధికారిక</string>
     <string name="wear_catalog_sort_by">క్రమబద్ధీకరించు</string>
     <string name="wear_catalog_filter">ఫిల్టర్</string>
-    <string name="backup_restore_title">బ్యాకప్ & పునరుద్ధరణ</string>
-    <string name="backup_title">బ్యాకప్ సెట్టింగ్‌లు & మాడ్యూల్స్</string>
+    <string name="backup_restore_title"><![CDATA[బ్యాకప్ & పునరుద్ధరణ]]></string>
+    <string name="backup_title"><![CDATA[బ్యాకప్ సెట్టింగ్‌లు & మాడ్యూల్స్]]></string>
     <string name="backup_summary">కాన్ఫిగరేషన్‌ను మరియు మాడ్యూల్స్‌ను ఒక ZIP ఫైల్‌కు ఎగుమతి చేయండి</string>
-    <string name="restore_title">సెట్టింగ్‌లు & మాడ్యూల్స్‌ను పునరుద్ధరించండి</string>
+    <string name="restore_title"><![CDATA[సెట్టింగ్‌లు & మాడ్యూల్స్‌ను పునరుద్ధరించండి]]></string>
     <string name="restore_summary">ZIP ఫైల్ నుండి కాన్ఫిగరేషన్ మరియు మాడ్యూల్స్‌ను దిగుమతి చేయండి</string>
     <string name="settings_sections_title">బ్యాకప్‌లు మరియు ఇతర</string>
     <string name="backup_section_title">బ్యాకప్‌లు</string>
@@ -405,7 +405,7 @@
     <string name="comput_api_key_label">API కీ</string>
     <string name="comput_show_api_key">API కీని చూపించు</string>
     <string name="comput_hide_api_key">API కీని దాచండి</string>
-    <string name="comput_gemini_model_performance">అధిక పనితీరు కోడింగ్ & ఏజెంటిక్ (సిఫార్సు చేయబడింది)</string>
+    <string name="comput_gemini_model_performance"><![CDATA[అధిక పనితీరు కోడింగ్ & ఏజెంటిక్ (సిఫార్సు చేయబడింది)]]></string>
     <string name="comput_gemini_model_lightweight">తేలికపాటి అధిక వేగపు నమూనా</string>
     <string name="comput_gemini_api_error">జెమిని API దోష కోడ్ %1$dను తిరిగి ఇచ్చింది: %2$s</string>
     <string name="comput_gemini_connection_error">కనెక్షన్ దోషం.</string>
