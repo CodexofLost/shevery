@@ -77,7 +77,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Odprite »Možnosti za razvijalce« – »Brezžično odpravljanje napak«. Tapnite »Poveži napravo s kodo za povezovanje«; prikazala se bo šestmestna koda.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Vnesite kodo iz obvestila, da zaključite povezovanje.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Za postopek povezovanja morate odgovoriti na obvestilo aplikacije Shevery. Prosimo, dovolite aplikaciji Shevery, da objavlja obvestila.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Uporabniki MIUI bodo morda morali v sistemskih nastavitvah v meniju »Obvestila« – »Zavesa z obvestili« slog obvestil spremeniti iz »Obvestila« v »Android«.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[V nasprotnem primeru morda ne boste mogli vnesti kode za povezavo iz obvestila.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Upoštevajte, da je levi del možnosti »Brezžično odpravljanje napak« klikljiv; če ga pritisnete, se odpre nova stran. Nepravilno je, če vklopite samo stikalo na desni strani.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Nazaj na Shevery in zaženi Shevery.]]></string>
@@ -456,7 +456,7 @@
     <string name="comput_record_macro"><![CDATA[Snemanje makra]]></string>
     <string name="comput_recording_active"><![CDATA[Snemanje je v teku. Izvajajte ukaze prek glavnega vnosa, da jih dodate v ta makro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Shranjeni makroji]]></string>
-    <string name="comput_no_macros"><![CDATA[Zaenkrat še ni shranjenih makrov. Kliknite »Posnemi makro«, da začnete snemati ukaze v konzoli.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Izbriši]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Potrditev ponovnega naročila]]></string>
     <string name="comput_execute"><![CDATA[Izvedi]]></string>

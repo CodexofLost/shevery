@@ -390,7 +390,7 @@
     <string name="comput_record_macro"><![CDATA[הקלט מאקרו]]></string>
     <string name="comput_recording_active"><![CDATA[ההקלטה פעילה. הפעל פקודות באמצעות הקלט הראשי כדי להוסיפן למאקרו זה.]]></string>
     <string name="comput_saved_macros"><![CDATA[מאקרואים שמורים]]></string>
-    <string name="comput_no_macros"><![CDATA[אין מאקרואים שמורים עדיין. לחץ על 'הקלט מאקרו' כדי להתחיל.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[מחק]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[אישור ReCommand]]></string>
     <string name="comput_execute"><![CDATA[הפעל]]></string>

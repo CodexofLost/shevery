@@ -71,7 +71,7 @@
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[กลับไปที่ Shizuku เพื่อเริ่ม Shizuku]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[โปรดให้ทราบว่า ส่วนด้านซ้ายของตัวเลือก "การแก้ไขข้อบกพร่องผ่าน Wi-Fi" สามารถกดได้ เมื่อแตะแล้วจะเปิดหน้าใหม่ขึ้นมา การแค่เปิดสวิตช์ที่ด้านขวาอย่างเดียวนั้นไม่ถูกต้อง]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[ไม่เช่นนั้นจะไม่สามารถป้อนรหัสการจับคู่ลงในการแจ้งเตือน]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[ผู้ใช้ MIUI อาจจำเป็นต้องเปลี่ยนสไตล์การแจ้งเตือนเป็น "Android" ใน "การแจ้งเตือน" -"เฉดการแจ้งเตือน" ในการตั้งค่าของระบบ]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[กระบวนการจับคู่จำเป็นต้องมีการป้อนข้อมูลลงในการแจ้งเตือนของ Shizuku โปรดอนุญาตให้ Shizuku ส่งการแจ้งเตือน]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[ป้อนรหัสลงไปในการแจ้งเตือนเพื่อเสร็จสิ้นการจับคู่]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[เข้าไปยัง "ตัวเลือกสำหรับนักพัฒนาแอป" - "การแก้ไขข้อบกพร่องผ่าน Wi-Fi" แตะ "จับคู่อุปกรณ์ผ่านรหัสการจับคู่" ก็จะพบกับรหัสหกตัว]]></string>
@@ -455,7 +455,7 @@
     <string name="comput_record_macro"><![CDATA[บันทึกมาโคร]]></string>
     <string name="comput_recording_active"><![CDATA[กำลังบันทึกอยู่ ใช้ช่องป้อนข้อมูลหลักเพื่อรันคำสั่งและเพิ่มคำสั่งเหล่านั้นลงในมาโครนี้]]></string>
     <string name="comput_saved_macros"><![CDATA[มาโครที่บันทึกไว้]]></string>
-    <string name="comput_no_macros"><![CDATA[ยังไม่มีมาโครที่บันทึกไว้ คลิก 'บันทึกมาโคร' เพื่อเริ่มบันทึกคำสั่งในคอนโซล]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[ลบ]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ยืนยันคำสั่ง ReCommand]]></string>
     <string name="comput_execute"><![CDATA[ดำเนินการ]]></string>

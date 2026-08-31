@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Μπείτε στις «Επιλογές προγραμματιστή» - «Ασύρματη αποσφαλμάτωση». Πατήστε «Σύζευξη συσκευής με κωδικό σύζευξης» και θα εμφανιστεί ένας εξαψήφιος κωδικός.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Εισάγετε τον κωδικό που αναγράφεται στην ειδοποίηση για να ολοκληρώσετε τη σύζευξη.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Για τη διαδικασία σύζευξης πρέπει να ανταποκριθείτε σε μια ειδοποίηση από την Shevery. Παρακαλούμε επιτρέψτε στην Shevery να δημοσιεύει ειδοποιήσεις.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Οι χρήστες του MIUI ενδέχεται να χρειαστεί να αλλάξουν τη ρύθμιση του τύπου ειδοποιήσεων από «Ειδοποίηση» - «Παράθυρο ειδοποιήσεων» στις ρυθμίσεις συστήματος σε «Android».]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Διαφορετικά, ενδέχεται να μην μπορείτε να εισαγάγετε τον κωδικό σύζευξης από την ειδοποίηση.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Παρακαλώ σημειώστε ότι το αριστερό τμήμα της επιλογής «Ασύρματο εντοπισμό σφαλμάτων» είναι ενεργό· αν το πατήσετε, θα ανοίξει μια νέα σελίδα. Μόνο η ενεργοποίηση του διακόπτη στα δεξιά είναι λανθασμένη.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Επιστροφή στο Shevery και έναρξη του Shevery.]]></string>
@@ -453,7 +453,7 @@
     <string name="comput_record_macro"><![CDATA[Εγγραφή μακροεντολής]]></string>
     <string name="comput_recording_active"><![CDATA[Η εγγραφή είναι ενεργή. Εκτελέστε εντολές μέσω της κύριας εισόδου για να τις προσθέσετε σε αυτή τη μακροεντολή.]]></string>
     <string name="comput_saved_macros"><![CDATA[Αποθηκευμένες μακροεντολές]]></string>
-    <string name="comput_no_macros"><![CDATA[Δεν υπάρχουν αποθηκευμένες μακροεντολές ακόμα. Κάντε κλικ στο «Εγγραφή μακροεντολής» για να ξεκινήσετε την εγγραφή εντολών της κονσόλας.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Διαγραφή]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Επιβεβαίωση ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Εκτέλεση]]></string>

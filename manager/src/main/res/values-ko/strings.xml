@@ -45,7 +45,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["개발자 옵션" - "무선 디버깅"을 선택합니다. "페어링 코드로 장치 페어링"을 탭하면 6자리 코드가 표시됩니다.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[알림에 코드를 입력하면 페어링이 완료됩니다.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[페어링 프로세스에서는 Shizuku의 알림과 상호 작용해야 합니다. Shizuku가 알림을 게시하도록 허용하십시오.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI 사용자는 시스템 설정의 "알림" - "알림 창"에서 알림 스타일을 "Android"로 전환해야 합니다.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[그렇지 않으면 알림에서 페어링 코드를 입력하지 못할 수 있습니다.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA["무선 디버깅" 옵션의 왼쪽 부분을 클릭할 수 있으며, 탭하면 새 페이지가 열립니다. 오른쪽의 스위치를 켜는 것만으로는 올바르지 않습니다.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Shizuku로 돌아가서 Shizuku를 시작하세요.]]></string>
@@ -385,7 +385,7 @@
     <string name="comput_record_macro"><![CDATA[매크로 녹화]]></string>
     <string name="comput_recording_active"><![CDATA[녹화 활성화됨. 이 매크로에 추가하려면 기본 입력을 사용하여 명령을 실행하세요.]]></string>
     <string name="comput_saved_macros"><![CDATA[저장된 매크로]]></string>
-    <string name="comput_no_macros"><![CDATA[저장된 매크로가 없습니다. '매크로 녹화'를 클릭하여 시작하세요.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[삭제]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand 확인]]></string>
     <string name="comput_execute"><![CDATA[실행]]></string>

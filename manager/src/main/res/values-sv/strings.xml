@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Gå till ”Utvecklingsalternativ” – ”Trådlös felsökning”. Tryck på ”Koppla ihop enheten med kopplingskod” – då visas en sexsiffrig kod.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Ange koden i meddelandet för att slutföra parkopplingen.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[För att kunna genomföra parkopplingen måste du svara på ett meddelande från Shevery. Se till att du tillåter Shevery att skicka meddelanden.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI-användare kan behöva ändra meddelandestilen till ”Android” från ”Meddelanden” – ”Meddelandefältet” i systeminställningarna.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Annars kanske du inte kan ange parningskoden från meddelandet.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Observera att den vänstra delen av alternativet ”Trådlös felsökning” är klickbar – om du trycker på den öppnas en ny sida. Det är fel att endast aktivera reglaget till höger.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Tillbaka till Shevery och starta Shevery.]]></string>
@@ -455,7 +455,7 @@
     <string name="comput_record_macro"><![CDATA[Spela in makro]]></string>
     <string name="comput_recording_active"><![CDATA[Inspelning pågår. Använd huvudingången för att köra kommandon och lägga till dem i detta makro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Spara makron]]></string>
-    <string name="comput_no_macros"><![CDATA[Inga makron har sparats ännu. Klicka på ”Spela in makro” för att börja spela in konsolkommandon.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Ta bort]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Bekräftelse av ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Kör]]></string>

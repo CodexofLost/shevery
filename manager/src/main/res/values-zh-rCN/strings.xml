@@ -49,7 +49,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[前往“开发者选项” - “无线调试”。点击“使用配对码配对设备”，您将看到一个六位数配对码。]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[在通知栏中输入配对码以完成配对。]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[配对过程需要与 Shevery 通知进行交互。请允许 Shevery 发送通知。]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI 用户可能需要在系统设置“通知与控制中心” - “通知显示样式”中更改为“Android”。]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[否则，您可能无法在通知中输入配对码。]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[请注意，“无线调试”选项左侧文字区域可点击进入新页面。仅开启右侧开关是不够的。]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[返回 Shevery 并启动服务。]]></string>
@@ -428,7 +428,7 @@
     <string name="comput_record_macro"><![CDATA[录制宏]]></string>
     <string name="comput_recording_active"><![CDATA[正在录制。从主输入框运行命令以将其添加到此宏中。]]></string>
     <string name="comput_saved_macros"><![CDATA[已保存的宏]]></string>
-    <string name="comput_no_macros"><![CDATA[暂无保存的宏。点击“录制宏”开始。]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[删除]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand 确认]]></string>
     <string name="comput_execute"><![CDATA[执行]]></string>

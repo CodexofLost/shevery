@@ -47,7 +47,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["Dasturchi opsiyalari" - "Simsiz nosozliklarni bartaraf etish" menyusiga kiring. Olti xonali kodni ko'rasiz.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Juftlashni yakunlash uchun kiritish kodi bildirishnomasiga yozing.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Juftlash jarayoni bildirishnomalar bilan ishlashni talab qiladi.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI foydalanuvchilari bildirishnoma uslubini Android rejimiga o'tkazishlari kerak bo'lishi mumkin.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Aks holda siz kodingizni kirita olmaysiz.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Eslatma: "Simsiz nosozliklarni bartaraf etish" bandining chap tomonini bosish mumkin.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Shevery dasturiga qayting va uni ishga tushiring.]]></string>
@@ -392,7 +392,7 @@
     <string name="comput_record_macro"><![CDATA[Makrosni yozib olish]]></string>
     <string name="comput_recording_active"><![CDATA[Yozib olish faol.]]></string>
     <string name="comput_saved_macros"><![CDATA[Saqlangan makroslar]]></string>
-    <string name="comput_no_macros"><![CDATA[Hali makroslar saqlanmagan.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[O'chirish]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand tasdiqlash]]></string>
     <string name="comput_execute"><![CDATA[Bajarish]]></string>

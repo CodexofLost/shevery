@@ -50,7 +50,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["Әзірлеуші опциялары" - "Сымсыз баптау" өтіңіз. "Құрылғыны жұптастыру кодымен жұптастыру" басыңыз, сіз алты таңбалы кодты көресіз.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Жұптастыруды аяқтау үшін кодты хабарландыруға енгізіңіз.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Жұптастыру процесі Shevery хабарландыруымен әрекеттесуді талап етеді. Shevery-ге хабарландыру жіберуге рұқсат беріңіз.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI пайдаланушылары хабарландыру стилін жүйелік баптауларда "Android" стиліне ауыстыруы қажет болуы мүмкін.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Әйтпесе, хабарландырудан жұптастыру кодтарын енгізе алмауыңыз мүмкін.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Ескерту: "Сымсыз баптау" опциясының сол жағы басылады және жаңа бетті ашады. Тек оң жақтағы ауыстырып-қосқышты қосу жеткіліксіз.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Shevery-ге қайта оралып, қызметті іске қосыңыз.]]></string>
@@ -384,7 +384,7 @@
     <string name="comput_record_macro"><![CDATA[Макрос жазу]]></string>
     <string name="comput_recording_active"><![CDATA[Жазу белсенді. Бұл макросқа қосу үшін командаларды іске қосыңыз.]]></string>
     <string name="comput_saved_macros"><![CDATA[Сақталған макростар]]></string>
-    <string name="comput_no_macros"><![CDATA[Сақталған макростар жоқ. Бастау үшін 'Макрос жазу' түймесін басыңыз.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Жою]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand растау]]></string>
     <string name="comput_execute"><![CDATA[Орындау]]></string>

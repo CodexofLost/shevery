@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Minge valikule „Arendaja valikud“ – „Traadita silumine“. Puudutage valikut „Seadme sidumine sidumiskoodiga“ – ekraanile ilmub kuuekohaline kood.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Sisesta teates olev kood, et sidumine lõpule viia.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Paaritamise käigus peate reageerima Sheverylt saadud teavitustele. Palun lubage Sheveryl teavitusi postitada.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI-kasutajad peavad võib-olla süsteemi seadetest valiku „Teated” – „Teadete riba” all teavituste stiili muutma „Androidiks”.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Vastasel juhul ei pruugi teil õnnestuda sisestada teates olevat sidumiskoodi.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Pange tähele, et valiku „Wireless debugging” vasak pool on klõpsatav – selle peale klõpsates avaneb uus lehekülg. Vale on ainult parempoolse lüliti sisselülitamine.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Tagasi Shevery juurde ja alusta Sheveryt.]]></string>
@@ -453,7 +453,7 @@
     <string name="comput_record_macro"><![CDATA[Makro salvestamine]]></string>
     <string name="comput_recording_active"><![CDATA[Salvestamine on käimas. Kasuta pea sisendit käskude käivitamiseks, et need sellesse makrosse lisada.]]></string>
     <string name="comput_saved_macros"><![CDATA[Salvestatud makrod]]></string>
-    <string name="comput_no_macros"><![CDATA[Salvestatud makrosid pole veel. Klõpsa nuppu „Salvesta makro”, et alustada konsoolikäsude salvestamist.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Kustuta]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand kinnitus]]></string>
     <string name="comput_execute"><![CDATA[Käivita]]></string>

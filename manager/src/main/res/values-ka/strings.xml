@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[შეიყვანეთ "დეველოპერის პარამეტრები" - "უსადენო გამართვა". შეეხეთ "მოწყობილობის დაწყვილება დაწყვის კოდით" და დაინახავთ ექვსნიშნა კოდს.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[შეიყვანეთ კოდი შეტყობინებაში დაწყვილების დასასრულებლად.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[წყვილების პროცესისთვის საჭიროა Shevery-ს შეტყობინებასთან ურთიერთქმედება. გთხოვთ, მისცეთ Shevery-ს შეტყობინებების გამოქვეყნების უფლება.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI-ის მომხმარებლებს შესაძლოა დასჭირდეთ შეტყობინების სტილის შეცვლა "Android"-ზე, სისტემურ პარამეტრებში, განყოფილებაში "შეტყობინება - შეტყობინებების ფარდა".]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[წინააღმდეგ შემთხვევაში, შესაძლოა, შეტყობინებიდან პარინგის კოდის შეყვანა ვერ შეძლოთ.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[გთხოვთ, გაითვალისწინოთ, რომ "უსადენო გამართვის" ოფციის მარცხენა ნაწილი დაწკაპუნებადია; მასზე შეხებით ახალი გვერდი გაიხსნება. მხოლოდ მარჯვნივ მდებარე გადამრთველის ჩართვა არასწორია.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[დაუბრუნდი Shevery-ს და გაუშვი Shevery.]]></string>
@@ -453,7 +453,7 @@
     <string name="comput_record_macro"><![CDATA[მაკროსის ჩაწერა]]></string>
     <string name="comput_recording_active"><![CDATA[ჩაწერა აქტიურია. მთავარი შეყვანის გამოყენებით გაუშვით ბრძანებები, რათა დაამატოთ ისინი ამ მაკროს.]]></string>
     <string name="comput_saved_macros"><![CDATA[შენახული მაკროები]]></string>
-    <string name="comput_no_macros"><![CDATA[მაკროები ჯერ არ არის შენახული. დააჭირეთ "მაკროსის ჩაწერას" კონსოლის ბრძანებების ჩაწერის დასაწყებად.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[წაშლა]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand-ის დადასტურება]]></string>
     <string name="comput_execute"><![CDATA[შესრულება]]></string>

@@ -49,7 +49,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[前往「開發人員選項」 - 「無線偵錯」。點選「使用配對碼配對裝置」，您將看到一個六位數配對碼。]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[在通知欄中輸入配對碼以完成配對。]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[配對過程需要與 Shevery 通知進行互動。請允許 Shevery 發送通知。]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI 使用者可能需要在系統設定「通知與控制中心」中更改為「Android」樣式。]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[否則，您可能無法在通知中輸入配對碼。]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[請注意，「無線偵錯」選項左側文字區域可點選進入新頁面。僅開啟右側開關是不夠的。]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[返回 Shevery 並啟動服務。]]></string>
@@ -395,7 +395,7 @@
     <string name="comput_record_macro"><![CDATA[錄製巨集]]></string>
     <string name="comput_recording_active"><![CDATA[正在錄製。從主輸入框執行指令以將其新增至此巨集中。]]></string>
     <string name="comput_saved_macros"><![CDATA[已儲存的巨集]]></string>
-    <string name="comput_no_macros"><![CDATA[暫無儲存的巨集。點選「錄製巨集」開始。]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[刪除]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand 對話方塊]]></string>
     <string name="comput_execute"><![CDATA[執行]]></string>

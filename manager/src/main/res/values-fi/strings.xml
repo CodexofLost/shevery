@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Siirry kohtaan ”Kehittäjän asetukset” – ”Langaton virheenkorjaus”. Napauta ”Yhdistä laite pariliitokoodilla”, jolloin näkyviin tulee kuusimerkkinen koodi.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Syötä ilmoituksessa näkyvä koodi pariliitoksen viimeistelemiseksi.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Pariliitoksen muodostaminen edellyttää, että toimit Sheveryn ilmoituksen mukaisesti. Salli Sheveryn lähettää ilmoituksia.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI-käyttäjien on ehkä vaihdettava ilmoitustyyppi asetuksissa kohdassa ”Ilmoitukset” – ”Ilmoituspalkki” asetuksesta ”Ilmoitus” asetukseksi ”Android”.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Muussa tapauksessa et välttämättä voi syöttää pariliitoksen koodia ilmoituksesta.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Huomaa, että ”Langaton virheenkorjaus” -vaihtoehdon vasen osa on klikattava; sitä napauttamalla avautuu uusi sivu. Pelkästään oikealla olevan kytkimen kääntäminen on virheellinen tapa toimia.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Palaa Sheveryyn ja käynnistä Shevery.]]></string>
@@ -453,7 +453,7 @@
     <string name="comput_record_macro"><![CDATA[Tallenna makro]]></string>
     <string name="comput_recording_active"><![CDATA[Tallennus käynnissä. Suorita komentoja pääsyötön kautta lisätäksesi ne tähän makroon.]]></string>
     <string name="comput_saved_macros"><![CDATA[Tallennetut makrot]]></string>
-    <string name="comput_no_macros"><![CDATA[Tallennettuja makroja ei ole vielä. Napsauta ”Tallenna makro” aloittaaksesi konsolikomentojen tallennuksen.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Poista]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand-vahvistus]]></string>
     <string name="comput_execute"><![CDATA[Suorita]]></string>

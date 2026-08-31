@@ -49,7 +49,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["Иштеп чыгуучу параметрлери" - "Зымсыз оңдоо" бөлүмүнө кириңиз. Сиз 6 орундуу кодду көрөсүз.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Кодду билдирүү талаасына киргизиңиз.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Жупташтыруу процесси билдирүүлөр менен иштөөнү талап кылат.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI колдонуучулары билдирүү стилин Android режимине өзгөртүүсү керек болушу мүмкүн.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Болбосо жупташтыруу кодун киргизе албай каласыз.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Эскертүү: "Зымсыз оңдоо" пунктунун сол жагы басылат.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Shevery тиркемесине кайтып келип, аны иштетиңиз.]]></string>
@@ -394,7 +394,7 @@
     <string name="comput_record_macro"><![CDATA[Макросту жаздыруу]]></string>
     <string name="comput_recording_active"><![CDATA[Жаздыруу жигердүү.]]></string>
     <string name="comput_saved_macros"><![CDATA[Сакталган макростор]]></string>
-    <string name="comput_no_macros"><![CDATA[Азырынча макростор сактала элек.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Өчүрүү]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand ырастоосу]]></string>
     <string name="comput_execute"><![CDATA[Аткаруу]]></string>

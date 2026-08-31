@@ -83,7 +83,7 @@
     <string name="dialog_legacy_not_support_message"><![CDATA[Stare Shizuku utraciło wsparcie w marcu 2019 roku. Oraz stare Shizuku nie działa na nowszych wersjach Androida.<p>Poproś developera <b>%1$s</b> o aktualizację.]]></string>
     <string name="home_wireless_adb_description"><![CDATA[Od systemu Android w wersji 11 możesz używać debugowania za pomocą sieci Wifi i za pomocą tego uruchamiać Shizuku bezpośrednio z urządzenia, bez potrzeby podłączania do komputera.<p>Przejrzyj instrukcje krok po kroku żeby dowiedzieć się jak to skonfigurować.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Dla systemów Android w wersji 10 i starszej wymagane jest podłączenie do komputera w celu uruchomienia debugowania za pomocą sieci Wifi.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Użytkownicy MIUI mogą potrzebować zmiany stylu powiadomień na "Android". Zmiana ta jest możliwa w menu ustawień systemu "Powiadomienia" - "Styl powiadomień".]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="notification_channel_adb_pairing"><![CDATA[Parowanie debugowania bezprzewodowego]]></string>
     <string name="notification_adb_pairing_input_paring_code"><![CDATA[Wprowadź kod parowania]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Wprowadź kod parowania w okienku powiadomienia aby ukończyć parowanie.]]></string>
@@ -455,7 +455,7 @@
     <string name="comput_record_macro"><![CDATA[Nagraj makro]]></string>
     <string name="comput_recording_active"><![CDATA[Trwa nagrywanie. Wprowadzaj polecenia za pomocą głównego kanału wejściowego, aby dodać je do tego makra.]]></string>
     <string name="comput_saved_macros"><![CDATA[Zapisane makra]]></string>
-    <string name="comput_no_macros"><![CDATA[Nie ma jeszcze żadnych zapisanych makr. Kliknij „Nagraj makro”, aby rozpocząć nagrywanie poleceń konsoli.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Usuń]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Potwierdzenie ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Wykonaj]]></string>

@@ -49,7 +49,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[وارد "گزینه‌های توسعه دهنده" - "اشکال‌زدایی بی‌سیم" شوید.  روی "مرتبط کردن دستگاه با رمز مرتبط‌سازی" ضربه بزنید، یک رمز شش رقمی خواهید دید.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[برای تکمیل مرتبط سازی، رمز شش رقمی را در اعلان وارد کنید.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[فرآیند مرتبط شدن به شما نیاز دارد که با اعلان Shizuku تعامل داشته باشید. لطفاً به Shizuku اجازه دهید تا اعلان‌ها را ارسال کند.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[کاربران MIUI ممکن است نیاز داشته باشند که در تنظیمات دستگاه، سبک اعلان را به "اندروید" از "اعلان ها" - "سایه اعلان" تغییر دهند.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[در غیر این صورت، ممکن است نتوانید رمز مرتبط سازی را از اعلان وارد کنید.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[لطفاً توجه داشته باشید، قسمت سمت راست گزینه "اشکال زدایی بی‌سیم" قابل لمس است، با ضربه زدن روی آن صفحه جدیدی باز می شود. فقط روشن کردن دکمه سمت چپ کافی نیست.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[به Shizuku برگردید و Shizuku را راه‌اندازی کنید.]]></string>
@@ -390,7 +390,7 @@
     <string name="comput_record_macro"><![CDATA[ضبط ماکرو]]></string>
     <string name="comput_recording_active"><![CDATA[ضبط فعال است. برای افزودن به این ماکرو، دستورات را با استفاده از ورودی اصلی اجرا کنید.]]></string>
     <string name="comput_saved_macros"><![CDATA[ماکروهای ذخیره‌شده]]></string>
-    <string name="comput_no_macros"><![CDATA[هنوز هیچ ماکرویی ذخیره نشده. برای شروع روی «ضبط ماکرو» کلیک کنید.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[حذف]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[تأیید ReCommand]]></string>
     <string name="comput_execute"><![CDATA[اجرا]]></string>

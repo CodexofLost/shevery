@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Ga naar "Ontwikkelaarsopties" - "Draadloos foutopsporen". Tik op "Apparaat koppelen met koppelingscode"; er verschijnt dan een zescijferige code.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Voer de code uit de melding in om het koppelen te voltooien.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Voor het koppelingsproces moet je reageren op een melding van Shevery. Geef Shevery toestemming om meldingen te plaatsen.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI-gebruikers moeten mogelijk de meldingsstijl wijzigen van „Melding“ – „Meldingenbalk“ naar „Android“ in de systeeminstellingen.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Anders is het mogelijk dat u de koppelingscode uit de melding niet kunt invoeren.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Let op: het linkerdeel van de optie „Draadloos debuggen” is aanklikbaar; als je erop tikt, wordt er een nieuwe pagina geopend. Het is onjuist om alleen de schakelaar aan de rechterkant in te schakelen.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Terug naar Shevery en Shevery starten.]]></string>
@@ -455,7 +455,7 @@
     <string name="comput_record_macro"><![CDATA[Macro opnemen]]></string>
     <string name="comput_recording_active"><![CDATA[Opname actief. Voer opdrachten uit via de hoofdinvoer om ze aan deze macro toe te voegen.]]></string>
     <string name="comput_saved_macros"><![CDATA[Opgeslagen macro's]]></string>
-    <string name="comput_no_macros"><![CDATA[Er zijn nog geen macro's opgeslagen. Klik op 'Macro opnemen' om te beginnen met het opnemen van consoleopdrachten.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Verwijderen]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Bevestiging van ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Uitvoeren]]></string>

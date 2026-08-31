@@ -56,7 +56,7 @@
     <string name="adb_error_key_store"><![CDATA[Немогуће је генерисати кључ за бежично отклањање грешака. Ово може бити зато што је механизам KeyStore на овом уређају оштећен.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Унесите код из обавештења да бисте завршили спајање.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Процес упаривања захтева да реагујете на обавештење од Shevery. Молимо омогућите Shevery да шаље обавештења.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Корисници MIUI-ја можда ће морати да у подешавањима система пребаце стил обавештења са "Notification" на "Notification shade" – "Android".]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[У супротном, можда нећете моћи да унесете код за упаривање из обавештења.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Имајте у виду да је леви део опције "Бежично отклањање грешака" кликабилан; додирнуће га отвори нову страницу. Само је погрешно укључити прекидач са десне стране.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Вратите се у Шевери и покрените Шевери.]]></string>
@@ -455,7 +455,7 @@
     <string name="comput_record_macro"><![CDATA[Сними макро]]></string>
     <string name="comput_recording_active"><![CDATA[Снимање активно. Извршавајте команде користећи главни улаз да бисте их додали у овај макро.]]></string>
     <string name="comput_saved_macros"><![CDATA[Сачуване макрое]]></string>
-    <string name="comput_no_macros"><![CDATA[Још нема сачуваних макроса. Кликните на "Сними макро" да бисте започели снимање конзолних команди.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Избриши]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Поново затражити потврду]]></string>
     <string name="comput_execute"><![CDATA[Извршити]]></string>

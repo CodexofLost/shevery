@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Gå ind i »Udviklerindstillinger« – »Trådløs fejlfinding«. Tryk på »Par enhed med parringskode«, hvorefter du vil se en sekscifret kode.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Indtast koden fra beskeden for at fuldføre parringen.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[For at gennemføre parringsprocessen skal du reagere på en notifikation fra Shevery. Du skal give Shevery tilladelse til at sende notifikationer.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI-brugere skal muligvis skifte notifikationsstil fra »Notifikation« – »Notifikationspanel« til »Android« i systemindstillingerne.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Ellers kan du muligvis ikke indtaste parringskoden fra notifikationen.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Bemærk venligst, at den venstre del af indstillingen »Trådløs fejlfinding« kan klikkes på; hvis du trykker på den, åbnes en ny side. Det er forkert kun at aktivere kontakten til højre.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Tilbage til Shevery og start Shevery.]]></string>
@@ -453,7 +453,7 @@
     <string name="comput_record_macro"><![CDATA[Optag makro]]></string>
     <string name="comput_recording_active"><![CDATA[Optagelse i gang. Kør kommandoer via hovedindgangen for at føje dem til denne makro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Gemte makroer]]></string>
-    <string name="comput_no_macros"><![CDATA[Der er endnu ingen gemte makroer. Klik på »Optag makro« for at begynde at optage konsolkommandoer.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Slet]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Bekræftelse af ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Udfør]]></string>

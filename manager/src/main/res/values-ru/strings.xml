@@ -117,7 +117,7 @@
     <string name="home_terminal_description"><![CDATA[Запуск команд через Shevery прямиком из любимых приложений-терминалов]]></string>
     <string name="home_terminal_title"><![CDATA[Применение Shevery в эмуляторах терминала]]></string>
     <string name="home_wireless_adb_description"><![CDATA[На Android 11 или выше Вы можете включить отладку по Wi-Fi без дополнительного ПО, без подключения к компьютеру. Пожалуйста, сперва просмотрите инструкцию]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[На оболочке MIUI может потребоваться сменить параметр в пункте системных настроек «Уведомления» – «Стиль уведомлений» на «Android».]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Перейдите в «Параметры разработчика» – «Отладка по Wi-Fi». Нажмите на «Сопряжение устройства с помощью кода сопряжения» и увидите шестизначный код.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Введите код в уведомление для завершения процедуры сопряжения.]]></string>
     <string name="adb_pairing_tutorial_content_notification"><![CDATA[Уведомление от Shevery поможет завершить процедуру сопряжения.]]></string>
@@ -468,7 +468,7 @@
     <string name="comput_record_macro"><![CDATA[Записать макрос]]></string>
     <string name="comput_recording_active"><![CDATA[Идёт запись. Выполняйте команды через основное поле ввода, чтобы добавить их в этот макрос.]]></string>
     <string name="comput_saved_macros"><![CDATA[Сохранённые макросы]]></string>
-    <string name="comput_no_macros"><![CDATA[Сохранённых макросов пока нет. Нажмите «Записать макрос», чтобы начать запись команд консоли.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Удалить]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Подтверждение ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Выполнить]]></string>

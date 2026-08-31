@@ -50,7 +50,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Перейдіть у "Параметри розробника" - "Бездротове налагодження". Натисніть "З’єднати пристрій кодом з’єднання", ви побачите шестизначний код.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Введіть код у сповіщенні для завершення з’єднання.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Процес з’єднання вимагає взаємодії зі сповіщенням Shevery. Будь ласка, дозвольте Shevery надсилати сповіщення.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Користувачам MIUI може знадобитися змінити стиль сповіщень на "Android" у "Налаштування" - "Сповіщення".]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Інакше ви не зможете ввести код з’єднання зі сповіщення.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Зверніть увагу, що ліва частина опції "Бездротове налагодження" є натискальною та відкриває нову сторінку. Увімкнення лише перемикача праворуч є недостатнім.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Поверніться до Shevery та запустіть службу.]]></string>
@@ -384,7 +384,7 @@
     <string name="comput_record_macro"><![CDATA[Записати макрос]]></string>
     <string name="comput_recording_active"><![CDATA[Запис активний. Запускайте команди з основного поля для додавання в макрос.]]></string>
     <string name="comput_saved_macros"><![CDATA[Збережені макроси]]></string>
-    <string name="comput_no_macros"><![CDATA[Немає збережених макросів. Натисніть 'Записати макрос' для початку.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Видалити]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Підтвердження ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Виконати]]></string>

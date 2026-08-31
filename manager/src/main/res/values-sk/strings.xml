@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Prejdite do položky „Možnosti pre vývojárov“ – „Bezdrôtové ladenie“. Ťuknite na položku „Spárovať zariadenie pomocou párovacieho kódu“ – zobrazí sa vám šesťmiestny kód.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Zadajte kód uvedený v oznámení, aby ste dokončili párovanie.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[V rámci procesu spárovania je potrebné, aby ste reagovali na oznámenie od aplikácie Shevery. Prosím, povoľte aplikácii Shevery zobrazovať oznámenia.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Používatelia MIUI si možno budú musieť v systémových nastaveniach zmeniť štýl upozornení z „Upozornenie“ – „Oznamovacia lišta“ na „Android“.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[V opačnom prípade sa môže stať, že nebudete môcť zadať párovací kód z oznámenia.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Upozorňujeme, že ľavá časť možnosti „Bezdrôtové ladenie“ je klikateľná – ťuknutím na ňu sa otvorí nová stránka. Nesprávne je zapnúť iba prepínač na pravej strane.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Späť na Shevery a spustiť Shevery.]]></string>
@@ -455,7 +455,7 @@
     <string name="comput_record_macro"><![CDATA[Nahrávať makro]]></string>
     <string name="comput_recording_active"><![CDATA[Nahrávanie prebieha. Spúšťajte príkazy prostredníctvom hlavného vstupu, aby sa pridali do tohto makra.]]></string>
     <string name="comput_saved_macros"><![CDATA[Uložené makrá]]></string>
-    <string name="comput_no_macros"><![CDATA[Zatiaľ nie sú uložené žiadne makrá. Kliknutím na „Zaznamenať makro“ spustíte nahrávanie príkazov konzoly.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Odstrániť]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Potvrdenie ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Spustiť]]></string>

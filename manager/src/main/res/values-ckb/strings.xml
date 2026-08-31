@@ -426,7 +426,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_record_macro"><![CDATA[Record Macro]]></string>
     <string name="comput_recording_active"><![CDATA[Recording active. Run commands using the main input to add them to this macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Saved Macros]]></string>
-    <string name="comput_no_macros"><![CDATA[No saved macros yet. Click 'Record Macro' to start recording console commands.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Delete]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand confirmation]]></string>
     <string name="comput_execute"><![CDATA[Execute]]></string>

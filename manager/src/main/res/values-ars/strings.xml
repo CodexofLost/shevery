@@ -428,7 +428,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_record_macro"><![CDATA[Record Macro]]></string>
     <string name="comput_recording_active"><![CDATA[Recording active. Run commands using the main input to add them to this macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Saved Macros]]></string>
-    <string name="comput_no_macros"><![CDATA[No saved macros yet. Click 'Record Macro' to start recording console commands.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Delete]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand confirmation]]></string>
     <string name="comput_execute"><![CDATA[Execute]]></string>
@@ -517,7 +517,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[يرجى محاولة تعطيل ميزة "تصحيح الأخطاء لاسلكيًا" ثم إعادة تمكينها إذا استمر الجهاز في البحث.]]></string>
     <string name="dialog_adb_pairing_message"><![CDATA[يرجى بدء عملية الاقتران باتباع الخطوات التالية: "خيارات المطور" - "تصحيح الأخطاء لاسلكيًا" - "اقتران الجهاز باستخدام رمز الاقتران".\n\nبعد بدء عملية الاقتران، ستتمكن من إدخال رمز الاقتران.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[ادخل إلى «خيارات المطور» - «تصحيح الأخطاء لاسلكيًا». اضغط على «إقران الجهاز باستخدام رمز الإقران»، وسترى رمزًا مكونًا من ستة أرقام.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[قد يحتاج مستخدمو MIUI إلى تغيير نمط الإشعارات إلى «Android» من «الإشعارات» - «شريط الإشعارات» في إعدادات النظام.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[يرجى ملاحظة أن الجزء الأيسر من خيار «التصحيح اللاسلكي» قابل للنقر، والنقر عليه سيؤدي إلى فتح صفحة جديدة. أما تشغيل المفتاح الموجود على اليمين فقط فهو خطأ.]]></string>
     <string name="home_root_title"><![CDATA[ابدأ (للأجهزة التي تم عمل روت لها)]]></string>
     <string name="home_root_description"><![CDATA[بالإضافة إلى ذلك، يمكن تشغيل Shevery تلقائيًا عند بدء التشغيل. وإذا لم يحدث ذلك، يرجى التحقق مما إذا كان نظامك أو أدوات الجهات الخارجية قد فرضت قيودًا على Shevery.<br/>يمكنك الرجوع إلى %s.]]></string>

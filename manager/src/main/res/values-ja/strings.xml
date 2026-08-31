@@ -50,7 +50,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[「開発者向けオプション」-「ワイヤレスデバッグ」に進み、「ペアリングコードでデバイスをペアリング」をタップすると6桁のコードが表示されます。]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[通知にコードを入力してペアリングを完了します。]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[ペアリングにはSheveryの通知操作が必要です。Sheveryの通知送信を許可してください。]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUIユーザーは、「設定」-「通知」で通知スタイルを「Android」に変更する必要がある場合があります。]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[変更しないと、通知からペアリングコードを入力できない場合があります。]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[「ワイヤレスデバッグ」の左側のテキスト部分をタップすると詳細ページが開きます。右側のスイッチのみをONにしても不十分です。]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Sheveryに戻り、サービスを開始します。]]></string>
@@ -384,7 +384,7 @@
     <string name="comput_record_macro"><![CDATA[マクロを録画]]></string>
     <string name="comput_recording_active"><![CDATA[録画中。メイン入力からコマンドを実行してマクロに追加してください。]]></string>
     <string name="comput_saved_macros"><![CDATA[保存済みマクロ]]></string>
-    <string name="comput_no_macros"><![CDATA[保存されたマクロはありません。「マクロを録画」をクリックして開始してください。]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[削除]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand 確認]]></string>
     <string name="comput_execute"><![CDATA[実行]]></string>
