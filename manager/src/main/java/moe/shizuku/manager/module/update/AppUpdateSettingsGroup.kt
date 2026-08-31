@@ -32,6 +32,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
+import android.content.Intent
+import androidx.compose.material3.Icon
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.material3.Surface
 import moe.shizuku.manager.BuildConfig
 import moe.shizuku.manager.R
 import moe.shizuku.manager.module.ModuleSettings
@@ -50,6 +56,49 @@ fun AppUpdateSettingsGroup() {
     var appUpdateFrequency by remember { mutableStateOf(ModuleSettings.getAppUpdateFrequency()) }
     var isCheckingAppUpdate by remember { mutableStateOf(false) }
     var appUpdateResult by remember { mutableStateOf<SheveryAppUpdateResult?>(null) }
+
+    val pendingVersion = remember { mutableStateOf<String?>(null) }
+    val pendingUrl = remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(Unit) {
+        pendingVersion.value = ModuleSettings.getPendingUpdateVersion()
+        pendingUrl.value = ModuleSettings.getPendingUpdateUrl()
+    }
+    val version = pendingVersion.value
+    val url = pendingUrl.value
+    if (!version.isNullOrEmpty() && !url.isNullOrEmpty()) {
+        val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url))
+        Surface(
+            onClick = { context.startActivity(intent) },
+            shape = MaterialTheme.shapes.extraLarge,
+            color = MaterialTheme.colorScheme.primaryContainer,
+            tonalElevation = 2.dp,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Row(
+                modifier = Modifier.padding(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_outline_info_24),
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(R.string.home_update_available_title, version),
+                        style = MaterialTheme.typography.titleSmall,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                    Text(
+                        text = stringResource(R.string.home_update_available_body),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                }
+            }
+        }
+    }
 
     SettingsGroup(title = stringResource(R.string.shevery_update_group_title)) {
         SettingsRow(

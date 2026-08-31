@@ -46,7 +46,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Apps
 import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.rounded.Link
 import androidx.compose.material.icons.rounded.NearMe
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material.icons.rounded.Terminal
@@ -811,6 +810,30 @@ private fun HomeScreen(
             }
 
             item {
+                val pendingVersion = remember { mutableStateOf<String?>(null) }
+                val pendingUrl = remember { mutableStateOf<String?>(null) }
+                val ctx = LocalContext.current
+                LaunchedEffect(Unit) {
+                    pendingVersion.value = ModuleSettings.getPendingUpdateVersion()
+                    pendingUrl.value = ModuleSettings.getPendingUpdateUrl()
+                }
+                val version = pendingVersion.value
+                val url = pendingUrl.value
+                if (!version.isNullOrEmpty() && !url.isNullOrEmpty()) {
+                    HomeCard(
+                        icon = R.drawable.ic_outline_info_24,
+                        title = ctx.getString(R.string.home_update_available_title, version),
+                        body = ctx.getString(R.string.home_update_available_body),
+                        enabled = true,
+                        onClick = {
+                            val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url))
+                            ctx.startActivity(intent)
+                        }
+                    )
+                }
+            }
+
+            item {
                 QuickActionsPills(
                     running = running,
                     isPrimaryUser = isPrimaryUser,
@@ -1467,4 +1490,3 @@ private fun DhizukuCard(onStartDhizuku: () -> Unit) {
         )
     }
 }
-
