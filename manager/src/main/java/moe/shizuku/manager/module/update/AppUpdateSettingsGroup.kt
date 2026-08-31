@@ -149,14 +149,16 @@ fun AppUpdateSettingsGroup() {
                 ModuleSettings.setAppUpdateAutoCheckEnabled(it)
             }
         )
-        GroupDivider()
-        UpdateFrequencyDropdownForApp(
-            selected = appUpdateFrequency,
-            onSelect = {
-                appUpdateFrequency = it
-                ModuleSettings.setAppUpdateFrequency(it)
-            }
-        )
+        if (appAutoCheck) {
+            GroupDivider()
+            UpdateFrequencyDropdownForApp(
+                selected = appUpdateFrequency,
+                onSelect = {
+                    appUpdateFrequency = it
+                    ModuleSettings.setAppUpdateFrequency(it)
+                }
+            )
+        }
     }
 
     if (isCheckingAppUpdate) {
