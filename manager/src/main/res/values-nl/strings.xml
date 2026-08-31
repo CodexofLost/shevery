@@ -14,7 +14,7 @@
     <string name="accessibility_close">Sluiten</string>
     <string name="accessibility_more_options">Meer opties</string>
     <string name="accessibility_open_on_github">Openen op GitHub</string>
-    <string name="home_status_service_version_update"><![CDATA[Versie %2$s, %1$s<br>Opnieuw starten om bij te werken naar versie %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Versie %2$s, %1$s<br/>Opnieuw starten om bij te werken naar versie %3$s]]></string>
     <string name="home_adb_title">Begin met het aansluiten op een computer</string>
     <string name="home_adb_description"><![CDATA[Bij toestellen zonder root-toegang moet je adb gebruiken om Shevery te starten (hiervoor is een verbinding met een computer nodig). Dit proces moet elke keer dat het toestel opnieuw wordt opgestart, worden herhaald. Lees alstublieft <b><a href="%1$s">de help</a></b>.]]></string>
     <string name="home_adb_button_view_help">Lees de help-pagina</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery moet toegang hebben tot het lokale netwerk. Dit wordt geregeld door de netwerktoegangsrechten.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Sommige systemen (zoals MIUI) staan niet toe dat apps toegang krijgen tot het netwerk wanneer ze niet zichtbaar zijn, zelfs als de app standaard gebruikmaakt van een voorgronddienst. Schakel op dergelijke systemen de batterijoptimalisatiefuncties voor Shevery uit.</string>
     <string name="home_root_title">Start (voor apparaten met root-toegang)</string>
-    <string name="home_root_description"><![CDATA[Bovendien kan Shevery automatisch worden gestart bij het opstarten. Als dat niet het geval is, controleer dan of Shevery wordt geblokkeerd door uw systeem of door tools van derden.<br>Raadpleeg %s voor meer informatie.]]></string>
+    <string name="home_root_description"><![CDATA[Bovendien kan Shevery automatisch worden gestart bij het opstarten. Als dat niet het geval is, controleer dan of Shevery wordt geblokkeerd door uw systeem of door tools van derden.<br/>Raadpleeg %s voor meer informatie.]]></string>
     <string name="home_root_description_sui">Als je Magisk gebruikt, kun je %1$s eens proberen. Voor root-gebruikers zal dit op termijn Shevery vervangen. Let wel: bestaande apps moeten enigszins worden aangepast om %2$s te kunnen gebruiken.</string>
     <string name="home_root_button_start">Start</string>
     <string name="home_root_button_restart">Opnieuw starten</string>

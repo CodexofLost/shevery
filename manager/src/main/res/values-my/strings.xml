@@ -509,7 +509,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="app_name">ရှီဗရီ</string>
     <string name="home_status_service_version_update">ဗားရှင်း %2$s, %1$s ဗားရှင်း %3$s သို့ အပ်ဒိတ်လုပ်ရန် ပြန်စပါ။</string>
     <string name="home_adb_title">ကွန်ပျူတာနှင့် ချိတ်ဆက်ခြင်းဖြင့် စတင်ပါ။</string>
-    <string name="home_adb_description">root မပြုထားသေးသော စက်များအတွက် adb ကို အသုံးပြုပြီး Shevery ကို စတင်ဖွင့်ရန် လိုအပ်ပါသည် (ကွန်ပျူတာနှင့် ချိတ်ဆက်ထားရမည်)။ စက်ကို ပြန်စတင်တိုင်း ဤလုပ်ငန်းစဉ်ကို ထပ်မံ ဆောင်ရွက်ရမည်။ ကျေးဇူးပြု၍ <b><a href="%1$s">အကူအညီကို ဖတ်ရှုပါ</b>။</string>
+    <string name="home_adb_description"><![CDATA[root မပြုထားသေးသော စက်များအတွက် adb ကို အသုံးပြုပြီး Shevery ကို စတင်ဖွင့်ရန် လိုအပ်ပါသည် (ကွန်ပျူတာနှင့် ချိတ်ဆက်ထားရမည်)။ စက်ကို ပြန်စတင်တိုင်း ဤလုပ်ငန်းစဉ်ကို ထပ်မံ ဆောင်ရွက်ရမည်။ ကျေးဇူးပြု၍ <b><a href="%1$s">အကူအညီကို ဖတ်ရှုပါ</b>။]]></string>
     <string name="home_wireless_adb_title">ကြိုးမဲ့ဒက်ဘတ်ဂျင်းဖြင့် စတင်ပါ။</string>
     <string name="home_wireless_adb_description">Android 11 သို့မဟုတ် ထိုထက်မြင့်မားသော ဗားရှင်းတွင်၊ ကွန်ပျူတာနှင့် ချိတ်ဆက်စရာမလိုဘဲ သင့်စက်မှ တိုက်ရိုက် Wireless debugging ကို ဖွင့်ပြီး Shevery ကို စတင်အသုံးပြုနိုင်ပါသည်။ အဆင့်ဆင့် လမ်းညွှန်ချက်ကို ပထမဦးစွာ ကြည့်ရှုပါ။</string>
     <string name="home_wireless_adb_description_pre_11">Android 11 မထွက်ခင် Wireless debugging ကို ဖွင့်ရန် ကွန်ပျူတာနှင့် ချိတ်ဆက်ရပါသည်။</string>
@@ -524,13 +524,13 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="home_root_description_sui">Magisk ကို အသုံးပြုနေပါက %1$s ကို စမ်းသုံးနိုင်ပါသည်။ root အသုံးပြုသူများအတွက် နောက်ဆုံးတွင် Shevery ကို အစားထိုးသွားမည်ဖြစ်သည်။ မှတ်ချက် – ရှိပြီးသား အက်ပလီကေးရှင်းများကို %2$s ကို အသုံးပြုရန် အနည်းငယ် ပြင်ဆင်ရမည်။</string>
     <string name="home_app_management_view_authorized_apps">ခွင့်ပြုထားသော အက်ပ်များကို စီမံရန် နှိပ်ပါ။</string>
     <string name="home_adb_is_limited_description">သင့်စက်ထုတ်လုပ်သူက adb ခွင့်ပြုချက်များကို ကန့်သတ်ထားသောကြောင့် Shevery ကို အသုံးပြုနေသော အက်ပ်များ မမှန်ကန်စွာ လည်ပတ်နိုင်ပါ။\n\nပုံမှန်အားဖြင့် ဤကန့်သတ်ချက်ကို "Developer options" တွင် ရွေးချယ်စရာအချို့ကို ပြင်ဆင်ခြင်းဖြင့် ဖယ်ရှားနိုင်ပါသည်။ အသေးစိတ်အချက်အလက်များအတွက် အကူအညီစာမျက်နှာကို ဖတ်ရှုပါ။\n\nလုပ်ဆောင်ချက်များ အကျိုးသက်ရောက်စေရန် Shevery ကို ပြန်စတင်ဖွင့်ရန် လိုအပ်နိုင်ပါသည်။</string>
-    <string name="app_management_dialog_adb_is_limited_message">သင့်စက်ထုတ်လုပ်သူက adb ၏ ခွင့်ပြုချက်ကို ကန့်သတ်ထားနိုင်ခြေ အလွန်မြင့်မားပါသည်။ သင့်စနစ်အတွက် ဖြေရှင်းနည်းတစ်ခုကို <b><a href="%1$s">ဤစာရွက်စာတမ်းတွင်</a> ရှာတွေ့နိုင်ပါသည်။</string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[သင့်စက်ထုတ်လုပ်သူက adb ၏ ခွင့်ပြုချက်ကို ကန့်သတ်ထားနိုင်ခြေ အလွန်မြင့်မားပါသည်။ သင့်စနစ်အတွက် ဖြေရှင်းနည်းတစ်ခုကို <b><a href="%1$s">ဤစာရွက်စာတမ်းတွင်</a> ရှာတွေ့နိုင်ပါသည်။]]></string>
     <string name="rish_description">မည်သည့် terminal အက်ပ်တွင်မဆို %1$s ဖြင့် Shevery မှ ပြုလုပ်ထားသော shell များနှင့် ချိတ်ဆက်ကာ ဆက်သွယ်အသုံးပြုနိုင်ပါသည်။
 %1$s ၏ အသေးစိတ် အသုံးပြုနည်းကို ကြည့်ရန် ဒီမှာ နှိပ်ပါ။</string>
     <string name="about_view_source_code">%s တွင် မူရင်းကုဒ်ကို ကြည့်ပါ။</string>
     <string name="permission_group_label">ရှီဗရီ</string>
     <string name="permission_group_description">@string/ခွင့်ပြုချက်အမှတ်အသား</string>
-    <string name="permission_warning_template"><b>%1$s</b> ကို %2$s ခွင့်ပြုပါသလား?</string>
+    <string name="permission_warning_template"><![CDATA[<b>%1$s</b> ကို %2$s ခွင့်ပြုပါသလား?]]></string>
     <string name="starting_root_shell">ရုတ် shell စတင်နေပြီ…</string>
     <string name="toast_copied_to_clipboard_with_text">%s ကို ကလစ်ဘုတ်သို့ ကူးယူထားပါပြီ။</string>
     <string name="dialog_legacy_not_support_message">Legacy Shevery ကို ၂၀၁၉ မတ်လမှစ၍ အသုံးမပြုတော့ပါ။ ထို့အပြင် Legacy Shevery သည် နောက်ဆုံးထွက် Android စနစ်များတွင် မလည်ပတ်ပါ။ %1$s ၏ ဖွံ့ဖြိုးသူအား အပ်ဒိတ်လုပ်ရန် တောင်းဆိုပါ။</string>

@@ -14,7 +14,7 @@
     <string name="home_status_service_is_running">%1$s beží</string>
     <string name="home_status_service_not_running">%1$s nebeží</string>
     <string name="home_status_service_version">Verzia %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[Verzia %2$s, %1$s<br>Začnite znova, aby ste aktualizovali na verziu %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Verzia %2$s, %1$s<br/>Začnite znova, aby ste aktualizovali na verziu %3$s]]></string>
     <string name="home_adb_title">Najskôr sa pripojte k počítaču</string>
     <string name="home_adb_description"><![CDATA[V prípade zariadení bez oprávnení root je potrebné na spustenie aplikácie Shevery použiť nástroj adb (vyžaduje pripojenie k počítaču). Tento postup je potrebné zopakovať pri každom reštarte zariadenia. Prečítajte si prosím <b><a href="%1$s">návod</a></b>.]]></string>
     <string name="home_adb_button_view_help">Prečítajte si nápovedu</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery potrebuje prístup do lokálnej siete. Je to riadené sieťovým oprávnením.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Niektoré systémy (napríklad MIUI) neumožňujú aplikáciám prístup k sieti, ak nie sú viditeľné, a to aj v prípade, že aplikácia štandardne využíva službu v popredí. V takýchto systémoch prosím deaktivujte funkcie optimalizácie batérie pre aplikáciu Shevery.</string>
     <string name="home_root_title">Štart (pre zariadenia s rootom)</string>
-    <string name="home_root_description"><![CDATA[Okrem toho sa Shevery môže spúšťať automaticky pri štarte systému. Ak sa tak nedeje, skontrolujte, či Shevery nie je obmedzený vaším systémom alebo nástrojmi tretích strán.<br>Viac informácií nájdete v %s.]]></string>
+    <string name="home_root_description"><![CDATA[Okrem toho sa Shevery môže spúšťať automaticky pri štarte systému. Ak sa tak nedeje, skontrolujte, či Shevery nie je obmedzený vaším systémom alebo nástrojmi tretích strán.<br/>Viac informácií nájdete v %s.]]></string>
     <string name="home_root_description_sui">Ak používate Magisk, môžete vyskúšať %1$s. Pre používateľov s oprávneniami root to nakoniec nahradí Shevery. Upozorňujeme, že existujúce aplikácie bude treba mierne upraviť, aby mohli používať %2$s.</string>
     <string name="home_root_button_start">Začať</string>
     <string name="home_root_button_restart">Reštartovať</string>

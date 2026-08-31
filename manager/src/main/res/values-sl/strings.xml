@@ -84,7 +84,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery potrebuje dostop do lokalnega omrežja. To je odvisno od omrežnih dovoljenj.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Nekateri sistemi (kot je na primer MIUI) aplikacijam ne dovolijo dostopa do omrežja, ko niso vidne, tudi če aplikacija standardno uporablja storitev v ospredju. Na takšnih sistemih prosimo, da onemogočite funkcije optimizacije porabe baterije za aplikacijo Shevery.</string>
     <string name="home_root_title">Začetek (za naprave z root dostopom)</string>
-    <string name="home_root_description"><![CDATA[Poleg tega se lahko Shevery samodejno zažene ob zagonu sistema. Če se to ne zgodi, preverite, ali je Shevery morda omejen s strani vašega sistema ali orodij tretjih ponudnikov.<br>Za več informacij si oglejte %s.]]></string>
+    <string name="home_root_description"><![CDATA[Poleg tega se lahko Shevery samodejno zažene ob zagonu sistema. Če se to ne zgodi, preverite, ali je Shevery morda omejen s strani vašega sistema ali orodij tretjih ponudnikov.<br/>Za več informacij si oglejte %s.]]></string>
     <string name="home_root_description_sui">Če uporabljate Magisk, lahko poskusite z %1$s. Za uporabnike z root dostopom bo sčasoma nadomestil Shevery. Upoštevajte, da bo treba obstoječe aplikacije nekoliko prilagoditi, da bodo lahko uporabljale %2$s.</string>
     <string name="home_root_button_start">Začetek</string>
     <string name="home_root_button_restart">Ponovni zagon</string>
