@@ -45,7 +45,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Digite "Opções do desenvolvedor" - "Depuração sem fio". Toque em "Emparelhar dispositivo com código de emparelhamento", você verá um código de seis dígitos.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Digite o código na notificação para concluir o emparelhamento.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[O processo de emparelhamento precisa que você interaja com uma notificação de Shizuku. Por favor, permita que Shizuku mostre notificações.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[Os usuários do MIUI podem precisar mudar o estilo de notificação para "Android" de "Notificação" - "Sombra de notificação" nas configurações do sistema.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Caso contrário, talvez você não consiga inserir o código de pareamento da notificação.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Observe que a parte esquerda da opção "Depuração sem fio" é clicável, tocar nela abrirá uma nova página. Apenas ligar o interruptor à direita está incorreto.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Volte ao Shizuku e inicie o Shizuku.]]></string>
@@ -385,7 +385,7 @@
     <string name="comput_record_macro"><![CDATA[Gravar Macro]]></string>
     <string name="comput_recording_active"><![CDATA[Gravação ativa. Execute comandos usando a entrada principal para adicioná-los a esta macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Macros Salvas]]></string>
-    <string name="comput_no_macros"><![CDATA[Nenhuma macro salva ainda. Clique em 'Gravar Macro' para começar a gravar comandos.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[Excluir]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Confirmação ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Executar]]></string>

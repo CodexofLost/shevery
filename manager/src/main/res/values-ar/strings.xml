@@ -45,7 +45,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[أدخل "خيارات المطور" - "التصحيح اللاسلكي". انقر على "إقران الجهاز برمز الإقران" ، وسترى رمزًا مكونًا من ستة أرقام.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[أدخل الرمز في إشعار Shizuku المرسل لإكمال الاقتران.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[تحتاج عملية الاقتران إلى التفاعل مع إشعار من Shizuku. يرجى السماح لشيزوكو بنشر الإخطارات.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[قد يحتاج مستخدمو MIUI إلى تبديل نمط الإعلام إلى "Android" من "Notification" - "Notification Shade" في إعدادات النظام.]]></string>
+    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[بخلاف ذلك ، قد لا تتمكن من إدخال رمز الاقتران من الإشعار.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[يرجى ملاحظة أن الجزء الأيسر من خيار "التصحيح اللاسلكي" قابل للنقر عليه ، وسيؤدي النقر عليه إلى فتح صفحة جديدة. تفعيل "التصحيح اللاسلكي" من المفتاح الأيمن قد يكون غير صحيح.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[إرجع إلى Shizuku وقم بتشغيل Shizuku.]]></string>
@@ -384,7 +384,7 @@
     <string name="comput_record_macro"><![CDATA[تسجيل ماكرو]]></string>
     <string name="comput_recording_active"><![CDATA[التسجيل نشط. شغّل الأوامر باستخدام الإدخال الرئيسي لإضافتها إلى هذا الماكرو.]]></string>
     <string name="comput_saved_macros"><![CDATA[الماكروهات المحفوظة]]></string>
-    <string name="comput_no_macros"><![CDATA[لا توجد ماكروهات محفوظة حتى الآن. انقر على 'تسجيل ماكرو' للبدء.]]></string>
+    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
     <string name="comput_delete"><![CDATA[حذف]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[تأكيد ReCommand]]></string>
     <string name="comput_execute"><![CDATA[تنفيذ]]></string>
