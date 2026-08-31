@@ -240,7 +240,8 @@
     <string name="starting_root_shell"><![CDATA[റൂട്ട് ഷെൽ ആരംഭിക്കുന്നു…]]></string>
     <string name="start_with_root_failed"><![CDATA[റൂട്ട് അനുമതി നൽകിയിട്ടില്ലാത്തതുകൊണ്ടോ ഈ ഉപകരണം റൂട്ട് ചെയ്തിട്ടില്ലാത്തതുകൊണ്ടോ സേവനം ആരംഭിക്കാൻ കഴിയില്ല.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[ബ്രൗസർ ആരംഭിക്കാൻ കഴിയുന്നില്ല]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തിയിരിക്കുന്നു.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തിയിരിക്കുന്നു.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തിയിരിക്കുന്നു.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ആധുനിക ഷേവർിയെ പിന്തുണയ്ക്കുന്നില്ല]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[ലെഗസി ഷെവറി 2019 മാർച്ചുമുതൽ നിർത്തലാക്കിയിരിക്കുന്നു. കൂടാതെ, പുതിയ ആൻഡ്രോയിഡ് സിസ്റ്റങ്ങളിൽ ലെഗസി ഷെവറി പ്രവർത്തിക്കുകയുമില്ല. %1$s-ന്റെ ഡെവലപ്പറോട് അപ്ഡേറ്റ് ചെയ്യാൻ ദയവായി ആവശ്യപ്പെടുക.]]></string>
@@ -421,7 +422,9 @@
     <string name="comput_copy_output"><![CDATA[പകർപ്പുണ്ടാക്കുക]]></string>
     <string name="comput_ask_gemini"><![CDATA[മിഥുനത്തോട് ചോദിക്കുക]]></string>
     <string name="comput_executing"><![CDATA[നിർവ്വഹിക്കുന്നു: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[എഡിബി കമാൻഡ് ട്രാൻസ്ലേഷൻ മോഡ് സജീവം\nയഥാർത്ഥം: %1$s\nനിർവ്വഹിക്കുന്നു...]]></string>
+    <string name="comput_adb_translate"><![CDATA[എഡിബി കമാൻഡ് ട്രാൻസ്ലേഷൻ മോഡ് സജീവം
+യഥാർത്ഥം: %1$s
+നിർവ്വഹിക്കുന്നു...]]></string>
     <string name="comput_command_no_output"><![CDATA[കമാൻഡ് യാതൊരു ഔട്ട്പുട്ടുമില്ലാതെ പൂർത്തിയായി.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] കമാൻഡ് 120 സെക്കൻഡിനു ശേഷം സമയപരിധി കഴിഞ്ഞു.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] കമാൻഡ് കോഡ് %1$d-മായി അവസാനിച്ചു.]]></string>

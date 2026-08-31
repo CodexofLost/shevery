@@ -33,7 +33,9 @@
     <string name="home_local_network_grant"><![CDATA[पहुँच प्रदान करें]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[वायरलेस डिबगिंग के लिए स्थानीय नेटवर्क एक्सेस आवश्यक है।]]></string>
     <string name="dialog_adb_discovery"><![CDATA[वायरलेस डिबगिंग सेवा की तलाश]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[कृपया "डेवलपर विकल्प" में "वायरलेस डिबगिंग" सक्षम करें। नेटवर्क बदलने पर "वायरलेस डिबगिंग" स्वचालित रूप से अक्षम हो जाती है।\n\nनोट: "डेवलपर विकल्प" या "यूएसबी डिबगिंग" को अक्षम न करें, अन्यथा Shevery रुक जाएगा।]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[कृपया "डेवलपर विकल्प" में "वायरलेस डिबगिंग" सक्षम करें। नेटवर्क बदलने पर "वायरलेस डिबगिंग" स्वचालित रूप से अक्षम हो जाती है।
+
+नोट: "डेवलपर विकल्प" या "यूएसबी डिबगिंग" को अक्षम न करें, अन्यथा Shevery रुक जाएगा।]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[यदि यह बार-बार खोजता रहता है, तो कृपया "वायरलेस डिबगिंग" को अक्षम और सक्षम करने का प्रयास करें।]]></string>
     <string name="dialog_adb_port"><![CDATA[बंदरगाह]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[पोर्ट 1 से 65535 तक का एक पूर्णांक है।]]></string>
@@ -43,11 +45,13 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[पेयरिंग कोड]]></string>
     <string name="paring_code_is_wrong"><![CDATA[पेयरिंग कोड गलत है।]]></string>
     <string name="cannot_connect_port"><![CDATA[वायरलेस डिबगिंग सेवा से कनेक्ट नहीं हो सका।]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[वायरलेस डिबगिंग सक्षम नहीं है।\nनोट, Android 11 से पहले, वायरलेस डिबगिंग को सक्षम करने के लिए कंप्यूटर कनेक्शन अनिवार्य है।]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[वायरलेस डिबगिंग सक्षम नहीं है।
+नोट, Android 11 से पहले, वायरलेस डिबगिंग को सक्षम करने के लिए कंप्यूटर कनेक्शन अनिवार्य है।]]></string>
     <string name="dialog_adb_pairing_message"><![CDATA[कृपया निम्नलिखित चरणों के अनुसार पेयरिंग शुरू करें: "डेवलपर विकल्प" - "वायरलेस डिबगिंग" - "पेयरिंग कोड का उपयोग करके डिवाइस पेयर करें"। पेयरिंग प्रक्रिया शुरू होने के बाद आप पेयरिंग कोड दर्ज कर सकेंगे।]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[कृपया पहले स्प्लिट-स्क्रीन (मल्टी-विंडो) मोड में प्रवेश करें।]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[सिस्टम को पेयरिंग डायलॉग हमेशा दिखाई देने की आवश्यकता है। स्प्लिट-स्क्रीन मोड का उपयोग ही एकमात्र तरीका है जिससे यह ऐप और सिस्टम डायलॉग एक साथ दिखाई दे सकते हैं।]]></string>
-    <string name="adb_error_key_store"><![CDATA[वायरलेस डिबगिंग के लिए कुंजी उत्पन्न नहीं हो पा रही है।\nयह इस डिवाइस के KeyStore तंत्र के टूटने के कारण हो सकता है।]]></string>
+    <string name="adb_error_key_store"><![CDATA[वायरलेस डिबगिंग के लिए कुंजी उत्पन्न नहीं हो पा रही है।
+यह इस डिवाइस के KeyStore तंत्र के टूटने के कारण हो सकता है।]]></string>
     <string name="adb_pair_required"><![CDATA[कृपया पहले पेयरिंग चरण से गुजरें।]]></string>
     <string name="development_settings"><![CDATA[डेवलपर विकल्प]]></string>
     <string name="notification_settings"><![CDATA[सूचना विकल्प]]></string>
@@ -82,7 +86,11 @@
     <string name="home_diagnostics_copied"><![CDATA[निदान की प्रतिलिपि बनाई गई।]]></string>
     <string name="home_modules_description"><![CDATA[ADB-समर्थित मॉड्यूल स्थापित और प्रबंधित करें]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[आपको एक अतिरिक्त कदम उठाना होगा।]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[आपके डिवाइस निर्माता ने adb अनुमतियों को प्रतिबंधित कर दिया है और Shevery का उपयोग करने वाले ऐप्स ठीक से काम नहीं करेंगे।\n\nआमतौर पर, इस प्रतिबंध को "डेवलपर विकल्प" में कुछ विकल्पों को समायोजित करके हटाया जा सकता है। कृपया ऐसा करने के विवरण के लिए सहायता पढ़ें।\n\nइस परिवर्तन को प्रभावी होने के लिए आपको Shevery को पुनः आरंभ करने की आवश्यकता हो सकती है।]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[आपके डिवाइस निर्माता ने adb अनुमतियों को प्रतिबंधित कर दिया है और Shevery का उपयोग करने वाले ऐप्स ठीक से काम नहीं करेंगे।
+
+आमतौर पर, इस प्रतिबंध को "डेवलपर विकल्प" में कुछ विकल्पों को समायोजित करके हटाया जा सकता है। कृपया ऐसा करने के विवरण के लिए सहायता पढ़ें।
+
+इस परिवर्तन को प्रभावी होने के लिए आपको Shevery को पुनः आरंभ करने की आवश्यकता हो सकती है।]]></string>
     <string name="app_management_select_all"><![CDATA[सभी चुनें]]></string>
     <string name="app_management_deselect_all"><![CDATA[सभी को अनचुनें]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[एडीबी की अनुमति सीमित है।]]></string>
@@ -92,7 +100,9 @@
     <string name="home_terminal_title"><![CDATA[टर्मिनल ऐप्स में Shevery का उपयोग करें]]></string>
     <string name="home_terminal_description"><![CDATA[अपने पसंदीदा टर्मिनल ऐप्स में Shevery के माध्यम से कमांड चलाएँ]]></string>
     <string name="terminal_tutorial_1"><![CDATA[सबसे पहले, फ़ाइलों को जहाँ चाहें वहाँ एक्सपोर्ट करें। आपको दो फ़ाइलें मिलेंगी, %1$s और %2$s।]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[यदि चयनित फ़ोल्डर में एक ही नाम की फ़ाइलें हैं, तो वे हटा दी जाएँगी।\n\nनिर्यात फ़ंक्शन SAF (Storage Access Framework) का उपयोग करता है। रिपोर्ट किया गया है कि MIUI SAF के फ़ंक्शन को तोड़ देता है। यदि आप MIUI का उपयोग कर रहे हैं, तो आपको फ़ाइल को Shevery की APK से निकालना या GitHub से डाउनलोड करना पड़ सकता है।]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[यदि चयनित फ़ोल्डर में एक ही नाम की फ़ाइलें हैं, तो वे हटा दी जाएँगी।
+
+निर्यात फ़ंक्शन SAF (Storage Access Framework) का उपयोग करता है। रिपोर्ट किया गया है कि MIUI SAF के फ़ंक्शन को तोड़ देता है। यदि आप MIUI का उपयोग कर रहे हैं, तो आपको फ़ाइल को Shevery की APK से निकालना या GitHub से डाउनलोड करना पड़ सकता है।]]></string>
     <string name="terminal_export_files"><![CDATA[फ़ाइलें निर्यात करें]]></string>
     <string name="terminal_tutorial_2"><![CDATA[फिर, किसी भी टेक्स्ट एडिटर का उपयोग करके %1$s खोलें और संपादित करें।]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[उदाहरण के लिए, यदि आप %1$s में Shevery का उपयोग करना चाहते हैं, तो आपको %2$s को %3$s से बदलना चाहिए (%4$s %1$s का पैकेज नाम है)।]]></string>
@@ -240,7 +250,8 @@
     <string name="starting_root_shell"><![CDATA[रूट शेल शुरू हो रहा है…]]></string>
     <string name="start_with_root_failed"><![CDATA[सेवा शुरू नहीं की जा सकती क्योंकि रूट अनुमति प्रदान नहीं की गई है या यह डिवाइस रूट नहीं है।]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[ब्राउज़र शुरू नहीं हो सकता]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nक्लिपबोर्ड पर कॉपी कर दिया गया है।]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+क्लिपबोर्ड पर कॉपी कर दिया गया है।]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s क्लिपबोर्ड पर कॉपी कर दिया गया है।]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s आधुनिक शेवरी का समर्थन नहीं करता है।]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[लेगेसी शेवरी को मार्च 2019 से अप्रचलित कर दिया गया है। साथ ही, लेगेसी शेवरी नए एंड्रॉइड सिस्टम पर काम नहीं करती है। कृपया <b>%1$s</b> के डेवलपर से इसे अपडेट करने के लिए कहें।]]></string>
@@ -421,7 +432,9 @@
     <string name="comput_copy_output"><![CDATA[नकल आउटपुट]]></string>
     <string name="comput_ask_gemini"><![CDATA[जेमिनी से पूछें]]></string>
     <string name="comput_executing"><![CDATA[निष्पादित कर रहा है: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB कमांड अनुवाद मोड सक्रिय\nमूल: %1$s\nअमल किया जा रहा है...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB कमांड अनुवाद मोड सक्रिय
+मूल: %1$s
+अमल किया जा रहा है...]]></string>
     <string name="comput_command_no_output"><![CDATA[कमांड बिना किसी आउटपुट के पूरा हो गया।]]></string>
     <string name="comput_timed_out"><![CDATA[[E] कमांड 120 सेकंड के बाद समय-सीमा समाप्त हो गई।]]></string>
     <string name="comput_exit_code"><![CDATA[[E] कमांड कोड %1$d के साथ समाप्त हुआ।]]></string>

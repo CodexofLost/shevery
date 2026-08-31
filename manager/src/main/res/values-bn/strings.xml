@@ -43,11 +43,13 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[জোড়া কোড]]></string>
     <string name="paring_code_is_wrong"><![CDATA[জোড়ানোর কোড ভুল।]]></string>
     <string name="cannot_connect_port"><![CDATA[ওয়্যারলেস ডিবাগিং সার্ভিসে সংযোগ করা যাচ্ছে না।]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[ওয়্যারলেস ডিবাগিং সক্ষম করা হয়নি।\nদ্রষ্টব্য, Android 11-এর আগে, ওয়্যারলেস ডিবাগিং সক্ষম করতে কম্পিউটার সংযোগ আবশ্যক।]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[ওয়্যারলেস ডিবাগিং সক্ষম করা হয়নি।
+দ্রষ্টব্য, Android 11-এর আগে, ওয়্যারলেস ডিবাগিং সক্ষম করতে কম্পিউটার সংযোগ আবশ্যক।]]></string>
     <string name="dialog_adb_pairing_message"><![CDATA[অনুগ্রহ করে নিম্নলিখিত ধাপগুলি অনুসরণ করে পেয়ারিং শুরু করুন: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code"। পেয়ারিং প্রক্রিয়া শুরু হওয়ার পর আপনি পেয়ারিং কোড ইনপুট করতে পারবেন।]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[অনুগ্রহ করে প্রথমে স্প্লিট-স্ক্রিন (মাল্টি-উইন্ডো) মোডে প্রবেশ করুন।]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[সিস্টেমটি পেয়ারিং ডায়ালগ সবসময় দৃশ্যমান রাখার প্রয়োজন; স্প্লিট-স্ক্রিন মোড ব্যবহার করাই একমাত্র উপায় যা এই অ্যাপ এবং সিস্টেম ডায়ালগকে একসঙ্গে দৃশ্যমান রাখে।]]></string>
-    <string name="adb_error_key_store"><![CDATA[ওয়্যারলেস ডিবাগিংয়ের জন্য কী তৈরি করতে পারছে না।\nএটি হতে পারে যে এই ডিভাইসের KeyStore মেকানিজম ভেঙে গেছে।]]></string>
+    <string name="adb_error_key_store"><![CDATA[ওয়্যারলেস ডিবাগিংয়ের জন্য কী তৈরি করতে পারছে না।
+এটি হতে পারে যে এই ডিভাইসের KeyStore মেকানিজম ভেঙে গেছে।]]></string>
     <string name="adb_pair_required"><![CDATA[অনুগ্রহ করে প্রথমে পেয়ারিং ধাপটি সম্পন্ন করুন।]]></string>
     <string name="development_settings"><![CDATA[ডেভেলপার বিকল্পসমূহ]]></string>
     <string name="notification_settings"><![CDATA[অবহিতকরণ বিকল্পসমূহ]]></string>
@@ -92,7 +94,9 @@
     <string name="home_terminal_title"><![CDATA[টার্মিনাল অ্যাপে Shevery ব্যবহার করুন]]></string>
     <string name="home_terminal_description"><![CDATA[আপনার পছন্দের টার্মিনাল অ্যাপে Shevery-এর মাধ্যমে কমান্ড চালান।]]></string>
     <string name="terminal_tutorial_1"><![CDATA[প্রথমে, ফাইলগুলো আপনার পছন্দের যেকোনো স্থানে এক্সপোর্ট করুন। আপনি দুটি ফাইল পাবেন, %1$s এবং %2$s।]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[নির্বাচিত ফোল্ডারে একই নামের একাধিক ফাইল থাকলে সেগুলো মুছে ফেলা হবে।\n\nএক্সপোর্ট ফাংশন SAF (Storage Access Framework) ব্যবহার করে। জানা গেছে MIUI SAF-এর ফাংশনগুলো ভেঙে দেয়। আপনি যদি MIUI ব্যবহার করেন, তাহলে আপনাকে হয়তো Shevery-এর APK থেকে ফাইলটি এক্সট্র্যাক্ট করতে হবে বা GitHub থেকে ডাউনলোড করতে হবে।]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[নির্বাচিত ফোল্ডারে একই নামের একাধিক ফাইল থাকলে সেগুলো মুছে ফেলা হবে।
+
+এক্সপোর্ট ফাংশন SAF (Storage Access Framework) ব্যবহার করে। জানা গেছে MIUI SAF-এর ফাংশনগুলো ভেঙে দেয়। আপনি যদি MIUI ব্যবহার করেন, তাহলে আপনাকে হয়তো Shevery-এর APK থেকে ফাইলটি এক্সট্র্যাক্ট করতে হবে বা GitHub থেকে ডাউনলোড করতে হবে।]]></string>
     <string name="terminal_export_files"><![CDATA[ফাইল রপ্তানি করুন]]></string>
     <string name="terminal_tutorial_2"><![CDATA[তারপর, যেকোনো টেক্সট এডিটর ব্যবহার করে %1$s খুলুন এবং সম্পাদনা করুন।]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[উদাহরণস্বরূপ, যদি আপনি %1$s-এ Shevery ব্যবহার করতে চান, তাহলে আপনাকে %2$s-এর পরিবর্তে %3$s ব্যবহার করতে হবে (%4$s হল %1$s-এর প্যাকেজের নাম)।]]></string>
@@ -240,7 +244,8 @@
     <string name="starting_root_shell"><![CDATA[রুট শেল শুরু হচ্ছে…]]></string>
     <string name="start_with_root_failed"><![CDATA[রুট অনুমতি না দেওয়ার বা এই ডিভাইস রুট না হওয়ার কারণে সার্ভিস শুরু করা যাচ্ছে না।]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[ব্রাউজার শুরু করা যাচ্ছে না]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nক্লিপবোর্ডে অনুলিপি করা হয়েছে।]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ক্লিপবোর্ডে অনুলিপি করা হয়েছে।]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s কপি করা হয়েছে ক্লিপবোর্ডে।]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s আধুনিক শেভারি সমর্থন করে না।]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[লেগ্যাসি শেভারি মার্চ ২০১৯ থেকে অবচয়িত হয়েছে। এছাড়াও, লেগ্যাসি শেভারি নতুন অ্যান্ড্রয়েড সিস্টেমে কাজ করে না। অনুগ্রহ করে <b>%1$s</b>-এর ডেভেলপারকে আপডেট করতে বলুন।]]></string>
@@ -421,7 +426,9 @@
     <string name="comput_copy_output"><![CDATA[আউটপুট অনুলিপি করুন]]></string>
     <string name="comput_ask_gemini"><![CDATA[জেমিনিকে জিজ্ঞাসা করুন]]></string>
     <string name="comput_executing"><![CDATA[পরিচালনা: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB কমান্ড অনুবাদ মোড সক্রিয়\nমূল: %1$s\nচালনা হচ্ছে...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB কমান্ড অনুবাদ মোড সক্রিয়
+মূল: %1$s
+চালনা হচ্ছে...]]></string>
     <string name="comput_command_no_output"><![CDATA[কমান্ডটি কোনো আউটপুট ছাড়াই সম্পন্ন হয়েছে।]]></string>
     <string name="comput_timed_out"><![CDATA[[E] কমান্ডটি 120 সেকেন্ডের পর সময়সীমা অতিক্রম করে বন্ধ হয়ে গেছে।]]></string>
     <string name="comput_exit_code"><![CDATA[[E] কমান্ড কোড %1$d দিয়ে প্রস্থান করেছে।]]></string>

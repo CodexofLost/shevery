@@ -33,7 +33,9 @@
     <string name="home_local_network_grant"><![CDATA[Udelenie prístupu]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Na ladenie bezdrôtových sietí je potrebný prístup k lokálnej sieti.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Hľadanie služby bezdrôtového ladenia]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[V „Možnostiach pre vývojárov“ prosím zapnite „Bezdrôtové ladenie“. Funkcia „Bezdrôtové ladenie“ sa automaticky vypne pri zmene siete.\n\nUpozornenie: Nevypínajte „Možnosti pre vývojárov“ ani „Ladenie cez USB“, inak sa aplikácia Shevery zastaví.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[V „Možnostiach pre vývojárov“ prosím zapnite „Bezdrôtové ladenie“. Funkcia „Bezdrôtové ladenie“ sa automaticky vypne pri zmene siete.
+
+Upozornenie: Nevypínajte „Možnosti pre vývojárov“ ani „Ladenie cez USB“, inak sa aplikácia Shevery zastaví.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Ak sa vyhľadávanie stále opakuje, skúste vypnúť a opäť zapnúť funkciu „Bezdrôtové ladenie“.]]></string>
     <string name="dialog_adb_port"><![CDATA[Prístav]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Port je celé číslo v rozsahu od 1 do 65535.]]></string>
@@ -43,11 +45,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Párovací kód]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Kód párovania je nesprávny.]]></string>
     <string name="cannot_connect_port"><![CDATA[Nie je možné sa pripojiť k bezdrôtovej ladiacej službe.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Bezdrôtové ladenie nie je povolené.\nPoznámka: Pred verziou Android 11 je na povolenie bezdrôtového ladenia nevyhnutné pripojenie k počítaču.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Spárovanie začnite podľa nasledujúcich krokov: „Možnosti pre vývojárov“ – „Bezdrôtové ladenie“ – „Spárovanie zariadenia pomocou spárovacieho kódu“.\n\nPo spustení procesu spárovania budete môcť zadať spárovací kód.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Bezdrôtové ladenie nie je povolené.
+Poznámka: Pred verziou Android 11 je na povolenie bezdrôtového ladenia nevyhnutné pripojenie k počítaču.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Spárovanie začnite podľa nasledujúcich krokov: „Možnosti pre vývojárov“ – „Bezdrôtové ladenie“ – „Spárovanie zariadenia pomocou spárovacieho kódu“.
+
+Po spustení procesu spárovania budete môcť zadať spárovací kód.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Najskôr prejdite do režimu rozdelenej obrazovky (viac okien).]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Systém vyžaduje, aby bolo dialógové okno pre párovanie vždy viditeľné; použitie režimu rozdelenej obrazovky je jediný spôsob, ako zabezpečiť, aby boli táto aplikácia a systémové dialógové okno viditeľné súčasne.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Nepodarilo sa vygenerovať kľúč pre bezdrôtové ladenie.\nPríčinou môže byť porucha mechanizmu KeyStore v tomto zariadení.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Nepodarilo sa vygenerovať kľúč pre bezdrôtové ladenie.
+Príčinou môže byť porucha mechanizmu KeyStore v tomto zariadení.]]></string>
     <string name="adb_pair_required"><![CDATA[Najskôr prosím vykonajte krok spárovania.]]></string>
     <string name="development_settings"><![CDATA[Možnosti pre vývojárov]]></string>
     <string name="notification_settings"><![CDATA[Možnosti upozornení]]></string>
@@ -82,7 +88,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Diagnostika bola skopírovaná.]]></string>
     <string name="home_modules_description"><![CDATA[Inštalácia a správa modulov podporovaných ADB]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Musíte urobiť ešte jeden krok]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Výrobca vášho zariadenia obmedzil oprávnenia pre adb, a preto aplikácie využívajúce Shevery nebudú fungovať správne.\n\nToto obmedzenie sa zvyčajne dá odstrániť úpravou niektorých nastavení v časti „Možnosti pre vývojárov“. Podrobnosti o tom, ako na to, nájdete v nápovede.\n\nAby sa zmena prejavila, môže byť potrebné reštartovať aplikáciu Shevery.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Výrobca vášho zariadenia obmedzil oprávnenia pre adb, a preto aplikácie využívajúce Shevery nebudú fungovať správne.
+
+Toto obmedzenie sa zvyčajne dá odstrániť úpravou niektorých nastavení v časti „Možnosti pre vývojárov“. Podrobnosti o tom, ako na to, nájdete v nápovede.
+
+Aby sa zmena prejavila, môže byť potrebné reštartovať aplikáciu Shevery.]]></string>
     <string name="app_management_select_all"><![CDATA[Vybrať všetko]]></string>
     <string name="app_management_deselect_all"><![CDATA[Zrušiť výber všetkých]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[Oprávnenie pre adb je obmedzené]]></string>
@@ -92,7 +102,9 @@
     <string name="home_terminal_title"><![CDATA[Používanie Shevery v terminálových aplikáciách]]></string>
     <string name="home_terminal_description"><![CDATA[Spúšťajte príkazy cez Shevery v terminálových aplikáciách, ktoré máte radi]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Najprv exportujte súbory kamkoľvek chcete. Nájdete tam dva súbory: %1$s a %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Ak sa vo vybranom priečinku nachádzajú súbory s rovnakým názvom, budú odstránené.\n\nFunkcia exportu využíva SAF (Storage Access Framework). Podľa správ MIUI narúša fungovanie SAF. Ak používate MIUI, možno budete musieť súbor extrahovať z APK súboru aplikácie Shevery alebo si ho stiahnuť z GitHubu.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Ak sa vo vybranom priečinku nachádzajú súbory s rovnakým názvom, budú odstránené.
+
+Funkcia exportu využíva SAF (Storage Access Framework). Podľa správ MIUI narúša fungovanie SAF. Ak používate MIUI, možno budete musieť súbor extrahovať z APK súboru aplikácie Shevery alebo si ho stiahnuť z GitHubu.]]></string>
     <string name="terminal_export_files"><![CDATA[Exportovať súbory]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Potom pomocou ľubovoľného textového editora otvorte a upravte súbor %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Ak napríklad chcete použiť Shevery v %1$s, mali by ste nahradiť %2$s za %3$s (%4$s je názov balíka %1$s).]]></string>
@@ -120,7 +132,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery nebeží. Najprv spustite službu, potom sa vráťte a aktivujte toto nastavenie.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Automatické udelenie oprávnenia sa nepodarilo. Spustite tento príkaz na počítači, aby ste oprávnenie udelili ručne:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Príkaz Kopírovať]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Ako používať:\n1. Pripojte zariadenie k počítaču (cez USB alebo bezdrôtové ladenie).\n2. V termináli spustite príkaz z poľa vyššie.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Ako používať:
+1. Pripojte zariadenie k počítaču (cez USB alebo bezdrôtové ladenie).
+2. V termináli spustite príkaz z poľa vyššie.]]></string>
     <string name="settings_use_system_color"><![CDATA[Použiť farbu systémovej témy]]></string>
     <string name="modules_title"><![CDATA[Moduly ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Moduly]]></string>
@@ -242,7 +256,8 @@
     <string name="starting_root_shell"><![CDATA[Spúšťam shell s oprávneniami root…]]></string>
     <string name="start_with_root_failed"><![CDATA[Službu nie je možné spustiť, pretože nie sú udelené oprávnenia pre používateľa root alebo toto zariadenie nie je rootnuté.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Nepodarilo sa spustiť prehliadač]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nbol skopírovaný do schránky.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+bol skopírovaný do schránky.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> bol skopírovaný do schránky.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s nepodporuje moderný Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Staršia verzia aplikácie Shevery je od marca 2019 označená za zastaranú. Okrem toho staršia verzia aplikácie Shevery nefunguje na novších verziách systému Android.<p>Požiadajte vývojára aplikácie <b>%1$s</b> o aktualizáciu.]]></string>
@@ -423,7 +438,9 @@
     <string name="comput_copy_output"><![CDATA[Kopírovať výstup]]></string>
     <string name="comput_ask_gemini"><![CDATA[Opýtaj sa Gemini]]></string>
     <string name="comput_executing"><![CDATA[Spúšťa sa: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Režim prekladu príkazov ADB je aktívny\nPôvodný text: %1$s\nVykonáva sa...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Režim prekladu príkazov ADB je aktívny
+Pôvodný text: %1$s
+Vykonáva sa...]]></string>
     <string name="comput_command_no_output"><![CDATA[Príkaz bol vykonaný bez výstupu.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Časový limit príkazu vypršal po 120 sekundách.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Príkaz bol ukončený s kódom %1$d.]]></string>
@@ -431,7 +448,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Spúšťanie príkazu: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Chyba: Služba Privileged Shevery nebeží. Najskôr spustite túto službu.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Chyba: Nepodarilo sa načítať zložku „Shevery“.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konzola bola inicializovaná. Pripojená je privilegovaná služba Shevery.\nSme pripravení prijímať príkazy.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konzola bola inicializovaná. Pripojená je privilegovaná služba Shevery.
+Sme pripravení prijímať príkazy.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Vysvetlenie umelej inteligencie]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Asistent Commandium AI]]></string>

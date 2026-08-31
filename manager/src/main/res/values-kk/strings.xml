@@ -27,7 +27,9 @@
     <string name="home_local_network_grant"><![CDATA[Рұқсат беру]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Сымсыз баптау үшін жергілікті желіге кіру рұқсаты қажет.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Сымсыз баптау қызметін іздеу]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA["Әзірлеуші опцияларында" "Сымсыз баптауды" қосыңыз. Желі ауысқанда сымсыз баптау автоматты түрде өшеді.\n\nЕскертпе: "Әзірлеуші опцияларын" немесе "USB арқылы баптауды" өшірмеңіз, әйтпесе Shevery тоқтайды.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA["Әзірлеуші опцияларында" "Сымсыз баптауды" қосыңыз. Желі ауысқанда сымсыз баптау автоматты түрде өшеді.
+
+Ескертпе: "Әзірлеуші опцияларын" немесе "USB арқылы баптауды" өшірмеңіз, әйтпесе Shevery тоқтайды.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Іздеу тоқтамаса, "Сымсыз баптауды" өшіріп, қайта қосып көріңіз.]]></string>
     <string name="dialog_adb_port"><![CDATA[Порт]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Порт 1 мен 65535 аралығындағы бүтін сан болуы керек.]]></string>
@@ -37,11 +39,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Жұптастыру коды]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Жұптастыру коды қате.]]></string>
     <string name="cannot_connect_port"><![CDATA[Сымсыз баптау қызметіне қосылу мүмкін болмады.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Сымсыз баптау қосылмаған.\nAndroid 11-ге дейін компьютерге қосылу міндетті.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Жұптастыруды мына қадамдар бойынша бастаңыз: "Әзірлеуші опциялары" - "Сымсыз баптау" - "Құрылғыны жұптастыру кодымен жұптастыру".\n\nПроцесс басталғаннан кейін кодты енгізе аласыз.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Сымсыз баптау қосылмаған.
+Android 11-ге дейін компьютерге қосылу міндетті.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Жұптастыруды мына қадамдар бойынша бастаңыз: "Әзірлеуші опциялары" - "Сымсыз баптау" - "Құрылғыны жұптастыру кодымен жұптастыру".
+
+Процесс басталғаннан кейін кодты енгізе аласыз.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Алдымен бөлінген экран режиміне (көп терезелі) өтіңіз.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Жүйе жұптастыру диалогының әрдайым көрініп тұруын талап етеді. Бөлінген экран режимі - қолданба мен жүйелік диалогты бір уақытта көрсетудің жалғыз жолы.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Сымсыз баптау кілтін жасау мүмкін болмады.\nБұл құрылғының KeyStore механизмінің бұзылуынан болуы мүмкін.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Сымсыз баптау кілтін жасау мүмкін болмады.
+Бұл құрылғының KeyStore механизмінің бұзылуынан болуы мүмкін.]]></string>
     <string name="adb_pair_required"><![CDATA[Алдымен жұптастыру қадамынан өтіңіз.]]></string>
     <string name="development_settings"><![CDATA[Әзірлеуші опциялары]]></string>
     <string name="notification_settings"><![CDATA[Хабарландыру опциялары]]></string>
@@ -72,7 +78,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Диагностика алмасу буферіне көшірілді.]]></string>
     <string name="home_modules_description"><![CDATA[ADB модульдерін орнату және басқару]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Қосымша қадам қажет]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Құрылғы өндірушісі ADB рұқсаттарын шектеді және Shevery-ді пайдаланатын қолданбалар дұрыс жұмыс істемейді.\n\n"Әзірлеуші опцияларындағы" баптаулар арқылы шектеуді жоюға болады. Детальдарды анықтамадан оқыңыз.\n\nShevery-ді қайта іске қосу қажет болуы мүмкін.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Құрылғы өндірушісі ADB рұқсаттарын шектеді және Shevery-ді пайдаланатын қолданбалар дұрыс жұмыс істемейді.
+
+"Әзірлеуші опцияларындағы" баптаулар арқылы шектеуді жоюға болады. Детальдарды анықтамадан оқыңыз.
+
+Shevery-ді қайта іске қосу қажет болуы мүмкін.]]></string>
     <string name="app_management_select_all"><![CDATA[Барлығын таңдау]]></string>
     <string name="app_management_deselect_all"><![CDATA[Таңдауды алып тастау]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[ADB рұқсаты шектелген]]></string>
@@ -81,7 +91,9 @@
     <string name="home_terminal_title"><![CDATA[Терминал қолданбаларында Shevery-ді пайдалану]]></string>
     <string name="home_terminal_description"><![CDATA[Өзіңізге ұнайтын терминал қолданбаларында Shevery арқылы командаларды орындаңыз]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Алдымен файылдарды қалаған жерге экспорттаңыз. Сіз екі файылды табасыз: %1$s және %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Егер таңдалған бумада бірдей атауы бар файылдар болса, олар жойылады.\n\nЭкспорттау функциясы SAF пайдаланады. MIUI жүйесінде SAF бұзылуы мүмкін; олай болса, файылдарды Shevery APK-нан алыңыз немесе GitHub-тан жүктеңіз.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Егер таңдалған бумада бірдей атауы бар файылдар болса, олар жойылады.
+
+Экспорттау функциясы SAF пайдаланады. MIUI жүйесінде SAF бұзылуы мүмкін; олай болса, файылдарды Shevery APK-нан алыңыз немесе GitHub-тан жүктеңіз.]]></string>
     <string name="terminal_export_files"><![CDATA[Файылдарды экспорттау]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Содан кейін %1$s файылын ашу және өңдеу үшін кез келген мәтіндік редакторды пайдаланыңыз.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Мысалы, Shevery-ді %1$s ішінде пайдаланғыңыз келсе, %2$s орнына %3$s қойыңыз (%4$s - %1$s пакетінің атауы).]]></string>
@@ -217,7 +229,8 @@
     <string name="starter"><![CDATA[Іске қосқыш]]></string>
     <string name="start_with_root_failed"><![CDATA[Қызметті іске қосу мүмкін емес, өйткені root рұқсаты берілмеген немесе құрылғыда root жоқ.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Brauzer-ді іске қосу мүмкін емес]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nалмасу буферіне көшірілді.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+алмасу буферіне көшірілді.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> алмасу буферіне көшірілді.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s заманауи Shevery-ді қолдамайды]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Ескірген Shevery 2019 жылдың наурызынан бері қолдау таппайды және жаңа Android жүйелерінде жұмыс істемейді.<p><b>%1$s</b> әзірлеушісінен жаңартуды сұраңыз.]]></string>
@@ -358,7 +371,9 @@
     <string name="comput_copy_output"><![CDATA[Шығысты көшіру]]></string>
     <string name="comput_ask_gemini"><![CDATA[Gemini-ден сұрау]]></string>
     <string name="comput_executing"><![CDATA[Орындалуда: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB Команда аударма режимі белсенді\nТүпнұсқа: %1$s\nОрындалуда...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB Команда аударма режимі белсенді
+Түпнұсқа: %1$s
+Орындалуда...]]></string>
     <string name="comput_command_no_output"><![CDATA[Команда шығыссыз аяқталды.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Команда 120 секундтан кейін уақыты өтті.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Команда %1$d кодымен аяқталды.]]></string>
@@ -366,7 +381,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Команда орындалуда: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Қате: Shevery артықшылықты қызметі жұмыс істемейді. Алдымен қызметті іске қосыңыз.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Қате: Shevery binder алу мүмкін болмады.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Консоль инициализацияланды. Қосылды.\nДайын.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Консоль инициализацияланды. Қосылды.
+Дайын.]]></string>
     <string name="comput_ai_explanation"><![CDATA[ЖИ Түсіндірмесі]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium ЖИ Көмекшісі]]></string>

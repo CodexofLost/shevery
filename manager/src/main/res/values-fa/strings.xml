@@ -26,7 +26,9 @@
     <string name="home_local_network_grant"><![CDATA[Grant access]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Local network access is required for Wireless debugging.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[جستجوی خدمات اشکال زدایی بی‌سیم]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[لطفاً "اشکال‌زدایی بی‌سیم" را در "گزینه‌های توسعه دهنده" فعال کنید. وقتی شبکه تغییر می‌کند، "اشکال‌زدایی بی‌سیم" به‌طور خودکار غیرفعال می‌شود.\n\nتوجه داشته باشید، "گزینه‌های توسعه دهنده" یا "اشکال‌زدایی USB" را غیرفعال نکنید، در غیر این صورت Shizuku متوقف خواهد شد.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[لطفاً "اشکال‌زدایی بی‌سیم" را در "گزینه‌های توسعه دهنده" فعال کنید. وقتی شبکه تغییر می‌کند، "اشکال‌زدایی بی‌سیم" به‌طور خودکار غیرفعال می‌شود.
+
+توجه داشته باشید، "گزینه‌های توسعه دهنده" یا "اشکال‌زدایی USB" را غیرفعال نکنید، در غیر این صورت Shizuku متوقف خواهد شد.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[لطفاً در صورتی که به جستجو ادامه داد "اشکال‌زدایی بی‌سیم" را غیرفعال و فعال کنید.]]></string>
     <string name="dialog_adb_port"><![CDATA[درگاه]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[درگاه یک عدد صحیح از ۱ تا ۶۵۵۳۵ است.]]></string>
@@ -36,11 +38,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[رمز مرتبط کردن]]></string>
     <string name="paring_code_is_wrong"><![CDATA[رمز مرتبط کردن اشتباه است.]]></string>
     <string name="cannot_connect_port"><![CDATA[نمی توان به خدمات اشکال زدایی بی‌سیم متصل شد.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[اشکال‌زدایی بی‌سیم فعال نیست.\nتوجه داشته باشید، قبل از اندروید ۱۱، برای فعال کردن اشکال‌زدایی بی‌سیم، اتصال به رایانه ضروری است.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[لطفاً مرتبط کردن را با مراحل زیر شروع کنید: "گزینه‌های توسعه دهنده" - "اشکال‌زدایی بی‌سیم" - "مرتبط کردن دستگاه با استفاده از رمز مرتبط سازی".\n\nپس از شروع فرآیند جفت‌سازی، می‌توانید رمز جفت‌سازی را وارد کنید.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[اشکال‌زدایی بی‌سیم فعال نیست.
+توجه داشته باشید، قبل از اندروید ۱۱، برای فعال کردن اشکال‌زدایی بی‌سیم، اتصال به رایانه ضروری است.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[لطفاً مرتبط کردن را با مراحل زیر شروع کنید: "گزینه‌های توسعه دهنده" - "اشکال‌زدایی بی‌سیم" - "مرتبط کردن دستگاه با استفاده از رمز مرتبط سازی".
+
+پس از شروع فرآیند جفت‌سازی، می‌توانید رمز جفت‌سازی را وارد کنید.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[لطفاً ابتدا وارد حالت تقسیم صفحه (چند پنجره) شوید.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[دستگاه نیاز دارد گفتگوی جفت‌سازی همیشه قابل مشاهده باشد، استفاده از حالت تقسیم صفحه تنها راهی است که به این برنامه و گفتگوی دستگاه اجازه می‌دهد همزمان قابل مشاهده باشند.]]></string>
-    <string name="adb_error_key_store"><![CDATA[قادر به تولید کلید برای اشکال زدایی بی‌سیم نیست.\nاین ممکن است به این دلیل باشد که ساز و برگ KeyStore این دستگاه خراب است.]]></string>
+    <string name="adb_error_key_store"><![CDATA[قادر به تولید کلید برای اشکال زدایی بی‌سیم نیست.
+این ممکن است به این دلیل باشد که ساز و برگ KeyStore این دستگاه خراب است.]]></string>
     <string name="adb_pair_required"><![CDATA[لطفاً ابتدا مرحله مرتبط کردن را طی کنید.]]></string>
     <string name="development_settings"><![CDATA[گزینه های توسعه دهنده]]></string>
     <string name="notification_settings"><![CDATA[گزینه های اعلان]]></string>
@@ -217,7 +223,8 @@
     <string name="starter"><![CDATA[شروع کننده]]></string>
     <string name="start_with_root_failed"><![CDATA[نمی‌توان خدمات را راه‌اندازی کرد زیرا مجوز ریشه داده نشده است یا این دستگاه روت نشده است.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[نمی توان مرورگر را راه اندازی کرد]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nدر بریده‌دان رونوشت شده است.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+در بریده‌دان رونوشت شده است.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> در بریده‌دان رونوشت شده است.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s از شیزوکوی جدید پشتیبانی نمی کند]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[شیزوکوی قدیمی از مارس ۲۰۱۹ منسوخ شده است. همچنین، Shizuku قدیمی در دستگاه‌های اندروید جدید کار نمی‌کند.<p>لطفاً از توسعه‌دهنده <b>%1$s</b> بخواهید که به‌روزرسانی کند.]]></string>
@@ -533,6 +540,8 @@
     <string name="permission_group_description"><![CDATA[@string/برچسب_مجوز]]></string>
     <string name="starting_root_shell"><![CDATA[شروع پوستهٔ ریشه…]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[برای اولین راه‌اندازی مجدد به وای‌فای نیاز است، زیرا Shevery باید قبل از تغییر پورت ADB به ۵۵۵۵ به پورت عیب‌یابی بی‌سیم فعلی متصل شود.]]></string>
-    <string name="comput_adb_translate"><![CDATA[حالت ترجمه فرمان ADB فعال\nاصلی: %1$s\nدر حال اجرا...]]></string>
+    <string name="comput_adb_translate"><![CDATA[حالت ترجمه فرمان ADB فعال
+اصلی: %1$s
+در حال اجرا...]]></string>
     <string name="comput_console_initialized"><![CDATA[کنسول راه‌اندازی شد. سرویس ویژه Shevery متصل شد. آماده دریافت دستورات.]]></string>
 </resources>

@@ -127,10 +127,16 @@
     <string name="home_local_network_missing"><![CDATA[%1$s ไม่ได้รับอนุญาต]]></string>
     <string name="home_local_network_grant"><![CDATA[ให้สิทธิ์การเข้าถึง]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[การดีบักแบบไร้สายจำเป็นต้องมีการเข้าถึงเครือข่ายท้องถิ่น]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[โปรดเปิดใช้งาน "Wireless debugging" ใน "Developer options" "Wireless debugging" จะถูกปิดอัตโนมัติเมื่อมีการเปลี่ยนแปลงเครือข่าย\n\nหมายเหตุ: อย่าปิด "Developer options" หรือ "USB debugging" มิฉะนั้น Shevery จะถูกหยุดทำงาน]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[การดีบักแบบไร้สายยังไม่ถูกเปิดใช้งาน\nหมายเหตุ: ก่อน Android 11 หากต้องการเปิดใช้งานการดีบักแบบไร้สาย ต้องมีการเชื่อมต่อกับคอมพิวเตอร์ก่อน]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[โปรดเริ่มการจับคู่ตามขั้นตอนต่อไปนี้: "ตัวเลือกผู้พัฒนา" - "การดีบักแบบไร้สาย" - "จับคู่เครื่องใช้อุปกรณ์โดยใช้รหัสจับคู่".\n\nหลังจากกระบวนการจับคู่เริ่มขึ้น คุณจะสามารถป้อนรหัสจับคู่ได้]]></string>
-    <string name="adb_error_key_store"><![CDATA[ไม่สามารถสร้างกุญแจสำหรับการดีบักแบบไร้สายได้.\nสาเหตุอาจเกิดจากกลไก KeyStore ของอุปกรณ์นี้ไม่ทำงาน]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[โปรดเปิดใช้งาน "Wireless debugging" ใน "Developer options" "Wireless debugging" จะถูกปิดอัตโนมัติเมื่อมีการเปลี่ยนแปลงเครือข่าย
+
+หมายเหตุ: อย่าปิด "Developer options" หรือ "USB debugging" มิฉะนั้น Shevery จะถูกหยุดทำงาน]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[การดีบักแบบไร้สายยังไม่ถูกเปิดใช้งาน
+หมายเหตุ: ก่อน Android 11 หากต้องการเปิดใช้งานการดีบักแบบไร้สาย ต้องมีการเชื่อมต่อกับคอมพิวเตอร์ก่อน]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[โปรดเริ่มการจับคู่ตามขั้นตอนต่อไปนี้: "ตัวเลือกผู้พัฒนา" - "การดีบักแบบไร้สาย" - "จับคู่เครื่องใช้อุปกรณ์โดยใช้รหัสจับคู่".
+
+หลังจากกระบวนการจับคู่เริ่มขึ้น คุณจะสามารถป้อนรหัสจับคู่ได้]]></string>
+    <string name="adb_error_key_store"><![CDATA[ไม่สามารถสร้างกุญแจสำหรับการดีบักแบบไร้สายได้.
+สาเหตุอาจเกิดจากกลไก KeyStore ของอุปกรณ์นี้ไม่ทำงาน]]></string>
     <string name="home_quick_terminal"><![CDATA[เทอร์มินัล]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB แบบไร้สาย]]></string>
     <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
@@ -140,11 +146,17 @@
     <string name="home_diagnostics_copy"><![CDATA[คัดลอกผลการวินิจฉัย]]></string>
     <string name="home_diagnostics_copied"><![CDATA[ข้อมูลวินิจฉัยได้คัดลอกแล้ว]]></string>
     <string name="home_modules_description"><![CDATA[ติดตั้งและจัดการโมดูลที่ได้รับการสนับสนุนจาก ADB]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[ผู้ผลิตอุปกรณ์ของคุณได้จำกัดสิทธิ์ของ adb และแอปที่ใช้ Shevery จะทำงานไม่ถูกต้อง\n\nโดยทั่วไป สามารถยกเลิกข้อจำกัดนี้ได้โดยการปรับตั้งค่าบางอย่างใน "ตัวเลือกผู้พัฒนา" โปรดอ่านส่วนช่วยเหลือเพื่อทราบรายละเอียดเกี่ยวกับวิธีการดำเนินการ\n\nคุณอาจต้องรีสตาร์ท Shevery เพื่อให้การเปลี่ยนแปลงมีผล]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[ผู้ผลิตอุปกรณ์ของคุณได้จำกัดสิทธิ์ของ adb และแอปที่ใช้ Shevery จะทำงานไม่ถูกต้อง
+
+โดยทั่วไป สามารถยกเลิกข้อจำกัดนี้ได้โดยการปรับตั้งค่าบางอย่างใน "ตัวเลือกผู้พัฒนา" โปรดอ่านส่วนช่วยเหลือเพื่อทราบรายละเอียดเกี่ยวกับวิธีการดำเนินการ
+
+คุณอาจต้องรีสตาร์ท Shevery เพื่อให้การเปลี่ยนแปลงมีผล]]></string>
     <string name="app_management_select_all"><![CDATA[เลือกทั้งหมด]]></string>
     <string name="app_management_deselect_all"><![CDATA[ยกเลิกการเลือกทั้งหมด]]></string>
     <string name="app_management_loading"><![CDATA[กำลังโหลดแอป…]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[หากมีไฟล์ที่มีชื่อเดียวกันในโฟลเดอร์ที่เลือกไว้ ไฟล์เหล่านั้นจะถูกลบ\n\nฟังก์ชันการส่งออกใช้ SAF (Storage Access Framework) มีรายงานว่า MIUI ทำให้ฟังก์ชันของ SAF ไม่ทำงานได้ หากคุณกำลังใช้ MIUI คุณอาจต้องสกัดไฟล์จาก apk ของ Shevery หรือดาวน์โหลดจาก GitHub]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[หากมีไฟล์ที่มีชื่อเดียวกันในโฟลเดอร์ที่เลือกไว้ ไฟล์เหล่านั้นจะถูกลบ
+
+ฟังก์ชันการส่งออกใช้ SAF (Storage Access Framework) มีรายงานว่า MIUI ทำให้ฟังก์ชันของ SAF ไม่ทำงานได้ หากคุณกำลังใช้ MIUI คุณอาจต้องสกัดไฟล์จาก apk ของ Shevery หรือดาวน์โหลดจาก GitHub]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[เริ่มต้นเมื่อระบบเปิดเครื่องผ่านโหมดการดีบักแบบไร้สาย]]></string>
     <string name="settings_start_on_boot_adb_summary"><![CDATA[เมื่อระบบเริ่มต้นขึ้น ให้เปิดใช้งานการดีบักแบบไร้สาย (Wireless debugging) เป็นเวลาสั้นๆ แล้วเริ่ม Shevery ผ่าน ADB (พอร์ต TCP 5555) ไม่จำเป็นต้องมีสิทธิ์ root และ Wi-Fi จำเป็นเพียงชั่วขณะเท่านั้น]]></string>
     <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[เมื่อระบบเริ่มต้นขึ้น ให้เปิดใช้งานการดีบักแบบไร้สาย (Wireless debugging) เป็นเวลาสั้นๆ แล้วเริ่ม Shevery ผ่าน ADB ไม่จำเป็นต้องมีสิทธิ์ root และ Wi-Fi จำเป็นเพียงชั่วขณะเท่านั้น]]></string>
@@ -154,7 +166,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery ยังไม่ทำงาน ให้เปิดบริการก่อน แล้วกลับมาเปิดการตั้งค่านี้]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[การให้สิทธิ์อัตโนมัติไม่สำเร็จ โปรดใช้คำสั่งนี้จากคอมพิวเตอร์เพื่อให้สิทธิ์แบบมือ:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[คำสั่งคัดลอก]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[วิธีใช้:\n1. เชื่อมต่ออุปกรณ์กับคอมพิวเตอร์ (ผ่าน USB หรือการดีบักแบบไร้สาย)\n2. ในเทอร์มินัล ให้รันคำสั่งจากช่องด้านบน]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[วิธีใช้:
+1. เชื่อมต่ออุปกรณ์กับคอมพิวเตอร์ (ผ่าน USB หรือการดีบักแบบไร้สาย)
+2. ในเทอร์มินัล ให้รันคำสั่งจากช่องด้านบน]]></string>
     <string name="modules_title"><![CDATA[โมดูล ADB]]></string>
     <string name="modules_settings_title"><![CDATA[โมดูล]]></string>
     <string name="modules_settings_summary"><![CDATA[ติดตั้งโมดูล ZIP และดำเนินการผ่านเซิร์ฟเวอร์ Shevery ADB/root ที่กำลังทำงานอยู่]]></string>
@@ -248,7 +262,8 @@
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[กำลังเปิด root shell…]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n ได้ถูกคัดลอกไปยังคลิปบอร์ดแล้ว]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ ได้ถูกคัดลอกไปยังคลิปบอร์ดแล้ว]]></string>
     <string name="lab_features_title"><![CDATA[คุณสมบัติของห้องปฏิบัติการ]]></string>
     <string name="lab_features_summary"><![CDATA[คุณสมบัติทดลอง]]></string>
     <string name="shizuku_connectors_title"><![CDATA[Shevery Connectors]]></string>
@@ -423,7 +438,9 @@
     <string name="comput_copy_output"><![CDATA[คัดลอกผลลัพธ์]]></string>
     <string name="comput_ask_gemini"><![CDATA[ถาม Gemini]]></string>
     <string name="comput_executing"><![CDATA[กำลังดำเนินการ: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[โหมดการแปลคำสั่ง ADB เปิดใช้งานแล้ว\nต้นฉบับ: %1$s\nกำลังดำเนินการ...]]></string>
+    <string name="comput_adb_translate"><![CDATA[โหมดการแปลคำสั่ง ADB เปิดใช้งานแล้ว
+ต้นฉบับ: %1$s
+กำลังดำเนินการ...]]></string>
     <string name="comput_command_no_output"><![CDATA[คำสั่งเสร็จสิ้นแล้ว โดยไม่มีผลลัพธ์]]></string>
     <string name="comput_timed_out"><![CDATA[[E] คำสั่งหมดเวลาหลังจาก 120 วินาที]]></string>
     <string name="comput_exit_code"><![CDATA[[E] คำสั่งได้สิ้นสุดลงด้วยรหัส %1$d.]]></string>
@@ -431,7 +448,8 @@
     <string name="comput_executing_cmd"><![CDATA[> กำลังดำเนินการคำสั่ง: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[ข้อผิดพลาด: บริการ Shevery ที่มีสิทธิ์พิเศษกำลังไม่ทำงาน โปรดเริ่มบริการก่อน]]></string>
     <string name="comput_error_no_binder"><![CDATA[ข้อผิดพลาด: ไม่สามารถเรียกใช้ Shevery binder ได้]]></string>
-    <string name="comput_console_initialized"><![CDATA[คอนโซลได้รับการเริ่มต้นแล้ว บริการ Shevery ที่มีสิทธิ์พิเศษได้เชื่อมต่อแล้ว\nพร้อมรับคำสั่งแล้ว]]></string>
+    <string name="comput_console_initialized"><![CDATA[คอนโซลได้รับการเริ่มต้นแล้ว บริการ Shevery ที่มีสิทธิ์พิเศษได้เชื่อมต่อแล้ว
+พร้อมรับคำสั่งแล้ว]]></string>
     <string name="comput_ai_explanation"><![CDATA[คำอธิบาย AI]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[ผู้ช่วย AI Commandium]]></string>

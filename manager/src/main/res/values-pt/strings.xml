@@ -436,13 +436,25 @@
     <string name="accessibility_manager_service_no_description"><![CDATA[Keine Beschreibung vom Dienst bereitgestellt.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Existem algumas outras considerações; por favor, confirme que leu primeiro a secção de ajuda.]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Ative a opção «Depuração sem fios» nas «Opções do programador». A «Depuração sem fios» é desativada automaticamente quando ocorrem alterações na rede.\n\nNota: não desative as «Opções do programador» nem a «Depuração USB», caso contrário, o Shevery será interrompido.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[A depuração sem fios não está ativada.\nNota: antes do Android 11, para ativar a depuração sem fios, é obrigatória a ligação a um computador.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Por favor, inicie o emparelhamento seguindo os seguintes passos: «Opções de programador» - «Depuração sem fios» - «Emparelhar dispositivo utilizando o código de emparelhamento».\n\nAssim que o processo de emparelhamento tiver início, poderá introduzir o código de emparelhamento.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Não foi possível gerar a chave para a depuração sem fios.\nIsto pode dever-se ao facto de o mecanismo KeyStore deste dispositivo não estar a funcionar corretamente.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[O fabricante do seu dispositivo restringiu as permissões do adb e as aplicações que utilizam o Shevery não funcionarão corretamente.\n\nNormalmente, esta restrição pode ser eliminada ajustando algumas opções em «Opções do programador». Consulte a ajuda para obter mais detalhes sobre como proceder.\n\nPoderá ser necessário reiniciar o Shevery para que a alteração tenha efeito.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Ative a opção «Depuração sem fios» nas «Opções do programador». A «Depuração sem fios» é desativada automaticamente quando ocorrem alterações na rede.
+
+Nota: não desative as «Opções do programador» nem a «Depuração USB», caso contrário, o Shevery será interrompido.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[A depuração sem fios não está ativada.
+Nota: antes do Android 11, para ativar a depuração sem fios, é obrigatória a ligação a um computador.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Por favor, inicie o emparelhamento seguindo os seguintes passos: «Opções de programador» - «Depuração sem fios» - «Emparelhar dispositivo utilizando o código de emparelhamento».
+
+Assim que o processo de emparelhamento tiver início, poderá introduzir o código de emparelhamento.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Não foi possível gerar a chave para a depuração sem fios.
+Isto pode dever-se ao facto de o mecanismo KeyStore deste dispositivo não estar a funcionar corretamente.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[O fabricante do seu dispositivo restringiu as permissões do adb e as aplicações que utilizam o Shevery não funcionarão corretamente.
+
+Normalmente, esta restrição pode ser eliminada ajustando algumas opções em «Opções do programador». Consulte a ajuda para obter mais detalhes sobre como proceder.
+
+Poderá ser necessário reiniciar o Shevery para que a alteração tenha efeito.]]></string>
     <string name="app_management_loading"><![CDATA[A carregar aplicações…]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Se existirem ficheiros com o mesmo nome na pasta selecionada, estes serão eliminados.\n\nA função de exportação utiliza o SAF (Storage Access Framework). Segundo relatos, o MIUI interfere com o funcionamento do SAF. Se estiver a utilizar o MIUI, poderá ter de extrair o ficheiro do APK do Shevery ou descarregá-lo do GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Se existirem ficheiros com o mesmo nome na pasta selecionada, estes serão eliminados.
+
+A função de exportação utiliza o SAF (Storage Access Framework). Segundo relatos, o MIUI interfere com o funcionamento do SAF. Se estiver a utilizar o MIUI, poderá ter de extrair o ficheiro do APK do Shevery ou descarregá-lo do GitHub.]]></string>
     <string name="rish_description"><![CDATA[Com o %1$s, em qualquer aplicação de terminal, pode ligar-se e interagir com o shell executado pelo Shevery.
 <p>Para saber mais sobre como utilizar o %1$s, toque aqui para ver o documento.]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Iniciar no arranque através da depuração sem fios]]></string>
@@ -454,11 +466,14 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[O Shevery não está a funcionar. Inicie primeiro o serviço e, em seguida, volte aqui e ative esta configuração.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[A concessão automática de permissões falhou. Execute este comando num computador para a conceder manualmente:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Comando «Copiar»]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Como utilizar:\n1. Ligue o dispositivo a um computador (USB ou depuração sem fios).\n2. No terminal, execute o comando indicado no campo acima.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Como utilizar:
+1. Ligue o dispositivo a um computador (USB ou depuração sem fios).
+2. No terminal, execute o comando indicado no campo acima.]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[A iniciar o shell de root…]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nfoi copiado para a área de transferência.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+foi copiado para a área de transferência.]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[É necessário ter Wi-Fi para a primeira reinicialização, porque o Shevery tem de se ligar à porta de depuração sem fios atual antes de alterar a porta ADB para 5555.]]></string>
     <string name="notification_startup_channel_name"><![CDATA[A startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Apresentação de Shevery]]></string>
@@ -497,8 +512,11 @@
     <string name="shevery_update_check_failed"><![CDATA[Falha na verificação de atualizações: %s]]></string>
     <string name="settings_sections_title"><![CDATA[Cópias de segurança e outros]]></string>
     <string name="backup_section_title"><![CDATA[Cópias de segurança]]></string>
-    <string name="comput_adb_translate"><![CDATA[Modo de tradução de comandos do ADB ativo\nOriginal: %1$s\nA executar...]]></string>
-    <string name="comput_console_initialized"><![CDATA[Consola inicializada. Serviço Shevery com privilégios ligado.\nPronto para receber comandos.]]></string>
+    <string name="comput_adb_translate"><![CDATA[Modo de tradução de comandos do ADB ativo
+Original: %1$s
+A executar...]]></string>
+    <string name="comput_console_initialized"><![CDATA[Consola inicializada. Serviço Shevery com privilégios ligado.
+Pronto para receber comandos.]]></string>
     <string name="comput_output_label"><![CDATA[Resultado]]></string>
     <string name="comput_search_desc"><![CDATA[Resultados da pesquisa]]></string>
     <string name="comput_search_hint"><![CDATA[Resultados da pesquisa]]></string>

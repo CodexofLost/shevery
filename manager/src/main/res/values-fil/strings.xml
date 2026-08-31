@@ -148,7 +148,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Hindi tumatakbo ang Shevery. Paandarin muna ang serbisyo, pagkatapos ay bumalik at paganahin ang setting na ito.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Nabigo ang awtomatikong pagbibigay ng pahintulot. Patakbuhin ang utos na ito mula sa isang kompyuter upang mabigyan ito ng pahintulot nang manu-mano:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopya ng utos]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Paano gamitin:\n1. Ikonekta ang aparato sa kompyuter (USB o wireless debugging).\n2. Sa terminal, patakbuhin ang utos mula sa patlang sa itaas.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Paano gamitin:
+1. Ikonekta ang aparato sa kompyuter (USB o wireless debugging).
+2. Sa terminal, patakbuhin ang utos mula sa patlang sa itaas.]]></string>
     <string name="modules_title"><![CDATA[ADB Modules]]></string>
     <string name="modules_settings_title"><![CDATA[Mga Modulo]]></string>
     <string name="modules_settings_summary"><![CDATA[I-install ang mga ZIP module at patakbuhin ang kanilang mga aksyon sa pamamagitan ng aktibong Shevery ADB/root server.]]></string>
@@ -416,7 +418,9 @@
     <string name="comput_copy_output"><![CDATA[Kopya ng Output]]></string>
     <string name="comput_ask_gemini"><![CDATA[Tanungin si Gemini]]></string>
     <string name="comput_executing"><![CDATA[Pagpapatupad: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Aktibo ang ADB Command Translation Mode\nOrihinal: %1$s\nIsinasagawa...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Aktibo ang ADB Command Translation Mode
+Orihinal: %1$s
+Isinasagawa...]]></string>
     <string name="comput_command_no_output"><![CDATA[Natapos ang utos nang walang output.]]></string>
     <string name="comput_timed_out"><![CDATA[Nag-expire ang utos makalipas ang 120 segundo.]]></string>
     <string name="comput_exit_code"><![CDATA[Lumabas ang utos na may kodigo %1$d.]]></string>
@@ -530,9 +534,12 @@
     <string name="settings_compat_stub_none"><![CDATA[Walang magagamit na channel (simulan muna ang Shevery)]]></string>
     <string name="dialog_adb_discovery_message"><![CDATA[Mangyaring paganahin ang "Wireless debugging" sa "Developer options". Awtomatikong napapatay ang "Wireless debugging" kapag nagbabago ang network. Tandaan, huwag patayin ang "Developer options" o "USB debugging", kung hindi titigil ang Shevery.]]></string>
     <string name="dialog_wireless_adb_not_enabled"><![CDATA[Hindi naka-enable ang wireless debugging. Tandaan, bago ang Android 11, upang paganahin ang wireless debugging, kinakailangan ang koneksyon sa kompyuter.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Magsimula sa pag-paring sa pamamagitan ng mga sumusunod na hakbang: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nPagkatapos magsimula ang proseso ng pag-paring, maaari mo nang ilagay ang pairing code.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Magsimula sa pag-paring sa pamamagitan ng mga sumusunod na hakbang: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".
+
+Pagkatapos magsimula ang proseso ng pag-paring, maaari mo nang ilagay ang pairing code.]]></string>
     <string name="adb_error_key_store"><![CDATA[Hindi makabuo ng susi para sa wireless debugging. Maaaring dahil nasira ang mekanismo ng KeyStore ng aparatong ito.]]></string>
     <string name="home_adb_is_limited_description"><![CDATA[Ang gumawa ng iyong aparato ay naglilimita sa mga pahintulot ng adb at ang mga app na gumagamit ng Shevery ay hindi gagana nang maayos. Karaniwan, maaaring maalis ang limitasyong ito sa pamamagitan ng pag-aayos ng ilang pagpipilian sa "Developer options". Mangyaring basahin ang tulong para sa mga detalye kung paano ito gawin. Maaaring kailanganin mong i-restart ang Shevery para maging epektibo ang operasyon.]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[Kung may mga file na magkapangalan sa napiling folder, mabubura ang mga ito.   Gumagamit ang export function ng SAF (Storage Access Framework). Iniulat na sinisira ng MIUI ang mga function ng SAF. Kung gumagamit ka ng MIUI, maaaring kailangan mong i-extract ang file mula sa apk ni Shevery o i-download ito mula sa GitHub.]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[Na-kopya na sa clipboard ang %s\n.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[Na-kopya na sa clipboard ang %s
+.]]></string>
 </resources>

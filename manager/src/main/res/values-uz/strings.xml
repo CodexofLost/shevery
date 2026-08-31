@@ -460,7 +460,8 @@
     <string name="permission_group_label"><![CDATA[Uchuvchi]]></string>
     <string name="permission_group_description"><![CDATA[@string/ruxsatnoma_belgisi]]></string>
     <string name="starting_root_shell"><![CDATA[Root qobig'ini ishga tushirish…]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nklipbordga nusxalandi.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+klipbordga nusxalandi.]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Har bir startap]]></string>
     <string name="notification_startup_title"><![CDATA[Sheveryni boshlash]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Wi-Fi xatolarini tuzatishni yoqish…]]></string>
@@ -497,7 +498,9 @@
     <string name="shevery_update_check_failed"><![CDATA[Yangilanishni tekshirish muvaffaqiyatsiz bo'ldi: %s]]></string>
     <string name="settings_sections_title"><![CDATA[Zaxira nusxalari va boshqalar]]></string>
     <string name="backup_section_title"><![CDATA[Zaxira nusxalar]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB buyruq tarjima rejimi faol\nAsl: %1$s\nIjro etilmoqda...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB buyruq tarjima rejimi faol
+Asl: %1$s
+Ijro etilmoqda...]]></string>
     <string name="comput_output_label"><![CDATA[Chiqish]]></string>
     <string name="comput_search_desc"><![CDATA[Qidiruv natijasi]]></string>
     <string name="comput_search_hint"><![CDATA[Qidiruv natijasi]]></string>

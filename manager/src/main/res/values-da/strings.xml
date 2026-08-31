@@ -33,7 +33,9 @@
     <string name="home_local_network_grant"><![CDATA[Giv adgang]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Der kræves adgang til et lokalt netværk for at kunne udføre fejlfinding på trådløse enheder.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Søger efter en tjeneste til trådløs fejlfinding]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Aktivér venligst »Trådløs fejlfinding« under »Udviklerindstillinger«. »Trådløs fejlfinding« deaktiveres automatisk, når der sker ændringer i netværksforbindelsen.\n\nBemærk: Du må ikke deaktivere »Udviklerindstillinger« eller »USB-fejlfinding«, da Shevery ellers vil blive stoppet.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Aktivér venligst »Trådløs fejlfinding« under »Udviklerindstillinger«. »Trådløs fejlfinding« deaktiveres automatisk, når der sker ændringer i netværksforbindelsen.
+
+Bemærk: Du må ikke deaktivere »Udviklerindstillinger« eller »USB-fejlfinding«, da Shevery ellers vil blive stoppet.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Prøv at deaktivere og aktivere »Trådløs fejlfinding«, hvis den bliver ved med at søge.]]></string>
     <string name="dialog_adb_port"><![CDATA[Havn]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Porten er et heltal mellem 1 og 65535.]]></string>
@@ -43,11 +45,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Parringskode]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Paringskoden er forkert.]]></string>
     <string name="cannot_connect_port"><![CDATA[Der kan ikke oprettes forbindelse til den trådløse fejlfindingsservice.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Trådløs fejlfinding er ikke aktiveret.\nBemærk, at før Android 11 er det nødvendigt at have en computer tilsluttet for at aktivere trådløs fejlfinding.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Start parringen ved at følge disse trin: »Udviklerindstillinger« – »Trådløs fejlfinding« – »Par en enhed ved hjælp af parringskode«.\n\nNår parringsprocessen er gået i gang, kan du indtaste parringskoden.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Trådløs fejlfinding er ikke aktiveret.
+Bemærk, at før Android 11 er det nødvendigt at have en computer tilsluttet for at aktivere trådløs fejlfinding.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Start parringen ved at følge disse trin: »Udviklerindstillinger« – »Trådløs fejlfinding« – »Par en enhed ved hjælp af parringskode«.
+
+Når parringsprocessen er gået i gang, kan du indtaste parringskoden.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Gå først ind i split-screen-tilstand (tilstand med flere vinduer).]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Systemet kræver, at parringsdialogen altid er synlig, og brug af split-screen-tilstand er den eneste måde, hvorpå denne app og systemdialogen kan vises samtidigt.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Det er ikke muligt at generere en nøgle til trådløs fejlfinding.\nDette kan skyldes, at KeyStore-mekanismen på denne enhed er beskadiget.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Det er ikke muligt at generere en nøgle til trådløs fejlfinding.
+Dette kan skyldes, at KeyStore-mekanismen på denne enhed er beskadiget.]]></string>
     <string name="adb_pair_required"><![CDATA[Gennemfør venligst parringsproceduren først.]]></string>
     <string name="development_settings"><![CDATA[Udviklerindstillinger]]></string>
     <string name="notification_settings"><![CDATA[Meddelelsesindstillinger]]></string>
@@ -82,7 +88,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Diagnostik kopieret.]]></string>
     <string name="home_modules_description"><![CDATA[Installer og administrer ADB-baserede moduler]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Du skal tage et ekstra skridt]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Producenten af din enhed har begrænset adb-rettighederne, og apps, der bruger Shevery, vil ikke fungere korrekt.\n\nNormalt kan denne begrænsning ophæves ved at ændre nogle indstillinger under »Udviklerindstillinger«. Læs hjælpen for at få nærmere oplysninger om, hvordan du gør dette.\n\nDet kan være nødvendigt at genstarte Shevery, før ændringen træder i kraft.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Producenten af din enhed har begrænset adb-rettighederne, og apps, der bruger Shevery, vil ikke fungere korrekt.
+
+Normalt kan denne begrænsning ophæves ved at ændre nogle indstillinger under »Udviklerindstillinger«. Læs hjælpen for at få nærmere oplysninger om, hvordan du gør dette.
+
+Det kan være nødvendigt at genstarte Shevery, før ændringen træder i kraft.]]></string>
     <string name="app_management_select_all"><![CDATA[Vælg alt]]></string>
     <string name="app_management_deselect_all"><![CDATA[Fjern markeringen fra alle]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[adb’s tilladelse er begrænset]]></string>
@@ -92,7 +102,9 @@
     <string name="home_terminal_title"><![CDATA[Brug Shevery i terminal-apps]]></string>
     <string name="home_terminal_description"><![CDATA[Kør kommandoer via Shevery i de terminalprogrammer, du foretrækker]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Først skal du eksportere filerne til et sted efter eget valg. Der vil være to filer: %1$s og %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Hvis der findes filer med samme navn i den valgte mappe, vil de blive slettet.\n\nEksportfunktionen bruger SAF (Storage Access Framework). Det forlyder, at MIUI forstyrrer SAF’s funktioner. Hvis du bruger MIUI, kan det være nødvendigt at udpakke filen fra Shevery’s APK eller downloade den fra GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Hvis der findes filer med samme navn i den valgte mappe, vil de blive slettet.
+
+Eksportfunktionen bruger SAF (Storage Access Framework). Det forlyder, at MIUI forstyrrer SAF’s funktioner. Hvis du bruger MIUI, kan det være nødvendigt at udpakke filen fra Shevery’s APK eller downloade den fra GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[Eksporter filer]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Brug derefter et vilkårligt tekstredigeringsprogram til at åbne og redigere %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Hvis du f.eks. vil bruge Shevery i %1$s, skal du erstatte %2$s med %3$s (%4$s er pakkenavnet for %1$s).]]></string>
@@ -118,7 +130,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery kører ikke. Start først tjenesten, og kom derefter tilbage og aktiver denne indstilling.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Den automatiske tildeling af tilladelser mislykkedes. Kør denne kommando fra en computer for at tildele tilladelsen manuelt:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopier-kommando]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Sådan bruges det:\n1. Tilslut enheden til en computer (via USB eller trådløs fejlfinding).\n2. Kør kommandoen fra feltet ovenfor i terminalen.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Sådan bruges det:
+1. Tilslut enheden til en computer (via USB eller trådløs fejlfinding).
+2. Kør kommandoen fra feltet ovenfor i terminalen.]]></string>
     <string name="settings_use_system_color"><![CDATA[Brug systemets temafarve]]></string>
     <string name="modules_title"><![CDATA[ADB-moduler]]></string>
     <string name="modules_settings_title"><![CDATA[Moduler]]></string>
@@ -240,7 +254,8 @@
     <string name="starting_root_shell"><![CDATA[Start af root-shell…]]></string>
     <string name="start_with_root_failed"><![CDATA[Tjenesten kan ikke startes, fordi der ikke er tildelt root-rettigheder, eller fordi denne enhed ikke er rodet.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Kan ikke starte browseren]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nh er blevet kopieret til udklipsholderen.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+h er blevet kopieret til udklipsholderen.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> er blevet kopieret til udklipsholderen.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s understøtter ikke moderne Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Den gamle version af Shevery er udfaset siden marts 2019. Desuden fungerer den gamle version af Shevery ikke på nyere Android-systemer.<p>Bed udvikleren af <b>%1$s</b> om at opdatere appen.]]></string>
@@ -421,7 +436,9 @@
     <string name="comput_copy_output"><![CDATA[Kopier udskrift]]></string>
     <string name="comput_ask_gemini"><![CDATA[Spørg Gemini]]></string>
     <string name="comput_executing"><![CDATA[Udfører: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB-kommandooversættelsestilstand aktiv\nOriginal: %1$s\nUdfører...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB-kommandooversættelsestilstand aktiv
+Original: %1$s
+Udfører...]]></string>
     <string name="comput_command_no_output"><![CDATA[Kommandoen blev udført uden output.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Kommandoen udløb efter 120 sekunder.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Kommandoen afsluttedes med koden %1$d.]]></string>
@@ -429,7 +446,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Udfører kommando: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Fejl: Tjenesten »Privileged Shevery« kører ikke. Start venligst tjenesten først.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Fejl: Det var ikke muligt at hente Shevery-mappen.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konsollen er initialiseret. Shevery-tjenesten med udvidede rettigheder er tilsluttet.\nKlar til kommandoer.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konsollen er initialiseret. Shevery-tjenesten med udvidede rettigheder er tilsluttet.
+Klar til kommandoer.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Forklaring af AI]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI-assistent]]></string>

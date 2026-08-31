@@ -148,7 +148,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery non è in esecuzione. Avvia prima il servizio, poi torna qui e abilita questa impostazione.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[La concessione automatica dell'autorizzazione non è andata a buon fine. Esegui questo comando da un computer per concederla manualmente:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Comando "Copia"]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Istruzioni per l'uso:\n1. Collegare il dispositivo a un computer (tramite USB o debug wireless).\n2. Nel terminale, eseguire il comando riportato nel campo sopra.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Istruzioni per l'uso:
+1. Collegare il dispositivo a un computer (tramite USB o debug wireless).
+2. Nel terminale, eseguire il comando riportato nel campo sopra.]]></string>
     <string name="modules_title"><![CDATA[Moduli ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Moduli]]></string>
     <string name="modules_settings_summary"><![CDATA[Installare i moduli ZIP ed eseguire le relative azioni tramite il server ADB/root Shevery attivo]]></string>
@@ -416,7 +418,9 @@
     <string name="comput_copy_output"><![CDATA[Copia output]]></string>
     <string name="comput_ask_gemini"><![CDATA[Chiedi a Gemini]]></string>
     <string name="comput_executing"><![CDATA[Esecuzione: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Modalità di traduzione dei comandi ADB attiva\nOriginale: %1$s\nEsecuzione in corso...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Modalità di traduzione dei comandi ADB attiva
+Originale: %1$s
+Esecuzione in corso...]]></string>
     <string name="comput_command_no_output"><![CDATA[Il comando è stato eseguito senza generare alcun output.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Il comando ha superato il limite di tempo dopo 120 secondi.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Il comando è terminato con il codice %1$d.]]></string>
@@ -424,7 +428,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Esecuzione del comando: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Errore: il servizio Privileged Shevery non è in esecuzione. Avviare prima il servizio.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Errore: impossibile recuperare il raccoglitore Shevery.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Console inizializzata. Servizio Shevery con privilegi connesso.\nPronto per i comandi.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Console inizializzata. Servizio Shevery con privilegi connesso.
+Pronto per i comandi.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Spiegazione dell'IA]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>
@@ -528,11 +533,24 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[Rimosso lo stub legacy]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Impossibile %1$s lo stub legacy tramite %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Nessun canale disponibile (inizia prima da Shevery)]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Si prega di abilitare la funzione “Debug wireless” nelle “Opzioni sviluppatore”. La funzione “Debug wireless” viene disabilitata automaticamente in caso di modifiche alla rete.\n\nAttenzione: non disabilitare le “Opzioni sviluppatore” né il “Debug USB”, altrimenti Shevery verrà interrotto.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Il debug wireless non è abilitato.\nNota: prima di Android 11, per abilitare il debug wireless è indispensabile la connessione a un computer.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Per avviare l'accoppiamento, segui questi passaggi: "Opzioni sviluppatore" - "Debug wireless" - "Accoppia dispositivo tramite codice di accoppiamento".\n\nUna volta avviato il processo di accoppiamento, potrai inserire il codice di accoppiamento.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Impossibile generare la chiave per il debug wireless.\nCiò potrebbe essere dovuto al malfunzionamento del meccanismo KeyStore di questo dispositivo.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Il produttore del tuo dispositivo ha limitato le autorizzazioni ADB e le app che utilizzano Shevery non funzioneranno correttamente.\n\nDi solito, è possibile rimuovere questa limitazione modificando alcune impostazioni nelle "Opzioni sviluppatore". Consulta la guida per maggiori dettagli su come procedere.\n\nPotrebbe essere necessario riavviare Shevery affinché la modifica abbia effetto.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Se nella cartella selezionata sono presenti file con lo stesso nome, questi verranno eliminati.\n\nLa funzione di esportazione utilizza SAF (Storage Access Framework). È stato segnalato che MIUI compromette il corretto funzionamento di SAF. Se utilizzi MIUI, potrebbe essere necessario estrarre il file dall'apk di Shevery o scaricarlo da GitHub.]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nè stato copiato negli appunti.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Si prega di abilitare la funzione “Debug wireless” nelle “Opzioni sviluppatore”. La funzione “Debug wireless” viene disabilitata automaticamente in caso di modifiche alla rete.
+
+Attenzione: non disabilitare le “Opzioni sviluppatore” né il “Debug USB”, altrimenti Shevery verrà interrotto.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Il debug wireless non è abilitato.
+Nota: prima di Android 11, per abilitare il debug wireless è indispensabile la connessione a un computer.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Per avviare l'accoppiamento, segui questi passaggi: "Opzioni sviluppatore" - "Debug wireless" - "Accoppia dispositivo tramite codice di accoppiamento".
+
+Una volta avviato il processo di accoppiamento, potrai inserire il codice di accoppiamento.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Impossibile generare la chiave per il debug wireless.
+Ciò potrebbe essere dovuto al malfunzionamento del meccanismo KeyStore di questo dispositivo.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Il produttore del tuo dispositivo ha limitato le autorizzazioni ADB e le app che utilizzano Shevery non funzioneranno correttamente.
+
+Di solito, è possibile rimuovere questa limitazione modificando alcune impostazioni nelle "Opzioni sviluppatore". Consulta la guida per maggiori dettagli su come procedere.
+
+Potrebbe essere necessario riavviare Shevery affinché la modifica abbia effetto.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Se nella cartella selezionata sono presenti file con lo stesso nome, questi verranno eliminati.
+
+La funzione di esportazione utilizza SAF (Storage Access Framework). È stato segnalato che MIUI compromette il corretto funzionamento di SAF. Se utilizzi MIUI, potrebbe essere necessario estrarre il file dall'apk di Shevery o scaricarlo da GitHub.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+è stato copiato negli appunti.]]></string>
 </resources>

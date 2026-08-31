@@ -242,7 +242,8 @@
     <string name="starting_root_shell"><![CDATA[روٹ شیل شروع ہو رہا ہے…]]></string>
     <string name="start_with_root_failed"><![CDATA[سروس شروع نہیں کی جا سکتی کیونکہ روٹ کی اجازت نہیں دی گئی یا یہ ڈیوائس روٹ نہیں ہے۔]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[براؤزر شروع نہیں ہو سکتا]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nکلپ بورڈ پر کاپی کر دیا گیا ہے۔]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+کلپ بورڈ پر کاپی کر دیا گیا ہے۔]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s کو کلپ بورڈ میں کاپی کر لیا گیا ہے۔]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s جدید شیوری کی حمایت نہیں کرتا۔]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[لیگیسی شیوری مارچ 2019 سے منسوخ ہے۔ نیز، لیگیسی شیوری نئے اینڈرائیڈ سسٹمز پر کام نہیں کرتی۔ براہ کرم <b>%1$s</b> کے ڈویلپر سے اپ ڈیٹ کرنے کو کہیں۔]]></string>
@@ -423,7 +424,9 @@
     <string name="comput_copy_output"><![CDATA[آؤٹ پٹ کاپی کریں]]></string>
     <string name="comput_ask_gemini"><![CDATA[جیمینی سے پوچھیں]]></string>
     <string name="comput_executing"><![CDATA[عملدرآمد: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB کمانڈ ترجمہ موڈ فعال\nاصل: %1$s\nعملدرآمد...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB کمانڈ ترجمہ موڈ فعال
+اصل: %1$s
+عملدرآمد...]]></string>
     <string name="comput_command_no_output"><![CDATA[کمانڈ بغیر کسی آؤٹ پٹ کے مکمل ہو گیا۔]]></string>
     <string name="comput_timed_out"><![CDATA[[E] کمانڈ 120 سیکنڈ کے بعد ٹائم آؤٹ ہو گیا۔]]></string>
     <string name="comput_exit_code"><![CDATA[[E] کمانڈ کوڈ %1$d کے ساتھ ختم ہوا۔]]></string>

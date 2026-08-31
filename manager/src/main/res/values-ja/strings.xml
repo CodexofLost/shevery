@@ -27,7 +27,9 @@
     <string name="home_local_network_grant"><![CDATA[アクセスを許可]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[ワイヤレスデバッグにはローカルネットワークへのアクセスが必要です。]]></string>
     <string name="dialog_adb_discovery"><![CDATA[ワイヤレスデバッグサービスを検索中]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[「開発者向けオプション」で「ワイヤレスデバッグ」を有効にしてください。ネットワークが変更されると自動的にオフになります。\n\n注意: 「開発者向けオプション」や「USBデバッグ」を無効にしないでください。Sheveryが停止します。]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[「開発者向けオプション」で「ワイヤレスデバッグ」を有効にしてください。ネットワークが変更されると自動的にオフになります。
+
+注意: 「開発者向けオプション」や「USBデバッグ」を無効にしないでください。Sheveryが停止します。]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[検索が続く場合は、「ワイヤレスデバッグ」を一度オフにしてから再度オンにしてください。]]></string>
     <string name="dialog_adb_port"><![CDATA[ポート]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[ポートは 1 から 65535 の整数である必要があります。]]></string>
@@ -37,11 +39,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[ペアリングコード]]></string>
     <string name="paring_code_is_wrong"><![CDATA[ペアリングコードが正しくありません。]]></string>
     <string name="cannot_connect_port"><![CDATA[ワイヤレスデバッグサービスに接続できません。]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[ワイヤレスデバッグが有効になっていません。\nAndroid 11未満ではパソコン接続が必要です。]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[次の手順でペアリングを開始してください: 「開発者向けオプション」-「ワイヤレスデバッグ」-「ペアリングコードでデバイスをペアリング」。\n\nペアリング開始後にコードを入力できます。]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[ワイヤレスデバッグが有効になっていません。
+Android 11未満ではパソコン接続が必要です。]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[次の手順でペアリングを開始してください: 「開発者向けオプション」-「ワイヤレスデバッグ」-「ペアリングコードでデバイスをペアリング」。
+
+ペアリング開始後にコードを入力できます。]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[最初に分割画面（マルチウィンドウ）モードにしてください。]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[システムはペアリングダイアログが常時表示されていることを要求します。分割画面モードのみがアプリとシステムのダイアログを同時に表示できます。]]></string>
-    <string name="adb_error_key_store"><![CDATA[ワイヤレスデバッグ用キーを生成できません。\n端末のKeyStoreメカニズムが破損している可能性があります。]]></string>
+    <string name="adb_error_key_store"><![CDATA[ワイヤレスデバッグ用キーを生成できません。
+端末のKeyStoreメカニズムが破損している可能性があります。]]></string>
     <string name="adb_pair_required"><![CDATA[最初にペアリングの手順を完了してください。]]></string>
     <string name="development_settings"><![CDATA[開発者向けオプション]]></string>
     <string name="notification_settings"><![CDATA[通知オプション]]></string>
@@ -72,7 +78,11 @@
     <string name="home_diagnostics_copied"><![CDATA[診断情報をクリップボードにコピーしました。]]></string>
     <string name="home_modules_description"><![CDATA[ADBモジュールのインストールと管理]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[追加の手順が必要です]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[端末の製造元によってADB権限が制限されており、Sheveryを使用するアプリが正常に動作しない可能性があります。\n\n通常、「開発者向けオプション」の調整で解消できます。詳細はヘルプをご覧ください。\n\n変更適用のためSheveryの再起動が必要な場合があります。]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[端末の製造元によってADB権限が制限されており、Sheveryを使用するアプリが正常に動作しない可能性があります。
+
+通常、「開発者向けオプション」の調整で解消できます。詳細はヘルプをご覧ください。
+
+変更適用のためSheveryの再起動が必要な場合があります。]]></string>
     <string name="app_management_select_all"><![CDATA[すべて選択]]></string>
     <string name="app_management_deselect_all"><![CDATA[選択を解除]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[ADBの権限が制限されています]]></string>
@@ -81,7 +91,9 @@
     <string name="home_terminal_title"><![CDATA[ターミナルアプリでSheveryを使用]]></string>
     <string name="home_terminal_description"><![CDATA[お気に入りのターミナルアプリからShevery経由でコマンドを実行]]></string>
     <string name="terminal_tutorial_1"><![CDATA[まず、任意の場所にファイルをエクスポートします。%1$s と %2$s の2つのファイルが生成されます。]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[選択したフォルダに同名ファイルが存在する場合、上書きされます。\n\nエクスポート機能はSAFを使用します。MIUIではSAFが正常に機能しない場合があるため、その場合はAPKから直接抽出するかGitHubからダウンロードしてください。]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[選択したフォルダに同名ファイルが存在する場合、上書きされます。
+
+エクスポート機能はSAFを使用します。MIUIではSAFが正常に機能しない場合があるため、その場合はAPKから直接抽出するかGitHubからダウンロードしてください。]]></string>
     <string name="terminal_export_files"><![CDATA[ファイルをエクスポート]]></string>
     <string name="terminal_tutorial_2"><![CDATA[次に、テキストエディタで %1$s を開いて編集します。]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[例えば %1$s で使用する場合、%2$s を %3$s に置き換えます（%4$s は %1$s のパッケージ名です）。]]></string>
@@ -217,7 +229,8 @@
     <string name="starter"><![CDATA[スターター]]></string>
     <string name="start_with_root_failed"><![CDATA[root権限が許可されていないか、端末がroot化されていないためサービスを開始できません。]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[ブラウザを起動できません]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nをクリップボードにコピーしました。]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+をクリップボードにコピーしました。]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> をクリップボードにコピーしました。]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s は最新のSheveryに対応していません]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[旧バージョンのSheveryは2019年3月に非推奨となり、新しいAndroidでは動作しません。<p><b>%1$s</b> の開発者にアップデートを要請してください。]]></string>
@@ -358,7 +371,9 @@
     <string name="comput_copy_output"><![CDATA[出力をコピー]]></string>
     <string name="comput_ask_gemini"><![CDATA[Geminiに質問]]></string>
     <string name="comput_executing"><![CDATA[実行中: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADBコマンド翻訳モードアクティブ\nオリジナル: %1$s\n実行中...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADBコマンド翻訳モードアクティブ
+オリジナル: %1$s
+実行中...]]></string>
     <string name="comput_command_no_output"><![CDATA[出力なしで終了しました。]]></string>
     <string name="comput_timed_out"><![CDATA[[E] 120秒後にコマンドがタイムアウトしました。]]></string>
     <string name="comput_exit_code"><![CDATA[[E] コード %1$d で終了しました。]]></string>
@@ -366,7 +381,8 @@
     <string name="comput_executing_cmd"><![CDATA[> コマンド実行中: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[エラー: 特権Sheveryサービスが実行されていません。先にサービスを開始してください。]]></string>
     <string name="comput_error_no_binder"><![CDATA[エラー: Sheveryバインダーを取得できませんでした。]]></string>
-    <string name="comput_console_initialized"><![CDATA[コンソールが初期化されました。特権Sheveryサービスに接続完了。\n準備完了。]]></string>
+    <string name="comput_console_initialized"><![CDATA[コンソールが初期化されました。特権Sheveryサービスに接続完了。
+準備完了。]]></string>
     <string name="comput_ai_explanation"><![CDATA[AIによる解説]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI アシスタント]]></string>
@@ -443,7 +459,9 @@
     <string name="settings_start_on_boot_adb_missing_permission_title"><![CDATA[権限不足]]></string>
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Sheveryは実行されていません。まずサービスを起動してから、戻ってきてこの設定を有効にしてください。]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[自動での権限付与に失敗しました。コンピュータから次のコマンドを実行して、手動で権限を付与してください：]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[使用方法:\n1. デバイスをコンピュータに接続します（USB またはワイヤレスデバッグ）。\n2. ターミナルで、上の欄にあるコマンドを実行します。]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[使用方法:
+1. デバイスをコンピュータに接続します（USB またはワイヤレスデバッグ）。
+2. ターミナルで、上の欄にあるコマンドを実行します。]]></string>
     <string name="permission_group_label"><![CDATA[シェベリー]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[rootシェルを起動中…]]></string>

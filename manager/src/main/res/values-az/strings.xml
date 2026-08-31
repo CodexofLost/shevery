@@ -149,7 +149,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery işləmir. Xidməti əvvəlcə işə salın, sonra geri qayıdıb bu parametrləri aktivləşdirin.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Avtomatik icazə verilməsi uğursuz oldu. Bunu kompüterdən əl ilə vermək üçün bu əmri işə salın:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Surət əmri]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[İstifadə qaydası:\n1. Cihazı kompüterə qoşun (USB və ya simsiz debug rejimi).\n2. Terminalda yuxarıdakı sahədən əmri işə salın.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[İstifadə qaydası:
+1. Cihazı kompüterə qoşun (USB və ya simsiz debug rejimi).
+2. Terminalda yuxarıdakı sahədən əmri işə salın.]]></string>
     <string name="modules_title"><![CDATA[ADB modulları]]></string>
     <string name="modules_settings_title"><![CDATA[Modullar]]></string>
     <string name="modules_settings_summary"><![CDATA[ZIP modullərini quraşdırın və onların əməliyyatlarını aktiv Shevery ADB/root serveri vasitəsilə işə salın.]]></string>
@@ -417,7 +419,9 @@
     <string name="comput_copy_output"><![CDATA[Çıxarı kopyalayın]]></string>
     <string name="comput_ask_gemini"><![CDATA[Gemini-dən soruş]]></string>
     <string name="comput_executing"><![CDATA[İcra: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB Komanda tərcümə rejimi aktivdir\nOrijinal: %1$s\nİcra olunur...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB Komanda tərcümə rejimi aktivdir
+Orijinal: %1$s
+İcra olunur...]]></string>
     <string name="comput_command_no_output"><![CDATA[Əmr heç bir çıxış olmadan tamamlandı.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Komanda 120 saniyə sonra vaxtı bitdi.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] əmri %1$d kodu ilə başa çatdı.]]></string>
@@ -534,5 +538,6 @@
     <string name="dialog_adb_pairing_message"><![CDATA[Zəhmət olmasa cütləşdirməyə aşağıdakı addımlarla başlayın: "İnkişaf parametrləri" - "Simsiz səhvləri aradan qaldırma" - "Cütləşdirmə kodundan istifadə edərək cihazı cütləşdirin". Cütləşdirmə prosesi başladıqdan sonra cütləşdirmə kodunu daxil edə biləcəksiniz.]]></string>
     <string name="adb_error_key_store"><![CDATA[Simsiz səhvləri düzəltmək üçün açar yaradılmadı. Bu, bu cihazın KeyStore mexanizminin sıradan çıxması səbəbindən ola bilər.]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[Əgər seçilmiş qovluqda eyni adla fayllar varsa, onlar silinəcək.  Eksport funksiyası SAF (Storage Access Framework) istifadə edir. Bildirilir ki, MIUI SAF-ın funksiyalarını pozur. Əgər MIUI istifadə edirsinizsə, faylı Shevery-nin APK-sından çıxarmalı və ya GitHub-dan yükləməlisiniz.]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nkopyalanıb kəsim lövhəsinə.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+kopyalanıb kəsim lövhəsinə.]]></string>
 </resources>

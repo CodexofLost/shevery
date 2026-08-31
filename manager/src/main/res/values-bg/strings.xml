@@ -33,7 +33,9 @@
     <string name="home_local_network_grant"><![CDATA[Предоставяне на достъп]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[За отстраняването на грешки при безжичната връзка е необходим достъп до локалната мрежа.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Търсене на услуга за безжично отстраняване на грешки]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Моля, активирайте „Безжично отстраняване на грешки“ в „Опции за разработчици“. „Безжичното отстраняване на грешки“ се деактивира автоматично при промяна на мрежовите настройки.\n\nВнимание: не деактивирайте „Опции за разработчици“ или „Отстраняване на грешки през USB“, тъй като в противен случай Shevery ще бъде спряно.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Моля, активирайте „Безжично отстраняване на грешки“ в „Опции за разработчици“. „Безжичното отстраняване на грешки“ се деактивира автоматично при промяна на мрежовите настройки.
+
+Внимание: не деактивирайте „Опции за разработчици“ или „Отстраняване на грешки през USB“, тъй като в противен случай Shevery ще бъде спряно.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Моля, опитайте да деактивирате и след това да активирате отново „Безжично отстраняване на грешки“, ако устройството продължава да търси.]]></string>
     <string name="dialog_adb_port"><![CDATA[Пристанище]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Портът е цяло число в диапазона от 1 до 65535.]]></string>
@@ -43,11 +45,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Код за сдвояване]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Кодът за сдвояване е грешен.]]></string>
     <string name="cannot_connect_port"><![CDATA[Не може да се установи връзка с услугата за безжично отстраняване на грешки.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Безжичното отстраняване на грешки не е активирано.\nИмайте предвид, че преди Android 11 за активиране на безжичното отстраняване на грешки е задължително да имате връзка с компютър.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Моля, започнете сдвояването, като следвате следните стъпки: „Опции за разработчици“ – „Безжично отстраняване на грешки“ – „Сдвояване на устройство чрез код за сдвояване“.\n\nСлед като процесът на сдвояване започне, ще можете да въведете кода за сдвояване.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Безжичното отстраняване на грешки не е активирано.
+Имайте предвид, че преди Android 11 за активиране на безжичното отстраняване на грешки е задължително да имате връзка с компютър.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Моля, започнете сдвояването, като следвате следните стъпки: „Опции за разработчици“ – „Безжично отстраняване на грешки“ – „Сдвояване на устройство чрез код за сдвояване“.
+
+След като процесът на сдвояване започне, ще можете да въведете кода за сдвояване.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Моля, първо превключете в режим на разделен екран (с няколко прозореца).]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Системата изисква диалоговият прозорец за сдвояване да е винаги видим; използването на режим на разделен екран е единственият начин това приложение и системният диалогов прозорец да се показват едновременно.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Не е възможно да се генерира ключ за безжично отстраняване на грешки.\nТова може да се дължи на повреда в механизма KeyStore на това устройство.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Не е възможно да се генерира ключ за безжично отстраняване на грешки.
+Това може да се дължи на повреда в механизма KeyStore на това устройство.]]></string>
     <string name="adb_pair_required"><![CDATA[Моля, първо изпълнете стъпката за свързване.]]></string>
     <string name="development_settings"><![CDATA[Опции за разработчици]]></string>
     <string name="notification_settings"><![CDATA[Опции за уведомяване]]></string>
@@ -82,7 +88,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Диагностиката е копирана.]]></string>
     <string name="home_modules_description"><![CDATA[Инсталиране и управление на модули, поддържани от ADB]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Трябва да направите още една стъпка]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Производителят на вашето устройство е ограничил правата за adb и приложенията, които използват Shevery, няма да работят правилно.\n\nОбикновено това ограничение може да бъде премахнато чрез настройка на някои опции в „Опции за разработчици“. Моля, прочетете помощната информация за подробности как да направите това.\n\nВъзможно е да се наложи да рестартирате Shevery, за да влязат промените в сила.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Производителят на вашето устройство е ограничил правата за adb и приложенията, които използват Shevery, няма да работят правилно.
+
+Обикновено това ограничение може да бъде премахнато чрез настройка на някои опции в „Опции за разработчици“. Моля, прочетете помощната информация за подробности как да направите това.
+
+Възможно е да се наложи да рестартирате Shevery, за да влязат промените в сила.]]></string>
     <string name="app_management_select_all"><![CDATA[Избери всичко]]></string>
     <string name="app_management_deselect_all"><![CDATA[Отмени избора на всички]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[Правата на adb са ограничени]]></string>
@@ -92,7 +102,9 @@
     <string name="home_terminal_title"><![CDATA[Използвайте Shevery в терминални приложения]]></string>
     <string name="home_terminal_description"><![CDATA[Изпълнявайте команди чрез Shevery в терминалните приложения, които предпочитате]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Първо, експортирайте файловете където пожелаете. Ще откриете два файла: %1$s и %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Ако в избраната папка има файлове със същото име, те ще бъдат изтрити.\n\nФункцията за експортиране използва SAF (Storage Access Framework). Съобщава се, че MIUI нарушава работата на SAF. Ако използвате MIUI, може да се наложи да извлечете файла от APK файла на Shevery или да го изтеглите от GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Ако в избраната папка има файлове със същото име, те ще бъдат изтрити.
+
+Функцията за експортиране използва SAF (Storage Access Framework). Съобщава се, че MIUI нарушава работата на SAF. Ако използвате MIUI, може да се наложи да извлечете файла от APK файла на Shevery или да го изтеглите от GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[Експортиране на файлове]]></string>
     <string name="terminal_tutorial_2"><![CDATA[След това използвайте произволен текстов редактор, за да отворите и редактирате %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Например, ако искате да използвате Shevery в %1$s, трябва да замените %2$s с %3$s (%4$s е името на пакета на %1$s).]]></string>
@@ -118,7 +130,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery не работи. Първо стартирайте услугата, след което се върнете и активирайте тази настройка.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Автоматичното предоставяне на разрешение се провали. Изпълнете тази команда от компютър, за да го предоставите ръчно:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Копиране на команда]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Как да го използвате:\n1. Свържете устройството с компютър (чрез USB или безжично отстраняване на грешки).\n2. В терминала изпълнете командата от полето по-горе.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Как да го използвате:
+1. Свържете устройството с компютър (чрез USB или безжично отстраняване на грешки).
+2. В терминала изпълнете командата от полето по-горе.]]></string>
     <string name="settings_use_system_color"><![CDATA[Използвай цвета на системната тема]]></string>
     <string name="modules_title"><![CDATA[Модули на АБР]]></string>
     <string name="modules_settings_title"><![CDATA[Модули]]></string>
@@ -240,7 +254,8 @@
     <string name="starting_root_shell"><![CDATA[Стартиране на root shell…]]></string>
     <string name="start_with_root_failed"><![CDATA[Услугата не може да бъде стартирана, тъй като нямат права на root или устройството не е рутирано.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Не мога да стартирам браузъра]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nбеше копирано в клипборда.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+беше копирано в клипборда.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> беше копирано в клипборда.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s не поддържа съвременния Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Старата версия на Shevery вече не се поддържа от март 2019 г. Освен това старата версия на Shevery не работи на по-новите версии на Android.<p>Моля, помолете разработчика на <b>%1$s</b> да я актуализира.]]></string>
@@ -421,7 +436,9 @@
     <string name="comput_copy_output"><![CDATA[Копиране на изхода]]></string>
     <string name="comput_ask_gemini"><![CDATA[Попитай „Gemini“]]></string>
     <string name="comput_executing"><![CDATA[Изпълнение: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Режим на превод на команди на ADB е активен\nОригинал: %1$s\nИзпълнява се...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Режим на превод на команди на ADB е активен
+Оригинал: %1$s
+Изпълнява се...]]></string>
     <string name="comput_command_no_output"><![CDATA[Командата приключи без изходни данни.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Изтече времето за изпълнение на командата след 120 секунди.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Командата приключи с код %1$d.]]></string>
@@ -429,7 +446,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Изпълнява се командата: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Грешка: Службата „Privileged Shevery“ не работи. Моля, първо стартирайте услугата.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Грешка: Не е възможно да се извлече папката „Shevery“.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Конзолата е инициализирана. Услугата „Privileged Shevery“ е свързана.\nГотова за команди.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Конзолата е инициализирана. Услугата „Privileged Shevery“ е свързана.
+Готова за команди.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Обяснение на ИИ]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>

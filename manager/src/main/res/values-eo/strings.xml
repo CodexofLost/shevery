@@ -240,7 +240,8 @@
     <string name="starting_root_shell"><![CDATA[Komencas radikan ŝelon…]]></string>
     <string name="start_with_root_failed"><![CDATA[Ne eblas starti la servon, ĉar radika permeso ne estas donita aŭ ĉi tiu aparato ne estas rootigita.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Ne eblas starti la retumilon.]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nkopiita al la tondujo.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+kopiita al la tondujo.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s estis kopiita al la tondujo.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ne subtenas modernan Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[La malnova Shevery estas malrekomendata ekde marto 2019. Krome, la malnova Shevery ne funkcias en pli novaj Android-sistemoj.Bonvolu peti la programiston de <b>%1$s</b> ĝisdatigi.]]></string>
@@ -421,7 +422,9 @@
     <string name="comput_copy_output"><![CDATA[Kopiu eliron]]></string>
     <string name="comput_ask_gemini"><![CDATA[Demandu Geminion]]></string>
     <string name="comput_executing"><![CDATA[Eksekutante: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB-komanda tradukreĝimo aktiva\nOriginalo: %1$s\nEkzekutante...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB-komanda tradukreĝimo aktiva
+Originalo: %1$s
+Ekzekutante...]]></string>
     <string name="comput_command_no_output"><![CDATA[Komando plenumita sen eligo.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Komando eksvalidiĝis post 120 sekundoj.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Komando eliris kun kodo %1$d.]]></string>

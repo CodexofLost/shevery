@@ -33,7 +33,9 @@
     <string name="home_local_network_grant"><![CDATA[Piešķirt piekļuvi]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Bezvadu atkļūdošanai ir nepieciešama piekļuve lokālajam tīklam.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Meklēju bezvadu atkļūdošanas pakalpojumu]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Lūdzu, ieslēdziet „Bezvadu atkļūdošanu” sadaļā „Izstrādātāja opcijas”. „Bezvadu atkļūdošana” tiek automātiski atspējota, ja mainās tīkla iestatījumi.\n\nŅemiet vērā, ka nedrīkstat atspējot „Izstrādātāja opcijas” vai „USB atkļūdošanu”, jo pretējā gadījumā Shevery tiks apturēta.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Lūdzu, ieslēdziet „Bezvadu atkļūdošanu” sadaļā „Izstrādātāja opcijas”. „Bezvadu atkļūdošana” tiek automātiski atspējota, ja mainās tīkla iestatījumi.
+
+Ņemiet vērā, ka nedrīkstat atspējot „Izstrādātāja opcijas” vai „USB atkļūdošanu”, jo pretējā gadījumā Shevery tiks apturēta.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Lūdzu, mēģiniet atspējot un atkal ieslēgt funkciju „Bezvadu atkļūdošana”, ja meklēšana turpinās.]]></string>
     <string name="dialog_adb_port"><![CDATA[Osta]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Ports ir vesels skaitlis diapazonā no 1 līdz 65535.]]></string>
@@ -43,11 +45,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Pārošanas kods]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Pārošanas kods ir nepareizs.]]></string>
     <string name="cannot_connect_port"><![CDATA[Nav iespējams izveidot savienojumu ar bezvadu atkļūdošanas pakalpojumu.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Bezvadu atkļūdošana nav ieslēgta.\nŅemiet vērā, ka pirms Android 11 versijas, lai ieslēgtu bezvadu atkļūdošanu, ir obligāti nepieciešams savienojums ar datoru.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Lūdzu, sāciet savienošanu, veicot šādus soļus: „Izstrādātāja opcijas” – „Bezvadu atkļūdošana” – „Ierīces savienošana, izmantojot savienošanas kodu”.\n\nPēc savienošanas procesa sākšanas jūs varēsiet ievadīt savienošanas kodu.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Bezvadu atkļūdošana nav ieslēgta.
+Ņemiet vērā, ka pirms Android 11 versijas, lai ieslēgtu bezvadu atkļūdošanu, ir obligāti nepieciešams savienojums ar datoru.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Lūdzu, sāciet savienošanu, veicot šādus soļus: „Izstrādātāja opcijas” – „Bezvadu atkļūdošana” – „Ierīces savienošana, izmantojot savienošanas kodu”.
+
+Pēc savienošanas procesa sākšanas jūs varēsiet ievadīt savienošanas kodu.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Lūdzu, vispirms pārslēdzieties uz dalītā ekrāna (vairāku logu) režīmu.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Sistēma prasa, lai pārošanas dialoglodziņš vienmēr būtu redzams, tāpēc ekrāna sadalīšanas režīms ir vienīgais veids, kā vienlaikus nodrošināt šīs lietotnes un sistēmas dialoglodziņa redzamību.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Nav iespējams ģenerēt atslēgu bezvadu atkļūdošanai.\nIespējams, ka šīs ierīces KeyStore mehānisms nedarbojas.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Nav iespējams ģenerēt atslēgu bezvadu atkļūdošanai.
+Iespējams, ka šīs ierīces KeyStore mehānisms nedarbojas.]]></string>
     <string name="adb_pair_required"><![CDATA[Lūdzu, vispirms veiciet savienošanas procedūru.]]></string>
     <string name="development_settings"><![CDATA[Izstrādātāja opcijas]]></string>
     <string name="notification_settings"><![CDATA[Paziņojumu iestatījumi]]></string>
@@ -82,7 +88,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Diagnostikas dati ir nokopēti.]]></string>
     <string name="home_modules_description"><![CDATA[ADB atbalstīto moduļu instalēšana un pārvaldība]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Jums ir jāveic papildu solis]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Jūsu ierīces ražotājs ir ierobežojis ADB atļaujas, un lietotnes, kas izmanto „Shevery“, nedarbosies pareizi.\n\nParasti šo ierobežojumu var atcelt, mainot dažus iestatījumus sadaļā „Izstrādātāja opcijas”. Lūdzu, izlasiet palīdzības sadaļu, lai uzzinātu, kā to izdarīt.\n\nLai izmaiņas stātos spēkā, var būt nepieciešams pārstartēt lietotni „Shevery”.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Jūsu ierīces ražotājs ir ierobežojis ADB atļaujas, un lietotnes, kas izmanto „Shevery“, nedarbosies pareizi.
+
+Parasti šo ierobežojumu var atcelt, mainot dažus iestatījumus sadaļā „Izstrādātāja opcijas”. Lūdzu, izlasiet palīdzības sadaļu, lai uzzinātu, kā to izdarīt.
+
+Lai izmaiņas stātos spēkā, var būt nepieciešams pārstartēt lietotni „Shevery”.]]></string>
     <string name="app_management_select_all"><![CDATA[Atlasīt visu]]></string>
     <string name="app_management_deselect_all"><![CDATA[Atcelt visu atlasi]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[Adb atļaujas ir ierobežotas]]></string>
@@ -92,7 +102,9 @@
     <string name="home_terminal_title"><![CDATA[Izmantojiet „Shevery“ termināļa lietotnēs]]></string>
     <string name="home_terminal_description"><![CDATA[Izpildiet komandas, izmantojot „Shevery“, jebkurā termināļa lietojumprogrammā, kas jums patīk]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Vispirms eksportējiet failus uz jebkuru vietu, kur vēlaties. Tur atradīsiet divus failus: %1$s un %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Ja izvēlētajā mapē ir faili ar tādu pašu nosaukumu, tie tiks dzēsti.\n\nEksportēšanas funkcija izmanto SAF (Storage Access Framework). Ir ziņots, ka MIUI traucē SAF darbību. Ja izmantojat MIUI, iespējams, failu būs jāizpako no Shevery APK faila vai jālejupielādē no GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Ja izvēlētajā mapē ir faili ar tādu pašu nosaukumu, tie tiks dzēsti.
+
+Eksportēšanas funkcija izmanto SAF (Storage Access Framework). Ir ziņots, ka MIUI traucē SAF darbību. Ja izmantojat MIUI, iespējams, failu būs jāizpako no Shevery APK faila vai jālejupielādē no GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[Eksportēt failus]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Tad izmantojiet jebkuru teksta redaktoru, lai atvērtu un rediģētu %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Piemēram, ja vēlaties izmantot Shevery %1$s, jums jāaizstāj %2$s ar %3$s (%4$s ir %1$s pakotnes nosaukums).]]></string>
@@ -118,7 +130,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery nedarbojas. Vispirms palaidiet pakalpojumu, pēc tam atgriezieties un aktivizējiet šo iestatījumu.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Automātiskā atļaujas piešķiršana neizdevās. Lai to piešķirtu manuāli, izpildiet šo komandu no datora:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Komanda „Kopēt”]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Lietošanas instrukcija:\n1. Pievienojiet ierīci datoram (izmantojot USB vai bezvadu atkļūdošanu).\n2. Terminālī izpildiet komandu no augšējā lauka.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Lietošanas instrukcija:
+1. Pievienojiet ierīci datoram (izmantojot USB vai bezvadu atkļūdošanu).
+2. Terminālī izpildiet komandu no augšējā lauka.]]></string>
     <string name="settings_use_system_color"><![CDATA[Izmantot sistēmas tēmas krāsu]]></string>
     <string name="modules_title"><![CDATA[ADB moduļi]]></string>
     <string name="modules_settings_title"><![CDATA[Moduļi]]></string>
@@ -240,7 +254,8 @@
     <string name="starting_root_shell"><![CDATA[Sākas root komandu rīka darbība…]]></string>
     <string name="start_with_root_failed"><![CDATA[Pakalpojumu nevar uzsākt, jo nav piešķirtas root tiesības vai šī ierīce nav rootēta.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Neizdodas palaist pārlūku]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n ir kopēts uz starpliktuvi.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ ir kopēts uz starpliktuvi.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> ir kopēts uz starpliktni.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s neatbalsta mūsdienīgo Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Vecā versija „Shevery“ ir novecojusi kopš 2019. gada marta. Turklāt vecā versija „Shevery“ nedarbojas jaunākajās „Android“ sistēmās.<p>Lūdzu, lūdziet <b>%1$s</b> izstrādātāju veikt atjauninājumu.]]></string>
@@ -421,7 +436,9 @@
     <string name="comput_copy_output"><![CDATA[Kopēt izvadi]]></string>
     <string name="comput_ask_gemini"><![CDATA[Jautā Dvīņiem]]></string>
     <string name="comput_executing"><![CDATA[Izpilde: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB komandu tulkošanas režīms ir ieslēgts\nOriģināls: %1$s\nIzpilde...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB komandu tulkošanas režīms ir ieslēgts
+Oriģināls: %1$s
+Izpilde...]]></string>
     <string name="comput_command_no_output"><![CDATA[Komanda izpildīta bez izvades.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Komandas izpildes laiks beidzās pēc 120 sekundēm.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Komanda tika pārtraukta ar kodu %1$d.]]></string>
@@ -429,7 +446,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Komandas izpilde: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Kļūda: Privilēgētais „Shevery“ pakalpojums nedarbojas. Lūdzu, vispirms palaidiet šo pakalpojumu.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Kļūda: neizdevās atvērt Shevery mapīti.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konsoles inicializēšana pabeigta. Pieslēgts privileģētais „Shevery“ pakalpojums.\nGatava komandu pieņemšanai.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konsoles inicializēšana pabeigta. Pieslēgts privileģētais „Shevery“ pakalpojums.
+Gatava komandu pieņemšanai.]]></string>
     <string name="comput_ai_explanation"><![CDATA[AI skaidrojums]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI palīgs]]></string>

@@ -148,7 +148,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery neběží. Nejprve spusťte službu a poté se vraťte a toto nastavení povolte.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Automatické udělení oprávnění se nezdařilo. Spusťte tento příkaz na počítači a oprávnění udělejte ručně:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Příkaz Kopírovat]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Návod k použití:\n1. Připojte zařízení k počítači (přes USB nebo bezdrátové ladění).\n2. V terminálu spusťte příkaz z pole výše.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Návod k použití:
+1. Připojte zařízení k počítači (přes USB nebo bezdrátové ladění).
+2. V terminálu spusťte příkaz z pole výše.]]></string>
     <string name="modules_title"><![CDATA[Moduly ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Moduly]]></string>
     <string name="modules_settings_summary"><![CDATA[Nainstalujte moduly ZIP a spouštějte jejich akce prostřednictvím aktivního serveru Shevery ADB/root]]></string>
@@ -415,7 +417,9 @@
     <string name="comput_copy_output"><![CDATA[Kopírovat výstup]]></string>
     <string name="comput_ask_gemini"><![CDATA[Zeptej se Gemini]]></string>
     <string name="comput_executing"><![CDATA[Probíhá: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Režim překladu příkazů ADB je aktivní\nPůvodní: %1$s\nSpouštím...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Režim překladu příkazů ADB je aktivní
+Původní: %1$s
+Spouštím...]]></string>
     <string name="comput_command_no_output"><![CDATA[Příkaz byl dokončen bez výstupu.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Časový limit příkazu vypršel po 120 sekundách.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Příkaz byl ukončen s kódem %1$d.]]></string>
@@ -423,7 +427,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Spouštění příkazu: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Chyba: Služba Privileged Shevery není spuštěna. Nejprve prosím spusťte tuto službu.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Chyba: Nelze načíst složku „Shevery“.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konzole byla inicializována. Byla navázána připojení k privilegované službě Shevery.\nPřipraveno k přijímání příkazů.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konzole byla inicializována. Byla navázána připojení k privilegované službě Shevery.
+Připraveno k přijímání příkazů.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Vysvětlení AI]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>
@@ -527,13 +532,26 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[Odstraněn starý odkaz]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Nepodařilo se %1$s staršího stubu pomocí %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Žádný kanál není k dispozici (nejprve spusťte Shevery)]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[V „Možnostech pro vývojáře“ prosím povolte „Bezdrátové ladění“. „Bezdrátové ladění“ se automaticky deaktivuje při změně síťového připojení.\n\nUpozornění: Nevypínejte „Možnosti pro vývojáře“ ani „Ladění přes USB“, jinak dojde k zastavení aplikace Shevery.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Bezdrátové ladění není povoleno.\nUpozornění: Před verzí Android 11 je pro povolení bezdrátového ladění nutné připojení k počítači.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Spusťte prosím párování podle následujících kroků: „Možnosti pro vývojáře“ – „Bezdrátové ladění“ – „Párování zařízení pomocí párovacího kódu“.\n\nJakmile se proces párování spustí, budete moci zadat párovací kód.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Nelze vygenerovat klíč pro bezdrátové ladění.\nPříčinou může být nefunkční mechanismus KeyStore tohoto zařízení.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Výrobce vašeho zařízení omezil oprávnění pro adb, a proto aplikace využívající Shevery nebudou fungovat správně.\n\nToto omezení lze obvykle odstranit úpravou některých nastavení v části „Možnosti pro vývojáře“. Podrobnosti o tom, jak postupovat, najdete v nápovědě.\n\nAby se změna projevila, může být nutné restartovat aplikaci Shevery.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Pokud se ve vybrané složce nacházejí soubory se stejným názvem, budou smazány.\n\nFunkce exportu využívá SAF (Storage Access Framework). Podle dostupných informací MIUI narušuje fungování SAF. Pokud používáte MIUI, možná budete muset soubor extrahovat z APK souboru aplikace Shevery nebo si jej stáhnout z GitHubu.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[V „Možnostech pro vývojáře“ prosím povolte „Bezdrátové ladění“. „Bezdrátové ladění“ se automaticky deaktivuje při změně síťového připojení.
+
+Upozornění: Nevypínejte „Možnosti pro vývojáře“ ani „Ladění přes USB“, jinak dojde k zastavení aplikace Shevery.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Bezdrátové ladění není povoleno.
+Upozornění: Před verzí Android 11 je pro povolení bezdrátového ladění nutné připojení k počítači.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Spusťte prosím párování podle následujících kroků: „Možnosti pro vývojáře“ – „Bezdrátové ladění“ – „Párování zařízení pomocí párovacího kódu“.
+
+Jakmile se proces párování spustí, budete moci zadat párovací kód.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Nelze vygenerovat klíč pro bezdrátové ladění.
+Příčinou může být nefunkční mechanismus KeyStore tohoto zařízení.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Výrobce vašeho zařízení omezil oprávnění pro adb, a proto aplikace využívající Shevery nebudou fungovat správně.
+
+Toto omezení lze obvykle odstranit úpravou některých nastavení v části „Možnosti pro vývojáře“. Podrobnosti o tom, jak postupovat, najdete v nápovědě.
+
+Aby se změna projevila, může být nutné restartovat aplikaci Shevery.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Pokud se ve vybrané složce nacházejí soubory se stejným názvem, budou smazány.
+
+Funkce exportu využívá SAF (Storage Access Framework). Podle dostupných informací MIUI narušuje fungování SAF. Pokud používáte MIUI, možná budete muset soubor extrahovat z APK souboru aplikace Shevery nebo si jej stáhnout z GitHubu.]]></string>
     <string name="rish_description"><![CDATA[Pomocí %1$s se můžete v jakékoli terminálové aplikaci připojit k shellu spouštěnému službou Shevery a pracovat s ním.
 <p>Podrobné informace o použití %1$s najdete v dokumentu, který si můžete zobrazit klepnutím.]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nbylo zkopírováno do schránky.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+bylo zkopírováno do schránky.]]></string>
 </resources>

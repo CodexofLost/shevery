@@ -26,7 +26,9 @@
     <string name="home_local_network_grant"><![CDATA[授予权限]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[无线调试需要本地网络访问权限。]]></string>
     <string name="dialog_adb_discovery"><![CDATA[正在搜索无线调试服务]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[请在“开发者选项”中开启“无线调试”。网络更改时，无线调试会自动关闭。\n\n注意：请勿关闭“开发者选项”或“USB 调试”，否则 Shevery 将停止运行。]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[请在“开发者选项”中开启“无线调试”。网络更改时，无线调试会自动关闭。
+
+注意：请勿关闭“开发者选项”或“USB 调试”，否则 Shevery 将停止运行。]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[如果一直处于搜索状态，请尝试关闭并重新开启“无线调试”。]]></string>
     <string name="dialog_adb_port"><![CDATA[端口]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[端口必须是 1 到 65535 之间的整数。]]></string>
@@ -36,11 +38,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[配对码]]></string>
     <string name="paring_code_is_wrong"><![CDATA[配对码错误。]]></string>
     <string name="cannot_connect_port"><![CDATA[无法连接到无线调试服务。]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[无线调试未开启。\n注意：Android 11 以下版本需要连接电脑。]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[请按照以下步骤开始配对：“开发者选项” - “无线调试” - “使用配对码配对设备”。\n\n配对过程开始后，您可以输入配对码。]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[无线调试未开启。
+注意：Android 11 以下版本需要连接电脑。]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[请按照以下步骤开始配对：“开发者选项” - “无线调试” - “使用配对码配对设备”。
+
+配对过程开始后，您可以输入配对码。]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[请先进入分屏（多窗口）模式。]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[系统要求配对对话框始终可见。分屏模式是使应用和系统对话框同时可见的唯一方法。]]></string>
-    <string name="adb_error_key_store"><![CDATA[无法生成无线调试密钥。\n这可能是因为此设备的 KeyStore 机制已损坏。]]></string>
+    <string name="adb_error_key_store"><![CDATA[无法生成无线调试密钥。
+这可能是因为此设备的 KeyStore 机制已损坏。]]></string>
     <string name="adb_pair_required"><![CDATA[请先完成配对步骤。]]></string>
     <string name="development_settings"><![CDATA[开发者选项]]></string>
     <string name="notification_settings"><![CDATA[通知设置]]></string>
@@ -75,7 +81,11 @@
     <string name="home_diagnostics_copied"><![CDATA[诊断信息已复制到剪贴板。]]></string>
     <string name="home_modules_description"><![CDATA[安装与管理 ADB 模块]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[需要额外步骤]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[您的设备厂商限制了 ADB 权限，使用 Shevery 的应用将无法正常工作。\n\n通常可以在“开发者选项”中调整相关设置。请阅读帮助了解详情。\n\n您可能需要重新启动 Shevery。]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[您的设备厂商限制了 ADB 权限，使用 Shevery 的应用将无法正常工作。
+
+通常可以在“开发者选项”中调整相关设置。请阅读帮助了解详情。
+
+您可能需要重新启动 Shevery。]]></string>
     <string name="app_management_select_all"><![CDATA[全选]]></string>
     <string name="app_management_deselect_all"><![CDATA[取消全选]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[ADB 权限受限]]></string>
@@ -85,7 +95,9 @@
     <string name="home_terminal_title"><![CDATA[在终端应用中使用 Shevery]]></string>
     <string name="home_terminal_description"><![CDATA[在您喜爱的终端应用中通过 Shevery 执行命令]]></string>
     <string name="terminal_tutorial_1"><![CDATA[首先，将文件导出到您选择的任何位置。您将找到两个文件：%1$s 和 %2$s。]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[如果所选文件夹中存在同名文件，它们将被覆盖。\n\n导出功能使用 SAF (存储访问框架)。据报道 MIUI 的 SAF 功能存在缺陷；如果是这种情况，从 Shevery APK 中提取文件或从 GitHub 下载。]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[如果所选文件夹中存在同名文件，它们将被覆盖。
+
+导出功能使用 SAF (存储访问框架)。据报道 MIUI 的 SAF 功能存在缺陷；如果是这种情况，从 Shevery APK 中提取文件或从 GitHub 下载。]]></string>
     <string name="terminal_export_files"><![CDATA[导出文件]]></string>
     <string name="terminal_tutorial_2"><![CDATA[然后，使用任何文本编辑器打开并编辑 %1$s。]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[例如，如果您想在 %1$s 中使用 Shevery，则需要将 %2$s 替换为 %3$s（%4$s 是 %1$s 的包名）。]]></string>
@@ -112,7 +124,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery 未运行。请先启动服务，然后返回并启用此设置。]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[自动授予权限失败。请从电脑运行以下命令手动授予：]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[复制命令]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[使用方法：\n1. 将设备连接到电脑（USB 或无线调试）。\n2. 在终端中运行上方的命令。]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[使用方法：
+1. 将设备连接到电脑（USB 或无线调试）。
+2. 在终端中运行上方的命令。]]></string>
     <string name="settings_use_system_color"><![CDATA[使用系统主题颜色]]></string>
     <string name="modules_title"><![CDATA[ADB 模块]]></string>
     <string name="modules_settings_title"><![CDATA[模块]]></string>
@@ -231,7 +245,8 @@
     <string name="starter"><![CDATA[启动器]]></string>
     <string name="start_with_root_failed"><![CDATA[无法启动服务，因为未授予 Root 权限或此设备未 Root。]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[无法启动浏览器]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n已复制到剪贴板。]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+已复制到剪贴板。]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> 已复制到剪贴板。]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s 不支持现代 Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[旧版 Shevery 自 2019 年 3 月起已被弃用，无法在较新的 Android 系统上运行。<p>请联系 <b>%1$s</b> 的开发者进行更新。]]></string>
@@ -396,7 +411,9 @@
     <string name="comput_copy_output"><![CDATA[复制输出]]></string>
     <string name="comput_ask_gemini"><![CDATA[询问 Gemini]]></string>
     <string name="comput_executing"><![CDATA[正在执行：%1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB 命令转换模式已激活\n原命令：%1$s\n正在执行...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB 命令转换模式已激活
+原命令：%1$s
+正在执行...]]></string>
     <string name="comput_command_no_output"><![CDATA[命令执行完成，无输出。]]></string>
     <string name="comput_timed_out"><![CDATA[[E] 命令在 120 秒后超时。]]></string>
     <string name="comput_exit_code"><![CDATA[[E] 命令以退出码 %1$d 结束。]]></string>
@@ -404,7 +421,8 @@
     <string name="comput_executing_cmd"><![CDATA[> 正在执行命令：%1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[错误：Shevery 特权服务未运行，请先启动服务。]]></string>
     <string name="comput_error_no_binder"><![CDATA[错误：无法获取 Shevery Binder。]]></string>
-    <string name="comput_console_initialized"><![CDATA[控制台已初始化。已连接到特权服务。\n就绪。]]></string>
+    <string name="comput_console_initialized"><![CDATA[控制台已初始化。已连接到特权服务。
+就绪。]]></string>
     <string name="comput_ai_explanation"><![CDATA[AI 解释]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI 助手]]></string>

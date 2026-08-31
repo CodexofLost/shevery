@@ -127,10 +127,16 @@
     <string name="home_local_network_missing"><![CDATA[%1$s nu este acordat.]]></string>
     <string name="home_local_network_grant"><![CDATA[Acordă acces]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Pentru depanarea rețelei fără fir este necesar accesul la rețeaua locală.]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Vă rugăm să activați opțiunea „Debugare wireless” din „Opțiuni pentru dezvoltatori”. Opțiunea „Debugare wireless” se dezactivează automat atunci când se modifică setările de rețea.\n\nAtenție: nu dezactivați „Opțiuni pentru dezvoltatori” sau „Debugare USB”, altfel aplicația Shevery va fi oprită.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Depanarea fără fir nu este activată.\nRețineți că, înainte de Android 11, pentru a activa depanarea fără fir, este necesară conectarea la un computer.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Vă rugăm să începeți procesul de asociere urmând pașii de mai jos: „Opțiuni pentru dezvoltatori” – „Debugare wireless” – „Asociere dispozitiv folosind codul de asociere”.\n\nDupă ce procesul de asociere începe, veți putea introduce codul de asociere.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Nu se poate genera cheia pentru depanarea wireless.\nEste posibil ca acest lucru să se datoreze faptului că mecanismul KeyStore al acestui dispozitiv nu funcționează corect.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Vă rugăm să activați opțiunea „Debugare wireless” din „Opțiuni pentru dezvoltatori”. Opțiunea „Debugare wireless” se dezactivează automat atunci când se modifică setările de rețea.
+
+Atenție: nu dezactivați „Opțiuni pentru dezvoltatori” sau „Debugare USB”, altfel aplicația Shevery va fi oprită.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Depanarea fără fir nu este activată.
+Rețineți că, înainte de Android 11, pentru a activa depanarea fără fir, este necesară conectarea la un computer.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Vă rugăm să începeți procesul de asociere urmând pașii de mai jos: „Opțiuni pentru dezvoltatori” – „Debugare wireless” – „Asociere dispozitiv folosind codul de asociere”.
+
+După ce procesul de asociere începe, veți putea introduce codul de asociere.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Nu se poate genera cheia pentru depanarea wireless.
+Este posibil ca acest lucru să se datoreze faptului că mecanismul KeyStore al acestui dispozitiv nu funcționează corect.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB fără fir]]></string>
     <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
@@ -140,11 +146,17 @@
     <string name="home_diagnostics_copy"><![CDATA[Copierea rezultatelor diagnosticării]]></string>
     <string name="home_diagnostics_copied"><![CDATA[Datele de diagnosticare au fost copiate.]]></string>
     <string name="home_modules_description"><![CDATA[Instalarea și gestionarea modulelor bazate pe ADB]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Producătorul dispozitivului dvs. a restricționat permisiunile ADB, iar aplicațiile care utilizează Shevery nu vor funcționa corect.\n\nDe obicei, această restricție poate fi eliminată prin modificarea unor opțiuni din „Opțiuni pentru dezvoltatori”. Vă rugăm să consultați secțiunea de ajutor pentru detalii privind modul de procedare.\n\nEste posibil să fie necesar să reporniți Shevery pentru ca modificările să intre în vigoare.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Producătorul dispozitivului dvs. a restricționat permisiunile ADB, iar aplicațiile care utilizează Shevery nu vor funcționa corect.
+
+De obicei, această restricție poate fi eliminată prin modificarea unor opțiuni din „Opțiuni pentru dezvoltatori”. Vă rugăm să consultați secțiunea de ajutor pentru detalii privind modul de procedare.
+
+Este posibil să fie necesar să reporniți Shevery pentru ca modificările să intre în vigoare.]]></string>
     <string name="app_management_select_all"><![CDATA[Selectează tot]]></string>
     <string name="app_management_deselect_all"><![CDATA[Deselecționează tot]]></string>
     <string name="app_management_loading"><![CDATA[Se încarcă aplicațiile…]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Dacă în folderul selectat există fișiere cu același nume, acestea vor fi șterse.\n\nFuncția de export utilizează SAF (Storage Access Framework). Se pare că MIUI afectează funcționalitatea SAF. Dacă utilizați MIUI, s-ar putea să fie necesar să extrageți fișierul din fișierul APK al aplicației Shevery sau să îl descărcați de pe GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Dacă în folderul selectat există fișiere cu același nume, acestea vor fi șterse.
+
+Funcția de export utilizează SAF (Storage Access Framework). Se pare că MIUI afectează funcționalitatea SAF. Dacă utilizați MIUI, s-ar putea să fie necesar să extrageți fișierul din fișierul APK al aplicației Shevery sau să îl descărcați de pe GitHub.]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Porniți la pornirea sistemului prin depanare wireless]]></string>
     <string name="settings_start_on_boot_adb_summary"><![CDATA[La pornire, activează pentru scurt timp opțiunea „Debugare wireless” și pornește Shevery prin ADB (portul TCP 5555). Nu este necesar acces root, iar conexiunea Wi-Fi este necesară doar pentru o clipă.]]></string>
     <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[La pornire, activează temporar opțiunea „Debugare wireless” și pornește Shevery prin ADB. Nu este necesar acces root, iar conexiunea Wi-Fi este necesară doar pentru o clipă.]]></string>
@@ -154,7 +166,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery nu rulează. Porniți mai întâi serviciul, apoi reveniți și activați această setare.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Acordarea automată a permisiunii a eșuat. Executați această comandă de pe un computer pentru a o acorda manual:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Comanda „Copiere”]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Mod de utilizare:\n1. Conectați dispozitivul la un computer (prin USB sau prin depanare wireless).\n2. În terminal, executați comanda din câmpul de mai sus.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Mod de utilizare:
+1. Conectați dispozitivul la un computer (prin USB sau prin depanare wireless).
+2. În terminal, executați comanda din câmpul de mai sus.]]></string>
     <string name="modules_title"><![CDATA[Module ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Module]]></string>
     <string name="modules_settings_summary"><![CDATA[Instalați modulele ZIP și executați acțiunile acestora prin intermediul serverului Shevery ADB/root activ]]></string>
@@ -248,7 +262,8 @@
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/denumire_permis]]></string>
     <string name="starting_root_shell"><![CDATA[Se pornește shell-ul de root…]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\na fost copiat în clipboard.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+a fost copiat în clipboard.]]></string>
     <string name="lab_features_title"><![CDATA[Caracteristici ale laboratorului]]></string>
     <string name="lab_features_summary"><![CDATA[Caracteristici experimentale]]></string>
     <string name="shizuku_connectors_title"><![CDATA[Conectori Shevery]]></string>
@@ -423,7 +438,9 @@
     <string name="comput_copy_output"><![CDATA[Copiere ieșire]]></string>
     <string name="comput_ask_gemini"><![CDATA[Întreabă-l pe Gemini]]></string>
     <string name="comput_executing"><![CDATA[Se execută: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Modul de traducere a comenzilor ADB este activ\nOriginal: %1$s\nSe execută...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Modul de traducere a comenzilor ADB este activ
+Original: %1$s
+Se execută...]]></string>
     <string name="comput_command_no_output"><![CDATA[Comanda s-a executat fără a genera nicio ieșire.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Comanda a depășit timpul de așteptare după 120 de secunde.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Comanda s-a încheiat cu codul %1$d.]]></string>
@@ -431,7 +448,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Se execută comanda: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Eroare: Serviciul Privileged Shevery nu rulează. Vă rugăm să porniți mai întâi serviciul.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Eroare: Nu s-a putut prelua dosarul „Shevery”.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Consola a fost inițializată. Serviciul privilegiat Shevery este conectat.\nGata să primească comenzi.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Consola a fost inițializată. Serviciul privilegiat Shevery este conectat.
+Gata să primească comenzi.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Explicația AI]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Asistentul AI Commandium]]></string>

@@ -127,10 +127,16 @@
     <string name="home_local_network_missing"><![CDATA[%1$s nie zostało przyznane.]]></string>
     <string name="home_local_network_grant"><![CDATA[Przyznaj dostęp]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Do debugowania sieci bezprzewodowej wymagany jest dostęp do sieci lokalnej.]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Włącz opcję „Debugowanie bezprzewodowe” w „Opcjach programisty”. Funkcja „Debugowanie bezprzewodowe” jest automatycznie wyłączana w przypadku zmian w sieci.\n\nUwaga: nie wyłączaj „Opcji programisty” ani „Debugowania przez USB”, ponieważ spowoduje to zatrzymanie działania aplikacji Shevery.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Debugowanie bezprzewodowe nie jest włączone.\nUwaga: przed wersją Android 11, aby włączyć debugowanie bezprzewodowe, konieczne jest podłączenie do komputera.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Aby rozpocząć parowanie, wykonaj następujące czynności: „Opcje programisty” – „Debugowanie bezprzewodowe” – „Parowanie urządzenia za pomocą kodu parowania”.\n\nPo rozpoczęciu procesu parowania będzie można wprowadzić kod parowania.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Nie można wygenerować klucza do debugowania bezprzewodowego.\nMoże to wynikać z nieprawidłowego działania mechanizmu KeyStore w tym urządzeniu.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Włącz opcję „Debugowanie bezprzewodowe” w „Opcjach programisty”. Funkcja „Debugowanie bezprzewodowe” jest automatycznie wyłączana w przypadku zmian w sieci.
+
+Uwaga: nie wyłączaj „Opcji programisty” ani „Debugowania przez USB”, ponieważ spowoduje to zatrzymanie działania aplikacji Shevery.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Debugowanie bezprzewodowe nie jest włączone.
+Uwaga: przed wersją Android 11, aby włączyć debugowanie bezprzewodowe, konieczne jest podłączenie do komputera.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Aby rozpocząć parowanie, wykonaj następujące czynności: „Opcje programisty” – „Debugowanie bezprzewodowe” – „Parowanie urządzenia za pomocą kodu parowania”.
+
+Po rozpoczęciu procesu parowania będzie można wprowadzić kod parowania.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Nie można wygenerować klucza do debugowania bezprzewodowego.
+Może to wynikać z nieprawidłowego działania mechanizmu KeyStore w tym urządzeniu.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Bezprzewodowy ADB]]></string>
     <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
@@ -140,11 +146,17 @@
     <string name="home_diagnostics_copy"><![CDATA[Kopiowanie wyników diagnostyki]]></string>
     <string name="home_diagnostics_copied"><![CDATA[Skopiowano wyniki diagnostyki.]]></string>
     <string name="home_modules_description"><![CDATA[Instalowanie modułów opartych na ADB i zarządzanie nimi]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Producent Twojego urządzenia ograniczył uprawnienia adb, przez co aplikacje korzystające z Shevery nie będą działać poprawnie.\n\nZazwyczaj ograniczenie to można znieść, zmieniając niektóre ustawienia w sekcji „Opcje programisty”. Szczegółowe informacje na ten temat znajdziesz w pomocy.\n\nByć może konieczne będzie ponowne uruchomienie aplikacji Shevery, aby zmiany zaczęły obowiązywać.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Producent Twojego urządzenia ograniczył uprawnienia adb, przez co aplikacje korzystające z Shevery nie będą działać poprawnie.
+
+Zazwyczaj ograniczenie to można znieść, zmieniając niektóre ustawienia w sekcji „Opcje programisty”. Szczegółowe informacje na ten temat znajdziesz w pomocy.
+
+Być może konieczne będzie ponowne uruchomienie aplikacji Shevery, aby zmiany zaczęły obowiązywać.]]></string>
     <string name="app_management_select_all"><![CDATA[Zaznacz wszystko]]></string>
     <string name="app_management_deselect_all"><![CDATA[Odznacz wszystko]]></string>
     <string name="app_management_loading"><![CDATA[Ładowanie aplikacji…]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Jeśli w wybranym folderze znajdują się pliki o tej samej nazwie, zostaną one usunięte.\n\nFunkcja eksportu korzysta z biblioteki SAF (Storage Access Framework). Istnieją doniesienia, że system MIUI zakłóca działanie biblioteki SAF. Jeśli korzystasz z MIUI, może być konieczne wyodrębnienie pliku z pliku APK aplikacji Shevery lub pobranie go z serwisu GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Jeśli w wybranym folderze znajdują się pliki o tej samej nazwie, zostaną one usunięte.
+
+Funkcja eksportu korzysta z biblioteki SAF (Storage Access Framework). Istnieją doniesienia, że system MIUI zakłóca działanie biblioteki SAF. Jeśli korzystasz z MIUI, może być konieczne wyodrębnienie pliku z pliku APK aplikacji Shevery lub pobranie go z serwisu GitHub.]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Uruchom przy starcie systemu za pomocą debugowania bezprzewodowego]]></string>
     <string name="settings_start_on_boot_adb_summary"><![CDATA[Podczas uruchamiania systemu na krótko włącz opcję „Debugowanie bezprzewodowe” i uruchom Shevery przez ADB (port TCP 5555). Nie jest wymagany dostęp do uprawnień roota, a połączenie Wi-Fi jest potrzebne tylko przez chwilę.]]></string>
     <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[Podczas uruchamiania na krótko włącz debugowanie bezprzewodowe i uruchom Shevery przez ADB. Nie jest wymagany dostęp do uprawnień roota, a Wi-Fi jest potrzebne tylko przez chwilę.]]></string>
@@ -154,7 +166,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery nie działa. Najpierw uruchom usługę, a potem wróć i włącz to ustawienie.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Nie udało się automatycznie przyznać uprawnień. Uruchom to polecenie na komputerze, aby przyznać uprawnienia ręcznie:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Polecenie kopiowania]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Sposób użycia:\n1. Podłącz urządzenie do komputera (przez USB lub debugowanie bezprzewodowe).\n2. W terminalu uruchom polecenie z pola powyżej.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Sposób użycia:
+1. Podłącz urządzenie do komputera (przez USB lub debugowanie bezprzewodowe).
+2. W terminalu uruchom polecenie z pola powyżej.]]></string>
     <string name="modules_title"><![CDATA[Moduły ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Moduły]]></string>
     <string name="modules_settings_summary"><![CDATA[Zainstaluj moduły ZIP i uruchom ich akcje za pośrednictwem aktywnego serwera Shevery ADB/root]]></string>
@@ -248,7 +262,8 @@
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/nazwa_uprawnienia]]></string>
     <string name="starting_root_shell"><![CDATA[Uruchamianie powłoki root…]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nzostało skopiowane do schowka.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+zostało skopiowane do schowka.]]></string>
     <string name="lab_features_title"><![CDATA[Cechy laboratorium]]></string>
     <string name="lab_features_summary"><![CDATA[Funkcje eksperymentalne]]></string>
     <string name="shizuku_connectors_title"><![CDATA[Złącza Shevery]]></string>
@@ -423,7 +438,9 @@
     <string name="comput_copy_output"><![CDATA[Skopiuj wynik]]></string>
     <string name="comput_ask_gemini"><![CDATA[Zapytaj Gemini]]></string>
     <string name="comput_executing"><![CDATA[Wykonywanie: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Tryb tłumaczenia poleceń ADB aktywny\nOryginał: %1$s\nWykonywanie...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Tryb tłumaczenia poleceń ADB aktywny
+Oryginał: %1$s
+Wykonywanie...]]></string>
     <string name="comput_command_no_output"><![CDATA[Polecenie zostało wykonane bez wyświetlenia wyników.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Przekroczono limit czasu polecenia – 120 sekund.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Polecenie zakończyło się kodem %1$d.]]></string>
@@ -431,7 +448,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Wykonywanie polecenia: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Błąd: Usługa Privileged Shevery nie jest uruchomiona. Należy najpierw uruchomić tę usługę.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Błąd: Nie można pobrać segregatora „Shevery”.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konsola zainicjowana. Połączono z uprzywilejowaną usługą Shevery.\nGotowość do przyjmowania poleceń.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konsola zainicjowana. Połączono z uprzywilejowaną usługą Shevery.
+Gotowość do przyjmowania poleceń.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Wyjaśnienie dotyczące sztucznej inteligencji]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Asystent Commandium AI]]></string>

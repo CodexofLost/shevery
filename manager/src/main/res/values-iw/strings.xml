@@ -26,7 +26,9 @@
     <string name="home_local_network_grant"><![CDATA[Grant access]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Local network access is required for Wireless debugging.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Searching for wireless debugging service]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Please enable "Wireless debugging" in "Developer options". "Wireless debugging" is automatically disabled when network changes.\n\nNote, do not disable "Developer options" or "USB debugging", or Shevery will be stopped.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Please enable "Wireless debugging" in "Developer options". "Wireless debugging" is automatically disabled when network changes.
+
+Note, do not disable "Developer options" or "USB debugging", or Shevery will be stopped.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Please try to disable and enable "Wireless debugging" if it keeps searching.]]></string>
     <string name="dialog_adb_port"><![CDATA[Port]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Port is an integer ranging from 1 to 65535.]]></string>
@@ -36,11 +38,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Pairing code]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Pairing code is wrong.]]></string>
     <string name="cannot_connect_port"><![CDATA[Can't connect to wireless debugging service.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Wireless debugging is not enabled.\nNote, before Android 11, to enable wireless debugging, computer connection is a must.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Please start paring by the following steps: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nAfter the pairing process starts, you will able to input the pairing code.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Wireless debugging is not enabled.
+Note, before Android 11, to enable wireless debugging, computer connection is a must.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Please start paring by the following steps: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".
+
+After the pairing process starts, you will able to input the pairing code.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Please enter split-screen (multi-window) mode first.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[The system requires the pairing dialog always visible, using split-screen mode is the only way to let this app and system dialog visible at the same time.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Unable to generate key for wireless debugging.\nThis may be because KeyStore mechanism of this device is broken.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Unable to generate key for wireless debugging.
+This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="adb_pair_required"><![CDATA[Please go through the pairing step first.]]></string>
     <string name="development_settings"><![CDATA[Developer options]]></string>
     <string name="notification_settings"><![CDATA[Notification options]]></string>
@@ -217,7 +223,8 @@
     <string name="starter"><![CDATA[Starter]]></string>
     <string name="start_with_root_failed"><![CDATA[Can't start service because root permission is not granted or this device is not rooted.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Can't start browser]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nhas been copied to clipboard.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+has been copied to clipboard.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> has been copied to clipboard.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s does not support modern Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery has been deprecated since March 2019. Also, legacy Shevery does not work on newer Android systems.<p>Please ask the developer of <b>%1$s</b> to update.]]></string>
@@ -451,7 +458,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery אינו פועל. הפעל תחילה את השירות, ואז חזור והפעל הגדרה זו.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[הענקת ההרשאה האוטומטית נכשלה. הפעל פקודה זו ממחשב כדי להעניק את ההרשאה באופן ידני:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[פקודת העתקה]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[אופן השימוש:\n1. חברו את המכשיר למחשב (באמצעות USB או ניפוי באגים אלחוטי).\n2. במסוף, הפעילו את הפקודה המופיעה בשדה שלמעלה.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[אופן השימוש:
+1. חברו את המכשיר למחשב (באמצעות USB או ניפוי באגים אלחוטי).
+2. במסוף, הפעילו את הפקודה המופיעה בשדה שלמעלה.]]></string>
     <string name="notification_startup_channel_name"><![CDATA[סטארט-אפ Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[התחלת "שברי"]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[הפעלת ניפוי באגים ב-Wi-Fi…]]></string>
@@ -525,14 +534,23 @@
     <string name="settings_compat_stub_failed"><![CDATA[לא הצליח %1$s את הסטאב הישן באמצעות %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[אין ערוץ זמין (התחל קודם ב-Shevery)]]></string>
     <string name="app_name"><![CDATA[שברי]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[יצרן המכשיר שלך הגביל את ההרשאות של adb, ואפליקציות המשתמשות ב-Shevery לא יפעלו כראוי.\n\nבדרך כלל, ניתן להסיר מגבלה זו על ידי שינוי כמה הגדרות ב"אפשרויות מפתחים". אנא קרא את מדריך העזרה לקבלת פרטים על אופן ביצוע הפעולה.\n\nייתכן שתצטרך להפעיל מחדש את Shevery כדי שהשינוי ייכנס לתוקף.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[אם קיימים קבצים בעלי שם זהה בתיקייה שנבחרה, הם יימחקו.\n\nפונקציית הייצוא משתמשת ב-SAF (Storage Access Framework). דווח כי MIUI פוגעת בתפקוד ה-SAF. אם אתה משתמש ב-MIUI, ייתכן שתצטרך לחלץ את הקובץ מקובץ ה-apk של Shevery או להוריד אותו מ-GitHub.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[יצרן המכשיר שלך הגביל את ההרשאות של adb, ואפליקציות המשתמשות ב-Shevery לא יפעלו כראוי.
+
+בדרך כלל, ניתן להסיר מגבלה זו על ידי שינוי כמה הגדרות ב"אפשרויות מפתחים". אנא קרא את מדריך העזרה לקבלת פרטים על אופן ביצוע הפעולה.
+
+ייתכן שתצטרך להפעיל מחדש את Shevery כדי שהשינוי ייכנס לתוקף.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[אם קיימים קבצים בעלי שם זהה בתיקייה שנבחרה, הם יימחקו.
+
+פונקציית הייצוא משתמשת ב-SAF (Storage Access Framework). דווח כי MIUI פוגעת בתפקוד ה-SAF. אם אתה משתמש ב-MIUI, ייתכן שתצטרך לחלץ את הקובץ מקובץ ה-apk של Shevery או להוריד אותו מ-GitHub.]]></string>
     <string name="rish_description"><![CDATA[באמצעות %1$s, בכל אפליקציית מסוף, תוכלו להתחבר ולבצע פעולות עם מעטפת הפקודה המופעלת על ידי Shevery.
 <p>למידע מפורט על השימוש ב-%1$s, לחצו כדי להציג את המסמך.]]></string>
     <string name="permission_group_label"><![CDATA[שברי]]></string>
     <string name="permission_group_description"><![CDATA[@string/שם_ההרשאה]]></string>
     <string name="starting_root_shell"><![CDATA[הפעלת מעטפת שורש…]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[יש צורך בחיבור Wi-Fi בעת ההפעלה מחדש הראשונה, מכיוון ש-Shevery חייב להתחבר ליציאת האיתור באגים האלחוטית הנוכחית לפני שהוא מעביר את ADB ליציאה 5555.]]></string>
-    <string name="comput_adb_translate"><![CDATA[מצב תרגום פקודות ADB פעיל\nמקור: %1$s\nמבצע...]]></string>
-    <string name="comput_console_initialized"><![CDATA[הקונסולה הוכנה. שירות Shevery בעל הרשאות מחובר.\nמוכן לקבלת פקודות.]]></string>
+    <string name="comput_adb_translate"><![CDATA[מצב תרגום פקודות ADB פעיל
+מקור: %1$s
+מבצע...]]></string>
+    <string name="comput_console_initialized"><![CDATA[הקונסולה הוכנה. שירות Shevery בעל הרשאות מחובר.
+מוכן לקבלת פקודות.]]></string>
 </resources>

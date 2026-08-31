@@ -120,7 +120,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery не ради. Прво покрените услугу, а затим се вратите и омогућите ову опцију.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Аутоматско додељивање дозволе је неуспело. Покрените ову команду са рачунара да бисте је доделили ручно:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Копирај команду]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Како користити:\n1. Повежите уређај са рачунаром (USB или бежично дебаговање).\n2. У терминалу покрените команду из поља изнад.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Како користити:
+1. Повежите уређај са рачунаром (USB или бежично дебаговање).
+2. У терминалу покрените команду из поља изнад.]]></string>
     <string name="settings_use_system_color"><![CDATA[Користите системску боју теме]]></string>
     <string name="modules_title"><![CDATA[АДБ модули]]></string>
     <string name="modules_settings_title"><![CDATA[Модули]]></string>
@@ -242,7 +244,8 @@
     <string name="starting_root_shell"><![CDATA[Покреће се рутски шел…]]></string>
     <string name="start_with_root_failed"><![CDATA[Не може да се покрене услуга јер није додељено корено овлашћење или овај уређај није рутовани.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Не могу да покренем прегледач]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n је копиран у међуспречник.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ је копиран у међуспречник.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s је копиран у међуспремник.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s не подржава модерну Шевери]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Легаси Shevery је застарео од марта 2019. Такође, легаси Shevery не ради на новијим Android системима.Молимо вас да затражите од програмера апликације <b>%1$s</b> да је ажурира.]]></string>
@@ -423,7 +426,9 @@
     <string name="comput_copy_output"><![CDATA[Копирај излаз]]></string>
     <string name="comput_ask_gemini"><![CDATA[Питајте Гемини]]></string>
     <string name="comput_executing"><![CDATA[Извршавање: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Режим превода ADB команде активан\nОригинал: %1$s\nИзвршава се...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Режим превода ADB команде активан
+Оригинал: %1$s
+Извршава се...]]></string>
     <string name="comput_command_no_output"><![CDATA[Команда је завршена без излаза.]]></string>
     <string name="comput_timed_out"><![CDATA[Команда је истекла након 120 секунди.]]></string>
     <string name="comput_exit_code"><![CDATA[Команда је изашла са кодом %1$d.]]></string>

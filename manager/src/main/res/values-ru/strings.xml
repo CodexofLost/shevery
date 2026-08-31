@@ -79,7 +79,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery не запущена. Сначала запустите службу, затем вернитесь и включите этот параметр.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Автоматическое предоставление разрешения не удалось. Выполните эту команду с компьютера, чтобы выдать его вручную:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Скопировать команду]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Как использовать:\n1. Подключите устройство к компьютеру (USB или беспроводная отладка).\n2. В терминале выполните команду из поля выше.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Как использовать:
+1. Подключите устройство к компьютеру (USB или беспроводная отладка).
+2. В терминале выполните команду из поля выше.]]></string>
     <string name="settings_sections_title"><![CDATA[Бэкапы и другое]]></string>
     <string name="backup_section_title"><![CDATA[Бэкапы]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Есть и другие важные замечания — сначала, пожалуйста, прочитайте справку.]]></string>
@@ -436,7 +438,9 @@
     <string name="comput_copy_output"><![CDATA[Скопировать вывод]]></string>
     <string name="comput_ask_gemini"><![CDATA[Спросить Gemini]]></string>
     <string name="comput_executing"><![CDATA[Выполнение: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Режим перевода ADB-команд активен\nОригинал: %1$s\nВыполнение...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Режим перевода ADB-команд активен
+Оригинал: %1$s
+Выполнение...]]></string>
     <string name="comput_command_no_output"><![CDATA[Команда выполнена без вывода.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Время выполнения команды истекло через 120 секунд.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Команда завершилась с кодом %1$d.]]></string>
@@ -444,7 +448,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Выполнение команды: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Ошибка: привилегированная служба Shevery не запущена. Сначала запустите службу.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Ошибка: не удалось получить binder Shevery.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Консоль инициализирована. Привилегированная служба Shevery подключена.\nГотово к выполнению команд.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Консоль инициализирована. Привилегированная служба Shevery подключена.
+Готово к выполнению команд.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Объяснение ИИ]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[ИИ-ассистент Commandium]]></string>
@@ -525,14 +530,27 @@
     <string name="settings_compat_stub_none"><![CDATA[Нет доступного канала (сначала запустите Shevery)]]></string>
     <string name="home_update_available_title"><![CDATA[Доступно обновление Shevery: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Доступна новая версия. Нажмите, чтобы скачать.]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Пожалуйста, включите «Беспроводную отладку» в «Параметрах для разработчиков». «Беспроводная отладка» автоматически отключается при изменении сетевых настроек.\n\nОбратите внимание: не отключайте «Параметры для разработчиков» или «Отладку по USB», иначе приложение Shevery перестанет работать.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Беспроводная отладка не включена.\nОбратите внимание: до версии Android 11 для включения беспроводной отладки необходимо подключение к компьютеру.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Пожалуйста, начните сопряжение, выполнив следующие действия: «Параметры для разработчиков» — «Беспроводное отлаживание» — «Сопряжение устройства с помощью кода сопряжения».\n\nПосле запуска процесса сопряжения вы сможете ввести код сопряжения.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Не удалось сгенерировать ключ для отладки по беспроводной сети.\nВозможно, это связано с нарушением работы механизма KeyStore на данном устройстве.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Производитель вашего устройства ограничил права доступа adb, и приложения, использующие Shevery, не будут работать должным образом.\n\nОбычно это ограничение можно снять, изменив некоторые настройки в разделе «Параметры для разработчиков». Подробную инструкцию по этому вопросу вы найдете в справке.\n\nВозможно, для вступления изменений в силу потребуется перезапустить приложение Shevery.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Если в выбранной папке есть файлы с таким же именем, они будут удалены.\n\nФункция экспорта использует SAF (Storage Access Framework). Сообщается, что MIUI нарушает работу функций SAF. Если вы используете MIUI, вам, возможно, придётся извлечь файл из APK-файла Shevery или скачать его с GitHub.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Пожалуйста, включите «Беспроводную отладку» в «Параметрах для разработчиков». «Беспроводная отладка» автоматически отключается при изменении сетевых настроек.
+
+Обратите внимание: не отключайте «Параметры для разработчиков» или «Отладку по USB», иначе приложение Shevery перестанет работать.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Беспроводная отладка не включена.
+Обратите внимание: до версии Android 11 для включения беспроводной отладки необходимо подключение к компьютеру.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Пожалуйста, начните сопряжение, выполнив следующие действия: «Параметры для разработчиков» — «Беспроводное отлаживание» — «Сопряжение устройства с помощью кода сопряжения».
+
+После запуска процесса сопряжения вы сможете ввести код сопряжения.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Не удалось сгенерировать ключ для отладки по беспроводной сети.
+Возможно, это связано с нарушением работы механизма KeyStore на данном устройстве.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Производитель вашего устройства ограничил права доступа adb, и приложения, использующие Shevery, не будут работать должным образом.
+
+Обычно это ограничение можно снять, изменив некоторые настройки в разделе «Параметры для разработчиков». Подробную инструкцию по этому вопросу вы найдете в справке.
+
+Возможно, для вступления изменений в силу потребуется перезапустить приложение Shevery.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Если в выбранной папке есть файлы с таким же именем, они будут удалены.
+
+Функция экспорта использует SAF (Storage Access Framework). Сообщается, что MIUI нарушает работу функций SAF. Если вы используете MIUI, вам, возможно, придётся извлечь файл из APK-файла Shevery или скачать его с GitHub.]]></string>
     <string name="permission_group_label"><![CDATA[Шевери]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nскопировано в буфер обмена.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+скопировано в буфер обмена.]]></string>
     <string name="settings_update_group_title"><![CDATA[Обновление]]></string>
 </resources>

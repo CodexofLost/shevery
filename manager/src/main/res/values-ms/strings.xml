@@ -45,7 +45,9 @@
     <string name="paring_code_is_wrong"><![CDATA[Kod pemadanan salah.]]></string>
     <string name="cannot_connect_port"><![CDATA[Tidak dapat menyambung ke perkhidmatan penyahpepijat wayarles.]]></string>
     <string name="dialog_wireless_adb_not_enabled"><![CDATA[Penyahpepijat tanpa wayar tidak diaktifkan. Nota, sebelum Android 11, untuk mengaktifkan penyahpepijat tanpa wayar, sambungan komputer adalah wajib.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Sila mulakan penjodohan dengan langkah-langkah berikut: "Pilihan Pembangun" - "Salisir tanpa wayar" - "Menjodohkan peranti menggunakan kod penjodohan".\n\nSelepas proses penjodohan bermula, anda akan dapat memasukkan kod penjodohan.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Sila mulakan penjodohan dengan langkah-langkah berikut: "Pilihan Pembangun" - "Salisir tanpa wayar" - "Menjodohkan peranti menggunakan kod penjodohan".
+
+Selepas proses penjodohan bermula, anda akan dapat memasukkan kod penjodohan.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Sila masukkan mod skrin berpecah (jendela berbilang) terlebih dahulu.]]></string>
     <string name="adb_error_key_store"><![CDATA[Tidak dapat menjana kunci untuk penyahpepijat tanpa wayar. Ini mungkin kerana mekanisme KeyStore peranti ini rosak.]]></string>
     <string name="adb_pair_required"><![CDATA[Sila jalankan langkah penjodohan terlebih dahulu.]]></string>
@@ -118,7 +120,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery tidak berjalan. Mulakan perkhidmatan terlebih dahulu, kemudian kembali dan aktifkan tetapan ini.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Pemberian kebenaran automatik gagal. Jalankan arahan ini dari komputer untuk memberikannya secara manual:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Salin arahan]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Cara penggunaan:\n1. Sambungkan peranti ke komputer (pembetulan USB atau tanpa wayar).\n2. Dalam terminal, jalankan arahan dari medan di atas.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Cara penggunaan:
+1. Sambungkan peranti ke komputer (pembetulan USB atau tanpa wayar).
+2. Dalam terminal, jalankan arahan dari medan di atas.]]></string>
     <string name="settings_use_system_color"><![CDATA[Gunakan warna tema sistem]]></string>
     <string name="modules_title"><![CDATA[Modul ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Modul]]></string>
@@ -240,7 +244,8 @@
     <string name="starting_root_shell"><![CDATA[Memulakan shell root…]]></string>
     <string name="start_with_root_failed"><![CDATA[Tidak dapat memulakan perkhidmatan kerana kebenaran root tidak diberikan atau peranti ini tidak di-root.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Tidak dapat memulakan pelayar]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n telah disalin ke papan pemotong.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ telah disalin ke papan pemotong.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s telah disalin ke papan pemotong.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s tidak menyokong Shevery moden]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Shevery warisan telah ditinggalkan sejak Mac 2019. Selain itu, Shevery warisan tidak berfungsi pada sistem Android yang lebih baharu. Sila minta pembangun <b>%1$s</b> untuk mengemas kini.]]></string>
@@ -421,7 +426,9 @@
     <string name="comput_copy_output"><![CDATA[Salin Keluaran]]></string>
     <string name="comput_ask_gemini"><![CDATA[Tanya Gemini]]></string>
     <string name="comput_executing"><![CDATA[Melaksanakan: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Mod Terjemahan Arahan ADB Aktif\nAsli: %1$s\nDalam pelaksanaan...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Mod Terjemahan Arahan ADB Aktif
+Asli: %1$s
+Dalam pelaksanaan...]]></string>
     <string name="comput_command_no_output"><![CDATA[Perintah selesai tanpa sebarang keluaran.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Perintah tamat masa selepas 120 saat.]]></string>
     <string name="comput_exit_code"><![CDATA[Perintah [E] keluar dengan kod %1$d.]]></string>

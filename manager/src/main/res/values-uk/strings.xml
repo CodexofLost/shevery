@@ -27,7 +27,9 @@
     <string name="home_local_network_grant"><![CDATA[Надати доступ]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Доступ до локальної мережі необхідний для бездротового налагодження.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Пошук служби бездротового налагодження]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Увімкніть "Бездротове налагодження" в "Параметрах розробника". Бездротове налагодження вимикається автоматично при зміні мережі.\n\nПримітка: не вимикайте "Параметри розробника" чи "Налагодження по USB", інакше Shevery зупиниться.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Увімкніть "Бездротове налагодження" в "Параметрах розробника". Бездротове налагодження вимикається автоматично при зміні мережі.
+
+Примітка: не вимикайте "Параметри розробника" чи "Налагодження по USB", інакше Shevery зупиниться.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Спробуйте вимкнути та знову ввімкнути "Бездротове налагодження", якщо пошук триває занадто довго.]]></string>
     <string name="dialog_adb_port"><![CDATA[Порт]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Порт повинен бути цілим числом від 1 до 65535.]]></string>
@@ -37,11 +39,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Код з’єднання]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Невірний код з’єднання.]]></string>
     <string name="cannot_connect_port"><![CDATA[Не вдалося підключитися до служби бездротового налагодження.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Бездротове налагодження вимкнено.\nДо Android 11 підключення до ПК обов’язкове.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Розпочніть з’єднання за кроками: "Параметри розробника" - "Бездротове налагодження" - "З’єднати пристрій кодом з’єднання".\n\nПісля запуску ви зможете ввести код.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Бездротове налагодження вимкнено.
+До Android 11 підключення до ПК обов’язкове.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Розпочніть з’єднання за кроками: "Параметри розробника" - "Бездротове налагодження" - "З’єднати пристрій кодом з’єднання".
+
+Після запуску ви зможете ввести код.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Будь ласка, спочатку перейдіть у режим розділеного екрана (багатовіконність).]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Система вимагає, щоб діалог з’єднання завжди залишався видимим. Розділений екран є єдиним способом тримати видимими додаток і діалог системи одночасно.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Не вдалося згенерувати ключ бездротового налагодження.\nМожливо, механізм KeyStore цього пристрою пошкоджено.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Не вдалося згенерувати ключ бездротового налагодження.
+Можливо, механізм KeyStore цього пристрою пошкоджено.]]></string>
     <string name="adb_pair_required"><![CDATA[Будь ласка, спочатку пройдіть крок з’єднання.]]></string>
     <string name="development_settings"><![CDATA[Параметри розробника]]></string>
     <string name="notification_settings"><![CDATA[Параметри сповіщень]]></string>
@@ -72,7 +78,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Діагностику скопійовано в буфер обміну.]]></string>
     <string name="home_modules_description"><![CDATA[Встановлення та управління модулями ADB]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Потрібен додатковий крок]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Виробник вашого пристрою обмежив дозволи ADB, і додатки з Shevery працюватимуть неналежно.\n\nЗазвичай це обмеження знімається в "Параметрах розробника". Детальніше дивіться у довідці.\n\nМоже знадобитися перезапуск Shevery.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Виробник вашого пристрою обмежив дозволи ADB, і додатки з Shevery працюватимуть неналежно.
+
+Зазвичай це обмеження знімається в "Параметрах розробника". Детальніше дивіться у довідці.
+
+Може знадобитися перезапуск Shevery.]]></string>
     <string name="app_management_select_all"><![CDATA[Вибрати все]]></string>
     <string name="app_management_deselect_all"><![CDATA[Зняти виділення]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[Дозвіл ADB обмежено]]></string>
@@ -81,7 +91,9 @@
     <string name="home_terminal_title"><![CDATA[Використання Shevery в додатках термінала]]></string>
     <string name="home_terminal_description"><![CDATA[Запускайте команди через Shevery у ваших улюблених терміналах]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Спочатку експортуйте файли у будь-яке місце. Ви знайдете два файли: %1$s та %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Якщо у вибраній папці є файли з такими ж іменами, їх буде видалено.\n\nЕкспорт використовує SAF (Storage Access Framework). На MIUI SAF може працювати з помилками; у такому разі витягніть файли з APK Shevery або завантажте з GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Якщо у вибраній папці є файли з такими ж іменами, їх буде видалено.
+
+Експорт використовує SAF (Storage Access Framework). На MIUI SAF може працювати з помилками; у такому разі витягніть файли з APK Shevery або завантажте з GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[Експортувати файли]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Потім скористайтеся будь-яким текстовим редактором для відкриття та редагування %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Наприклад, якщо ви хочете використовувати Shevery в %1$s, замініть %2$s на %3$s (%4$s — назва пакета %1$s).]]></string>
@@ -217,7 +229,8 @@
     <string name="starter"><![CDATA[Запуск]]></string>
     <string name="start_with_root_failed"><![CDATA[Неможливо запустити службу, оскільки root-права не надано або пристрій не має root-прав.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Неможливо відкрити браузер]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nскопійовано у буфер обміну.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+скопійовано у буфер обміну.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> скопійовано у буфер обміну.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s не підтримує сучасний Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Застарілий Shevery не підтримується з березня 2019 року та не працює на нових версіях Android.<p>Будь ласка, попросіть розробника <b>%1$s</b> оновити додаток.]]></string>
@@ -358,7 +371,9 @@
     <string name="comput_copy_output"><![CDATA[Копіювати вивід]]></string>
     <string name="comput_ask_gemini"><![CDATA[Запитати у Gemini]]></string>
     <string name="comput_executing"><![CDATA[Виконується: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Режим трансляції ADB активний\nОригінал: %1$s\nВиконується...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Режим трансляції ADB активний
+Оригінал: %1$s
+Виконується...]]></string>
     <string name="comput_command_no_output"><![CDATA[Команду виконано без виводу.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Час очікування команди вичерпано (120с).]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Команда завершилася з кодом %1$d.]]></string>
@@ -366,7 +381,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Виконується команда: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Помилка: Службу Shevery не запущено. Запустіть службу.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Помилка: Не вдалося отримати binder Shevery.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Консоль ініціалізовано. Привілейовану службу Shevery підключено.\nГотово.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Консоль ініціалізовано. Привілейовану службу Shevery підключено.
+Готово.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Пояснення ШІ]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Асистент Commandium ШІ]]></string>
@@ -442,7 +458,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery не працює. Спочатку запустіть службу, а потім поверніться і увімкніть цей параметр.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Автоматичне надання дозволу не вдалося. Виконайте цю команду на комп’ютері, щоб надати дозвіл вручну:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Команда «Копіювати»]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Як користуватися:\n1. Підключіть пристрій до комп’ютера (через USB або бездротове налагодження).\n2. У терміналі виконайте команду з поля вище.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Як користуватися:
+1. Підключіть пристрій до комп’ютера (через USB або бездротове налагодження).
+2. У терміналі виконайте команду з поля вище.]]></string>
     <string name="permission_group_label"><![CDATA[Шевері]]></string>
     <string name="permission_group_description"><![CDATA[@string/назва_дозволу]]></string>
     <string name="starting_root_shell"><![CDATA[Запуск оболонки з правами суперкористувача…]]></string>

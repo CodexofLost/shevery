@@ -444,7 +444,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery لا يعمل. قم بتشغيل الخدمة أولاً، ثم ارجع وقم بتمكين هذا الإعداد.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[فشل منح الإذن تلقائيًا. قم بتشغيل هذا الأمر من جهاز كمبيوتر لمنح الإذن يدويًّا:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[أمر النسخ]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[طريقة الاستخدام:\n1. قم بتوصيل الجهاز بجهاز كمبيوتر (عبر USB أو التصحيح اللاسلكي).\n2. في نافذة الأوامر، قم بتشغيل الأمر الموجود في الحقل أعلاه.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[طريقة الاستخدام:
+1. قم بتوصيل الجهاز بجهاز كمبيوتر (عبر USB أو التصحيح اللاسلكي).
+2. في نافذة الأوامر، قم بتشغيل الأمر الموجود في الحقل أعلاه.]]></string>
     <string name="notification_startup_channel_name"><![CDATA[شركة «شيفي» الناشئة]]></string>
     <string name="notification_startup_title"><![CDATA[بداية شيفرى]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[تمكين تصحيح الأخطاء عبر شبكة Wi-Fi…]]></string>
@@ -519,20 +521,36 @@
     <string name="settings_compat_stub_failed"><![CDATA[فشل في %1$s الكود المقتضب القديم عبر %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[لا توجد قناة متاحة (ابدأ بـ «شيفي» أولاً)]]></string>
     <string name="app_name"><![CDATA[شيفري]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[يرجى تمكين "التصحيح اللاسلكي" في "خيارات المطور". يتم تعطيل "التصحيح اللاسلكي" تلقائيًا عند حدوث تغييرات في الشبكة.\n\nملاحظة: لا تقم بتعطيل "خيارات المطور" أو "التصحيح عبر USB"، وإلا سيتوقف تطبيق Shevery عن العمل.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[التصحيح اللاسلكي غير ممكّن.\nيرجى ملاحظة أنه قبل إصدار Android 11، كان الاتصال بالكمبيوتر ضروريًّا لتمكين التصحيح اللاسلكي.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[يرجى البدء في إجراء عملية الاقتران باتباع الخطوات التالية: «خيارات المطور» - «تصحيح الأخطاء لاسلكيًا» - «اقتران الجهاز باستخدام رمز الاقتران».\n\nبعد بدء عملية الاقتران، ستتمكن من إدخال رمز الاقتران.]]></string>
-    <string name="adb_error_key_store"><![CDATA[تعذر إنشاء مفتاح للتصحيح اللاسلكي.\nقد يكون السبب في ذلك هو تعطل آلية KeyStore في هذا الجهاز.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[يرجى تمكين "التصحيح اللاسلكي" في "خيارات المطور". يتم تعطيل "التصحيح اللاسلكي" تلقائيًا عند حدوث تغييرات في الشبكة.
+
+ملاحظة: لا تقم بتعطيل "خيارات المطور" أو "التصحيح عبر USB"، وإلا سيتوقف تطبيق Shevery عن العمل.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[التصحيح اللاسلكي غير ممكّن.
+يرجى ملاحظة أنه قبل إصدار Android 11، كان الاتصال بالكمبيوتر ضروريًّا لتمكين التصحيح اللاسلكي.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[يرجى البدء في إجراء عملية الاقتران باتباع الخطوات التالية: «خيارات المطور» - «تصحيح الأخطاء لاسلكيًا» - «اقتران الجهاز باستخدام رمز الاقتران».
+
+بعد بدء عملية الاقتران، ستتمكن من إدخال رمز الاقتران.]]></string>
+    <string name="adb_error_key_store"><![CDATA[تعذر إنشاء مفتاح للتصحيح اللاسلكي.
+قد يكون السبب في ذلك هو تعطل آلية KeyStore في هذا الجهاز.]]></string>
     <string name="home_root_description"><![CDATA[بالإضافة إلى ذلك، يمكن تشغيل Shevery تلقائيًا عند بدء التشغيل. وإذا لم يحدث ذلك، يرجى التحقق مما إذا كان نظامك أو أدوات الجهات الخارجية قد فرضت قيودًا على Shevery.<br/>يمكنك الرجوع إلى %s.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[لقد قامت الشركة المصنعة لجهازك بتقييد أذونات adb، ولن تعمل التطبيقات التي تستخدم Shevery بشكل صحيح.\n\nعادةً ما يمكن رفع هذا التقييد عن طريق تعديل بعض الخيارات في «خيارات المطور». يرجى قراءة دليل المساعدة للحصول على تفاصيل حول كيفية القيام بذلك.\n\nقد تحتاج إلى إعادة تشغيل Shevery حتى تصبح التغييرات سارية المفعول.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[إذا كانت هناك ملفات تحمل الاسم نفسه في المجلد المحدد، فسيتم حذفها.\n\nتستخدم وظيفة التصدير نظام SAF (Storage Access Framework). وقد أُفيد بأن نظام MIUI يعطل وظائف SAF. إذا كنت تستخدم MIUI، فقد تضطر إلى استخراج الملف من ملف apk الخاص بـ Shevery أو تنزيله من GitHub.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[لقد قامت الشركة المصنعة لجهازك بتقييد أذونات adb، ولن تعمل التطبيقات التي تستخدم Shevery بشكل صحيح.
+
+عادةً ما يمكن رفع هذا التقييد عن طريق تعديل بعض الخيارات في «خيارات المطور». يرجى قراءة دليل المساعدة للحصول على تفاصيل حول كيفية القيام بذلك.
+
+قد تحتاج إلى إعادة تشغيل Shevery حتى تصبح التغييرات سارية المفعول.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[إذا كانت هناك ملفات تحمل الاسم نفسه في المجلد المحدد، فسيتم حذفها.
+
+تستخدم وظيفة التصدير نظام SAF (Storage Access Framework). وقد أُفيد بأن نظام MIUI يعطل وظائف SAF. إذا كنت تستخدم MIUI، فقد تضطر إلى استخراج الملف من ملف apk الخاص بـ Shevery أو تنزيله من GitHub.]]></string>
     <string name="rish_description"><![CDATA[باستخدام %1$s، في أي تطبيق محطة طرفية، يمكنك الاتصال ببيئة العمل التي تديرها Shevery والتفاعل معها.
 <p>لمعرفة المزيد عن كيفية استخدام %1$s بالتفصيل، انقر لعرض الوثيقة.]]></string>
     <string name="permission_group_label"><![CDATA[شيفري]]></string>
     <string name="permission_group_description"><![CDATA[@string/تسمية_الإذن]]></string>
     <string name="starting_root_shell"><![CDATA[بدء تشغيل شل الجذر…]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[تم نسخ %s\n إلى الحافظة.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[تم نسخ %s
+ إلى الحافظة.]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[يلزم توفر شبكة Wi-Fi عند إعادة التشغيل الأولى، لأن برنامج «Shevery» يجب أن يتصل بمنفذ التصحيح اللاسلكي الحالي قبل تغيير منفذ ADB إلى 5555.]]></string>
-    <string name="comput_adb_translate"><![CDATA[وضع الترجمة التلقائية لـ ADB نشط\nالنص الأصلي: %1$s\nجاري التنفيذ...]]></string>
-    <string name="comput_console_initialized"><![CDATA[تم تهيئة وحدة التحكم. تم الاتصال بخدمة Shevery ذات الصلاحيات الخاصة.\nجاهز لتلقي الأوامر.]]></string>
+    <string name="comput_adb_translate"><![CDATA[وضع الترجمة التلقائية لـ ADB نشط
+النص الأصلي: %1$s
+جاري التنفيذ...]]></string>
+    <string name="comput_console_initialized"><![CDATA[تم تهيئة وحدة التحكم. تم الاتصال بخدمة Shevery ذات الصلاحيات الخاصة.
+جاهز لتلقي الأوامر.]]></string>
 </resources>

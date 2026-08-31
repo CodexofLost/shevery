@@ -27,7 +27,9 @@
     <string name="home_local_network_grant"><![CDATA[Accorder l'accès]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[L'accès au réseau local est requis pour le débogage sans fil.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Recherche du service de débogage sans fil]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Veuillez activer le "Débogage sans fil" dans les "Options pour les développeurs". Le débogage sans fil se désactive automatiquement lors des changements de réseau.\n\nNote : ne désactivez pas les "Options développeurs" ou le "Débogage USB", sinon Shevery s'arrêtera.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Veuillez activer le "Débogage sans fil" dans les "Options pour les développeurs". Le débogage sans fil se désactive automatiquement lors des changements de réseau.
+
+Note : ne désactivez pas les "Options développeurs" ou le "Débogage USB", sinon Shevery s'arrêtera.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Veuillez désactiver et réactiver le "Débogage sans fil" si la recherche persiste.]]></string>
     <string name="dialog_adb_port"><![CDATA[Port]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Le port doit être un entier compris entre 1 et 65535.]]></string>
@@ -37,11 +39,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Code d'association]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Le code d'association est incorrect.]]></string>
     <string name="cannot_connect_port"><![CDATA[Impossible de se connecter au service de débogage sans fil.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Le débogage sans fil n'est pas activé.\nNote : avant Android 11, une connexion à un ordinateur est obligatoire.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Démarrez l'association en suivant ces étapes : "Options développeurs" - "Débogage sans fil" - "Associer l'appareil avec un code d'association".\n\nUne fois le processus lancé, vous pourrez saisir le code.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Le débogage sans fil n'est pas activé.
+Note : avant Android 11, une connexion à un ordinateur est obligatoire.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Démarrez l'association en suivant ces étapes : "Options développeurs" - "Débogage sans fil" - "Associer l'appareil avec un code d'association".
+
+Une fois le processus lancé, vous pourrez saisir le code.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Veuillez d'abord passer en mode écran partagé (multi-fenêtres).]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Le système exige que la boîte de dialogue d'association soit toujours visible. L'écran partagé est le seul moyen de garder l'application et la boîte système visibles en même temps.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Impossible de générer la clé de débogage sans fil.\nCela peut être dû à un dysfonctionnement du KeyStore de cet appareil.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Impossible de générer la clé de débogage sans fil.
+Cela peut être dû à un dysfonctionnement du KeyStore de cet appareil.]]></string>
     <string name="adb_pair_required"><![CDATA[Veuillez d'abord effectuer l'étape d'association.]]></string>
     <string name="development_settings"><![CDATA[Options pour les développeurs]]></string>
     <string name="notification_settings"><![CDATA[Options de notification]]></string>
@@ -72,7 +78,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Diagnostics copiés dans le presse-papiers.]]></string>
     <string name="home_modules_description"><![CDATA[Installer et gérer des modules ADB]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Une étape supplémentaire est requise]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Le fabricant de votre appareil a restreint les autorisations ADB et les applications utilisant Shevery ne fonctionneront pas correctement.\n\nEn général, cette limitation peut être levée dans les "Options développeurs". Consultez l'aide pour plus de détails.\n\nUn redémarrage de Shevery peut être nécessaire.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Le fabricant de votre appareil a restreint les autorisations ADB et les applications utilisant Shevery ne fonctionneront pas correctement.
+
+En général, cette limitation peut être levée dans les "Options développeurs". Consultez l'aide pour plus de détails.
+
+Un redémarrage de Shevery peut être nécessaire.]]></string>
     <string name="app_management_select_all"><![CDATA[Tout sélectionner]]></string>
     <string name="app_management_deselect_all"><![CDATA[Tout désélectionner]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[L'autorisation ADB est limitée]]></string>
@@ -81,7 +91,9 @@
     <string name="home_terminal_title"><![CDATA[Utiliser Shevery dans les applications de terminal]]></string>
     <string name="home_terminal_description"><![CDATA[Exécutez des commandes via Shevery dans vos applications de terminal préférées]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Tout d'abord, exportez les fichiers à l'emplacement de votre choix. Vous trouverez deux fichiers : %1$s et %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Si des fichiers du même nom existent dans le dossier, ils seront supprimés.\n\nL'exportation utilise le SAF (Storage Access Framework). Sur MIUI, le SAF peut être défaillant ; si c'est le caso, extrayez les fichiers directement de l'APK de Shevery ou téléchargez-les sur GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Si des fichiers du même nom existent dans le dossier, ils seront supprimés.
+
+L'exportation utilise le SAF (Storage Access Framework). Sur MIUI, le SAF peut être défaillant ; si c'est le caso, extrayez les fichiers directement de l'APK de Shevery ou téléchargez-les sur GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[Exporter les fichiers]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Ensuite, utilisez un éditeur de texte pour ouvrir et modifier %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Par exemple, si vous souhaitez utiliser Shevery dans %1$s, remplacez %2$s par %3$s (%4$s est le nom de paquet de %1$s).]]></string>
@@ -217,7 +229,8 @@
     <string name="starter"><![CDATA[Démarreur]]></string>
     <string name="start_with_root_failed"><![CDATA[Impossible de démarrer le service car l'autorisation root n'a pas été accordée ou l'appareil n'est pas rooté.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Impossible de lancer le navigateur]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\na été copié dans le presse-papiers.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+a été copié dans le presse-papiers.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> a été copié dans le presse-papiers.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ne prend pas en charge le Shevery moderne]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Le Shevery hérité est obsolète depuis mars 2019 et ne fonctionne pas sur les versions récentes d'Android.<p>Veuillez demander au développeur de <b>%1$s</b> de mettre à jour son application.]]></string>
@@ -358,7 +371,9 @@
     <string name="comput_copy_output"><![CDATA[Copier la sortie]]></string>
     <string name="comput_ask_gemini"><![CDATA[Demander à Gemini]]></string>
     <string name="comput_executing"><![CDATA[Exécution : %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Mode de traduction de commande ADB actif\nOriginal : %1$s\nExécution...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Mode de traduction de commande ADB actif
+Original : %1$s
+Exécution...]]></string>
     <string name="comput_command_no_output"><![CDATA[La commande s'est terminée sans sortie.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] La commande a expiré après 120 secondes.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] La commande s'est terminée avec le code %1$d.]]></string>
@@ -366,7 +381,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Exécution de la commande : %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Erreur : Le service privilégié Shevery n'est pas en cours d'exécution. Veuillez démarrer le service d'abord.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Erreur : Impossible de récupérer le binder Shevery.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Console initialisée. Service privilégié Shevery connecté.\nPrêt pour les commandes.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Console initialisée. Service privilégié Shevery connecté.
+Prêt pour les commandes.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Explication de l'IA]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Assistant IA Commandium]]></string>
@@ -442,7 +458,9 @@
     <string name="settings_start_on_boot_adb_missing_permission_title"><![CDATA[Autorisation manquante]]></string>
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery ne fonctionne pas. Lancez d'abord le service, puis revenez ici pour activer ce paramètre.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[L'octroi automatique des autorisations a échoué. Exécutez cette commande depuis un ordinateur pour les accorder manuellement :]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Mode d'emploi :\n1. Connectez l'appareil à un ordinateur (via USB ou débogage sans fil).\n2. Dans le terminal, exécutez la commande indiquée dans le champ ci-dessus.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Mode d'emploi :
+1. Connectez l'appareil à un ordinateur (via USB ou débogage sans fil).
+2. Dans le terminal, exécutez la commande indiquée dans le champ ci-dessus.]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[Lancement du shell root…]]></string>

@@ -436,13 +436,25 @@
     <string name="accessibility_manager_service_no_description"><![CDATA[Keine Beschreibung vom Dienst bereitgestellt.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Dikkate alınması gereken başka hususlar da bulunmaktadır; lütfen önce yardım bölümünü okuduğunuzu teyit ediniz.]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Lütfen “Geliştirici seçenekleri”nden “Kablosuz hata ayıklama”yı etkinleştirin. Ağ bağlantısında değişiklik olduğunda “Kablosuz hata ayıklama” otomatik olarak devre dışı bırakılır.\n\nDikkat: “Geliştirici seçenekleri”ni veya “USB hata ayıklama”yı devre dışı bırakmayın; aksi takdirde Shevery durdurulacaktır.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Kablosuz hata ayıklama etkinleştirilmemiştir.\nAndroid 11 sürümünden önce, kablosuz hata ayıklamayı etkinleştirmek için bilgisayara bağlanmak zorunludur.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Lütfen eşleştirme işlemini şu adımları izleyerek başlatın: "Geliştirici Seçenekleri" - "Kablosuz hata ayıklama" - "Eşleştirme kodunu kullanarak cihazı eşleştir".\n\nEşleştirme işlemi başladıktan sonra, eşleştirme kodunu girebileceksiniz.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Kablosuz hata ayıklama için anahtar oluşturulamıyor.\nBunun nedeni, bu cihazın KeyStore mekanizmasının bozuk olması olabilir.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Cihazınızın üreticisi adb izinlerini kısıtlamıştır ve Shevery'yi kullanan uygulamalar düzgün çalışmayacaktır.\n\nGenellikle bu kısıtlama, "Geliştirici seçenekleri"ndeki bazı ayarları değiştirerek kaldırılabilir. Bunun nasıl yapılacağına dair ayrıntılar için lütfen yardım bölümünü okuyun.\n\nDeğişikliğin yürürlüğe girmesi için Shevery'yi yeniden başlatmanız gerekebilir.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Lütfen “Geliştirici seçenekleri”nden “Kablosuz hata ayıklama”yı etkinleştirin. Ağ bağlantısında değişiklik olduğunda “Kablosuz hata ayıklama” otomatik olarak devre dışı bırakılır.
+
+Dikkat: “Geliştirici seçenekleri”ni veya “USB hata ayıklama”yı devre dışı bırakmayın; aksi takdirde Shevery durdurulacaktır.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Kablosuz hata ayıklama etkinleştirilmemiştir.
+Android 11 sürümünden önce, kablosuz hata ayıklamayı etkinleştirmek için bilgisayara bağlanmak zorunludur.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Lütfen eşleştirme işlemini şu adımları izleyerek başlatın: "Geliştirici Seçenekleri" - "Kablosuz hata ayıklama" - "Eşleştirme kodunu kullanarak cihazı eşleştir".
+
+Eşleştirme işlemi başladıktan sonra, eşleştirme kodunu girebileceksiniz.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Kablosuz hata ayıklama için anahtar oluşturulamıyor.
+Bunun nedeni, bu cihazın KeyStore mekanizmasının bozuk olması olabilir.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Cihazınızın üreticisi adb izinlerini kısıtlamıştır ve Shevery'yi kullanan uygulamalar düzgün çalışmayacaktır.
+
+Genellikle bu kısıtlama, "Geliştirici seçenekleri"ndeki bazı ayarları değiştirerek kaldırılabilir. Bunun nasıl yapılacağına dair ayrıntılar için lütfen yardım bölümünü okuyun.
+
+Değişikliğin yürürlüğe girmesi için Shevery'yi yeniden başlatmanız gerekebilir.]]></string>
     <string name="app_management_loading"><![CDATA[Uygulamalar yükleniyor…]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Seçilen klasörde aynı ada sahip dosyalar varsa, bunlar silinecektir.\n\nDışa aktarma işlevi SAF’yi (Storage Access Framework) kullanır. MIUI’nin SAF’nin işlevlerini bozduğu bildirilmektedir. MIUI kullanıyorsanız, dosyayı Shevery’nin APK’sından ayıklamanız veya GitHub’dan indirmeniz gerekebilir.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Seçilen klasörde aynı ada sahip dosyalar varsa, bunlar silinecektir.
+
+Dışa aktarma işlevi SAF’yi (Storage Access Framework) kullanır. MIUI’nin SAF’nin işlevlerini bozduğu bildirilmektedir. MIUI kullanıyorsanız, dosyayı Shevery’nin APK’sından ayıklamanız veya GitHub’dan indirmeniz gerekebilir.]]></string>
     <string name="rish_description"><![CDATA[%1$s ile herhangi bir terminal uygulamasından Shevery tarafından çalıştırılan kabuklara bağlanabilir ve bunlarla etkileşim kurabilirsiniz.
 <p>%1$s'nin ayrıntılı kullanım bilgileri için belgeyi görüntülemek üzere buraya dokunun.]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Kablosuz hata ayıklama yoluyla sistem başlatıldığında başlat]]></string>
@@ -454,11 +466,14 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery çalışmıyor. Önce hizmeti başlatın, ardından geri dönüp bu ayarı etkinleştirin.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Otomatik izin verme işlemi başarısız oldu. İzinleri manuel olarak vermek için bu komutu bir bilgisayardan çalıştırın:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopyalama komutu]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Kullanım talimatları:\n1. Cihazı bir bilgisayara bağlayın (USB veya kablosuz hata ayıklama).\n2. Terminalde, yukarıdaki alandaki komutu çalıştırın.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Kullanım talimatları:
+1. Cihazı bir bilgisayara bağlayın (USB veya kablosuz hata ayıklama).
+2. Terminalde, yukarıdaki alandaki komutu çalıştırın.]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/izin_etiketi]]></string>
     <string name="starting_root_shell"><![CDATA[Root kabuğu başlatılıyor…]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\npanoya kopyalandı.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+panoya kopyalandı.]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[İlk yeniden başlatma için Wi-Fi gereklidir; çünkü Shevery, ADB’yi 5555’e geçmeden önce mevcut Kablosuz Hata Ayıklama bağlantı noktasına bağlanmalıdır.]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery girişimi]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery'nin Başlangıcı]]></string>
@@ -497,8 +512,11 @@
     <string name="shevery_update_check_failed"><![CDATA[Güncelleme kontrolü başarısız: %s]]></string>
     <string name="settings_sections_title"><![CDATA[Yedeklemeler ve diğerleri]]></string>
     <string name="backup_section_title"><![CDATA[Yedeklemeler]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB Komut Çeviri Modu Etkin\nOrijinal: %1$s\nYürütülüyor...]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konsol başlatıldı. Ayrıcalıklı Shevery hizmeti bağlandı.\nKomutlara hazır.]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB Komut Çeviri Modu Etkin
+Orijinal: %1$s
+Yürütülüyor...]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konsol başlatıldı. Ayrıcalıklı Shevery hizmeti bağlandı.
+Komutlara hazır.]]></string>
     <string name="comput_output_label"><![CDATA[Çıktı]]></string>
     <string name="comput_search_desc"><![CDATA[Arama sonucu]]></string>
     <string name="comput_search_hint"><![CDATA[Arama sonucu]]></string>

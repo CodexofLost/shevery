@@ -33,7 +33,9 @@
     <string name="home_local_network_grant"><![CDATA[Bevilja åtkomst]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[För trådlös felsökning krävs åtkomst till det lokala nätverket.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Söker efter tjänst för trådlös felsökning]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Aktivera ”Trådlös felsökning” under ”Utvecklingsalternativ”. ”Trådlös felsökning” inaktiveras automatiskt vid nätverksförändringar.\n\nObservera att du inte får inaktivera ”Utvecklingsalternativ” eller ”USB-felsökning”, eftersom Shevery då kommer att stängas av.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Aktivera ”Trådlös felsökning” under ”Utvecklingsalternativ”. ”Trådlös felsökning” inaktiveras automatiskt vid nätverksförändringar.
+
+Observera att du inte får inaktivera ”Utvecklingsalternativ” eller ”USB-felsökning”, eftersom Shevery då kommer att stängas av.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Försök att inaktivera och sedan aktivera ”Trådlös felsökning” om sökningen fortsätter.]]></string>
     <string name="dialog_adb_port"><![CDATA[Hamn]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Port är ett heltal mellan 1 och 65535.]]></string>
@@ -43,11 +45,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Parningskod]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Parningskoden är felaktig.]]></string>
     <string name="cannot_connect_port"><![CDATA[Det går inte att ansluta till den trådlösa felsöknings tjänsten.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Trådlös felsökning är inte aktiverad.\nObservera att före Android 11 krävs en anslutning till en dator för att aktivera trådlös felsökning.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Börja parningen genom att följa dessa steg: ”Utvecklingsalternativ” – ”Trådlös felsökning” – ”Para ihop enhet med hjälp av parningskod”.\n\nNär parningsprocessen har startat kan du ange parningskoden.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Trådlös felsökning är inte aktiverad.
+Observera att före Android 11 krävs en anslutning till en dator för att aktivera trådlös felsökning.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Börja parningen genom att följa dessa steg: ”Utvecklingsalternativ” – ”Trådlös felsökning” – ”Para ihop enhet med hjälp av parningskod”.
+
+När parningsprocessen har startat kan du ange parningskoden.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Gå först till läget med delad skärm (flera fönster).]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Systemet kräver att parningsdialogrutan alltid är synlig, och det enda sättet att visa både den här appen och systemdialogrutan samtidigt är att använda delad skärm.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Det går inte att generera en nyckel för trådlös felsökning.\nDetta kan bero på att KeyStore-mekanismen på den här enheten inte fungerar.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Det går inte att generera en nyckel för trådlös felsökning.
+Detta kan bero på att KeyStore-mekanismen på den här enheten inte fungerar.]]></string>
     <string name="adb_pair_required"><![CDATA[Gå först igenom parningssteget.]]></string>
     <string name="development_settings"><![CDATA[Utvecklingsalternativ]]></string>
     <string name="notification_settings"><![CDATA[Meddelandeinställningar]]></string>
@@ -82,7 +88,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Diagnostik har kopierats.]]></string>
     <string name="home_modules_description"><![CDATA[Installera och hantera ADB-baserade moduler]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Du måste ta ett steg till]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Tillverkaren av din enhet har begränsat behörigheterna för adb, vilket innebär att appar som använder Shevery inte fungerar som de ska.\n\nVanligtvis kan denna begränsning upphävas genom att justera vissa inställningar under ”Utvecklingsalternativ”. Läs hjälpinformationen för mer information om hur du gör detta.\n\nDu kan behöva starta om Shevery för att ändringarna ska träda i kraft.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Tillverkaren av din enhet har begränsat behörigheterna för adb, vilket innebär att appar som använder Shevery inte fungerar som de ska.
+
+Vanligtvis kan denna begränsning upphävas genom att justera vissa inställningar under ”Utvecklingsalternativ”. Läs hjälpinformationen för mer information om hur du gör detta.
+
+Du kan behöva starta om Shevery för att ändringarna ska träda i kraft.]]></string>
     <string name="app_management_select_all"><![CDATA[Markera allt]]></string>
     <string name="app_management_deselect_all"><![CDATA[Avmarkera alla]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[Behörigheten för adb är begränsad]]></string>
@@ -92,7 +102,9 @@
     <string name="home_terminal_title"><![CDATA[Använd Shevery i terminalprogram]]></string>
     <string name="home_terminal_description"><![CDATA[Kör kommandon via Shevery i de terminalprogram du föredrar]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Börja med att exportera filerna till valfri plats. Du kommer att hitta två filer: %1$s och %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Om det finns filer med samma namn i den valda mappen kommer de att raderas.\n\nExportfunktionen använder SAF (Storage Access Framework). Det har rapporterats att MIUI stör funktionen hos SAF. Om du använder MIUI kan du behöva extrahera filen från Sheverys APK-fil eller ladda ner den från GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Om det finns filer med samma namn i den valda mappen kommer de att raderas.
+
+Exportfunktionen använder SAF (Storage Access Framework). Det har rapporterats att MIUI stör funktionen hos SAF. Om du använder MIUI kan du behöva extrahera filen från Sheverys APK-fil eller ladda ner den från GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[Exportera filer]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Använd sedan valfri textredigerare för att öppna och redigera %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Om du till exempel vill använda Shevery i %1$s bör du ersätta %2$s med %3$s (%4$s är paketnamnet för %1$s).]]></string>
@@ -120,7 +132,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery körs inte. Starta tjänsten först, och återkom sedan för att aktivera den här inställningen.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Den automatiska behörighetsbeviljningen misslyckades. Kör följande kommando från en dator för att bevilja behörigheten manuellt:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopieringskommando]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Så här använder du den:\n1. Anslut enheten till en dator (via USB eller trådlös felsökning).\n2. Kör kommandot från fältet ovan i terminalen.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Så här använder du den:
+1. Anslut enheten till en dator (via USB eller trådlös felsökning).
+2. Kör kommandot från fältet ovan i terminalen.]]></string>
     <string name="settings_use_system_color"><![CDATA[Använd systemets temafärg]]></string>
     <string name="modules_title"><![CDATA[ADB-moduler]]></string>
     <string name="modules_settings_title"><![CDATA[Moduler]]></string>
@@ -242,7 +256,8 @@
     <string name="starting_root_shell"><![CDATA[Startar root-shell…]]></string>
     <string name="start_with_root_failed"><![CDATA[Tjänsten kan inte startas eftersom root-behörighet saknas eller eftersom enheten inte är rootad.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Det går inte att starta webbläsaren]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nhar kopierats till urklipp.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+har kopierats till urklipp.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> har kopierats till urklipp.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s stöder inte modern Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Den äldre versionen av Shevery har inte längre rekommenderats sedan mars 2019. Dessutom fungerar den äldre versionen av Shevery inte på nyare Android-system.<p>Be utvecklaren av <b>%1$s</b> att uppdatera appen.]]></string>
@@ -423,7 +438,9 @@
     <string name="comput_copy_output"><![CDATA[Kopiera utdata]]></string>
     <string name="comput_ask_gemini"><![CDATA[Fråga Gemini]]></string>
     <string name="comput_executing"><![CDATA[Kör: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB-kommandots översättningsläge är aktivt\nOriginal: %1$s\nKörs...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB-kommandots översättningsläge är aktivt
+Original: %1$s
+Körs...]]></string>
     <string name="comput_command_no_output"><![CDATA[Kommandot har slutförts utan utdata.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Kommandot tidsgränsade efter 120 sekunder.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Kommandot avslutades med koden %1$d.]]></string>
@@ -431,7 +448,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Kör kommandot: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Fel: Tjänsten ”Privileged Shevery” körs inte. Starta tjänsten först.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Fel: Det går inte att hämta Shevery-pärmen.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konsolen har startats. Shevery-tjänsten med utökade behörigheter är ansluten.\nRedo för kommandon.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konsolen har startats. Shevery-tjänsten med utökade behörigheter är ansluten.
+Redo för kommandon.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Förklaring av AI]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI-assistent]]></string>

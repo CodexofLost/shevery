@@ -17,7 +17,9 @@
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Az Android 11 előtt a vezeték nélküli hibakeresés engedélyezéséhez csatlakozni kell egy számítógéphez.]]></string>
     <string name="home_wireless_adb_view_guide_button"><![CDATA[Lépésről-lépésre útmutató]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Vezeték nélküli hibakereső szolgáltatás keresése]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Engedélyezze a "Vezeték nélküli hibakeresés"t a "Fejlesztői lehetőségek"nél. A "Vezeték nélküli hibakeresés" hálózatváltáskor auto. le van tiltva.\n\nMegj.: ne tiltsa le a "Fejlesztői lehetőségek"et vagy az "USB hibakeresés"t, ekkor a Shizuku le fog állni.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Engedélyezze a "Vezeték nélküli hibakeresés"t a "Fejlesztői lehetőségek"nél. A "Vezeték nélküli hibakeresés" hálózatváltáskor auto. le van tiltva.
+
+Megj.: ne tiltsa le a "Fejlesztői lehetőségek"et vagy az "USB hibakeresés"t, ekkor a Shizuku le fog állni.]]></string>
     <string name="dialog_adb_port"><![CDATA[Port]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[A port egy 1 és 65535 közötti egész szám.]]></string>
     <string name="adb_pairing"><![CDATA[Párosítás]]></string>
@@ -26,11 +28,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Párosítási kód]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Hibás a párosítási kód.]]></string>
     <string name="cannot_connect_port"><![CDATA[Nem lehet csatlakozni a vezeték nélküli hibakereső szolgáltatáshoz.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Vezeték nélküli hibakeresés nincs engedélyezve.\nNe feledje, hogy az Android 11 előtt a vezeték nélküli hibakeresés engedélyezéséhez számítógépes csatlakozásra van szükség.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Kezdje el a párosítást a következő lépésekkel: "Fejlesztői lehetőségek" - "Vezeték nélküli hibakeresés" - "Eszköz párosítása párosítási kóddal".\n\nA párosítási folyamat megkezdése után beírhatja a párosítási kódot.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Vezeték nélküli hibakeresés nincs engedélyezve.
+Ne feledje, hogy az Android 11 előtt a vezeték nélküli hibakeresés engedélyezéséhez számítógépes csatlakozásra van szükség.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Kezdje el a párosítást a következő lépésekkel: "Fejlesztői lehetőségek" - "Vezeték nélküli hibakeresés" - "Eszköz párosítása párosítási kóddal".
+
+A párosítási folyamat megkezdése után beírhatja a párosítási kódot.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Kérjük, először lépjen az osztott képernyős (több ablakos) módba.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[A rendszer megköveteli, hogy a párosítási párbeszédpanel mindig látható legyen, az osztott képernyős mód az egyetlen módja annak, hogy ez az alkalmazás és a rendszer párbeszédpanel egyszerre látható legyen.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Nem sikerült létrehozni a kulcsot a vezeték nélküli hibakereséshez.\nEz azért lehet, mert az eszköz KeyStore mechanizmusa meghibásodott.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Nem sikerült létrehozni a kulcsot a vezeték nélküli hibakereséshez.
+Ez azért lehet, mert az eszköz KeyStore mechanizmusa meghibásodott.]]></string>
     <string name="adb_pair_required"><![CDATA[Kérjük először végezze el a párosítási lépést.]]></string>
     <string name="development_settings"><![CDATA[Fejlesztői lehetőségek]]></string>
     <string name="notification_settings"><![CDATA[Értesítési lehetőségek]]></string>
@@ -56,14 +62,20 @@
     <string name="home_learn_more_title"><![CDATA[Tanulja a Shizukut]]></string>
     <string name="home_learn_more_description"><![CDATA[Tanuljon meg fejlődni a Shizukuval]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Egy plusz lépést kell tennie]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Az eszköz gyártója korlátozta az adb-engedélyeket, és a Shizuku-t használó alkalmazások nem működnek megfelelően.\n\nÁltalában ez a korlátozás bizonyos beállítások módosításával feloldható a "Fejlesztői lehetőségek"-nél. Kérjük, olvassa el a súgót ennek részleteiért.\n\nLehet, hogy újra kell indítania a Shizukut, hogy a művelet érvénybe lépjen.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Az eszköz gyártója korlátozta az adb-engedélyeket, és a Shizuku-t használó alkalmazások nem működnek megfelelően.
+
+Általában ez a korlátozás bizonyos beállítások módosításával feloldható a "Fejlesztői lehetőségek"-nél. Kérjük, olvassa el a súgót ennek részleteiért.
+
+Lehet, hogy újra kell indítania a Shizukut, hogy a művelet érvénybe lépjen.]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[Az adb engedélye korlátozott]]></string>
     <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Nagyon valószínű, hogy az eszköz gyártója korlátozza az adb engedélyét.<p>Lehet, hogy van megoldás a rendszeréhez ebben a <b><a href="%1$s">dokumentumban</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root"><![CDATA[* szükséges, hogy a Shizuku root-on fusson]]></string>
     <string name="home_terminal_title"><![CDATA[Használja a Shizukut a terminál appokban]]></string>
     <string name="home_terminal_description"><![CDATA[Futtasson parancsokat a Shizuku-n keresztül a kívánt terminálalkalmazásokban]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Először is exportálja a fájlokat a kívánt helyre. Két fájlt fog találni, %1$s és %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Ha a kiválasztott mappában vannak azonos nevű fájlok, akkor azok törlődnek.\n\nAz export funkció SAF-et használ (Storage Access Framework). A jelentések szerint a MIUI megszakítja a SAF funkcióit. Ha MIUI-t használ, előfordulhat, hogy ki kell csomagolnia a fájlt a Shizuku apk-jából, vagy le kell töltenie a GitHubról.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Ha a kiválasztott mappában vannak azonos nevű fájlok, akkor azok törlődnek.
+
+Az export funkció SAF-et használ (Storage Access Framework). A jelentések szerint a MIUI megszakítja a SAF funkcióit. Ha MIUI-t használ, előfordulhat, hogy ki kell csomagolnia a fájlt a Shizuku apk-jából, vagy le kell töltenie a GitHubról.]]></string>
     <string name="terminal_export_files"><![CDATA[Fájlok exportálása]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Ezután bármelyik szövegszerkesztővel nyissa meg és szerkessze a %1$s fájlt.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Ha például a Shizukut szeretné használni a %1$s alkalmazásban, cserélje ki a %2$s kifejezést a következőre: %3$s (%4$s a csomag neve ennek: %1$s).]]></string>
@@ -108,7 +120,8 @@
     <string name="starter"><![CDATA[Indító]]></string>
     <string name="start_with_root_failed"><![CDATA[A szolgáltatás nem indítható el, mert nincs root jogosultság megadva, vagy ez az eszköz nincs rootolva.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Nem lehet elindítani a böngészőt]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n a vágólapra másolva.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ a vágólapra másolva.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> a vágólapra másolva.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s nem támogatja a modern Shizukut]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Az örökölt Shizuku 2019 márciusa óta elavult. Ezenkívül a régi Shizuku nem működik újabb Android-rendszereken.<p>Kérdezze meg a fejlesztőt <b>%1$s</b> frissítéséről.]]></string>
@@ -153,7 +166,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[A Shevery nem fut. Először indítsa el a szolgáltatást, majd térjen vissza, és engedélyezze ezt a beállítást.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Az automatikus jogosultság-megadás sikertelen volt. Futtasd ezt a parancsot egy számítógépről, hogy manuálisan megadd a jogosultságot:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Másolás parancs]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Használati útmutató:\n1. Csatlakoztasd a készüléket egy számítógéphez (USB-n vagy vezeték nélküli hibakeresésen keresztül).\n2. A terminálban futtasd a fenti mezőben szereplő parancsot.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Használati útmutató:
+1. Csatlakoztasd a készüléket egy számítógéphez (USB-n vagy vezeték nélküli hibakeresésen keresztül).
+2. A terminálban futtasd a fenti mezőben szereplő parancsot.]]></string>
     <string name="modules_title"><![CDATA[ADB modulok]]></string>
     <string name="modules_settings_title"><![CDATA[Modulok]]></string>
     <string name="modules_settings_summary"><![CDATA[Telepítse a ZIP-modulokat, és hajtsa végre a műveleteiket az aktív Shevery ADB/root szerveren keresztül]]></string>
@@ -418,7 +433,9 @@
     <string name="comput_copy_output"><![CDATA[Kimenet másolása]]></string>
     <string name="comput_ask_gemini"><![CDATA[Kérdezd a Gemini-t]]></string>
     <string name="comput_executing"><![CDATA[Futtatás: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Az ADB parancsfordítási mód aktív\nEredeti: %1$s\nVégrehajtás...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Az ADB parancsfordítási mód aktív
+Eredeti: %1$s
+Végrehajtás...]]></string>
     <string name="comput_command_no_output"><![CDATA[A parancs végrehajtása kimenet nélkül befejeződött.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] A parancs 120 másodperc után időtúllépés miatt megszakadt.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] A parancs %1$d kóddal fejeződött be.]]></string>
@@ -426,7 +443,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Parancs végrehajtása: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Hiba: A Privileged Shevery szolgáltatás nem fut. Kérjük, először indítsa el a szolgáltatást.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Hiba: Nem sikerült betölteni a „Shevery” mappát.]]></string>
-    <string name="comput_console_initialized"><![CDATA[A konzol inicializálva. A Shevery privilegizált szolgáltatás csatlakozott.\nKészen áll a parancsok fogadására.]]></string>
+    <string name="comput_console_initialized"><![CDATA[A konzol inicializálva. A Shevery privilegizált szolgáltatás csatlakozott.
+Készen áll a parancsok fogadására.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Mesterséges intelligencia magyarázata]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI-asszisztens]]></string>

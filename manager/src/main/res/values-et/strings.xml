@@ -33,7 +33,9 @@
     <string name="home_local_network_grant"><![CDATA[Anna juurdepääs]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Traadita silumise jaoks on vaja juurdepääsu kohalikule võrgule.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Traadita veaparandusteenuse otsimine]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Palun lülita „Arendaja valikutes” sisse „Traadita silumine”. „Traadita silumine” lülitatakse automaatselt välja, kui võrguseaded muutuvad.\n\nPane tähele, et ära lülita välja „Arendaja valikuid” ega „USB-silumist”, muidu Shevery peatub.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Palun lülita „Arendaja valikutes” sisse „Traadita silumine”. „Traadita silumine” lülitatakse automaatselt välja, kui võrguseaded muutuvad.
+
+Pane tähele, et ära lülita välja „Arendaja valikuid” ega „USB-silumist”, muidu Shevery peatub.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Kui otsing jätkub, proovi palun „Traadita silumist” välja lülitada ja uuesti sisse lülitada.]]></string>
     <string name="dialog_adb_port"><![CDATA[Sadam]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Port on täisarv vahemikus 1–65535.]]></string>
@@ -43,11 +45,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Paari moodustamise kood]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Paaritamiskood on vale.]]></string>
     <string name="cannot_connect_port"><![CDATA[Traadita silumisteenusega ei õnnestu ühendust luua.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Traadita silumine ei ole sisse lülitatud.\nPange tähele, et enne Android 11 versiooni on traadita silumise sisselülitamiseks vaja arvutiga ühendust.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Palun alustage seadmete ühendamist järgmiste sammude järgi: „Arendaja valikud“ – „Traadita silumine“ – „Seadme ühendamine ühenduskoodi abil“.\n\nKui ühendamisprotsess on alanud, saate sisestada ühenduskoodi.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Traadita silumine ei ole sisse lülitatud.
+Pange tähele, et enne Android 11 versiooni on traadita silumise sisselülitamiseks vaja arvutiga ühendust.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Palun alustage seadmete ühendamist järgmiste sammude järgi: „Arendaja valikud“ – „Traadita silumine“ – „Seadme ühendamine ühenduskoodi abil“.
+
+Kui ühendamisprotsess on alanud, saate sisestada ühenduskoodi.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Palun lülituge esmalt jagatud ekraani (mitme akna) režiimi.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Süsteem nõuab, et sidumisdialoog oleks alati nähtav; ekraani jagamise režiimi kasutamine on ainus viis, kuidas hoida seda rakendust ja süsteemi dialoogi samaaegselt nähtaval.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Traadita silumise võtit ei õnnestunud luua.\nSee võib olla tingitud sellest, et selle seadme KeyStore-mehhanism ei tööta.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Traadita silumise võtit ei õnnestunud luua.
+See võib olla tingitud sellest, et selle seadme KeyStore-mehhanism ei tööta.]]></string>
     <string name="adb_pair_required"><![CDATA[Palun viige esmalt läbi seadmete ühendamine.]]></string>
     <string name="development_settings"><![CDATA[Arendaja valikud]]></string>
     <string name="notification_settings"><![CDATA[Teavitamisvalikud]]></string>
@@ -82,7 +88,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Diagnostika on kopeeritud.]]></string>
     <string name="home_modules_description"><![CDATA[ADB-põhiste moodulite paigaldamine ja haldamine]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Peate tegema veel ühe sammu]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Teie seadme tootja on piiranud adb-õigusi ning Sheveryt kasutavad rakendused ei tööta korralikult.\n\nTavaliselt saab seda piirangut tühistada, muutes mõningaid seadeid menüüs „Arendaja valikud”. Lugege abiinfot, et saada täpsemat teavet selle kohta, kuidas seda teha.\n\nVõib-olla peate Shevery uuesti käivitama, et muudatus jõustuks.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Teie seadme tootja on piiranud adb-õigusi ning Sheveryt kasutavad rakendused ei tööta korralikult.
+
+Tavaliselt saab seda piirangut tühistada, muutes mõningaid seadeid menüüs „Arendaja valikud”. Lugege abiinfot, et saada täpsemat teavet selle kohta, kuidas seda teha.
+
+Võib-olla peate Shevery uuesti käivitama, et muudatus jõustuks.]]></string>
     <string name="app_management_select_all"><![CDATA[Vali kõik]]></string>
     <string name="app_management_deselect_all"><![CDATA[Tühista kõik valikud]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[Adb-le antud õigused on piiratud]]></string>
@@ -92,7 +102,9 @@
     <string name="home_terminal_title"><![CDATA[Shevery kasutamine terminali rakendustes]]></string>
     <string name="home_terminal_description"><![CDATA[Käivita käske Shevery kaudu oma lemmikterminali rakendustes]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Esiteks, ekspordi failid sinna, kuhu soovid. Sealt leiad kaks faili: %1$s ja %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Kui valitud kaustas on sama nimega faile, kustutatakse need.\n\nEkspordifunktsioon kasutab SAF-i (Storage Access Framework). On teatatud, et MIUI häirib SAF-i tööd. Kui kasutad MIUI-d, võib olla vaja faili ekstraheerida Shevery APK-failist või alla laadida GitHubist.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Kui valitud kaustas on sama nimega faile, kustutatakse need.
+
+Ekspordifunktsioon kasutab SAF-i (Storage Access Framework). On teatatud, et MIUI häirib SAF-i tööd. Kui kasutad MIUI-d, võib olla vaja faili ekstraheerida Shevery APK-failist või alla laadida GitHubist.]]></string>
     <string name="terminal_export_files"><![CDATA[Failide eksportimine]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Seejärel avage ja redigeerige faili %1$s mõne tekstiredaktori abil.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Näiteks kui soovid kasutada Sheveryt %1$s-is, peaksid asendama %2$s %3$s-iga (%4$s on %1$s-i paketi nimi).]]></string>
@@ -118,7 +130,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery ei tööta. Käivita esmalt teenus, seejärel tule tagasi ja lülita see seade sisse.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Automaatne õiguste andmine ebaõnnestus. Käivita see käsk arvutist, et anda õigused käsitsi:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopeerimiskäsk]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Kasutusjuhend:\n1. Ühendage seade arvutiga (USB või traadita silumine).\n2. Käivitage terminalis ülaltoodud väljal olev käsk.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Kasutusjuhend:
+1. Ühendage seade arvutiga (USB või traadita silumine).
+2. Käivitage terminalis ülaltoodud väljal olev käsk.]]></string>
     <string name="settings_use_system_color"><![CDATA[Kasuta süsteemi teema värvi]]></string>
     <string name="modules_title"><![CDATA[ADB-moodulid]]></string>
     <string name="modules_settings_title"><![CDATA[Moodulid]]></string>
@@ -240,7 +254,8 @@
     <string name="starting_root_shell"><![CDATA[Käivitan root-käsurea…]]></string>
     <string name="start_with_root_failed"><![CDATA[Teenust ei saa käivitada, kuna puuduvad root-õigused või seadmel ei ole root-juurdepääsu.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Brauserit ei saa käivitada]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\non kopeeritud lõikelauale.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+on kopeeritud lõikelauale.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> on kopeeritud lõikelauale.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ei toeta kaasaegset Sheveryt]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Vana Shevery versioon on alates 2019. aasta märtsist kasutuselt kõrvaldatud. Lisaks ei tööta vana Shevery uuemates Androidi süsteemides.<p>Palun paluge <b>%1$s</b> arendajal rakendust uuendada.]]></string>
@@ -421,7 +436,9 @@
     <string name="comput_copy_output"><![CDATA[Kopeeri väljund]]></string>
     <string name="comput_ask_gemini"><![CDATA[Küsi Gemini käest]]></string>
     <string name="comput_executing"><![CDATA[Käivitatakse: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB-käskide tõlkimise režiim on aktiivne\nAlgne: %1$s\nKäivitatakse...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB-käskide tõlkimise režiim on aktiivne
+Algne: %1$s
+Käivitatakse...]]></string>
     <string name="comput_command_no_output"><![CDATA[Käsk täideti ilma väljundita.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Käsu täitmise aeg lõppes 120 sekundi pärast.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Käsk lõpetati koodiga %1$d.]]></string>
@@ -429,7 +446,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Käsu täitmine: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Viga: Privileged Shevery teenus ei tööta. Palun käivitage teenus esmalt.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Viga: Shevery kaustat ei õnnestunud leida.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konsol on käivitatud. Shevery privileegitud teenus on ühendatud.\nValmis käskude vastuvõtmiseks.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konsol on käivitatud. Shevery privileegitud teenus on ühendatud.
+Valmis käskude vastuvõtmiseks.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Tehisintellekti selgitus]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandiumi AI-assistent]]></string>

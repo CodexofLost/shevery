@@ -126,10 +126,16 @@
     <string name="home_local_network_missing"><![CDATA[%1$s không được chấp thuận.]]></string>
     <string name="home_local_network_grant"><![CDATA[Cấp quyền truy cập]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Cần có kết nối mạng nội bộ để thực hiện gỡ lỗi không dây.]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Vui lòng bật tính năng “Gỡ lỗi không dây” trong “Tùy chọn nhà phát triển”. Tính năng “Gỡ lỗi không dây” sẽ tự động bị tắt khi có thay đổi về mạng.\n\nLưu ý: Không tắt “Tùy chọn nhà phát triển” hoặc “Gỡ lỗi qua USB”, nếu không ứng dụng Shevery sẽ bị dừng hoạt động.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Chức năng gỡ lỗi không dây chưa được bật.\nLưu ý: Trước phiên bản Android 11, để bật chức năng gỡ lỗi không dây, bắt buộc phải kết nối với máy tính.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Vui lòng bắt đầu ghép nối theo các bước sau: “Tùy chọn nhà phát triển” - “Gỡ lỗi không dây” - “Ghép nối thiết bị bằng mã ghép nối”.\n\nSau khi quá trình ghép nối bắt đầu, bạn sẽ có thể nhập mã ghép nối.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Không thể tạo khóa để gỡ lỗi không dây.\nĐiều này có thể là do cơ chế KeyStore của thiết bị này bị lỗi.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Vui lòng bật tính năng “Gỡ lỗi không dây” trong “Tùy chọn nhà phát triển”. Tính năng “Gỡ lỗi không dây” sẽ tự động bị tắt khi có thay đổi về mạng.
+
+Lưu ý: Không tắt “Tùy chọn nhà phát triển” hoặc “Gỡ lỗi qua USB”, nếu không ứng dụng Shevery sẽ bị dừng hoạt động.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Chức năng gỡ lỗi không dây chưa được bật.
+Lưu ý: Trước phiên bản Android 11, để bật chức năng gỡ lỗi không dây, bắt buộc phải kết nối với máy tính.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Vui lòng bắt đầu ghép nối theo các bước sau: “Tùy chọn nhà phát triển” - “Gỡ lỗi không dây” - “Ghép nối thiết bị bằng mã ghép nối”.
+
+Sau khi quá trình ghép nối bắt đầu, bạn sẽ có thể nhập mã ghép nối.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Không thể tạo khóa để gỡ lỗi không dây.
+Điều này có thể là do cơ chế KeyStore của thiết bị này bị lỗi.]]></string>
     <string name="home_quick_terminal"><![CDATA[Trạm]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB không dây]]></string>
     <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
@@ -140,11 +146,17 @@
     <string name="home_diagnostics_copied"><![CDATA[Đã sao chép các thông tin chẩn đoán.]]></string>
     <string name="home_modules_description"><![CDATA[Cài đặt và quản lý các mô-đun được hỗ trợ bởi ADB]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Bạn cần thực hiện thêm một bước nữa]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Nhà sản xuất thiết bị của bạn đã hạn chế quyền truy cập adb và các ứng dụng sử dụng Shevery sẽ không hoạt động bình thường.\n\nThông thường, bạn có thể gỡ bỏ hạn chế này bằng cách điều chỉnh một số tùy chọn trong mục "Tùy chọn nhà phát triển". Vui lòng tham khảo phần trợ giúp để biết chi tiết về cách thực hiện.\n\nBạn có thể cần khởi động lại Shevery để thay đổi có hiệu lực.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Nhà sản xuất thiết bị của bạn đã hạn chế quyền truy cập adb và các ứng dụng sử dụng Shevery sẽ không hoạt động bình thường.
+
+Thông thường, bạn có thể gỡ bỏ hạn chế này bằng cách điều chỉnh một số tùy chọn trong mục "Tùy chọn nhà phát triển". Vui lòng tham khảo phần trợ giúp để biết chi tiết về cách thực hiện.
+
+Bạn có thể cần khởi động lại Shevery để thay đổi có hiệu lực.]]></string>
     <string name="app_management_select_all"><![CDATA[Chọn tất cả]]></string>
     <string name="app_management_deselect_all"><![CDATA[Bỏ chọn tất cả]]></string>
     <string name="app_management_loading"><![CDATA[Đang tải ứng dụng…]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Nếu trong thư mục đã chọn có các tệp cùng tên, chúng sẽ bị xóa.\n\nChức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có thông tin cho biết MIUI gây lỗi cho các chức năng của SAF. Nếu bạn đang sử dụng MIUI, có thể bạn sẽ phải trích xuất tệp từ tệp APK của Shevery hoặc tải xuống từ GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Nếu trong thư mục đã chọn có các tệp cùng tên, chúng sẽ bị xóa.
+
+Chức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có thông tin cho biết MIUI gây lỗi cho các chức năng của SAF. Nếu bạn đang sử dụng MIUI, có thể bạn sẽ phải trích xuất tệp từ tệp APK của Shevery hoặc tải xuống từ GitHub.]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Khởi động qua chế độ gỡ lỗi không dây ngay khi khởi động]]></string>
     <string name="settings_start_on_boot_adb_summary"><![CDATA[Khi khởi động, hãy bật tạm thời tính năng Gỡ lỗi không dây và khởi động lại Shevery qua ADB (cổng TCP 5555). Không cần quyền root, chỉ cần kết nối Wi-Fi trong một khoảnh khắc.]]></string>
     <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[Khi khởi động, hãy bật tính năng Gỡ lỗi không dây trong một thời gian ngắn và khởi động lại Shevery qua ADB. Không cần quyền root, chỉ cần kết nối Wi-Fi trong chốc lát.]]></string>
@@ -154,7 +166,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery hiện không đang chạy. Hãy khởi động dịch vụ trước, sau đó quay lại và bật cài đặt này.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Việc cấp quyền tự động đã thất bại. Hãy chạy lệnh này trên máy tính để cấp quyền theo cách thủ công:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Lệnh sao chép]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Cách sử dụng:\n1. Kết nối thiết bị với máy tính (qua cổng USB hoặc gỡ lỗi không dây).\n2. Trong cửa sổ terminal, chạy lệnh từ ô bên trên.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Cách sử dụng:
+1. Kết nối thiết bị với máy tính (qua cổng USB hoặc gỡ lỗi không dây).
+2. Trong cửa sổ terminal, chạy lệnh từ ô bên trên.]]></string>
     <string name="modules_title"><![CDATA[Các mô-đun ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Các mô-đun]]></string>
     <string name="modules_settings_summary"><![CDATA[Cài đặt các mô-đun ZIP và thực thi các hành động của chúng thông qua máy chủ Shevery ADB/root đang hoạt động]]></string>
@@ -248,7 +262,8 @@
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/nhãn_quyền_truy cập]]></string>
     <string name="starting_root_shell"><![CDATA[Đang khởi động shell root…]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nđã được sao chép vào khay nhớ tạm.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+đã được sao chép vào khay nhớ tạm.]]></string>
     <string name="lab_features_title"><![CDATA[Các tính năng của phòng thí nghiệm]]></string>
     <string name="lab_features_summary"><![CDATA[Các tính năng thử nghiệm]]></string>
     <string name="shizuku_connectors_title"><![CDATA[Đầu nối Shevery]]></string>
@@ -423,7 +438,9 @@
     <string name="comput_copy_output"><![CDATA[Sao chép kết quả]]></string>
     <string name="comput_ask_gemini"><![CDATA[Hỏi Song Tử]]></string>
     <string name="comput_executing"><![CDATA[Đang thực thi: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Chế độ dịch lệnh ADB đang hoạt động\nNguồn: %1$s\nĐang thực thi...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Chế độ dịch lệnh ADB đang hoạt động
+Nguồn: %1$s
+Đang thực thi...]]></string>
     <string name="comput_command_no_output"><![CDATA[Lệnh đã hoàn tất mà không có kết quả hiển thị.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Lệnh đã hết thời gian chờ sau 120 giây.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Lệnh đã kết thúc với mã %1$d.]]></string>
@@ -431,7 +448,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Đang thực thi lệnh: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Lỗi: Dịch vụ Shevery có đặc quyền hiện không đang chạy. Vui lòng khởi động dịch vụ trước.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Lỗi: Không thể truy xuất tập tài liệu Shevery.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Hệ thống điều khiển đã được khởi tạo. Dịch vụ Shevery có quyền truy cập đặc quyền đã được kết nối.\nSẵn sàng nhận lệnh.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Hệ thống điều khiển đã được khởi tạo. Dịch vụ Shevery có quyền truy cập đặc quyền đã được kết nối.
+Sẵn sàng nhận lệnh.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Giải thích về Trí tuệ nhân tạo]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Trợ lý AI Commandium]]></string>

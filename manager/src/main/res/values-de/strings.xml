@@ -148,7 +148,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery läuft nicht. Starten Sie zuerst den Dienst und aktivieren Sie diese Einstellung anschließend.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Die automatische Berechtigungserteilung ist fehlgeschlagen. Führen Sie diesen Befehl auf einem Computer aus, um die Berechtigung manuell zu erteilen:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Befehl „Kopieren“]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Anleitung:\n1. Schließen Sie das Gerät an einen Computer an (USB oder drahtloses Debugging).\n2. Führen Sie im Terminal den Befehl aus dem obigen Feld aus.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Anleitung:
+1. Schließen Sie das Gerät an einen Computer an (USB oder drahtloses Debugging).
+2. Führen Sie im Terminal den Befehl aus dem obigen Feld aus.]]></string>
     <string name="modules_title"><![CDATA[ADB-Module]]></string>
     <string name="modules_settings_title"><![CDATA[Module]]></string>
     <string name="modules_settings_summary"><![CDATA[ZIP-Module installieren und deren Aktionen über den aktiven Shevery-ADB-/Root-Server ausführen]]></string>
@@ -416,7 +418,9 @@
     <string name="comput_copy_output"><![CDATA[Ausgabe kopieren]]></string>
     <string name="comput_ask_gemini"><![CDATA[Frag Gemini]]></string>
     <string name="comput_executing"><![CDATA[Wird ausgeführt: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB-Befehlsübersetzungsmodus aktiv\nOriginal: %1$s\nWird ausgeführt...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB-Befehlsübersetzungsmodus aktiv
+Original: %1$s
+Wird ausgeführt...]]></string>
     <string name="comput_command_no_output"><![CDATA[Der Befehl wurde ohne Ausgabe ausgeführt.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Zeitüberschreitung beim Befehl nach 120 Sekunden.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Der Befehl wurde mit dem Code %1$d beendet.]]></string>
@@ -424,7 +428,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Befehl wird ausgeführt: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Fehler: Der privilegierte Shevery-Dienst wird nicht ausgeführt. Bitte starten Sie den Dienst zunächst.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Fehler: Der Shevery-Ordner kann nicht abgerufen werden.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konsole initialisiert. Der privilegierte Shevery-Dienst ist verbunden.\nBereit für Befehle.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konsole initialisiert. Der privilegierte Shevery-Dienst ist verbunden.
+Bereit für Befehle.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Erläuterung zur KI]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium KI-Assistent]]></string>
@@ -528,11 +533,24 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[Veralteter Platzhalter entfernt]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Der Versuch, den Legacy-Stub über %2$s zu %1$s, ist fehlgeschlagen: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Kein Kanal verfügbar (erst Shevery starten)]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Bitte aktivieren Sie „Drahtloses Debugging“ in den „Entwickleroptionen“. Das „Drahtlose Debugging“ wird automatisch deaktiviert, wenn sich die Netzwerkeinstellungen ändern.\n\nBitte beachten Sie: Deaktivieren Sie weder die „Entwickleroptionen“ noch das „USB-Debugging“, da Shevery sonst beendet wird.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Das drahtlose Debugging ist nicht aktiviert.\nHinweis: Vor Android 11 ist für die Aktivierung des drahtlosen Debuggings eine Verbindung zum Computer erforderlich.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Bitte führen Sie die Kopplung anhand der folgenden Schritte durch: „Entwickleroptionen“ – „Drahtloses Debugging“ – „Gerät über Kopplungscode koppeln“.\n\nSobald der Kopplungsvorgang gestartet ist, können Sie den Kopplungscode eingeben.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Der Schlüssel für das drahtlose Debugging kann nicht generiert werden.\nDies kann daran liegen, dass der KeyStore-Mechanismus dieses Geräts nicht ordnungsgemäß funktioniert.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Der Hersteller Ihres Geräts hat die ADB-Berechtigungen eingeschränkt, sodass Apps, die Shevery nutzen, nicht ordnungsgemäß funktionieren.\n\nIn der Regel lässt sich diese Einschränkung durch das Anpassen einiger Einstellungen in den „Entwickleroptionen“ aufheben. Weitere Informationen dazu finden Sie in der Hilfe.\n\nMöglicherweise müssen Sie Shevery neu starten, damit die Änderung wirksam wird.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Wenn sich im ausgewählten Ordner Dateien mit demselben Namen befinden, werden diese gelöscht.\n\nDie Exportfunktion nutzt SAF (Storage Access Framework). Es gibt Berichte, dass MIUI die Funktionen von SAF beeinträchtigt. Wenn Sie MIUI verwenden, müssen Sie die Datei möglicherweise aus der APK-Datei von Shevery extrahieren oder von GitHub herunterladen.]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nwurde in die Zwischenablage kopiert.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Bitte aktivieren Sie „Drahtloses Debugging“ in den „Entwickleroptionen“. Das „Drahtlose Debugging“ wird automatisch deaktiviert, wenn sich die Netzwerkeinstellungen ändern.
+
+Bitte beachten Sie: Deaktivieren Sie weder die „Entwickleroptionen“ noch das „USB-Debugging“, da Shevery sonst beendet wird.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Das drahtlose Debugging ist nicht aktiviert.
+Hinweis: Vor Android 11 ist für die Aktivierung des drahtlosen Debuggings eine Verbindung zum Computer erforderlich.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Bitte führen Sie die Kopplung anhand der folgenden Schritte durch: „Entwickleroptionen“ – „Drahtloses Debugging“ – „Gerät über Kopplungscode koppeln“.
+
+Sobald der Kopplungsvorgang gestartet ist, können Sie den Kopplungscode eingeben.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Der Schlüssel für das drahtlose Debugging kann nicht generiert werden.
+Dies kann daran liegen, dass der KeyStore-Mechanismus dieses Geräts nicht ordnungsgemäß funktioniert.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Der Hersteller Ihres Geräts hat die ADB-Berechtigungen eingeschränkt, sodass Apps, die Shevery nutzen, nicht ordnungsgemäß funktionieren.
+
+In der Regel lässt sich diese Einschränkung durch das Anpassen einiger Einstellungen in den „Entwickleroptionen“ aufheben. Weitere Informationen dazu finden Sie in der Hilfe.
+
+Möglicherweise müssen Sie Shevery neu starten, damit die Änderung wirksam wird.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Wenn sich im ausgewählten Ordner Dateien mit demselben Namen befinden, werden diese gelöscht.
+
+Die Exportfunktion nutzt SAF (Storage Access Framework). Es gibt Berichte, dass MIUI die Funktionen von SAF beeinträchtigt. Wenn Sie MIUI verwenden, müssen Sie die Datei möglicherweise aus der APK-Datei von Shevery extrahieren oder von GitHub herunterladen.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+wurde in die Zwischenablage kopiert.]]></string>
 </resources>

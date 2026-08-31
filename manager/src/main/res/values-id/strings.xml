@@ -148,7 +148,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery tidak berjalan. Jalankan layanan tersebut terlebih dahulu, lalu kembali ke sini dan aktifkan pengaturan ini.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Pemberian izin otomatis gagal. Jalankan perintah ini dari komputer untuk memberikan izin secara manual:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Perintah salin]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Cara penggunaan:\n1. Hubungkan perangkat ke komputer (melalui USB atau debugging nirkabel).\n2. Di terminal, jalankan perintah dari kolom di atas.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Cara penggunaan:
+1. Hubungkan perangkat ke komputer (melalui USB atau debugging nirkabel).
+2. Di terminal, jalankan perintah dari kolom di atas.]]></string>
     <string name="modules_title"><![CDATA[Modul ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Modul]]></string>
     <string name="modules_settings_summary"><![CDATA[Instal modul ZIP dan jalankan tindakan-tindakan tersebut melalui server ADB/root Shevery yang aktif]]></string>
@@ -416,7 +418,9 @@
     <string name="comput_copy_output"><![CDATA[Salin Keluaran]]></string>
     <string name="comput_ask_gemini"><![CDATA[Tanyakan kepada Gemini]]></string>
     <string name="comput_executing"><![CDATA[Sedang dijalankan: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Mode Terjemahan Perintah ADB Aktif\nAsli: %1$s\nSedang dijalankan...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Mode Terjemahan Perintah ADB Aktif
+Asli: %1$s
+Sedang dijalankan...]]></string>
     <string name="comput_command_no_output"><![CDATA[Perintah telah selesai dijalankan tanpa menghasilkan keluaran apa pun.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Perintah kedaluwarsa setelah 120 detik.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Perintah telah berakhir dengan kode %1$d.]]></string>
@@ -424,7 +428,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Menjalankan perintah: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Kesalahan: Layanan Shevery dengan hak akses khusus tidak sedang berjalan. Silakan jalankan layanan tersebut terlebih dahulu.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Kesalahan: Tidak dapat mengambil binder Shevery.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konsol telah diinisialisasi. Layanan Shevery dengan hak istimewa telah terhubung.\nSiap menerima perintah.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konsol telah diinisialisasi. Layanan Shevery dengan hak istimewa telah terhubung.
+Siap menerima perintah.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Penjelasan AI]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Asisten AI Commandium]]></string>
@@ -528,11 +533,24 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[Stub warisan telah dihapus]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Gagal melakukan %1$s pada stub lama melalui %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Tidak ada saluran yang tersedia (mulai dari Shevery terlebih dahulu)]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Harap aktifkan "Debugging nirkabel" di "Opsi pengembang". "Debugging nirkabel" akan dinonaktifkan secara otomatis saat terjadi perubahan jaringan.\n\nPerhatikan, jangan menonaktifkan "Opsi pengembang" atau "Debugging USB", karena hal itu akan menghentikan Shevery.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Debugging nirkabel belum diaktifkan.\nPerhatikan, sebelum Android 11, untuk mengaktifkan debugging nirkabel, koneksi ke komputer wajib ada.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Silakan mulai proses pemasangan dengan mengikuti langkah-langkah berikut: "Opsi Pengembang" - "Debugging nirkabel" - "Memasangkan perangkat menggunakan kode pemasangan".\n\nSetelah proses pemasangan dimulai, Anda dapat memasukkan kode pemasangan.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Tidak dapat membuat kunci untuk debugging nirkabel.\nHal ini mungkin disebabkan oleh mekanisme KeyStore pada perangkat ini yang tidak berfungsi.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Pabrikan perangkat Anda telah membatasi izin adb, sehingga aplikasi yang menggunakan Shevery tidak akan berfungsi dengan baik.\n\nBiasanya, pembatasan ini dapat dicabut dengan menyesuaikan beberapa pengaturan di "Opsi Pengembang". Silakan baca panduan bantuan untuk detail cara melakukannya.\n\nAnda mungkin perlu me-restart Shevery agar perubahan tersebut berlaku.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Jika terdapat file dengan nama yang sama di dalam folder yang dipilih, file-file tersebut akan dihapus.\n\nFungsi ekspor ini menggunakan SAF (Storage Access Framework). Dilaporkan bahwa MIUI mengganggu fungsi SAF. Jika Anda menggunakan MIUI, Anda mungkin perlu mengekstrak file tersebut dari apk Shevery atau mengunduhnya dari GitHub.]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n telah disalin ke papan klip.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Harap aktifkan "Debugging nirkabel" di "Opsi pengembang". "Debugging nirkabel" akan dinonaktifkan secara otomatis saat terjadi perubahan jaringan.
+
+Perhatikan, jangan menonaktifkan "Opsi pengembang" atau "Debugging USB", karena hal itu akan menghentikan Shevery.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Debugging nirkabel belum diaktifkan.
+Perhatikan, sebelum Android 11, untuk mengaktifkan debugging nirkabel, koneksi ke komputer wajib ada.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Silakan mulai proses pemasangan dengan mengikuti langkah-langkah berikut: "Opsi Pengembang" - "Debugging nirkabel" - "Memasangkan perangkat menggunakan kode pemasangan".
+
+Setelah proses pemasangan dimulai, Anda dapat memasukkan kode pemasangan.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Tidak dapat membuat kunci untuk debugging nirkabel.
+Hal ini mungkin disebabkan oleh mekanisme KeyStore pada perangkat ini yang tidak berfungsi.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Pabrikan perangkat Anda telah membatasi izin adb, sehingga aplikasi yang menggunakan Shevery tidak akan berfungsi dengan baik.
+
+Biasanya, pembatasan ini dapat dicabut dengan menyesuaikan beberapa pengaturan di "Opsi Pengembang". Silakan baca panduan bantuan untuk detail cara melakukannya.
+
+Anda mungkin perlu me-restart Shevery agar perubahan tersebut berlaku.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Jika terdapat file dengan nama yang sama di dalam folder yang dipilih, file-file tersebut akan dihapus.
+
+Fungsi ekspor ini menggunakan SAF (Storage Access Framework). Dilaporkan bahwa MIUI mengganggu fungsi SAF. Jika Anda menggunakan MIUI, Anda mungkin perlu mengekstrak file tersebut dari apk Shevery atau mengunduhnya dari GitHub.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ telah disalin ke papan klip.]]></string>
 </resources>

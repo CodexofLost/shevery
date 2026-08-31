@@ -118,7 +118,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery no s'està executant. Inicia primer el servei, després torna i activa aquesta configuració.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[L'assignació automàtica de permisos ha fallat. Executeu aquesta comanda des d'un ordinador per concedir-lo manualment:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Comanda de còpia]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Com utilitzar:\n1. Connecteu el dispositiu a un ordinador (depuració USB o sense fils).\n2. Al terminal, executeu la comanda de l'apartat anterior.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Com utilitzar:
+1. Connecteu el dispositiu a un ordinador (depuració USB o sense fils).
+2. Al terminal, executeu la comanda de l'apartat anterior.]]></string>
     <string name="settings_use_system_color"><![CDATA[Utilitza el color del tema del sistema]]></string>
     <string name="modules_title"><![CDATA[Mòduls ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Mòduls]]></string>
@@ -420,7 +422,9 @@
     <string name="comput_copy_output"><![CDATA[Copiar sortida]]></string>
     <string name="comput_ask_gemini"><![CDATA[Pregunta a Gemini]]></string>
     <string name="comput_executing"><![CDATA[Executant: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Mode de traducció de comandes ADB actiu\nOriginal: %1$s\nS'està executant...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Mode de traducció de comandes ADB actiu
+Original: %1$s
+S'està executant...]]></string>
     <string name="comput_command_no_output"><![CDATA[El comandament s'ha completat sense cap sortida.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] L'ordre ha expirat després de 120 segons.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] El comandament s'ha sortit amb el codi %1$d.]]></string>

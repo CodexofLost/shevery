@@ -44,7 +44,9 @@
     <string name="paring_code_is_wrong"><![CDATA[Pariranje koda je pogrešno.]]></string>
     <string name="cannot_connect_port"><![CDATA[Ne može se povezati s bežičnom uslugom za otklanjanje pogrešaka.]]></string>
     <string name="dialog_wireless_adb_not_enabled"><![CDATA[Bežično otklanjanje pogrešaka nije omogućeno. Napomena: prije Android 11, za omogućavanje bežičnog otklanjanja pogrešaka potrebna je veza s računalom.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Molimo započnite uparivanje slijedećim koracima: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nNakon što proces uparivanja započne, moći ćete unijeti kod za uparivanje.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Molimo započnite uparivanje slijedećim koracima: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".
+
+Nakon što proces uparivanja započne, moći ćete unijeti kod za uparivanje.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Molimo prvo prijeđite u način rada s podijeljenim zaslonom (više prozora).]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Sustav zahtijeva da je dijalog za uparivanje uvijek vidljiv; korištenje načina podijeljenog zaslona jedini je način da ova aplikacija i sustavni dijalog budu istovremeno vidljivi.]]></string>
     <string name="adb_error_key_store"><![CDATA[Nije moguće generirati ključ za bežično otklanjanje pogrešaka. Ovo može biti zato što je mehanizam KeyStorea na ovom uređaju oštećen.]]></string>
@@ -118,7 +120,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery ne radi. Prvo pokrenite uslugu, zatim se vratite i omogućite ovu postavku.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Automatsko dodjeljivanje dozvole nije uspjelo. Pokrenite ovu naredbu na računalu kako biste je dodijelili ručno:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopiraj naredbu]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Kako koristiti:\n1. Povežite uređaj s računalom (USB ili bežično otklanjanje pogrešaka).\n2. U terminalu pokrenite naredbu iz gornjeg polja.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Kako koristiti:
+1. Povežite uređaj s računalom (USB ili bežično otklanjanje pogrešaka).
+2. U terminalu pokrenite naredbu iz gornjeg polja.]]></string>
     <string name="settings_use_system_color"><![CDATA[Koristite boju sustavne teme]]></string>
     <string name="modules_title"><![CDATA[ADB moduli]]></string>
     <string name="modules_settings_title"><![CDATA[Moduli]]></string>
@@ -240,7 +244,8 @@
     <string name="starting_root_shell"><![CDATA[Pokretanje root shell-a…]]></string>
     <string name="start_with_root_failed"><![CDATA[Ne može se pokrenuti usluga jer nije dodijeljena root dozvola ili ovaj uređaj nije rootan.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Ne može pokrenuti preglednik]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nkopiran je u međuspremnik.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+kopiran je u međuspremnik.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s je kopiran na međuspremnik.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ne podržava moderni Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery nije se ažurirao od ožujka 2019. Također, legacy Shevery ne radi na novijim Android sustavima.Molimo, zatražite od programera aplikacije <b>%1$s</b> da je ažurira.]]></string>
@@ -421,7 +426,9 @@
     <string name="comput_copy_output"><![CDATA[Kopiraj izlaz]]></string>
     <string name="comput_ask_gemini"><![CDATA[Pitaj Gemini]]></string>
     <string name="comput_executing"><![CDATA[Izvršavanje: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB prijevod naredbi: Aktivno\nOriginal: %1$s\nIzvršavanje...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB prijevod naredbi: Aktivno
+Original: %1$s
+Izvršavanje...]]></string>
     <string name="comput_command_no_output"><![CDATA[Zapovijed je dovršena bez izlaza.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Zapovijed je istekao nakon 120 sekundi.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Komanda je završila kodom %1$d.]]></string>

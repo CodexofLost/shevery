@@ -26,7 +26,9 @@
     <string name="home_local_network_grant"><![CDATA[授予權限]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[無線偵錯需要區域網路存取權限。]]></string>
     <string name="dialog_adb_discovery"><![CDATA[正在搜尋無線偵錯服務]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[請在「開發人員選項」中開啟「無線偵錯」。網路變更時，無線偵錯會自動關閉。\n\n注意：請勿關閉「開發人員選項」或「USB 偵錯」，否則 Shevery 將停止執行。]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[請在「開發人員選項」中開啟「無線偵錯」。網路變更時，無線偵錯會自動關閉。
+
+注意：請勿關閉「開發人員選項」或「USB 偵錯」，否則 Shevery 將停止執行。]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[如果一直處於搜尋狀態，請嘗試關閉並重新開啟「無線偵錯」。]]></string>
     <string name="dialog_adb_port"><![CDATA[連接埠]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[連接埠必須是 1 到 65535 之間的整數。]]></string>
@@ -36,11 +38,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[配對碼]]></string>
     <string name="paring_code_is_wrong"><![CDATA[配對碼錯誤。]]></string>
     <string name="cannot_connect_port"><![CDATA[無法連接至無線偵錯服務。]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[無線偵錯未開啟。\n注意：Android 11 以下版本需要連接電腦。]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[請按照以下步驟開始配對：「開發人員選項」 - 「無線偵錯」 - 「使用配對碼配對裝置」。\n\n配對過程開始後，您可以輸入配對碼。]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[無線偵錯未開啟。
+注意：Android 11 以下版本需要連接電腦。]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[請按照以下步驟開始配對：「開發人員選項」 - 「無線偵錯」 - 「使用配對碼配對裝置」。
+
+配對過程開始後，您可以輸入配對碼。]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[請先進入分屏（多視窗）模式。]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[系統要求配對對話方塊始終可見。分屏模式是使應用程式和系統對話方塊同時可見的唯一方法。]]></string>
-    <string name="adb_error_key_store"><![CDATA[無法產生無線偵錯金鑰。\n這可能是因為此裝置的 KeyStore 機制已損壞。]]></string>
+    <string name="adb_error_key_store"><![CDATA[無法產生無線偵錯金鑰。
+這可能是因為此裝置的 KeyStore 機制已損壞。]]></string>
     <string name="adb_pair_required"><![CDATA[請先完成配對步驟。]]></string>
     <string name="development_settings"><![CDATA[開發人員選項]]></string>
     <string name="notification_settings"><![CDATA[通知設定]]></string>
@@ -75,7 +81,11 @@
     <string name="home_diagnostics_copied"><![CDATA[診斷資訊已複製至剪貼簿。]]></string>
     <string name="home_modules_description"><![CDATA[安裝與管理 ADB 模組]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[需要額外步驟]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[您的裝置製造商限制了 ADB 權限，使用 Shevery 的應用程式將無法正常工作。\n\n通常可以在「開發人員選項」中調整相關設定。請閱讀說明了解詳情。\n\n您可能需要重新啟動 Shevery。]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[您的裝置製造商限制了 ADB 權限，使用 Shevery 的應用程式將無法正常工作。
+
+通常可以在「開發人員選項」中調整相關設定。請閱讀說明了解詳情。
+
+您可能需要重新啟動 Shevery。]]></string>
     <string name="app_management_select_all"><![CDATA[全選]]></string>
     <string name="app_management_deselect_all"><![CDATA[取消全選]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[ADB 權限受限]]></string>
@@ -84,7 +94,9 @@
     <string name="home_terminal_title"><![CDATA[在終端機應用程式中使用 Shevery]]></string>
     <string name="home_terminal_description"><![CDATA[在您喜愛的終端機應用程式中透過 Shevery 執行指令]]></string>
     <string name="terminal_tutorial_1"><![CDATA[首先，將檔案匯出至您選擇的任何位置。您將找到兩個檔案：%1$s 和 %2$s。]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[如果所選資料夾中存在同名檔案，它們將被覆寫。\n\n匯出功能使用 SAF (儲存空間存取架構)。據報導 MIUI 的 SAF 功能存在缺陷；如果是這種情況，從 Shevery APK 中擷取檔案或從 GitHub 下載。]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[如果所選資料夾中存在同名檔案，它們將被覆寫。
+
+匯出功能使用 SAF (儲存空間存取架構)。據報導 MIUI 的 SAF 功能存在缺陷；如果是這種情況，從 Shevery APK 中擷取檔案或從 GitHub 下載。]]></string>
     <string name="terminal_export_files"><![CDATA[匯出檔案]]></string>
     <string name="terminal_tutorial_2"><![CDATA[然後，使用任何文字編輯器開啟並編輯 %1$s。]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[例如，如果您想在 %1$s 中使用 Shevery，則需要將 %2$s 替換為 %3$s（%4$s 是 %1$s 的套件名稱）。]]></string>
@@ -220,7 +232,8 @@
     <string name="starter"><![CDATA[啟動器]]></string>
     <string name="start_with_root_failed"><![CDATA[無法啟動服務，因為未授予 Root 權限或此裝置未 Root。]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[無法啟動瀏覽器]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n已複製至剪貼簿。]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+已複製至剪貼簿。]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> 已複製至剪貼簿。]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s 不支援現代 Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[舊版 Shevery 自 2019 年 3 月起已被棄用，無法在較新的 Android 系統上執行。<p>請聯絡 <b>%1$s</b> 的開發者進行更新。]]></string>
@@ -363,7 +376,9 @@
     <string name="comput_copy_output"><![CDATA[複製輸出]]></string>
     <string name="comput_ask_gemini"><![CDATA[詢問 Gemini]]></string>
     <string name="comput_executing"><![CDATA[正在執行：%1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB 指令轉換模式已啟用\n原指令：%1$s\n正在執行...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB 指令轉換模式已啟用
+原指令：%1$s
+正在執行...]]></string>
     <string name="comput_command_no_output"><![CDATA[指令執行完成，無輸出。]]></string>
     <string name="comput_timed_out"><![CDATA[[E] 指令在 120 秒後逾時。]]></string>
     <string name="comput_exit_code"><![CDATA[[E] 指令以結束碼 %1$d 結束。]]></string>
@@ -371,7 +386,8 @@
     <string name="comput_executing_cmd"><![CDATA[> 正在執行指令：%1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[錯誤：Shevery 特權服務未執行，請先啟動服務。]]></string>
     <string name="comput_error_no_binder"><![CDATA[錯誤：無法取得 Shevery binder。]]></string>
-    <string name="comput_console_initialized"><![CDATA[控制台已初始化。已連接至特權服務。\n就緒。]]></string>
+    <string name="comput_console_initialized"><![CDATA[控制台已初始化。已連接至特權服務。
+就緒。]]></string>
     <string name="comput_ai_explanation"><![CDATA[AI 解釋]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI 助手]]></string>
@@ -456,7 +472,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery 目前未執行。請先啟動該服務，然後再回來啟用此設定。]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[自動授予權限失敗。請在電腦上執行此指令以手動授予權限：]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[複製指令]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[使用方法：\n1. 將裝置連接至電腦（透過 USB 或無線除錯）。\n2. 在終端機中，執行上方欄位中的指令。]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[使用方法：
+1. 將裝置連接至電腦（透過 USB 或無線除錯）。
+2. 在終端機中，執行上方欄位中的指令。]]></string>
     <string name="permission_group_label"><![CDATA[謝維里]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[正在啟動 root 命令列介面……]]></string>

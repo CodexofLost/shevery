@@ -41,13 +41,19 @@
     <string name="home_local_network_missing"><![CDATA[Το %1$s δεν έχει εγκριθεί.]]></string>
     <string name="home_local_network_grant"><![CDATA[Χορήγηση πρόσβασης]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Για τον εντοπισμό σφαλμάτων σε ασύρματα δίκτυα απαιτείται πρόσβαση σε τοπικό δίκτυο.]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Παρακαλώ ενεργοποιήστε την επιλογή «Ασύρματη αποσφαλμάτωση» στις «Επιλογές προγραμματιστή». Η «Ασύρματη αποσφαλμάτωση» απενεργοποιείται αυτόματα όταν αλλάζει το δίκτυο.\n\nΣημείωση: μην απενεργοποιήσετε τις «Επιλογές προγραμματιστή» ή την «Αποσφαλμάτωση μέσω USB», καθώς διαφορετικά η εφαρμογή Shevery θα σταματήσει να λειτουργεί.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Παρακαλώ ενεργοποιήστε την επιλογή «Ασύρματη αποσφαλμάτωση» στις «Επιλογές προγραμματιστή». Η «Ασύρματη αποσφαλμάτωση» απενεργοποιείται αυτόματα όταν αλλάζει το δίκτυο.
+
+Σημείωση: μην απενεργοποιήσετε τις «Επιλογές προγραμματιστή» ή την «Αποσφαλμάτωση μέσω USB», καθώς διαφορετικά η εφαρμογή Shevery θα σταματήσει να λειτουργεί.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Παρακαλώ δοκιμάστε να απενεργοποιήσετε και να ενεργοποιήσετε ξανά την επιλογή «Ασύρματο εντοπισμό σφαλμάτων», αν η αναζήτηση συνεχίζεται.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Η ασύρματη αποσφαλμάτωση δεν είναι ενεργοποιημένη.\nΣημείωση: πριν από το Android 11, για να ενεργοποιήσετε την ασύρματη αποσφαλμάτωση, απαιτείται σύνδεση με υπολογιστή.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Παρακαλούμε ξεκινήστε τη διαδικασία σύζευξης ακολουθώντας τα παρακάτω βήματα: «Επιλογές προγραμματιστή» - «Ασύρματη αποσφαλμάτωση» - «Σύζευξη συσκευής με κωδικό σύζευξης».\n\nΜόλις ξεκινήσει η διαδικασία σύζευξης, θα μπορείτε να εισαγάγετε τον κωδικό σύζευξης.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Η ασύρματη αποσφαλμάτωση δεν είναι ενεργοποιημένη.
+Σημείωση: πριν από το Android 11, για να ενεργοποιήσετε την ασύρματη αποσφαλμάτωση, απαιτείται σύνδεση με υπολογιστή.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Παρακαλούμε ξεκινήστε τη διαδικασία σύζευξης ακολουθώντας τα παρακάτω βήματα: «Επιλογές προγραμματιστή» - «Ασύρματη αποσφαλμάτωση» - «Σύζευξη συσκευής με κωδικό σύζευξης».
+
+Μόλις ξεκινήσει η διαδικασία σύζευξης, θα μπορείτε να εισαγάγετε τον κωδικό σύζευξης.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Παρακαλώ, εισέλθετε πρώτα στη λειτουργία διαιρεμένης οθόνης (πολλαπλών παραθύρων).]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Το σύστημα απαιτεί το παράθυρο διαλόγου σύζευξης να είναι πάντα ορατό· η χρήση της λειτουργίας διαχωρισμένης οθόνης είναι ο μόνος τρόπος για να εμφανίζονται ταυτόχρονα αυτή η εφαρμογή και το παράθυρο διαλόγου του συστήματος.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Δεν είναι δυνατή η δημιουργία κλειδιού για ασύρματο εντοπισμό σφαλμάτων.\nΑυτό μπορεί να οφείλεται σε βλάβη του μηχανισμού KeyStore αυτής της συσκευής.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Δεν είναι δυνατή η δημιουργία κλειδιού για ασύρματο εντοπισμό σφαλμάτων.
+Αυτό μπορεί να οφείλεται σε βλάβη του μηχανισμού KeyStore αυτής της συσκευής.]]></string>
     <string name="adb_pair_required"><![CDATA[Παρακαλώ, ακολουθήστε πρώτα τη διαδικασία σύζευξης.]]></string>
     <string name="development_settings"><![CDATA[Επιλογές προγραμματιστή]]></string>
     <string name="notification_settings"><![CDATA[Επιλογές ειδοποιήσεων]]></string>
@@ -82,7 +88,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Αντιγράφηκαν τα διαγνωστικά στοιχεία.]]></string>
     <string name="home_modules_description"><![CDATA[Εγκατάσταση και διαχείριση ενοτήτων που υποστηρίζονται από το ADB]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Πρέπει να κάνετε ένα επιπλέον βήμα]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Ο κατασκευαστής της συσκευής σας έχει περιορίσει τα δικαιώματα adb και οι εφαρμογές που χρησιμοποιούν το Shevery δεν θα λειτουργούν σωστά.\n\nΣυνήθως, αυτός ο περιορισμός μπορεί να αρθεί ρυθμίζοντας ορισμένες επιλογές στις «Επιλογές προγραμματιστή». Διαβάστε τη βοήθεια για λεπτομέρειες σχετικά με τον τρόπο με τον οποίο μπορείτε να το κάνετε αυτό.\n\nΊσως χρειαστεί να επανεκκινήσετε το Shevery για να εφαρμοστεί η αλλαγή.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Ο κατασκευαστής της συσκευής σας έχει περιορίσει τα δικαιώματα adb και οι εφαρμογές που χρησιμοποιούν το Shevery δεν θα λειτουργούν σωστά.
+
+Συνήθως, αυτός ο περιορισμός μπορεί να αρθεί ρυθμίζοντας ορισμένες επιλογές στις «Επιλογές προγραμματιστή». Διαβάστε τη βοήθεια για λεπτομέρειες σχετικά με τον τρόπο με τον οποίο μπορείτε να το κάνετε αυτό.
+
+Ίσως χρειαστεί να επανεκκινήσετε το Shevery για να εφαρμοστεί η αλλαγή.]]></string>
     <string name="app_management_select_all"><![CDATA[Επιλογή όλων]]></string>
     <string name="app_management_deselect_all"><![CDATA[Αποεπιλογή όλων]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[Τα δικαιώματα του adb είναι περιορισμένα]]></string>
@@ -92,7 +102,9 @@
     <string name="home_terminal_title"><![CDATA[Χρήση του Shevery σε εφαρμογές τερματικού]]></string>
     <string name="home_terminal_description"><![CDATA[Εκτελέστε εντολές μέσω του Shevery στις εφαρμογές τερματικού που προτιμάτε]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Πρώτα, εξάγετε τα αρχεία όπου θέλετε. Θα βρείτε δύο αρχεία, το %1$s και το %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Εάν στον επιλεγμένο φάκελο υπάρχουν αρχεία με το ίδιο όνομα, θα διαγραφούν.\n\nΗ λειτουργία εξαγωγής χρησιμοποιεί το SAF (Storage Access Framework). Έχει αναφερθεί ότι το MIUI προκαλεί δυσλειτουργίες στο SAF. Εάν χρησιμοποιείτε MIUI, ίσως χρειαστεί να εξαγάγετε το αρχείο από το apk του Shevery ή να το κατεβάσετε από το GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Εάν στον επιλεγμένο φάκελο υπάρχουν αρχεία με το ίδιο όνομα, θα διαγραφούν.
+
+Η λειτουργία εξαγωγής χρησιμοποιεί το SAF (Storage Access Framework). Έχει αναφερθεί ότι το MIUI προκαλεί δυσλειτουργίες στο SAF. Εάν χρησιμοποιείτε MIUI, ίσως χρειαστεί να εξαγάγετε το αρχείο από το apk του Shevery ή να το κατεβάσετε από το GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[Εξαγωγή αρχείων]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Στη συνέχεια, χρησιμοποιήστε οποιοδήποτε πρόγραμμα επεξεργασίας κειμένου για να ανοίξετε και να επεξεργαστείτε το %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Για παράδειγμα, αν θέλετε να χρησιμοποιήσετε το Shevery στο %1$s, θα πρέπει να αντικαταστήσετε το %2$s με το %3$s (το %4$s είναι το όνομα του πακέτου του %1$s).]]></string>
@@ -118,7 +130,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Το Shevery δεν εκτελείται. Ξεκινήστε πρώτα την υπηρεσία και, στη συνέχεια, επιστρέψτε και ενεργοποιήστε αυτή τη ρύθμιση.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Η αυτόματη χορήγηση δικαιωμάτων απέτυχε. Εκτελέστε αυτήν την εντολή από έναν υπολογιστή για να τα χορηγήσετε χειροκίνητα:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Αντιγραφή εντολής]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Οδηγίες χρήσης:\n1. Συνδέστε τη συσκευή σε έναν υπολογιστή (μέσω USB ή ασύρματης αποσφαλμάτωσης).\n2. Στο τερματικό, εκτελέστε την εντολή που αναγράφεται στο παραπάνω πεδίο.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Οδηγίες χρήσης:
+1. Συνδέστε τη συσκευή σε έναν υπολογιστή (μέσω USB ή ασύρματης αποσφαλμάτωσης).
+2. Στο τερματικό, εκτελέστε την εντολή που αναγράφεται στο παραπάνω πεδίο.]]></string>
     <string name="settings_use_system_color"><![CDATA[Χρήση του χρώματος του θέματος του συστήματος]]></string>
     <string name="modules_title"><![CDATA[Ενότητες ADB]]></string>
     <string name="modules_settings_title"><![CDATA[Ενότητες]]></string>
@@ -240,7 +254,8 @@
     <string name="starting_root_shell"><![CDATA[Εκκίνηση του root shell…]]></string>
     <string name="start_with_root_failed"><![CDATA[Δεν είναι δυνατή η εκκίνηση της υπηρεσίας, καθώς δεν έχουν παραχωρηθεί δικαιώματα root ή η συσκευή δεν έχει υποστεί root.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Δεν είναι δυνατή η εκκίνηση του προγράμματος περιήγησης]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[Το %s\nαντιγράφηκε στο πρόχειρο.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[Το %s
+αντιγράφηκε στο πρόχειρο.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> αντιγράφηκε στο πρόχειρο.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[Το %1$s δεν υποστηρίζει το σύγχρονο Shevery]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Η παλαιά έκδοση του Shevery έχει καταργηθεί από τον Μάρτιο του 2019. Επιπλέον, η παλαιά έκδοση του Shevery δεν λειτουργεί σε νεότερα συστήματα Android.<p>Παρακαλούμε ζητήστε από τον προγραμματιστή του <b>%1$s</b> να πραγματοποιήσει ενημέρωση.]]></string>
@@ -421,7 +436,9 @@
     <string name="comput_copy_output"><![CDATA[Αντιγραφή εξόδου]]></string>
     <string name="comput_ask_gemini"><![CDATA[Ρώτα τον Δίδυμο]]></string>
     <string name="comput_executing"><![CDATA[Εκτέλεση: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Η λειτουργία μετάφρασης εντολών ADB είναι ενεργή\nΠρωτότυπο: %1$s\nΕκτέλεση...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Η λειτουργία μετάφρασης εντολών ADB είναι ενεργή
+Πρωτότυπο: %1$s
+Εκτέλεση...]]></string>
     <string name="comput_command_no_output"><![CDATA[Η εντολή ολοκληρώθηκε χωρίς έξοδο.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Η εντολή έληξε μετά από 120 δευτερόλεπτα.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Η εντολή τερματίστηκε με κωδικό %1$d.]]></string>
@@ -429,7 +446,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Εκτέλεση εντολής: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Σφάλμα: Η υπηρεσία Privileged Shevery δεν εκτελείται. Παρακαλώ, ξεκινήστε πρώτα την υπηρεσία.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Σφάλμα: Δεν είναι δυνατή η ανάκτηση του φακέλου «Shevery».]]></string>
-    <string name="comput_console_initialized"><![CDATA[Η κονσόλα έχει αρχικοποιηθεί. Η υπηρεσία Shevery με δικαιώματα πρόσβασης είναι συνδεδεμένη.\nΈτοιμη για εντολές.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Η κονσόλα έχει αρχικοποιηθεί. Η υπηρεσία Shevery με δικαιώματα πρόσβασης είναι συνδεδεμένη.
+Έτοιμη για εντολές.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Επεξήγηση της τεχνητής νοημοσύνης]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>

@@ -27,7 +27,9 @@
     <string name="home_local_network_grant"><![CDATA[Otorgar acceso]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Se requiere acceso a la red local para la depuración inalámbrica.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Buscando servicio de depuración inalámbrica]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Active "Depuración inalámbrica" en "Opciones de desarrollador". La depuración inalámbrica se desactiva al cambiar de red.\n\nNota: no desactive "Opciones de desarrollador" ni "Depuración por USB".]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Active "Depuración inalámbrica" en "Opciones de desarrollador". La depuración inalámbrica se desactiva al cambiar de red.
+
+Nota: no desactive "Opciones de desarrollador" ni "Depuración por USB".]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Intente desactivar y volver a activar "Depuración inalámbrica" si la búsqueda continúa.]]></string>
     <string name="dialog_adb_port"><![CDATA[Puerto]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[El puerto debe ser un entero entre 1 y 65535.]]></string>
@@ -37,7 +39,8 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Código de emparejamiento]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Código de emparejamiento incorrecto.]]></string>
     <string name="cannot_connect_port"><![CDATA[No se pudo conectar al servicio de depuración inalámbrica.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Depuración inalámbrica desactivada.\nNota: antes de Android 11 requiere computador.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Depuración inalámbrica desactivada.
+Nota: antes de Android 11 requiere computador.]]></string>
     <string name="dialog_adb_pairing_message"><![CDATA[Inicie el emparejamiento: "Opciones de desarrollador" - "Depuración inalámbrica" - "Emparejar dispositivo con código de emparejamiento".]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Ingrese al modo de pantalla dividida primero.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[El sistema requiere el diálogo visible. Pantalla dividida permite mantener visible la app y el diálogo.]]></string>
@@ -217,7 +220,8 @@
     <string name="starter"><![CDATA[Arrancador]]></string>
     <string name="start_with_root_failed"><![CDATA[Sin permisos root o dispositivo sin root.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[No se puede abrir el navegador]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\ncopiado al portapapeles.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+copiado al portapapeles.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> copiado al portapapeles.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s no es compatible]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Shevery Legacy quedó obsoleto.<p>Solicite al desarrollador de <b>%1$s</b> que actualice.]]></string>
@@ -358,7 +362,9 @@
     <string name="comput_copy_output"><![CDATA[Copiar salida]]></string>
     <string name="comput_ask_gemini"><![CDATA[Preguntar a Gemini]]></string>
     <string name="comput_executing"><![CDATA[Ejecutando: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Traducción de comando ADB activa\nOriginal: %1$s\nEjecutando...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Traducción de comando ADB activa
+Original: %1$s
+Ejecutando...]]></string>
     <string name="comput_command_no_output"><![CDATA[Sin salida.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Tiempo agotado tras 120 segundos.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Finalizó con código %1$d.]]></string>
@@ -366,7 +372,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Ejecutando comando: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Error: Servicio Shevery detenido.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Error: No se obtuvo binder.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Consola inicializada. Servicio privilegiado conectado.\nListo.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Consola inicializada. Servicio privilegiado conectado.
+Listo.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Explicación de IA]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Asistente Commandium IA]]></string>
@@ -438,7 +445,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery no se está ejecutando. Inicia primero el servicio y, a continuación, vuelve aquí y activa esta opción.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Se ha producido un error al conceder el permiso automáticamente. Ejecuta este comando desde un ordenador para concederlo manualmente:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Comando «Copiar»]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Instrucciones de uso:\n1. Conecta el dispositivo a un ordenador (a través de USB o depuración inalámbrica).\n2. En la terminal, ejecuta el comando que aparece en el campo de arriba.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Instrucciones de uso:
+1. Conecta el dispositivo a un ordenador (a través de USB o depuración inalámbrica).
+2. En la terminal, ejecuta el comando que aparece en el campo de arriba.]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/etiqueta_de_permiso]]></string>
     <string name="starting_root_shell"><![CDATA[Iniciando el shell de root…]]></string>

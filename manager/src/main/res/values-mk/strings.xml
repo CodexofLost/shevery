@@ -118,7 +118,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery не работи. Прво стартувајте ја услугата, потоа вратете се и овозможете го ова подесување.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Автоматското доделување на дозвола не успеа. Извршете ја оваа команда од компјутер за да ја доделите рачно:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Копирај команда]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Како да користите:\n1. Поврзете го уредот со компјутер (USB или безжично отстранување грешки).\n2. Во терминалот, извршете ја командата од полето погоре.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Како да користите:
+1. Поврзете го уредот со компјутер (USB или безжично отстранување грешки).
+2. Во терминалот, извршете ја командата од полето погоре.]]></string>
     <string name="settings_use_system_color"><![CDATA[Користете ја бојата на темата на системот]]></string>
     <string name="modules_title"><![CDATA[ADB модули]]></string>
     <string name="modules_settings_title"><![CDATA[Модули]]></string>
@@ -240,7 +242,8 @@
     <string name="starting_root_shell"><![CDATA[Се стартува root shell…]]></string>
     <string name="start_with_root_failed"><![CDATA[Не може да се започне услугата бидејќи не е доделена root дозвола или овој уред не е рутиран.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Не може да се стартува прелистувачот]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n е копирано во меморијата.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ е копирано во меморијата.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s е копирано во меморијата на клипборд.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s не поддржува модерна Шевери]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Старата Shevery е застарена од март 2019 година. Исто така, старата Shevery не работи на поновите Android системи. Ве молиме замолете го развивачот на <b>%1$s</b> да ја ажурира.]]></string>
@@ -421,7 +424,9 @@
     <string name="comput_copy_output"><![CDATA[Копирај излез]]></string>
     <string name="comput_ask_gemini"><![CDATA[Прашај Гемини]]></string>
     <string name="comput_executing"><![CDATA[Извршување: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Режим на превод на команди на ADB активен\nОригинал: %1$s\nСе извршува...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Режим на превод на команди на ADB активен
+Оригинал: %1$s
+Се извршува...]]></string>
     <string name="comput_command_no_output"><![CDATA[Командата е завршена без излез.]]></string>
     <string name="comput_timed_out"><![CDATA[Командата истече по 120 секунди.]]></string>
     <string name="comput_exit_code"><![CDATA[Командата излезе со код %1$d.]]></string>

@@ -242,7 +242,8 @@
     <string name="starting_root_shell"><![CDATA[రూట్ షెల్ ప్రారంభిస్తోంది…]]></string>
     <string name="start_with_root_failed"><![CDATA[రూట్ అనుమతి మంజూరు చేయబడనందున లేదా ఈ పరికరం రూట్ చేయబడనందున సేవను ప్రారంభించలేము.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[బ్రౌజర్‌ను ప్రారంభించలేము]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nక్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+క్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s క్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ఆధునిక షెవరిని మద్దతు ఇవ్వదు]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[లెగసీ షెవరీ మార్చి 2019 నుండి నిష్క్రియం చేయబడింది. అలాగే, లెగసీ షెవరీ కొత్త ఆండ్రాయిడ్ సిస్టమ్‌లలో పనిచేయదు. దయచేసి <b>%1$s</b> డెవలపర్‌ను అప్‌డేట్ చేయమని అడగండి.]]></string>
@@ -423,7 +424,9 @@
     <string name="comput_copy_output"><![CDATA[అవుట్‌పుట్‌ను కాపీ చేయండి]]></string>
     <string name="comput_ask_gemini"><![CDATA[జెమినిని అడగండి]]></string>
     <string name="comput_executing"><![CDATA[నిర్వాహించడం: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB కమాండ్ అనువాద మోడ్ యాక్టివ్\nఅసలు: %1$s\nనిర్వాహిస్తోంది...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB కమాండ్ అనువాద మోడ్ యాక్టివ్
+అసలు: %1$s
+నిర్వాహిస్తోంది...]]></string>
     <string name="comput_command_no_output"><![CDATA[కమాండ్ ఎటువంటి అవుట్‌పుట్ లేకుండా పూర్తయింది.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] కమాండ్ 120 సెకన్ల తర్వాత టైమ్ అవుట్ అయింది.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] కమాండ్ కోడ్ %1$d తో నిష్క్రమించింది.]]></string>

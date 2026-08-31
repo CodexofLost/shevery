@@ -62,13 +62,19 @@
     <string name="home_local_network_missing"><![CDATA[%1$s ni odobreno.]]></string>
     <string name="home_local_network_grant"><![CDATA[Dodeli dostop]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Za brezžično odpravljanje napak je potreben dostop do lokalnega omrežja.]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[V »Možnostih za razvijalce« omogočite »Brezžično odpravljanje napak«. »Brezžično odpravljanje napak« se samodejno onemogoči ob spremembi omrežja.\n\nUpoštevajte, da ne smete onemogočiti »Možnosti za razvijalce« ali »Odpravljanje napak prek USB«, sicer se bo aplikacija Shevery ustavila.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[V »Možnostih za razvijalce« omogočite »Brezžično odpravljanje napak«. »Brezžično odpravljanje napak« se samodejno onemogoči ob spremembi omrežja.
+
+Upoštevajte, da ne smete onemogočiti »Možnosti za razvijalce« ali »Odpravljanje napak prek USB«, sicer se bo aplikacija Shevery ustavila.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Če se iskanje še naprej nadaljuje, poskusite onemogočiti in ponovno omogočiti »brezžično odpravljanje napak«.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Brezžično odpravljanje napak ni omogočeno.\nUpoštevajte, da je pred Androidom 11 za omogočanje brezžičnega odpravljanja napak nujna povezava z računalnikom.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Prosimo, začnite s povezovanjem po naslednjih korakih: »Možnosti za razvijalce« – »Brezžično odpravljanje napak« – »Povezovanje naprave s kodo za povezovanje«.\n\nKo se postopek povezovanja začne, boste lahko vnesli kodo za povezovanje.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Brezžično odpravljanje napak ni omogočeno.
+Upoštevajte, da je pred Androidom 11 za omogočanje brezžičnega odpravljanja napak nujna povezava z računalnikom.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Prosimo, začnite s povezovanjem po naslednjih korakih: »Možnosti za razvijalce« – »Brezžično odpravljanje napak« – »Povezovanje naprave s kodo za povezovanje«.
+
+Ko se postopek povezovanja začne, boste lahko vnesli kodo za povezovanje.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Najprej preklopite v način razdeljenega zaslona (več oken).]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Sistem zahteva, da je pogovorno okno za povezovanje vedno vidno; uporaba načina razdeljenega zaslona je edini način, da sta ta aplikacija in sistemsko pogovorno okno vidna hkrati.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Ključa za brezžično odpravljanje napak ni mogoče ustvariti.\nTo je morda posledica okvare mehanizma KeyStore na tej napravi.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Ključa za brezžično odpravljanje napak ni mogoče ustvariti.
+To je morda posledica okvare mehanizma KeyStore na tej napravi.]]></string>
     <string name="adb_pair_required"><![CDATA[Najprej opravite postopek povezovanja.]]></string>
     <string name="development_settings"><![CDATA[Možnosti za razvijalce]]></string>
     <string name="notification_settings"><![CDATA[Možnosti obveščanja]]></string>
@@ -103,7 +109,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Diagnostika je bila kopirana.]]></string>
     <string name="home_modules_description"><![CDATA[Namestitev in upravljanje modulov, ki jih podpira ADB]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Morate narediti še en korak]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Proizvajalec vaše naprave je omejil dovoljenja za adb, zato aplikacije, ki uporabljajo Shevery, ne bodo delovale pravilno.\n\nObičajno je to omejitev mogoče odpraviti s spreminjanjem nekaterih nastavitev v »Možnostih za razvijalce«. Podrobnosti o tem, kako to storiti, najdete v pomoči.\n\nMorda boste morali ponovno zagnati Shevery, da se spremembe začnejo uporabljati.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Proizvajalec vaše naprave je omejil dovoljenja za adb, zato aplikacije, ki uporabljajo Shevery, ne bodo delovale pravilno.
+
+Običajno je to omejitev mogoče odpraviti s spreminjanjem nekaterih nastavitev v »Možnostih za razvijalce«. Podrobnosti o tem, kako to storiti, najdete v pomoči.
+
+Morda boste morali ponovno zagnati Shevery, da se spremembe začnejo uporabljati.]]></string>
     <string name="app_management_select_all"><![CDATA[Izberi vse]]></string>
     <string name="app_management_deselect_all"><![CDATA[Odkljukaj vse]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[Dovoljenje za adb je omejeno]]></string>
@@ -113,7 +123,9 @@
     <string name="home_terminal_title"><![CDATA[Uporaba Sheveryja v terminalskih aplikacijah]]></string>
     <string name="home_terminal_description"><![CDATA[Uporabljajte ukaze prek Sheveryja v terminalskih aplikacijah po vaši izbiri]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Najprej izvozite datoteke na poljubno mesto. Našli boste dve datoteki, %1$s in %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Če so v izbrani mapi datoteke z enakim imenom, bodo te izbrisane.\n\nFunkcija izvoza uporablja SAF (Storage Access Framework). Po poročilih naj bi MIUI motil delovanje SAF. Če uporabljate MIUI, boste morda morali datoteko izvleči iz Sheveryjevega APK-ja ali jo prenesti z GitHuba.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Če so v izbrani mapi datoteke z enakim imenom, bodo te izbrisane.
+
+Funkcija izvoza uporablja SAF (Storage Access Framework). Po poročilih naj bi MIUI motil delovanje SAF. Če uporabljate MIUI, boste morda morali datoteko izvleči iz Sheveryjevega APK-ja ali jo prenesti z GitHuba.]]></string>
     <string name="terminal_export_files"><![CDATA[Izvoz datotek]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Nato odprite in uredite datoteko %1$s v katerem koli urejevalniku besedil.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Če na primer želite uporabiti Shevery v %1$s, morate %2$s nadomestiti s %3$s (%4$s je ime paketa za %1$s).]]></string>
@@ -138,7 +150,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery ne deluje. Najprej zaženite storitev, nato pa se vrnite in vklopite to nastavitev.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Avtomatično dodeljevanje dovoljenj ni uspelo. Za ročno dodelitev dovoljenj izvedite ta ukaz na računalniku:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Ukaz »Kopiraj«]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Navodila za uporabo:\n1. Napravo priključite na računalnik (prek USB-ja ali brezžičnega odpravljanja napak).\n2. V terminalu izvedite ukaz iz zgornjega polja.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Navodila za uporabo:
+1. Napravo priključite na računalnik (prek USB-ja ali brezžičnega odpravljanja napak).
+2. V terminalu izvedite ukaz iz zgornjega polja.]]></string>
     <string name="modules_title"><![CDATA[ADB moduli]]></string>
     <string name="modules_settings_title"><![CDATA[Moduli]]></string>
     <string name="modules_settings_summary"><![CDATA[Namestite module ZIP in izvajajte njihove akcije prek aktivnega strežnika Shevery ADB/root]]></string>
@@ -243,7 +257,8 @@
     <string name="starting_root_shell"><![CDATA[Zagon korenske lupine…]]></string>
     <string name="start_with_root_failed"><![CDATA[Storitve ni mogoče zagnati, ker niso dodeljena root pravice ali pa ta naprava ni rootirana.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Brskalnik se ne zažene]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nje bil kopiran v odložišče.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+je bil kopiran v odložišče.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> je bil kopiran v odložišče.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ne podpira sodobnega Sheveryja]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Stara različica Shevery je od marca 2019 zastarela. Poleg tega stara različica Shevery ne deluje na novejših sistemih Android.<p>Prosimo, da razvijalca <b>%1$s</b> zaprosite za posodobitev.]]></string>
@@ -424,7 +439,9 @@
     <string name="comput_copy_output"><![CDATA[Kopiranje izhodnih podatkov]]></string>
     <string name="comput_ask_gemini"><![CDATA[Vprašaj Gemini]]></string>
     <string name="comput_executing"><![CDATA[Izvajanje: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[Način prevajanja ukazov ADB je aktiven\nIzvirnik: %1$s\nIzvajanje...]]></string>
+    <string name="comput_adb_translate"><![CDATA[Način prevajanja ukazov ADB je aktiven
+Izvirnik: %1$s
+Izvajanje...]]></string>
     <string name="comput_command_no_output"><![CDATA[Ukaz je bil izveden brez izpisa.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Iztekla se je časovna omejitev ukaza po 120 sekundah.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Ukaz se je zaključil s kodo %1$d.]]></string>
@@ -432,7 +449,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Izvajanje ukaza: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Napaka: Storitev Privileged Shevery ne deluje. Najprej zagnajte storitev.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Napaka: Sheveryjevega zvezka ni mogoče pridobiti.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konzola je inicializirana. Privilegirana storitev Shevery je povezana.\nPripravljena za ukaze.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konzola je inicializirana. Privilegirana storitev Shevery je povezana.
+Pripravljena za ukaze.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Pojasnilo umetne inteligence]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>

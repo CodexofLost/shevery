@@ -44,7 +44,9 @@
     <string name="paring_code_is_wrong"><![CDATA[De Pairing-Code ass falsch.]]></string>
     <string name="cannot_connect_port"><![CDATA[Kann net mam drahtlosen Debugging-Service verbonne ginn.]]></string>
     <string name="dialog_wireless_adb_not_enabled"><![CDATA[Drahtlos-Debugging ass net aktivéiert. Notiz: Virun Android 11 muss de Computer fir d'Drahtlos-Debugging ze aktivéieren ugeschloss sinn.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[W.e.g. fänkt d'Paarung mat de folgende Schrëtt un: "Entwéckleroptiounen" - "Wireless-Debugging" - "Apparat mat engem Pairing-Code paaren".\n\nNodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[W.e.g. fänkt d'Paarung mat de folgende Schrëtt un: "Entwéckleroptiounen" - "Wireless-Debugging" - "Apparat mat engem Pairing-Code paaren".
+
+Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Gitt w.e.g. als éischt an de Split-Screen-(Multi-Fënster-)Modus.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[D'System verlaangt, datt de Pairing-Dialog ëmmer sichtbar ass; de Split-Screen-Modus ass déi eenzeg Manéier, fir dës App an de Systemdialog gläichzäiteg sichtbar ze maachen.]]></string>
     <string name="adb_error_key_store"><![CDATA[Et ass net méiglech, e Schlëssel fir drahtlos Debugging ze generéieren. Dëst kéint sinn, well de KeyStore-Mechanismus vun dësem Apparat defekt ass.]]></string>
@@ -118,7 +120,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery leeft net. Start de Service als éischt, da komm zréck a aktivéier dës Astellung.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[D'automatesch Genehmegung huet net geklappt. Féiert dëse Befehl vun engem Computer aus, fir se manuell ze ginn:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopieier-Befehl]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Wéi een et benotzt:\n1. Verbënnt d'Gerät mat engem Computer (USB oder drahtlos Debugging).\n2. Am Terminal féiert de Kommando aus dem uewe genannten Feld aus.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Wéi een et benotzt:
+1. Verbënnt d'Gerät mat engem Computer (USB oder drahtlos Debugging).
+2. Am Terminal féiert de Kommando aus dem uewe genannten Feld aus.]]></string>
     <string name="settings_use_system_color"><![CDATA[Benotzt d'Systemthemafaarf]]></string>
     <string name="modules_title"><![CDATA[ADB-Moduler]]></string>
     <string name="modules_settings_title"><![CDATA[Moduler]]></string>
@@ -240,7 +244,8 @@
     <string name="starting_root_shell"><![CDATA[Root-Shell ufänken…]]></string>
     <string name="start_with_root_failed"><![CDATA[Kann de Service net starten, well d'Root-Erlaabnis net gewährt ass oder dëst Gerät net gerootet ass.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Kann de Browser net starten]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nass op d'Zouschneidplack kopéiert ginn.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ass op d'Zouschneidplack kopéiert ginn.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s gouf an d'Ausschnëttspuffer kopéiert.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ënnerstëtzt keng modern Shevery.]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery ass zënter Mäerz 2019 obsolet. Och funktionéiert legacy Shevery net op méi neie Android-Systemer.W.e.g. frot de Entwéckler vun <b>%1$s</b>, et ze aktualiséieren.]]></string>
@@ -421,7 +426,9 @@
     <string name="comput_copy_output"><![CDATA[Ausgab kopéieren]]></string>
     <string name="comput_ask_gemini"><![CDATA[Frot de Gemini]]></string>
     <string name="comput_executing"><![CDATA[Ausféieren: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB Kommando-Iwwersetzungsmodus aktiv\nOriginal: %1$s\nAusféierung...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB Kommando-Iwwersetzungsmodus aktiv
+Original: %1$s
+Ausféierung...]]></string>
     <string name="comput_command_no_output"><![CDATA[Kommando ofgeschloss ouni Ausgab.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Kommando no 120 Sekonnen ofgelaf.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Kommando huet mam Code %1$d ofgeschloss.]]></string>

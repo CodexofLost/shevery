@@ -454,7 +454,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery иштеп жаткан жок. Алгач кызматты иштетип, андан кийин кайра келип бул жөндөөнү күйгүзүңүз.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Автоматтык уруксат берүү ишке ашкан жок. Муну кол менен берүү үчүн бул буйрукту компьютерден иштетиңиз:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Көчүрүү буйругу]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Кандай колдонуу керек:\n1. Жабдыкты компьютерге туташтырыңыз (USB же зымсыз дебагдоо).\n2. Терминалда жогорудагы талаадан буйрукту иштетиңиз.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Кандай колдонуу керек:
+1. Жабдыкты компьютерге туташтырыңыз (USB же зымсыз дебагдоо).
+2. Терминалда жогорудагы талаадан буйрукту иштетиңиз.]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Шевери стартап]]></string>
     <string name="notification_startup_title"><![CDATA[Шеверинин башталышы]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Wi-Fi дебагдоону иштетүү…]]></string>
@@ -532,6 +534,9 @@
     <string name="permission_group_label"><![CDATA[Шевери]]></string>
     <string name="permission_group_description"><![CDATA[@string/уруксат_белгиси]]></string>
     <string name="starting_root_shell"><![CDATA[Баштапкы root-командалык сап…]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nбуйрук тактасына көчүрүлдү.]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB буйрук которуу режими активдүү\nОригинал: %1$s\nАткарылып жатат...]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+буйрук тактасына көчүрүлдү.]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB буйрук которуу режими активдүү
+Оригинал: %1$s
+Аткарылып жатат...]]></string>
 </resources>

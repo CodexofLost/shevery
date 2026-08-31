@@ -33,7 +33,9 @@
     <string name="home_local_network_grant"><![CDATA[Myönnä käyttöoikeus]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Langattoman virheenkorjauksen suorittaminen edellyttää pääsyä lähiverkkoon.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Langattoman virheenkorjauspalvelun etsiminen]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Ota ”Langaton virheenkorjaus” käyttöön ”Kehittäjäasetuksissa”. ”Langaton virheenkorjaus” poistetaan käytöstä automaattisesti, kun verkko muuttuu.\n\nHuomaa, että älä poista käytöstä ”Kehittäjäasetuksia” tai ”USB-virheenkorjausta”, sillä muuten Shevery lakkaa toimimasta.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Ota ”Langaton virheenkorjaus” käyttöön ”Kehittäjäasetuksissa”. ”Langaton virheenkorjaus” poistetaan käytöstä automaattisesti, kun verkko muuttuu.
+
+Huomaa, että älä poista käytöstä ”Kehittäjäasetuksia” tai ”USB-virheenkorjausta”, sillä muuten Shevery lakkaa toimimasta.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Jos laite jatkaa etsimistä, yritä poistaa ”Langaton virheenkorjaus” käytöstä ja ottaa se sitten uudelleen käyttöön.]]></string>
     <string name="dialog_adb_port"><![CDATA[Satama]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Portti on kokonaisluku, jonka arvo on välillä 1–65535.]]></string>
@@ -43,11 +45,15 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Parituskoodi]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Parituskoodi on virheellinen.]]></string>
     <string name="cannot_connect_port"><![CDATA[Yhteyttä langattomaan virheenkorjauspalveluun ei voida muodostaa.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Langaton virheenkorjaus ei ole käytössä.\nHuomaa, että ennen Android 11:tä langattoman virheenkorjauksen käyttöönotto edellyttää tietokoneeseen liittämistä.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Aloita pariliitoksen muodostaminen seuraavasti: ”Kehittäjäasetukset” – ”Langaton virheenkorjaus” – ”Laitteen pariliitoksen muodostaminen pariliitoksen koodilla”.\n\nKun pariliitoksen muodostaminen on alkanut, voit syöttää pariliitoksen koodin.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Langaton virheenkorjaus ei ole käytössä.
+Huomaa, että ennen Android 11:tä langattoman virheenkorjauksen käyttöönotto edellyttää tietokoneeseen liittämistä.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Aloita pariliitoksen muodostaminen seuraavasti: ”Kehittäjäasetukset” – ”Langaton virheenkorjaus” – ”Laitteen pariliitoksen muodostaminen pariliitoksen koodilla”.
+
+Kun pariliitoksen muodostaminen on alkanut, voit syöttää pariliitoksen koodin.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Siirry ensin jaetun näytön (moni-ikkuna) tilaan.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Järjestelmä edellyttää, että pariliitoksen muodostamisen valintaikkuna on aina näkyvissä, ja jaetun näytön tila on ainoa tapa, jolla tämä sovellus ja järjestelmän valintaikkuna voidaan pitää näkyvissä samanaikaisesti.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Langattoman virheenkorjauksen avainta ei voitu luoda.\nTämä voi johtua siitä, että laitteen KeyStore-mekanismi on vioittunut.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Langattoman virheenkorjauksen avainta ei voitu luoda.
+Tämä voi johtua siitä, että laitteen KeyStore-mekanismi on vioittunut.]]></string>
     <string name="adb_pair_required"><![CDATA[Suorita ensin pariliitoksen muodostaminen.]]></string>
     <string name="development_settings"><![CDATA[Kehittäjäasetukset]]></string>
     <string name="notification_settings"><![CDATA[Ilmoitusasetukset]]></string>
@@ -82,7 +88,11 @@
     <string name="home_diagnostics_copied"><![CDATA[Diagnoosit on kopioitu.]]></string>
     <string name="home_modules_description"><![CDATA[ADB-pohjaisten moduulien asentaminen ja hallinta]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Sinun on tehtävä yksi lisätoimenpide]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Laitteesi valmistaja on rajoittanut ADB-oikeuksia, minkä vuoksi Sheveryä käyttävät sovellukset eivät toimi oikein.\n\nYleensä tämä rajoitus voidaan poistaa muuttamalla joitakin asetuksia kohdassa ”Kehittäjäasetukset”. Lue ohjeista tarkemmat tiedot siitä, miten tämä tehdään.\n\nSaatat joutua käynnistämään Sheveryn uudelleen, jotta muutokset astuvat voimaan.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Laitteesi valmistaja on rajoittanut ADB-oikeuksia, minkä vuoksi Sheveryä käyttävät sovellukset eivät toimi oikein.
+
+Yleensä tämä rajoitus voidaan poistaa muuttamalla joitakin asetuksia kohdassa ”Kehittäjäasetukset”. Lue ohjeista tarkemmat tiedot siitä, miten tämä tehdään.
+
+Saatat joutua käynnistämään Sheveryn uudelleen, jotta muutokset astuvat voimaan.]]></string>
     <string name="app_management_select_all"><![CDATA[Valitse kaikki]]></string>
     <string name="app_management_deselect_all"><![CDATA[Poista kaikki valinnat]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[adb:n käyttöoikeudet ovat rajoitettuja]]></string>
@@ -92,7 +102,9 @@
     <string name="home_terminal_title"><![CDATA[Käytä Sheveryä terminaalisovelluksissa]]></string>
     <string name="home_terminal_description"><![CDATA[Suorita komentoja Sheveryn kautta haluamissasi terminaalisovelluksissa]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Vie ensin tiedostot haluamaasi paikkaan. Siellä on kaksi tiedostoa: %1$s ja %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Jos valitussa kansiossa on samannimisiä tiedostoja, ne poistetaan.\n\nVientitoiminto käyttää SAF:ää (Storage Access Framework). On raportoitu, että MIUI häiritsee SAF:n toimintaa. Jos käytät MIUI:ta, joudut ehkä purkamaan tiedoston Sheveryn APK-tiedostosta tai lataamaan sen GitHubista.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Jos valitussa kansiossa on samannimisiä tiedostoja, ne poistetaan.
+
+Vientitoiminto käyttää SAF:ää (Storage Access Framework). On raportoitu, että MIUI häiritsee SAF:n toimintaa. Jos käytät MIUI:ta, joudut ehkä purkamaan tiedoston Sheveryn APK-tiedostosta tai lataamaan sen GitHubista.]]></string>
     <string name="terminal_export_files"><![CDATA[Vie tiedostot]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Avaa ja muokkaa sitten tiedostoa %1$s millä tahansa tekstieditorilla.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Esimerkiksi, jos haluat käyttää Sheveryä %1$s:ssä, sinun tulisi korvata %2$s %3$s:llä (%4$s on %1$s:n paketin nimi).]]></string>
@@ -118,7 +130,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery ei ole käynnissä. Käynnistä palvelu ensin ja palaa sitten takaisin ottamaan tämä asetus käyttöön.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Automaattinen käyttöoikeuden myöntäminen epäonnistui. Suorita tämä komento tietokoneelta, jotta voit myöntää käyttöoikeuden manuaalisesti:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopioi-komento]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Käyttöohjeet:\n1. Liitä laite tietokoneeseen (USB-liitännällä tai langattomalla virheenkorjauksella).\n2. Suorita terminaalissa yllä olevassa kentässä näkyvä komento.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Käyttöohjeet:
+1. Liitä laite tietokoneeseen (USB-liitännällä tai langattomalla virheenkorjauksella).
+2. Suorita terminaalissa yllä olevassa kentässä näkyvä komento.]]></string>
     <string name="settings_use_system_color"><![CDATA[Käytä järjestelmän teeman väriä]]></string>
     <string name="modules_title"><![CDATA[ADB-moduulit]]></string>
     <string name="modules_settings_title"><![CDATA[Moduulit]]></string>
@@ -240,7 +254,8 @@
     <string name="starting_root_shell"><![CDATA[Käynnistetään root-komentotulkkia…]]></string>
     <string name="start_with_root_failed"><![CDATA[Palvelua ei voi käynnistää, koska root-oikeuksia ei ole myönnetty tai laitteeseen ei ole tehty root-oikeuksien hankintaa.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Selaimen käynnistäminen ei onnistu]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\non kopioitu leikepöydälle.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+on kopioitu leikepöydälle.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> on kopioitu leikepöydälle.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ei tue nykyaikaista Sheveryä]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Vanha Shevery-versio on poistettu käytöstä maaliskuusta 2019 lähtien. Vanha Shevery-versio ei myöskään toimi uudemmissa Android-käyttöjärjestelmissä.<p>Pyydä <b>%1$s</b>-sovelluksen kehittäjää päivittämään sovellus.]]></string>
@@ -421,7 +436,9 @@
     <string name="comput_copy_output"><![CDATA[Kopioi tuloste]]></string>
     <string name="comput_ask_gemini"><![CDATA[Kysy Geminiiltä]]></string>
     <string name="comput_executing"><![CDATA[Suoritetaan: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB-komennon käännöstila aktiivinen\nAlkuperäinen: %1$s\nSuoritetaan...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB-komennon käännöstila aktiivinen
+Alkuperäinen: %1$s
+Suoritetaan...]]></string>
     <string name="comput_command_no_output"><![CDATA[Komento suoritettiin ilman tulostetta.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Komennon aikakatkaisu 120 sekunnin kuluttua.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Komento päättyi koodilla %1$d.]]></string>
@@ -429,7 +446,8 @@
     <string name="comput_executing_cmd"><![CDATA[> Komennon suorittaminen: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Virhe: Privileged Shevery -palvelu ei ole käynnissä. Käynnistä palvelu ensin.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Virhe: Shevery-kansiota ei voitu hakea.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Konsoli on alustettu. Shevery-palvelu, jolla on laajennetut oikeudet, on kytketty.\nValmis ottamaan komentoja vastaan.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Konsoli on alustettu. Shevery-palvelu, jolla on laajennetut oikeudet, on kytketty.
+Valmis ottamaan komentoja vastaan.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Tekoälyn selitys]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI -avustaja]]></string>

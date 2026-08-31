@@ -117,14 +117,20 @@
     <string name="home_diagnostics_copied"><![CDATA[Դիագնոստիկան պատճենվել է։]]></string>
     <string name="home_modules_description"><![CDATA[Տեղադրել և կառավարել ADB-ով աջակցվող մոդուլները]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Դուք պետք է ձեռնարկեք լրացուցիչ քայլ։]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Ձեր սարքի արտադրողը սահմանափակել է adb թույլտվությունները, և Shevery-ով աշխատող հավելվածները ճիշտ չեն աշխատի։\n\nՍովորաբար այս սահմանափակումը կարելի է հանել՝ «Ծրագրավորողի ընտրանքներ»-ում որոշ կարգավորումներ փոխելով։ Մանրամասների համար կարդացեք օգնությունը։\n\nԳործողությունը ուժի մեջ մտնելու համար կարող է անհրաժեշտ լինել վերագործարկել Shevery-ն։]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Ձեր սարքի արտադրողը սահմանափակել է adb թույլտվությունները, և Shevery-ով աշխատող հավելվածները ճիշտ չեն աշխատի։
+
+Սովորաբար այս սահմանափակումը կարելի է հանել՝ «Ծրագրավորողի ընտրանքներ»-ում որոշ կարգավորումներ փոխելով։ Մանրամասների համար կարդացեք օգնությունը։
+
+Գործողությունը ուժի մեջ մտնելու համար կարող է անհրաժեշտ լինել վերագործարկել Shevery-ն։]]></string>
     <string name="app_management_select_all"><![CDATA[Ընտրել բոլորը]]></string>
     <string name="app_management_deselect_all"><![CDATA[Բոլորի ընտրությունը չեղյալ անել]]></string>
     <string name="app_management_loading"><![CDATA[Ծրագրեր բեռնում…]]></string>
     <string name="home_terminal_title"><![CDATA[Տերմինալային հավելվածներում օգտագործեք Shevery]]></string>
     <string name="home_terminal_description"><![CDATA[Ստացեք հրամանները Shevery-ի միջոցով ձեր նախընտրած տերմինալային հավելվածներում։]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Առաջին հերթին արտահանեք ֆայլերը ցանկացած ցանկալի վայր։ Դուք կգտնեք երկու ֆայլ՝ %1$s և %2$s։]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Եթե ընտրված թղթապանակում կան նույն անունով ֆայլեր, դրանք կհեռացվեն։\n\nԷքսպորտի ֆունկցիան օգտագործում է SAF (Storage Access Framework)։ Հաղորդվում է, որ MIUI-ն խախտում է SAF-ի ֆունկցիաները։ Եթե դուք օգտագործում եք MIUI, հնարավոր է, որ ստիպված լինեք ֆայլը հանել Shevery-ի APK-ից կամ ներբեռնել GitHub-ից։]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Եթե ընտրված թղթապանակում կան նույն անունով ֆայլեր, դրանք կհեռացվեն։
+
+Էքսպորտի ֆունկցիան օգտագործում է SAF (Storage Access Framework)։ Հաղորդվում է, որ MIUI-ն խախտում է SAF-ի ֆունկցիաները։ Եթե դուք օգտագործում եք MIUI, հնարավոր է, որ ստիպված լինեք ֆայլը հանել Shevery-ի APK-ից կամ ներբեռնել GitHub-ից։]]></string>
     <string name="terminal_export_files"><![CDATA[Ֆայլերի արտահանման]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Այնուհետև օգտագործեք ցանկացած տեքստային խմբագիր՝ %1$s-ը բացելու և խմբագրելու համար։]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Օրինակ, եթե ցանկանում եք %1$s-ում օգտագործել Shevery, պետք է %2$s-ը փոխարինեք %3$s-ով (%4$s-ը %1$s-ի փաթեթի անունն է):]]></string>
@@ -139,7 +145,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery-ն չի աշխատում։ Առաջին հերթին սկսեք ծառայությունը, այնուհետև վերադառնալով միացրեք այս կարգավորումը։]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Ավտոմատ թույլտվության տրամադրումը ձախողվեց։  Կատարեք այս հրամանը համակարգչից՝ այն ձեռքով տրամադրելու համար։]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Պատճենել հրամանը]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Ինչպես օգտագործել:\n1. Միացրեք սարքը համակարգչին (USB կամ անլար debugging):\n2. Տերմինալում գործարկեք վերևի դաշտից վերցված հրամանը։]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Ինչպես օգտագործել:
+1. Միացրեք սարքը համակարգչին (USB կամ անլար debugging):
+2. Տերմինալում գործարկեք վերևի դաշտից վերցված հրամանը։]]></string>
     <string name="settings_use_system_color"><![CDATA[Օգտագործեք համակարգի թեմայի գույնը]]></string>
     <string name="modules_title"><![CDATA[ADB մոդուլներ]]></string>
     <string name="modules_settings_title"><![CDATA[Մոդուլներ]]></string>
@@ -417,7 +425,9 @@
     <string name="comput_copy_output"><![CDATA[Պատճենել ելքը]]></string>
     <string name="comput_ask_gemini"><![CDATA[Հարցրու Ջեմինիին]]></string>
     <string name="comput_executing"><![CDATA[Կատարում: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB հրամանի թարգմանության ռեժիմը ակտիվ է\nԱրտասանություն՝ %1$s\nԿատարվում է...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB հրամանի թարգմանության ռեժիմը ակտիվ է
+Արտասանություն՝ %1$s
+Կատարվում է...]]></string>
     <string name="comput_command_no_output"><![CDATA[Հրամանը ավարտվեց առանց ելքի։]]></string>
     <string name="comput_timed_out"><![CDATA[[E] հրամանը սպառեց 120 վայրկյանից հետո։]]></string>
     <string name="comput_exit_code"><![CDATA[[E] հրամանը դուրս եկավ %1$d կոդով։]]></string>
@@ -529,11 +539,18 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[Հնացած հատվածը հեռացվել է]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Չհաջողվեց %1$s-ով ժառանգված ստուբը %2$s-ի միջոցով՝ %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Շատալիքներ հասանելի չեն (սկսեք Shevery առաջին)]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Խնդրում ենք ակտիվացնել «Անլար դեբագավորումը» «Ծրագրավորողի ընտրանքներում»: «Անլար դեբագավորումը» ավտոմատ կերպով անջատվում է ցանցի փոփոխության ժամանակ։\n\nՆշում. մի անջատեք «Ծրագրավորողի ընտրանքները» կամ «USB դեբագավորումը», հակառակ դեպքում Shevery-ն կդադարի աշխատել։]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Անլար դեբագավորումը չի միացված։\nՆշում. Android 11-ից առաջ անլար դեբագավորումը միացնելու համար համակարգչի միացումը պարտադիր է։]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Խնդրում ենք զուգակցումը սկսել հետևյալ քայլերով՝ «Ծրագրավորողի ընտրանքներ» – «Անլար սխալազերծում» – «Սարքի զուգակցում զուգակցման կոդով»։\n\nԶուգակցման գործընթացը սկսվելուց հետո դուք կկարողանաք մուտքագրել զուգակցման կոդը։]]></string>
-    <string name="adb_error_key_store"><![CDATA[Անհնար է ստեղծել անլար թերհաշվարկման բանալի։\nՍա կարող է լինել այն պատճառով, որ այս սարքի KeyStore մեխանիզմը խափանված է։]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Խնդրում ենք ակտիվացնել «Անլար դեբագավորումը» «Ծրագրավորողի ընտրանքներում»: «Անլար դեբագավորումը» ավտոմատ կերպով անջատվում է ցանցի փոփոխության ժամանակ։
+
+Նշում. մի անջատեք «Ծրագրավորողի ընտրանքները» կամ «USB դեբագավորումը», հակառակ դեպքում Shevery-ն կդադարի աշխատել։]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Անլար դեբագավորումը չի միացված։
+Նշում. Android 11-ից առաջ անլար դեբագավորումը միացնելու համար համակարգչի միացումը պարտադիր է։]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[Խնդրում ենք զուգակցումը սկսել հետևյալ քայլերով՝ «Ծրագրավորողի ընտրանքներ» – «Անլար սխալազերծում» – «Սարքի զուգակցում զուգակցման կոդով»։
+
+Զուգակցման գործընթացը սկսվելուց հետո դուք կկարողանաք մուտքագրել զուգակցման կոդը։]]></string>
+    <string name="adb_error_key_store"><![CDATA[Անհնար է ստեղծել անլար թերհաշվարկման բանալի։
+Սա կարող է լինել այն պատճառով, որ այս սարքի KeyStore մեխանիզմը խափանված է։]]></string>
     <string name="rish_description"><![CDATA[%1$s-ով ցանկացած տերմինալային հավելվածում կարող եք միացնել և շփվել Shevery-ի կողմից գործարկված շել-հրամանների հետ։
 %1$s-ի մանրամասն օգտագործման մասին տեղեկությունների համար սեղմեք՝ փաստաթուղթը դիտելու համար։]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nկպցվել է կլիպբորդին։]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+կպցվել է կլիպբորդին։]]></string>
 </resources>

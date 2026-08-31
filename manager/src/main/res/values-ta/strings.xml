@@ -33,7 +33,9 @@
     <string name="home_local_network_grant"><![CDATA[அணுகலை வழங்கவும்]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[கம்பியில்லா பிழைதிருத்தத்திற்கு உள்ளூர் நெட்வொர்க் அணுகல் தேவை.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[கம்பியில்லா பிழைதிருத்த சேவை தேடல்]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[தயவுசெய்து "டெவலப்பர் விருப்பங்கள்"-இல் "வயர்லெஸ் டிரபிங்கிங்"-ஐ இயக்கவும். நெட்வொர்க் மாற்றப்படும்போது "வயர்லெஸ் டிரபிங்கிங்" தானாகவே முடக்கப்படும்.\n\nகுறிப்பு, "டெவலப்பர் விருப்பங்கள்" அல்லது "USB டிரபிங்கிங்"-ஐ முடக்க வேண்டாம், இல்லையெனில் Shevery நிறுத்தப்படும்.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[தயவுசெய்து "டெவலப்பர் விருப்பங்கள்"-இல் "வயர்லெஸ் டிரபிங்கிங்"-ஐ இயக்கவும். நெட்வொர்க் மாற்றப்படும்போது "வயர்லெஸ் டிரபிங்கிங்" தானாகவே முடக்கப்படும்.
+
+குறிப்பு, "டெவலப்பர் விருப்பங்கள்" அல்லது "USB டிரபிங்கிங்"-ஐ முடக்க வேண்டாம், இல்லையெனில் Shevery நிறுத்தப்படும்.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[தொடர்ந்து தேடிக்கொண்டிருந்தால், தயவுசெய்து "வயர்லெஸ் டிரபிக்கிங்"-ஐ முடக்கி மீண்டும் இயக்கிப் பார்க்கவும்.]]></string>
     <string name="dialog_adb_port"><![CDATA[துறைமுகம்]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[போர்ட் என்பது 1 முதல் 65535 வரையிலான ஒரு முழு எண் ஆகும்.]]></string>
@@ -43,8 +45,11 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[இணைக்கும் குறியீடு]]></string>
     <string name="paring_code_is_wrong"><![CDATA[இணைப்புக் குறியீடு தவறானது.]]></string>
     <string name="cannot_connect_port"><![CDATA[கம்பியில்லா பிழைதிருத்த சேவையுடன் இணைக்க முடியவில்லை.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[கம்பியில்லா பிழைதிருத்தம் இயக்கப்பட்டிருக்கவில்லை.\nகுறிப்பு, ஆண்ட்ராய்டு 11-க்கு முன், கம்பியில்லா பிழைதிருத்தத்தை இயக்க, கணினியுடன் இணைப்பு கட்டாயம்.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[பின்வரும் படிகளைப் பின்பற்றி ஜோடிப்பதைத் தொடங்குங்கள்: "டெவலப்பர் விருப்பங்கள்" - "கம்பியில்லா பிழைதிருத்தம்" - "ஜோடிப்புக் குறியீட்டைப் பயன்படுத்தி சாதனத்தை ஜோடி".\n\nஜோடிப்பு செயல்முறை தொடங்கிய பிறகு, நீங்கள் ஜோடிப்புக் குறியீட்டை உள்ளிட முடியும்.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[கம்பியில்லா பிழைதிருத்தம் இயக்கப்பட்டிருக்கவில்லை.
+குறிப்பு, ஆண்ட்ராய்டு 11-க்கு முன், கம்பியில்லா பிழைதிருத்தத்தை இயக்க, கணினியுடன் இணைப்பு கட்டாயம்.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[பின்வரும் படிகளைப் பின்பற்றி ஜோடிப்பதைத் தொடங்குங்கள்: "டெவலப்பர் விருப்பங்கள்" - "கம்பியில்லா பிழைதிருத்தம்" - "ஜோடிப்புக் குறியீட்டைப் பயன்படுத்தி சாதனத்தை ஜோடி".
+
+ஜோடிப்பு செயல்முறை தொடங்கிய பிறகு, நீங்கள் ஜோடிப்புக் குறியீட்டை உள்ளிட முடியும்.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[முதலில் பிளவுத்திரை (பன்முக-சாளரம்) பயன்முறைக்குச் செல்லவும்.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[இந்த அமைப்பு இணைக்கும் உரையாடலை எப்போதும் தெரியும்படி வைத்திருக்க வேண்டும். இந்தச் செயலியையும் அமைப்பு உரையாடலையும் ஒரே நேரத்தில் தெரியும்படி செய்ய, திரையைப் பிரித்துப் பயன்படுத்தும் முறை மட்டுமே ஒரே வழியாகும்.]]></string>
     <string name="adb_error_key_store"><![CDATA[கம்பியில்லா பிழைதிருத்தத்திற்கான சாவியை உருவாக்க முடியவில்லை. இந்தச் சாதனத்தின் கீஸ்டோர் வழிமுறை பழுதடைந்திருப்பதே இதற்குக் காரணமாக இருக்கலாம்.]]></string>
@@ -92,7 +97,9 @@
     <string name="home_terminal_title"><![CDATA[டெர்மினல் செயலிகளில் ஷெவரி பயன்படுத்தவும்]]></string>
     <string name="home_terminal_description"><![CDATA[உங்களுக்குப் பிடித்த டெர்மினல் செயலிகளில் ஷெவ்ரியைப் பயன்படுத்தி கட்டளைகளை இயக்கவும்]]></string>
     <string name="terminal_tutorial_1"><![CDATA[முதலில், கோப்புகளை நீங்கள் விரும்பும் எந்த இடத்திற்கும் ஏற்றுமதி செய்யவும். உங்களுக்கு %1$s மற்றும் %2$s என்ற இரண்டு கோப்புகள் கிடைக்கும்.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[தேர்ந்தெடுக்கப்பட்ட கோப்புறையில் ஒரே பெயரில் கோப்புகள் இருந்தால், அவை நீக்கப்படும்.\n\nஎக்ஸ்போர்ட் செயல்பாடு SAF (ஸ்டோரேஜ் ஆக்சஸ் ஃபிரேம்வொர்க்) ஐப் பயன்படுத்துகிறது. MIUI, SAF-இன் செயல்பாடுகளைச் செயலிழக்கச் செய்வதாகப் புகாரளிக்கப்பட்டுள்ளது. நீங்கள் MIUI பயன்படுத்தினால், Shevery-இன் apk-இலிருந்து கோப்பை எக்ஸ்ட்ராக்ட் செய்ய வேண்டியிருக்கும் அல்லது GitHub-இலிருந்து பதிவிறக்கம் செய்ய வேண்டியிருக்கும்.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[தேர்ந்தெடுக்கப்பட்ட கோப்புறையில் ஒரே பெயரில் கோப்புகள் இருந்தால், அவை நீக்கப்படும்.
+
+எக்ஸ்போர்ட் செயல்பாடு SAF (ஸ்டோரேஜ் ஆக்சஸ் ஃபிரேம்வொர்க்) ஐப் பயன்படுத்துகிறது. MIUI, SAF-இன் செயல்பாடுகளைச் செயலிழக்கச் செய்வதாகப் புகாரளிக்கப்பட்டுள்ளது. நீங்கள் MIUI பயன்படுத்தினால், Shevery-இன் apk-இலிருந்து கோப்பை எக்ஸ்ட்ராக்ட் செய்ய வேண்டியிருக்கும் அல்லது GitHub-இலிருந்து பதிவிறக்கம் செய்ய வேண்டியிருக்கும்.]]></string>
     <string name="terminal_export_files"><![CDATA[கோப்புகளை ஏற்றுமதி செய்]]></string>
     <string name="terminal_tutorial_2"><![CDATA[பின்னர், %1$s-ஐத் திறந்து திருத்த, ஏதேனும் உரை திருத்தியைப் பயன்படுத்தவும்.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[உதாரணமாக, நீங்கள் %1$s-இல் Shevery-ஐப் பயன்படுத்த விரும்பினால், %2$s-ஐ %3$s-ஆல் மாற்ற வேண்டும் (%4$s என்பது %1$s-இன் தொகுப்புப் பெயர்).]]></string>
@@ -120,7 +127,9 @@
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[ஷெவரி இயங்கவில்லை. முதலில் சேவையைத் தொடங்கி, பின்னர் திரும்பி வந்து இந்த அமைப்பை இயக்கவும்.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[தானியங்கி அனுமதி வழங்குதல் தோல்வியடைந்தது. அதைக் கைமுறையாக வழங்க, இந்தக் கட்டளையை ஒரு கணினியிலிருந்து இயக்கவும்:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[காப்பி கட்டளை]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[பயன்படுத்தும் முறை:\n1. சாதனத்தை ஒரு கணினியுடன் இணைக்கவும் (USB அல்லது வயர்லெஸ் டீபக்கிங்).\n2. டெர்மினலில், மேலே உள்ள புலத்திலிருந்து கட்டளையை இயக்கவும்.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[பயன்படுத்தும் முறை:
+1. சாதனத்தை ஒரு கணினியுடன் இணைக்கவும் (USB அல்லது வயர்லெஸ் டீபக்கிங்).
+2. டெர்மினலில், மேலே உள்ள புலத்திலிருந்து கட்டளையை இயக்கவும்.]]></string>
     <string name="settings_use_system_color"><![CDATA[מערכת கருப்பொருள் நிறத்தைப் பயன்படுத்துங்கள்]]></string>
     <string name="modules_title"><![CDATA[ADB மாட்யூல்கள்]]></string>
     <string name="modules_settings_title"><![CDATA[மாடூல்கள்]]></string>
@@ -242,7 +251,8 @@
     <string name="starting_root_shell"><![CDATA[மூல ஷெல்லைத் தொடங்குகிறது…]]></string>
     <string name="start_with_root_failed"><![CDATA[வேர் அனுமதி வழங்கப்படாததால் அல்லது இந்தச் சாதனம் ரூட் செய்யப்படாததால் சேவையைத் தொடங்க முடியாது.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[உலாவியைத் தொடங்க முடியவில்லை]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\n நகலெடுக்கப்பட்டது.]]></string>
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+ நகலெடுக்கப்பட்டது.]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s நகலெடுக்கப்பட்டது.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s நவீன ஷெவரிக்கு ஆதரவளிக்கவில்லை]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[லெகசி ஷெவரி மார்ச் 2019 முதல் வழக்கற்றதாகிவிட்டது. மேலும், லெகசி ஷெவரி புதிய ஆண்ட்ராய்டு அமைப்புகளில் வேலை செய்யாது. %1$s-இன் டெவலப்பரிடம் புதுப்பிக்கச் சொல்லவும்.]]></string>
@@ -423,7 +433,9 @@
     <string name="comput_copy_output"><![CDATA[வெளியீட்டை நகலெடுக்கவும்]]></string>
     <string name="comput_ask_gemini"><![CDATA[ஜெமினியிடம் கேளுங்கள்]]></string>
     <string name="comput_executing"><![CDATA[செயல்பாடு: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB கட்டளை மொழிபெயர்ப்பு முறை செயலில் உள்ளது\nஅசல்: %1$s\nசெயல்படுத்துகிறது...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB கட்டளை மொழிபெயர்ப்பு முறை செயலில் உள்ளது
+அசல்: %1$s
+செயல்படுத்துகிறது...]]></string>
     <string name="comput_command_no_output"><![CDATA[கட்டளை எந்த வெளியீடும் இன்றி நிறைவு செய்யப்பட்டது.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] கட்டளை 120 வினாடிகளுக்குப் பிறகு காலாவதியானது.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] கட்டளை %1$d குறியீட்டுடன் வெளியேறியது.]]></string>
