@@ -3,4 +3,9 @@
     <string name="home_status_service_version">Versie %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s is niet actief</string>
     <string name="home_status_service_is_running">%1$s is actief</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="update_settings_frequency_label">Check frequency</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
 </resources>

@@ -5,8 +5,6 @@
     <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> รองรับ Shizuku รุ่นใหม่ แต่กำลังขอร้อง Shizuku รุ่นเก่า นี่อาจเป็นเพราะ Shizuku ไม่ทำงาน โปรดตรวจสอบในแอป Shizuku <p>Shizuku รุ่นเก่าได้ถูกเลิกใช้ไปแล้วตั้งแต่เดือนมีนาคมปี 2019]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Shizuku รุ่นเก่าได้ถูกเลิกใช้ไปแล้วตั้งแต่เดือนมีนาคม 2019 นอกจากนี้ Shizuku รุ่นเก่ายังใช้งานไม่ได้กับระบบ Android ที่ใหม่กว่า <p>โปรดติดต่อผู้พัฒนาของ <b>%1$s</b> เพื่ออัปเดตเป็นเวอร์ชันใหม่]]></string>
     <string name="dialog_legacy_not_support_title">%1$s ไม่รองรับ Shizuku รุ่นใหม่</string>
-    <string name="toast_copied_to_clipboard">%s
-\nได้ถูกคัดลอกไปยังคลิปบอร์ด</string>
     <string name="toast_copied_to_clipboard_with_text"><b>%s</b> ได้ถูกคัดลอกไปยังคลิปบอร์ด</string>
     <string name="dialog_cannot_open_browser_title">ไม่สามารถเปิดบราวเซอร์</string>
     <string name="start_with_root_failed">ไม่สามารถเริ่มบริการเนื่องจากไม่ได้รับการอนุญาตรูทหรืออุปกรณ์ไม่ได้ถูกรูท</string>
@@ -53,9 +51,6 @@
     <string name="terminal_tutorial_2_description">ยกตัวอย่างเช่น ถ้าคุณต้องการใช้ Shizuku ใน %1$s คุณจะต้องแทนที่ %2$s ด้วย %3$s (%4$s คือชื่อแพ็กเกจของ %1$s)</string>
     <string name="terminal_tutorial_2">จากนั้น ใช้ตัวแก้ไขไฟล์เปิดและแก้ไข %1$s</string>
     <string name="terminal_export_files">ส่งออกไฟล์</string>
-    <string name="terminal_tutorial_1_description">หากมีไฟล์ที่มีชื่อเดียวกันในโฟลเดอร์ที่เลือก ไฟล์เหล่านั้นจะถูกลบออก
-\n
-\nใช้ฟังก์ชันการส่งออก SAF (Storage Access Framework) มีรายงานว่า MIUI ทำลายฟังก์ชันของ SAF หากคุณใช้ MIUI คุณอาจจะต้องแตกไฟล์จาก apk ของ Shizuku หรือดาวน์โหลดจาก GitHub</string>
     <string name="terminal_tutorial_1">ก่อนอื่น ส่งออกไฟล์ไปยังที่ใดก็ได้ จะมีอยู่สองไฟล์ %1$s และ %2$s</string>
     <string name="home_terminal_description">สั่งคำสั่งผ่าน Shizuku ในแอปเทอร์มินอลที่คุณเลือก</string>
     <string name="home_terminal_title">ใช้ Shizuku ในแอปเทอร์มินอล</string>
@@ -65,9 +60,6 @@
     <string name="home_learn_more_description">เรียนรู้การพัฒนาเพื่อใช้ร่วมกันกับ Shizuku</string>
     <string name="home_learn_more_title">เรียนรู้ Shizuku</string>
     <string name="home_app_management_view_authorized_apps">แตะเพื่อจัดการแอปที่ได้รับอนุญาต</string>
-    <plurals name="home_app_management_authorized_apps_count">
-        <item quantity="other">อนุญาตแล้ว %d แอปพลิเคชัน</item>
-    </plurals>
     <string name="home_app_management_title">การจัดการแอปพลิเคชัน</string>
     <string name="home_root_button_restart">เริ่มใหม่</string>
     <string name="home_root_button_start">เริ่ม</string>
@@ -88,27 +80,17 @@
     <string name="notification_settings">ตัวเลือกการแจ้งเตือน</string>
     <string name="development_settings">ตัวเลือกสำหรับนักพัฒนาแอป</string>
     <string name="adb_pair_required">โปรดทำขั้นตอนการจับคู่ก่อน</string>
-    <string name="adb_error_key_store">ไม่สามารถสร้างรหัสเพื่อเชื่อมต่อการแก้ไขข้อบกพร่องผ่าน Wi-Fi
-\nอาจเป็นเพราะกลไกการจัดเก็บรหัสของอุปกรณ์เสียหาย</string>
     <string name="adb_pairing_requires_multi_window_reason">ระบบจำเป็นจะต้องให้มีหน้าต่างรหัสการจับคู่แสดงอยู่ตลอดเวลา ใช้โหมดแนกหน้าจอเป็นหนทางเดียวที่จะปล่อยแอปและหน้าต่างของระบบแสดงพร้อมกันในเวลาเดียวกัน</string>
     <string name="adb_pairing_requires_multi_window">โปรดเข้าสู่โหมดแยกหน้าจอ (หลายหน้าต่าง) ก่อน</string>
     <string name="paring_code_is_wrong">รหัสการจับคู่ไม่ถูกต้อง</string>
     <string name="dialog_adb_pairing_paring_code">รหัสการจับคู่</string>
-    <string name="dialog_adb_pairing_message"><![CDATA[โปรดเริ่มจับคู่ตามขั้นตอนนี้: "ตัวเลือกสำหรับนักพัฒนาแอป" - "การแก้ไขข้อบกพร่องผ่าน Wi-Fi" - "จับคู่อุปกรณ์ด้วยรหัสการจับคู่"
-\n
-\nหลังจากเริ่มกระบวนการจับคู่ จะสามารถป้อนรหัสการจับคู่]]></string>
     <string name="home_wireless_adb_description_pre_11">หาก Android เป็นรุ่นที่เก่ากว่า 11 นั้นจำเป็นต้องเชื่อมต่อกับคอมพิวเตอร์เพื่อเปิดใช้งานการแก้ไขข้อบกพร่องผ่าน Wi-Fi</string>
-    <string name="dialog_wireless_adb_not_enabled">การแก้ไขข้อบกพร่องผ่าน Wi-Fi ไม่ถูกเปิดไว้
-\nหมายเหตุ หาก Android เป็นรุ่นที่เก่ากว่า 11 การจะเปิดการแก้ไขข้อบกพร่องผ่าน Wi-Fi จำเป็นต้องมีการเชื่อมต่อกับคอมพิวเตอร์</string>
     <string name="cannot_connect_port">ไม่สามารถเชื่อมต่อกับบริการการแก้ไขข้อบกพร่องผ่าน Wi-Fi</string>
     <string name="dialog_adb_pairing_discovery">กำลังค้นหาบริการจับคู่</string>
     <string name="dialog_adb_pairing_title">จับคู่กับอุปกรณ์</string>
     <string name="adb_pairing">จับคู่</string>
     <string name="dialog_adb_invalid_port">พอร์ตคือเลขจำนวนเต็ม ค่าตั้งแต่ 1 ถึง 65535</string>
     <string name="dialog_adb_port">พอร์ต</string>
-    <string name="dialog_adb_discovery_message"><![CDATA[โปรดเปิดใช้งาน "การแก้ไขข้อบกพร่องผ่าน Wi-Fi" ใน "ตัวเลือกสำหรับนักพัฒนาแอป" "การแก้ไขข้อบกพร่องผ่าน Wi-Fi" จะถูกปิดโดยอัตโนมัติเมื่อเปลี่ยนเครือข่าย
-\n
-\nหมายเหตุ ห้ามปิดใช้งาน "ตัวเลือกสำหรับนักพัฒนาแอป" หรือ "การแก้ไขข้อบกพร่อง USB" ไม่เช่นนั้น Shizuku จะหยุดการทำงาน]]></string>
     <string name="home_wireless_adb_description"><![CDATA[ตั้งแต่ Android 11 ขึ้นไป สามารถเปิดใช้งานการแก้ไขข้อบกพร่องผ่าน Wi-Fi เพื่อเริ่ม Shizuku ได้โดยตรงผ่านอุปกรณ์ โดยไม่ต้องเชื่อมต่อกับคอมพิวเตอร์ <p>โปรดอ่านคำแนะนำทีละขั้นตอนก่อน]]></string>
     <string name="home_wireless_adb_title">เริ่มผ่านการแก้ไขข้อบกพร่องผ่าน Wi-Fi</string>
     <string name="dialog_adb_discovery">กำลังค้นหาบริการการแก้ไขข้อบกพร่อง</string>
@@ -125,12 +107,12 @@
     <string name="home_status_service_version">เวอร์ชัน %2$s ผ่าน %1$s</string>
     <string name="home_status_service_not_running">%1$s ไม่ได้กำลังทำงาน</string>
     <string name="translation_contributors">altinat</string>
-    <string name="home_adb_is_limited_description"><![CDATA[ผู้ผลิตอุปกรณ์ของคุณ จำกัดการอนุญาต adb ทำให้แอปที่ใช้ Shizuku จะไม่ทำงานอย่างถูกต้อง
-\n
-\nโดยปกติ ข้อจำกัดนี้สามารถจัดการได้โดยการปรับตัวเลือกใน "ตัวเลือกสำหรับนักพัฒนาซอฟต์แวร์" โปรดอ่าน การช่วยเหลือสำหรับรายละเอียดวิธีการแก้ไข
-\n
-\nคุณอาจต้องรีสตาร์ท Shizuku เพื่อให้การดำเนินการมีผล]]></string>
     <string name="home_adb_is_limited_title">คุณต้องทำขั้นตอนเพิ่มเติม</string>
     <string name="home_app_management_empty">แอปที่ขอร้องหรือขอใช้ Shizuku จะแสดงที่นี่</string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[โปรดลองปิดและเปิดใช้งาน "การแก้ไขข้อบกพร่องผ่าน Wi-Fi" ใหม่ หากระบบยังคงค้นหาอยู่]]></string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="update_settings_frequency_label">Check frequency</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
 </resources>

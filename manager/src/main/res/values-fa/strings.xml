@@ -1,6 +1,5 @@
 <resources>
     <string name="translation_contributors">AI</string>
-    <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">Navigate up</string>
     <string name="accessibility_close">Close</string>
     <string name="accessibility_more_options">More options</string>
@@ -62,7 +61,6 @@
     <string name="home_root_button_start">راه‌اندازی</string>
     <string name="home_root_button_restart">راه‌اندازی مجدد</string>
     <string name="home_app_management_title">مدیریت برنامه</string>
-    <plurals name="home_app_management_authorized_apps_count"><item quantity="one"><![CDATA[%d برنامه مجاز]]></item><item quantity="other"><![CDATA[%d برنامه مجاز]]></item></plurals>
     <string name="home_app_management_view_authorized_apps"><![CDATA[برای مدیریت برنامه های مجاز ضربه بزنید]]></string>
     <string name="home_app_management_empty">برنامه‌هایی که درخواست یا اعلام استفاده از Shevery کرده‌اند اینجا نمایش داده می‌شوند.</string>
     <string name="home_learn_more_title">یادگیری Shizuku</string>
@@ -77,11 +75,6 @@
     <string name="home_diagnostics_copied">تشخیص کپی شد.</string>
     <string name="home_modules_description">نصب و مدیریت ماژول‌های ADB</string>
     <string name="home_adb_is_limited_title">یک مرحله اضافی لازم است</string>
-    <string name="home_adb_is_limited_description">سازنده دستگاه شما مجوزهای adb را محدود کرده و برنامه‌هایی که از Shevery استفاده می‌کنند درست کار نخواهند کرد.
-
-معمولاً این محدودیت با تنظیم برخی گزینه‌ها در «گزینه‌های توسعه‌دهنده» قابل رفع است. برای جزئیات راهنما را بخوانید.
-
-ممکن است برای اعمال تغییرات، Shevery را مجدداً راه‌اندازی کنید.</string>
     <string name="app_management_select_all">انتخاب همه</string>
     <string name="app_management_deselect_all">لغو انتخاب همه</string>
     <string name="app_management_dialog_adb_is_limited_title">مجوز adb محدود است</string>
@@ -90,18 +83,11 @@
     <string name="home_terminal_title">از Shizuku در برنامه های پایانه استفاده کنید</string>
     <string name="home_terminal_description">دستورات را از طریق Shizuku در برنامه های پایانه که دوست دارید اجرا کنید</string>
     <string name="terminal_tutorial_1">ابتدا فایل‌ها را به هر جایی که می‌خواهید صادر کنید. دو فایل خواهید یافت: %1$s و %2$s.</string>
-    <string name="terminal_tutorial_1_description">اگر در پوشه انتخابی فایلی با همین نام وجود داشته باشد، حذف خواهد شد.
-
-عملکرد صادرات از SAF (Storage Access Framework) استفاده می‌کند. گزارش شده که MIUI عملکردهای SAF را خراب می‌کند. اگر از MIUI استفاده می‌کنید، ممکن است نیاز به استخراج فایل از APK Shevery یا دانلود از GitHub داشته باشید.</string>
     <string name="terminal_export_files">صادر کردن فایل‌ها</string>
     <string name="terminal_tutorial_2">بعد، از هر ویرایشگر متنی برای باز کردن و ویرایش %1$s استفاده کنید.</string>
     <string name="terminal_tutorial_2_description">مثلاً اگر می‌خواهید از Shevery در %1$s استفاده کنید، باید %2$s را با %3$s جایگزین کنید (%4$s نام بسته %1$s است).</string>
     <string name="terminal_tutorial_3">در نهایت، فایل‌ها را به جایی که برنامه ترمینال شما می‌تواند به آن دسترسی داشته باشد منتقل کنید و می‌توانید از %1$s برای اجرای دستورات از طریق Shevery استفاده کنید.</string>
     <string name="terminal_tutorial_3_description">نکاتی: به %1$s مجوز اجرا بدهید و آن را به %2$s اضافه کنید تا بتوانید از %1$s مستقیماً استفاده کنید.</string>
-    <string name="rish_description"><![CDATA[
-با %1$s، در هر برنامه ترمینال، می‌توانید به shell‌ای که Shevery اجرا می‌کند متصل شده و با آن تعامل کنید.
-<p>برای مشاهده استفاده تفصیلی %1$s، برای مشاهده مستندات ضربه بزنید.
-    ]]></string>
     <string name="settings_title">تنظیمات</string>
     <string name="settings_language">زبان</string>
     <string name="settings_user_interface">ظاهر</string>
@@ -223,15 +209,12 @@
     <string name="notification_adb_pairing_succeed_text">اکنون می توانید خدمات Shizuku را راه اندازی کنید.</string>
     <string name="notification_adb_pairing_failed_title">مرتبط سازی انجام نشد</string>
     <string name="notification_adb_pairing_retry">سعی مجدد</string>
-    <string name="permission_group_label" translatable="false">Shevery</string>
-    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">دسترسی Shizuku</string>
     <string name="permission_description">به برنامه اجازه دهید از Shizuku استفاده کند.</string>
     <string name="permission_warning_template"><![CDATA[اجازه <b>%1$s</b> برای %2$s؟]]></string>
     <string name="grant_dialog_button_allow_always">همیشه اجازه داده شود</string>
     <string name="grant_dialog_button_deny">"رد"</string>
     <string name="starter">شروع کننده</string>
-    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">نمی‌توان خدمات را راه‌اندازی کرد زیرا مجوز ریشه داده نشده است یا این دستگاه روت نشده است.</string>
     <string name="dialog_cannot_open_browser_title">نمی توان مرورگر را راه اندازی کرد</string>
     <string name="toast_copied_to_clipboard">%s\nدر بریده‌دان رونوشت شده است.</string>
@@ -257,9 +240,6 @@
     <string name="settings_tcp_mode_summary">راه‌اندازی مجدد ADB روی پورت TCP 5555.</string>
     <string name="settings_restart_dialog_title">راه‌اندازی مجدد لازم است</string>
     <string name="settings_restart_dialog_message">Shevery باید برای اعمال این تغییر حالت TCP مجدداً راه‌اندازی شود.</string>
-    <string name="settings_restart_dialog_message_wifi_required">
-
-Wi-Fi برای اولین راه‌اندازی مجدد لازم است زیرا Shevery باید قبل از تغییر ADB به 5555، به پورت اشکال‌زدایی بی‌سیم فعلی متصل شود.</string>
     <string name="settings_auto_disable_usb_debugging">غیرفعال کردن خودکار USB</string>
     <string name="settings_auto_disable_usb_debugging_summary">بعد از راه‌اندازی مجدد، اشکال‌زدایی USB را خاموش کن وقتی Shevery برای شروع هنگام بوت تنظیم نشده</string>
     <string name="settings_service_group">نگهداری سرویس</string>
@@ -380,9 +360,6 @@ Wi-Fi برای اولین راه‌اندازی مجدد لازم است زیر�
     <string name="comput_copy_output">کپی خروجی</string>
     <string name="comput_ask_gemini">از Gemini بپرسید</string>
     <string name="comput_executing">در حال اجرا: %1$s ...</string>
-    <string name="comput_adb_translate">حالت ترجمه ADB فعال
-اصل: %1$s
-در حال اجرا...</string>
     <string name="comput_command_no_output">دستور بدون خروجی تکمیل شد.</string>
     <string name="comput_timed_out">[E] دستور پس از ۱۲۰ ثانیه پایان وقت یافت.</string>
     <string name="comput_exit_code">[E] دستور با کد %1$d خارج شد.</string>
@@ -390,8 +367,6 @@ Wi-Fi برای اولین راه‌اندازی مجدد لازم است زیر�
     <string name="comput_executing_cmd">> در حال اجرای دستور: %1$s</string>
     <string name="comput_error_not_running">خطا: سرویس Shevery با امتیاز در حال اجرا نیست. ابتدا سرویس را شروع کنید.</string>
     <string name="comput_error_no_binder">خطا: بازیابی binder Shevery امکان‌پذیر نبود.</string>
-    <string name="comput_console_initialized">کنسول مقداردهی اولیه شد. سرویس Shevery با امتیاز متصل شد.
-آماده دستورات.</string>
     <string name="comput_ai_explanation">توضیح هوش مصنوعی</string>
     <string name="comput_commandium">Commandium</string>
     <string name="comput_commandium_assistant">دستیار هوش مصنوعی Commandium</string>
@@ -457,4 +432,96 @@ Wi-Fi برای اولین راه‌اندازی مجدد لازم است زیر�
     <string name="settings_tcp_5555_bind_success">ADB با موفقیت به پورت TCP 5555 متصل شد</string>
     <string name="settings_tcp_5555_bind_failed">اتصال ADB به پورت ۵۵۵۵ ناموفق بود: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root، Dhizuku یا Shevery فعال لازم است.</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
+    <string name="wadb_notification_channel">ADB-Autostart-Dienst</string>
+    <string name="comput_stop_desc">Stop-Befehl</string>
+    <string name="accessibility_manager_service_no_description">Keine Beschreibung vom Dienst bereitgestellt.</string>
+    <string name="home_adb_dialog_view_command_notice">چند ملاحظهٔ دیگر وجود دارد، لطفاً ابتدا تأیید کنید که راهنما را خوانده‌اید.</string>
+    <string name="app_management_loading">در حال بارگذاری برنامه‌ها…</string>
+    <string name="settings_start_on_boot_adb">راه‌اندازی هنگام راه‌اندازی سیستم از طریق اشکال‌زدایی بی‌سیم</string>
+    <string name="settings_start_on_boot_adb_summary">در هنگام بوت، به‌طور موقت اشکال‌زدایی بی‌سیم را فعال کنید و Shevery را از طریق ADB (پورت TCP 5555) راه‌اندازی کنید. نیازی به روت نیست؛ وای‌فای تنها برای لحظه‌ای لازم است.</string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp">در هنگام بوت، به‌طور موقت اشکال‌زدایی بی‌سیم را فعال کنید و Shevery را از طریق ADB راه‌اندازی کنید. نیازی به روت نیست، وای‌فای فقط برای لحظه‌ای لازم است.</string>
+    <string name="settings_start_on_boot_adb_granted">اجازهٔ WRITE_SECURE_SETTINGS اعطا شد.</string>
+    <string name="settings_start_on_boot_adb_warning_no_tcp">اتصال TCP (پورت ۵۵۵۵) غیرفعال است: اشکال‌زدایی بی‌سیم همچنان فعال خواهد ماند.</string>
+    <string name="settings_start_on_boot_adb_missing_permission_title">مجوز گم شده</string>
+    <string name="settings_start_on_boot_adb_not_running">Shevery در حال اجرا نیست. ابتدا سرویس را راه‌اندازی کنید، سپس بازگردید و این تنظیم را فعال کنید.</string>
+    <string name="settings_start_on_boot_adb_grant_failed">اعطای خودکار مجوز ناموفق بود. برای اعطای دستی آن، این دستور را از یک رایانه اجرا کنید:</string>
+    <string name="settings_start_on_boot_adb_missing_permission_copy">دستور کپی</string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction">نحوه استفاده: ۱. دستگاه را به رایانه متصل کنید (از طریق اشکال‌زدایی USB یا بی‌سیم). ۲. در ترمینال، دستور بالا را اجرا کنید.</string>
+    <string name="notification_startup_channel_name">استارتاپ شیوری</string>
+    <string name="notification_startup_title">شروعی شوم</string>
+    <string name="notification_startup_enabling_wifi">فعال‌سازی اشکال‌زدایی وای‌فای…</string>
+    <string name="notification_startup_connecting">اتصال به ADB…</string>
+    <string name="notification_startup_started">شِوِری شروع کرد.</string>
+    <string name="notification_startup_failed">راه‌اندازی Shevery ناموفق بود.</string>
+    <string name="notification_startup_no_port">پورت عیب‌یابی بی‌سیم در عرض ۱۵ ثانیه یافت نشد.</string>
+    <string name="notification_startup_no_permission">راه‌اندازی در بوت امکان‌پذیر نیست: مجوز لازم اعطا نشده است. ابتدا Shevery را باز کرده و مجوز را اعطا کنید.</string>
+    <string name="notification_startup_waiting_unlock">در انتظار شروع باز کردن قفل دستگاه…</string>
+    <string name="notification_startup_cancel">لغو</string>
+    <string name="notification_startup_attempt_now">همین حالا تلاش کنید</string>
+    <string name="wadb_notification_title">شروع شیوری…</string>
+    <string name="wadb_notification_wifi_required">در انتظار اتصال وای‌فای پیش از ادامه</string>
+    <string name="wadb_notification_retry">منتظر برای تلاش مجدد</string>
+    <string name="wadb_error_title">خطا هنگام راه‌اندازی در بوت</string>
+    <string name="wadb_error_notify_dev">برای راه‌اندازی مجدد Shevery ضربه بزنید.</string>
+    <string name="wadb_permission_error_notification_title">خطای مجوز</string>
+    <string name="wadb_permission_error_notification_content">Shevery نتوانست هنگام راه‌اندازی شروع شود. Shevery را باز کنید تا مشکل را بررسی کنید.</string>
+    <string name="wadb_notification_attempt_now">همین حالا تلاش کنید</string>
+    <string name="settings_update_group_title">به‌روزرسانی</string>
+    <string name="shevery_update_check_title">برای به‌روزرسانی‌های Shevery بررسی کنید</string>
+    <string name="shevery_update_check_summary">برای نسخه‌های جدیدتر مدیر Shevery بررسی کنید.</string>
+    <string name="shevery_update_checking">در حال بررسی به‌روزرسانی‌های شیوری…</string>
+    <string name="shevery_update_up_to_date">Shevery به‌روز است (%s)</string>
+    <string name="shevery_update_available_title">به‌روزرسانی جدید شیوری در دسترس است!</string>
+    <string name="shevery_update_available_msg">نسخه %1$s در دسترس است (جاری: %2$s)</string>
+    <string name="shevery_update_download_apk">دانلود APK</string>
+    <string name="shevery_update_view_release">مشاهده در گیت‌هاب</string>
+    <string name="shevery_update_channel">به‌روزرسانی کانال</string>
+    <string name="shevery_update_channel_summary">کانال انتشار به‌روزرسانی را انتخاب کنید</string>
+    <string name="app_update_channel_stable">پایدار</string>
+    <string name="app_update_channel_beta">پیش‌انتشاری و بتا</string>
+    <string name="shevery_update_group_title">به‌روزرسانی‌های اپلیکیشن Shevery</string>
+    <string name="shevery_update_modules_group_title">به‌روزرسانی‌های ماژول و کاتالوگ</string>
+    <string name="shevery_update_check_failed">بررسی به‌روزرسانی ناموفق بود: %s</string>
+    <string name="settings_sections_title">پشتیبان‌گیری‌ها و موارد دیگر</string>
+    <string name="backup_section_title">نسخه‌های پشتیبان</string>
+    <string name="comput_output_label">خروجی</string>
+    <string name="comput_search_desc">خروجی جستجو</string>
+    <string name="comput_search_hint">خروجی جستجو</string>
+    <string name="comput_no_search_results">خروجی مطابقی یافت نشد</string>
+    <string name="comput_clear_search_desc">پاک کردن جستجو</string>
+    <string name="comput_close_search_desc">پایان جستجو</string>
+    <string name="comput_history_desc">تاریخچه فرمان</string>
+    <string name="comput_history_title">تاریخ</string>
+    <string name="comput_history_empty">هنوز هیچ تاریخچه دستوری وجود ندارد</string>
+    <string name="comput_run_desc">اجرای فرمان</string>
+    <string name="comput_scroll_bottom_desc">به پایین اسکرول کنید</string>
+    <string name="comput_cancelled">فرمان توسط کاربر لغو شد.</string>
+    <string name="accessibility_manager_title">مدیر دسترسی‌پذیری</string>
+    <string name="accessibility_manager_lab_group">دسترسی‌پذیری</string>
+    <string name="accessibility_manager_lab_title">مدیر دسترسی‌پذیری</string>
+    <string name="accessibility_manager_lab_summary">مدیریت و حفظ سرویس‌های دسترسی</string>
+    <string name="accessibility_manager_keep_alive_group">زنده نگه دار</string>
+    <string name="accessibility_manager_keep_alive_title">خدمات پین‌شده را فعال نگه دارید</string>
+    <string name="accessibility_manager_keep_alive_summary">هنگامی که سیستم یا کاربر خدمات دسترسی سنجاق‌شده را غیرفعال می‌کنند، آن‌ها را مجدداً فعال کنید.</string>
+    <string name="accessibility_manager_auto_boot_title">راه‌اندازی هنگام راه‌اندازی</string>
+    <string name="accessibility_manager_auto_boot_summary">پس از راه‌اندازی مجدد دستگاه، دموین حفظ اتصال را به‌طور خودکار راه‌اندازی کنید.</string>
+    <string name="accessibility_manager_shizuku_required">Shevery در حال اجرا نیست. آن را اجرا کنید تا خدمات دسترسی را فعال یا غیرفعال کنید.</string>
+    <string name="accessibility_manager_services_group">خدمات دسترس‌پذیری (%1$d)</string>
+    <string name="accessibility_manager_services_empty">هیچ سرویس دسترسی نصب‌شده‌ای یافت نشد.</string>
+    <string name="accessibility_manager_write_failed">به‌روزرسانی سرویس‌های دسترسی با موفقیت انجام نشد. بررسی کنید که Shevery در حال اجرا باشد و دسترسی داشته باشد.</string>
+    <string name="accessibility_manager_pin">سرویس پین را فعال نگه دارید</string>
+    <string name="accessibility_manager_unpin">سرویس جدا کردن پین</string>
+    <string name="accessibility_daemon_channel_name">دسترس‌پذیری زنده نگه‌داشتن</string>
+    <string name="accessibility_daemon_notification_title">دسترسی زنده نگه داشته شده فعال</string>
+    <string name="accessibility_daemon_notification_text">خدمات دسترسی سنجی پین‌شده در صورت غیرفعال بودن، بازیابی خواهند شد.</string>
+    <string name="settings_compat_stub">پیش‌نویس لگسی شیزوکو</string>
+    <string name="settings_compat_stub_summary">یک بستهٔ stub (moe.shizuku.privileged.api) نصب می‌کند تا برنامه‌هایی که به‌طور سخت‌گیرانه مدیر قدیمی Shizuku را بررسی می‌کنند همچنان کار کنند. درخواست‌های مجوز و binder به Shevery ارسال می‌شوند.</string>
+    <string name="settings_compat_stub_installed">پیش‌نویس ارثی از طریق %1$s نصب شد</string>
+    <string name="settings_compat_stub_uninstalled">پیش‌نویس ارثی حذف شد</string>
+    <string name="settings_compat_stub_failed">در %1$s کردن stub قدیمی از طریق %2$s ناموفق بود: %3$s</string>
+    <string name="settings_compat_stub_none">هیچ کانالی در دسترس نیست (ابتدا Shevery را شروع کنید)</string>
 </resources>

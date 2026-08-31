@@ -2,9 +2,12 @@
 <resources>
     <string name="dialog_adb_discovery_message">“ارجوك شغل ”المعالجة اللاسلكية</string>
     <string name="dialog_adb_discovery"><![CDATA["عم نشيّك خاصية "المعالجة اللاسلكية]]></string>
-    <string name="home_wireless_adb_description"><![CDATA[على إصدارات الأندرويد ١١ او اعلى، فيك تشغل "المعالجة اللاسلكية" وتشغل معها شيزوكو مباشرا من جهازك، من دون ما تتصل بالكمبيوتر
-\nبحيات ربك، ارجوك شوف التعليمات]]></string>
     <string name="home_wireless_adb_title">بلش بـالمعالجة اللاسلكية</string>
     <string name="home_adb_dialog_view_command_copy_button">نسخ</string>
     <string name="home_adb_button_view_command">شوف الأمر</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="update_settings_frequency_label">Check frequency</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
 </resources>

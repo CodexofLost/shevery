@@ -1,6 +1,5 @@
 <resources>
     <string name="translation_contributors">AI</string>
-    <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">Navigate up</string>
     <string name="accessibility_close">Close</string>
     <string name="accessibility_more_options">More options</string>
@@ -27,9 +26,6 @@
     <string name="home_local_network_grant">Grant access</string>
     <string name="home_local_network_permission_denied">Local network access is required for Wireless debugging.</string>
     <string name="dialog_adb_discovery">Procurando serviço de depuração sem fio</string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Ative "Depuração sem fio" em "Opções do desenvolvedor". A "depuração sem fio" é desabilitada automaticamente quando a rede muda.
-\n
-\nObserve que não desative "Opções do desenvolvedor" ou "Depuração USB" ou Shizuku será parado.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Por favor, tente desabilitar e habilitar "Depuração sem fio" se continuar procurando.]]></string>
     <string name="dialog_adb_port">Porta</string>
     <string name="dialog_adb_invalid_port">Porta é um número inteiro que varia de 1 a 65535.</string>
@@ -39,15 +35,8 @@
     <string name="dialog_adb_pairing_paring_code">Código de pareamento</string>
     <string name="paring_code_is_wrong">O código de emparelhamento está errado.</string>
     <string name="cannot_connect_port">Não é possível conectar ao serviço de depuração sem fio.</string>
-    <string name="dialog_wireless_adb_not_enabled">A depuração sem fio não está habilitada.
-\nObserve que, antes do Android 11, para habilitar a depuração sem fio, a conexão com o computador é obrigatória.</string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Inicie o emparelhamento seguindo as seguintes etapas: "Opções do desenvolvedor" - "Depuração sem fio" - "Emparelhando o dispositivo usando o código de emparelhamento".
-\n
-\nApós o início do processo de emparelhamento, você poderá inserir o código de emparelhamento.]]></string>
     <string name="adb_pairing_requires_multi_window">Por favor, entre primeiro no modo de tela dividida (várias janelas).</string>
     <string name="adb_pairing_requires_multi_window_reason">O sistema requer a caixa de diálogo de emparelhamento sempre visível, usando o modo de tela dividida é a única maneira de deixar este aplicativo e a caixa de diálogo do sistema visíveis ao mesmo tempo.</string>
-    <string name="adb_error_key_store">Não é possível gerar a chave para depuração sem fio.
-\nIsso pode ser porque o mecanismo KeyStore deste dispositivo está quebrado.</string>
     <string name="adb_pair_required">Por favor, passe primeiro pela etapa de emparelhamento.</string>
     <string name="development_settings">Opções do desenvolvedor</string>
     <string name="notification_settings">Opções de notificação</string>
@@ -68,7 +57,6 @@
     <string name="home_root_button_start">Iniciar</string>
     <string name="home_root_button_restart">Reiniciar</string>
     <string name="home_app_management_title">Gerenciamento de aplicativos</string>
-    <plurals name="home_app_management_authorized_apps_count"><item quantity="one"><![CDATA[%d aplicativo autorizado]]></item><item quantity="other"><![CDATA[%d aplicativos autorizados]]></item></plurals>
     <string name="home_app_management_view_authorized_apps">Toque para gerenciar aplicativos autorizados</string>
     <string name="home_app_management_empty">Aplicativos que solicitaram ou declararam uso do Shevery aparecerão aqui.</string>
     <string name="home_learn_more_title">Aprender sobre Shizuku</string>
@@ -83,11 +71,6 @@
     <string name="home_diagnostics_copied">Diagnóstico copiado.</string>
     <string name="home_modules_description">Instalar e gerenciar módulos ADB</string>
     <string name="home_adb_is_limited_title">Uma etapa extra é necessária</string>
-    <string name="home_adb_is_limited_description">O fabricante do seu dispositivo restringiu as permissões do ADB e os aplicativos que usam o Shevery não funcionarão corretamente.
-
-Geralmente, essa limitação pode ser removida ajustando algumas opções em "Opções do desenvolvedor". Leia a ajuda para obter detalhes.
-
-Talvez seja necessário reiniciar o Shevery para que a operação entre em vigor.</string>
     <string name="app_management_select_all">Selecionar tudo</string>
     <string name="app_management_deselect_all">Desmarcar tudo</string>
     <string name="app_management_dialog_adb_is_limited_title">A permissão do adb é limitada</string>
@@ -96,18 +79,11 @@ Talvez seja necessário reiniciar o Shevery para que a operação entre em vigor
     <string name="home_terminal_title">Use Shizuku em aplicativos de terminal</string>
     <string name="home_terminal_description">Execute comandos através do Shizuku em aplicativos de terminal que você queira</string>
     <string name="terminal_tutorial_1">Primeiro, exporte os arquivos para onde quiser. Você encontrará dois arquivos, %1$s e %2$s.</string>
-    <string name="terminal_tutorial_1_description">Se houver arquivos com o mesmo nome na pasta selecionada, eles serão excluídos.
-
-A função de exportação usa SAF (Storage Access Framework). Foi relatado que o MIUI quebra as funções do SAF. Se você estiver usando o MIUI, talvez precise extrair o arquivo do APK do Shevery ou baixar do GitHub.</string>
     <string name="terminal_export_files">Exportar arquivos</string>
     <string name="terminal_tutorial_2">Em seguida, use qualquer editor de texto para abrir e editar %1$s.</string>
     <string name="terminal_tutorial_2_description">Por exemplo, se você quiser usar o Shevery em %1$s, deve substituir %2$s por %3$s (%4$s é o nome do pacote de %1$s).</string>
     <string name="terminal_tutorial_3">Por fim, mova os arquivos para algum lugar onde seu aplicativo de terminal possa acessar, e você poderá usar %1$s para executar comandos pelo Shevery.</string>
     <string name="terminal_tutorial_3_description">Algumas dicas: conceda permissão de execução a %1$s e adicione-o a %2$s, e você poderá usar %1$s diretamente.</string>
-    <string name="rish_description"><![CDATA[
-Com %1$s, em qualquer aplicativo de terminal, você pode conectar-se e interagir com o shell executado pelo Shevery.
-<p>Sobre o uso detalhado de %1$s, toque para ver a documentação.
-    ]]></string>
     <string name="settings_title">Configurações</string>
     <string name="settings_language">Idioma</string>
     <string name="settings_user_interface">Aparência</string>
@@ -229,19 +205,14 @@ Com %1$s, em qualquer aplicativo de terminal, você pode conectar-se e interagir
     <string name="notification_adb_pairing_succeed_text">Você pode iniciar o serviço Shizuku agora.</string>
     <string name="notification_adb_pairing_failed_title">Pareamento falhou</string>
     <string name="notification_adb_pairing_retry">Repetir</string>
-    <string name="permission_group_label" translatable="false">Shevery</string>
-    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Acessar Shizuku</string>
     <string name="permission_description">Permita que o aplicativo use o Shizuku.</string>
     <string name="permission_warning_template">Permitir <b>%1$s</b> a %2$s?</string>
     <string name="grant_dialog_button_allow_always">Permitir o tempo todo</string>
     <string name="grant_dialog_button_deny">Negar</string>
     <string name="starter">Iniciante</string>
-    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">Não é possível iniciar o serviço porque a permissão de root não foi concedida ou este dispositivo não está enraizado.</string>
     <string name="dialog_cannot_open_browser_title">Não é possível iniciar o navegador</string>
-    <string name="toast_copied_to_clipboard">%s
-\nfoi copiado para a área de transferência.</string>
     <string name="toast_copied_to_clipboard_with_text"><b>%s</b> foi copiado para a área de transferência.</string>
     <string name="dialog_legacy_not_support_title">%1$s não é compatível com Shizuku</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[O Shizuku legado está obsoleto desde março de 2019. Além disso, o Shizuku legado não funciona em sistemas Android mais recentes.<p>Peça ao desenvolvedor de <b>%1$s</b> para atualizar.]]></string>
@@ -264,9 +235,6 @@ Com %1$s, em qualquer aplicativo de terminal, você pode conectar-se e interagir
     <string name="settings_tcp_mode_summary">Reiniciar o ADB na porta TCP 5555 para que o Shevery possa reconectar sem depender da porta de depuração sem fio variável.</string>
     <string name="settings_restart_dialog_title">Reinicialização necessária</string>
     <string name="settings_restart_dialog_message">O Shevery precisa reiniciar para aplicar esta mudança no modo TCP.</string>
-    <string name="settings_restart_dialog_message_wifi_required">
-
-O Wi-Fi é necessário para a primeira reinicialização porque o Shevery deve se conectar à porta de depuração sem fio atual antes de mudar o ADB para 5555.</string>
     <string name="settings_auto_disable_usb_debugging">Desativar USB automaticamente</string>
     <string name="settings_auto_disable_usb_debugging_summary">Desligar a depuração USB após reinicialização quando o Shevery não estiver configurado para iniciar na inicialização</string>
     <string name="settings_service_group">Manutenção do Serviço</string>
@@ -387,9 +355,6 @@ O Wi-Fi é necessário para a primeira reinicialização porque o Shevery deve s
     <string name="comput_copy_output">Copiar Saída</string>
     <string name="comput_ask_gemini">Perguntar ao Gemini</string>
     <string name="comput_executing">Executando: %1$s ...</string>
-    <string name="comput_adb_translate">Modo de Tradução ADB Ativo
-Original: %1$s
-Executando...</string>
     <string name="comput_command_no_output">Comando concluído sem saída.</string>
     <string name="comput_timed_out">[E] Tempo limite do comando esgotado após 120 segundos.</string>
     <string name="comput_exit_code">[E] Comando encerrado com código %1$d.</string>
@@ -397,8 +362,6 @@ Executando...</string>
     <string name="comput_executing_cmd">> Executando comando: %1$s</string>
     <string name="comput_error_not_running">Erro: O Serviço Shevery Privilegiado não está em execução. Inicie o serviço primeiro.</string>
     <string name="comput_error_no_binder">Erro: Não foi possível recuperar o binder do Shevery.</string>
-    <string name="comput_console_initialized">Console inicializado. Serviço Shevery privilegiado conectado.
-Pronto para comandos.</string>
     <string name="comput_ai_explanation">Explicação da IA</string>
     <string name="comput_commandium">Commandium</string>
     <string name="comput_commandium_assistant">Assistente IA Commandium</string>
@@ -464,9 +427,11 @@ Pronto para comandos.</string>
     <string name="settings_tcp_5555_bind_success">ADB vinculado com sucesso à porta TCP 5555</string>
     <string name="settings_tcp_5555_bind_failed">Falha ao vincular ADB à porta 5555: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root, Dhizuku ou Shevery ativo é necessário.</string>
-
     <string name="shevery_update_auto_check"></string>
     <string name="shevery_update_auto_check_summary"></string>
     <string name="home_update_available_title"></string>
     <string name="home_update_available_body"></string>
+    <string name="wadb_notification_channel">ADB-Autostartdienst</string>
+    <string name="comput_stop_desc">Stop-Befehl</string>
+    <string name="accessibility_manager_service_no_description">Keine Beschreibung vom Dienst bereitgestellt.</string>
 </resources>

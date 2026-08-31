@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="translation_contributors">Community Translators</string>
-
-    <!-- Accessibility -->
     <string name="accessibility_navigate_up">上に移動</string>
     <string name="accessibility_close">閉じる</string>
     <string name="accessibility_more_options">その他のオプション</string>
     <string name="accessibility_open_on_github">GitHubで開く</string>
-
-    <!-- Home - Status -->
     <string name="home_status_service_is_running">%1$s は実行中です</string>
     <string name="home_status_service_not_running">%1$s は実行されていません</string>
     <string name="home_status_service_version">バージョン %2$s, %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[バージョン %2$s, %1$s<br>再起動してバージョン %3$s に更新します]]></string>
-
-    <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[パソコンに接続して開始]]></string>
     <string name="home_adb_description"><![CDATA[root権限のない端末では、Sheveryを開始するためにADBを使用する必要があります（パソコンとの接続が必要です）。この手順は端末を再起動するたびに繰り返し行う必要があります。<b><a href="%1$s">ヘルプを読む</a></b>をご参照ください。]]></string>
     <string name="home_adb_button_view_help">ヘルプを読む</string>
@@ -22,8 +16,6 @@
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* その他の注意事項については、まずヘルプをお読みください。]]></string>
     <string name="home_adb_dialog_view_command_copy_button">コピー</string>
     <string name="home_adb_dialog_view_command_button_send">送信</string>
-
-    <!-- Home - Wireless Adb -->
     <string name="home_wireless_adb_title"><![CDATA[ワイヤレスデバッグ経由で開始]]></string>
     <string name="home_wireless_adb_description"><![CDATA[Android 11以降では、ワイヤレスデバッグを有効にすることで、パソコンに接続せず端末単体でSheveryを直接開始できます。<p>まずステップバイステップガイドをご覧ください。]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Android 11未満では、ワイヤレスデバッグを有効にするためにパソコンへの接続が必要です。]]></string>
@@ -34,8 +26,6 @@
     <string name="home_local_network_missing">%1$s 許可されていません。</string>
     <string name="home_local_network_grant">アクセスを許可</string>
     <string name="home_local_network_permission_denied">ワイヤレスデバッグにはローカルネットワークへのアクセスが必要です。</string>
-
-    <!-- Adb -->
     <string name="dialog_adb_discovery">ワイヤレスデバッグサービスを検索中</string>
     <string name="dialog_adb_discovery_message">「開発者向けオプション」で「ワイヤレスデバッグ」を有効にしてください。ネットワークが変更されると自動的にオフになります。\n\n注意: 「開発者向けオプション」や「USBデバッグ」を無効にしないでください。Sheveryが停止します。</string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging">検索が続く場合は、「ワイヤレスデバッグ」を一度オフにしてから再度オンにしてください。</string>
@@ -66,45 +56,28 @@
     <string name="adb_pairing_tutorial_content_finish">Sheveryに戻り、サービスを開始します。</string>
     <string name="adb_pairing_tutorial_content_network">Sheveryはローカルネットワークへのアクセスが必要です。</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">一部のシステム（MIUIなど）ではバックグラウンドでのネットワークアクセスが制限されます。バッテリー最適化を無効化してください。</string>
-
-    <!-- Home - Root -->
     <string name="home_root_title"><![CDATA[開始（root化済み端末用）]]></string>
     <string name="home_root_description"><![CDATA[さらに、Sheveryは起動時に自動開始できます。起動しない場合は、システムやサードパーティ製ツールによる制限がないか確認してください。<br>%s をご参照ください。]]></string>
     <string name="home_root_description_sui"><![CDATA[Magiskをご利用の場合は %1$s をお試しください。rootユーザー向けに、将来的にSheveryを置き換えます。]]></string>
     <string name="home_root_button_start">開始</string>
     <string name="home_root_button_restart">再起動</string>
-
-    <!-- Home - Application management -->
     <string name="home_app_management_title">アプリ管理</string>
-    <plurals name="home_app_management_authorized_apps_count">
-        <item quantity="other"><![CDATA[%d 個のアプリを許可済み]]></item>
-    </plurals>
     <string name="home_app_management_view_authorized_apps"><![CDATA[タップして許可済みアプリを管理]]></string>
     <string name="home_app_management_empty">Sheveryを要求または宣言したアプリがここに表示されます。</string>
-
-    <!-- Home - Learn more -->
     <string name="home_learn_more_title">Sheveryについて学ぶ</string>
     <string name="home_learn_more_description">Sheveryを使った開発方法を学ぶ</string>
-
-    <!-- Home - Diagnostics -->
     <string name="home_refresh">更新</string>
     <string name="home_diagnostics_title">診断情報</string>
     <string name="home_diagnostics_copy">診断情報をコピー</string>
     <string name="home_diagnostics_copied">診断情報をクリップボードにコピーしました。</string>
     <string name="home_modules_description">ADBモジュールのインストールと管理</string>
-
-    <!-- Home - Adb permissions limited -->
     <string name="home_adb_is_limited_title">追加の手順が必要です</string>
     <string name="home_adb_is_limited_description">端末の製造元によってADB権限が制限されており、Sheveryを使用するアプリが正常に動作しない可能性があります。\n\n通常、「開発者向けオプション」の調整で解消できます。詳細はヘルプをご覧ください。\n\n変更適用のためSheveryの再起動が必要な場合があります。</string>
-
-    <!-- Application management -->
     <string name="app_management_select_all">すべて選択</string>
     <string name="app_management_deselect_all">選択を解除</string>
     <string name="app_management_dialog_adb_is_limited_title">ADBの権限が制限されています</string>
     <string name="app_management_dialog_adb_is_limited_message"><![CDATA[端末製造元によりADB権限が制限されている可能性が高いです。<p><b><a href="%1$s">このドキュメント</a></b>に解決策が掲載されている場合があります。]]></string>
     <string name="app_management_item_summary_requires_root">* Sheveryをroot権限で実行する必要があります</string>
-
-    <!-- Terminal -->
     <string name="home_terminal_title">ターミナルアプリでSheveryを使用</string>
     <string name="home_terminal_description">お気に入りのターミナルアプリからShevery経由でコマンドを実行</string>
     <string name="terminal_tutorial_1">まず、任意の場所にファイルをエクスポートします。%1$s と %2$s の2つのファイルが生成されます。</string>
@@ -115,8 +88,6 @@
     <string name="terminal_tutorial_3">最後に、ターミナルアプリからアクセスできる場所にファイルを移動すると、%1$s を使用してコマンドを実行できます。</string>
     <string name="terminal_tutorial_3_description">ヒント: %1$s に実行権限を付与して %2$s に追加すると、%1$s を直接呼び出せます。</string>
     <string name="rish_description"><![CDATA[%1$s を使用すると、任意のターミナルアプリからSheveryが実行するシェルに接続して操作できます。<p>詳細な使用方法はタップしてドキュメントをご覧ください。]]></string>
-
-    <!-- Settings -->
     <string name="settings_title">設定</string>
     <string name="settings_language">言語</string>
     <string name="settings_user_interface">外観</string>
@@ -129,8 +100,6 @@
     <string name="settings_start_on_boot">起動時に自動開始</string>
     <string name="settings_start_on_boot_summary">Sheveryが正常に開始された後、端末起動時に自動的に開始します。</string>
     <string name="settings_use_system_color">システムテーマのカラーを使用</string>
-
-    <!-- ADB modules -->
     <string name="modules_title">ADBモジュール</string>
     <string name="modules_settings_title">モジュール</string>
     <string name="modules_settings_summary">ZIPモジュールをインストールし、SheveryのADB/rootサーバー経由でアクションを実行</string>
@@ -216,21 +185,15 @@
     <string name="modules_downloading">ダウンロード中…</string>
     <string name="modules_download_enqueued">バックグラウンドでダウンロードを開始しました</string>
     <string name="modules_search_placeholder">カタログモジュールを検索…</string>
-
-    <!-- About -->
     <string name="action_about">アプリについて</string>
     <string name="about_source_code_button">ソースコード</string>
     <string name="about_view_source_code"><![CDATA[%s でソースコードを表示]]></string>
-
-    <!-- Stop -->
     <string name="action_stop">Sheveryを停止</string>
     <string name="dialog_stop_message">Sheveryサービスを停止します。</string>
     <string name="service_already_stopped">Sheveryサービスはすでに停止しています。</string>
     <string name="service_stop_success">Sheveryサービスを停止しました。</string>
     <string name="service_stop_still_running">サービスがまだ実行中です</string>
     <string name="service_stop_failed">Sheveryの停止に失敗しました: %1$s</string>
-
-    <!-- Notification -->
     <string name="notification_channel_service_status">サービス開始状態</string>
     <string name="notification_service_starting">Sheveryサービスを開始中…</string>
     <string name="notification_service_start_failed">Sheveryサービスの開始に失敗しました。</string>
@@ -246,31 +209,21 @@
     <string name="notification_adb_pairing_succeed_text">Sheveryサービスを開始できます。</string>
     <string name="notification_adb_pairing_failed_title">ペアリング失敗</string>
     <string name="notification_adb_pairing_retry">再試行</string>
-
-    <!-- Permission related -->
     <string name="permission_label">Sheveryへのアクセス</string>
     <string name="permission_description">アプリがSheveryを使用することを許可します。</string>
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b> に %2$s を許可しますか？]]></string>
     <string name="grant_dialog_button_allow_always">常に許可</string>
     <string name="grant_dialog_button_deny">拒否</string>
-
-    <!-- Starter -->
     <string name="starter">スターター</string>
     <string name="start_with_root_failed">root権限が許可されていないか、端末がroot化されていないためサービスを開始できません。</string>
-
-    <!-- Misc -->
     <string name="dialog_cannot_open_browser_title">ブラウザを起動できません</string>
     <string name="toast_copied_to_clipboard">%s\nをクリップボードにコピーしました。</string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> をクリップボードにコピーしました。]]></string>
-
-    <!-- Messages for legacy -->
     <string name="dialog_legacy_not_support_title">%1$s は最新のSheveryに対応していません</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[旧バージョンのSheveryは2019年3月に非推奨となり、新しいAndroidでは動作しません。<p><b>%1$s</b> の開発者にアップデートを要請してください。]]></string>
     <string name="dialog_requesting_legacy_title">%1$s が旧バージョンのSheveryを要求しています</string>
     <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> は最新のSheveryに対応していますが、旧バージョンを要求しています。Sheveryが実行されていない可能性があります。]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Sheveryを開く</string>
-
-    <!-- Lab Features -->
     <string name="lab_features_title">ラボ機能</string>
     <string name="lab_features_summary">実験的な新機能</string>
     <string name="shizuku_connectors_title">Shevery コネクター</string>
@@ -287,14 +240,9 @@
     <string name="settings_tcp_mode_summary">ADBをTCPポート5555で再起動し、ワイヤレスデバッグのポート変化に依存せず再接続。</string>
     <string name="settings_restart_dialog_title">再起動が必要</string>
     <string name="settings_restart_dialog_message">TCPモードの変更を適用するにはSheveryの再起動が必要です。</string>
-    <string name="settings_restart_dialog_message_wifi_required"><![CDATA[
-
-最初の再起動時にはWi-Fi接続が必要です。]]></string>
     <string name="settings_auto_disable_usb_debugging">USBデバッグの自動無効化</string>
     <string name="settings_auto_disable_usb_debugging_summary">Sheveryが自動起動に設定されていない場合、再起動後にUSBデバッグをOFFにする</string>
     <string name="settings_service_group">サービスの保守</string>
-
-    <!-- Lab Features - Service Behavior -->
     <string name="lab_service_behavior_title">サービスの挙動</string>
     <string name="lab_keep_alive_title">サービスを常時有効化</string>
     <string name="lab_keep_alive_summary">Sheveryサービスの実行状態を定期的にチェックし、必要に応じて自動再起動</string>
@@ -302,8 +250,6 @@
     <string name="lab_auto_restart_summary">Sheveryサービスが予期せず終了した場合、自動的に再起動を試みる</string>
     <string name="lab_notify_death_title">サービス停止時に通知</string>
     <string name="lab_notify_death_summary">Sheveryサービスが予期せず停止した際に通知を表示</string>
-
-    <!-- Lab Features - Debugging -->
     <string name="lab_debugging_title">デバッグ</string>
     <string name="lab_verbose_logging_title">詳細ログ出力</string>
     <string name="lab_verbose_logging_summary">Logcatに詳細なデバッグログを出力。バッテリー節約のため本番環境ではオフにしてください</string>
@@ -312,8 +258,6 @@
     <string name="notification_watchdog_text">Sheveryサービスが予期せず停止しました。</string>
     <string name="watchdog_service_title">Shevery監視機能がアクティブです</string>
     <string name="watchdog_service_text">常時有効化のためSheveryサービスを監視中</string>
-
-    <!-- Shevery Control Notification -->
     <string name="notification_control_channel_name">Shevery コントロール</string>
     <string name="notification_control_title_running">Sheveryは実行中です</string>
     <string name="notification_control_title_stopped">Sheveryは停止しています</string>
@@ -321,8 +265,6 @@
     <string name="notification_control_text_stopped">タップしてSheveryを開くか、展開して開始します。</string>
     <string name="notification_control_action_start">開始</string>
     <string name="notification_control_action_stop">停止</string>
-
-    <!-- Update Settings -->
     <string name="update_settings_title">アップデート設定</string>
     <string name="update_settings_catalog">モジュールカタログ</string>
     <string name="update_settings_catalog_enabled">カタログを有効化</string>
@@ -348,8 +290,6 @@
     <string name="update_settings_github_pat_clear">クリア</string>
     <string name="update_settings_github_pat_delete">トークンを削除</string>
     <string name="update_settings_github_pat_delete_summary">保存されているGitHubトークンを削除</string>
-
-    <!-- Module Catalog -->
     <string name="modules_catalog">カタログ</string>
     <string name="modules_catalog_title">モジュールカタログ</string>
     <string name="modules_catalog_empty">モジュールが見つかりません</string>
@@ -373,27 +313,19 @@
     <string name="modules_catalog_view_github">GitHubで表示</string>
     <string name="modules_catalog_skip_token">スキップ</string>
     <string name="modules_catalog_open">カタログを開く</string>
-
-    <!-- TV Status -->
     <string name="tv_status_active">アクティブ</string>
     <string name="tv_status_disabled">無効</string>
     <string name="tv_status_trusted">信頼済み</string>
-
-    <!-- Wear Catalog -->
     <string name="wear_catalog_sort_newest">新着順</string>
     <string name="wear_catalog_sort_stars">スター順</string>
     <string name="wear_catalog_sort_official">公式</string>
     <string name="wear_catalog_sort_by">並び替え</string>
     <string name="wear_catalog_filter">フィルター</string>
-
-    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title">バックアップと復元</string>
     <string name="backup_title">設定とモジュールをバックアップ</string>
     <string name="backup_summary">設定とモジュールをZIPファイルにエクスポート</string>
     <string name="restore_title">設定とモジュールを復元</string>
     <string name="restore_summary">設定とモジュールをZIPファイルからインポート</string>
-
-    <!-- Comput Console -->
     <string name="comput_title">Comput</string>
     <string name="comput_settings">Comput コンソール設定</string>
     <string name="comput_adb_console">ADB Comput コンソール</string>
@@ -478,8 +410,6 @@
     <string name="diagnostics_full">フル</string>
     <string name="diagnostics_limited">制限付き</string>
     <string name="diagnostics_unknown">不明</string>
-
-    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">プロセスの健全性とエラーを10秒ごとに監視。問題を検知するとSheveryを自動再起動します。</string>
     <string name="settings_tcp_5555_title">TCP 5555 バインド</string>
@@ -488,9 +418,120 @@
     <string name="settings_tcp_5555_bind_success">ADBサーバーをTCP 5555ポートにバインドしました</string>
     <string name="settings_tcp_5555_bind_failed">ADBの5555ポートへのバインドに失敗しました: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root、Dhizuku、またはアクティブなSheveryが必要です。</string>
-
     <string name="shevery_update_auto_check"></string>
     <string name="shevery_update_auto_check_summary"></string>
     <string name="home_update_available_title"></string>
     <string name="home_update_available_body"></string>
+    <string name="app_name">Shevery 2. home_adb_dialog_view_command_notice: Es gibt noch einige weitere Überlegungen, bitte bestätige, dass du die Hilfe gelesen hast. 3. home_quick_terminal: Terminal 4. home_quick_wireless: Wireless ADB 5. home_quick_tcp: TCP 5555 6. home_manage_apps_button: Apps verwalten 7. app_management_loading: Apps laden… 8. settings_start_on_boot_adb: Starten bei Boot über Wireless Debugging 9. settings_start_on_boot_adb_summary: Beim Booten wird kurz die Wireless Debugging aktiviert und Shevery über ADB gestartet (TCP-Port 5555). Kein Root erforderlich, Wi-Fi ist nur für einen Moment erforderlich. 10. settings_start_on_boot_adb_summary_no_tcp: Beim Booten wird kurz die Wireless Debugging aktiviert und Shevery über ADB gestartet. Kein Root erforderlich, Wi-Fi ist nur für einen Moment erforderlich. 11. settings_start_on_boot_adb_granted: WRITE_SECURE_SETTINGS erteilt. 12. settings_start_on_boot_adb_warning_no_tcp: TCP-Bindung (Port 5555) ist deaktiviert: die Wireless Debugging bleibt aktiv. 13. settings_start_on_boot_adb_missing_permission_title: Fehlende Berechtigung 14. settings_start_on_boot_adb_not_running: Shevery wird nicht ausgeführt. Starte den Dienst zuerst, dann komm zurück und aktiviere diese Einstellung. 15. settings_start_on_boot_adb_grant_failed: Die automatische Berechtigungserteilung ist fehlgeschlagen. Führe diesen Befehl von einem Computer aus aus, um sie manuell zu erteilen:</string>
+    <string name="settings_start_on_boot_adb_missing_permission_copy">Kopieren des Befehls</string>
+    <string name="shevery_update_check_title">Kontrollieren Sie, ob es neue Versionen des Shevery-Managers gibt</string>
+    <string name="comput_hero_title">Shevery Console 2. comput_hero_subtitle: Leistungsstarker Shell-Terminal auf Ihrem Gerät, powered by Shizuku. 3. comput_status_ready: Bereit 4. comput_status_running: Ausgeführt 5. comput_status_error: Fehler 6. comput_console_section: Konsole 7. comput_tab_terminal: Terminal 8. comput_tab_commandium: AI-Studio 9. comput_tab_macros: Makros 10. comput_tab_presets: Vorlagen 11. comput_quick_chips: Schnelle Aktionen 12. comput_terminal_header: SHELL-AUSGABE 13. comput_presets_title: Vorlagenbibliothek 14. comput_presets_subtitle: Tippen Sie auf eine beliebige Befehle, um sie schnell auszuführen oder in die Terminalprompt zu automatisieren. 15. comput_output_label: Ausgabe</string>
+    <string name="comput_search_desc">Suchergebnisse</string>
+    <string name="accessibility_manager_lab_summary">Verwalten und aufrechterhalten von Accessibility-Diensten</string>
+    <string name="accessibility_daemon_notification_text">Festgelegte Zugriffsdienste werden wiederhergestellt, wenn sie deaktiviert werden. 2. settings_compat_stub: Legacy-Shizuku-Stub 3. settings_compat_stub_summary: Installiert einen Stub-Paket (moe.shizuku.privileged.api), damit Anwendungen, die nach dem Legacy-Shizuku-Manager suchen, weiterhin funktionieren. Berechtigungs- und Binder-Anfragen werden an Shevery weitergeleitet. 4. settings_compat_stub_installed: Legacy-Stub wurde über %1$s installiert. 5. settings_compat_stub_uninstalled: Legacy-Stub wurde entfernt. 6. settings_compat_stub_failed: Das Legacy-Stub konnte nicht über %2$s %1$s: %3$s</string>
+    <string name="home_adb_dialog_view_command_notice">他にもいくつか留意点がありますので、まずはヘルプをお読みになったことをご確認ください。</string>
+    <string name="home_quick_terminal">ターミナル</string>
+    <string name="home_quick_wireless">ワイヤレスADB</string>
+    <string name="home_quick_tcp">TCP 5555</string>
+    <string name="home_manage_apps_button">アプリの管理</string>
+    <string name="app_management_loading">アプリを読み込み中…</string>
+    <string name="settings_start_on_boot_adb">起動時にワイヤレスデバッグを開始する</string>
+    <string name="settings_start_on_boot_adb_summary">起動時に、ワイヤレスデバッグを短時間有効にして、ADB（TCPポート5555）経由でSheveryを起動してください。root権限は不要で、Wi-Fiはほんの一瞬だけ必要です。</string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp">起動時に、ワイヤレスデバッグを短時間有効にして、ADB経由でSheveryを起動してください。root権限は不要で、Wi-Fiが必要なのはほんの一瞬だけです。</string>
+    <string name="settings_start_on_boot_adb_granted">WRITE_SECURE_SETTINGS 権限が付与されました。</string>
+    <string name="settings_start_on_boot_adb_warning_no_tcp">TCPバインディング（ポート5555）は無効になっています：ワイヤレスデバッグは有効のままになります。</string>
+    <string name="settings_start_on_boot_adb_missing_permission_title">権限不足</string>
+    <string name="settings_start_on_boot_adb_not_running">Sheveryは実行されていません。まずサービスを起動してから、戻ってきてこの設定を有効にしてください。</string>
+    <string name="settings_start_on_boot_adb_grant_failed">自動での権限付与に失敗しました。コンピュータから次のコマンドを実行して、手動で権限を付与してください：</string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction">使用方法:\n1. デバイスをコンピュータに接続します（USB またはワイヤレスデバッグ）。\n2. ターミナルで、上の欄にあるコマンドを実行します。</string>
+    <string name="permission_group_label">シェベリー</string>
+    <string name="permission_group_description">@string/permission_label</string>
+    <string name="starting_root_shell">rootシェルを起動中…</string>
+    <string name="settings_application">アプリケーション</string>
+    <string name="settings_appearance">外観</string>
+    <string name="notification_startup_channel_name">シェベリー・スタートアップ</string>
+    <string name="notification_startup_title">シェベリーの開始</string>
+    <string name="notification_startup_enabling_wifi">Wi-Fi デバッグを有効にしています…</string>
+    <string name="notification_startup_connecting">ADBへの接続中…</string>
+    <string name="notification_startup_started">シェベリーが動き出した。</string>
+    <string name="notification_startup_failed">Sheveryの起動に失敗しました。</string>
+    <string name="notification_startup_no_port">15秒以内にワイヤレスデバッグポートが見つかりませんでした。</string>
+    <string name="notification_startup_no_permission">起動時に開始できません：必要な権限が与えられていません。まずSheveryを開き、権限を付与してください。</string>
+    <string name="notification_startup_waiting_unlock">デバイスのロック解除が開始されるのを待っています…</string>
+    <string name="notification_startup_cancel">キャンセル</string>
+    <string name="notification_startup_attempt_now">今すぐ試す</string>
+    <string name="wadb_notification_title">「Shevery」を始めます…</string>
+    <string name="wadb_notification_wifi_required">処理を続行する前に、Wi-Fi接続を待機しています</string>
+    <string name="wadb_notification_retry">再試行を待機中</string>
+    <string name="wadb_error_title">起動時の起動中にエラーが発生しました</string>
+    <string name="wadb_error_notify_dev">タップしてSheveryを再起動してください。</string>
+    <string name="wadb_permission_error_notification_title">権限エラー</string>
+    <string name="wadb_permission_error_notification_content">Sheveryが起動時に起動できませんでした。Sheveryを開いて問題を確認してください。</string>
+    <string name="wadb_notification_channel">ADB 自動起動サービス</string>
+    <string name="wadb_notification_attempt_now">今すぐ試す</string>
+    <string name="settings_update_group_title">更新</string>
+    <string name="shevery_update_check_summary">Shevery Managerの新しいバージョンがないか確認してください</string>
+    <string name="shevery_update_checking">Sheveryの更新を確認中…</string>
+    <string name="shevery_update_up_to_date">Sheveryは最新の状態です (%s)</string>
+    <string name="shevery_update_available_title">Sheveryの新しいアップデートが公開されました！</string>
+    <string name="shevery_update_available_msg">バージョン %1$s が利用可能です（現在：%2$s）</string>
+    <string name="shevery_update_download_apk">APKをダウンロード</string>
+    <string name="shevery_update_view_release">GitHubで閲覧する</string>
+    <string name="shevery_update_channel">更新チャネル</string>
+    <string name="shevery_update_channel_summary">アップデートリリースチャネルを選択してください</string>
+    <string name="app_update_channel_stable">安定</string>
+    <string name="app_update_channel_beta">プレリリースおよびベータ版</string>
+    <string name="shevery_update_group_title">Sheveryアプリのアップデート</string>
+    <string name="shevery_update_modules_group_title">モジュールの更新情報とカタログ</string>
+    <string name="shevery_update_check_failed">更新の確認に失敗しました: %s</string>
+    <string name="settings_sections_title">バックアップなど</string>
+    <string name="backup_section_title">バックアップ</string>
+    <string name="comput_hero_subtitle">Shizukuを搭載した、お使いのデバイス上で動作する高性能なシェルターミナル。</string>
+    <string name="comput_status_ready">準備完了</string>
+    <string name="comput_status_running">ランニング</string>
+    <string name="comput_status_error">エラー</string>
+    <string name="comput_console_section">コンソール</string>
+    <string name="comput_tab_terminal">ターミナル</string>
+    <string name="comput_tab_commandium">AI Studio</string>
+    <string name="comput_tab_macros">マクロ</string>
+    <string name="comput_tab_presets">プリセット</string>
+    <string name="comput_quick_chips">クイックアクション</string>
+    <string name="comput_terminal_header">SHELLの出力</string>
+    <string name="comput_presets_title">プリセットライブラリ</string>
+    <string name="comput_presets_subtitle">コマンドをタップすると、ターミナルプロンプトでそのコマンドをすばやく実行したり、自動補完したりできます。</string>
+    <string name="comput_output_label">出力</string>
+    <string name="comput_search_hint">検索結果</string>
+    <string name="comput_no_search_results">一致する出力が見つかりませんでした</string>
+    <string name="comput_clear_search_desc">検索をクリア</string>
+    <string name="comput_close_search_desc">検索を閉じる</string>
+    <string name="comput_history_desc">コマンド履歴</string>
+    <string name="comput_history_title">沿革</string>
+    <string name="comput_history_empty">まだコマンド履歴はありません</string>
+    <string name="comput_run_desc">コマンドを実行する</string>
+    <string name="comput_stop_desc">停止コマンド</string>
+    <string name="comput_scroll_bottom_desc">ページの一番下までスクロールしてください</string>
+    <string name="comput_cancelled">ユーザーがコマンドをキャンセルしました。</string>
+    <string name="accessibility_manager_title">アクセシビリティ・マネージャー</string>
+    <string name="accessibility_manager_lab_group">アクセシビリティ</string>
+    <string name="accessibility_manager_lab_title">アクセシビリティ・マネージャー</string>
+    <string name="accessibility_manager_keep_alive_group">接続を維持する</string>
+    <string name="accessibility_manager_keep_alive_title">ピン留めされたサービスを終了させない</string>
+    <string name="accessibility_manager_keep_alive_summary">システムまたはユーザーによって固定されたアクセシビリティサービスが無効化された場合、それらを再度有効にする</string>
+    <string name="accessibility_manager_auto_boot_title">起動時に開始する</string>
+    <string name="accessibility_manager_auto_boot_summary">デバイスの再起動後にキープアライブデーモンを自動的に起動する</string>
+    <string name="accessibility_manager_shizuku_required">Sheveryは実行されていません。アクセシビリティサービスを有効または無効にするには、これを起動してください。</string>
+    <string name="accessibility_manager_services_group">アクセシビリティサービス (%1$d)</string>
+    <string name="accessibility_manager_services_empty">インストールされているアクセシビリティサービスが見つかりませんでした。</string>
+    <string name="accessibility_manager_service_no_description">このサービスによる説明はありません。</string>
+    <string name="accessibility_manager_write_failed">アクセシビリティサービスの更新に失敗しました。Shevery が実行中であり、権限が与えられていることを確認してください。</string>
+    <string name="accessibility_manager_pin">サービスを停止しないようにする</string>
+    <string name="accessibility_manager_unpin">サービスの固定を解除</string>
+    <string name="accessibility_daemon_channel_name">アクセシビリティのキープアライブ</string>
+    <string name="accessibility_daemon_notification_title">アクセシビリティ・キープアライブが有効</string>
+    <string name="settings_compat_stub">レガシー・シズク（概要）</string>
+    <string name="settings_compat_stub_summary">スタブパッケージ（moe.shizuku.privileged.api）をインストールし、従来のShizukuマネージャーを厳密にチェックするアプリが引き続き動作するようにします。権限およびバインダーのリクエストはSheveryに転送されます。</string>
+    <string name="settings_compat_stub_installed">%1$s を通じてレガシースタブがインストールされました</string>
+    <string name="settings_compat_stub_uninstalled">レガシースタブを削除しました</string>
+    <string name="settings_compat_stub_failed">%2$s を使用してレガシースタブを %1$s できませんでした: %3$s</string>
+    <string name="settings_compat_stub_none">利用可能なチャンネルはありません（まずは「Shevery」から始めてください）</string>
 </resources>

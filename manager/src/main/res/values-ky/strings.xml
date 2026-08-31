@@ -1,6 +1,5 @@
 <resources>
     <string name="translation_contributors">AI</string>
-    <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">Жогору карай багыттоо</string>
     <string name="accessibility_close">Жабуу</string>
     <string name="accessibility_more_options">Кошумча параметрлер</string>
@@ -62,7 +61,6 @@
     <string name="home_root_button_start">Баштоо</string>
     <string name="home_root_button_restart">Кайра иштетүү</string>
     <string name="home_app_management_title">Колдонмолорду башкаруу</string>
-    <plurals name="home_app_management_authorized_apps_count"><item quantity="one"><![CDATA[%d колдонмого уруксат берилди]]></item><item quantity="other"><![CDATA[%d колдонмого уруксат берилди]]></item></plurals>
     <string name="home_app_management_view_authorized_apps"><![CDATA[Уруксат берилген колдонмолорду башкаруу үчүн басыңыз]]></string>
     <string name="home_app_management_empty">Shevery колдонууну суранган колдонмолор ушу жерде көрүнөт.</string>
     <string name="home_learn_more_title">Shevery жөнүндө кененирээк</string>
@@ -214,19 +212,14 @@
     <string name="notification_adb_pairing_succeed_text">Эми Shevery кызматын иштете аласыз.</string>
     <string name="notification_adb_pairing_failed_title">Жупташтыруу оңунан чыккан жок</string>
     <string name="notification_adb_pairing_retry">Кайра аракет кылуу</string>
-    <string name="permission_group_label" translatable="false">Shevery</string>
-    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Shevery колдонуу</string>
     <string name="permission_description">Тиркемеге Shevery кызматын колдонууга уруксат берүү.</string>
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b> тиркемесине %2$s уруксаты берилсинби?]]></string>
     <string name="grant_dialog_button_allow_always">Дайыма уруксат берүү</string>
     <string name="grant_dialog_button_deny">"Тартуу"</string>
     <string name="starter">Starter</string>
-    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">Root укугу берилбегендиктен кызматты иштетүү мүмкүн эмес.</string>
     <string name="dialog_cannot_open_browser_title">Brauzerди ачуу мүмкүн болгон жок</string>
-    <string name="toast_copied_to_clipboard">%s
-алмашуу буферине көчүрүлдү.</string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> алмашуу буферине көчүрүлдү.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s заманбап Shevery колдобойт</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Эски Shevery 2019-жылдан бери колдоого алынбайт.]]></string>
@@ -370,9 +363,6 @@
     <string name="comput_copy_output">Натыйжаны көчүрүү</string>
     <string name="comput_ask_gemini">Gemini\'ден суроо</string>
     <string name="comput_executing">Аткарылууда: %1$s ...</string>
-    <string name="comput_adb_translate">ADB которуу режими жигердүү
-Команда: %1$s
-Аткарылууда...</string>
     <string name="comput_command_no_output">Команда натыйжасыз аяктады.</string>
     <string name="comput_timed_out">[E] Команда 120 секунддан ашык убакыт алды.</string>
     <string name="comput_exit_code">[E] Команда код %1$d менен аяктады.</string>
@@ -446,4 +436,96 @@
     <string name="settings_tcp_5555_bind_success">ADB 5555 портуна ийгиликтүү туташтырылды</string>
     <string name="settings_tcp_5555_bind_failed">ADBди 5555 портуна туташтыруу мүмкүн болгон жок: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root, Dhizuku же жигердүү Shevery талап кылынат.</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
+    <string name="wadb_notification_channel">ADB-Autostartdienst</string>
+    <string name="comput_stop_desc">Stop-Befehl</string>
+    <string name="accessibility_manager_service_no_description">Keine Beschreibung vom Dienst bereitgestellt.</string>
+    <string name="home_adb_dialog_view_command_notice">Кээ бир башка жагдайлар бар, бирок биринчи кезекте жардам бөлүмүн окуп чыкканыңызды тастыктаңыз.</string>
+    <string name="app_management_loading">Тиркемелерди жүктөө…</string>
+    <string name="settings_start_on_boot_adb">Жүктөлүүдө зымсыз дебагдоо аркылуу баштоо</string>
+    <string name="settings_start_on_boot_adb_summary">Жүктөлгөндө убактылуу сымсыз дебагдоону күйгүзүп, ADB аркылуу Sheveryди (TCP порту 5555) ишке киргизиңиз. Root талап кылынбайт, Wi-Fi бир аз убакытка гана керек.</string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp">Жүктөлүүдө убактылуу сымсыз дебагдоону күйгүзүп, ADB аркылуу Sheveryди баштаңыз. Root талап кылынбайт, Wi-Fi бир азга гана керек.</string>
+    <string name="settings_start_on_boot_adb_granted">WRITE_SECURE_SETTINGS уруксат берилди.</string>
+    <string name="settings_start_on_boot_adb_warning_no_tcp">TCP байлоосу (порт 5555) өчүрүлгөн: зымсыз дебагдоо күйгүзүлгөн бойдон калат.</string>
+    <string name="settings_start_on_boot_adb_missing_permission_title">Уруксат жок</string>
+    <string name="settings_start_on_boot_adb_not_running">Shevery иштеп жаткан жок. Алгач кызматты иштетип, андан кийин кайра келип бул жөндөөнү күйгүзүңүз.</string>
+    <string name="settings_start_on_boot_adb_grant_failed">Автоматтык уруксат берүү ишке ашкан жок. Муну кол менен берүү үчүн бул буйрукту компьютерден иштетиңиз:</string>
+    <string name="settings_start_on_boot_adb_missing_permission_copy">Көчүрүү буйругу</string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction">Кандай колдонуу керек:\n1. Жабдыкты компьютерге туташтырыңыз (USB же зымсыз дебагдоо).\n2. Терминалда жогорудагы талаадан буйрукту иштетиңиз.</string>
+    <string name="notification_startup_channel_name">Шевери стартап</string>
+    <string name="notification_startup_title">Шеверинин башталышы</string>
+    <string name="notification_startup_enabling_wifi">Wi-Fi дебагдоону иштетүү…</string>
+    <string name="notification_startup_connecting">ADBге туташууда…</string>
+    <string name="notification_startup_started">Шевери баштады.</string>
+    <string name="notification_startup_failed">Sheveryди ишке киргизүү мүмкүн болгон жок.</string>
+    <string name="notification_startup_no_port">15 секунд ичинде зымсыз отладка порту табылган жок.</string>
+    <string name="notification_startup_no_permission">Күйгүзүүдө ишке киргизүү мүмкүн эмес: талап кылынган уруксат берилген жок. Sheveryди ачып, биринчи кезекте уруксат бериңиз.</string>
+    <string name="notification_startup_waiting_unlock">Жабдуунун ачылышын күтүү…</string>
+    <string name="notification_startup_cancel">Жокко чыгаруу</string>
+    <string name="notification_startup_attempt_now">Азыр аракет кылыңыз</string>
+    <string name="wadb_notification_title">Шевери башталат…</string>
+    <string name="wadb_notification_wifi_required">Улантуудан мурун Wi-Fi туташуусун күтүп жатат</string>
+    <string name="wadb_notification_retry">Кайра аракет кылууну күтүп жатат</string>
+    <string name="wadb_error_title">Жүктөө учурунда баштоодо ката</string>
+    <string name="wadb_error_notify_dev">Sheveryди кайра баштоо үчүн тийиңиз.</string>
+    <string name="wadb_permission_error_notification_title">Уруксат катасы</string>
+    <string name="wadb_permission_error_notification_content">Shevery жүктөлгөндө ишке кирбей жатат. Маселенин эмнеде экенин текшерүү үчүн Sheveryди ачыңыз.</string>
+    <string name="wadb_notification_attempt_now">Азыр аракет кылыңыз</string>
+    <string name="settings_update_group_title">Жаңыртуу</string>
+    <string name="shevery_update_check_title">Shevery жаңыртууларын текшериңиз</string>
+    <string name="shevery_update_check_summary">Shevery менеджеринин жаңы версияларын текшериңиз</string>
+    <string name="shevery_update_checking">Шеверинин жаңыртууларын текшерип жатам…</string>
+    <string name="shevery_update_up_to_date">Shevery жаңыртуулары өз убагында (%s)</string>
+    <string name="shevery_update_available_title">Жаңы Shevery жаңыртуусу жеткиликтүү!</string>
+    <string name="shevery_update_available_msg">%1$s версиясы жеткиликтүү (учурдагы: %2$s)</string>
+    <string name="shevery_update_download_apk">APKны жүктөө</string>
+    <string name="shevery_update_view_release">GitHubда көрүү</string>
+    <string name="shevery_update_channel">Каналды жаңыртуу</string>
+    <string name="shevery_update_channel_summary">Жаңыртуу чыгаруу каналын тандаңыз</string>
+    <string name="app_update_channel_stable">Туруктуу</string>
+    <string name="app_update_channel_beta">Алдын ала чыгарылыш жана бета</string>
+    <string name="shevery_update_group_title">Shevery тиркемесинин жаңыртуулары</string>
+    <string name="shevery_update_modules_group_title">Модуль жаңыртуулары жана каталог</string>
+    <string name="shevery_update_check_failed">Жаңыртууну текшерүү ишке ашкан жок: %s</string>
+    <string name="settings_sections_title">Копиялоо жана башка</string>
+    <string name="backup_section_title">Кошумча нускалар</string>
+    <string name="comput_output_label">Чыгаруу</string>
+    <string name="comput_search_desc">Издөө натыйжасы</string>
+    <string name="comput_search_hint">Издөө натыйжасы</string>
+    <string name="comput_no_search_results">Даана келген чыгаруу табылган жок</string>
+    <string name="comput_clear_search_desc">Издөөнү тазалоо</string>
+    <string name="comput_close_search_desc">Издөөнү жабуу</string>
+    <string name="comput_history_desc">Бул буйруктун тарыхы</string>
+    <string name="comput_history_title">Тарых</string>
+    <string name="comput_history_empty">Буйруктардын тарыхы азырынча жок</string>
+    <string name="comput_run_desc">Буйрукту аткаруу</string>
+    <string name="comput_scroll_bottom_desc">Төмөнгө жылдырыңыз</string>
+    <string name="comput_cancelled">Команда колдонуучу тарабынан жокко чыгарылды.</string>
+    <string name="accessibility_manager_title">Кол жеткиликтүүлүк менеджери</string>
+    <string name="accessibility_manager_lab_group">Кол жеткиликтүүлүк</string>
+    <string name="accessibility_manager_lab_title">Кол жеткиликтүүлүк менеджери</string>
+    <string name="accessibility_manager_lab_summary">Кол жеткиликтүүлүк кызматтарын башкаруу жана аларды иштеп турушун камсыз кылуу</string>
+    <string name="accessibility_manager_keep_alive_group">Жандуу карма</string>
+    <string name="accessibility_manager_keep_alive_title">Тиркелген кызматтарды иштеп турган абалда сактаңыз</string>
+    <string name="accessibility_manager_keep_alive_summary">Система же колдонуучу бекитилген жеткиликтүүлүк кызматтарын өчүргөндө, аларды кайра иштетүүгө уруксат берүү</string>
+    <string name="accessibility_manager_auto_boot_title">Жүктөлгөндө баштоо</string>
+    <string name="accessibility_manager_auto_boot_summary">Жабдуу кайра жүктөлгөндөн кийин keep-alive демонун автоматтык түрдө ишке киргизүү</string>
+    <string name="accessibility_manager_shizuku_required">Shevery иштеп жаткан жок. Кирүү мүмкүнчүлүгү кызматтарын күйгүзүү же өчүрүү үчүн аны ишке киргизиңиз.</string>
+    <string name="accessibility_manager_services_group">Кол жеткиликтүүлүк кызматтары (%1$d)</string>
+    <string name="accessibility_manager_services_empty">Орнотулган жеткиликтүүлүк кызматтары табылган жок.</string>
+    <string name="accessibility_manager_write_failed">Кол жеткиликтүүлүк кызматтарын жаңыртуу мүмкүн болгон жок. Shevery иштеп жатканын жана ага уруксат бар экенин текшериңиз.</string>
+    <string name="accessibility_manager_pin">Кызматты жандуу кармоо үчүн пин</string>
+    <string name="accessibility_manager_unpin">Бекитүүнү алуу кызматы</string>
+    <string name="accessibility_daemon_channel_name">Кол жеткиликтүүлүк keep-alive</string>
+    <string name="accessibility_daemon_notification_title">Кол жеткиликтүүлүк keep-alive активдүү</string>
+    <string name="accessibility_daemon_notification_text">Бекитилген жеткиликтүүлүк кызматтары өчүрүлгөн болсо, кайра калыбына келтирилет.</string>
+    <string name="settings_compat_stub">Легаси Шизуку черновик</string>
+    <string name="settings_compat_stub_summary">Эски Shizuku менеджерин катуу текшерген тиркемелердин иштеши улантылышы үчүн stub пакети (moe.shizuku.privileged.api) орнотулат. Уруксат жана binder сурамдары Sheveryге жөнөтүлөт.</string>
+    <string name="settings_compat_stub_installed">Мураска калтырылган stub %1$s аркылуу орнотулган</string>
+    <string name="settings_compat_stub_uninstalled">Мураска калган калдык жок кылынды</string>
+    <string name="settings_compat_stub_failed">%2$s аркылуу мураска калган stubди %1$s кылуу мүмкүн болбоду: %3$s</string>
+    <string name="settings_compat_stub_none">Канал жок (алгач Sheveryди баштаңыз)</string>
 </resources>

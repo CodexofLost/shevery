@@ -1,6 +1,5 @@
 <resources>
     <string name="translation_contributors">AI</string>
-    <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">返回上一级</string>
     <string name="accessibility_close">关闭</string>
     <string name="accessibility_more_options">更多选项</string>
@@ -62,9 +61,6 @@
     <string name="home_root_button_start">启动</string>
     <string name="home_root_button_restart">重新启动</string>
     <string name="home_app_management_title">应用管理</string>
-    <plurals name="home_app_management_authorized_apps_count">
-        <item quantity="other"><![CDATA[已授权 %d 个应用]]></item>
-    </plurals>
     <string name="home_app_management_view_authorized_apps"><![CDATA[点击管理已授权的应用]]></string>
     <string name="home_app_management_empty">请求或声明使用 Shevery 的应用将在此处显示。</string>
     <string name="home_learn_more_title">了解 Shevery</string>
@@ -227,15 +223,12 @@
     <string name="notification_adb_pairing_succeed_text">您现在可以启动 Shevery 服务。</string>
     <string name="notification_adb_pairing_failed_title">配对失败</string>
     <string name="notification_adb_pairing_retry">重试</string>
-    <string name="permission_group_label" translatable="false">Shevery</string>
-    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Shevery 访问权限</string>
     <string name="permission_description">允许应用使用 Shevery。</string>
     <string name="permission_warning_template"><![CDATA[允许 <b>%1$s</b> 获得 %2$s 权限？]]></string>
     <string name="grant_dialog_button_allow_always">总是允许</string>
     <string name="grant_dialog_button_deny">拒绝</string>
     <string name="starter">启动器</string>
-    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">无法启动服务，因为未授予 Root 权限或此设备未 Root。</string>
     <string name="dialog_cannot_open_browser_title">无法启动浏览器</string>
     <string name="toast_copied_to_clipboard">%s\n已复制到剪贴板。</string>
@@ -261,9 +254,6 @@
     <string name="settings_tcp_mode_summary">将 ADB 启动重新绑定到 TCP 5555 端口，使 Shevery 无需依赖不断变化的无线调试端口即可重新连接</string>
     <string name="settings_restart_dialog_title">需要重新启动</string>
     <string name="settings_restart_dialog_message">Shevery 需要重新启动以应用 TCP 模式设置。</string>
-    <string name="settings_restart_dialog_message_wifi_required"><![CDATA[
-
-首次重启时需要 Wi-Fi 连接，因为 Shevery 必须在将 ADB 切换到 5555 之前连接到当前的无线调试端口。]]></string>
     <string name="settings_auto_disable_usb_debugging">自动关闭 USB 调试</string>
     <string name="settings_auto_disable_usb_debugging_summary">重启后若 Shevery 未设置为开机自启，则自动关闭 USB 调试</string>
     <string name="settings_service_group">服务维护</string>
@@ -518,9 +508,9 @@
     <string name="settings_compat_stub_uninstalled">旧版存根已移除</string>
     <string name="settings_compat_stub_failed">通过 %2$s %1$s 旧版存根失败：%3$s</string>
     <string name="settings_compat_stub_none">无可用通道（请先启动 Shevery）</string>
-
     <string name="shevery_update_auto_check">在后台检查更新</string>
     <string name="shevery_update_auto_check_summary">即使应用关闭也会查找新版本</string>
     <string name="home_update_available_title">Shevery 有可用更新: %s</string>
     <string name="home_update_available_body">有新版本可用。点击下载。</string>
+    <string name="shevery_update_check_failed">Aktualisierungsprüfung fehlgeschlagen: %s</string>
 </resources>

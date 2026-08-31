@@ -11,8 +11,6 @@
     <string name="home_wireless_adb_title">Uruchom przez debugowanie bezprzewodowe</string>
     <string name="home_adb_dialog_view_command_button_send">Wyślij</string>
     <string name="home_adb_dialog_view_command_copy_button">Kopiuj</string>
-    <string name="dialog_wireless_adb_not_enabled">Debugowanie bezprzewodowe jest wyłączone.
-\nPrzed Android 11 żeby włączyć debugowanie bezprzewodowe musisz mieć polączenie z komputerem.</string>
     <string name="notification_service_starting">Usługa Shizuku się uruchamia…</string>
     <string name="action_stop">Zatrzymaj Shizuku</string>
     <string name="action_about">O aplikacji</string>
@@ -40,17 +38,12 @@
     <string name="translation_contributors">Gabriel Markowski, Piotr Pietrzak (YT:IeFHC233)</string>
     <string name="dialog_adb_discovery">Szukanie usługi bezprzewodowego debugowania</string>
     <string name="home_adb_button_view_help">Przeczytaj pomoc</string>
-    <string name="toast_copied_to_clipboard">%s
-\nzostał skopiowany do schowka.</string>
     <string name="notification_working">Działa…</string>
     <string name="notification_service_start_failed">Błąd przy starcie usługi Shizuku.</string>
     <string name="settings_startup">Rozruch</string>
     <string name="app_management_item_summary_requires_root">* wymaga by Shizuku działało z rootem</string>
     <string name="app_management_dialog_adb_is_limited_title">Uprawnienia adb są ograniczone</string>
     <string name="home_learn_more_title">Dowiedz się więcej o Shizuku</string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Proszę włączyć "Debugowanie bezprzewodowe" w "Ustawieniach developerskich". Debugowanie bezprzewodowe jest automatycznie wyłączane gdy przełączasz się między sieciami.
-\n
-\nNIE wyłączaj "Ustawień developerskich" lub " Debugowania USB" ponieważ jest wymagane do prawidłowego działania Shizuku.]]></string>
     <string name="permission_label">Dostęp Shizuku</string>
     <string name="grant_dialog_button_allow_always">Zawsze zezwalaj</string>
     <string name="grant_dialog_button_deny">Odmów</string>
@@ -59,9 +52,6 @@
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>*Jest jeszcze kilka innych kwestii. Potwierdź, że najpierw przeczytałeś pomoc.]]></string>
     <string name="adb_pairing_requires_multi_window_reason">System wymaga ciągle otwartego okna parowania, używanie trybu podzielonego ekranu jest jedyną opcją aby korzystać z aplikacji i okna parowania w jednej chwili.</string>
     <string name="terminal_export_files">Eksportuj pliki</string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Proszę rozpocznij parowanie podejmując następujące czynności: "Opcje dla programistów" - "Bezprzewodowe debugowanie" - "Sparuj urządzenie używając kodu parowania".
-\n
-\nPo rozpoczęciu procesu parowania będziesz w stanie wpisać kod parowania.]]></string>
     <string name="adb_pairing_requires_multi_window">Proszę, uruchom najpierw tryb podzielonego ekranu.</string>
     <string name="settings_user_interface">Wygląd</string>
     <string name="home_root_description_sui">Jeśli używasz Magisk, możesz spróbować %1$s. Dla użytkowników roota, zamieni to Shizuku. Uwaga, istniejące aplikację muszą się dostosować by używać %2$s.</string>
@@ -69,15 +59,6 @@
     <string name="home_terminal_description">Uruchamiaj komendy przez Shizuku w aplikacjach terminala jakie lubisz</string>
     <string name="home_learn_more_description">Dowiedz się, jak programować za pomocą Shizuku</string>
     <string name="terminal_tutorial_1">Po pierwsze, Wyeksportuj pliki gdzie chcesz. Znajdziesz tam dwa pliki, %1$s i %2$s.</string>
-    <plurals name="home_app_management_authorized_apps_count">
-        <item quantity="one">Autoryzowano aplikację %d</item>
-        <item quantity="few">Autoryzowano aplikacje: %d</item>
-        <item quantity="many">Aktualizowano aplikacje: %d</item>
-        <item quantity="other">Aktualizowano aplikacje: %d</item>
-    </plurals>
-    <string name="terminal_tutorial_1_description">Jeśli są tam pliki o takich samych nazwach, zostaną one usunięte.
-\n
-\nFunkcja eksportowania używa SAF (Storage Access Framework). Wiemy, że MIUI psuje funkcje SAF. Jeśli używasz MIUI, lepiej będzie, gdy wypakujesz pliki z pliku APK Shizuku, lub pobierzesz je z GitHuba.</string>
     <string name="terminal_tutorial_2">Wtedy, użyj edytora tekstu, by otworzyć i wyedytować %1$s.</string>
     <string name="terminal_tutorial_2_description">Na przykład, jeśli chcesz używać Shizuku w %1$s, musisz podmienić %2$s na %3$s (%4$s jest nazwą pakietu %1$s).</string>
     <string name="terminal_tutorial_3">Na koniec, przenieś pliki gdzieś, gdzie aplikacja terminala może się dostać, będziesz mógł użyć %1$s by uruchamiać komendy przez Shizuku.</string>
@@ -97,8 +78,6 @@
     <string name="settings_translation">Przyłącz się do tłumaczenia</string>
     <string name="settings_start_on_boot_summary">W urządzeniach zrootowanych, Shizuku może się uruchamiać automatycznie</string>
     <string name="about_view_source_code">Zobacz kod źródłowy na %s</string>
-    <string name="adb_error_key_store">Nie można wygenerować klucza debugowania bezprzewodowego.
-\nMoże to być spowodowane tym, że mechanizm KeyStore urządzenia jest zepsuty.</string>
     <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Jest duże prawdopodobieństwo, że producent urządzenia ogranicza możliwości ADB.<p>Może być rozwiązanie dla twojego systemu w <b> <a href="%1$s">tym dokumencie</a></b>.]]></string>
     <string name="rish_description"><![CDATA[Z %1$s, w każdej aplikacji terminala, będziesz mógł połączyć się i wykonywać interakcje z shellem działającym w Shizuku.<p>O szczegółowym użyciu %1$s, dotknij by pokazać dokument.]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Stare Shizuku utraciło wsparcie w marcu 2019 roku. Oraz stare Shizuku nie działa na nowszych wersjach Androida.<p>Poproś developera <b>%1$s</b> o aktualizację.]]></string>
@@ -123,11 +102,6 @@
     <string name="notification_adb_pairing_succeed_text">Możesz teraz wystartować usługę Shizuku.</string>
     <string name="notification_settings">Ustawienia powiadomień</string>
     <string name="adb_pairing_tutorial_content_notification_blocked">Proces parowania wymaga twojej interakcji z powiadomieniem od Shizuku. Zezwol Shizuku na wyświetlanie powiadomień.</string>
-    <string name="home_adb_is_limited_description">Producent Twojego urządzenia ograniczył uprawnienia adb, a aplikacje korzystające z Shizuku nie będą działać poprawnie.
-\n
-\nZwykle to ograniczenie można znieść, dostosowując niektóre opcje w „Opcjach programisty”. Przeczytaj pomoc, aby dowiedzieć się, jak to zrobić.
-\n
-\nMoże być konieczne ponowne uruchomienie Shizuku, aby operacja zaczęła obowiązywać.</string>
     <string name="home_adb_is_limited_title">Musisz zrobić dodatkowy krok</string>
     <string name="home_app_management_empty">Tutaj pojawią się aplikacje, które zażądały lub zadeklarowały Shizuku.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Niektóre systemy (takie jak MIUI) nie zezwalają aplikacjom na dostęp do sieci, gdy nie są one widoczne, nawet jeśli aplikacja standardowo korzysta z usługi pierwszego planu. Proszę wyłączyć funkcje optymalizacji baterii dla Shizuku w takich systemach.</string>
@@ -136,4 +110,9 @@
     <string name="adb_pairing_tutorial_content_miui_2">W przeciwnym razie wprowadzenie kodu parowania z powiadomienia może nie być możliwe.</string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Proszę spróbować wyłączyć i włączyć ponownie "Debugowanie bezprzewodowe" jeśli nadal szuka.]]></string>
     <string name="settings_use_system_color">Użyj systemowego motywu kolorystycznego</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="update_settings_frequency_label">Check frequency</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
 </resources>

@@ -20,11 +20,6 @@
     <string name="settings_start_on_boot_summary">Za naprave z rootom, se lahko Shizuku zažene avtomatsko na zagonu</string>
     <string name="settings_start_on_boot">Zaženi na zagonu (root)</string>
     <string name="settings_translation_summary">Pomagajte nam prevajati %s v vaš jezik</string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Prosimo, začnite z seznanitvijo po teh korakih: "Nastavitve za razvijalce" - "Seznanjanje naprave z seznantitveno kodo".
-\n
-\nKo se proces seznanjanja začne, boste lahko vnesli kodo za seznanitev.]]></string>
-    <string name="dialog_wireless_adb_not_enabled">Brezžično razhroščevanje ni omogočeno.
-\nPozor! Pred Androidom 11, je za omogočanje brezžičnega razhroščevanja potreben računalnik.</string>
     <string name="cannot_connect_port">Povezava z storitvijo za brezžično razhroščevanje se ne more vzpostaviti.</string>
     <string name="paring_code_is_wrong">Koda za seznanitev je napačna.</string>
     <string name="dialog_adb_pairing_paring_code">Koda za seznanitev</string>
@@ -34,9 +29,6 @@
     <string name="dialog_adb_invalid_port">Vrata so število v obsegu od 1 do 65535.</string>
     <string name="home_adb_description">Za naprave brez root-a, potrebujete adb, da zaženete Shizuku (potrebna je računalniška povezava). Ta proces je potrebno ponoviti vsakič, ko se naprava ponovno zažene. Prosimo <b><a href="%1$s">preberite pomoč</a></b>.</string>
     <string name="dialog_adb_port">Vrata</string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Prosimo omogočite "Brezžično razhroščevanje" v "Nastavitvah za razvijalce". "Brezžično razhroščevanje" je avtomatsko onemogočeno, ko se spremeni omrežje.
-\n
-\nPozor! Ne onemogočajte "Nastavitev za razvijalce" ali "USB razhroščevanja", drugače bo Shizuku ustavljen.]]></string>
     <string name="dialog_adb_discovery">Iskanje storitve za Brezžično razhroščevanje</string>
     <string name="home_wireless_adb_view_guide_button">Vodnik po korakih</string>
     <string name="home_wireless_adb_description_pre_11">Pred Androidom 11, je povezava z računalnikom potrebna, da omogočite Brezžično razhroščevanje.</string>
@@ -52,4 +44,9 @@
     <string name="home_status_service_version">Verzija %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s ne teče</string>
     <string name="home_status_service_is_running">%1$s teče</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="update_settings_frequency_label">Check frequency</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
 </resources>

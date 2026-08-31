@@ -1,6 +1,5 @@
 <resources>
     <string name="translation_contributors">AI</string>
-    <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">Yuqoriga harakatlanish</string>
     <string name="accessibility_close">Yopish</string>
     <string name="accessibility_more_options">Qo\'shimcha opsiyalar</string>
@@ -27,9 +26,6 @@
     <string name="home_local_network_grant">Ruxsat berish</string>
     <string name="home_local_network_permission_denied">Simsiz nosozliklarni bartaraf etish uchun mahalliy tarmoq ruxsati talab qilinadi.</string>
     <string name="dialog_adb_discovery">Simsiz nosozliklarni bartaraf etish xizmati izlanmoqda</string>
-    <string name="dialog_adb_discovery_message">Iltimos, "Dasturchi opsiyalari" bo\'limida "Simsiz nosozliklarni bartaraf etish" funksiyasini yoqing. Tarmoq o\'zgarganda bu funksiya avtomatik ravishda o\'chadi.
-
-Eslatma: "Dasturchi opsiyalari" yoki "USB nosozliklarni bartaraf etish"ni o\'chirmang, aks holda Shevery to\'xtaydi.</string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging">Qidiruv davom etaveradi bo\'lsa, "Simsiz nosozliklarni bartaraf etish"ni o\'chirib qayta yoqing.</string>
     <string name="dialog_adb_port">Port</string>
     <string name="dialog_adb_invalid_port">Port 1 dan 65535 gacha bo\'lgan butun son bo\'lishi kerak.</string>
@@ -40,9 +36,6 @@ Eslatma: "Dasturchi opsiyalari" yoki "USB nosozliklarni bartaraf etish"ni o\'chi
     <string name="paring_code_is_wrong">Juftlash kodi noto\'g\'ri.</string>
     <string name="cannot_connect_port">Simsiz nosozliklarni bartaraf etish xizmatiga ulanib bo\'lmadi.</string>
     <string name="dialog_wireless_adb_not_enabled">Simsiz nosozliklarni bartaraf etish yoqilmagan.</string>
-    <string name="dialog_adb_pairing_message">Iltimos, juftlashni quyidagi tartibda boshlang: "Dasturchi opsiyalari" - "Simsiz nosozliklarni bartaraf etish" - "Juftlash kodi yordamida juftlash".
-
-Juftlash boshlangach, kodni kiritishingiz mumkin bo\'ladi.</string>
     <string name="adb_pairing_requires_multi_window">Avval ko\'p oynali (bo\'lingan ekran) rejimiga o\'ting.</string>
     <string name="adb_pairing_requires_multi_window_reason">Tizim juftlash muloqot oynasining har doim ko\'rinib turishini talab qiladi.</string>
     <string name="adb_error_key_store">Simsiz nosozliklarni bartaraf etish uchun kalit yaratib bo\'lmadi.</string>
@@ -66,7 +59,6 @@ Juftlash boshlangach, kodni kiritishingiz mumkin bo\'ladi.</string>
     <string name="home_root_button_start">Boshlash</string>
     <string name="home_root_button_restart">Qayta ishga tushirish</string>
     <string name="home_app_management_title">Ilovalarni boshqarish</string>
-    <plurals name="home_app_management_authorized_apps_count"><item quantity="one"><![CDATA[%d ta ilovaga ruxsat berilgan]]></item><item quantity="other"><![CDATA[%d ta ilovaga ruxsat berilgan]]></item></plurals>
     <string name="home_app_management_view_authorized_apps"><![CDATA[Ruxsat berilgan ilovalarni boshqarish uchun bosing]]></string>
     <string name="home_app_management_empty">Shevery dan foydalanishni so\'ragan ilovalar shu yerda ko\'rinadi.</string>
     <string name="home_learn_more_title">Shevery haqida ko\'proq ma\'lumot</string>
@@ -218,19 +210,14 @@ Juftlash boshlangach, kodni kiritishingiz mumkin bo\'ladi.</string>
     <string name="notification_adb_pairing_succeed_text">Endi Shevery xizmatini ishga tushirishingiz mumkin.</string>
     <string name="notification_adb_pairing_failed_title">Juftlash muvaffaqiyatsiz yakunlandi</string>
     <string name="notification_adb_pairing_retry">Qayta urinish</string>
-    <string name="permission_group_label" translatable="false">Shevery</string>
-    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Shevery dan foydalanish</string>
     <string name="permission_description">Ilovaga Shevery xizmatidan foydalanishga ruxsat berish.</string>
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b> ilovasiga %2$s ruxsati berilsinmi?]]></string>
     <string name="grant_dialog_button_allow_always">Har doim ruxsat berish</string>
     <string name="grant_dialog_button_deny">"Rad etish"</string>
     <string name="starter">Starter</string>
-    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">Root ruxsati berilmaganligi sababli xizmatni ishga tushirib bo\'lmadi.</string>
     <string name="dialog_cannot_open_browser_title">Brauzerni ochib bo\'lmadi</string>
-    <string name="toast_copied_to_clipboard">%s
-buferga nusxalandi.</string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> buferga nusxalandi.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s zamonaviy Shevery ni qo\'llab-quvvatlamaydi</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Eski Shevery versiyasi 2019-yildan beri qo\'llab-quvvatlanmaydi.]]></string>
@@ -374,9 +361,6 @@ buferga nusxalandi.</string>
     <string name="comput_copy_output">Natijani nusxalash</string>
     <string name="comput_ask_gemini">Gemini dan so\'rash</string>
     <string name="comput_executing">Bajarilmoqda: %1$s ...</string>
-    <string name="comput_adb_translate">ADB tarjima rejimi faol
-Buyruq: %1$s
-Bajarilmoqda...</string>
     <string name="comput_command_no_output">Buyruq natijasiz yakunlandi.</string>
     <string name="comput_timed_out">[E] Buyruq vaqti 120 soniyadan o\'tdi.</string>
     <string name="comput_exit_code">[E] Buyruq kod %1$d bilan yakunlandi.</string>
@@ -450,4 +434,12 @@ Bajarilmoqda...</string>
     <string name="settings_tcp_5555_bind_success">ADB 5555 portiga muvaffaqiyatli biriktirildi</string>
     <string name="settings_tcp_5555_bind_failed">ADB ni 5555 portiga biriktirib bo\'lmadi: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root, Dhizuku yoki faol Shevery talab qilinadi.</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
+    <string name="wadb_permission_error_notification_title">Permission Error 15. wadb_permission_error_notification_content: Shevery konnte nicht auf dem Startbildschirm gestartet werden. Öffnen Sie Shevery, um das Problem zu überprüfen.</string>
+    <string name="wadb_notification_channel">ADB-Autostartdienst</string>
+    <string name="comput_stop_desc">Stop-Befehl</string>
+    <string name="accessibility_manager_service_no_description">Keine Beschreibung vom Dienst bereitgestellt.</string>
 </resources>

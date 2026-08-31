@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="translation_contributors">NoelFeijooIglesias &amp; Community</string>
-
-    <!-- Accessibility -->
     <string name="accessibility_navigate_up">Navegar hacia arriba</string>
     <string name="accessibility_close">Cerrar</string>
     <string name="accessibility_more_options">Más opciones</string>
     <string name="accessibility_open_on_github">Abrir en GitHub</string>
-
-    <!-- Home - Status -->
     <string name="home_status_service_is_running">%1$s se está ejecutando</string>
     <string name="home_status_service_not_running">%1$s no se está ejecutando</string>
     <string name="home_status_service_version">Versión %2$s, %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[Versión %2$s, %1$s<br>Reinicie para actualizar a la versión %3$s]]></string>
-
-    <!-- Home - Adb -->
     <string name="home_adb_title"><![CDATA[Iniciar conectando a un ordenador]]></string>
     <string name="home_adb_description"><![CDATA[En dispositivos sin root, necesita ADB para iniciar Shevery (requiere conexión a un ordenador). Este proceso debe repetirse tras reiniciar el dispositivo. Por favor <b><a href="%1$s">lea la ayuda</a></b>.]]></string>
     <string name="home_adb_button_view_help">Leer ayuda</string>
@@ -22,8 +16,6 @@
     <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Existen otras consideraciones, por favor confirme que ha leído la ayuda primero.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Copiar</string>
     <string name="home_adb_dialog_view_command_button_send">Enviar</string>
-
-    <!-- Home - Wireless Adb -->
     <string name="home_wireless_adb_title"><![CDATA[Iniciar mediante depuración inalámbrica]]></string>
     <string name="home_wireless_adb_description"><![CDATA[En Android 11 o superior, puede activar la depuración inalámbrica e iniciar Shevery directamente desde su dispositivo sin necesidad de un ordenador.<p>Por favor revise la guía paso a paso.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[En versiones anteriores a Android 11, se requiere conexión a un ordenador para activar la depuración inalámbrica.]]></string>
@@ -34,8 +26,6 @@
     <string name="home_local_network_missing">%1$s no está concedido.</string>
     <string name="home_local_network_grant">Conceder acceso</string>
     <string name="home_local_network_permission_denied">Se requiere acceso a la red local para la depuración inalámbrica.</string>
-
-    <!-- Adb -->
     <string name="dialog_adb_discovery">Buscando servicio de depuración inalámbrica</string>
     <string name="dialog_adb_discovery_message"><![CDATA[Por favor active "Depuración inalámbrica" en "Opciones de desarrollador". La depuración inalámbrica se desactiva automáticamente al cambiar de red.\n\nNota: no desactive "Opciones de desarrollador" ni "Depuración por USB", o Shevery se detendrá.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Por favor intente desactivar y volver a activar "Depuración inalámbrica" si la búsqueda continúa.]]></string>
@@ -66,46 +56,28 @@
     <string name="adb_pairing_tutorial_content_finish">Vuelva a Shevery e inicie el servicio.</string>
     <string name="adb_pairing_tutorial_content_network">Shevery necesita acceder a la red local. Esto se controla mediante el permiso de red.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Algunos sistemas (como MIUI) restringen el acceso a red cuando las apps no están visibles, aunque usen servicios en primer plano. Desactive las optimizaciones de batería para Shevery.</string>
-
-    <!-- Home - Root -->
     <string name="home_root_title"><![CDATA[Iniciar (para dispositivos con root)]]></string>
     <string name="home_root_description"><![CDATA[Además, Shevery puede iniciarse automáticamente al encender el dispositivo. Si no es así, compruebe si el sistema o herramientas de terceros han restringido Shevery.<br>Puede consultar %s.]]></string>
     <string name="home_root_description_sui"><![CDATA[Si usa Magisk, puede probar %1$s. Para usuarios root, eventualmente reemplazará a Shevery. Note que las apps existentes deben adaptarse para usar %2$s.]]></string>
     <string name="home_root_button_start">Iniciar</string>
     <string name="home_root_button_restart">Reiniciar</string>
-
-    <!-- Home - Application management -->
     <string name="home_app_management_title">Gestión de aplicaciones</string>
-    <plurals name="home_app_management_authorized_apps_count">
-        <item quantity="one"><![CDATA[%d aplicación autorizada]]></item>
-        <item quantity="other"><![CDATA[%d aplicaciones autorizadas]]></item>
-    </plurals>
     <string name="home_app_management_view_authorized_apps"><![CDATA[Toque para gestionar aplicaciones autorizadas]]></string>
     <string name="home_app_management_empty">Las aplicaciones que soliciten o declaren Shevery aparecerán aquí.</string>
-
-    <!-- Home - Learn more -->
     <string name="home_learn_more_title">Aprender sobre Shevery</string>
     <string name="home_learn_more_description">Aprenda a desarrollar con Shevery</string>
-
-    <!-- Home - Diagnostics -->
     <string name="home_refresh">Actualizar</string>
     <string name="home_diagnostics_title">Diagnóstico</string>
     <string name="home_diagnostics_copy">Copiar diagnóstico</string>
     <string name="home_diagnostics_copied">Diagnóstico copiado al portapapeles.</string>
     <string name="home_modules_description">Instalar y gestionar módulos ADB</string>
-
-    <!-- Home - Adb permissions limited -->
     <string name="home_adb_is_limited_title">Paso adicional requerido</string>
     <string name="home_adb_is_limited_description"><![CDATA[El fabricante de su dispositivo ha restringido los permisos de ADB y las apps que usan Shevery no funcionarán correctamente.\n\nPor lo general, esta limitación se corrige ajustando opciones en "Opciones de desarrollador". Consulte la ayuda para más detalles.\n\nEs posible que deba reiniciar Shevery.]]></string>
-
-    <!-- Application management -->
     <string name="app_management_select_all">Seleccionar todo</string>
     <string name="app_management_deselect_all">Deseleccionar todo</string>
     <string name="app_management_dialog_adb_is_limited_title">El permiso de ADB está limitado</string>
     <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Es muy probable que el fabricante de su dispositivo limite los permisos de ADB.<p>Puede encontrar una solución en <b><a href="%1$s">este documento</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root">* requiere que Shevery se ejecute con root</string>
-
-    <!-- Terminal -->
     <string name="home_terminal_title">Usar Shevery en aplicaciones de terminal</string>
     <string name="home_terminal_description">Ejecute comandos con Shevery en sus aplicaciones de terminal favoritas</string>
     <string name="terminal_tutorial_1">Primero, exporte los archivos a cualquier ubicación. Encontrará dos archivos: %1$s y %2$s.</string>
@@ -116,8 +88,6 @@
     <string name="terminal_tutorial_3">Por último, mueva los archivos a un directorio accesible por su aplicación de terminal para ejecutar comandos con %1$s.</string>
     <string name="terminal_tutorial_3_description">Consejo: otorgue permisos de ejecución a %1$s y añádalo a %2$s para usar %1$s directamente.</string>
     <string name="rish_description"><![CDATA[Con %1$s, en cualquier app de terminal, puede conectarse e interactuar con la consola abierta por Shevery.<p>Para uso detallado sobre %1$s, toque para ver la documentación.]]></string>
-
-    <!-- Settings -->
     <string name="settings_title">Ajustes</string>
     <string name="settings_language">Idioma</string>
     <string name="settings_user_interface">Apariencia</string>
@@ -130,8 +100,6 @@
     <string name="settings_start_on_boot">Iniciar al arrancar</string>
     <string name="settings_start_on_boot_summary">Shevery se iniciará automáticamente al encender el dispositivo tras ejecutarse con éxito.</string>
     <string name="settings_use_system_color">Usar colores del sistema</string>
-
-    <!-- ADB modules -->
     <string name="modules_title">Módulos ADB</string>
     <string name="modules_settings_title">Módulos</string>
     <string name="modules_settings_summary">Instale módulos ZIP y ejecute sus acciones mediante el servidor ADB/root de Shevery</string>
@@ -217,21 +185,15 @@
     <string name="modules_downloading">Descargando…</string>
     <string name="modules_download_enqueued">Descarga iniciada en segundo plano</string>
     <string name="modules_search_placeholder">Buscar módulos en el catálogo…</string>
-
-    <!-- About -->
     <string name="action_about">Acerca de</string>
     <string name="about_source_code_button">Código fuente</string>
     <string name="about_view_source_code"><![CDATA[Ver código fuente en %s]]></string>
-
-    <!-- Stop -->
     <string name="action_stop">Detener Shevery</string>
     <string name="dialog_stop_message">El servicio de Shevery se detendrá.</string>
     <string name="service_already_stopped">El servicio de Shevery ya está detenido.</string>
     <string name="service_stop_success">Servicio de Shevery detenido.</string>
     <string name="service_stop_still_running">El servicio continúa ejecutándose</string>
     <string name="service_stop_failed">Error al detener Shevery: %1$s</string>
-
-    <!-- Notification -->
     <string name="notification_channel_service_status">Estado de inicio del servicio</string>
     <string name="notification_service_starting">Iniciando servicio Shevery…</string>
     <string name="notification_service_start_failed">Error al iniciar servicio Shevery.</string>
@@ -247,31 +209,21 @@
     <string name="notification_adb_pairing_succeed_text">Ya puede iniciar el servicio Shevery.</string>
     <string name="notification_adb_pairing_failed_title">Fallo de emparejamiento</string>
     <string name="notification_adb_pairing_retry">Reintentar</string>
-
-    <!-- Permission related -->
     <string name="permission_label">acceso a Shevery</string>
     <string name="permission_description">Permitir a la aplicación usar Shevery.</string>
     <string name="permission_warning_template"><![CDATA[¿Permitir a <b>%1$s</b> acceder a %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Permitir siempre</string>
     <string name="grant_dialog_button_deny">Denegar</string>
-
-    <!-- Starter -->
     <string name="starter">Arrancador</string>
     <string name="start_with_root_failed">No se puede iniciar el servicio porque no se otorgó permiso de root o el dispositivo no está rooteado.</string>
-
-    <!-- Misc -->
     <string name="dialog_cannot_open_browser_title">No se puede abrir el navegador</string>
     <string name="toast_copied_to_clipboard">%s\nse ha copiado al portapapeles.</string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> se ha copiado al portapapeles.]]></string>
-
-    <!-- Messages for legacy -->
     <string name="dialog_legacy_not_support_title">%1$s no es compatible con Shevery moderno</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Shevery Legacy quedó en desuso en marzo de 2019 y no funciona en sistemas Android recientes.<p>Por favor pida al desarrollador de <b>%1$s</b> que actualice su app.]]></string>
     <string name="dialog_requesting_legacy_title">%1$s solicita Shevery Legacy</string>
     <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> es compatible con Shevery moderno, pero está solicitando Shevery Legacy. Esto puede suceder si Shevery no se está ejecutando.<p>Shevery Legacy quedó en desuso en marzo de 2019.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku">Abrir Shevery</string>
-
-    <!-- Lab Features -->
     <string name="lab_features_title">Funciones de laboratorio</string>
     <string name="lab_features_summary">Características experimentales</string>
     <string name="shizuku_connectors_title">Conectores Shevery</string>
@@ -288,14 +240,9 @@
     <string name="settings_tcp_mode_summary">Reiniciar servidor ADB en puerto TCP 5555 para reconectar sin depender de cambios de puerto en depuración inalámbrica.</string>
     <string name="settings_restart_dialog_title">Reinicie requerido</string>
     <string name="settings_restart_dialog_message">Shevery necesita reiniciarse para aplicar el modo TCP.</string>
-    <string name="settings_restart_dialog_message_wifi_required"><![CDATA[
-
-Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al puerto de depuración inalámbrica actual antes de cambiar ADB a 5555.]]></string>
     <string name="settings_auto_disable_usb_debugging">Desactivar depuración USB automáticamente</string>
     <string name="settings_auto_disable_usb_debugging_summary">Desactivar la depuración por USB tras reiniciar si Shevery no está configurado para iniciar al arrancar</string>
     <string name="settings_service_group">Mantenimiento del servicio</string>
-
-    <!-- Lab Features - Service Behavior -->
     <string name="lab_service_behavior_title">Comportamiento del servicio</string>
     <string name="lab_keep_alive_title">Mantener servicio activo</string>
     <string name="lab_keep_alive_summary">Comprobar periódicamente la ejecución del servicio Shevery y reiniciarlo si es necesario</string>
@@ -303,8 +250,6 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="lab_auto_restart_summary">Intentar reiniciar automáticamente el servicio Shevery en caso de cierre inesperado</string>
     <string name="lab_notify_death_title">Notificar si el servicio se detiene</string>
     <string name="lab_notify_death_summary">Mostrar una notificación si el servicio Shevery se detiene inesperadamente</string>
-
-    <!-- Lab Features - Debugging -->
     <string name="lab_debugging_title">Depuración</string>
     <string name="lab_verbose_logging_title">Registro detallado</string>
     <string name="lab_verbose_logging_summary">Escribir registros detallados en Logcat. Desactívelo en producción para ahorrar batería</string>
@@ -313,8 +258,6 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="notification_watchdog_text">El servicio de Shevery se ha detenido inesperadamente.</string>
     <string name="watchdog_service_title">Monitor Shevery activo</string>
     <string name="watchdog_service_text">Monitoreando el servicio Shevery para recuperación activa</string>
-
-    <!-- Shevery Control Notification -->
     <string name="notification_control_channel_name">Control de Shevery</string>
     <string name="notification_control_title_running">Shevery está en ejecución</string>
     <string name="notification_control_title_stopped">Shevery está detenido</string>
@@ -322,8 +265,6 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="notification_control_text_stopped">Toque para abrir Shevery o despliegue para iniciarlo.</string>
     <string name="notification_control_action_start">Iniciar</string>
     <string name="notification_control_action_stop">Detener</string>
-
-    <!-- Update Settings -->
     <string name="update_settings_title">Ajustes de actualización</string>
     <string name="update_settings_catalog">Catálogo de módulos</string>
     <string name="update_settings_catalog_enabled">Activar catálogo</string>
@@ -349,8 +290,6 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="update_settings_github_pat_clear">Limpiar</string>
     <string name="update_settings_github_pat_delete">Eliminar token</string>
     <string name="update_settings_github_pat_delete_summary">Eliminar el token de GitHub guardado</string>
-
-    <!-- Module Catalog -->
     <string name="modules_catalog">Catálogo</string>
     <string name="modules_catalog_title">Catálogo de módulos</string>
     <string name="modules_catalog_empty">No se encontraron módulos</string>
@@ -374,27 +313,19 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="modules_catalog_view_github">Ver en GitHub</string>
     <string name="modules_catalog_skip_token">Omitir</string>
     <string name="modules_catalog_open">Abrir catálogo</string>
-
-    <!-- TV Status -->
     <string name="tv_status_active">ACTIVO</string>
     <string name="tv_status_disabled">DESACTIVADO</string>
     <string name="tv_status_trusted">CONFIABLE</string>
-
-    <!-- Wear Catalog -->
     <string name="wear_catalog_sort_newest">Más recientes</string>
     <string name="wear_catalog_sort_stars">Estrellas</string>
     <string name="wear_catalog_sort_official">Oficiales</string>
     <string name="wear_catalog_sort_by">Ordenar por</string>
     <string name="wear_catalog_filter">Filtrar</string>
-
-    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title">Copia de seguridad y restauración</string>
     <string name="backup_title">Respaldar ajustes y módulos</string>
     <string name="backup_summary">Exportar configuración y módulos a un archivo ZIP</string>
     <string name="restore_title">Restaurar ajustes y módulos</string>
     <string name="restore_summary">Importar configuración y módulos desde un archivo ZIP</string>
-
-    <!-- Comput Console -->
     <string name="comput_title">Comput</string>
     <string name="comput_settings">Ajustes de consola Comput</string>
     <string name="comput_adb_console">Consola Comput ADB</string>
@@ -479,8 +410,6 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="diagnostics_full">completo</string>
     <string name="diagnostics_limited">limitado</string>
     <string name="diagnostics_unknown">desconocido</string>
-
-    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">ErrorProtect</string>
     <string name="error_protect_summary">Supervisa la salud del proceso y errores cada 10 segundos. Detiene y reinicia Shevery si detecta problemas.</string>
     <string name="settings_tcp_5555_title">Vincular TCP 5555</string>
@@ -489,9 +418,120 @@ Se requiere conexión Wi-Fi en el primer reinicio para que Shevery se conecte al
     <string name="settings_tcp_5555_bind_success">Servidor ADB vinculado con éxito al puerto TCP 5555</string>
     <string name="settings_tcp_5555_bind_failed">Fallo al vincular ADB al puerto 5555: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Se requiere Root, Dhizuku o un servicio Shevery activo.</string>
-
     <string name="shevery_update_auto_check"></string>
     <string name="shevery_update_auto_check_summary"></string>
     <string name="home_update_available_title"></string>
     <string name="home_update_available_body"></string>
+    <string name="app_name">Shevery 2. home_adb_dialog_view_command_notice: Es gibt noch einige weitere Überlegungen, bitte bestätige, dass du die Hilfe gelesen hast. 3. home_quick_terminal: Terminal 4. home_quick_wireless: Wireless ADB 5. home_quick_tcp: TCP 5555 6. home_manage_apps_button: Apps verwalten 7. app_management_loading: Apps laden… 8. settings_start_on_boot_adb: Starten bei Boot über Wireless Debugging 9. settings_start_on_boot_adb_summary: Beim Booten wird kurz die Wireless Debugging aktiviert und Shevery über ADB gestartet (TCP-Port 5555). Kein Root erforderlich, Wi-Fi ist nur für einen Moment erforderlich. 10. settings_start_on_boot_adb_summary_no_tcp: Beim Booten wird kurz die Wireless Debugging aktiviert und Shevery über ADB gestartet. Kein Root erforderlich, Wi-Fi ist nur für einen Moment erforderlich. 11. settings_start_on_boot_adb_granted: WRITE_SECURE_SETTINGS erteilt. 12. settings_start_on_boot_adb_warning_no_tcp: TCP-Bindung (Port 5555) ist deaktiviert: die Wireless Debugging bleibt aktiv. 13. settings_start_on_boot_adb_missing_permission_title: Fehlende Berechtigung 14. settings_start_on_boot_adb_not_running: Shevery wird nicht ausgeführt. Starten Sie den Dienst zuerst, dann kommen Sie zurück und aktivieren Sie diese Einstellung. 15. settings_start_on_boot_adb_grant_failed: Die automatische Berechtigungserteilung ist fehlgeschlagen. Führen Sie diesen Befehl von einem Computer aus, um sie manuell zu erteilen:</string>
+    <string name="shevery_update_check_title">Kontrollieren Sie, ob es neue Versionen des Shevery-Managers gibt</string>
+    <string name="comput_hero_title">Shevery Console 2. comput_hero_subtitle: Leistungsstarker Shell-Terminal auf Ihrem Gerät, powered by Shizuku. 3. comput_status_ready: Bereit 4. comput_status_running: Läuft 5. comput_status_error: Fehler 6. comput_console_section: Konsole 7. comput_tab_terminal: Terminal 8. comput_tab_commandium: AI-Studio 9. comput_tab_macros: Makros 10. comput_tab_presets: Vorlagen 11. comput_quick_chips: Schnellaktionen 12. comput_terminal_header: SHELL-AUSGABE 13. comput_presets_title: Vorlagenbibliothek 14. comput_presets_subtitle: Tippen Sie auf eine beliebige Befehle, um sie schnell auszuführen oder in die Terminalprompt automatisch einzufügen. 15. comput_output_label: Ausgabe</string>
+    <string name="comput_search_desc">Suchergebnisse</string>
+    <string name="accessibility_manager_lab_summary">Verwalten und aufrechterhalten von Accessibility-Diensten</string>
+    <string name="accessibility_daemon_notification_text">Eingebundene Accessibility-Dienste werden wiederhergestellt, wenn sie deaktiviert werden. 2. settings_compat_stub: Legacy-Shizuku-Stub 3. settings_compat_stub_summary: Installiert einen Stub-Paket (moe.shizuku.privileged.api), damit Anwendungen, die nach dem Legacy-Shizuku-Manager suchen, weiterhin funktionieren. Berechtigungs- und Binder-Anfragen werden an Shevery weitergeleitet. 4. settings_compat_stub_installed: Legacy-Stub wurde über %1$s installiert. 5. settings_compat_stub_uninstalled: Legacy-Stub wurde entfernt. 6. settings_compat_stub_failed: Das Legacy-Stub konnte nicht über %2$s %1$s: %3$s</string>
+    <string name="home_adb_dialog_view_command_notice">Hay algunas otras cuestiones que debes tener en cuenta; por favor, confirma que has leído primero la ayuda.</string>
+    <string name="home_quick_terminal">Terminal</string>
+    <string name="home_quick_wireless">ADB inalámbrico</string>
+    <string name="home_quick_tcp">TCP 5555</string>
+    <string name="home_manage_apps_button">Gestionar aplicaciones</string>
+    <string name="app_management_loading">Cargando aplicaciones…</string>
+    <string name="settings_start_on_boot_adb">Iniciar al arrancar el sistema mediante depuración inalámbrica</string>
+    <string name="settings_start_on_boot_adb_summary">Al arrancar, activa temporalmente la depuración inalámbrica e inicia Shevery a través de ADB (puerto TCP 5555). No se necesita acceso de root; solo se requiere conexión Wi-Fi durante unos instantes.</string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp">Al arrancar, activa brevemente la depuración inalámbrica e inicia Shevery a través de ADB. No se necesita acceso root; solo se requiere conexión Wi-Fi durante unos instantes.</string>
+    <string name="settings_start_on_boot_adb_granted">Se ha concedido el permiso WRITE_SECURE_SETTINGS.</string>
+    <string name="settings_start_on_boot_adb_warning_no_tcp">La asignación de TCP (puerto 5555) está desactivada: la depuración inalámbrica seguirá activada.</string>
+    <string name="settings_start_on_boot_adb_missing_permission_title">Falta un permiso</string>
+    <string name="settings_start_on_boot_adb_not_running">Shevery no se está ejecutando. Inicia primero el servicio y, a continuación, vuelve aquí y activa esta configuración.</string>
+    <string name="settings_start_on_boot_adb_grant_failed">Se ha producido un error al conceder el permiso automáticamente. Ejecuta este comando desde un ordenador para concederlo manualmente:</string>
+    <string name="settings_start_on_boot_adb_missing_permission_copy">Comando «Copiar»</string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction">Instrucciones de uso:\n1. Conecta el dispositivo a un ordenador (a través de USB o depuración inalámbrica).\n2. En la terminal, ejecuta el comando que aparece en el campo de arriba.</string>
+    <string name="permission_group_label">Shevery</string>
+    <string name="permission_group_description">@string/etiqueta_de_permiso</string>
+    <string name="starting_root_shell">Iniciando el shell de root…</string>
+    <string name="settings_application">Aplicación</string>
+    <string name="settings_appearance">Aspecto</string>
+    <string name="notification_startup_channel_name">Startup de Shevery</string>
+    <string name="notification_startup_title">Shevery, el comienzo</string>
+    <string name="notification_startup_enabling_wifi">Activando la depuración por Wi-Fi…</string>
+    <string name="notification_startup_connecting">Conectando con ADB…</string>
+    <string name="notification_startup_started">Shevery se puso en marcha.</string>
+    <string name="notification_startup_failed">No se ha podido iniciar Shevery.</string>
+    <string name="notification_startup_no_port">No se ha encontrado el puerto de depuración inalámbrico en un plazo de 15 segundos.</string>
+    <string name="notification_startup_no_permission">No se puede iniciar al arrancar el sistema: no se dispone de un permiso necesario. Abre Shevery y concede primero el permiso.</string>
+    <string name="notification_startup_waiting_unlock">Esperando a que comience el desbloqueo del dispositivo…</string>
+    <string name="notification_startup_cancel">Cancelar</string>
+    <string name="notification_startup_attempt_now">Inténtalo ahora</string>
+    <string name="wadb_notification_title">Empezando con Shevery…</string>
+    <string name="wadb_notification_wifi_required">Se está esperando a que se establezca la conexión Wi-Fi antes de continuar</string>
+    <string name="wadb_notification_retry">A la espera de volver a intentarlo</string>
+    <string name="wadb_error_title">Error al iniciarse durante el arranque</string>
+    <string name="wadb_error_notify_dev">Pulsa para reiniciar Shevery.</string>
+    <string name="wadb_permission_error_notification_title">Error de permisos</string>
+    <string name="wadb_permission_error_notification_content">Shevery no se ha podido iniciar al arrancar el ordenador. Abre Shevery para comprobar cuál es el problema.</string>
+    <string name="wadb_notification_channel">Servicio de inicio automático de ADB</string>
+    <string name="wadb_notification_attempt_now">Inténtalo ahora</string>
+    <string name="settings_update_group_title">Actualización</string>
+    <string name="shevery_update_check_summary">Comprueba si hay versiones más recientes de Shevery Manager</string>
+    <string name="shevery_update_checking">Comprobando si hay actualizaciones de Shevery…</string>
+    <string name="shevery_update_up_to_date">Shevery está al día (%s)</string>
+    <string name="shevery_update_available_title">¡Ya está disponible la nueva actualización de Shevery!</string>
+    <string name="shevery_update_available_msg">Está disponible la versión %1$s (actual: %2$s)</string>
+    <string name="shevery_update_download_apk">Descargar APK</string>
+    <string name="shevery_update_view_release">Ver en GitHub</string>
+    <string name="shevery_update_channel">Canal de actualizaciones</string>
+    <string name="shevery_update_channel_summary">Selecciona el canal de actualización</string>
+    <string name="app_update_channel_stable">Estable</string>
+    <string name="app_update_channel_beta">Versiones preliminares y beta</string>
+    <string name="shevery_update_group_title">Actualizaciones de la aplicación Shevery</string>
+    <string name="shevery_update_modules_group_title">Actualizaciones de módulos y catálogo</string>
+    <string name="shevery_update_check_failed">Error al comprobar la actualización: %s</string>
+    <string name="settings_sections_title">Copias de seguridad y otros</string>
+    <string name="backup_section_title">Copias de seguridad</string>
+    <string name="comput_hero_subtitle">Potente terminal de shell para tu dispositivo, con tecnología de Shizuku.</string>
+    <string name="comput_status_ready">Listo</string>
+    <string name="comput_status_running">Correr</string>
+    <string name="comput_status_error">Error</string>
+    <string name="comput_console_section">Consola</string>
+    <string name="comput_tab_terminal">Terminal</string>
+    <string name="comput_tab_commandium">AI Studio</string>
+    <string name="comput_tab_macros">Macros</string>
+    <string name="comput_tab_presets">Ajustes predefinidos</string>
+    <string name="comput_quick_chips">Acciones rápidas</string>
+    <string name="comput_terminal_header">SALIDA DEL SHELL</string>
+    <string name="comput_presets_title">Biblioteca de preajustes</string>
+    <string name="comput_presets_subtitle">Pulsa cualquier comando para ejecutarlo rápidamente o rellenar automáticamente el indicador de la terminal.</string>
+    <string name="comput_output_label">Resultado</string>
+    <string name="comput_search_hint">Resultados de la búsqueda</string>
+    <string name="comput_no_search_results">No se han encontrado resultados coincidentes</string>
+    <string name="comput_clear_search_desc">Borrar búsqueda</string>
+    <string name="comput_close_search_desc">Cerrar búsqueda</string>
+    <string name="comput_history_desc">Historial de comandos</string>
+    <string name="comput_history_title">Historia</string>
+    <string name="comput_history_empty">Aún no hay historial de comandos</string>
+    <string name="comput_run_desc">Ejecutar comando</string>
+    <string name="comput_stop_desc">Comando «Stop»</string>
+    <string name="comput_scroll_bottom_desc">Desplázate hasta el final de la página</string>
+    <string name="comput_cancelled">El usuario ha cancelado el comando.</string>
+    <string name="accessibility_manager_title">Responsable de accesibilidad</string>
+    <string name="accessibility_manager_lab_group">Accesibilidad</string>
+    <string name="accessibility_manager_lab_title">Responsable de accesibilidad</string>
+    <string name="accessibility_manager_keep_alive_group">Mantener vivo</string>
+    <string name="accessibility_manager_keep_alive_title">Mantener activos los servicios fijados</string>
+    <string name="accessibility_manager_keep_alive_summary">Volver a activar los servicios de accesibilidad fijados cuando el sistema o el usuario los desactiven</string>
+    <string name="accessibility_manager_auto_boot_title">Iniciar al arrancar el sistema</string>
+    <string name="accessibility_manager_auto_boot_summary">Iniciar automáticamente el demonio «keep-alive» tras el reinicio del dispositivo</string>
+    <string name="accessibility_manager_shizuku_required">Shevery no se está ejecutando. Ábrelo para activar o desactivar los servicios de accesibilidad.</string>
+    <string name="accessibility_manager_services_group">Servicios de accesibilidad (%1$d)</string>
+    <string name="accessibility_manager_services_empty">No se han encontrado servicios de accesibilidad instalados.</string>
+    <string name="accessibility_manager_service_no_description">El servicio no proporciona ninguna descripción.</string>
+    <string name="accessibility_manager_write_failed">No se han podido actualizar los servicios de accesibilidad. Comprueba que Shevery se esté ejecutando y que tenga los permisos necesarios.</string>
+    <string name="accessibility_manager_pin">Servicio de «pin» para mantener la conexión activa</string>
+    <string name="accessibility_manager_unpin">Desanclar servicio</string>
+    <string name="accessibility_daemon_channel_name">Mantenimiento de la accesibilidad</string>
+    <string name="accessibility_daemon_notification_title">La función «keep-alive» de accesibilidad está activa</string>
+    <string name="settings_compat_stub">Esbozo de Legacy Shizuku</string>
+    <string name="settings_compat_stub_summary">Instala un paquete ficticio (moe.shizuku.privileged.api) para que las aplicaciones que comprueban de forma estricta la presencia del gestor Shizuku heredado sigan funcionando. Las solicitudes de permisos y de Binder se reenvían a Shevery.</string>
+    <string name="settings_compat_stub_installed">Se ha instalado el stub heredado a través de %1$s</string>
+    <string name="settings_compat_stub_uninstalled">Se ha eliminado el stub heredado</string>
+    <string name="settings_compat_stub_failed">No se ha podido %1$s el stub heredado mediante %2$s: %3$s</string>
+    <string name="settings_compat_stub_none">No hay ningún canal disponible (empieza primero por Shevery)</string>
 </resources>

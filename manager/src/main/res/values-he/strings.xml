@@ -1,6 +1,5 @@
 <resources>
     <string name="translation_contributors">AI</string>
-    <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">Navigate up</string>
     <string name="accessibility_close">Close</string>
     <string name="accessibility_more_options">More options</string>
@@ -62,7 +61,6 @@
     <string name="home_root_button_start">Start</string>
     <string name="home_root_button_restart">Restart</string>
     <string name="home_app_management_title">Application management</string>
-    <plurals name="home_app_management_authorized_apps_count"><item quantity="one"><![CDATA[%d אפליקציה מורשית]]></item><item quantity="other"><![CDATA[%d אפליקציות מורשות]]></item></plurals>
     <string name="home_app_management_view_authorized_apps"><![CDATA[Tap to manage authorized apps]]></string>
     <string name="home_app_management_empty">אפליקציות שביקשו או הכריזו על שימוש ב-Shevery יופיעו כאן.</string>
     <string name="home_learn_more_title">Learn Shevery</string>
@@ -77,11 +75,6 @@
     <string name="home_diagnostics_copied">האבחון הועתק.</string>
     <string name="home_modules_description">התקן ונהל מודולי ADB</string>
     <string name="home_adb_is_limited_title">נדרש שלב נוסף</string>
-    <string name="home_adb_is_limited_description">יצרן המכשיר שלך הגביל הרשאות adb ואפליקציות שמשתמשות ב-Shevery לא יפעלו כראוי.
-
-בדרך כלל ניתן להסיר מגבלה זו על ידי כיוון חלק מהאפשרויות ב"אפשרויות מפתח". קרא את העזרה לפרטים.
-
-ייתכן שתצטרך להפעיל מחדש את Shevery כדי שהשינוי ייכנס לתוקף.</string>
     <string name="app_management_select_all">בחר הכול</string>
     <string name="app_management_deselect_all">בטל בחירת הכול</string>
     <string name="app_management_dialog_adb_is_limited_title">The permission of adb is limited</string>
@@ -90,18 +83,11 @@
     <string name="home_terminal_title">Use Shevery in terminal apps</string>
     <string name="home_terminal_description">Run commands through Shevery in terminal apps you like</string>
     <string name="terminal_tutorial_1">ראשית, ייצא את הקבצים לכל מקום שתרצה. תמצא שני קבצים, %1$s ו-%2$s.</string>
-    <string name="terminal_tutorial_1_description">אם קיימים קבצים עם אותו שם בתיקייה שנבחרה, הם יימחקו.
-
-פונקציית הייצוא משתמשת ב-SAF (Storage Access Framework). דווח כי MIUI פוגם בפונקציות SAF. אם אתה משתמש ב-MIUI, ייתכן שתצטרך לחלץ את הקובץ מה-APK של Shevery או להוריד מ-GitHub.</string>
     <string name="terminal_export_files">ייצא קבצים</string>
     <string name="terminal_tutorial_2">לאחר מכן, השתמש בכל עורך טקסט כדי לפתוח ולערוך את %1$s.</string>
     <string name="terminal_tutorial_2_description">לדוגמה, אם ברצונך להשתמש ב-Shevery ב-%1$s, עליך להחליף את %2$s ב-%3$s (%4$s הוא שם החבילה של %1$s).</string>
     <string name="terminal_tutorial_3">לבסוף, העבר את הקבצים למקום שאפליקציית המסוף שלך יכולה לגשת אליו, ותוכל להשתמש ב-%1$s להפעלת פקודות דרך Shevery.</string>
     <string name="terminal_tutorial_3_description">כמה טיפים: הענק הרשאת הפעלה ל-%1$s והוסף אותו ל-%2$s, ותוכל להשתמש ב-%1$s ישירות.</string>
-    <string name="rish_description"><![CDATA[
-עם %1$s, בכל אפליקציית מסוף, תוכל להתחבר ולקיים אינטראקציה עם המעטפת שמפעיל Shevery.
-<p>לפרטי שימוש ב-%1$s, הקש לצפייה בתיעוד.
-    ]]></string>
     <string name="settings_title">Settings</string>
     <string name="settings_language">Language</string>
     <string name="settings_user_interface">Appearance</string>
@@ -223,15 +209,12 @@
     <string name="notification_adb_pairing_succeed_text">You can start Shevery service now.</string>
     <string name="notification_adb_pairing_failed_title">Pairing failed</string>
     <string name="notification_adb_pairing_retry">Retry</string>
-    <string name="permission_group_label" translatable="false">Shevery</string>
-    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">access Shevery</string>
     <string name="permission_description">Allow the app to use Shevery.</string>
     <string name="permission_warning_template"><![CDATA[Allow <b>%1$s</b> to %2$s?]]></string>
     <string name="grant_dialog_button_allow_always">Allow all the time</string>
     <string name="grant_dialog_button_deny">"Deny"</string>
     <string name="starter">Starter</string>
-    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">Can\'t start service because root permission is not granted or this device is not rooted.</string>
     <string name="dialog_cannot_open_browser_title">Can\'t start browser</string>
     <string name="toast_copied_to_clipboard">%s\nhas been copied to clipboard.</string>
@@ -257,9 +240,6 @@
     <string name="settings_tcp_mode_summary">הפעל מחדש את ADB ביציאת TCP 5555.</string>
     <string name="settings_restart_dialog_title">נדרשת הפעלה מחדש</string>
     <string name="settings_restart_dialog_message">Shevery צריך להפעיל מחדש כדי להחיל שינוי מצב TCP זה.</string>
-    <string name="settings_restart_dialog_message_wifi_required">
-
-Wi-Fi נדרש להפעלה מחדש הראשונה מכיוון ש-Shevery חייב להתחבר ליציאת ניפוי הבאגים האלחוטית הנוכחית לפני מעבר ADB ל-5555.</string>
     <string name="settings_auto_disable_usb_debugging">כבה USB אוטומטית</string>
     <string name="settings_auto_disable_usb_debugging_summary">כבה ניפוי באגים USB לאחר הפעלה מחדש כאשר Shevery לא מוגדר להתחיל באתחול</string>
     <string name="settings_service_group">תחזוקת שירות</string>
@@ -380,9 +360,6 @@ Wi-Fi נדרש להפעלה מחדש הראשונה מכיוון ש-Shevery חי
     <string name="comput_copy_output">העתק פלט</string>
     <string name="comput_ask_gemini">שאל את Gemini</string>
     <string name="comput_executing">מפעיל: %1$s ...</string>
-    <string name="comput_adb_translate">מצב תרגום ADB פעיל
-מקורי: %1$s
-מפעיל...</string>
     <string name="comput_command_no_output">הפקודה הושלמה ללא פלט.</string>
     <string name="comput_timed_out">[E] הפקודה פג תוקפה לאחר 120 שניות.</string>
     <string name="comput_exit_code">[E] הפקודה יצאה עם קוד %1$d.</string>
@@ -390,8 +367,6 @@ Wi-Fi נדרש להפעלה מחדש הראשונה מכיוון ש-Shevery חי
     <string name="comput_executing_cmd">> מריץ פקודה: %1$s</string>
     <string name="comput_error_not_running">שגיאה: שירות Shevery המועדף אינו פועל. אנא הפעל את השירות תחילה.</string>
     <string name="comput_error_no_binder">שגיאה: לא ניתן לאחזר את ה-binder של Shevery.</string>
-    <string name="comput_console_initialized">הקונסולה אותחלה. שירות Shevery המועדף מחובר.
-מוכן לפקודות.</string>
     <string name="comput_ai_explanation">הסבר AI</string>
     <string name="comput_commandium">Commandium</string>
     <string name="comput_commandium_assistant">עוזר AI של Commandium</string>
@@ -457,4 +432,96 @@ Wi-Fi נדרש להפעלה מחדש הראשונה מכיוון ש-Shevery חי
     <string name="settings_tcp_5555_bind_success">ADB נקשר בהצלחה ליציאת TCP 5555</string>
     <string name="settings_tcp_5555_bind_failed">כישלון בכריכת ADB ליציאה 5555: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">נדרש Root, Dhizuku או Shevery פעיל.</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
+    <string name="wadb_notification_channel">ADB-Autostartdienst</string>
+    <string name="comput_stop_desc">Stop-Befehl</string>
+    <string name="accessibility_manager_service_no_description">Keine Beschreibung vom Dienst bereitgestellt.</string>
+    <string name="home_adb_dialog_view_command_notice">ישנם עוד כמה שיקולים נוספים; אנא ודא שקראת תחילה את מדריך העזרה.</string>
+    <string name="app_management_loading">טוען אפליקציות…</string>
+    <string name="settings_start_on_boot_adb">התחל בעת האתחול באמצעות ניפוי באגים אלחוטי</string>
+    <string name="settings_start_on_boot_adb_summary">בעת האתחול, הפעל לזמן קצר את "ניפוי באגים אלחוטי" והפעל את Shevery באמצעות ADB (יציאת TCP 5555). אין צורך בהרשאות root, וה-Wi-Fi נדרש רק לרגע קצר.</string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp">בעת האתחול, הפעל לזמן קצר את "ניפוי באגים אלחוטי" והפעל את Shevery באמצעות ADB. אין צורך ב-root, וה-Wi-Fi נדרש רק לרגע.</string>
+    <string name="settings_start_on_boot_adb_granted">הרשאה ל-WRITE_SECURE_SETTINGS הוענקה.</string>
+    <string name="settings_start_on_boot_adb_warning_no_tcp">קישור ה-TCP (יציאה 5555) כבוי: איתור באגים אלחוטי יישאר מופעל.</string>
+    <string name="settings_start_on_boot_adb_missing_permission_title">הרשאה חסרה</string>
+    <string name="settings_start_on_boot_adb_not_running">Shevery אינו פועל. הפעל תחילה את השירות, ואז חזור והפעל הגדרה זו.</string>
+    <string name="settings_start_on_boot_adb_grant_failed">הענקת ההרשאה האוטומטית נכשלה. הפעל פקודה זו ממחשב כדי להעניק את ההרשאה באופן ידני:</string>
+    <string name="settings_start_on_boot_adb_missing_permission_copy">פקודת העתקה</string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction">אופן השימוש:\n1. חברו את המכשיר למחשב (באמצעות USB או ניפוי באגים אלחוטי).\n2. במסוף, הפעילו את הפקודה המופיעה בשדה שלמעלה.</string>
+    <string name="notification_startup_channel_name">סטארט-אפ Shevery</string>
+    <string name="notification_startup_title">התחלת "שברי"</string>
+    <string name="notification_startup_enabling_wifi">הפעלת ניפוי באגים ב-Wi-Fi…</string>
+    <string name="notification_startup_connecting">מתחבר ל-ADB…</string>
+    <string name="notification_startup_started">שבררי התחיל.</string>
+    <string name="notification_startup_failed">לא הצליח להפעיל את Shevery.</string>
+    <string name="notification_startup_no_port">לא אותר יציאת ניפוי באגים אלחוטית תוך 15 שניות.</string>
+    <string name="notification_startup_no_permission">לא ניתן להפעיל בעת האתחול: ההרשאה הנדרשת אינה ניתנת. פתח את Shevery והענק את ההרשאה תחילה.</string>
+    <string name="notification_startup_waiting_unlock">ממתינים להתחלת תהליך נעילת המכשיר…</string>
+    <string name="notification_startup_cancel">ביטול</string>
+    <string name="notification_startup_attempt_now">נסה עכשיו</string>
+    <string name="wadb_notification_title">מתחילים עם "שברי"…</string>
+    <string name="wadb_notification_wifi_required">ממתין לחיבור Wi-Fi לפני המשך</string>
+    <string name="wadb_notification_retry">ממתין לניסיון חוזר</string>
+    <string name="wadb_error_title">שגיאה בעת ההפעלה עם האתחול</string>
+    <string name="wadb_error_notify_dev">הקש כדי להפעיל מחדש את Shevery.</string>
+    <string name="wadb_permission_error_notification_title">שגיאת הרשאה</string>
+    <string name="wadb_permission_error_notification_content">Shevery לא הצליח להפעיל את המערכת בעת האתחול. פתח את Shevery כדי לבדוק את הבעיה.</string>
+    <string name="wadb_notification_attempt_now">נסה עכשיו</string>
+    <string name="settings_update_group_title">עדכון</string>
+    <string name="shevery_update_check_title">בדוק אם יש עדכונים ל-Shevery</string>
+    <string name="shevery_update_check_summary">בדוק אם קיימות גרסאות חדשות יותר של Shevery Manager</string>
+    <string name="shevery_update_checking">בודק אם יש עדכונים ל-Shevery…</string>
+    <string name="shevery_update_up_to_date">Shevery מעודכן (%s)</string>
+    <string name="shevery_update_available_title">עדכון חדש ל-Shevery זמין!</string>
+    <string name="shevery_update_available_msg">גרסה %1$s זמינה (הגרסה הנוכחית: %2$s)</string>
+    <string name="shevery_update_download_apk">הורד את קובץ ה-APK</string>
+    <string name="shevery_update_view_release">צפה ב-GitHub</string>
+    <string name="shevery_update_channel">ערוץ עדכונים</string>
+    <string name="shevery_update_channel_summary">בחר ערוץ עדכונים</string>
+    <string name="app_update_channel_stable">יציב</string>
+    <string name="app_update_channel_beta">גרסת טרום-השקה ובטא</string>
+    <string name="shevery_update_group_title">עדכונים לאפליקציית Shevery</string>
+    <string name="shevery_update_modules_group_title">עדכוני מודולים וקטלוג</string>
+    <string name="shevery_update_check_failed">בדיקת העדכונים נכשלה: %s</string>
+    <string name="settings_sections_title">גיבויים ועוד</string>
+    <string name="backup_section_title">גיבויים</string>
+    <string name="comput_output_label">פלט</string>
+    <string name="comput_search_desc">תוצאות החיפוש</string>
+    <string name="comput_search_hint">תוצאות החיפוש</string>
+    <string name="comput_no_search_results">לא נמצאו תוצאות תואמות</string>
+    <string name="comput_clear_search_desc">נקה את החיפוש</string>
+    <string name="comput_close_search_desc">סגור חיפוש</string>
+    <string name="comput_history_desc">היסטוריית פקודות</string>
+    <string name="comput_history_title">היסטוריה</string>
+    <string name="comput_history_empty">עדיין אין היסטוריית פקודות</string>
+    <string name="comput_run_desc">הפעל פקודה</string>
+    <string name="comput_scroll_bottom_desc">גלול למטה</string>
+    <string name="comput_cancelled">הפקודה בוטלה על ידי המשתמש.</string>
+    <string name="accessibility_manager_title">מנהל הנגישות</string>
+    <string name="accessibility_manager_lab_group">נגישות</string>
+    <string name="accessibility_manager_lab_title">מנהל הנגישות</string>
+    <string name="accessibility_manager_lab_summary">ניהול שירותי נגישות והבטחת המשך פעולתם</string>
+    <string name="accessibility_manager_keep_alive_group">להמשיך לחיות</string>
+    <string name="accessibility_manager_keep_alive_title">שמור על שירותים המוצמדים פעילים</string>
+    <string name="accessibility_manager_keep_alive_summary">הפעל מחדש את שירותי הנגישות המוצמדים כאשר המערכת או המשתמש משביתים אותם</string>
+    <string name="accessibility_manager_auto_boot_title">התחל בעת האתחול</string>
+    <string name="accessibility_manager_auto_boot_summary">הפעל באופן אוטומטי את הדמון של keep-alive לאחר אתחול מחדש של המכשיר</string>
+    <string name="accessibility_manager_shizuku_required">Shevery אינו פועל. הפעל אותו כדי להפעיל או להשבית את שירותי הנגישות.</string>
+    <string name="accessibility_manager_services_group">שירותי נגישות (%1$d)</string>
+    <string name="accessibility_manager_services_empty">לא נמצאו שירותי נגישות מותקנים.</string>
+    <string name="accessibility_manager_write_failed">לא הצליח לעדכן את שירותי הנגישות. בדוק ש-Shevery פועל ויש לו הרשאה.</string>
+    <string name="accessibility_manager_pin">שירות סימון כדי לשמור על פעילות</string>
+    <string name="accessibility_manager_unpin">ביטול הצמדת השירות</string>
+    <string name="accessibility_daemon_channel_name">שמירת חיבור נגישות</string>
+    <string name="accessibility_daemon_notification_title">השמירה על חיבור הנגישות פעילה</string>
+    <string name="accessibility_daemon_notification_text">שירותי נגישות שהוצמדו יוחזרו אם יושבתו</string>
+    <string name="settings_compat_stub">עמודת מידע על Legacy Shizuku</string>
+    <string name="settings_compat_stub_summary">מתקין חבילת סטאב (moe.shizuku.privileged.api) כדי שאפליקציות שמבצעות בדיקה קפדנית של מנהל Shizuku הישן ימשיכו לפעול. בקשות להרשאות ול-Binder מועברות ל-Shevery.</string>
+    <string name="settings_compat_stub_installed">קובץ סטאב של Legacy הותקן באמצעות %1$s</string>
+    <string name="settings_compat_stub_uninstalled">הוסרה הפניה למורשת</string>
+    <string name="settings_compat_stub_failed">לא הצליח %1$s את הסטאב הישן באמצעות %2$s: %3$s</string>
+    <string name="settings_compat_stub_none">אין ערוץ זמין (התחל קודם ב-Shevery)</string>
 </resources>

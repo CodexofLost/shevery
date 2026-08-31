@@ -1,6 +1,5 @@
 <resources>
     <string name="translation_contributors">AI</string>
-    <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">Navigate up</string>
     <string name="accessibility_close">Close</string>
     <string name="accessibility_more_options">More options</string>
@@ -27,9 +26,6 @@
     <string name="home_local_network_grant">Grant access</string>
     <string name="home_local_network_permission_denied">Local network access is required for Wireless debugging.</string>
     <string name="dialog_adb_discovery">Kablosuz hata ayıklama hizmeti aranıyor</string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Lütfen "Geliştirici seçenekleri"nde "Kablosuz hata ayıklama"yı etkinleştirin. Ağ değiştiğinde "kablosuz hata ayıklama" otomatik olarak devre dışı bırakılır.
-\n
-\nNot, "Geliştirici seçenekleri" veya "USB hata ayıklama" devre dışı bırakmayın, Shizuku durdurulur.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Eğer sürekli arıyorsa lütfen "Wireless Debugging" ayarını kapatıp açmayı deneyin.]]></string>
     <string name="dialog_adb_port">Port</string>
     <string name="dialog_adb_invalid_port">Port 1 ile 65535 arasında değişen bir tamsayıdır.</string>
@@ -39,15 +35,8 @@
     <string name="dialog_adb_pairing_paring_code">Eşleşme kodu</string>
     <string name="paring_code_is_wrong">Eşleme kodu yanlış.</string>
     <string name="cannot_connect_port">Kablosuz hata ayıklama hizmeti bağlanamıyor.</string>
-    <string name="dialog_wireless_adb_not_enabled">Kablosuz hata ayıklama etkin değil.
-\nNot, Android 11’den önce kablosuz hata ayıklamayı etkinleştirmek için bilgisayar bağlantısının şart olduğunu unutmayın.</string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Lütfen aşağıdaki adımları izleyerek eşleştirme işlemine başlayın: "Geliştirici Seçenekleri" - "Kablosuz hata ayıklama" - "Cihazı eşleme kodu kullanarak eşleştir".
-\n
-\nEşleştirme işlemi başladıktan sonra eşleştirme kodunu girebilirsiniz.]]></string>
     <string name="adb_pairing_requires_multi_window">Lütfen önce bölünmüş ekran (çoklu pencere) moduna girin.</string>
     <string name="adb_pairing_requires_multi_window_reason">Sistem, eşleştirme iletişim kutusunun her zaman görünür olmasını zorunda kılıyor; bölünmüş ekran modunu kullanmak, bu uygulamanın ve sistem iletişim kutusunun aynı anda görünür olmasını sağlamanın tek yoludur.</string>
-    <string name="adb_error_key_store">Kablosuz hata ayıklama için anahtar üretilemiyor.
-\nBunun nedeni, bu aygıtın KeyStore mekanizmasının bozuk olması olabilir.</string>
     <string name="adb_pair_required">Lütfen önce eşleştirme adımını uygulayın.</string>
     <string name="development_settings">Geliştirici seçenekleri</string>
     <string name="notification_settings">Bildirim seçenekleri</string>
@@ -68,7 +57,6 @@
     <string name="home_root_button_start">Başlat</string>
     <string name="home_root_button_restart">Yeniden başlat</string>
     <string name="home_app_management_title">Uygulama yönetimi</string>
-    <plurals name="home_app_management_authorized_apps_count"><item quantity="one"><![CDATA[%d uygulama yetkilendirildi]]></item><item quantity="other"><![CDATA[%d uygulama yetkilendirildi]]></item></plurals>
     <string name="home_app_management_view_authorized_apps">Yetkilendirilmiş uygulamaları yönetmek için dokunun</string>
     <string name="home_app_management_empty">Shevery kullanımını talep eden veya beyan eden uygulamalar burada görünecek.</string>
     <string name="home_learn_more_title">Daha fazlasını öğren</string>
@@ -83,11 +71,6 @@
     <string name="home_diagnostics_copied">Tanılama kopyalandı.</string>
     <string name="home_modules_description">ADB modüllerini yükle ve yönet</string>
     <string name="home_adb_is_limited_title">Ekstra bir adım atmanız gerekiyor</string>
-    <string name="home_adb_is_limited_description">Cihaz üreticiniz adb izinlerini kısıtladı ve Shevery kullanan uygulamalar düzgün çalışmayacak.
-
-Genellikle bu kısıtlama "Geliştirici seçenekleri"nde bazı ayarları düzenleyerek kaldırılabilir. Ayrıntılar için yardımı okuyun.
-
-Değişikliklerin geçerli olması için Shevery\'yi yeniden başlatmanız gerekebilir.</string>
     <string name="app_management_select_all">Tümünü seç</string>
     <string name="app_management_deselect_all">Seçimi kaldır</string>
     <string name="app_management_dialog_adb_is_limited_title">ADB’nin izni sınırlıdır</string>
@@ -96,18 +79,11 @@ Değişikliklerin geçerli olması için Shevery\'yi yeniden başlatmanız gerek
     <string name="home_terminal_title">Shizuku’yu terminal uygulamalarında kullanın</string>
     <string name="home_terminal_description">Sevdiğiniz terminal uygulamalarında Shizuku aracılığıyla komutları çalıştırın</string>
     <string name="terminal_tutorial_1">İlk olarak, dosyaları istediğiniz yere aktarın. İki dosya bulacaksınız: %1$s ve %2$s.</string>
-    <string name="terminal_tutorial_1_description">Seçilen klasörde aynı ada sahip dosyalar varsa bunlar silinecek.
-
-Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI\'nin SAF işlevlerini bozduğu bildirilmektedir. MIUI kullanıyorsanız dosyayı Shevery\'nin APK\'sından çıkarmanız veya GitHub\'dan indirmeniz gerekebilir.</string>
     <string name="terminal_export_files">Dosyaları dışa aktar</string>
     <string name="terminal_tutorial_2">Ardından, herhangi bir metin düzenleyici kullanarak %1$s dosyasını açın ve düzenleyin.</string>
     <string name="terminal_tutorial_2_description">Örneğin, Shevery\'yi %1$s\'de kullanmak istiyorsanız %2$s yerine %3$s koymalısınız (%4$s, %1$s\'nin paket adıdır).</string>
     <string name="terminal_tutorial_3">Son olarak, dosyaları terminal uygulamanızın erişebileceği bir yere taşıyın; Shevery aracılığıyla komut çalıştırmak için %1$s kullanabilirsiniz.</string>
     <string name="terminal_tutorial_3_description">Bazı ipuçları: %1$s\'ye çalıştırma izni verin ve %2$s\'ye ekleyin; böylece %1$s\'yi doğrudan kullanabilirsiniz.</string>
-    <string name="rish_description"><![CDATA[
-%1$s ile herhangi bir terminal uygulamasında Shevery tarafından çalıştırılan kabuğa bağlanabilir ve etkileşime girebilirsiniz.
-<p>%1$s\'nin ayrıntılı kullanımı için belgeyi görüntülemek üzere dokunun.
-    ]]></string>
     <string name="settings_title">Ayarlar</string>
     <string name="settings_language">Dil</string>
     <string name="settings_user_interface">Görünüm</string>
@@ -229,19 +205,14 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI\'nin S
     <string name="notification_adb_pairing_succeed_text">Shizuku hizmetini şimdi başlatabilirsiniz.</string>
     <string name="notification_adb_pairing_failed_title">Eşleştirme başarısız</string>
     <string name="notification_adb_pairing_retry">Yeniden dene</string>
-    <string name="permission_group_label" translatable="false">Shevery</string>
-    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Shizuku’ya erişim</string>
     <string name="permission_description">Uygulamanın Shizuku’yu kullanmasına izin verin.</string>
     <string name="permission_warning_template"><b>%1$s</b> uygulamasına %2$s için izin verilsin mi?</string>
     <string name="grant_dialog_button_allow_always">Her zaman izin ver</string>
     <string name="grant_dialog_button_deny">Reddet</string>
     <string name="starter">Başlatıcı</string>
-    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">Root izni verilmediği veya bu aygıtın rootlu olmadığı için hizmet başlatılamıyor.</string>
     <string name="dialog_cannot_open_browser_title">Tarayıcı başlatılamıyor</string>
-    <string name="toast_copied_to_clipboard">%s
-\npanoya kopyalanmıştır.</string>
     <string name="toast_copied_to_clipboard_with_text"><b>%s</b> panoya kopyalandı.</string>
     <string name="dialog_legacy_not_support_title">%1$s, yeni Shizuku’yu desteklemiyor</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Eski Shizuku, Mart 2019’dan beri kullanımdan kaldırılmıştır. Ayrıca, eski Shizuku yeni Android sistemlerinde çalışmaz. <p>Lütfen<b>%1$s</b> geliştiricisinden güncelleme yapmasını isteyin.]]></string>
@@ -264,9 +235,6 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI\'nin S
     <string name="settings_tcp_mode_summary">ADB başlatmayı TCP 5555 portuna yeniden bağla.</string>
     <string name="settings_restart_dialog_title">Yeniden başlatma gerekli</string>
     <string name="settings_restart_dialog_message">Shevery bu TCP modu değişikliğini uygulamak için yeniden başlatılmalı.</string>
-    <string name="settings_restart_dialog_message_wifi_required">
-
-İlk yeniden başlatma için Wi-Fi gereklidir çünkü Shevery ADB\'yi 5555\'e geçirmeden önce mevcut Kablosuz Hata Ayıklama portuna bağlanmalıdır.</string>
     <string name="settings_auto_disable_usb_debugging">USB hata ayıklamayı otomatik devre dışı bırak</string>
     <string name="settings_auto_disable_usb_debugging_summary">Shevery başlangıçta başlayacak şekilde yapılandırılmamışsa yeniden başlatma sonrası USB hata ayıklamayı kapat</string>
     <string name="settings_service_group">Hizmet Bakımı</string>
@@ -387,9 +355,6 @@ Dışa aktarma işlevi SAF (Depolama Erişim Çerçevesi) kullanır. MIUI\'nin S
     <string name="comput_copy_output">Çıktıyı Kopyala</string>
     <string name="comput_ask_gemini">Gemini\'ye Sor</string>
     <string name="comput_executing">Çalıştırılıyor: %1$s ...</string>
-    <string name="comput_adb_translate">ADB Komut Çeviri Modu Etkin
-Orijinal: %1$s
-Çalıştırılıyor...</string>
     <string name="comput_command_no_output">Komut çıktısız tamamlandı.</string>
     <string name="comput_timed_out">[E] Komut 120 saniye sonra zaman aşımına uğradı.</string>
     <string name="comput_exit_code">[E] Komut %1$d koduyla çıktı.</string>
@@ -397,8 +362,6 @@ Orijinal: %1$s
     <string name="comput_executing_cmd">> Komut çalıştırılıyor: %1$s</string>
     <string name="comput_error_not_running">Hata: Ayrıcalıklı Shevery Hizmeti çalışmıyor. Lütfen önce hizmeti başlatın.</string>
     <string name="comput_error_no_binder">Hata: Shevery binder alınamadı.</string>
-    <string name="comput_console_initialized">Konsol başlatıldı. Ayrıcalıklı Shevery hizmeti bağlandı.
-Komutlar için hazır.</string>
     <string name="comput_ai_explanation">YZ Açıklaması</string>
     <string name="comput_commandium">Commandium</string>
     <string name="comput_commandium_assistant">Commandium YZ Asistanı</string>
@@ -464,4 +427,11 @@ Komutlar için hazır.</string>
     <string name="settings_tcp_5555_bind_success">ADB başarıyla TCP 5555 bağlantı noktasına bağlandı</string>
     <string name="settings_tcp_5555_bind_failed">ADB\'yi 5555 bağlantı noktasına bağlama başarısız: %1$s</string>
     <string name="settings_tcp_5555_bind_failed_generic">Root, Dhizuku veya aktif Shevery gereklidir.</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
+    <string name="wadb_notification_channel">ADB-Autostartdienst</string>
+    <string name="comput_stop_desc">Stop-Befehl</string>
+    <string name="accessibility_manager_service_no_description">Keine Beschreibung vom Dienst bereitgestellt.</string>
 </resources>

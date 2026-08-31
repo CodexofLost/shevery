@@ -1,6 +1,5 @@
 <resources>
     <string name="translation_contributors">AI</string>
-    <string name="app_name" translatable="false">Shevery</string>
     <string name="accessibility_navigate_up">Navigate up</string>
     <string name="accessibility_close">Close</string>
     <string name="accessibility_more_options">More options</string>
@@ -27,9 +26,6 @@
     <string name="home_local_network_grant">Grant access</string>
     <string name="home_local_network_permission_denied">Local network access is required for Wireless debugging.</string>
     <string name="dialog_adb_discovery">무선 디버깅 서비스 검색 중</string>
-    <string name="dialog_adb_discovery_message"><![CDATA["개발자 옵션"에서 "무선 디버깅"을 사용으로 설정하세요. "무선 디버깅"은 네트워크가 변경될 때 자동으로 사용 안 함으로 변경됩니다.
-\n
-\n"개발자 옵션"이나 "USB 디버깅"을 사용 안 함으로 하면 Shizuku가 중지됩니다.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA["무선 디버깅"이 검색중으로 유지된다면 비활성화했다가 다시 활성화해 보세요.]]></string>
     <string name="dialog_adb_port">포트 번호</string>
     <string name="dialog_adb_invalid_port">포트 번호는 1에서 65535 사이의 정수입니다.</string>
@@ -39,15 +35,8 @@
     <string name="dialog_adb_pairing_paring_code">페어링 코드</string>
     <string name="paring_code_is_wrong">페어링 코드가 올바르지 않습니다.</string>
     <string name="cannot_connect_port">무선 디버깅 서비스에 연결할 수 없습니다.</string>
-    <string name="dialog_wireless_adb_not_enabled">무선 디버깅을 사용하고 있지 않습니다.
-\n안드로이드 11 이전은 무선 디버깅을 사용하기 위해서 컴퓨터 연결을 필수로 해야 합니다.</string>
-    <string name="dialog_adb_pairing_message"><![CDATA["개발자 옵션" - "무선 디버깅" - "페어링 코드로 기기 페어링" 순으로 페어링을 시작해주세요.
-\n
-\n페어링이 시작되면, 페어링 코드를 입력할 수 있습니다.]]></string>
     <string name="adb_pairing_requires_multi_window">먼저 화면 분할 (멀티 윈도우) 모드로 진입하세요.</string>
     <string name="adb_pairing_requires_multi_window_reason">시스템에서 페어링 대화 상자를 항상 표시하도록 해야합니다. 화면 분할을 사용하는 것이 앱과 시스템 대화 상자를 동시에 표시할 수 있는 유일한 방법입니다.</string>
-    <string name="adb_error_key_store">무선 디버깅을 위한 키를 생성할 수 없습니다.
-\n기기의 KeyStore 메커니즘 손상이 원인일 수 있습니다.</string>
     <string name="adb_pair_required">페어링 단계를 먼저 진행하세요.</string>
     <string name="development_settings">개발자 옵션</string>
     <string name="notification_settings">알림 옵션</string>
@@ -68,7 +57,6 @@
     <string name="home_root_button_start">시작</string>
     <string name="home_root_button_restart">재시작</string>
     <string name="home_app_management_title">어플리케이션 관리</string>
-    <plurals name="home_app_management_authorized_apps_count"><item quantity="other"><![CDATA[%d개 앱 승인됨]]></item></plurals>
     <string name="home_app_management_view_authorized_apps">탭하여 인증된 앱 관리</string>
     <string name="home_app_management_empty">Shevery 사용을 요청하거나 선언한 앱이 여기에 표시됩니다.</string>
     <string name="home_learn_more_title">Shizuku 알아보기</string>
@@ -83,11 +71,6 @@
     <string name="home_diagnostics_copied">진단이 복사되었습니다.</string>
     <string name="home_modules_description">ADB 모듈 설치 및 관리</string>
     <string name="home_adb_is_limited_title">추가 단계가 필요합니다</string>
-    <string name="home_adb_is_limited_description">기기 제조사가 adb 권한을 제한했으며 Shevery를 사용하는 앱이 제대로 작동하지 않습니다.
-
-이 제한은 일반적으로 "개발자 옵션"에서 일부 옵션을 조정하여 제거할 수 있습니다. 자세한 내용은 도움말을 참조하세요.
-
-적용을 위해 Shevery를 재시작해야 할 수 있습니다.</string>
     <string name="app_management_select_all">모두 선택</string>
     <string name="app_management_deselect_all">모두 선택 해제</string>
     <string name="app_management_dialog_adb_is_limited_title">ADB의 권한이 제한됨</string>
@@ -96,18 +79,11 @@
     <string name="home_terminal_title">터미널에서 Shizuku 사용</string>
     <string name="home_terminal_description">좋아하는 터미널 앱에서 Shizuku를 통해 명령 실행</string>
     <string name="terminal_tutorial_1">먼저 원하는 곳에 파일을 내보냅니다. %1$s와 %2$s, 두 개의 파일을 찾을 수 있습니다.</string>
-    <string name="terminal_tutorial_1_description">선택한 폴더에 같은 이름의 파일이 있으면 삭제됩니다.
-
-내보내기 기능은 SAF(Storage Access Framework)를 사용합니다. MIUI가 SAF 기능을 손상시킨다는 보고가 있습니다. MIUI를 사용 중인 경우 Shevery의 APK에서 파일을 추출하거나 GitHub에서 다운로드해야 할 수 있습니다.</string>
     <string name="terminal_export_files">파일 내보내기</string>
     <string name="terminal_tutorial_2">그런 다음 텍스트 편집기를 사용하여 %1$s를 열고 편집합니다.</string>
     <string name="terminal_tutorial_2_description">예를 들어 %1$s에서 Shevery를 사용하려면 %2$s를 %3$s로 교체해야 합니다(%4$s는 %1$s의 패키지 이름입니다).</string>
     <string name="terminal_tutorial_3">마지막으로 터미널 앱이 접근할 수 있는 곳으로 파일을 이동하면 %1$s를 사용하여 Shevery를 통해 명령을 실행할 수 있습니다.</string>
     <string name="terminal_tutorial_3_description">팁: %1$s에 실행 권한을 부여하고 %2$s에 추가하면 %1$s를 직접 사용할 수 있습니다.</string>
-    <string name="rish_description"><![CDATA[
-%1$s를 사용하면 모든 터미널 앱에서 Shevery가 실행하는 셸에 연결하고 상호 작용할 수 있습니다.
-<p>%1$s의 자세한 사용법은 탭하여 문서를 확인하세요.
-    ]]></string>
     <string name="settings_title">설정</string>
     <string name="settings_language">언어</string>
     <string name="settings_user_interface">화면</string>
@@ -229,19 +205,14 @@
     <string name="notification_adb_pairing_succeed_text">지금 Shizuku 서비스를 시작할 수 있습니다.</string>
     <string name="notification_adb_pairing_failed_title">페어링 실패</string>
     <string name="notification_adb_pairing_retry">재시도</string>
-    <string name="permission_group_label" translatable="false">Shevery</string>
-    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label">Shizuku에 접근</string>
     <string name="permission_description">앱이 Shizuku를 사용하도록 허용합니다.</string>
     <string name="permission_warning_template"><b>%1$s</b>을(를) %2$s에 허용하시겠습니까?</string>
     <string name="grant_dialog_button_allow_always">항상 허용</string>
     <string name="grant_dialog_button_deny">거부</string>
     <string name="starter">실행기</string>
-    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed">루트 권한이 부여되지 않았거나 이 기기가 루팅되지 않아서 서비스를 시작할 수 없습니다.</string>
     <string name="dialog_cannot_open_browser_title">브라우저를 실행할 수 없음</string>
-    <string name="toast_copied_to_clipboard">%s
-\n클립보드로 복사됨.</string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b>가 클립보드로 복사되었습니다.]]></string>
     <string name="dialog_legacy_not_support_title">%1$s는 최신 Shizuku를 지원하지 않음</string>
     <string name="dialog_legacy_not_support_message"><![CDATA[구형 Shizuku는 2019년 3월에 지원이 중단되었습니다. 또한, 구형 Shizuku는 새로운 안드로이드 시스템에서 동작하지 않습니다.<p><b>%1$s</b> 개발자에게 업데이트를 문의하세요.]]></string>
@@ -264,9 +235,6 @@
     <string name="settings_tcp_mode_summary">ADB를 TCP 포트 5555로 재시작합니다.</string>
     <string name="settings_restart_dialog_title">재시작 필요</string>
     <string name="settings_restart_dialog_message">Shevery가 TCP 모드 변경을 적용하려면 재시작해야 합니다.</string>
-    <string name="settings_restart_dialog_message_wifi_required">
-
-Shevery가 ADB를 5555로 전환하기 전에 현재 무선 디버깅 포트에 연결해야 하므로 첫 번째 재시작에는 Wi-Fi가 필요합니다.</string>
     <string name="settings_auto_disable_usb_debugging">USB 자동 비활성화</string>
     <string name="settings_auto_disable_usb_debugging_summary">Shevery가 부팅 시 시작하도록 구성되지 않은 경우 재시작 후 USB 디버깅 끄기</string>
     <string name="settings_service_group">서비스 유지관리</string>
@@ -387,9 +355,6 @@ Shevery가 ADB를 5555로 전환하기 전에 현재 무선 디버깅 포트에 
     <string name="comput_copy_output">출력 복사</string>
     <string name="comput_ask_gemini">Gemini에게 물어보기</string>
     <string name="comput_executing">실행 중: %1$s ...</string>
-    <string name="comput_adb_translate">ADB 번역 모드 활성
-원본: %1$s
-실행 중...</string>
     <string name="comput_command_no_output">명령이 출력 없이 완료되었습니다.</string>
     <string name="comput_timed_out">[E] 명령이 120초 후 시간 초과되었습니다.</string>
     <string name="comput_exit_code">[E] 명령이 코드 %1$d로 종료되었습니다.</string>
@@ -397,8 +362,6 @@ Shevery가 ADB를 5555로 전환하기 전에 현재 무선 디버깅 포트에 
     <string name="comput_executing_cmd">> 명령 실행 중: %1$s</string>
     <string name="comput_error_not_running">오류: Shevery 권한 서비스가 실행 중이지 않습니다. 먼저 서비스를 시작하세요.</string>
     <string name="comput_error_no_binder">오류: Shevery binder를 검색할 수 없습니다.</string>
-    <string name="comput_console_initialized">콘솔 초기화됨. Shevery 권한 서비스에 연결됨.
-명령 준비 완료.</string>
     <string name="comput_ai_explanation">AI 설명</string>
     <string name="comput_commandium">Commandium</string>
     <string name="comput_commandium_assistant">Commandium AI 어시스턴트</string>
@@ -468,4 +431,92 @@ Shevery가 ADB를 5555로 전환하기 전에 현재 무선 디버깅 포트에 
     <string name="shevery_update_auto_check_summary">앱이 닫혀 있을 때도 새 버전 확인</string>
     <string name="home_update_available_title">Shevery 업데이트 사용 가능: %s</string>
     <string name="home_update_available_body">새 버전이 준비되었습니다. 다운로드하려면 탭하세요.</string>
+    <string name="wadb_notification_channel">ADB-Autostartdienst</string>
+    <string name="comput_stop_desc">Stop-Befehl</string>
+    <string name="accessibility_manager_service_no_description">Keine Beschreibung vom Dienst bereitgestellt.</string>
+    <string name="home_adb_dialog_view_command_notice">그 외에도 고려해야 할 사항이 몇 가지 있으니, 먼저 도움말을 읽어보셨는지 확인해 주시기 바랍니다.</string>
+    <string name="app_management_loading">앱 불러오는 중…</string>
+    <string name="settings_start_on_boot_adb">부팅 시 무선 디버깅을 통해 시작</string>
+    <string name="settings_start_on_boot_adb_summary">부팅 시 무선 디버깅을 잠시 활성화한 뒤 ADB(TCP 포트 5555)를 통해 Shevery를 실행하세요. 루트 권한은 필요하지 않으며, Wi-Fi는 아주 잠시만 필요합니다.</string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp">부팅 시 무선 디버깅을 잠시 활성화한 뒤 ADB를 통해 Shevery를 실행하세요. 루트 권한은 필요하지 않으며, Wi-Fi는 아주 잠시만 필요합니다.</string>
+    <string name="settings_start_on_boot_adb_granted">WRITE_SECURE_SETTINGS 권한이 부여되었습니다.</string>
+    <string name="settings_start_on_boot_adb_warning_no_tcp">TCP 바인딩(포트 5555)이 비활성화되어 있습니다: 무선 디버깅은 계속 활성화된 상태로 유지됩니다.</string>
+    <string name="settings_start_on_boot_adb_missing_permission_title">권한 부족</string>
+    <string name="settings_start_on_boot_adb_not_running">Shevery는 실행 중이 아닙니다. 먼저 서비스를 시작한 다음, 다시 돌아와서 이 설정을 활성화하십시오.</string>
+    <string name="settings_start_on_boot_adb_grant_failed">자동 권한 부여에 실패했습니다. 컴퓨터에서 다음 명령을 실행하여 수동으로 권한을 부여하십시오:</string>
+    <string name="settings_start_on_boot_adb_missing_permission_copy">복사 명령어</string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction">사용 방법:\n1. 기기를 컴퓨터에 연결합니다(USB 또는 무선 디버깅).\n2. 터미널에서 위 필드의 명령어를 실행합니다.</string>
+    <string name="notification_startup_channel_name">셰버리 스타트업</string>
+    <string name="notification_startup_title">셰버리 시작하기</string>
+    <string name="notification_startup_enabling_wifi">Wi-Fi 디버깅 활성화 중…</string>
+    <string name="notification_startup_connecting">ADB에 연결 중…</string>
+    <string name="notification_startup_started">셰버리가 말을 꺼냈다.</string>
+    <string name="notification_startup_failed">Shevery를 시작하지 못했습니다.</string>
+    <string name="notification_startup_no_port">15초 이내에 무선 디버깅 포트를 찾을 수 없습니다.</string>
+    <string name="notification_startup_no_permission">부팅 시 시작할 수 없음: 필요한 권한이 부여되지 않았습니다. 먼저 Shevery를 열고 권한을 부여하십시오.</string>
+    <string name="notification_startup_waiting_unlock">기기 잠금 해제가 시작되기를 기다리는 중…</string>
+    <string name="notification_startup_cancel">취소</string>
+    <string name="notification_startup_attempt_now">지금 시도해 보세요</string>
+    <string name="wadb_notification_title">Shevery 시작…</string>
+    <string name="wadb_notification_wifi_required">진행하기 전에 Wi-Fi 연결을 기다리고 있습니다</string>
+    <string name="wadb_notification_retry">재시도 대기 중</string>
+    <string name="wadb_error_title">부팅 시 시작 과정에서 오류 발생</string>
+    <string name="wadb_error_notify_dev">탭하여 Shevery를 다시 시작하세요.</string>
+    <string name="wadb_permission_error_notification_title">권한 오류</string>
+    <string name="wadb_permission_error_notification_content">Shevery가 부팅 시 시작되지 않았습니다. Shevery를 열어 문제를 확인해 주세요.</string>
+    <string name="wadb_notification_attempt_now">지금 시도해 보세요</string>
+    <string name="settings_update_group_title">업데이트</string>
+    <string name="shevery_update_check_title">Shevery 업데이트 확인하기</string>
+    <string name="shevery_update_check_summary">Shevery Manager의 최신 버전이 있는지 확인하세요</string>
+    <string name="shevery_update_checking">Shevery 업데이트 확인 중…</string>
+    <string name="shevery_update_up_to_date">Shevery는 최신 상태입니다 (%s)</string>
+    <string name="shevery_update_available_title">Shevery의 새로운 업데이트가 출시되었습니다!</string>
+    <string name="shevery_update_available_msg">%1$s 버전이 출시되었습니다 (현재 버전: %2$s).</string>
+    <string name="shevery_update_download_apk">APK 다운로드</string>
+    <string name="shevery_update_view_release">GitHub에서 보기</string>
+    <string name="shevery_update_channel">업데이트 채널</string>
+    <string name="shevery_update_channel_summary">업데이트 배포 채널 선택</string>
+    <string name="app_update_channel_stable">안정적</string>
+    <string name="app_update_channel_beta">출시 전 및 베타</string>
+    <string name="shevery_update_group_title">Shevery 앱 업데이트</string>
+    <string name="shevery_update_modules_group_title">모듈 업데이트 및 카탈로그</string>
+    <string name="shevery_update_check_failed">업데이트 확인에 실패했습니다: %s</string>
+    <string name="settings_sections_title">백업 및 기타</string>
+    <string name="backup_section_title">백업</string>
+    <string name="comput_output_label">출력</string>
+    <string name="comput_search_desc">검색 결과</string>
+    <string name="comput_search_hint">검색 결과</string>
+    <string name="comput_no_search_results">일치하는 결과가 없습니다.</string>
+    <string name="comput_clear_search_desc">검색 내용 지우기</string>
+    <string name="comput_close_search_desc">검색 닫기</string>
+    <string name="comput_history_desc">명령 내역</string>
+    <string name="comput_history_title">역사</string>
+    <string name="comput_history_empty">아직 명령어 기록이 없습니다.</string>
+    <string name="comput_run_desc">명령 실행</string>
+    <string name="comput_scroll_bottom_desc">맨 아래로 스크롤하세요</string>
+    <string name="comput_cancelled">사용자가 명령을 취소했습니다.</string>
+    <string name="accessibility_manager_title">접근성 관리자</string>
+    <string name="accessibility_manager_lab_group">접근성</string>
+    <string name="accessibility_manager_lab_title">접근성 관리자</string>
+    <string name="accessibility_manager_lab_summary">접근성 서비스 관리 및 유지</string>
+    <string name="accessibility_manager_keep_alive_group">연결 유지</string>
+    <string name="accessibility_manager_keep_alive_title">고정된 서비스 유지</string>
+    <string name="accessibility_manager_keep_alive_summary">시스템이나 사용자가 고정된 접근성 서비스를 비활성화했을 때 해당 서비스를 다시 활성화합니다.</string>
+    <string name="accessibility_manager_auto_boot_title">부팅 시 시작</string>
+    <string name="accessibility_manager_auto_boot_summary">장치 재부팅 후 키프-얼라이브 데몬을 자동으로 시작합니다.</string>
+    <string name="accessibility_manager_shizuku_required">Shevery가 실행 중이 아닙니다. 접근성 서비스를 활성화하거나 비활성화하려면 이 앱을 실행하세요.</string>
+    <string name="accessibility_manager_services_group">접근성 서비스 (%1$d)</string>
+    <string name="accessibility_manager_services_empty">설치된 접근성 서비스가 없습니다.</string>
+    <string name="accessibility_manager_write_failed">접근성 서비스를 업데이트하지 못했습니다. Shevery가 실행 중인지, 그리고 권한이 있는지 확인하십시오.</string>
+    <string name="accessibility_manager_pin">서비스 유지하기</string>
+    <string name="accessibility_manager_unpin">서비스 고정 해제</string>
+    <string name="accessibility_daemon_channel_name">접근성 키프-얼라이브</string>
+    <string name="accessibility_daemon_notification_title">접근성 키프-얼라이브 활성화됨</string>
+    <string name="accessibility_daemon_notification_text">고정된 접근성 서비스는 비활성화된 경우 다시 복원됩니다.</string>
+    <string name="settings_compat_stub">레거시 시즈쿠 요약문</string>
+    <string name="settings_compat_stub_summary">레거시 Shizuku 관리자를 엄격하게 확인하는 앱들이 계속 작동할 수 있도록 스텁 패키지(moe.shizuku.privileged.api)를 설치합니다. 권한 및 바인더 요청은 Shevery로 전달됩니다.</string>
+    <string name="settings_compat_stub_installed">%1$s를 통해 레거시 스텁이 설치되었습니다.</string>
+    <string name="settings_compat_stub_uninstalled">기존 스텁 제거됨</string>
+    <string name="settings_compat_stub_failed">%2$s를 통해 레거시 스텁을 %1$s하는 데 실패했습니다: %3$s</string>
+    <string name="settings_compat_stub_none">사용 가능한 채널이 없습니다 (먼저 Shevery를 시작하세요)</string>
 </resources>
