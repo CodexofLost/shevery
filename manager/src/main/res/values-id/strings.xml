@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="home_status_service_version_update"><![CDATA[Versi %2$s, %1$s <br> Mulai ulang untuk upgrade ke versi %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Versi %2$s, %1$s <br/> Mulai ulang untuk upgrade ke versi %3$s]]></string>
     <string name="home_adb_description">Untuk perangkat tanpa akses root, Anda harus menggunakan adb untuk memulai Shizuku (perlu terhubung dengan komputer). Proses ini harus diulang setiap kali perangkat di-restart. Harap <b><a href="%1$s">baca dokumentasi</a></b> untuk info lebih lanjut.</string>
     <string name="adb_pairing_requires_multi_window_reason">Sistem mengharuskan dialog penyambungan untuk selalu terlihat, hal ini hanya bisa diakali dengan mode layar pisah (split-screen) untuk membuat Shizuku dan dialog sistem muncul secara bersamaan.</string>
-    <string name="home_root_description"><![CDATA[Sebagai tambahan, Shizuku bisa dimulai secara otomatis saat perangkat dimulai. Kalau hal ini tak bisa dilakukan, harap cek apakah sistem Anda atau aplikasi pihak-ketiga telah membatasi Shizuku.<br>Lebih lanjut, cek %s.]]></string>
+    <string name="home_root_description"><![CDATA[Sebagai tambahan, Shizuku bisa dimulai secara otomatis saat perangkat dimulai. Kalau hal ini tak bisa dilakukan, harap cek apakah sistem Anda atau aplikasi pihak-ketiga telah membatasi Shizuku.<br/>Lebih lanjut, cek %s.]]></string>
     <string name="home_learn_more_description">Pelajari cara mengembangkan dengan Shizuku</string>
     <string name="terminal_tutorial_1">Pertama, Ekspor file ke tempat mana pun yang Anda mau. Anda akan mendapatkan dua file, yaitu %1$s dan %2$s.</string>
     <string name="terminal_tutorial_2_description">Sebagai contoh, jika Anda mau menggunakan Shizuku di %1$s, Anda harus menimpa %2$s dengan %3$s (%4$s adalah nama paket dari %1$s).</string>
@@ -18,7 +18,7 @@
     <string name="home_adb_title">Mulai dengan menghubungkan ke komputer</string>
     <string name="home_adb_button_view_help">Baca dokumentasi</string>
     <string name="home_adb_button_view_command">Lihat perintah</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Terdapat beberapa pertimbangan tambahan, harap pastikan bahwa Anda telah membaca dokumentasi.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Terdapat beberapa pertimbangan tambahan, harap pastikan bahwa Anda telah membaca dokumentasi.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Salin</string>
     <string name="home_adb_dialog_view_command_button_send">Kirim ke...</string>
     <string name="home_wireless_adb_title">Mulai melalui Debug Nirkabel</string>
@@ -230,7 +230,7 @@
     <string name="modules_updating">Memperbarui modul…</string>
     <string name="modules_update_success">Modul telah diperbarui ke versi %s</string>
     <string name="modules_download_downloads">Unduh ke Folder Unduhan</string>
-    <string name="modules_download_install">Unduh & Pasang</string>
+    <string name="modules_download_install">Unduh &amp; Pasang</string>
     <string name="modules_downloading">Sedang mengunduh…</string>
     <string name="modules_download_enqueued">Pengunduhan telah dimulai di latar belakang</string>
     <string name="modules_search_placeholder">Cari modul katalog…</string>
@@ -342,9 +342,9 @@
     <string name="shevery_update_channel">Saluran pembaruan</string>
     <string name="shevery_update_channel_summary">Pilih saluran rilis pembaruan</string>
     <string name="app_update_channel_stable">Stabil</string>
-    <string name="app_update_channel_beta">Pra-rilis & Beta</string>
+    <string name="app_update_channel_beta">Pra-rilis &amp; Beta</string>
     <string name="shevery_update_group_title">Pembaruan Aplikasi Shevery</string>
-    <string name="shevery_update_modules_group_title">Pembaruan Modul & Katalog</string>
+    <string name="shevery_update_modules_group_title">Pembaruan Modul &amp; Katalog</string>
     <string name="shevery_update_check_failed">Pemeriksaan pembaruan gagal: %s</string>
     <string name="modules_catalog">Katalog</string>
     <string name="modules_catalog_title">Katalog Modul</string>
@@ -377,10 +377,10 @@
     <string name="wear_catalog_sort_official">Resmi</string>
     <string name="wear_catalog_sort_by">Urutkan berdasarkan</string>
     <string name="wear_catalog_filter">Filter</string>
-    <string name="backup_restore_title">Pencadangan & Pemulihan</string>
-    <string name="backup_title">Pengaturan & Modul Cadangan</string>
+    <string name="backup_restore_title">Pencadangan &amp; Pemulihan</string>
+    <string name="backup_title">Pengaturan &amp; Modul Cadangan</string>
     <string name="backup_summary">Ekspor konfigurasi dan modul ke berkas ZIP</string>
-    <string name="restore_title">Kembalikan Pengaturan & Modul</string>
+    <string name="restore_title">Kembalikan Pengaturan &amp; Modul</string>
     <string name="restore_summary">Impor konfigurasi dan modul dari berkas ZIP</string>
     <string name="settings_sections_title">Cadangan dan lainnya</string>
     <string name="backup_section_title">Cadangan</string>
@@ -398,7 +398,7 @@
     <string name="comput_api_key_label">API Key</string>
     <string name="comput_show_api_key">Show API key</string>
     <string name="comput_hide_api_key">Hide API key</string>
-    <string name="comput_gemini_model_performance">Pengkodean berkinerja tinggi & berbasis agen (Disarankan)</string>
+    <string name="comput_gemini_model_performance">Pengkodean berkinerja tinggi &amp; berbasis agen (Disarankan)</string>
     <string name="comput_gemini_model_lightweight">Model ringan berkecepatan tinggi</string>
     <string name="comput_gemini_api_error">API Gemini mengembalikan kode kesalahan %1$d: %2$s</string>
     <string name="comput_gemini_connection_error">Kesalahan koneksi.</string>

@@ -14,7 +14,7 @@
     <string name="home_adb_button_view_help">Ανάγνωση βοήθειας</string>
     <string name="home_adb_description">Για συσκευές χωρίς πρόσβαση root, πρέπει να χρησιμοποιήσετε το adb για την εκκίνηση του Shizuku (απαιτεί σύνδεση σε υπολογιστή). Αυτή η διαδικασία θα πρέπει να επαναλαμβάνεται κάθε φορά που επανεκκινείται η συσκευή. <b><a href="%1$s">Διαβάστε τη βοήθεια</a></b>.</string>
     <string name="home_adb_title">Έναρξη μέσω σύνδεσης με υπολογιστή</string>
-    <string name="home_status_service_version_update"><![CDATA[Έκδοση %2$s, %1$s<br>Κάντε ξανά εκκίνηση για ενημέρωση στην έκδοση %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Έκδοση %2$s, %1$s<br/>Κάντε ξανά εκκίνηση για ενημέρωση στην έκδοση %3$s]]></string>
     <string name="home_status_service_not_running">Το %1$s δεν εκτελείται</string>
     <string name="home_status_service_is_running">Το %1$s εκτελείται</string>
     <string name="dialog_adb_port">Θύρα</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Το Shevery πρέπει να έχει πρόσβαση στο τοπικό δίκτυο. Αυτό ρυθμίζεται από τα δικαιώματα δικτύου.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Ορισμένα λειτουργικά συστήματα (όπως το MIUI) δεν επιτρέπουν στις εφαρμογές να έχουν πρόσβαση στο δίκτυο όταν δεν είναι ορατές, ακόμη και αν η εφαρμογή χρησιμοποιεί υπηρεσία στο προσκήνιο ως προεπιλογή. Παρακαλούμε απενεργοποιήστε τις λειτουργίες βελτιστοποίησης της μπαταρίας για το Shevery σε τέτοια λειτουργικά συστήματα.</string>
     <string name="home_root_title">Έναρξη (για συσκευές με root)</string>
-    <string name="home_root_description">Επιπλέον, το Shevery μπορεί να ξεκινά αυτόματα κατά την εκκίνηση του συστήματος. Εάν αυτό δεν συμβαίνει, παρακαλούμε να ελέγξετε αν το σύστημά σας ή κάποια εργαλεία τρίτων έχουν περιορίσει τη λειτουργία του Shevery.<br>Μπορείτε να ανατρέξετε στο %s.</string>
+    <string name="home_root_description">Επιπλέον, το Shevery μπορεί να ξεκινά αυτόματα κατά την εκκίνηση του συστήματος. Εάν αυτό δεν συμβαίνει, παρακαλούμε να ελέγξετε αν το σύστημά σας ή κάποια εργαλεία τρίτων έχουν περιορίσει τη λειτουργία του Shevery.<br/>Μπορείτε να ανατρέξετε στο %s.</string>
     <string name="home_root_description_sui">Αν χρησιμοποιείτε το Magisk, μπορείτε να δοκιμάσετε το %1$s. Για τους χρήστες με δικαιώματα root, θα αντικαταστήσει τελικά το Shevery. Σημειώστε ότι οι υπάρχουσες εφαρμογές θα πρέπει να τροποποιηθούν ελαφρώς για να χρησιμοποιούν το %2$s.</string>
     <string name="home_root_button_start">Έναρξη</string>
     <string name="home_root_button_restart">Επανεκκίνηση</string>
@@ -347,9 +347,9 @@
     <string name="shevery_update_channel">Κανάλι ενημέρωσης</string>
     <string name="shevery_update_channel_summary">Επιλογή καναλιού κυκλοφορίας ενημερώσεων</string>
     <string name="app_update_channel_stable">Σταθερό</string>
-    <string name="app_update_channel_beta">Προ-κυκλοφορία & Beta</string>
+    <string name="app_update_channel_beta">Προ-κυκλοφορία &amp; Beta</string>
     <string name="shevery_update_group_title">Ενημερώσεις της εφαρμογής Shevery</string>
-    <string name="shevery_update_modules_group_title">Ενημερώσεις ενοτήτων & Κατάλογος</string>
+    <string name="shevery_update_modules_group_title">Ενημερώσεις ενοτήτων &amp; Κατάλογος</string>
     <string name="shevery_update_check_failed">Αποτυχία ελέγχου ενημέρωσης: %s</string>
     <string name="modules_catalog">Κατάλογος</string>
     <string name="modules_catalog_title">Κατάλογος ενοτήτων</string>
@@ -403,7 +403,7 @@
     <string name="comput_api_key_label">Κλειδί API</string>
     <string name="comput_show_api_key">Εμφάνιση κλειδιού API</string>
     <string name="comput_hide_api_key">Απόκρυψη κλειδιού API</string>
-    <string name="comput_gemini_model_performance">Κωδικοποίηση υψηλής απόδοσης & agentic (Συνιστάται)</string>
+    <string name="comput_gemini_model_performance">Κωδικοποίηση υψηλής απόδοσης &amp; agentic (Συνιστάται)</string>
     <string name="comput_gemini_model_lightweight">Ελαφρύ μοντέλο υψηλής ταχύτητας</string>
     <string name="comput_gemini_api_error">Το API του Gemini επέστρεψε τον κωδικό σφάλματος %1$d: %2$s</string>
     <string name="comput_gemini_connection_error">Σφάλμα σύνδεσης.</string>

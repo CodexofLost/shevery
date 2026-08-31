@@ -3,11 +3,11 @@
     <string name="home_adb_button_view_help">Leggi la guida</string>
     <string name="home_adb_description">Per i dispositivi non rootati occorre usare adb per avviare Shizuku (serve una connessione ad un computer). Questo processo deve essere ripetuto ogni volta che il dispositivo viene riavviato. Per favore <b><a href="%1$s">leggi la guida</a></b>.</string>
     <string name="home_adb_title">Avvia collegandoti ad un computer</string>
-    <string name="home_status_service_version_update"><![CDATA[Versione %2$s, %1$s<br>Riavvia per aggiornare alla versione %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Versione %2$s, %1$s<br/>Riavvia per aggiornare alla versione %3$s]]></string>
     <string name="home_status_service_version">Versione %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s non è in esecuzione</string>
     <string name="home_status_service_is_running">%1$s è in esecuzione</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Ci sono altre considerazioni, conferma di aver letto prima la guida.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Ci sono altre considerazioni, conferma di aver letto prima la guida.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Copia</string>
     <string name="home_adb_dialog_view_command_button_send">Invia</string>
     <string name="home_wireless_adb_title">Avvia tramite Debug Wireless</string>
@@ -39,7 +39,7 @@
     <string name="notification_settings">Opzioni di notifica</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Alcuni sistemi (come MIUI) non consentono alle app di accedere alla rete quando queste non sono visibili, anche se l\'app utilizza il servizio in primo piano come standard. Disattiva le funzioni di ottimizzazione della batteria per Shizuku su tali sistemi.</string>
     <string name="adb_pairing_tutorial_content_miui_2">In caso contrario, potresti non essere in grado di inserire il codice di accoppiamento dalla notifica.</string>
-    <string name="home_root_description"><![CDATA[Inoltre, Shizuku può essere avviato automaticamente all\'avvio. In caso contrario, controlla se il tuo sistema o l\'opzione app esterne hanno limitato Shizuku.<br>Puoi fare riferimento a %s.]]></string>
+    <string name="home_root_description"><![CDATA[Inoltre, Shizuku può essere avviato automaticamente all\'avvio. In caso contrario, controlla se il tuo sistema o l\'opzione app esterne hanno limitato Shizuku.<br/>Puoi fare riferimento a %s.]]></string>
     <string name="home_root_button_start">Avvia</string>
     <string name="home_root_description_sui">Se stai usando Magisk, puoi provare %1$s. Per gli utenti root, alla fine sostituirà Shizuku. Nota, le applicazioni esistenti devono essere leggermente modificate per poter usare %2$s.</string>
     <string name="home_root_button_restart">Riavvia</string>

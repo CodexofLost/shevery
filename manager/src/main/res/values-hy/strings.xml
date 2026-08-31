@@ -54,12 +54,12 @@
     <string name="home_wireless_adb_title">Միացնել Անլար կարգաբերման օգնությամբ</string>
     <string name="home_adb_dialog_view_command_button_send">Ուղարկել</string>
     <string name="home_adb_dialog_view_command_copy_button">Պատճենել</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Գոյություն ունեն ուրիշ դիտողություններ։ Սկզբում հաստատեք, որ կարդացել եք օգնությունը։]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Գոյություն ունեն ուրիշ դիտողություններ։ Սկզբում հաստատեք, որ կարդացել եք օգնությունը։]]></string>
     <string name="home_adb_button_view_command">Տեսնել հրահանգը</string>
     <string name="home_adb_button_view_help">Կարդալ օգնությունը</string>
     <string name="home_adb_description"><![CDATA[Առանց «root» թույլտվություն ունեցող սարքերի օգտատերերը պետք է օգտագործեն adb, որպեսզի միացնեն Shizuku-ն (անհրաժեշտ է համակարգչային կապ)։ Այս գործողությունը պետք է կրկնել ամեն անգամ սարքի վերաբեռնելուց հետո։ Խնդրում ենք <b><a href="%1$s">կարդալ օգնությունը</a></b>։]]></string>
     <string name="home_adb_title">Միացնել համակարգչի օգնությամբ</string>
-    <string name="home_status_service_version_update"><![CDATA[Փոփոխակ %2$s, %1$s<br>Միացրեք կրկին որպեսզի թարմացնեք դեպի %3$s փոփոխակ]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Փոփոխակ %2$s, %1$s<br/>Միացրեք կրկին որպեսզի թարմացնեք դեպի %3$s փոփոխակ]]></string>
     <string name="home_status_service_version">Փոփոխակ %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s-ը միացված չէ</string>
     <string name="home_status_service_is_running">%1$s-ը միացված է</string>

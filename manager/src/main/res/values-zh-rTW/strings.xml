@@ -7,12 +7,12 @@
     <string name="home_status_service_is_running">%1$s 正在執行</string>
     <string name="home_status_service_not_running">%1$s 未執行</string>
     <string name="home_status_service_version">版本 %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[版本 %2$s, %1$s<br>重新啟動以更新至版本 %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[版本 %2$s, %1$s<br/>重新啟動以更新至版本 %3$s]]></string>
     <string name="home_adb_title"><![CDATA[透過連接電腦啟動]]></string>
     <string name="home_adb_description"><![CDATA[對於未 Root 的裝置，需要使用 ADB 啟動 Shevery（需要連接電腦）。每次重新啟動裝置後都需要重複此過程。請<b><a href="%1$s">閱讀說明文件</a></b>。]]></string>
     <string name="home_adb_button_view_help">閱讀說明</string>
     <string name="home_adb_button_view_command">檢視指令</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* 還有其他注意事項，請先確認您已閱讀說明文件。]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br/><br/>* 還有其他注意事項，請先確認您已閱讀說明文件。]]></string>
     <string name="home_adb_dialog_view_command_copy_button">複製</string>
     <string name="home_adb_dialog_view_command_button_send">傳送</string>
     <string name="home_wireless_adb_title"><![CDATA[透過無線偵錯啟動]]></string>
@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery 需要存取區域網路。</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">某些系統（如 MIUI）在應用程式未處於前景時會停用網路存取。請為 Shevery 關閉電池最佳化。</string>
     <string name="home_root_title"><![CDATA[啟動（針對已 Root 裝置）]]></string>
-    <string name="home_root_description"><![CDATA[此外，Shevery 可以在開機時自動啟動。如果未啟動，請檢查系統或第三方工具是否限制了 Shevery。<br>可以參考 %s。]]></string>
+    <string name="home_root_description"><![CDATA[此外，Shevery 可以在開機時自動啟動。如果未啟動，請檢查系統或第三方工具是否限制了 Shevery。<br/>可以參考 %s。]]></string>
     <string name="home_root_description_sui"><![CDATA[如果您正在使用 Magisk，可以嘗試 %1$s。對於 Root 使用者，它最終將取代 Shevery。]]></string>
     <string name="home_root_button_start">啟動</string>
     <string name="home_root_button_restart">重新啟動</string>

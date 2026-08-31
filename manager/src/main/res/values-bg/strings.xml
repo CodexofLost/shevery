@@ -14,7 +14,7 @@
     <string name="home_status_service_is_running">%1$s работи</string>
     <string name="home_status_service_not_running">%1$s не работи</string>
     <string name="home_status_service_version">Версия %2$s, %1$s</string>
-    <string name="home_status_service_version_update">Версия %2$s, %1$s<br>Започнете отново, за да актуализирате до версия %3$s</string>
+    <string name="home_status_service_version_update">Версия %2$s, %1$s<br/>Започнете отново, за да актуализирате до версия %3$s</string>
     <string name="home_adb_title">Започнете, като се свържете с компютър</string>
     <string name="home_adb_description">За устройства без root достъп е необходимо да използвате adb, за да стартирате Shevery (изисква връзка с компютър). Този процес трябва да се повтаря при всяко рестартиране на устройството. Моля, <b><a href="%1$s">прочетете помощната информация</a></b>.</string>
     <string name="home_adb_button_view_help">Прочетете помощта</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery трябва да има достъп до локалната мрежа. Това се регулира чрез мрежовите разрешения.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Някои системи (като например MIUI) не позволяват на приложенията да имат достъп до мрежата, когато не са активни, дори ако приложението по подразбиране използва услуга на преден план. Моля, деактивирайте функциите за оптимизация на батерията за Shevery на такива системи.</string>
     <string name="home_root_title">Старт (за устройства с root достъп)</string>
-    <string name="home_root_description">Освен това Shevery може да се стартира автоматично при зареждането на системата. Ако това не се случва, моля, проверете дали вашата система или инструменти на трети страни не са ограничили работата на Shevery.<br>Можете да се запознаете с %s.</string>
+    <string name="home_root_description">Освен това Shevery може да се стартира автоматично при зареждането на системата. Ако това не се случва, моля, проверете дали вашата система или инструменти на трети страни не са ограничили работата на Shevery.<br/>Можете да се запознаете с %s.</string>
     <string name="home_root_description_sui">Ако използвате Magisk, можете да опитате %1$s. За потребителите с root права то в крайна сметка ще замести Shevery. Имайте предвид, че съществуващите приложения трябва да бъдат леко променени, за да могат да използват %2$s.</string>
     <string name="home_root_button_start">Начало</string>
     <string name="home_root_button_restart">Рестартиране</string>

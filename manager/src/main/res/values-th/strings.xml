@@ -64,7 +64,7 @@
     <string name="home_root_button_restart">เริ่มใหม่</string>
     <string name="home_root_button_start">เริ่ม</string>
     <string name="home_root_description_sui">หากคุณกำลังใช้ Magisk สามารถลองใช้ %1$s สำหรับผู้ใช้งานรูท จะเป็นตัวที่ใช้แทนที่ Shizuku แต่โปรดทราบว่า แอปพลิเคชันที่มีอยู่จำเป็นต้องเปลี่ยนเล็กน้อยให้ไปใช้ %2$s</string>
-    <string name="home_root_description"><![CDATA[นอกจากนี้ Shizuku ยังสามารถเริ่มอัตโนมัติเมื่ออุปกรณ์ถูกเปิด หากไม่ โปรดตรวจสอบอุปกรณ์หรือเครื่องมือภายนอกที่จำกัดการเข้าถึงของ Shizuku<br>หรือดูตาม %s]]></string>
+    <string name="home_root_description"><![CDATA[นอกจากนี้ Shizuku ยังสามารถเริ่มอัตโนมัติเมื่ออุปกรณ์ถูกเปิด หากไม่ โปรดตรวจสอบอุปกรณ์หรือเครื่องมือภายนอกที่จำกัดการเข้าถึงของ Shizuku<br/>หรือดูตาม %s]]></string>
     <string name="home_root_title">เริ่ม (สำหรับอุปกรณ์ที่รูทแล้ว)</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">บางระบบ (เช่น MIUI) จะไม่อนุญาตให้แอปเข้าถึงเครือข่ายเมื่อไม่แสดง แม้แอปจะใช้บริการเบื้องหน้าตามปกติ โปรดเปิดใช้งานการเพิ่มประสิทธิภาพแบตเตอรี่ของ Shizuku บนระบบที่เป็นเช่นนั้น</string>
     <string name="adb_pairing_tutorial_content_network">Shizuku จำเป็นต้องเข้าถึงเครือข่ายท้องถิ่น ซึ่งกำลังควบคุมอยู่โดยการอนุญาตเครือข่าย</string>
@@ -97,13 +97,13 @@
     <string name="home_wireless_adb_view_guide_button">คำแนะนำทีละขั้นตอน</string>
     <string name="home_adb_dialog_view_command_button_send">ส่ง</string>
     <string name="home_adb_dialog_view_command_copy_button">คัดลอก</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* มีข้อควรพิจารณาอื่น ๆ โปรดอ่านความช่วยเหลือให้เข้าใจก่อน]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* มีข้อควรพิจารณาอื่น ๆ โปรดอ่านความช่วยเหลือให้เข้าใจก่อน]]></string>
     <string name="home_adb_button_view_command">ดูคำสั่ง</string>
     <string name="home_adb_button_view_help">อ่านการช่วยเหลือ</string>
     <string name="home_adb_title">เริ่มโดยเชื่อมต่อกับคอมพิวเตอร์</string>
     <string name="home_status_service_is_running">%1$s กำลังทำงาน</string>
     <string name="home_adb_description">สำหรับอุปกรณ์ที่ไม่ได้ติดตั้งรูท จะต้องใช้ adb เพื่อเริ่ม Shizuku (จำเป็นต้องเชื่อมต่อกับคอมพิวเตอร์) กระบวนการนี้จะต้องทำทุกครั้งที่อุปกรณ์ปิดและเปิดใหม่ กรุณา<b><a href="%1$s">อ่านการช่วยเหลือ</a></b></string>
-    <string name="home_status_service_version_update"><![CDATA[เวอร์ชัน %2$s, %1$s<br>เริ่มใหม่อีกครั้งเพื่ออัปเดตเป็นเวอร์ชัน %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[เวอร์ชัน %2$s, %1$s<br/>เริ่มใหม่อีกครั้งเพื่ออัปเดตเป็นเวอร์ชัน %3$s]]></string>
     <string name="home_status_service_version">เวอร์ชัน %2$s ผ่าน %1$s</string>
     <string name="home_status_service_not_running">%1$s ไม่ได้กำลังทำงาน</string>
     <string name="translation_contributors">altinat</string>

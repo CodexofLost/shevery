@@ -14,7 +14,7 @@
     <string name="home_status_service_is_running">%1$s darbojas</string>
     <string name="home_status_service_not_running">%1$s nedarbojas</string>
     <string name="home_status_service_version">Versija %2$s, %1$s</string>
-    <string name="home_status_service_version_update">Versija %2$s, %1$s<br>Sāciet no jauna, lai atjauninātu uz versiju %3$s</string>
+    <string name="home_status_service_version_update">Versija %2$s, %1$s<br/>Sāciet no jauna, lai atjauninātu uz versiju %3$s</string>
     <string name="home_adb_title">Sāciet ar savienošanos ar datoru</string>
     <string name="home_adb_description">Ierīcēm bez root piekļuves, lai palaistu Shevery, ir jāizmanto adb (nepieciešama savienojums ar datoru). Šis process ir jāatkārto katru reizi, kad ierīce tiek pārstartēta. Lūdzu, <b><a href="%1$s">izlasiet palīdzību</a></b>.</string>
     <string name="home_adb_button_view_help">Lasīt palīdzību</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">„Shevery“ ir nepieciešama piekļuve vietējam tīklam. To regulē tīkla atļauja.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Dažas sistēmas (piemēram, MIUI) neļauj lietotnēm piekļūt tīklam, ja tās nav redzamas, pat ja lietotne pēc noklusējuma izmanto priekšplāna pakalpojumu. Lūdzu, šādās sistēmās atspējojiet „Shevery“ akumulatora optimizācijas funkcijas.</string>
     <string name="home_root_title">Sākt (ierīcēm ar root piekļuvi)</string>
-    <string name="home_root_description">Turklāt programmu „Shevery“ var iestatīt tā, lai tā palaistos automātiski sistēmas uzsākšanas brīdī. Ja tā nenotiek, lūdzu, pārbaudiet, vai jūsu sistēma vai trešo pušu rīki nav ierobežojuši programmas „Shevery“ darbību.<br>Vairāk informācijas varat atrast %s.</string>
+    <string name="home_root_description">Turklāt programmu „Shevery“ var iestatīt tā, lai tā palaistos automātiski sistēmas uzsākšanas brīdī. Ja tā nenotiek, lūdzu, pārbaudiet, vai jūsu sistēma vai trešo pušu rīki nav ierobežojuši programmas „Shevery“ darbību.<br/>Vairāk informācijas varat atrast %s.</string>
     <string name="home_root_description_sui">Ja izmantojat Magisk, varat izmēģināt %1$s. Root lietotājiem tas galu galā aizstās Shevery. Ņemiet vērā, ka esošajām lietotnēm būs nepieciešamas nelielas izmaiņas, lai tās varētu izmantot %2$s.</string>
     <string name="home_root_button_start">Sākums</string>
     <string name="home_root_button_restart">Pārstartēt</string>

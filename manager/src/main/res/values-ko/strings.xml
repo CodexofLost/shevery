@@ -7,12 +7,12 @@
     <string name="home_status_service_is_running">%1$s가 실행 중입니다</string>
     <string name="home_status_service_not_running">%1$s가 실행 중이 아닙니다</string>
     <string name="home_status_service_version">%1$s, 버전 %2$s</string>
-    <string name="home_status_service_version_update"><![CDATA[%1$s, 버전 %2$s<br>다시 시작하여 버전 %3$s로 업데이트]]></string>
+    <string name="home_status_service_version_update"><![CDATA[%1$s, 버전 %2$s<br/>다시 시작하여 버전 %3$s로 업데이트]]></string>
     <string name="home_adb_title">컴퓨터에 연결하여 시작</string>
     <string name="home_adb_description">루링 없이 Shizuku를 시작하기 위해 adb가 필요합니다. (컴퓨터 연결 필수) 이 작업은 다시 시작 시 마다 필요로 합니다. 자세한 정보는 <b><a href="%1$s">도움말</a></b>을 확인하세요.</string>
     <string name="home_adb_button_view_help">도움말 읽기</string>
     <string name="home_adb_button_view_command">명령어 보기</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* 몇 가지 다른 참고 사항이 있으므로, 도움말을 먼저 확인하세요.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* 몇 가지 다른 참고 사항이 있으므로, 도움말을 먼저 확인하세요.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">복사</string>
     <string name="home_adb_dialog_view_command_button_send">보내기</string>
     <string name="home_wireless_adb_title">무선 디버깅으로 시작</string>
@@ -52,7 +52,7 @@
     <string name="adb_pairing_tutorial_content_network">Shizuku는 로컬 네트워크에 액세스해야 합니다. 네트워크 권한에 의해 제어됩니다.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">일부 시스템(예: MIUI)은 앱이 포그라운드 서비스를 표준으로 사용하더라도 앱이 보이지 않을 때 네트워크에 액세스하는 것을 허용하지 않습니다. 이러한 시스템에서 Shizuku의 배터리 최적화 기능을 비활성화하세요.</string>
     <string name="home_root_title">시작 (루팅된 기기용)</string>
-    <string name="home_root_description"><![CDATA[Shizuku는 부팅 시 자동으로 시작됩니다. 그렇지 않을 경우, 시스템 또는 제 3자 도구에서 Shizuku를 제한하고 있는지 확인하세요.<br>%s를 참조할 수 있습니다.]]></string>
+    <string name="home_root_description"><![CDATA[Shizuku는 부팅 시 자동으로 시작됩니다. 그렇지 않을 경우, 시스템 또는 제 3자 도구에서 Shizuku를 제한하고 있는지 확인하세요.<br/>%s를 참조할 수 있습니다.]]></string>
     <string name="home_root_description_sui">Magisk를 사용하는 경우 %1$s 을 사용해 볼 수 있습니다. 루팅 사용자의 경우 결국 Shizuku를 대체하게 됩니다. %2$s를 사용하려면 기존 어플리케이션을 약간 변경해야 합니다.</string>
     <string name="home_root_button_start">시작</string>
     <string name="home_root_button_restart">재시작</string>

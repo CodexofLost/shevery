@@ -41,9 +41,9 @@
     <string name="home_app_management_title">Správa aplikací</string>
     <string name="home_root_button_restart">Restartovat</string>
     <string name="home_root_button_start">Spustit</string>
-    <string name="home_root_description"><![CDATA[Kromě toho lze Shizuku spustit automaticky při spuštění. Pokud ne, zkontrolujte, zda váš systém nebo nástroje třetích stran neomezují Shizuku. <br> Můžete se podívat na %s.]]></string>
+    <string name="home_root_description"><![CDATA[Kromě toho lze Shizuku spustit automaticky při spuštění. Pokud ne, zkontrolujte, zda váš systém nebo nástroje třetích stran neomezují Shizuku. <br/> Můžete se podívat na %s.]]></string>
     <string name="home_adb_title">Spustit připojením k počítači</string>
-    <string name="home_status_service_version_update"><![CDATA[Verze %2$s, %1$s<br>Znovu spusťte pro aktualizaci na verzi %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Verze %2$s, %1$s<br/>Znovu spusťte pro aktualizaci na verzi %3$s]]></string>
     <string name="home_status_service_version">Verze %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s neběží</string>
     <string name="home_status_service_is_running">%1$s běží</string>
@@ -65,7 +65,7 @@
     <string name="dialog_adb_discovery">Hledání služby bezdrátového ladění</string>
     <string name="home_wireless_adb_title">Spustit pomocí WiFi debuging</string>
     <string name="home_adb_dialog_view_command_button_send">Odeslat</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Existuje několik dalších úvah, nejprve si prosím přečtěte nápovědu.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Existuje několik dalších úvah, nejprve si prosím přečtěte nápovědu.]]></string>
     <string name="home_adb_button_view_command">Zobrazit příkaz</string>
     <string name="home_adb_button_view_help">Přečíst nápovědu</string>
     <string name="home_adb_description"><![CDATA[U zařízení bez root musíte ke spuštění Shizuku použít adb (vyžaduje připojení k počítači). Tento proces je třeba opakovat při každém restartu zařízení. Přečtěte si prosím <b> <a href="%1$s"> nápovědu </a> </b>.]]></string>

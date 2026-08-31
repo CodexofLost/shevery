@@ -7,12 +7,12 @@
     <string name="home_status_service_is_running">%1$s çalışıyor</string>
     <string name="home_status_service_not_running">%1$s çalışmıyor</string>
     <string name="home_status_service_version">Sürüm %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[Sürüm %2$s, %1$s<br>Sürüm %3$s, güncelleştirmek için yeniden başlatın]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Sürüm %2$s, %1$s<br/>Sürüm %3$s, güncelleştirmek için yeniden başlatın]]></string>
     <string name="home_adb_title">Bilgisayara bağlanarak başlatın</string>
     <string name="home_adb_description">Rootsuz cihazlar için Shizuku’yu başlatmak için adb kullanmanız gerekir (bilgisayar bağlantısı gerektirir). Bu işlemin cihaz her yeniden başlatıldığında tekrarlanması gerekir. Lütfen <b><a href="%1$s">yardımı okuyun</a></b>.</string>
     <string name="home_adb_button_view_help">Yardımı oku</string>
     <string name="home_adb_button_view_command">Komutu görüntüle</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Başka hususlar da var, lütfen önce yardımı okuduğunuzu onaylayın.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Başka hususlar da var, lütfen önce yardımı okuduğunuzu onaylayın.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Kopyala</string>
     <string name="home_adb_dialog_view_command_button_send">Gönder</string>
     <string name="home_wireless_adb_title">Kablosuz hata ayıklama ile başlat</string>
@@ -52,7 +52,7 @@
     <string name="adb_pairing_tutorial_content_network">Shizuku’nun yerel ağa erişmesi gerekiyor. Ağ izni tarafından kontrol edilir.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Bazı sistemler (MIUI gibi), uygulama standart olarak ön plan hizmetini kullansa bile, arka planda çalıştıklarında ağa erişmesine izin vermez. Lütfen bu tür sistemlerde Shizuku için pil optimizasyon özelliklerini devre dışı bırakın.</string>
     <string name="home_root_title">Başlat (rootlu cihazlar için)</string>
-    <string name="home_root_description"><![CDATA[Buna ek olarak, Shizuku otomatik olarak açılışta başlatılabilir. Aksi durumda ise, lütfen sisteminizin veya üçüncü taraf araçlarınızın Shizuku\'yu kısıtlayıp kısıtlamadığını kontrol edin. <br>%s \'ye başvurabilirsiniz.]]></string>
+    <string name="home_root_description"><![CDATA[Buna ek olarak, Shizuku otomatik olarak açılışta başlatılabilir. Aksi durumda ise, lütfen sisteminizin veya üçüncü taraf araçlarınızın Shizuku\'yu kısıtlayıp kısıtlamadığını kontrol edin. <br/>%s \'ye başvurabilirsiniz.]]></string>
     <string name="home_root_description_sui">Magisk kullanıyorsanız, %1$s’yi deneyebilirsiniz. Kök kullanıcıları için sonunda Shizuku’nun yerini alacak. %2$s’yi kullanmak için mevcut uygulamaların biraz değişmesi gerektiğini unutmayın.</string>
     <string name="home_root_button_start">Başlat</string>
     <string name="home_root_button_restart">Yeniden başlat</string>

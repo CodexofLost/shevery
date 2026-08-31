@@ -7,12 +7,12 @@
     <string name="home_status_service_is_running">%1$s يعمل بنجاح</string>
     <string name="home_status_service_not_running">%1$s لا يعمل</string>
     <string name="home_status_service_version">الإصدار %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[الإصدار %2$s, %1$s<br>اعد تشغيل التطبيق من جديد للتحديث إلى الإصدار %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[الإصدار %2$s, %1$s<br/>اعد تشغيل التطبيق من جديد للتحديث إلى الإصدار %3$s]]></string>
     <string name="home_adb_title">ابدأ بالاتصال بجهاز كمبيوتر</string>
     <string name="home_adb_description">بالنسبة للأجهزة التي لا تحتوي على الجذر (Root) ، تحتاج إلى استخدام adb لبدء Shizuku (يتطلب اتصال الكمبيوتر). يجب تكرار هذه العملية في كل مرة يتم فيها إعادة تشغيل الجهاز. يرجى <b><a href="%1$s"> قراءة التعليمات </a></b>.</string>
     <string name="home_adb_button_view_help">اقرأ التعليمات</string>
     <string name="home_adb_button_view_command">عرض الأمر</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[font face=monospace>%1$s</font><br><br>* هناك بعض الاعتبارات الأخرى، يرجى تأكيد أنك قرأت التعليمات أولا.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[font face=monospace>%1$s</font><br/><br/>* هناك بعض الاعتبارات الأخرى، يرجى تأكيد أنك قرأت التعليمات أولا.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">نسخ</string>
     <string name="home_adb_dialog_view_command_button_send">إرسال</string>
     <string name="home_wireless_adb_title">البدء باستخدام التصحيح اللاسلكي</string>

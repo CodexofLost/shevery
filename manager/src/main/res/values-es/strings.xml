@@ -8,12 +8,12 @@
     <string name="home_status_service_is_running">%1$s se está ejecutando</string>
     <string name="home_status_service_not_running">%1$s no se está ejecutando</string>
     <string name="home_status_service_version">Versión %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[Versión %2$s, %1$s<br>Reinicie para actualizar a la versión %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Versión %2$s, %1$s<br/>Reinicie para actualizar a la versión %3$s]]></string>
     <string name="home_adb_title"><![CDATA[Iniciar conectando a un ordenador]]></string>
     <string name="home_adb_description"><![CDATA[En dispositivos sin root, necesita ADB para iniciar Shevery (requiere conexión a un ordenador). Este proceso debe repetirse tras reiniciar el dispositivo. Por favor <b><a href="%1$s">lea la ayuda</a></b>.]]></string>
     <string name="home_adb_button_view_help">Leer ayuda</string>
     <string name="home_adb_button_view_command">Ver comando</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Existen otras consideraciones, por favor confirme que ha leído la ayuda primero.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br/><br/>* Existen otras consideraciones, por favor confirme que ha leído la ayuda primero.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Copiar</string>
     <string name="home_adb_dialog_view_command_button_send">Enviar</string>
     <string name="home_wireless_adb_title"><![CDATA[Iniciar mediante depuración inalámbrica]]></string>
@@ -57,7 +57,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery necesita acceder a la red local. Esto se controla mediante el permiso de red.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Algunos sistemas (como MIUI) restringen el acceso a red cuando las apps no están visibles, aunque usen servicios en primer plano. Desactive las optimizaciones de batería para Shevery.</string>
     <string name="home_root_title"><![CDATA[Iniciar (para dispositivos con root)]]></string>
-    <string name="home_root_description"><![CDATA[Además, Shevery puede iniciarse automáticamente al encender el dispositivo. Si no es así, compruebe si el sistema o herramientas de terceros han restringido Shevery.<br>Puede consultar %s.]]></string>
+    <string name="home_root_description"><![CDATA[Además, Shevery puede iniciarse automáticamente al encender el dispositivo. Si no es así, compruebe si el sistema o herramientas de terceros han restringido Shevery.<br/>Puede consultar %s.]]></string>
     <string name="home_root_description_sui"><![CDATA[Si usa Magisk, puede probar %1$s. Para usuarios root, eventualmente reemplazará a Shevery. Note que las apps existentes deben adaptarse para usar %2$s.]]></string>
     <string name="home_root_button_start">Iniciar</string>
     <string name="home_root_button_restart">Reiniciar</string>

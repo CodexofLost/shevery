@@ -201,7 +201,7 @@
     <string name="modules_updating">Mengemas kini modul…</string>
     <string name="modules_update_success">Modul dikemas kini ke v%s</string>
     <string name="modules_download_downloads">Muat turun ke Muat Turun</string>
-    <string name="modules_download_install">Muat turun & pasang</string>
+    <string name="modules_download_install">Muat turun &amp; pasang</string>
     <string name="modules_downloading">Muat turun…</string>
     <string name="modules_download_enqueued">Muat turun bermula di latar belakang</string>
     <string name="modules_search_placeholder">Cari modul katalog…</string>
@@ -347,9 +347,9 @@
     <string name="shevery_update_channel">Kemas kini saluran</string>
     <string name="shevery_update_channel_summary">Pilih saluran keluaran kemas kini</string>
     <string name="app_update_channel_stable">Teguh</string>
-    <string name="app_update_channel_beta">Pra-pelepasan & Beta</string>
+    <string name="app_update_channel_beta">Pra-pelepasan &amp; Beta</string>
     <string name="shevery_update_group_title">Kemas Kini Aplikasi Shevery</string>
-    <string name="shevery_update_modules_group_title">Kemas Kini Modul & Katalog</string>
+    <string name="shevery_update_modules_group_title">Kemas Kini Modul &amp; Katalog</string>
     <string name="shevery_update_check_failed">Semakan kemas kini gagal: %s</string>
     <string name="modules_catalog">Katalog</string>
     <string name="modules_catalog_title">Katalog Modul</string>
@@ -382,10 +382,10 @@
     <string name="wear_catalog_sort_official">Rasmi</string>
     <string name="wear_catalog_sort_by">Susun mengikut</string>
     <string name="wear_catalog_filter">Penapis</string>
-    <string name="backup_restore_title">Sandaran & Pemulihan</string>
-    <string name="backup_title">Seting & Modul Sandaran</string>
+    <string name="backup_restore_title">Sandaran &amp; Pemulihan</string>
+    <string name="backup_title">Seting &amp; Modul Sandaran</string>
     <string name="backup_summary">Eksport konfigurasi dan modul ke dalam fail ZIP</string>
-    <string name="restore_title">Pulihkan Tetapan & Modul</string>
+    <string name="restore_title">Pulihkan Tetapan &amp; Modul</string>
     <string name="restore_summary">Import konfigurasi dan modul daripada fail ZIP</string>
     <string name="settings_sections_title">Sandaran dan lain-lain</string>
     <string name="backup_section_title">Sandaran</string>

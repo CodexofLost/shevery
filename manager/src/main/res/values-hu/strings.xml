@@ -4,12 +4,12 @@
     <string name="home_status_service_is_running">A %1$s fut</string>
     <string name="home_status_service_not_running">A %1$s nem fut</string>
     <string name="home_status_service_version">Verzió %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[Verzió %2$s, %1$s<br>Kezdje újra a %3$s verzióra való frissítéshez]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Verzió %2$s, %1$s<br/>Kezdje újra a %3$s verzióra való frissítéshez]]></string>
     <string name="home_adb_title"><![CDATA[Kezdje a számítógéphez való csatlakozással]]></string>
     <string name="home_adb_description"><![CDATA[Root nélküli eszközök esetén az adb-t kell használnia a Shizuku elindításához (számítógépes kapcsolat szükséges). Ezt a folyamatot minden alkalommal meg kell ismételni az eszköz újraindításakor. Kérem <b><a href="%1$s">olvassa el a súgót</a></b>.]]></string>
     <string name="home_adb_button_view_help">Olvassa el a súgót</string>
     <string name="home_adb_button_view_command">Parancs megtekintés</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Vannak más szempontok is, kérjük erősítse meg, hogy először elolvasta a súgót.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Vannak más szempontok is, kérjük erősítse meg, hogy először elolvasta a súgót.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Másolás</string>
     <string name="home_adb_dialog_view_command_button_send">Küldés</string>
     <string name="home_wireless_adb_title"><![CDATA[Kezdje a vezeték nélküli hibakereséssel]]></string>
@@ -46,7 +46,7 @@
     <string name="adb_pairing_tutorial_content_network">A Shizukunak hozzá kell férnie a helyi hálózathoz. A hálózati engedély vezérli.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Egyes rendszerek (például a MIUI) nem engedélyezik az alkalmazások számára, hogy hozzáférjenek a hálózathoz ha nem láthatók, még akkor sem, ha az alkalmazás alapértelmezés szerint előtérbeli szolgáltatást használ. Kapcsolja ki a Shizuku akku optimalizálási funkcióit az ilyen rendszereken.</string>
     <string name="home_root_title">Indítás (rootolt eszközökhöz)</string>
-    <string name="home_root_description"><![CDATA[Ezenkívül a Shizuku automatikusan elindítható rendszerindításkor. Ha nem, ellenőrizze, hogy rendszere vagy harmadik féltől származó eszközei nem korlátozták-e a Shizukut.<br>A következőre hivatkozhat: %s.]]></string>
+    <string name="home_root_description"><![CDATA[Ezenkívül a Shizuku automatikusan elindítható rendszerindításkor. Ha nem, ellenőrizze, hogy rendszere vagy harmadik féltől származó eszközei nem korlátozták-e a Shizukut.<br/>A következőre hivatkozhat: %s.]]></string>
     <string name="home_root_description_sui"><![CDATA[Ha Magisk-et használ, megpróbálhatja a %1$s-t. A root felhasználók számára végül felváltja a Shizukut. Megj.: a meglévő alkalmazásokat kissé módosítani kell a %2$s használatához.]]></string>
     <string name="home_root_button_start">Indítás</string>
     <string name="home_root_button_restart">Újraindítás</string>

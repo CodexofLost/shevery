@@ -8,12 +8,12 @@
     <string name="home_status_service_is_running">%1$s est en cours d\'exécution</string>
     <string name="home_status_service_not_running">%1$s n\'est pas en cours d\'exécution</string>
     <string name="home_status_service_version">Version %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br>Redémarrez pour mettre à jour vers la version %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Redémarrez pour mettre à jour vers la version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[Démarrer en vous connectant à un ordinateur]]></string>
     <string name="home_adb_description"><![CDATA[Pour les appareils non rootés, vous devez utiliser ADB pour démarrer Shevery (requiert une connexion ordinateur). Ce processus doit être répété après chaque redémarrage de l\'appareil. Veuillez <b><a href="%1$s">lire l\'aide</a></b>.]]></string>
     <string name="home_adb_button_view_help">Lire l\'aide</string>
     <string name="home_adb_button_view_command">Voir la commande</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* D\'autres considérations existent, veuillez confirmer que vous avez lu l\'aide d\'abord.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br/><br/>* D\'autres considérations existent, veuillez confirmer que vous avez lu l\'aide d\'abord.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Copier</string>
     <string name="home_adb_dialog_view_command_button_send">Envoyer</string>
     <string name="home_wireless_adb_title"><![CDATA[Démarrer via le débogage sans fil]]></string>
@@ -57,7 +57,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery nécessite l\'accès au réseau local.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Certains systèmes (comme MIUI) bloquent l\'accès au réseau en arrière-plan. Désactivez l\'optimisation de la batterie pour Shevery.</string>
     <string name="home_root_title"><![CDATA[Démarrer (pour appareils rootés)]]></string>
-    <string name="home_root_description"><![CDATA[De plus, Shevery peut démarrer automatiquement au démarrage de l\'appareil. Si ce n\'est pas le caso, vérifiez si votre système ou des outils tiers ont restreint Shevery.<br>Vous pouvez consulter %s.]]></string>
+    <string name="home_root_description"><![CDATA[De plus, Shevery peut démarrer automatiquement au démarrage de l\'appareil. Si ce n\'est pas le caso, vérifiez si votre système ou des outils tiers ont restreint Shevery.<br/>Vous pouvez consulter %s.]]></string>
     <string name="home_root_description_sui"><![CDATA[Si vous utilisez Magisk, vous pouvez essayer %1$s. Pour les utilisateurs root, cela remplacera à terme Shevery.]]></string>
     <string name="home_root_button_start">Démarrer</string>
     <string name="home_root_button_restart">Redémarrer</string>

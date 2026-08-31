@@ -7,12 +7,12 @@
     <string name="home_status_service_is_running">%1$s иштеп жатат</string>
     <string name="home_status_service_not_running">%1$s иштеген жок</string>
     <string name="home_status_service_version">Версиясы %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[Версиясы %2$s, %1$s<br>%3$s версиясына жаңыртуу үчүн кайра иштетиңиз]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Версиясы %2$s, %1$s<br/>%3$s версиясына жаңыртуу үчүн кайра иштетиңиз]]></string>
     <string name="home_adb_title"><![CDATA[Компьютерге туташуу аркылуу иштетүү]]></string>
     <string name="home_adb_description"><![CDATA[Root укугу жок түзмөктөр үчүн Shevery колдонмосун adb аркылуу иштетүү керек (компьютерге туташуу талап кылынат). Бул процесс түзмөк ар бир кайра жүктөлгөндө кайталанышы керек. Сураныч, <b><a href="%1$s">жардамды окуңуз</a></b>.]]></string>
     <string name="home_adb_button_view_help">Жардамды окуу</string>
     <string name="home_adb_button_view_command">Команданы көрүү</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Башка кошумча шарты бар, адегенде жардам бөлүмүн окуганыңызды ырастаңыз.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br/><br/>* Башка кошумча шарты бар, адегенде жардам бөлүмүн окуганыңызды ырастаңыз.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Көчүрүү</string>
     <string name="home_adb_dialog_view_command_button_send">Жөнөтүү</string>
     <string name="home_wireless_adb_title"><![CDATA[Зымсыз оңдоо (Wireless ADB) аркылуу иштетүү]]></string>
@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery жергиликтүү тармакка кириши керек.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Кээ бир тутумдар колдонмо көрүнбөй турган кезде тармакты чектейт.</string>
     <string name="home_root_title"><![CDATA[Иштетүү (Root укугу бар түзмөктөр үчүн)]]></string>
-    <string name="home_root_description"><![CDATA[Мындан тышкары, Shevery түзмөк күйгөндө автоматтык түрдө иштеши мүмкүн.<br>%s маалыматын караңыз.]]></string>
+    <string name="home_root_description"><![CDATA[Мындан тышкары, Shevery түзмөк күйгөндө автоматтык түрдө иштеши мүмкүн.<br/>%s маалыматын караңыз.]]></string>
     <string name="home_root_description_sui"><![CDATA[Эгер сиз Magisk колдонсоңуз, %1$s колдонуп көрсөңүз болот.]]></string>
     <string name="home_root_button_start">Баштоо</string>
     <string name="home_root_button_restart">Кайра иштетүү</string>

@@ -8,12 +8,12 @@
     <string name="home_status_service_is_running">%1$s は実行中です</string>
     <string name="home_status_service_not_running">%1$s は実行されていません</string>
     <string name="home_status_service_version">バージョン %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[バージョン %2$s, %1$s<br>再起動してバージョン %3$s に更新します]]></string>
+    <string name="home_status_service_version_update"><![CDATA[バージョン %2$s, %1$s<br/>再起動してバージョン %3$s に更新します]]></string>
     <string name="home_adb_title"><![CDATA[パソコンに接続して開始]]></string>
     <string name="home_adb_description"><![CDATA[root権限のない端末では、Sheveryを開始するためにADBを使用する必要があります（パソコンとの接続が必要です）。この手順は端末を再起動するたびに繰り返し行う必要があります。<b><a href="%1$s">ヘルプを読む</a></b>をご参照ください。]]></string>
     <string name="home_adb_button_view_help">ヘルプを読む</string>
     <string name="home_adb_button_view_command">コマンドを表示</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* その他の注意事項については、まずヘルプをお読みください。]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br/><br/>* その他の注意事項については、まずヘルプをお読みください。]]></string>
     <string name="home_adb_dialog_view_command_copy_button">コピー</string>
     <string name="home_adb_dialog_view_command_button_send">送信</string>
     <string name="home_wireless_adb_title"><![CDATA[ワイヤレスデバッグ経由で開始]]></string>
@@ -57,7 +57,7 @@
     <string name="adb_pairing_tutorial_content_network">Sheveryはローカルネットワークへのアクセスが必要です。</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">一部のシステム（MIUIなど）ではバックグラウンドでのネットワークアクセスが制限されます。バッテリー最適化を無効化してください。</string>
     <string name="home_root_title"><![CDATA[開始（root化済み端末用）]]></string>
-    <string name="home_root_description"><![CDATA[さらに、Sheveryは起動時に自動開始できます。起動しない場合は、システムやサードパーティ製ツールによる制限がないか確認してください。<br>%s をご参照ください。]]></string>
+    <string name="home_root_description"><![CDATA[さらに、Sheveryは起動時に自動開始できます。起動しない場合は、システムやサードパーティ製ツールによる制限がないか確認してください。<br/>%s をご参照ください。]]></string>
     <string name="home_root_description_sui"><![CDATA[Magiskをご利用の場合は %1$s をお試しください。rootユーザー向けに、将来的にSheveryを置き換えます。]]></string>
     <string name="home_root_button_start">開始</string>
     <string name="home_root_button_restart">再起動</string>

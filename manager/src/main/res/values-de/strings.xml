@@ -4,12 +4,12 @@
     <string name="home_wireless_adb_title">Über Wireless-Debugging starten</string>
     <string name="home_adb_dialog_view_command_button_send">Senden</string>
     <string name="home_adb_dialog_view_command_copy_button">Kopieren</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Es gibt noch einige andere Überlegungen, bitte vergewissern, dass Sie zuerst die Hilfe gelesen haben.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Es gibt noch einige andere Überlegungen, bitte vergewissern, dass Sie zuerst die Hilfe gelesen haben.]]></string>
     <string name="home_adb_button_view_command">Befehl anzeigen</string>
     <string name="home_adb_description">Bei Geräten ohne Root müssen Sie adb verwenden, um Shizuku zu starten (erfordert Computerverbindung). Dieser Vorgang muss bei jedem Neustart des Geräts wiederholt werden. Bitte <b><a href="%1$s">die Hilfe lesen</a></b>.</string>
     <string name="home_adb_button_view_help">Hilfe lesen</string>
     <string name="home_adb_title">Verbindung mit dem Compter herstellen</string>
-    <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br>Erneut starten, um auf Version %3$s zu aktualisieren]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Erneut starten, um auf Version %3$s zu aktualisieren]]></string>
     <string name="home_status_service_version">Version %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s wird nicht ausgeführt</string>
     <string name="home_status_service_is_running">%1$s läuft</string>
@@ -19,7 +19,7 @@
     <string name="action_stop">Shizuku anhalten</string>
     <string name="settings_black_night_theme_summary">Das rein schwarze Thema verwenden, wenn der Nachtmodus aktiviert ist</string>
     <string name="settings_black_night_theme">Schwarzes Thema</string>
-    <string name="home_root_description"><![CDATA[Außerdem kann Shizuku beim Booten automatisch gestartet werden. Wenn nicht, überprüfen Sie bitte, ob Ihr System oder Tools von Drittanbietern Shizuku eingeschränkt haben.<br>Sie können auf %s verweisen.]]></string>
+    <string name="home_root_description"><![CDATA[Außerdem kann Shizuku beim Booten automatisch gestartet werden. Wenn nicht, überprüfen Sie bitte, ob Ihr System oder Tools von Drittanbietern Shizuku eingeschränkt haben.<br/>Sie können auf %s verweisen.]]></string>
     <string name="development_settings">Entwickleroptionen</string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Bitte zuerst in den Modus "Geteilter Bildschirm" (Mehrfenster) gehen.]]></string>
     <string name="grant_dialog_button_deny">Verweigern</string>
@@ -230,7 +230,7 @@
     <string name="modules_updating">Modul wird aktualisiert…</string>
     <string name="modules_update_success">Modul auf Version %s aktualisiert</string>
     <string name="modules_download_downloads">In den Download-Ordner herunterladen</string>
-    <string name="modules_download_install">Herunterladen & Installieren</string>
+    <string name="modules_download_install">Herunterladen &amp; Installieren</string>
     <string name="modules_downloading">Wird heruntergeladen…</string>
     <string name="modules_download_enqueued">Der Download wurde im Hintergrund gestartet</string>
     <string name="modules_search_placeholder">Katalogmodule suchen…</string>
@@ -342,9 +342,9 @@
     <string name="shevery_update_channel">Update-Kanal</string>
     <string name="shevery_update_channel_summary">Update-Veröffentlichungskanal auswählen</string>
     <string name="app_update_channel_stable">Stall</string>
-    <string name="app_update_channel_beta">Vorabversion & Beta</string>
+    <string name="app_update_channel_beta">Vorabversion &amp; Beta</string>
     <string name="shevery_update_group_title">Aktualisierungen der Shevery-App</string>
-    <string name="shevery_update_modules_group_title">Modul-Updates & Katalog</string>
+    <string name="shevery_update_modules_group_title">Modul-Updates &amp; Katalog</string>
     <string name="shevery_update_check_failed">Überprüfung auf Aktualisierungen fehlgeschlagen: %s</string>
     <string name="modules_catalog">Katalog</string>
     <string name="modules_catalog_title">Modulkatalog</string>
@@ -398,7 +398,7 @@
     <string name="comput_api_key_label">API-Schlüssel</string>
     <string name="comput_show_api_key">API-Schlüssel anzeigen</string>
     <string name="comput_hide_api_key">API-Schlüssel ausblenden</string>
-    <string name="comput_gemini_model_performance">Hochleistungs-Codierung & Agentic (empfohlen)</string>
+    <string name="comput_gemini_model_performance">Hochleistungs-Codierung &amp; Agentic (empfohlen)</string>
     <string name="comput_gemini_model_lightweight">Leichtes Hochgeschwindigkeitsmodell</string>
     <string name="comput_gemini_api_error">Die Gemini-API hat den Fehlercode %1$d zurückgegeben: %2$s</string>
     <string name="comput_gemini_connection_error">Verbindungsfehler.</string>

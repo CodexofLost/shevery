@@ -201,7 +201,7 @@
     <string name="modules_updating">Modul aktualiséieren…</string>
     <string name="modules_update_success">Modul op v%s aktualiséiert</string>
     <string name="modules_download_downloads">Eroflueden op Erofluedungen</string>
-    <string name="modules_download_install">Eroflueden & installéieren</string>
+    <string name="modules_download_install">Eroflueden &amp; installéieren</string>
     <string name="modules_downloading">Luedt erof…</string>
     <string name="modules_download_enqueued">Den Download huet am Hannergrond ugefaang.</string>
     <string name="modules_search_placeholder">Sicht no Katalogmoduler…</string>
@@ -347,9 +347,9 @@
     <string name="shevery_update_channel">Kanal aktualiséieren</string>
     <string name="shevery_update_channel_summary">Wielt de Kanal fir d'Aktualiséierungsverëffentlechung</string>
     <string name="app_update_channel_stable">Stall</string>
-    <string name="app_update_channel_beta">Virverëffentlechung & Beta</string>
+    <string name="app_update_channel_beta">Virverëffentlechung &amp; Beta</string>
     <string name="shevery_update_group_title">Shevery App-Updates</string>
-    <string name="shevery_update_modules_group_title">Modul-Updates & Katalog</string>
+    <string name="shevery_update_modules_group_title">Modul-Updates &amp; Katalog</string>
     <string name="shevery_update_check_failed">D'Aktualiséierungsprouf huet net geklappt: %s</string>
     <string name="modules_catalog">Katalog</string>
     <string name="modules_catalog_title">Modulkatalog</string>
@@ -383,9 +383,9 @@
     <string name="wear_catalog_sort_by">No sortéieren</string>
     <string name="wear_catalog_filter">Filter</string>
     <string name="backup_restore_title">Sécherungs- a Restauratioun</string>
-    <string name="backup_title">Backup-Astellungen & Moduler</string>
+    <string name="backup_title">Backup-Astellungen &amp; Moduler</string>
     <string name="backup_summary">Konfiguratioun an Moduler an eng ZIP-Datei exportéieren</string>
-    <string name="restore_title">Astellungen & Moduler zréckzestellen</string>
+    <string name="restore_title">Astellungen &amp; Moduler zréckzestellen</string>
     <string name="restore_summary">Konfiguratioun an Moduler aus enger ZIP-Datei importéieren</string>
     <string name="settings_sections_title">Sécherungen an aner</string>
     <string name="backup_section_title">Sécherungen</string>

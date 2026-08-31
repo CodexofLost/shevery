@@ -14,7 +14,7 @@
     <string name="home_status_service_is_running">%1$s kører</string>
     <string name="home_status_service_not_running">%1$s kører ikke</string>
     <string name="home_status_service_version">Version %2$s, %1$s</string>
-    <string name="home_status_service_version_update">Version %2$s, %1$s<br>Start forfra for at opdatere til version %3$s</string>
+    <string name="home_status_service_version_update">Version %2$s, %1$s<br/>Start forfra for at opdatere til version %3$s</string>
     <string name="home_adb_title">Start med at oprette forbindelse til en computer</string>
     <string name="home_adb_description">På enheder uden root-adgang skal du bruge adb til at starte Shevery (kræver forbindelse til en computer). Denne fremgangsmåde skal gentages hver gang enheden genstartes. Læs venligst <b><a href="%1$s">hjælpen</a></b>.</string>
     <string name="home_adb_button_view_help">Læs hjælpen</string>
@@ -63,7 +63,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery skal have adgang til det lokale netværk. Dette styres af netværksrettighederne.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Nogle systemer (f.eks. MIUI) forhindrer apps i at få adgang til netværket, når de ikke er synlige, selvom appen som standard bruger en forgrundstjeneste. De bedes deaktivere batterioptimeringsfunktionerne for Shevery på sådanne systemer.</string>
     <string name="home_root_title">Start (til enheder med root-adgang)</string>
-    <string name="home_root_description">Derudover kan Shevery startes automatisk ved opstart. Hvis dette ikke er tilfældet, bedes du kontrollere, om dit system eller tredjepartsværktøjer har begrænset Shevery.<br>Du kan læse mere her: %s.</string>
+    <string name="home_root_description">Derudover kan Shevery startes automatisk ved opstart. Hvis dette ikke er tilfældet, bedes du kontrollere, om dit system eller tredjepartsværktøjer har begrænset Shevery.<br/>Du kan læse mere her: %s.</string>
     <string name="home_root_description_sui">Hvis du bruger Magisk, kan du prøve %1$s. For root-brugere vil det på sigt erstatte Shevery. Bemærk, at eksisterende applikationer skal tilpasses en smule for at kunne bruge %2$s.</string>
     <string name="home_root_button_start">Start</string>
     <string name="home_root_button_restart">Genstart</string>

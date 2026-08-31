@@ -7,12 +7,12 @@
     <string name="home_status_service_is_running">%1$s está em execução</string>
     <string name="home_status_service_not_running">%1$s não está em execução</string>
     <string name="home_status_service_version">Versão %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[Versão %2$s, %1$s<br>Comece novamente para atualizar para a versão %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Versão %2$s, %1$s<br/>Comece novamente para atualizar para a versão %3$s]]></string>
     <string name="home_adb_title">Comece conectando-se a um computador</string>
     <string name="home_adb_description">Para dispositivos sem root, você precisa usar o adb para iniciar o Shizuku (requer conexão com o computador). Esse processo precisa ser repetido toda vez que o dispositivo for reiniciado. Por favor, <b><a href="%1$s">leia o Ajuda</a></b>.</string>
     <string name="home_adb_button_view_help">Leia a ajuda</string>
     <string name="home_adb_button_view_command">Ver o comando</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Existem algumas outras considerações, por favor confirme que você leu a ajuda primeiro.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Existem algumas outras considerações, por favor confirme que você leu a ajuda primeiro.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Copiar</string>
     <string name="home_adb_dialog_view_command_button_send">Mandar</string>
     <string name="home_wireless_adb_title">Iniciar via depuração sem fio</string>
@@ -52,7 +52,7 @@
     <string name="adb_pairing_tutorial_content_network">Shizuku precisa acessar a rede local. É controlado pela permissão de rede.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Alguns sistemas (como o MIUI) não permitem que aplicativos acessem a rede quando não estiverem visíveis, mesmo que o aplicativo use o serviço em primeiro plano como padrão. Desative os recursos de otimização de bateria para Shizuku sistemas.</string>
     <string name="home_root_title">Iniciar (para dispositivos com root)</string>
-    <string name="home_root_description"><![CDATA[Além disso, o Shizuku pode ser iniciado automaticamente na inicialização. Caso contrário, verifique se o seu sistema ou ferramentas de terceiros restringiram o Shizuku.<br>Você pode consultar %s.]]></string>
+    <string name="home_root_description"><![CDATA[Além disso, o Shizuku pode ser iniciado automaticamente na inicialização. Caso contrário, verifique se o seu sistema ou ferramentas de terceiros restringiram o Shizuku.<br/>Você pode consultar %s.]]></string>
     <string name="home_root_description_sui">Se você estiver usando Magisk, você pode tentar %1$s. Para usuários root, ele substituirá o Shizuku. Observe que os aplicativos existentes precisam mudar um pouco para usar %2$s.</string>
     <string name="home_root_button_start">Iniciar</string>
     <string name="home_root_button_restart">Reiniciar</string>

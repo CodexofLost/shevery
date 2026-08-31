@@ -8,12 +8,12 @@
     <string name="home_status_service_is_running">%1$s працює</string>
     <string name="home_status_service_not_running">%1$s не працює</string>
     <string name="home_status_service_version">Версія %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[Версія %2$s, %1$s<br>Перезапустіть для оновлення до версії %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Версія %2$s, %1$s<br/>Перезапустіть для оновлення до версії %3$s]]></string>
     <string name="home_adb_title"><![CDATA[Запуск через підключення до ПК]]></string>
     <string name="home_adb_description"><![CDATA[Для пристроїв без root-прав потрібно використовувати ADB для запуску Shevery (потрібне підключення до комп’ютера). Процедуру слід повторювати після кожного перезавантаження пристрою. Будь ласка, <b><a href="%1$s">прочитайте довідку</a></b>.]]></string>
     <string name="home_adb_button_view_help">Читати довідку</string>
     <string name="home_adb_button_view_command">Переглянути команду</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Є інші особливості, переконайтеся, що ви спочатку прочитали довідку.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br/><br/>* Є інші особливості, переконайтеся, що ви спочатку прочитали довідку.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Копіювати</string>
     <string name="home_adb_dialog_view_command_button_send">Надіслати</string>
     <string name="home_wireless_adb_title"><![CDATA[Запуск через бездротове налагодження]]></string>
@@ -57,7 +57,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery потребує доступу до локальної мережі.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Деякі системи (наприклад, MIUI) обмежують доступ до мережі у фоні. Вимкніть оптимізацію батареї для Shevery.</string>
     <string name="home_root_title"><![CDATA[Запуск (для пристроїв із root-правами)]]></string>
-    <string name="home_root_description"><![CDATA[Крім того, Shevery може запускатися автоматично під час завантаження пристрою. Якщо ні, перевірте обмеження системи або сторонніх утиліт.<br>Ви можете звернутися до %s.]]></string>
+    <string name="home_root_description"><![CDATA[Крім того, Shevery може запускатися автоматично під час завантаження пристрою. Якщо ні, перевірте обмеження системи або сторонніх утиліт.<br/>Ви можете звернутися до %s.]]></string>
     <string name="home_root_description_sui"><![CDATA[Якщо ви використовуєте Magisk, спробуйте %1$s. Для root-користувачів це згодом замінить Shevery.]]></string>
     <string name="home_root_button_start">Запустити</string>
     <string name="home_root_button_restart">Перезапустити</string>

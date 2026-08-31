@@ -40,7 +40,7 @@
     <string name="home_app_management_title">Управление приложениями</string>
     <string name="home_root_button_restart">Перезапустить</string>
     <string name="home_root_button_start">Запустить</string>
-    <string name="home_root_description"><![CDATA[В дополнение, Shevery может запускаться сразу после загрузки системы. Если этого не происходит, проверьте, нет ли ограничений со стороны вашей системы или сторонних инструментов.<br>Вы можете обратиться в %s.]]></string>
+    <string name="home_root_description"><![CDATA[В дополнение, Shevery может запускаться сразу после загрузки системы. Если этого не происходит, проверьте, нет ли ограничений со стороны вашей системы или сторонних инструментов.<br/>Вы можете обратиться в %s.]]></string>
     <string name="home_root_title">Запуск (для устройств с root правами)</string>
     <string name="development_settings">Параметры разработчика</string>
     <string name="adb_pair_required">Пожалуйста, сперва пройдите процедуру сопряжения.</string>
@@ -58,12 +58,12 @@
     <string name="home_wireless_adb_title">Запуск через отладку по Wi-Fi</string>
     <string name="home_adb_dialog_view_command_button_send">Отправить</string>
     <string name="home_adb_dialog_view_command_copy_button">Скопировать</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Есть и другие способы; сначала убедитесь, что сперва прочли справку.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Есть и другие способы; сначала убедитесь, что сперва прочли справку.]]></string>
     <string name="home_adb_button_view_command">Просмотр команды</string>
     <string name="home_adb_button_view_help">Читать справку</string>
     <string name="home_adb_description">Для устройств без root прав потребуется обращаться к adb для запуска Shevery (не обойтись без соединения с компьютером). Этот процесс нужно повторять каждый раз, когда устройство перезагружается. Пожалуйста, <b><a href="%1$s">прочтите справку</a></b>.</string>
     <string name="home_adb_title">Запуск через соединение с ПК</string>
-    <string name="home_status_service_version_update"><![CDATA[Версия %2$s, %1$s<br>Запустите снова, чтобы обновиться до версии %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Версия %2$s, %1$s<br/>Запустите снова, чтобы обновиться до версии %3$s]]></string>
     <string name="home_status_service_version">Версия %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s не запущен</string>
     <string name="home_status_service_is_running">%1$s запущен</string>

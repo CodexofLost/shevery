@@ -36,11 +36,11 @@
     <string name="home_wireless_adb_title">Začni preko Brezžičnega razhroščevanja</string>
     <string name="home_adb_dialog_view_command_button_send">Pošlji</string>
     <string name="home_adb_dialog_view_command_copy_button">Kopiraj</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* Obstaja nekaj premislekov. Prosimo, potrdite, da ste najprej prebrali pomoč.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* Obstaja nekaj premislekov. Prosimo, potrdite, da ste najprej prebrali pomoč.]]></string>
     <string name="home_adb_button_view_command">Pokaži ukaz</string>
     <string name="home_adb_button_view_help">Preberite pomoč</string>
     <string name="home_adb_title">Začni z povezovanjem na računalnik</string>
-    <string name="home_status_service_version_update"><![CDATA[Verzija %2$s, %1$s<br>Začni znova za posodobitev na verzijo %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Verzija %2$s, %1$s<br/>Začni znova za posodobitev na verzijo %3$s]]></string>
     <string name="home_status_service_version">Verzija %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s ne teče</string>
     <string name="home_status_service_is_running">%1$s teče</string>

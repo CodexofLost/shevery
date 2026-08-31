@@ -12,7 +12,7 @@
     <string name="home_adb_button_view_help">Pročitajte pomoć</string>
     <string name="home_adb_description">Za uređaje koji nisu root-ovani, potrebno je izvršiti adb komandu radi pokretanja Shizuku aplikacije (zahteva konekciju sa računarom). Ovaj proces je neophodno svaki put ponoviti nakon restarta uređaja. Molim Vas <b><a href="%1$s">pročitajte pomoć </a></b>.</string>
     <string name="home_adb_title">Pokreni uz pomoć konekcije preko računara</string>
-    <string name="home_status_service_version_update"><![CDATA[Verzija %2$s, %1$s<br>Počni ispočetka zbog ažuriranja na verziju%3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Verzija %2$s, %1$s<br/>Počni ispočetka zbog ažuriranja na verziju%3$s]]></string>
     <string name="home_status_service_version">Verzija %2$s, %1$s</string>
     <string name="home_status_service_not_running">%1$s se ne izvršava</string>
     <string name="home_status_service_is_running">%1$s se izvršava</string>

@@ -8,12 +8,12 @@
     <string name="home_status_service_is_running">%1$s жұмыс істеп тұр</string>
     <string name="home_status_service_not_running">%1$s жұмыс істемейді</string>
     <string name="home_status_service_version">Нұсқасы %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[Нұсқасы %2$s, %1$s<br>%3$s нұсқасына жаңарту үшін қайта іске қосыңыз]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Нұсқасы %2$s, %1$s<br/>%3$s нұсқасына жаңарту үшін қайта іске қосыңыз]]></string>
     <string name="home_adb_title"><![CDATA[Компьютерге қосылу арқылы іске қосу]]></string>
     <string name="home_adb_description"><![CDATA[Root құқығы жоқ құрылғылар үшін Shevery қолданбасын іске қосу үшін ADB пайдалану қажет (компьютерге қосылуды талап етеді). Бұл процесс құрылғы қайта жүктелген сайын қайталануы керек. <b><a href="%1$s">Анықтаманы оқыңыз</a></b>.]]></string>
     <string name="home_adb_button_view_help">Анықтаманы оқу</string>
     <string name="home_adb_button_view_command">Команданы қарау</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br><br>* Басқа да ерекшеліктер бар, алдымен анықтаманы оқып шыққаныңызды растаңыз.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face="monospace">%1$s</font><br/><br/>* Басқа да ерекшеліктер бар, алдымен анықтаманы оқып шыққаныңызды растаңыз.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">Көшіру</string>
     <string name="home_adb_dialog_view_command_button_send">Жіберу</string>
     <string name="home_wireless_adb_title"><![CDATA[Сымсыз баптау арқылы іске қосу]]></string>
@@ -57,7 +57,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery жергілікті желіге кіруді талап етеді.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Кейбір жүйелер (мысалы, MIUI) фонда желіге кіруді шектейді. Shevery үшін батареяны оңтайландыруды өшіріңіз.</string>
     <string name="home_root_title"><![CDATA[Іске қосу (Root бар құрылғылар үшін)]]></string>
-    <string name="home_root_description"><![CDATA[Сонымен қатар, Shevery құрылғы жүктелген кезде автоматты түрде іске қосыла алады. Егер олай болмаса, жүйеңіздің немесе үшінші тарап құралдарының шектеу қойғанын тексеріңіз.<br>%s сілтемесін қараңыз.]]></string>
+    <string name="home_root_description"><![CDATA[Сонымен қатар, Shevery құрылғы жүктелген кезде автоматты түрде іске қосыла алады. Егер олай болмаса, жүйеңіздің немесе үшінші тарап құралдарының шектеу қойғанын тексеріңіз.<br/>%s сілтемесін қараңыз.]]></string>
     <string name="home_root_description_sui"><![CDATA[Егер сіз Magisk пайдалансаңыз, %1$s қолданып көре аласыз. Root пайдаланушылары үшін ол ақыр соңында Shevery-ді алмастырады.]]></string>
     <string name="home_root_button_start">Іске қосу</string>
     <string name="home_root_button_restart">Қайта іске қосу</string>

@@ -7,12 +7,12 @@
     <string name="home_status_service_is_running">%1$s פועל</string>
     <string name="home_status_service_not_running">%1$s לא רץ</string>
     <string name="home_status_service_version">גירסה %2$s, %1$s</string>
-    <string name="home_status_service_version_update"><![CDATA[גירסה %2$s, %1$s<br>התחל מחדש כדי לעדכן לגירסה %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[גירסה %2$s, %1$s<br/>התחל מחדש כדי לעדכן לגירסה %3$s]]></string>
     <string name="home_adb_title">התחל באמצעות חיבור למחשב</string>
     <string name="home_adb_description">עבור מכשירים ללא גישת שורש, עליך להשתמש ב-adb כדי להתחיל את Shizuku (נדרש חיבור למחשב). \u0020עליך לחזור על תהליך זה בכל פעם שמכשירך יופעל מחדש. בבקשה <b> <a href="%1$s">קראו את דפי העזרה</a></b>.</string>
     <string name="home_adb_button_view_help">קראו את דפי העזרה</string>
     <string name="home_adb_button_view_command">הצג פקודה</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* יש עדין שיקולים אחרים, בבקשה תאשר שקראת את העזרה לפני.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* יש עדין שיקולים אחרים, בבקשה תאשר שקראת את העזרה לפני.]]></string>
     <string name="home_adb_dialog_view_command_copy_button">העתק</string>
     <string name="home_adb_dialog_view_command_button_send">שלח</string>
     <string name="home_wireless_adb_title">התחל עם ניפוי באגים אלחוטי</string>
@@ -56,7 +56,7 @@
     <string name="adb_pairing_tutorial_content_network">Shevery needs to access local network. It is controlled by the network permission.</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Some systems (such as MIUI) disallow apps to access the network when they are not visible, even if the app uses foreground service as standard. Please disable battery optimization features for Shevery on such systems.</string>
     <string name="home_root_title"><![CDATA[Start (for rooted devices)]]></string>
-    <string name="home_root_description"><![CDATA[In addition, Shevery can be started automatically on boot. If not, please check if your system or third-party tools have restricted Shevery.<br>You can refer to %s.]]></string>
+    <string name="home_root_description"><![CDATA[In addition, Shevery can be started automatically on boot. If not, please check if your system or third-party tools have restricted Shevery.<br/>You can refer to %s.]]></string>
     <string name="home_root_description_sui"><![CDATA[If you are using Magisk, you can try %1$s. For root users, it will eventually replace Shevery. Note, existing applications needs to change a little to use %2$s.]]></string>
     <string name="home_root_button_start">Start</string>
     <string name="home_root_button_restart">Restart</string>

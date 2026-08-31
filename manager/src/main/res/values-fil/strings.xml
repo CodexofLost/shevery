@@ -20,7 +20,7 @@
     <string name="home_root_button_restart">Simulan muli</string>
     <string name="home_root_button_start">Simulan</string>
     <string name="home_root_description_sui">Kung gumagamit ka ng Magisk, subukan mo ang %1$s. Para sa mga may root, dahan-dahan nitong papalitan ang Shizuku. Tandaan, may kaunting pagbabagong kakailanganin ang mga kasalukuyang app para gamitin ang %2$s.</string>
-    <string name="home_root_description"><![CDATA[Pwede ring awtomatikong masimulan ang Shizuku pagka-boot. Kung hindi, maaaring nilimitahan ng iyong sistema o ng third-party na kagamitan ang Shizuku.<br>Sumangguni sa %s.]]></string>
+    <string name="home_root_description"><![CDATA[Pwede ring awtomatikong masimulan ang Shizuku pagka-boot. Kung hindi, maaaring nilimitahan ng iyong sistema o ng third-party na kagamitan ang Shizuku.<br/>Sumangguni sa %s.]]></string>
     <string name="home_root_title">Simulan (para sa mga device na may root)</string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground">Sa ilang sistema (tulad ng MIUI), hindi maa-access ng mga app ang network kapag hindi sila nakikita, kahit gumagamit ang app ng pangkaraniwang foreground na serbisyo. Patayin ang pag-optimize ng baterya para sa Shizuku sa mga sistemang iyon.</string>
     <string name="adb_pairing_tutorial_content_network">Kailangang ma-access ng Shizuku ang lokal na network. Kinokontrol ito ng pahintulot sa network.</string>
@@ -54,12 +54,12 @@
     <string name="home_wireless_adb_title">Simulan gamit ang Wireless na pag-debug</string>
     <string name="home_adb_dialog_view_command_button_send">Ipadala</string>
     <string name="home_adb_dialog_view_command_copy_button">Kopyahin</string>
-    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br><br>* May iba pang mga dapat ikonsidera, siguraduhin munang nabasa mo na ang gabay.]]></string>
+    <string name="home_adb_dialog_view_command_message"><![CDATA[<font face=monospace>%1$s</font><br/><br/>* May iba pang mga dapat ikonsidera, siguraduhin munang nabasa mo na ang gabay.]]></string>
     <string name="home_adb_button_view_command">Tingnan ang command</string>
     <string name="home_adb_button_view_help">Sumangguni sa gabay</string>
     <string name="home_adb_description">Kailangan mong gumamit ng adb para masimulan ang Shizuku kung walang root ang device mo (kailangang kumonekta sa kompyuter). Dapat ulitin ito tuwing nare-restart ang device mo. Mangyaring <b><a href="%1$s">sumangguni sa gabay</a></b>.</string>
     <string name="home_adb_title">Magsimula sa pamamagitan ng pagkonekta sa kompyuter</string>
-    <string name="home_status_service_version_update"><![CDATA[Bersyon %2$s, %1$s<br>Simulan ulit para maka-update patungong bersyon %3$s]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Bersyon %2$s, %1$s<br/>Simulan ulit para maka-update patungong bersyon %3$s]]></string>
     <string name="home_status_service_version">Bersyon %2$s, %1$s</string>
     <string name="home_status_service_not_running">Hindi tumatakbo ang %1$s</string>
     <string name="home_status_service_is_running">Tumatakbo ang %1$s</string>
