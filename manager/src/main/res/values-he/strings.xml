@@ -55,8 +55,7 @@ This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Enter "Developer options" - "Wireless debugging". Tap "Pair device with pairing code", you will see a six-digit code.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Enter the code in the notification to complete pairing.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[The pairing process needs you to interact with a notification from Shevery. Please allow Shevery to post notifications.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Otherwise, you may not able to enter paring code from the notification.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Otherwise, you may not able to enter paring code from the notification.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Please note, left part of the "Wireless debugging" option is clickable, tapping it will open a new page. Only turing on the switch on the right is incorrect.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Back to Shevery and start Shevery.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery needs to access local network. It is controlled by the network permission.]]></string>
@@ -397,8 +396,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_record_macro"><![CDATA[הקלט מאקרו]]></string>
     <string name="comput_recording_active"><![CDATA[ההקלטה פעילה. הפעל פקודות באמצעות הקלט הראשי כדי להוסיפן למאקרו זה.]]></string>
     <string name="comput_saved_macros"><![CDATA[מאקרואים שמורים]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[מחק]]></string>
+        <string name="comput_delete"><![CDATA[מחק]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[אישור ReCommand]]></string>
     <string name="comput_execute"><![CDATA[הפעל]]></string>
     <string name="comput_cancel"><![CDATA[בטל]]></string>

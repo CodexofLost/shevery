@@ -30,8 +30,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Entra in "Modalità sviluppatore" - "Debug wireless". Seleziona "Accoppia dispositivo con codice di associazione", vedrai un codice a sei cifre.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Inserisci il codice nella notifica per completare l'accoppiamento.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Il processo di accoppiamento richiede che tu interagisca con una notifica di Shizuku. Consenti a Shizuku di mostrare notifiche.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_finish"><![CDATA[Torna a Shizuku e avvia Shizuku.]]></string>
+        <string name="adb_pairing_tutorial_content_finish"><![CDATA[Torna a Shizuku e avvia Shizuku.]]></string>
     <string name="home_root_title"><![CDATA[Avvia (per dispositivi rootati)]]></string>
     <string name="home_adb_button_view_command"><![CDATA[Visualizza comando]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Ricerca del servizio di Debug Wireless]]></string>
@@ -453,8 +452,7 @@ Pronto per i comandi.]]></string>
     <string name="comput_record_macro"><![CDATA[Registra macro]]></string>
     <string name="comput_recording_active"><![CDATA[Registrazione attiva. Esegui i comandi utilizzando l'input principale per aggiungerli a questa macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Macro salvate]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Elimina]]></string>
+        <string name="comput_delete"><![CDATA[Elimina]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Conferma ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Esegui]]></string>
     <string name="comput_cancel"><![CDATA[Annulla]]></string>

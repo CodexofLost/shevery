@@ -60,8 +60,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["डेवलपर विकल्प" में "वायरलेस डिबगिंग" चुनें। "पेयरिंग कोड के साथ डिवाइस पेयर करें" पर टैप करें, आपको एक छह-अंकीय कोड दिखाई देगा।]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[पेयरिंग पूरी करने के लिए सूचना में कोड दर्ज करें।]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[पेयरिंग प्रक्रिया के लिए आपको Shevery की सूचना के साथ इंटरैक्ट करना होगा। कृपया Shevery को सूचनाएँ पोस्ट करने की अनुमति दें।]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[अन्यथा, आप सूचना से पेयरिंग कोड दर्ज नहीं कर पाएंगे।]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[अन्यथा, आप सूचना से पेयरिंग कोड दर्ज नहीं कर पाएंगे।]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[कृपया ध्यान दें कि "वायरलेस डिबगिंग" विकल्प का बायाँ भाग क्लिक करने योग्य है; उस पर टैप करने से एक नया पृष्ठ खुलेगा। केवल दाईं ओर स्थित स्विच को चालू करना गलत है।]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[शेवरी पर वापस जाएँ और शेवरी शुरू करें।]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery को स्थानीय नेटवर्क तक पहुँच की आवश्यकता है। यह नेटवर्क अनुमति द्वारा नियंत्रित है।]]></string>
@@ -466,8 +465,7 @@
     <string name="comput_record_macro"><![CDATA[मैक्रो रिकॉर्ड करें]]></string>
     <string name="comput_recording_active"><![CDATA[रिकॉर्डिंग सक्रिय है। मुख्य इनपुट का उपयोग करके कमांड चलाएँ और उन्हें इस मैक्रो में जोड़ें।]]></string>
     <string name="comput_saved_macros"><![CDATA[सहेजे गए मैक्रोज़]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[मिटायें]]></string>
+        <string name="comput_delete"><![CDATA[मिटायें]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand पुष्टि]]></string>
     <string name="comput_execute"><![CDATA[निष्पादित करें]]></string>
     <string name="comput_cancel"><![CDATA[रद्द करें]]></string>

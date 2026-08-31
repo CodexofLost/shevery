@@ -27,8 +27,7 @@
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Bumalik sa Shizuku at simulan ang Shizuku.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Tandaan, ang kaliwang bahagi ng "Wireless na pag-debug" ay napipindot, nagbubukas ito ng bagong pahina. Mali kung pipindutin mo lang ang switch sa kanan.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Kung hindi mo ito gagawin, maaaring hindi mo mailalagay ang code ng pagpapares sa notipikasyon.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Kailangan mong makisalamuha sa isang notipikasyon mula sa Shizuku para makumpleto ang proseso sa pagpapares. Mangyaring payagan ang Shizuku na magpadala ng mga notipikasyon.]]></string>
+        <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Kailangan mong makisalamuha sa isang notipikasyon mula sa Shizuku para makumpleto ang proseso sa pagpapares. Mangyaring payagan ang Shizuku na magpadala ng mga notipikasyon.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Ilagay ang code sa notipikasyon para makumpleto ang pagpapares.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Pumunta sa "Mga opsyon ng developer" - "Wireless na pag-debug". Pindutin ang "Pinapares ang device gamit ang code ng pagpapares", may anim-na-numerong code kang makikita.]]></string>
     <string name="adb_pairing_tutorial_content_notification"><![CDATA[Tutulungan ka ng isang notipikasyon mula sa Shizuku na tapusin ang pagpapares.]]></string>
@@ -452,8 +451,7 @@ Isinasagawa...]]></string>
     <string name="comput_record_macro"><![CDATA[Irekord ang Macro]]></string>
     <string name="comput_recording_active"><![CDATA[Aktibo ang pagre-record. Patakbuhin ang mga utos gamit ang pangunahing input upang idagdag ang mga ito sa macro na ito.]]></string>
     <string name="comput_saved_macros"><![CDATA[Mga Ipinong Macro]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Bura]]></string>
+        <string name="comput_delete"><![CDATA[Bura]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Kumpirmahin muli ang rekomendasyon]]></string>
     <string name="comput_execute"><![CDATA[Isagawa]]></string>
     <string name="comput_cancel"><![CDATA[I-cancel]]></string>

@@ -73,8 +73,7 @@
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Shizikuya geri dön və Shizikunu başlat]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Nəzərə alın ki, "Simsiz debaq" seçiminin sol hissəsi tıklana bilər, ona toxunmaq yeni səhifə açacaq. Yalnız sağdakı açara basmaq düzgün deyil.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Əks təqdirdə siz bildirişdə olan cütləşdirmə kodunu daxil edə bilməyəcəksiniz]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Cütləşmə prosesi Shizukudan gələn bildirişi görməyinizi tələb edir. Zəhmət olmasa, Shizuku-ya bildirişlər göndərməyə icazə verin.]]></string>
+        <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Cütləşmə prosesi Shizukudan gələn bildirişi görməyinizi tələb edir. Zəhmət olmasa, Shizuku-ya bildirişlər göndərməyə icazə verin.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Cütləşdirməni tamamlamaq üçün bildirişdəki kodu daxil edin]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["Tərtibatçı seçimləri" - "Simsiz debaq" daxil olun. "Cihazı cütləşdirmə kodu ilə cütləşdir" klikləyin, altı rəqəmli kod görəcəksiniz.]]></string>
     <string name="adb_pairing_tutorial_content_notification"><![CDATA[Shizukudan gələn bildiriş cütləşdirməni tamamlamağınız üçün sizə kömək edə bilər]]></string>
@@ -453,8 +452,7 @@ Orijinal: %1$s
     <string name="comput_record_macro"><![CDATA[Makroyu yazın]]></string>
     <string name="comput_recording_active"><![CDATA[Yazma aktivdir. Əsas girişdən istifadə edərək əmrləri işə salın və onları bu makroya əlavə edin.]]></string>
     <string name="comput_saved_macros"><![CDATA[Yadda saxlanmış makrolar]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Sil]]></string>
+        <string name="comput_delete"><![CDATA[Sil]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand təsdiqi]]></string>
     <string name="comput_execute"><![CDATA[İcra et]]></string>
     <string name="comput_cancel"><![CDATA[Ləğv et]]></string>

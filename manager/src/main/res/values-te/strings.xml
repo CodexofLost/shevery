@@ -56,8 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["డెవలపర్ ఆప్షన్స్" - "వైర్‌లెస్ డీబగ్గింగ్" అని ఎంచుకోండి. "పేరింగ్ కోడ్‌తో పరికరాన్ని జత చేయండి" పై నొక్కండి, మీకు ఆరు అంకెల కోడ్ కనిపిస్తుంది.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[పేరింగ్‌ను పూర్తి చేయడానికి నోటిఫికేషన్‌లో కోడ్‌ను నమోదు చేయండి.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[జతచేసే ప్రక్రియ కోసం మీరు షెవరి నుండి వచ్చే నోటిఫికేషన్‌తో ఇంటరాక్ట్ అవ్వాలి. దయచేసి షెవరి నోటిఫికేషన్లను పోస్ట్ చేయడానికి అనుమతించండి.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[లేకపోతే, మీరు నోటిఫికేషన్ నుండి పెయిరింగ్ కోడ్‌ను నమోదు చేయలేకపోవచ్చు.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[లేకపోతే, మీరు నోటిఫికేషన్ నుండి పెయిరింగ్ కోడ్‌ను నమోదు చేయలేకపోవచ్చు.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[దయచేసి గమనించండి, "వైర్‌లెస్ డీబగ్గింగ్" ఎంపిక యొక్క ఎడమ భాగం క్లిక్ చేయడానికి వీలుగా ఉంటుంది, దానిపై నొక్కడం ఒక కొత్త పేజీని తెరుస్తుంది. కుడి వైపున ఉన్న స్విచ్‌ను మాత్రమే ఆన్ చేయడం తప్పు.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[షెవరికి తిరిగి వెళ్లి, షెవరిని ప్రారంభించండి.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[షెవరీకి స్థానిక నెట్‌వర్క్‌ను యాక్సెస్ చేయాలి. ఇది నెట్‌వర్క్ అనుమతి ద్వారా నియంత్రించబడుతుంది.]]></string>
@@ -458,8 +457,7 @@
     <string name="comput_record_macro"><![CDATA[మాక్రోను రికార్డ్ చేయండి]]></string>
     <string name="comput_recording_active"><![CDATA[రికార్డింగ్ చురుకుగా ఉంది. ఈ మాక్రోకు జోడించడానికి ప్రధాన ఇన్‌పుట్‌ను ఉపయోగించి ఆదేశాలను అమలు చేయండి.]]></string>
     <string name="comput_saved_macros"><![CDATA[సేవ్ చేయబడిన మాక్రోలు]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[తొలగించు]]></string>
+        <string name="comput_delete"><![CDATA[తొలగించు]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand నిర్ధారణ]]></string>
     <string name="comput_execute"><![CDATA[నిర్దేశించు]]></string>
     <string name="comput_cancel"><![CDATA[రద్దు చేయండి]]></string>

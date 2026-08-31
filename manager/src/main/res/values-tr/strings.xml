@@ -45,8 +45,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["Geliştirici Seçenekleri" - "Kablosuz hata ayıklama" girin. "Cihazı eşleştirme kodu ile eşleştir"e dokunun, altı haneli bir kod göreceksiniz.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Eşleştirmeyi tamamlamak için kodu bildirime girin.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Eşleştirme işlemi, Shizuku'dan gelen bir bildirimle etkileşim kurmanızı gerektirir. Lütfen Shizuku'nun bildirim göndermesine izin verin.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Aksi takdirde, bildirimden eşleştirme kodunu giremeyebilirsiniz.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Aksi takdirde, bildirimden eşleştirme kodunu giremeyebilirsiniz.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Lütfen, "Kablosuz hata ayıklama" seçeneğinin sol kısmının tıklanabilir olduğunu, dokunulduğunda yeni bir sayfa açılacağını unutmayın. Yalnızca sağdaki düğmeyi açmak yanlıştır.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Shizuku'ya geri dönün ve Shizuku'yu başlatın.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shizuku’nun yerel ağa erişmesi gerekiyor. Ağ izni tarafından kontrol edilir.]]></string>
@@ -385,8 +384,7 @@
     <string name="comput_record_macro"><![CDATA[Makro Kaydet]]></string>
     <string name="comput_recording_active"><![CDATA[Kayıt etkin. Bu makroya eklemek için ana girişi kullanarak komutları çalıştırın.]]></string>
     <string name="comput_saved_macros"><![CDATA[Kaydedilmiş Makrolar]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Sil]]></string>
+        <string name="comput_delete"><![CDATA[Sil]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand onayı]]></string>
     <string name="comput_execute"><![CDATA[Çalıştır]]></string>
     <string name="comput_cancel"><![CDATA[İptal]]></string>

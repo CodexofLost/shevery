@@ -56,8 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Влезете во "Опции за развивач" – "Безжично отстранување грешки". Допрете на "Спарување на уред со код за спарување" и ќе видите шестцифрен код.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Внесете го кодот од известувањето за да го завршите спарувањето.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[За процесот на спарување е потребно да дејствувате на известување од Shevery. Ве молиме дозволете на Shevery да испраќа известувања.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Во спротивно, можеби нема да можете да го внесете кодот за спарување од известувањето.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Во спротивно, можеби нема да можете да го внесете кодот за спарување од известувањето.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Ве молиме имајте предвид дека левиот дел од опцијата "Безжично отстранување на грешки" е кликлив; доколку го допрете, ќе се отвори нова страница. Само вклучувањето на прекинувачот од десната страна е неправилно.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Вратете се во Шевери и стартувајте го Шевери.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery треба да пристапи до локалната мрежа. Тоа се контролира со мрежната дозвола.]]></string>
@@ -458,8 +457,7 @@
     <string name="comput_record_macro"><![CDATA[Сними макро]]></string>
     <string name="comput_recording_active"><![CDATA[Снимањето е активно. Извршувајте команди преку главниот влез за да ги додадете во овој макро.]]></string>
     <string name="comput_saved_macros"><![CDATA[Зачувани макроси]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Избриши]]></string>
+        <string name="comput_delete"><![CDATA[Избриши]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Потврди повторно]]></string>
     <string name="comput_execute"><![CDATA[Изврши]]></string>
     <string name="comput_cancel"><![CDATA[Откажи]]></string>

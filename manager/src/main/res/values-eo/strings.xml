@@ -62,8 +62,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Eniru "Disvolvopcioj" - "Sendrata depanado". Tuŝu "Parigu aparaton per pariga kodo", vi vidos sesciferan kodon.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Enigu la kodon en la sciigo por kompletigi la parigon.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Por la parigprocezo vi devas interagi kun sciigo de Shevery. Bonvolu permesi al Shevery afiŝi sciigojn.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Alie, eble vi ne povos enigi la parigkodon el la sciigo.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Alie, eble vi ne povos enigi la parigkodon el la sciigo.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Bonvolu noti, ke la maldekstra parto de la opcio "Senfada depanado" estas klakebla; tuŝi ĝin malfermos novan paĝon. Nur ŝalti la ŝaltilon dekstre estas malĝusta.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Reen al Shevery kaj startu Shevery.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery bezonas aliri la lokan reton. Ĝi estas kontrolata per la reta permeso.]]></string>
@@ -456,8 +455,7 @@ Ekzekutante...]]></string>
     <string name="comput_record_macro"><![CDATA[Registri makron]]></string>
     <string name="comput_recording_active"><![CDATA[Registrado aktiva. Plenumu komandojn per la ĉefa enigo por aldoni ilin al ĉi tiu makroo.]]></string>
     <string name="comput_saved_macros"><![CDATA[Savitaj makrooj]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Forigi]]></string>
+        <string name="comput_delete"><![CDATA[Forigi]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Konfirmo de ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Efektivigi]]></string>
     <string name="comput_cancel"><![CDATA[Nuligi]]></string>

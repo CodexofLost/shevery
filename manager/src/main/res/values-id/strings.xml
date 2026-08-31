@@ -82,8 +82,7 @@
     <string name="dialog_requesting_legacy_button_open_shizuku"><![CDATA[Buka Shizuku]]></string>
     <string name="rish_description"><![CDATA[Dengan %1$s, di aplikasi terminal mana pun, Anda dapat terhubung dan berinteraksi dengan shell yang dijalankan oleh Shizuku. <p>Tentang detail penggunaan %1$s, ketuk untuk melihat dokumen.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Sebelum Android 11, koneksi ke komputer diperlukan untuk mengaktifkan debug Nirkabel.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="home_wireless_adb_description"><![CDATA[Pada Android 11 atau yang lebih baru, Anda dapat mengaktifkan debug Nirkabel dan memulai Shizuku langsung dari perangkat Anda, tanpa menyambungkan ke komputer.<p>Silakan lihat panduan langkah demi langkah terlebih dahulu.]]></string>
+        <string name="home_wireless_adb_description"><![CDATA[Pada Android 11 atau yang lebih baru, Anda dapat mengaktifkan debug Nirkabel dan memulai Shizuku langsung dari perangkat Anda, tanpa menyambungkan ke komputer.<p>Silakan lihat panduan langkah demi langkah terlebih dahulu.]]></string>
     <string name="adb_pairing_tutorial_content_notification"><![CDATA[Notifikasi dari Shizuku akan membantu Anda untuk menyelesaikan pemasangan.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Masuk "Opsi developer" - "Debug nirkabel". Sentuh "Sambungkan perangkat dengan kode penghubung", Anda akan melihat enam digit kode.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Masukkan kode pada notifikasi untuk menyelesaikan penyambungan.]]></string>
@@ -453,8 +452,7 @@ Siap menerima perintah.]]></string>
     <string name="comput_record_macro"><![CDATA[Rekam Makro]]></string>
     <string name="comput_recording_active"><![CDATA[Perekaman sedang aktif. Jalankan perintah melalui input utama untuk menambahkannya ke makro ini.]]></string>
     <string name="comput_saved_macros"><![CDATA[Makro yang Disimpan]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Hapus]]></string>
+        <string name="comput_delete"><![CDATA[Hapus]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Konfirmasi ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Jalankan]]></string>
     <string name="comput_cancel"><![CDATA[Batal]]></string>

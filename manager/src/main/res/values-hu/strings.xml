@@ -45,8 +45,7 @@ Ez azért lehet, mert az eszköz KeyStore mechanizmusa meghibásodott.]]></strin
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Lépjen a "Fejlesztői lehetőségek" - "Vezeték nélküli hibakeresés" menüpontra. Koppintson az "Eszköz párosítása párosítási kóddal" lehetőségre, és megjelenik egy hatjegyű kód.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[A párosítás befejezéséhez írja be az értesítésben lévő kódot.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[A párosítási folyamat során kapcsolatba kell lépni Shizuku értesítésével. Kérjük, engedélyezze a Shizukunak, hogy értesítéseket tegyen közzé.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Ellenkező esetben előfordulhat, hogy nem tudja megadni a párosítási kódot az értesítésből.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Ellenkező esetben előfordulhat, hogy nem tudja megadni a párosítási kódot az értesítésből.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Felhívjuk figyelmét, hogy a "Vezeték nélküli hibakeresés" opció bal oldali része kattintható, rákattintva egy új oldal nyílik meg. A jobb oldali kapcsoló bekapcsolása helytelen.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Vissza és Shizuku elindítása.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[A Shizukunak hozzá kell férnie a helyi hálózathoz. A hálózati engedély vezérli.]]></string>
@@ -468,8 +467,7 @@ Készen áll a parancsok fogadására.]]></string>
     <string name="comput_record_macro"><![CDATA[Makró rögzítése]]></string>
     <string name="comput_recording_active"><![CDATA[Felvétel folyamatban. A fő bemeneten keresztül futtass parancsokat, hogy azok bekerüljenek ebbe a makróba.]]></string>
     <string name="comput_saved_macros"><![CDATA[Mentett makrók]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Törlés]]></string>
+        <string name="comput_delete"><![CDATA[Törlés]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand visszaigazolás]]></string>
     <string name="comput_execute"><![CDATA[Végrehajtás]]></string>
     <string name="comput_cancel"><![CDATA[Mégse]]></string>

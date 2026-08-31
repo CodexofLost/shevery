@@ -56,8 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Accedeix a "Opcions de desenvolupador" - "Depuració sense fils". Toca "Emparella el dispositiu amb el codi d'emparellament" i veuràs un codi de sis dígits.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Introdueix el codi de la notificació per completar l'aparellament.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[El procés d'aparellament requereix que interactueu amb una notificació de Shevery. Si us plau, permeteu que Shevery enviï notificacions.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[En cas contrari, pot ser que no puguis introduir el codi de parell des de la notificació.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[En cas contrari, pot ser que no puguis introduir el codi de parell des de la notificació.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Tingueu en compte que la part esquerra de l'opció "Desbugat sense fil" és clicable; si la toqueu, s'obrirà una nova pàgina. Només encendre l'interruptor de la dreta és incorrecte.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Tornar a Shevery i iniciar Shevery.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery necessita accedir a la xarxa local. Està controlat pel permís de xarxa.]]></string>
@@ -456,8 +455,7 @@ S'està executant...]]></string>
     <string name="comput_record_macro"><![CDATA[Grava macro]]></string>
     <string name="comput_recording_active"><![CDATA[Enregistrament actiu. Executa comandes mitjançant la principal entrada per afegir-les a aquesta macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Macros desats]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Suprimeix]]></string>
+        <string name="comput_delete"><![CDATA[Suprimeix]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Recomanar confirmació]]></string>
     <string name="comput_execute"><![CDATA[Executar]]></string>
     <string name="comput_cancel"><![CDATA[Cancel·lar]]></string>

@@ -436,8 +436,7 @@ Ready for commands.]]></string>
     <string name="comput_record_macro"><![CDATA[Record Macro]]></string>
     <string name="comput_recording_active"><![CDATA[Recording active. Run commands using the main input to add them to this macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Saved Macros]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Delete]]></string>
+        <string name="comput_delete"><![CDATA[Delete]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand confirmation]]></string>
     <string name="comput_execute"><![CDATA[Execute]]></string>
     <string name="comput_cancel"><![CDATA[Cancel]]></string>
@@ -527,8 +526,7 @@ Ready for commands.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[ဆက်တိုက်ရှာဖွေနေခဲ့ပါက "Wireless debugging" ကို ပိတ်ပြီး ပြန်ဖွင့်ကြည့်ပါ။]]></string>
     <string name="dialog_adb_pairing_message"><![CDATA[အောက်ပါအဆင့်များအတိုင်း တွဲဖက်ခြင်းကို စတင်ပါ။   "Developer Options" → "Wireless debugging" → "Pairing device using pairing code"   တွဲဖက်ခြင်းလုပ်ငန်းစတင်ပြီးနောက် သင်သည် တွဲဖက်ကုဒ်ကို ထည့်သွင်းနိုင်ပါမည်။]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["Developer options" → "Wireless debugging" သို့ ဝင်ပါ။ "Pair device with pairing code" ကို နှိပ်လိုက်ပါက ခြောက်လုံးဂဏန်းကုဒ်ကို မြင်ရပါမည်။]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[သတိပြုပါ၊ "Wireless debugging" ရွေးချယ်စရာ၏ ဘယ်ဘက်ပိုင်းကို နှိပ်နိုင်ပြီး၊ ထိုကို နှိပ်လျှင် စာမျက်နှာအသစ်တစ်ခု ဖွင့်ပါလိမ့်မည်။ ညာဘက်ရှိ switch ကိုသာ ဖွင့်ထားခြင်း မှားနေပါသည်။]]></string>
+        <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[သတိပြုပါ၊ "Wireless debugging" ရွေးချယ်စရာ၏ ဘယ်ဘက်ပိုင်းကို နှိပ်နိုင်ပြီး၊ ထိုကို နှိပ်လျှင် စာမျက်နှာအသစ်တစ်ခု ဖွင့်ပါလိမ့်မည်။ ညာဘက်ရှိ switch ကိုသာ ဖွင့်ထားခြင်း မှားနေပါသည်။]]></string>
     <string name="home_root_title"><![CDATA[စတင် (Root ပြီးသော စက်များအတွက်)]]></string>
     <string name="home_root_description"><![CDATA[ထို့အပြင်၊ Shevery ကို စက်စတင်တိုင်း အလိုအလျောက် စတင်အောင် ပြုလုပ်နိုင်ပါသည်။ မဟုတ်ပါက သင့်စနစ် သို့မဟုတ် တတိယပါတီကိရိယာများက Shevery ကို ကန့်သတ်ထားခြင်းရှိမရှိ စစ်ဆေးပါ။ သင်သည် %s ကို ကိုးကားနိုင်ပါသည်။]]></string>
     <string name="home_root_description_sui"><![CDATA[Magisk ကို အသုံးပြုနေပါက %1$s ကို စမ်းသုံးနိုင်ပါသည်။ root အသုံးပြုသူများအတွက် နောက်ဆုံးတွင် Shevery ကို အစားထိုးသွားမည်ဖြစ်သည်။ မှတ်ချက် – ရှိပြီးသား အက်ပလီကေးရှင်းများကို %2$s ကို အသုံးပြုရန် အနည်းငယ် ပြင်ဆင်ရမည်။]]></string>

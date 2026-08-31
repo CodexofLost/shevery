@@ -56,8 +56,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["ڈیولپر آپشنز" میں جائیں - "وائرلیس ڈیبگنگ"۔  "جوڑے کے کوڈ کے ساتھ ڈیوائس کو جوڑیں" پر ٹیپ کریں، آپ کو ایک چھ ہندسوں پر مشتمل کوڈ نظر آئے گا۔]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[جوڑنے کے عمل کو مکمل کرنے کے لیے نوٹیفکیشن میں کوڈ درج کریں۔]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[جوڑنے کے عمل کے لیے آپ کو Shevery کی نوٹیفکیشن کے ساتھ تعامل کرنا ضروری ہے۔ براہ کرم Shevery کو نوٹیفکیشنز بھیجنے کی اجازت دیں۔]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[ورنہ آپ نوٹیفیکیشن سے پیئرنگ کوڈ درج نہیں کر سکیں گے۔]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[ورنہ آپ نوٹیفیکیشن سے پیئرنگ کوڈ درج نہیں کر سکیں گے۔]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[براہ کرم نوٹ کریں کہ "وائرلیس ڈیبگنگ" کے آپشن کا بائیں حصہ کلک کے قابل ہے، اس پر ٹیپ کرنے سے ایک نیا صفحہ کھل جائے گا۔ صرف دائیں جانب موجود سوئچ کو آن کرنا غلط ہے۔]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[شیوری پر واپس جائیں اور شیوری شروع کریں۔]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery کو مقامی نیٹ ورک تک رسائی کی ضرورت ہے۔ یہ نیٹ ورک اجازت نامے سے کنٹرول ہوتا ہے۔]]></string>
@@ -458,8 +457,7 @@
     <string name="comput_record_macro"><![CDATA[میکرو ریکارڈ کریں]]></string>
     <string name="comput_recording_active"><![CDATA[ریکارڈنگ فعال ہے۔  اس میکرو میں شامل کرنے کے لیے مرکزی ان پٹ استعمال کرتے ہوئے کمانڈز چلائیں۔]]></string>
     <string name="comput_saved_macros"><![CDATA[محفوظ شدہ میکروز]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[مٹائیں]]></string>
+        <string name="comput_delete"><![CDATA[مٹائیں]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ری کمانڈ کی تصدیق]]></string>
     <string name="comput_execute"><![CDATA[عملدرآمد کریں]]></string>
     <string name="comput_cancel"><![CDATA[منسوخ کریں]]></string>

@@ -98,8 +98,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Մուտք գործեք «Ծրագրավորողի ընտրանքներ» → «Անլար սխալազերծում»։ Սեղմեք «Սարքը զուգակցել զուգակցման կոդով», և կտեսնեք վեցանիշ կոդ։]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Զուգավորումը ավարտելու համար մուտքագրեք ծանուցման մեջ նշված կոդը։]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Զուգավորման գործընթացը պահանջում է, որ դուք փոխազդեք Shevery-ի ծանուցման հետ։ Խնդրում ենք թույլ տալ Shevery-ին ուղարկել ծանուցումներ։]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Հակառակ դեպքում, հնարավոր է, որ չկարողանաք ծանուցումից մուտքագրել զույգավորման կոդը։]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Հակառակ դեպքում, հնարավոր է, որ չկարողանաք ծանուցումից մուտքագրել զույգավորման կոդը։]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Խնդրում ենք նկատի ունենալ, որ «Անլար սխալազերծում» ընտրանքի ձախ մասը սեղմելի է, և դրա վրա սեղմելը կբացի նոր էջ։ Միայն աջ կողմի անջատիչը միացնելը սխալ է։]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Վերադառնալ Shevery-ին և սկսել Shevery-ը։]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery-ին անհրաժեշտ է մուտք գործել տեղական ցանց։ Դա վերահսկվում է ցանցային թույլտվության կողմից։]]></string>
@@ -459,8 +458,7 @@
     <string name="comput_record_macro"><![CDATA[Գրանցել մակրոն]]></string>
     <string name="comput_recording_active"><![CDATA[Ձայնագրումը ակտիվ է։ Գործարկեք հրամանները հիմնական մուտքով՝ դրանք այս մակրոյին ավելացնելու համար։]]></string>
     <string name="comput_saved_macros"><![CDATA[Պահպանված մակրոներ]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Չեղարկել]]></string>
+        <string name="comput_delete"><![CDATA[Չեղարկել]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand հաստատում]]></string>
     <string name="comput_execute"><![CDATA[Կատարել]]></string>
     <string name="comput_cancel"><![CDATA[Չեղարկել]]></string>

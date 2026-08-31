@@ -26,8 +26,7 @@
     <string name="notification_settings"><![CDATA[Opțiuni de notificare]]></string>
     <string name="adb_pairing_tutorial_title"><![CDATA[Asociază Shizuku cu acest dispozitiv]]></string>
     <string name="adb_pairing_tutorial_content_notification"><![CDATA[O notificare de la Shizuku te va ajuta să finalizezi asocierea.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[În caz contrar, este posibil să nu poți introduce codul de asociere din notificare.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[În caz contrar, este posibil să nu poți introduce codul de asociere din notificare.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Înapoi la Shizuku și pornește Shizuku.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shizuku trebuie să acceseze rețeaua locală. Este controlat de permisiunea de rețea.]]></string>
     <string name="home_root_title"><![CDATA[Pornire (pentru dispozitive root-ate)]]></string>
@@ -473,8 +472,7 @@ Gata să primească comenzi.]]></string>
     <string name="comput_record_macro"><![CDATA[Înregistrare macro]]></string>
     <string name="comput_recording_active"><![CDATA[Înregistrarea este activă. Executați comenzi folosind intrarea principală pentru a le adăuga la această macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Macro-uri salvate]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Șterge]]></string>
+        <string name="comput_delete"><![CDATA[Șterge]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Confirmare ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Executare]]></string>
     <string name="comput_cancel"><![CDATA[Anulează]]></string>

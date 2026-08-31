@@ -56,8 +56,7 @@ Cela peut être dû à un dysfonctionnement du KeyStore de cet appareil.]]></str
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Allez dans "Options développeurs" - "Débogage sans fil". Appuyez sur "Associer l'appareil avec un code d'association", un code à six chiffres s'affichera.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Saisissez le code dans la notification pour terminer l'association.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Le processus d'association nécessite d'interagir avec une notification de Shevery. Veuillez autoriser Shevery à envoyer des notifications.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Sinon, vous ne pourrez pas saisir le code depuis la notification.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Sinon, vous ne pourrez pas saisir le code depuis la notification.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Remarque : la partie gauche de l'option "Débogage sans fil" est cliquable et ouvre une nouvelle page. Activer uniquement l'interrupteur de droite ne suffit pas.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Revenez sur Shevery et lancez le service.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery nécessite l'accès au réseau local.]]></string>
@@ -400,8 +399,7 @@ Prêt pour les commandes.]]></string>
     <string name="comput_record_macro"><![CDATA[Enregistrer une macro]]></string>
     <string name="comput_recording_active"><![CDATA[Enregistrement actif. Exécutez des commandes depuis la saisie principale pour les ajouter à cette macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Macros enregistrées]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Supprimer]]></string>
+        <string name="comput_delete"><![CDATA[Supprimer]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Confirmation ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Exécuter]]></string>
     <string name="comput_cancel"><![CDATA[Annuler]]></string>

@@ -98,8 +98,7 @@
     <string name="adb_pairing_tutorial_content_notification"><![CDATA[Eine Benachrichtigung von Shizuku wird Ihnen helfen, die Kopplung abzuschließen.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Vor Android 11 ist eine Verbindung zu einem Computer erforderlich, um Wireless Debugging zu aktivieren.]]></string>
     <string name="home_wireless_adb_view_guide_button"><![CDATA[Schritt-für-Schritt-Anleitung]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_finish"><![CDATA[Zurück zu Shizuku und Shizuku starten.]]></string>
+        <string name="adb_pairing_tutorial_content_finish"><![CDATA[Zurück zu Shizuku und Shizuku starten.]]></string>
     <string name="rish_description"><![CDATA[Mit %1$s können Sie in jeder Terminal-App eine Verbindung zur Shell von Shizuku herstellen und mit ihr interagieren. <p>Zur detaillierten Verwendung von %1$s tippen, um das Dokument anzuzeigen.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Für den Kopplungssprozess müssen Sie mit einer Benachrichtigung von Shizuku interagieren. Bitte Shizuku erlauben, Benachrichtigungen zu posten.]]></string>
     <string name="notification_settings"><![CDATA[Benachrichtigungsoptionen]]></string>
@@ -453,8 +452,7 @@ Bereit für Befehle.]]></string>
     <string name="comput_record_macro"><![CDATA[Makro aufzeichnen]]></string>
     <string name="comput_recording_active"><![CDATA[Aufzeichnung läuft. Führen Sie Befehle über die Haupteingabe aus, um sie diesem Makro hinzuzufügen.]]></string>
     <string name="comput_saved_macros"><![CDATA[Gespeicherte Makros]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Löschen]]></string>
+        <string name="comput_delete"><![CDATA[Löschen]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand-Bestätigung]]></string>
     <string name="comput_execute"><![CDATA[Ausführen]]></string>
     <string name="comput_cancel"><![CDATA[Abbrechen]]></string>

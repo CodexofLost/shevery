@@ -62,8 +62,7 @@ Iespējams, ka šīs ierīces KeyStore mehānisms nedarbojas.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Atveriet „Izstrādātāja opcijas“ – „Bezvadu atkļūdošana“. Pieskarieties „Savienot ierīci ar savienošanas kodu“ – parādīsies sešu ciparu kods.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Ievadiet paziņojumā norādīto kodu, lai pabeigtu savienošanu.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Lai pabeigtu savienošanas procesu, jums ir jāreaģē uz paziņojumu no „Shevery“. Lūdzu, atļaujiet „Shevery“ publicēt paziņojumus.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Pretējā gadījumā jums var nebūt iespējams ievadīt pārošanas kodu no paziņojuma.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Pretējā gadījumā jums var nebūt iespējams ievadīt pārošanas kodu no paziņojuma.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Lūdzu, ņemiet vērā, ka opcijas „Bezvadu atkļūdošana” kreisā daļa ir klikšķināma — pieskaroties tai, atvērsies jauna lapa. Nepareizi ir ieslēgt tikai slēdzi labajā pusē.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Atgriezties pie „Shevery” un sākt „Shevery”.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[„Shevery“ ir nepieciešama piekļuve vietējam tīklam. To regulē tīkla atļauja.]]></string>
@@ -471,8 +470,7 @@ Gatava komandu pieņemšanai.]]></string>
     <string name="comput_record_macro"><![CDATA[Ierakstīt makro]]></string>
     <string name="comput_recording_active"><![CDATA[Ierakstīšana notiek. Izpildiet komandas, izmantojot galveno ievadi, lai tās pievienotu šim makro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Saglabātie makroi]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Dzēst]]></string>
+        <string name="comput_delete"><![CDATA[Dzēst]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand apstiprinājums]]></string>
     <string name="comput_execute"><![CDATA[Izpildīt]]></string>
     <string name="comput_cancel"><![CDATA[Atcelt]]></string>

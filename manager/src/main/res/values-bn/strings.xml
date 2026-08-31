@@ -58,8 +58,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["ডেভেলপার অপশনস" – "ওয়্যারলেস ডিবাগিং" এ প্রবেশ করুন। "পেয়ার ডিভাইস উইথ পেয়ারিং কোড" এ ট্যাপ করুন, আপনি একটি ছয়-অঙ্কের কোড দেখতে পাবেন।]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[পেয়ারিং সম্পূর্ণ করতে বিজ্ঞপ্তিতে থাকা কোডটি লিখুন।]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[জোড়া করার প্রক্রিয়ায় আপনাকে Shevery থেকে আসা একটি বিজ্ঞপ্তির সাথে ইন্টারঅ্যাক্ট করতে হবে। অনুগ্রহ করে Shevery-কে বিজ্ঞপ্তি পাঠানোর অনুমতি দিন।]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[অন্যথায়, আপনি বিজ্ঞপ্তি থেকে পেয়ারিং কোড প্রবেশ করতে পারবেন না।]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[অন্যথায়, আপনি বিজ্ঞপ্তি থেকে পেয়ারিং কোড প্রবেশ করতে পারবেন না।]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[অনুগ্রহ করে লক্ষ্য করুন, "ওয়্যারলেস ডিবাগিং" অপশনের বাম অংশটি ক্লিকযোগ্য; সেখানে ট্যাপ করলে একটি নতুন পৃষ্ঠা খুলবে। শুধুমাত্র ডানদিকে থাকা সুইচটি চালু করা ভুল।]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Shevery-এ ফিরে যান এবং Shevery শুরু করুন।]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery-কে স্থানীয় নেটওয়ার্কে অ্যাক্সেস করতে হবে। এটি নেটওয়ার্ক অনুমতির দ্বারা নিয়ন্ত্রিত।]]></string>
@@ -460,8 +459,7 @@
     <string name="comput_record_macro"><![CDATA[ম্যাক্রো রেকর্ড করুন]]></string>
     <string name="comput_recording_active"><![CDATA[রেকর্ডিং সক্রিয়। প্রধান ইনপুট ব্যবহার করে কমান্ডগুলো চালান এবং সেগুলো এই ম্যাক্রোতে যুক্ত করুন।]]></string>
     <string name="comput_saved_macros"><![CDATA[সংরক্ষিত ম্যাক্রো]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[মুছুন]]></string>
+        <string name="comput_delete"><![CDATA[মুছুন]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand নিশ্চিতকরণ]]></string>
     <string name="comput_execute"><![CDATA[চালু করুন]]></string>
     <string name="comput_cancel"><![CDATA[বাতিল করুন]]></string>

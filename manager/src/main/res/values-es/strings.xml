@@ -56,8 +56,7 @@ Esto puede deberse a que el almacén de claves (KeyStore) de este dispositivo es
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Vaya a "Opciones de desarrollador" - "Depuración inalámbrica". Toque "Emparejar dispositivo con código de emparejamiento", verá un código de seis dígitos.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Introduzca el código en la notificación para completar el emparejamiento.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[El emparejamiento requiere interactuar con una notificación de Shevery. Por favor permita que Shevery envíe notificaciones.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[De lo contrario, no podrá introducir el código de emparejamiento desde la notificación.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[De lo contrario, no podrá introducir el código de emparejamiento desde la notificación.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Tenga en cuenta que la parte izquierda de "Depuración inalámbrica" es pulsable y abre una nueva página. Activar solo el interruptor de la derecha no es suficiente.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Vuelva a Shevery e inicie el servicio.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery necesita acceder a la red local. Esto se controla mediante el permiso de red.]]></string>
@@ -400,8 +399,7 @@ Listo para comandos.]]></string>
     <string name="comput_record_macro"><![CDATA[Grabar macro]]></string>
     <string name="comput_recording_active"><![CDATA[Grabación activa. Ejecute comandos desde la entrada principal para agregarlos a esta macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Macros guardadas]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Eliminar]]></string>
+        <string name="comput_delete"><![CDATA[Eliminar]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Confirmación ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Ejecutar]]></string>
     <string name="comput_cancel"><![CDATA[Cancelar]]></string>

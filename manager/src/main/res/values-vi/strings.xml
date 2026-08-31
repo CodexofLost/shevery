@@ -83,8 +83,7 @@
     <string name="terminal_tutorial_3_description"><![CDATA[Một số mẹo: cấp quyền thực thi cho %1$s và thêm quyền đó vào %2$s, bạn sẽ có thể sử dụng %1$s trực tiếp.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Trước Android 11, kết nối với máy tính là yêu cầu bắt buộc để bật Gỡ lỗi không dây.]]></string>
     <string name="notification_adb_pairing_stop_searching"><![CDATA[Dừng tìm kiếm]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="notification_adb_pairing_succeed_text"><![CDATA[Bạn có thể khởi động dịch vụ Shizuku ngay bây giờ.]]></string>
+        <string name="notification_adb_pairing_succeed_text"><![CDATA[Bạn có thể khởi động dịch vụ Shizuku ngay bây giờ.]]></string>
     <string name="notification_adb_pairing_failed_title"><![CDATA[Ghép nối thất bại]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Thử lại]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Nhập mã vào thông báo để hoàn tất quá trình ghép nối.]]></string>
@@ -473,8 +472,7 @@ Sẵn sàng nhận lệnh.]]></string>
     <string name="comput_record_macro"><![CDATA[Ghi lại macro]]></string>
     <string name="comput_recording_active"><![CDATA[Đang ghi lại. Hãy chạy các lệnh thông qua kênh nhập chính để thêm chúng vào macro này.]]></string>
     <string name="comput_saved_macros"><![CDATA[Các macro đã lưu]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Xóa]]></string>
+        <string name="comput_delete"><![CDATA[Xóa]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Xác nhận lại lệnh]]></string>
     <string name="comput_execute"><![CDATA[Thực thi]]></string>
     <string name="comput_cancel"><![CDATA[Hủy]]></string>

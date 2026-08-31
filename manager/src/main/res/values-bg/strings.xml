@@ -62,8 +62,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Влезте в „Опции за разработчици“ – „Безжично отстраняване на грешки“. Натиснете „Свързване на устройство с код за свързване“ – ще видите шестцифрен код.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Въведете кода от известието, за да завършите сдвояването.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Процесът на свързване изисква да реагирате на известие от Shevery. Моля, разрешете на Shevery да публикува известия.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[В противен случай може да не успеете да въведете кода за сдвояване от известието.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[В противен случай може да не успеете да въведете кода за сдвояване от известието.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Моля, имайте предвид, че лявата част на опцията „Безжично отстраняване на грешки“ е активна – ако я докоснете, ще се отвори нова страница. Неправилно е да включите само превключвателя отдясно.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Върни се към „Shevery“ и стартирай „Shevery“.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery трябва да има достъп до локалната мрежа. Това се регулира чрез мрежовите разрешения.]]></string>
@@ -471,8 +470,7 @@
     <string name="comput_record_macro"><![CDATA[Записване на макрос]]></string>
     <string name="comput_recording_active"><![CDATA[Записът е активен. Изпълнявайте команди чрез главния вход, за да ги добавите към този макрос.]]></string>
     <string name="comput_saved_macros"><![CDATA[Запазени макроси]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Изтрий]]></string>
+        <string name="comput_delete"><![CDATA[Изтрий]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Потвърждение на ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Изпълни]]></string>
     <string name="comput_cancel"><![CDATA[Отмяна]]></string>

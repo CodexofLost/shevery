@@ -61,8 +61,7 @@
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["டெவலப்பர் விருப்பங்கள்" - "வயர்லெஸ் டிரபிங்கிங்" என்பதை உள்ளிடவும். "ஜோடி குறியீட்டுடன் சாதனத்தை இணை" என்பதைத் தட்டவும், உங்களுக்கு ஆறு இலக்கக் குறியீடு தெரியும்.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[இணைப்பை முடிக்க அறிவிப்பில் உள்ள குறியீட்டை உள்ளிடவும்.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[இணைப்பு செயல்முறைக்காக நீங்கள் Shevery-யிடமிருந்து வரும் அறிவிப்புடன் தொடர்பு கொள்ள வேண்டும். Shevery அறிவிப்புகளைப் பகிர அனுமதிக்கவும்.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[இல்லையெனில், அறிவிப்பிலிருந்து பாரிங் குறியீட்டை உங்களால் உள்ளிட முடியாமல் போகலாம்.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[இல்லையெனில், அறிவிப்பிலிருந்து பாரிங் குறியீட்டை உங்களால் உள்ளிட முடியாமல் போகலாம்.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[தயவுசெய்து கவனிக்கவும், "வயர்லெஸ் டிபக்கிங்" விருப்பத்தின் இடது பகுதி கிளிக் செய்யக்கூடியது, அதைத் தட்டினால் ஒரு புதிய பக்கம் திறக்கும். வலதுபுறத்தில் உள்ள சுவிட்சை மட்டும் ஆன் செய்வது தவறானது.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[ஷெவரிக்குத் திரும்பி, ஷெவரியைத் தொடங்குங்கள்.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[ஷெவரிக்கு உள்ளூர் நெட்வொர்க்கை அணுக வேண்டும். இது நெட்வொர்க் அனுமதியால் கட்டுப்படுத்தப்படுகிறது.]]></string>
@@ -467,8 +466,7 @@
     <string name="comput_record_macro"><![CDATA[மேக்ரோவைப் பதிவுசெய்]]></string>
     <string name="comput_recording_active"><![CDATA[பதிவு செயல்பாட்டில் உள்ளது. இந்த மேக்ரோவில் சேர்க்க, பிரதான உள்ளீட்டைப் பயன்படுத்தி கட்டளைகளை இயக்கவும்.]]></string>
     <string name="comput_saved_macros"><![CDATA[சேமிக்கப்பட்ட மேக்ரோக்கள்]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[நீக்கு]]></string>
+        <string name="comput_delete"><![CDATA[நீக்கு]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand உறுதிப்படுத்தல்]]></string>
     <string name="comput_execute"><![CDATA[நடத்து]]></string>
     <string name="comput_cancel"><![CDATA[ரத்து செய்]]></string>

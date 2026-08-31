@@ -58,8 +58,7 @@ Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Gitt an "Entwéckleroptiounen" - "Drahtlos-Debugging". Tippt op "Gerät mam Pairing-Code paaren", da gesitt Dir e sechsstellge Code.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Gitt de Code an der Notifikatioun an, fir d'Paarung ofzeschléissen.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Fir de Paarungsprozess musst Dir op eng Notifikatioun vun Shevery reagéieren. Erlaabt w.e.g. Shevery, Notifikatiounen ze posten.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Soss kënnt Dir de Pairing-Code vläicht net aus der Notifikatioun aginn.]]></string>
+        <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Soss kënnt Dir de Pairing-Code vläicht net aus der Notifikatioun aginn.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[W.e.g. bemierkt, datt de lénksen Deel vun der Optioun "Wireless debugging" klickbar ass; wann Dir drop tippt, geet eng nei Säit op. Et ass onkorrekt, nëmmen de Schalter op der rietser Säit unzeschalten.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Zréck bei Shevery a Shevery starten.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery muss op d'lokal Netzwierk zougräifen. Et gëtt duerch d'Netzwierkpermissioun kontrolléiert.]]></string>
@@ -460,8 +459,7 @@ Ausféierung...]]></string>
     <string name="comput_record_macro"><![CDATA[Makro ophuelen]]></string>
     <string name="comput_recording_active"><![CDATA[Opnamen aktiv. Kommandoen iwwer d'Haaptinput ausféieren, fir se an dëse Makro derbäizesetzen.]]></string>
     <string name="comput_saved_macros"><![CDATA[Späichert Makroen]]></string>
-    <string name="comput_no_macros">No saved macros yet. Click 'Record Macro' to start recording console commands.</string>
-    <string name="comput_delete"><![CDATA[Läschen]]></string>
+        <string name="comput_delete"><![CDATA[Läschen]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Äntwert: Bestätegung]]></string>
     <string name="comput_execute"><![CDATA[Ausféieren]]></string>
     <string name="comput_cancel"><![CDATA[Ofsoen]]></string>
