@@ -451,7 +451,7 @@
     <string name="settings_start_on_boot_adb_summary"><![CDATA[Під час завантаження на короткий час увімкніть «Бездротове налагодження» та запустіть Shevery через ADB (TCP-порт 5555). Права суперкористувача не потрібні, Wi-Fi знадобиться лише на мить.]]></string>
     <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[Під час завантаження на короткий час увімкніть «Бездротове налагодження» та запустіть Shevery через ADB. Права суперкористувача не потрібні, Wi-Fi знадобиться лише на мить.]]></string>
     <string name="settings_start_on_boot_adb_granted"><![CDATA[Надано право доступу WRITE_SECURE_SETTINGS.]]></string>
-    <string name="settings_start_on_boot_adb_warning_no_tcp"><![CDATA[Прив'язка TCP (порт 5555) вимкнена: бездротове налагодження залишиться увімкненим.]]></string>
+    <string name="settings_start_on_boot_adb_warning_no_tcp"><![CDATA[Прив\'язка TCP (порт 5555) вимкнена: бездротове налагодження залишиться увімкненим.]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_title"><![CDATA[Відсутній дозвіл]]></string>
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery не працює. Спочатку запустіть службу, а потім поверніться і увімкніть цей параметр.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[Автоматичне надання дозволу не вдалося. Виконайте цю команду на комп’ютері, щоб надати дозвіл вручну:]]></string>
@@ -544,7 +544,7 @@
     <string name="accessibility_manager_pin"><![CDATA[Послуга фіксації для підтримання активності]]></string>
     <string name="accessibility_manager_unpin"><![CDATA[Відкріпити службу]]></string>
     <string name="accessibility_daemon_channel_name"><![CDATA[Підтримка доступності]]></string>
-    <string name="accessibility_daemon_notification_title"><![CDATA[Функція підтримання з'єднання активна]]></string>
+    <string name="accessibility_daemon_notification_title"><![CDATA[Функція підтримання з\'єднання активна]]></string>
     <string name="settings_compat_stub"><![CDATA[Стара версія статті про Шізуку]]></string>
     <string name="settings_compat_stub_summary"><![CDATA[Встановлює пакет-заглушку (moe.shizuku.privileged.api), щоб додатки, які жорстко перевіряють наявність застарілого менеджера Shizuku, продовжували працювати. Запити на дозвіл та Binder перенаправляються до Shevery.]]></string>
     <string name="settings_compat_stub_installed"><![CDATA[Старий заглушок, встановлений за допомогою %1$s]]></string>

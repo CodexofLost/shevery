@@ -77,7 +77,7 @@ This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="terminal_tutorial_1"><![CDATA[ପ୍ରଥମେ, ଆପଣ ଚାହୁଁଥିବା ଯେକୌଣସି ସ୍ଥାନକୁ ଫାଇଲଗୁଡିକ ରପ୍ତାନି କରନ୍ତୁ। ଆପଣ ଦୁଇଟି ଫାଇଲ୍, %1$s ଏବଂ %2$s ପାଇବେ।]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
 
-The export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.]]></string>
+The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[ଫାଇଲଗୁଡିକ ରପ୍ତାନୀ କରନ୍ତୁ]]></string>
     <string name="terminal_tutorial_2"><![CDATA[ତାପରେ, %1$s ଖୋଲିବାକୁ ଏବଂ ସମ୍ପାଦନ କରିବାକୁ ଯେକୌଣସି ଟେକ୍ସଟ୍ ସମ୍ପାଦକ ବ୍ୟବହାର କରନ୍ତୁ।]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[ଉଦାହରଣ ସ୍ଵରୁପ, ଯଦି ଆପଣ %1$sରେ Shevery ବ୍ୟବହାର କରିବାକୁ ଚାହାଁନ୍ତି, ଆପଣ %2$sକୁ %3$s ସହ ବିସ୍ଥାପନ କରିବା ଉଚିତ (%4$s ହେଉଛି %1$sର ପ୍ୟାକେଜ୍ ନାମ)।]]></string>
@@ -100,7 +100,7 @@ The export function uses SAF (Storage Access Framework). It's reported that MIUI
     <string name="settings_start_on_boot_adb_granted"><![CDATA[WRITE_SECURE_SETTINGS ମଞ୍ଜୁର ହୋଇଛି ।]]></string>
     <string name="settings_start_on_boot_adb_warning_no_tcp"><![CDATA[TCP ବାଇଣ୍ଡିଂ (ପୋର୍ଟ୍ 5555) ଅଫ୍ ଅଛି: ୱେୟାରଲେସ୍ ଡିବଗିଂ ସକ୍ଷମ ରହିବ।]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_title"><![CDATA[ଅନୁପସ୍ଥିତି ଅନୁମତି[ସମ୍ପାଦନା]]]></string>
-    <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery ଚାଲୁ ନାହିଁ। ପ୍ରଥମେ ସେବା ଆରମ୍ଭ କରନ୍ତୁ, ତା'ପରେ ଫେରି ଆସନ୍ତୁ ଏବଂ ଏହି ସେଟିଂ ସକ୍ଷମ କରନ୍ତୁ।]]></string>
+    <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery ଚାଲୁ ନାହିଁ। ପ୍ରଥମେ ସେବା ଆରମ୍ଭ କରନ୍ତୁ, ତା\'ପରେ ଫେରି ଆସନ୍ତୁ ଏବଂ ଏହି ସେଟିଂ ସକ୍ଷମ କରନ୍ତୁ।]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[ସ୍ୱୟଂଚାଳିତ ଅନୁମତି ଅନୁଦାନ ବିଫଳ ହୋଇଛି । ଏହାକୁ ମାନୁଆଲ ଭାବରେ ପ୍ରଦାନ କରିବାକୁ ଏକ କମ୍ପ୍ୟୁଟରରୁ ଏହି କମାଣ୍ଡ ଚଲାନ୍ତୁ:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[କମାଣ୍ଡ କପି କରନ୍ତୁ]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[How to use:
@@ -552,5 +552,5 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="home_dhizuku_title"><![CDATA[ଆରମ୍ଭ (Dhizuku ମାଧ୍ୟମରେ)]]></string>
     <string name="home_dhizuku_description"><![CDATA[Dhizuku ଦ୍ୱାରା ପରିଚାଳିତ ଡିଭାଇସଗୁଡିକ ପାଇଁ, ଆପଣ ଡିଭାଇସ୍ ମାଲିକ ବିଶେଷାଧିକାରର ବ୍ୟବହାର କରି ସିଧାସଳଖ Shevery ଆରମ୍ଭ କରିପାରିବେ।]]></string>
     <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI ବ୍ୟବହାରକାରୀଙ୍କୁ ସିଷ୍ଟମ୍ ସେଟିଂରେ "ବିଜ୍ଞପ୍ତି" - "ବିଜ୍ଞପ୍ତି ଛାୟା" ରୁ "ଆଣ୍ଡ୍ରୋଏଡ୍" କୁ ବିଜ୍ଞପ୍ତି ଶୈଳୀ ସୁଇଚ୍ କରିବାକୁ ପଡିପାରେ ।]]></string>
-    <string name="comput_no_macros"><![CDATA[ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ସଞ୍ଚୟ ହୋଇଥିବା ମାକ୍ରୋ ନାହିଁ । କନସୋଲ୍ କମାଣ୍ଡ ରେକର୍ଡିଂ ଆରମ୍ଭ କରିବାକୁ 'ରେକର୍ଡ ମାକ୍ରୋ' କ୍ଲିକ୍ କରନ୍ତୁ ।]]></string>
+    <string name="comput_no_macros"><![CDATA[ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ସଞ୍ଚୟ ହୋଇଥିବା ମାକ୍ରୋ ନାହିଁ । କନସୋଲ୍ କମାଣ୍ଡ ରେକର୍ଡିଂ ଆରମ୍ଭ କରିବାକୁ \'ରେକର୍ଡ ମାକ୍ରୋ\' କ୍ଲିକ୍ କରନ୍ତୁ ।]]></string>
 </resources>

@@ -79,7 +79,7 @@ This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="terminal_tutorial_1"><![CDATA[أولاً، قم بتصدير الملفات إلى أي مكان تريده. ستجد ملفين، %1$s و %2$s.]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
 
-The export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.]]></string>
+The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[تصدير الملفات]]></string>
     <string name="terminal_tutorial_2"><![CDATA[ثم استخدم أي محرر نصوص لفتح وتحرير %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[على سبيل المثال، إذا كنت تريد استخدام Shevery في %1$s، فيجب عليك استبدال %2$s بـ %3$s (%4$s هو اسم الحزمة %1$s).]]></string>

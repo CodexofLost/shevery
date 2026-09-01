@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="shevery_update_auto_check"><![CDATA[Kuckt no Updates am Hannergrond]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Kuckt no nei Versiounen och wann d'App zou ass]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Kuckt no nei Versiounen och wann d\'App zou ass]]></string>
     <string name="update_settings_frequency_label"><![CDATA[Check Frequenz]]></string>
     <string name="home_update_available_title"><![CDATA[Ganz Update verfügbar: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Eng méi nei Versioun ass prett. Tippen fir erofzelueden.]]></string>
@@ -14,17 +14,17 @@
     <string name="home_status_service_is_running"><![CDATA[%1$s leeft]]></string>
     <string name="home_status_service_not_running"><![CDATA[%1$s leeft net]]></string>
     <string name="home_status_service_version"><![CDATA[Versioun %2$s, %1$s]]></string>
-    <string name="home_status_service_version_update"><![CDATA[Versioun %2$s, %1$s Fänkt erëm un fir op d'Versioun %3$s ze aktualiséieren]]></string>
+    <string name="home_status_service_version_update"><![CDATA[Versioun %2$s, %1$s Fänkt erëm un fir op d\'Versioun %3$s ze aktualiséieren]]></string>
     <string name="home_adb_title"><![CDATA[Fänkt un, andeems Dir Iech mat engem Computer verbënnt.]]></string>
-    <string name="home_adb_description"><![CDATA[Fir Apparater ouni Root musst Dir adb benotzen, fir Shevery ze starten (erfuerdert eng Verbindung mam Computer). Dëse Prozess muss all Kéier widderholl ginn, wann den Apparat nees gestart gëtt. W.e.g. <b><a href="%1$s">lies d'Hëllef</b>.]]></string>
+    <string name="home_adb_description"><![CDATA[Fir Apparater ouni Root musst Dir adb benotzen, fir Shevery ze starten (erfuerdert eng Verbindung mam Computer). Dëse Prozess muss all Kéier widderholl ginn, wann den Apparat nees gestart gëtt. W.e.g. <b><a href="%1$s">lies d\'Hëllef</b>.]]></string>
     <string name="home_adb_button_view_help"><![CDATA[Hëllef liesen]]></string>
     <string name="home_adb_button_view_command"><![CDATA[Usiicht-Befehl]]></string>
-    <string name="home_adb_dialog_view_command_notice"><![CDATA[Et ginn nach e puer aner Aspekter; w.e.g. bestätegt, datt Dir d'Hëllef éischt gelies hutt.]]></string>
+    <string name="home_adb_dialog_view_command_notice"><![CDATA[Et ginn nach e puer aner Aspekter; w.e.g. bestätegt, datt Dir d\'Hëllef éischt gelies hutt.]]></string>
     <string name="home_adb_dialog_view_command_copy_button"><![CDATA[Kopieéieren]]></string>
     <string name="home_adb_dialog_view_command_button_send"><![CDATA[Schécken]]></string>
     <string name="home_wireless_adb_title"><![CDATA[Fänkt un mat drahtloser Debugging]]></string>
     <string name="home_wireless_adb_description"><![CDATA[Op Android 11 oder méi héich kënnt Dir Wireless-Debugging aktivéieren an Shevery direkt vun Ärem Apparat aus starten, ouni Iech un en Computer unzeschléissen. Kuckt w.e.g. éischt de Schrëtt-fir-Schrëtt-Guide.]]></string>
-    <string name="home_wireless_adb_description_pre_11"><![CDATA[Virun Android 11 war et néideg, sech mat engem Computer ze verbannen, fir drahtlos Debugging z'erméiglechen.]]></string>
+    <string name="home_wireless_adb_description_pre_11"><![CDATA[Virun Android 11 war et néideg, sech mat engem Computer ze verbannen, fir drahtlos Debugging z\'erméiglechen.]]></string>
     <string name="home_wireless_adb_view_guide_button"><![CDATA[Schrëtt-fir-Schrëtt-Leitfuedem]]></string>
     <string name="home_local_network_title"><![CDATA[Zougang zum lokalen Netzwierk]]></string>
     <string name="home_local_network_description"><![CDATA[Fir drahtlos Debugging brauch %1$s op dëser Android-Versioun.]]></string>
@@ -33,7 +33,7 @@
     <string name="home_local_network_grant"><![CDATA[Zougang ginn]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Fir drahtlos Debugging ass Zougang zum lokalen Netzwierk erfuerderlech.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Op der Sich no engem drahtlosen Debugging-Service]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Schalt w.e.g. "Wireless debugging" an "Entwéckleroptiounen" un. "Wireless debugging" gëtt automatesch desaktivéiert, wann d'Netzwierk geännert gëtt. Notiz: Desaktivéiert net "Entwéckleroptiounen" oder "USB debugging", soss gëtt Shevery gestoppt.]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[Schalt w.e.g. "Wireless debugging" an "Entwéckleroptiounen" un. "Wireless debugging" gëtt automatesch desaktivéiert, wann d\'Netzwierk geännert gëtt. Notiz: Desaktivéiert net "Entwéckleroptiounen" oder "USB debugging", soss gëtt Shevery gestoppt.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[W.e.g. probéiert "Wireless debugging" auszeschalten an nees unzeschalten, wann et ëmmer weider sicht.]]></string>
     <string name="dialog_adb_port"><![CDATA[Port]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Port ass eng ganz Zuel, déi vun 1 bis 65535 geet.]]></string>
@@ -43,26 +43,26 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Paarungscode]]></string>
     <string name="paring_code_is_wrong"><![CDATA[De Pairing-Code ass falsch.]]></string>
     <string name="cannot_connect_port"><![CDATA[Kann net mam drahtlosen Debugging-Service verbonne ginn.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Drahtlos-Debugging ass net aktivéiert. Notiz: Virun Android 11 muss de Computer fir d'Drahtlos-Debugging ze aktivéieren ugeschloss sinn.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[W.e.g. fänkt d'Paarung mat de folgende Schrëtt un: "Entwéckleroptiounen" - "Wireless-Debugging" - "Apparat mat engem Pairing-Code paaren".
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Drahtlos-Debugging ass net aktivéiert. Notiz: Virun Android 11 muss de Computer fir d\'Drahtlos-Debugging ze aktivéieren ugeschloss sinn.]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[W.e.g. fänkt d\'Paarung mat de folgende Schrëtt un: "Entwéckleroptiounen" - "Wireless-Debugging" - "Apparat mat engem Pairing-Code paaren".
 
 Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Gitt w.e.g. als éischt an de Split-Screen-(Multi-Fënster-)Modus.]]></string>
-    <string name="adb_pairing_requires_multi_window_reason"><![CDATA[D'System verlaangt, datt de Pairing-Dialog ëmmer sichtbar ass; de Split-Screen-Modus ass déi eenzeg Manéier, fir dës App an de Systemdialog gläichzäiteg sichtbar ze maachen.]]></string>
+    <string name="adb_pairing_requires_multi_window_reason"><![CDATA[D\'System verlaangt, datt de Pairing-Dialog ëmmer sichtbar ass; de Split-Screen-Modus ass déi eenzeg Manéier, fir dës App an de Systemdialog gläichzäiteg sichtbar ze maachen.]]></string>
     <string name="adb_error_key_store"><![CDATA[Et ass net méiglech, e Schlëssel fir drahtlos Debugging ze generéieren. Dëst kéint sinn, well de KeyStore-Mechanismus vun dësem Apparat defekt ass.]]></string>
     <string name="adb_pair_required"><![CDATA[Gitt w.e.g. als éischt de Pairing-Schrëtt duerch.]]></string>
     <string name="development_settings"><![CDATA[Entwéckleroptiounen]]></string>
     <string name="notification_settings"><![CDATA[Notifikatiounsoptiounen]]></string>
     <string name="adb_pairing_tutorial_title"><![CDATA[Pairt Shevery mat Ärem Apparat]]></string>
-    <string name="adb_pairing_tutorial_content_notification"><![CDATA[Eng Notifikatioun vun Shevery hëlleft Iech d'Paarung ofzeschléissen.]]></string>
+    <string name="adb_pairing_tutorial_content_notification"><![CDATA[Eng Notifikatioun vun Shevery hëlleft Iech d\'Paarung ofzeschléissen.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Gitt an "Entwéckleroptiounen" - "Drahtlos-Debugging". Tippt op "Gerät mam Pairing-Code paaren", da gesitt Dir e sechsstellge Code.]]></string>
-    <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Gitt de Code an der Notifikatioun an, fir d'Paarung ofzeschléissen.]]></string>
+    <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Gitt de Code an der Notifikatioun an, fir d\'Paarung ofzeschléissen.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Fir de Paarungsprozess musst Dir op eng Notifikatioun vun Shevery reagéieren. Erlaabt w.e.g. Shevery, Notifikatiounen ze posten.]]></string>
         <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Soss kënnt Dir de Pairing-Code vläicht net aus der Notifikatioun aginn.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[W.e.g. bemierkt, datt de lénksen Deel vun der Optioun "Wireless debugging" klickbar ass; wann Dir drop tippt, geet eng nei Säit op. Et ass onkorrekt, nëmmen de Schalter op der rietser Säit unzeschalten.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Zréck bei Shevery a Shevery starten.]]></string>
-    <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery muss op d'lokal Netzwierk zougräifen. Et gëtt duerch d'Netzwierkpermissioun kontrolléiert.]]></string>
-    <string name="adb_pairing_tutorial_content_network_limation_not_foreground"><![CDATA[E puer Systemer (sou wéi MIUI) erlaben Apps net, op d'Netzwierk zouzegräifen, wann se net sichtbar sinn, och wann d'App standardméisseg eng Foreground-Service benotzt. Schalt w.e.g. d'Batterieoptimisatiounsfunktiounen fir Shevery op esou Systemer aus.]]></string>
+    <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery muss op d\'lokal Netzwierk zougräifen. Et gëtt duerch d\'Netzwierkpermissioun kontrolléiert.]]></string>
+    <string name="adb_pairing_tutorial_content_network_limation_not_foreground"><![CDATA[E puer Systemer (sou wéi MIUI) erlaben Apps net, op d\'Netzwierk zouzegräifen, wann se net sichtbar sinn, och wann d\'App standardméisseg eng Foreground-Service benotzt. Schalt w.e.g. d\'Batterieoptimisatiounsfunktiounen fir Shevery op esou Systemer aus.]]></string>
     <string name="home_root_title"><![CDATA[Ufank (fir gerootete Apparater)]]></string>
     <string name="home_root_description"><![CDATA[Zousätzlech kann Shevery automatesch beim Systemstart gestart ginn. Wann net, iwwerpréift w.e.g., ob Äert System oder Drëtt-Partei-Tools Shevery agechränkt hunn.  Dir kënnt Iech op %s bezéien.]]></string>
     <string name="home_root_description_sui"><![CDATA[Wann Dir Magisk benotzt, kënnt Dir %1$s ausprobéieren. Fir Root-Benotzer wäert et schliisslech Shevery ersetzen. Bemierkt, datt bestehend Uwendungen e bësse mussen ännert ginn, fir %2$s ze benotzen.]]></string>
@@ -83,27 +83,27 @@ Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]>
     <string name="home_diagnostics_copied"><![CDATA[Diagnostik kopéiert.]]></string>
     <string name="home_modules_description"><![CDATA[ADB-ënnerstëtzte Moduler installéieren a verwalten]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Du muss e weidere Schrëtt maachen.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Äre Geräterefabrikant huet d'ADB-Erlaabnisser agechränkt, an Apps, déi Shevery benotzen, funktionéieren net richteg. Normalerweis kann dës Beschränkung duerch d'Upassung vun e puer Optiounen an de "Entwéckleroptiounen" opgehuewe ginn. Liest w.e.g. d'Hëllef fir Detailer, wéi dat geet. Et kann néideg sinn, Shevery nei ze starten, fir datt d'Ännerung a Kraaft trëtt.]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[Äre Geräterefabrikant huet d\'ADB-Erlaabnisser agechränkt, an Apps, déi Shevery benotzen, funktionéieren net richteg. Normalerweis kann dës Beschränkung duerch d\'Upassung vun e puer Optiounen an de "Entwéckleroptiounen" opgehuewe ginn. Liest w.e.g. d\'Hëllef fir Detailer, wéi dat geet. Et kann néideg sinn, Shevery nei ze starten, fir datt d\'Ännerung a Kraaft trëtt.]]></string>
     <string name="app_management_select_all"><![CDATA[Alles auswielen]]></string>
     <string name="app_management_deselect_all"><![CDATA[Alles deselektéieren]]></string>
-    <string name="app_management_dialog_adb_is_limited_title"><![CDATA[D'Erlaabnis vun der adb ass limitéiert.]]></string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Et ass héich méiglech, datt Äre Gerätegersteller d'Erlaabnis fir adb limitéiert. Et kann eng Léisung fir Äert System an <b><a href="%1$s">dësem Dokument</b> ginn.]]></string>
+    <string name="app_management_dialog_adb_is_limited_title"><![CDATA[D\'Erlaabnis vun der adb ass limitéiert.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[Et ass héich méiglech, datt Äre Gerätegersteller d\'Erlaabnis fir adb limitéiert. Et kann eng Léisung fir Äert System an <b><a href="%1$s">dësem Dokument</b> ginn.]]></string>
     <string name="app_management_item_summary_requires_root"><![CDATA[* verlaangt datt Shevery mat root leeft]]></string>
     <string name="app_management_loading"><![CDATA[Luedt Apps…]]></string>
     <string name="home_terminal_title"><![CDATA[Benotzt Shevery an Terminal-Apps.]]></string>
     <string name="home_terminal_description"><![CDATA[Laaf Kommandoen iwwer Shevery an Terminal-Apps, déi dir gär hutt.]]></string>
-    <string name="terminal_tutorial_1"><![CDATA[Als éischt exportéiert d'Dateien op all Plaz, wou Dir wëllt. Dir fannt zwou Dateien, %1$s an %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[Wann et an der ausgewielter Dossier Dateien mam selwechten Numm ginn, ginn dës geläscht. D'Exportfunktioun benotzt SAF (Storage Access Framework). Et gëtt gemellt, datt MIUI d'Funktiounen vum SAF stéiert. Wann Dir MIUI benotzt, musst Dir d'Datei eventuell aus der APK vu Shevery extrahéieren oder se vun GitHub eroflueden.]]></string>
+    <string name="terminal_tutorial_1"><![CDATA[Als éischt exportéiert d\'Dateien op all Plaz, wou Dir wëllt. Dir fannt zwou Dateien, %1$s an %2$s.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[Wann et an der ausgewielter Dossier Dateien mam selwechten Numm ginn, ginn dës geläscht. D\'Exportfunktioun benotzt SAF (Storage Access Framework). Et gëtt gemellt, datt MIUI d\'Funktiounen vum SAF stéiert. Wann Dir MIUI benotzt, musst Dir d\'Datei eventuell aus der APK vu Shevery extrahéieren oder se vun GitHub eroflueden.]]></string>
     <string name="terminal_export_files"><![CDATA[Exportéier Dateien]]></string>
-    <string name="terminal_tutorial_2"><![CDATA[Dann benotzt e Texteditor vun Ärer Wahl, fir %1$s opzemaachen an z'änneren.]]></string>
+    <string name="terminal_tutorial_2"><![CDATA[Dann benotzt e Texteditor vun Ärer Wahl, fir %1$s opzemaachen an z\'änneren.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Zum Beispill, wann Dir Shevery an %1$s benotze wëllt, sollt Dir %2$s duerch %3$s ersetzen (%4$s ass de Packagenumm vun %1$s).]]></string>
-    <string name="terminal_tutorial_3"><![CDATA[Schlussendlech beweegt d'Dateien op eng Plaz, wou deng Terminal-Applikatioun Zougang huet; du kanns %1$s benotzen, fir Kommandoen iwwer Shevery auszeféieren.]]></string>
-    <string name="terminal_tutorial_3_description"><![CDATA[E puer Tipps: Gitt d'Ausféierungserlaabnis fir %1$s a füügt et %2$s derbäi; du kanns %1$s direkt benotzen.]]></string>
+    <string name="terminal_tutorial_3"><![CDATA[Schlussendlech beweegt d\'Dateien op eng Plaz, wou deng Terminal-Applikatioun Zougang huet; du kanns %1$s benotzen, fir Kommandoen iwwer Shevery auszeféieren.]]></string>
+    <string name="terminal_tutorial_3_description"><![CDATA[E puer Tipps: Gitt d\'Ausféierungserlaabnis fir %1$s a füügt et %2$s derbäi; du kanns %1$s direkt benotzen.]]></string>
     <string name="settings_title"><![CDATA[Astellungen]]></string>
     <string name="settings_language"><![CDATA[Sprooch]]></string>
     <string name="settings_user_interface"><![CDATA[Ausgesinn]]></string>
     <string name="settings_black_night_theme"><![CDATA[Schwaarz Nuecht-Thema]]></string>
-    <string name="settings_black_night_theme_summary"><![CDATA[Benotzt d'pure schwaarz Theme wann de Nuechtmodus ageschalt ass.]]></string>
+    <string name="settings_black_night_theme_summary"><![CDATA[Benotzt d\'pure schwaarz Theme wann de Nuechtmodus ageschalt ass.]]></string>
     <string name="settings_startup"><![CDATA[Grënnung]]></string>
     <string name="settings_translation_contributors"><![CDATA[Iwwersetzerbäiträger]]></string>
     <string name="settings_translation"><![CDATA[Participéieren an der Iwwersetzung]]></string>
@@ -111,18 +111,18 @@ Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]>
     <string name="settings_start_on_boot"><![CDATA[Um Bootstart iwwer Root ufänken]]></string>
     <string name="settings_start_on_boot_summary"><![CDATA[Start Shevery automatesch beim Booten mat Root-Rechter.]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Beim Booten mat drahtloser Debugging starten]]></string>
-    <string name="settings_start_on_boot_adb_summary"><![CDATA[Beim Booten schalt kuerz d'Wireless-Debugging un a start Shevery iwwer ADB (TCP-Port 5555). Root ass net néideg, Wi-Fi gëtt nëmmen e kuerze Moment gebraucht.]]></string>
+    <string name="settings_start_on_boot_adb_summary"><![CDATA[Beim Booten schalt kuerz d\'Wireless-Debugging un a start Shevery iwwer ADB (TCP-Port 5555). Root ass net néideg, Wi-Fi gëtt nëmmen e kuerze Moment gebraucht.]]></string>
     <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[Beim Booten sollt Dir kuerz kabellos Debugging aktivéieren an Shevery iwwer ADB nees starten. Root ass net néideg, Wi-Fi gëtt nëmmen e kuerze Moment gebraucht.]]></string>
     <string name="settings_start_on_boot_adb_granted"><![CDATA[WRITE_SECURE_SETTINGS zougestanen.]]></string>
     <string name="settings_start_on_boot_adb_warning_no_tcp"><![CDATA[TCP-Bindung (Port 5555) ass ausgeschalt: drahtlos Debugging bleift ageschalt.]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_title"><![CDATA[Feelt Erlaabnis]]></string>
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery leeft net. Start de Service als éischt, da komm zréck a aktivéier dës Astellung.]]></string>
-    <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[D'automatesch Genehmegung huet net geklappt. Féiert dëse Befehl vun engem Computer aus, fir se manuell ze ginn:]]></string>
+    <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[D\'automatesch Genehmegung huet net geklappt. Féiert dëse Befehl vun engem Computer aus, fir se manuell ze ginn:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopieier-Befehl]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Wéi een et benotzt:
-1. Verbënnt d'Gerät mat engem Computer (USB oder drahtlos Debugging).
+1. Verbënnt d\'Gerät mat engem Computer (USB oder drahtlos Debugging).
 2. Am Terminal féiert de Kommando aus dem uewe genannten Feld aus.]]></string>
-    <string name="settings_use_system_color"><![CDATA[Benotzt d'Systemthemafaarf]]></string>
+    <string name="settings_use_system_color"><![CDATA[Benotzt d\'Systemthemafaarf]]></string>
     <string name="modules_title"><![CDATA[ADB-Moduler]]></string>
     <string name="modules_settings_title"><![CDATA[Moduler]]></string>
     <string name="modules_settings_summary"><![CDATA[Installéiert ZIP-Moduler a féiert hir Aktiounen iwwer de aktive Shevery ADB-/Root-Server aus.]]></string>
@@ -139,13 +139,13 @@ Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]>
     <string name="modules_custom_permissions"><![CDATA[Personnaliséiert Erlaabnisser]]></string>
     <string name="modules_custom_permissions_summary"><![CDATA[Konfiguréiert all Modulpermissiounen separat.]]></string>
     <string name="modules_permission_action"><![CDATA[Laf Aktioun]]></string>
-    <string name="modules_permission_action_summary"><![CDATA[Erlaabt d'manuell Ausféierung vun action.sh.]]></string>
+    <string name="modules_permission_action_summary"><![CDATA[Erlaabt d\'manuell Ausféierung vun action.sh.]]></string>
     <string name="modules_permission_service"><![CDATA[Service ausféieren]]></string>
     <string name="modules_permission_service_summary"><![CDATA[Erlaabt service.sh, wann och Hannergrondaktiounen erlaabt sinn.]]></string>
     <string name="modules_permission_web_bridge"><![CDATA[WebUI-Shell-Bréck]]></string>
-    <string name="modules_permission_web_bridge_summary"><![CDATA[Expose Window.Shevery nëmmen fir d'lokal WebUI an nëmmen wann d'WebView-Internet ausgeschalt ass.]]></string>
+    <string name="modules_permission_web_bridge_summary"><![CDATA[Expose Window.Shevery nëmmen fir d\'lokal WebUI an nëmmen wann d\'WebView-Internet ausgeschalt ass.]]></string>
     <string name="modules_permission_web_network"><![CDATA[Internet-WebView]]></string>
-    <string name="modules_permission_web_network_summary"><![CDATA[Erlaabt HTTPS-Navigatioun an -ressourcen. Dëst deaktivéiert d'Shell-Bridge-Expositioun fir déi WebView.]]></string>
+    <string name="modules_permission_web_network_summary"><![CDATA[Erlaabt HTTPS-Navigatioun an -ressourcen. Dëst deaktivéiert d\'Shell-Bridge-Expositioun fir déi WebView.]]></string>
     <string name="modules_permission_web_download"><![CDATA[WebUI eroflueden()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Erlaabt HTTPS-Datei-Downloads an den WebUI-Ordner, ausser index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Erlaabt Hannergrondaktiounen]]></string>
@@ -196,7 +196,7 @@ Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]>
     <string name="modules_ai_failed"><![CDATA[AI-Prüfung gescheitert: %s]]></string>
     <string name="modules_tab_installed"><![CDATA[Installéiert]]></string>
     <string name="modules_tab_catalog"><![CDATA[Katalog]]></string>
-    <string name="modules_check_updates"><![CDATA[Préift d'Aktualisatiounen]]></string>
+    <string name="modules_check_updates"><![CDATA[Préift d\'Aktualisatiounen]]></string>
     <string name="modules_checking_updates"><![CDATA[Préift no Updates…]]></string>
     <string name="modules_no_updates"><![CDATA[All Moduler si op dem neiste Stand.]]></string>
     <string name="modules_update_available"><![CDATA[Update verfügbar: v%s]]></string>
@@ -230,22 +230,22 @@ Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]>
     <string name="notification_adb_pairing_working_title"><![CDATA[Koppelen amgaang]]></string>
     <string name="notification_adb_pairing_succeed_title"><![CDATA[Paarung erfollegräich]]></string>
     <string name="notification_adb_pairing_succeed_text"><![CDATA[Dir kënnt de Shevery-Service elo ufänken.]]></string>
-    <string name="notification_adb_pairing_failed_title"><![CDATA[D'Paarung huet net geklappt]]></string>
+    <string name="notification_adb_pairing_failed_title"><![CDATA[D\'Paarung huet net geklappt]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Nei probéieren]]></string>
     <string name="permission_group_label"><![CDATA[Si huet]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[Zougang Shevery]]></string>
     <string name="permission_description"><![CDATA[Erlaabt der App, Shevery ze benotzen.]]></string>
     <string name="permission_warning_template"><![CDATA[Erlaabt <b>%1$s</b> %2$s ze maachen?]]></string>
-    <string name="grant_dialog_button_allow_always"><![CDATA[Erlaabt all d'Zäit]]></string>
+    <string name="grant_dialog_button_allow_always"><![CDATA[Erlaabt all d\'Zäit]]></string>
     <string name="grant_dialog_button_deny"><![CDATA[Verweigeren]]></string>
     <string name="starter"><![CDATA[Ufanksspiller]]></string>
     <string name="starting_root_shell"><![CDATA[Root-Shell ufänken…]]></string>
-    <string name="start_with_root_failed"><![CDATA[Kann de Service net starten, well d'Root-Erlaabnis net gewährt ass oder dëst Gerät net gerootet ass.]]></string>
+    <string name="start_with_root_failed"><![CDATA[Kann de Service net starten, well d\'Root-Erlaabnis net gewährt ass oder dëst Gerät net gerootet ass.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Kann de Browser net starten]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
-ass op d'Zouschneidplack kopéiert ginn.]]></string>
-    <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s gouf an d'Ausschnëttspuffer kopéiert.]]></string>
+ass op d\'Zouschneidplack kopéiert ginn.]]></string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s gouf an d\'Ausschnëttspuffer kopéiert.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s ënnerstëtzt keng modern Shevery.]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery ass zënter Mäerz 2019 obsolet. Och funktionéiert legacy Shevery net op méi neie Android-Systemer.W.e.g. frot de Entwéckler vun <b>%1$s</b>, et ze aktualiséieren.]]></string>
     <string name="dialog_requesting_legacy_title"><![CDATA[%1$s freet no dem Legacy Shevery]]></string>
@@ -254,17 +254,17 @@ ass op d'Zouschneidplack kopéiert ginn.]]></string>
     <string name="lab_features_title"><![CDATA[Laborfunktiounen]]></string>
     <string name="lab_features_summary"><![CDATA[Experimentell Funktiounen]]></string>
     <string name="shizuku_connectors_title"><![CDATA[Shevery-Verbinder]]></string>
-    <string name="shizuku_connectors_summary"><![CDATA[Erlaabt Plugins, Shevery z'aktivéieren.]]></string>
+    <string name="shizuku_connectors_summary"><![CDATA[Erlaabt Plugins, Shevery z\'aktivéieren.]]></string>
     <string name="unsafe_warning_title"><![CDATA[Warnung]]></string>
-    <string name="unsafe_warning_message"><![CDATA[Dës Funktioun z'aktivéieren ass onsécher. Sidd Dir sécher?]]></string>
+    <string name="unsafe_warning_message"><![CDATA[Dës Funktioun z\'aktivéieren ass onsécher. Sidd Dir sécher?]]></string>
     <string name="dhizuku_mode_title"><![CDATA[Dhizuku-Modus]]></string>
     <string name="dhizuku_mode_summary"><![CDATA[Erlaabt Shevery, iwwer eng Bindung un Dhizuku ze operéieren.]]></string>
     <string name="home_dhizuku_title"><![CDATA[Ufank (iwwer Dhizuku)]]></string>
     <string name="home_dhizuku_description"><![CDATA[Fir vun Dhizuku verwaltete Apparater kënnt Dir Shevery direkt mat den Privilegien vum Apparatbesëtzer starten.]]></string>
     <string name="dhizuku_warning_title"><![CDATA[Warnung: Dhizuku-Modus]]></string>
-    <string name="dhizuku_warning_message"><![CDATA[Dhizuku ass fir d'Privilegien vum Apparatbesëtzer/Administrateur entworf. E puer Shell- a ADB-spezifesch Kommandoen kënnen net richteg funktionéieren oder kënnen iwwerhaapt net ënnerstëtzt ginn, wann Dir Shevery iwwer Dhizuku ausféiert. Sidd Dir sécher, datt Dir weiderfuere wëllt?]]></string>
+    <string name="dhizuku_warning_message"><![CDATA[Dhizuku ass fir d\'Privilegien vum Apparatbesëtzer/Administrateur entworf. E puer Shell- a ADB-spezifesch Kommandoen kënnen net richteg funktionéieren oder kënnen iwwerhaapt net ënnerstëtzt ginn, wann Dir Shevery iwwer Dhizuku ausféiert. Sidd Dir sécher, datt Dir weiderfuere wëllt?]]></string>
     <string name="settings_tcp_mode"><![CDATA[TCP-Modus]]></string>
-    <string name="settings_tcp_mode_summary"><![CDATA[Start d'ADB nees op TCP-Port 5555, sou datt Shevery sech erëm verbannen kann, ouni op de wiesselnden Wireless-Debugging-Port ze vertrauen.]]></string>
+    <string name="settings_tcp_mode_summary"><![CDATA[Start d\'ADB nees op TCP-Port 5555, sou datt Shevery sech erëm verbannen kann, ouni op de wiesselnden Wireless-Debugging-Port ze vertrauen.]]></string>
     <string name="settings_restart_dialog_title"><![CDATA[Neiufank erfuerderlech]]></string>
     <string name="settings_restart_dialog_message"><![CDATA[Shevery muss nei gestart ginn, fir dës TCP-Modusännerung unzewenden.]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[Fir den éischten Neustart ass Wi-Fi erfuerderlech, well Shevery sech virum Wiesselen vun ADB op 5555 mam aktuellen Wireless-Debugging-Port muss verbannen.]]></string>
@@ -282,7 +282,7 @@ ass op d'Zouschneidplack kopéiert ginn.]]></string>
     <string name="lab_notify_death_summary"><![CDATA[Wise eng Notifikatioun wann de Shevery-Service onerwaart ophëlt.]]></string>
     <string name="lab_debugging_title"><![CDATA[Feelerbehandlung]]></string>
     <string name="lab_verbose_logging_title"><![CDATA[Ausféierlech Protokolléierung]]></string>
-    <string name="lab_verbose_logging_summary"><![CDATA[Schreif detailléiert Debug-Logs an Logcat. Deaktivéier et an der Produktioun fir d'Batterie ze spueren.]]></string>
+    <string name="lab_verbose_logging_summary"><![CDATA[Schreif detailléiert Debug-Logs an Logcat. Deaktivéier et an der Produktioun fir d\'Batterie ze spueren.]]></string>
     <string name="notification_channel_watchdog"><![CDATA[Service-Iwwerwaacher]]></string>
     <string name="notification_watchdog_title"><![CDATA[Shevery Service gestoppt]]></string>
     <string name="notification_watchdog_text"><![CDATA[De Shevery-Service huet onerwaart opgehalen.]]></string>
@@ -296,12 +296,12 @@ ass op d'Zouschneidplack kopéiert ginn.]]></string>
     <string name="notification_startup_started"><![CDATA[Shevery huet ugefaangen.]]></string>
     <string name="notification_startup_failed"><![CDATA[Shevery konnt net gestart ginn.]]></string>
     <string name="notification_startup_no_port"><![CDATA[De drahtlose Debug-Port gouf net bannent 15 Sekonnen fonnt.]]></string>
-    <string name="notification_startup_no_permission"><![CDATA[Kann beim Booten net starten: eng erfuerderlech Erlaabnis ass net gewährt. Maacht Shevery op a gewährt d'Erlaabnis éischt.]]></string>
-    <string name="notification_startup_waiting_unlock"><![CDATA[Waart op d'Entsperrung vum Apparat, bis se ufänkt…]]></string>
+    <string name="notification_startup_no_permission"><![CDATA[Kann beim Booten net starten: eng erfuerderlech Erlaabnis ass net gewährt. Maacht Shevery op a gewährt d\'Erlaabnis éischt.]]></string>
+    <string name="notification_startup_waiting_unlock"><![CDATA[Waart op d\'Entsperrung vum Apparat, bis se ufänkt…]]></string>
     <string name="notification_startup_cancel"><![CDATA[Ofsoen]]></string>
     <string name="notification_startup_attempt_now"><![CDATA[Versich elo]]></string>
     <string name="wadb_notification_title"><![CDATA[Ufänken Shevery…]]></string>
-    <string name="wadb_notification_wifi_required"><![CDATA[Waart op d'Wi-Fi-Verbindung ier een weidergeet]]></string>
+    <string name="wadb_notification_wifi_required"><![CDATA[Waart op d\'Wi-Fi-Verbindung ier een weidergeet]]></string>
     <string name="wadb_notification_retry"><![CDATA[Waard op nees ze probéieren]]></string>
     <string name="wadb_error_title"><![CDATA[Feeler beim Systemstart]]></string>
     <string name="wadb_error_notify_dev"><![CDATA[Tippt fir Shevery nei ze starten.]]></string>
@@ -327,13 +327,13 @@ ass op d'Zouschneidplack kopéiert ginn.]]></string>
     <string name="update_settings_install_mode"><![CDATA[Installatiounsmodus]]></string>
     <string name="update_settings_install_mode_label"><![CDATA[Standard Installatiounsmethod]]></string>
     <string name="update_settings_install_mode_sources"><![CDATA[Aus de Quellen opbauen]]></string>
-    <string name="update_settings_install_mode_release"><![CDATA[Erlaabt d'ZIP-Datei erofzelueden]]></string>
+    <string name="update_settings_install_mode_release"><![CDATA[Erlaabt d\'ZIP-Datei erofzelueden]]></string>
     <string name="update_settings_github"><![CDATA[GitHub]]></string>
     <string name="update_settings_github_pat"><![CDATA[Perséinlecht Zougangstoken]]></string>
     <string name="update_settings_github_pat_set"><![CDATA[Token-Set]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[Net agestallt (60 Ufroen pro Stonn)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[GitHub perséinleche Zougangstoken]]></string>
-    <string name="update_settings_github_pat_description"><![CDATA[Optional. E GitHub PAT erhéicht d'API-Ratenlimiten vun 60 op 5000 Ufroen pro Stonn. Et brauch nëmmen de public_repo-Scope fir ëffentlech Repositories.]]></string>
+    <string name="update_settings_github_pat_description"><![CDATA[Optional. E GitHub PAT erhéicht d\'API-Ratenlimiten vun 60 op 5000 Ufroen pro Stonn. Et brauch nëmmen de public_repo-Scope fir ëffentlech Repositories.]]></string>
     <string name="update_settings_github_pat_label"><![CDATA[Token]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Wise]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Verstoppen]]></string>
@@ -349,12 +349,12 @@ ass op d'Zouschneidplack kopéiert ginn.]]></string>
     <string name="shevery_update_download_apk"><![CDATA[APK eroflueden]]></string>
     <string name="shevery_update_view_release"><![CDATA[Op GitHub ukucken]]></string>
     <string name="shevery_update_channel"><![CDATA[Kanal aktualiséieren]]></string>
-    <string name="shevery_update_channel_summary"><![CDATA[Wielt de Kanal fir d'Aktualiséierungsverëffentlechung]]></string>
+    <string name="shevery_update_channel_summary"><![CDATA[Wielt de Kanal fir d\'Aktualiséierungsverëffentlechung]]></string>
     <string name="app_update_channel_stable"><![CDATA[Stall]]></string>
     <string name="app_update_channel_beta"><![CDATA[Virverëffentlechung &amp; Beta]]></string>
     <string name="shevery_update_group_title"><![CDATA[Shevery App-Updates]]></string>
     <string name="shevery_update_modules_group_title"><![CDATA[Modul-Updates &amp; Katalog]]></string>
-    <string name="shevery_update_check_failed"><![CDATA[D'Aktualiséierungsprouf huet net geklappt: %s]]></string>
+    <string name="shevery_update_check_failed"><![CDATA[D\'Aktualiséierungsprouf huet net geklappt: %s]]></string>
     <string name="modules_catalog"><![CDATA[Katalog]]></string>
     <string name="modules_catalog_title"><![CDATA[Modulkatalog]]></string>
     <string name="modules_catalog_empty"><![CDATA[Keng Moduler fonnt]]></string>
@@ -411,7 +411,7 @@ ass op d'Zouschneidplack kopéiert ginn.]]></string>
     <string name="comput_gemini_model_lightweight"><![CDATA[Liichtgewich-Héichgeschwindegkeetsmodell]]></string>
     <string name="comput_gemini_api_error"><![CDATA[Gemini API huet de Feeler-Code %1$d zréckginn: %2$s]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[Verbindungsfeeler.]]></string>
-    <string name="comput_gemini_failed"><![CDATA[Et huet net gelongen, d'Gemini-API z'erreechen: %1$s]]></string>
+    <string name="comput_gemini_failed"><![CDATA[Et huet net gelongen, d\'Gemini-API z\'erreechen: %1$s]]></string>
     <string name="comput_gemini_no_details"><![CDATA[Keng Detailer.]]></string>
     <string name="comput_sh_mode"><![CDATA[inklusiv Modus]]></string>
     <string name="comput_adb_mode"><![CDATA[adb-Modus]]></string>
@@ -421,7 +421,7 @@ ass op d'Zouschneidplack kopéiert ginn.]]></string>
     <string name="comput_clear"><![CDATA[Kloer]]></string>
     <string name="comput_console_cleared"><![CDATA[Konsole geläscht.]]></string>
     <string name="comput_console_output"><![CDATA[Konsolausgab]]></string>
-    <string name="comput_output_copied"><![CDATA[Ausgab op d'Zousatzplack kopéiert]]></string>
+    <string name="comput_output_copied"><![CDATA[Ausgab op d\'Zousatzplack kopéiert]]></string>
     <string name="comput_copy_output"><![CDATA[Ausgab kopéieren]]></string>
     <string name="comput_ask_gemini"><![CDATA[Frot de Gemini]]></string>
     <string name="comput_executing"><![CDATA[Ausféieren: %1$s ...]]></string>
@@ -444,9 +444,9 @@ Ausféierung...]]></string>
     <string name="comput_commandium_placeholder"><![CDATA[z. B. Fannt all Dateien méi grouss wéi 10 MB am /sdcard]]></string>
     <string name="comput_ask_commandium"><![CDATA[Frot Commandium]]></string>
     <string name="comput_generated_command"><![CDATA[Generéiert Kommando:]]></string>
-    <string name="comput_command_pasted"><![CDATA[Kommando an d'Input agefouert]]></string>
+    <string name="comput_command_pasted"><![CDATA[Kommando an d\'Input agefouert]]></string>
     <string name="comput_use_command"><![CDATA[Benotzt de Kommando]]></string>
-    <string name="comput_copied_to_clipboard"><![CDATA[Op d'Clipboard kopéiert]]></string>
+    <string name="comput_copied_to_clipboard"><![CDATA[Op d\'Clipboard kopéiert]]></string>
     <string name="comput_copy_command"><![CDATA[Kopieier-Befehl]]></string>
     <string name="comput_hero_title"><![CDATA[Shevery Konsole]]></string>
     <string name="comput_hero_subtitle"><![CDATA[Mächtege Shell-Terminal op Ärem Apparat, ugedriwwen vun Shizuku.]]></string>
@@ -457,14 +457,14 @@ Ausféierung...]]></string>
     <string name="comput_console_macros"><![CDATA[Makro-Konsole]]></string>
     <string name="comput_stop"><![CDATA[Stopp (%1$d)]]></string>
     <string name="comput_record_macro"><![CDATA[Makro ophuelen]]></string>
-    <string name="comput_recording_active"><![CDATA[Opnamen aktiv. Kommandoen iwwer d'Haaptinput ausféieren, fir se an dëse Makro derbäizesetzen.]]></string>
+    <string name="comput_recording_active"><![CDATA[Opnamen aktiv. Kommandoen iwwer d\'Haaptinput ausféieren, fir se an dëse Makro derbäizesetzen.]]></string>
     <string name="comput_saved_macros"><![CDATA[Späichert Makroen]]></string>
         <string name="comput_delete"><![CDATA[Läschen]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Äntwert: Bestätegung]]></string>
     <string name="comput_execute"><![CDATA[Ausféieren]]></string>
     <string name="comput_cancel"><![CDATA[Ofsoen]]></string>
     <string name="comput_save_macro"><![CDATA[Makro späicheren]]></string>
-    <string name="comput_save_macro_hint"><![CDATA[Gitt e Numm fir d'opgehollene Makro an:]]></string>
+    <string name="comput_save_macro_hint"><![CDATA[Gitt e Numm fir d\'opgehollene Makro an:]]></string>
     <string name="comput_macro_name_label"><![CDATA[Macro-Numm]]></string>
     <string name="comput_save"><![CDATA[Späicheren]]></string>
     <string name="comput_tab_terminal"><![CDATA[Endstatioun]]></string>
@@ -516,17 +516,17 @@ Ausféierung...]]></string>
     <string name="accessibility_manager_title"><![CDATA[Zougänglechkeetsmanager]]></string>
     <string name="accessibility_manager_lab_group"><![CDATA[Zougänglechkeet]]></string>
     <string name="accessibility_manager_lab_title"><![CDATA[Zougänglechkeetsmanager]]></string>
-    <string name="accessibility_manager_lab_summary"><![CDATA[Gitt d'Zougänglechkeetsservicer verwalten a lafen halen.]]></string>
+    <string name="accessibility_manager_lab_summary"><![CDATA[Gitt d\'Zougänglechkeetsservicer verwalten a lafen halen.]]></string>
     <string name="accessibility_manager_keep_alive_group"><![CDATA[Am Liewen halen]]></string>
     <string name="accessibility_manager_keep_alive_title"><![CDATA[Halt Pin-Servicer am Liewen]]></string>
-    <string name="accessibility_manager_keep_alive_summary"><![CDATA[Gepinnte Accessibilitéitsservicer nees aktivéieren, wann d'System oder d'Benotzer se deaktivéieren.]]></string>
+    <string name="accessibility_manager_keep_alive_summary"><![CDATA[Gepinnte Accessibilitéitsservicer nees aktivéieren, wann d\'System oder d\'Benotzer se deaktivéieren.]]></string>
     <string name="accessibility_manager_auto_boot_title"><![CDATA[Beim Booten starten]]></string>
     <string name="accessibility_manager_auto_boot_summary"><![CDATA[Automatësch de Keep-Alive-Daemon no engem Neustart vum Apparat starten.]]></string>
-    <string name="accessibility_manager_shizuku_required"><![CDATA[Shevery leeft net. Start et fir d'Zougänglechkeetsservicer z'aktivéieren oder z'deaktivéieren.]]></string>
+    <string name="accessibility_manager_shizuku_required"><![CDATA[Shevery leeft net. Start et fir d\'Zougänglechkeetsservicer z\'aktivéieren oder z\'deaktivéieren.]]></string>
     <string name="accessibility_manager_services_group"><![CDATA[Zougänglechkeetsdéngschter (%1$d)]]></string>
     <string name="accessibility_manager_services_empty"><![CDATA[Keng installéiert Zougänglechkeetsservicer fonnt.]]></string>
     <string name="accessibility_manager_service_no_description"><![CDATA[Keng Beschreiwung vum Service geliwwert.]]></string>
-    <string name="accessibility_manager_write_failed"><![CDATA[D'Aktualiséierung vun den Accessibilitéitsservicer ass net erfollegräich ofgeschloss. Iwwerpréift, datt Shevery leeft a d'Erlaabnis huet.]]></string>
+    <string name="accessibility_manager_write_failed"><![CDATA[D\'Aktualiséierung vun den Accessibilitéitsservicer ass net erfollegräich ofgeschloss. Iwwerpréift, datt Shevery leeft a d\'Erlaabnis huet.]]></string>
     <string name="accessibility_manager_pin"><![CDATA[De Pin-Service fir lieweg ze halen]]></string>
     <string name="accessibility_manager_unpin"><![CDATA[Entpinnen-Service]]></string>
     <string name="accessibility_daemon_channel_name"><![CDATA[Zougänglechkeet Keep-Alive]]></string>
@@ -539,7 +539,7 @@ Ausféierung...]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Et huet net geklappt, de legacy-Stub iwwer %2$s ze %1$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Kee Kanal verfügbar (start Shevery first)]]></string>
     <string name="rish_description"><![CDATA[Mat %1$s kënnt Dir an all Terminal-App mat de Shell-Ausféierungen vu Shevery verbannen an interagéieren.
-Fir méi Informatiounen iwwer den detailléierten Asaz vu %1$s, tippt op d'Dokument fir et ze gesinn.]]></string>
+Fir méi Informatiounen iwwer den detailléierten Asaz vu %1$s, tippt op d\'Dokument fir et ze gesinn.]]></string>
     <string name="adb_pairing_tutorial_content_miui">MIUI Benotzer mussen eventuell Notifikatiounsstil op "Android" vun "Notifikatioun" - "Notifikatioun Schied" an de Systemastellungen wiesselen.</string>
     <string name="comput_no_macros">Keng gespäichert Makroen nach. Klickt \'Record Macro\' fir d\'Konsolbefehl opzehuelen.</string>
 </resources>
