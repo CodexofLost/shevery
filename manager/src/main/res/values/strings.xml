@@ -618,4 +618,11 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="settings_compat_stub_uninstalled">Legacy stub removed</string>
     <string name="settings_compat_stub_failed">Failed to %1$s the legacy stub via %2$s: %3$s</string>
     <string name="settings_compat_stub_none">No channel available (start Shevery first)</string>
+
+    <!-- TCP Mode Enable Prompt Dialog -->
+    <string name="tcp_prompt_dialog_title">Enable Persistent TCP Mode?</string>
+    <string name="tcp_prompt_dialog_message">Shevery is running, but Persistent TCP Mode is currently disabled.\n\nEnabling TCP Mode allows Shevery to stay running and auto-reconnect in the background—even without Wi-Fi—until your device is restarted.</string>
+    <string name="tcp_prompt_dialog_enable">Enable</string>
+    <string name="tcp_prompt_dialog_later">Not Now</string>
+    <string name="tcp_prompt_dialog_do_not_remind">Don\'t remind me again</string>
 </resources>

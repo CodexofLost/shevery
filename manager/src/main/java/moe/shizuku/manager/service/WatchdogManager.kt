@@ -194,7 +194,7 @@ object WatchdogManager {
             .apply()
     }
 
-    private fun isUserStopRequested(): Boolean {
+    fun isUserStopRequested(): Boolean {
         return userStopRequested || ShizukuSettings.getPreferences().getBoolean(KEY_USER_STOP_REQUESTED, false)
     }
 
