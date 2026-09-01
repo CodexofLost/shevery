@@ -204,7 +204,7 @@
     <string name="modules_service_result"><![CDATA[Servizio terminato: uscita %d]]></string>
     <string name="modules_service_failed"><![CDATA[Servizio non riuscito]]></string>
     <string name="modules_recommand_title"><![CDATA[Ricomandare]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Espandi]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Chiudi]]></string>
     <string name="modules_recommand_copy"><![CDATA[Copia]]></string>
@@ -551,4 +551,6 @@ Potrebbe essere necessario riavviare Shevery affinché la modifica abbia effetto
 La funzione di esportazione utilizza SAF (Storage Access Framework). È stato segnalato che MIUI compromette il corretto funzionamento di SAF. Se utilizzi MIUI, potrebbe essere necessario estrarre il file dall\'apk di Shevery o scaricarlo da GitHub.]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
 è stato copiato negli appunti.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Gli utenti MIUI potrebbero dover cambiare lo stile di notifica su "Android" da "Notifica" - "Ombreggiatura notifiche" nelle impostazioni di sistema.</string>
+    <string name="comput_no_macros">Nessuna macro ancora salvata. Fare clic su \'Registra macro\' per avviare la registrazione dei comandi della console.</string>
 </resources>

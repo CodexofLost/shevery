@@ -161,7 +161,7 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="modules_service_result"><![CDATA[ಸೇವೆ ಮುಗಿದಿದೆ: %d ನಿರ್ಗಮಿಸಿ]]></string>
     <string name="modules_service_failed"><![CDATA[ಸೇವೆ ವಿಫಲವಾಗಿದೆ]]></string>
     <string name="modules_recommand_title"><![CDATA[ಶಿಫಾರಸು ಮಾಡಿ]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[ವಿಸ್ತರಿಸಿ]]></string>
     <string name="modules_recommand_collapse"><![CDATA[ಕುಸಿಯುವಿಕೆ]]></string>
     <string name="modules_recommand_copy"><![CDATA[ನಕಲು]]></string>

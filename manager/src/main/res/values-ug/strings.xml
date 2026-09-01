@@ -5,7 +5,7 @@
     <string name="update_settings_frequency_label"><![CDATA[چاستوتىسىنى تەكشۈرۈش]]></string>
     <string name="home_update_available_title"><![CDATA[Shevery يېڭىلىنىشى بار: ٪s]]></string>
     <string name="home_update_available_body"><![CDATA[يېڭى نۇسخىسى تەييار بولدى. چېكىپ چۈشۈرۈش كېرەك.]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[يول باشلاش]]></string>
     <string name="accessibility_close"><![CDATA[تاقاش]]></string>
     <string name="accessibility_more_options"><![CDATA[تېخىمۇ كۆپ تاللاشلار]]></string>
@@ -24,79 +24,79 @@
     <string name="home_local_network_granted"><![CDATA[% 1 $ s بېرىلگەن.]]></string>
     <string name="home_local_network_missing"><![CDATA[% 1 $ s بېرىلمەيدۇ.]]></string>
     <string name="home_local_network_grant"><![CDATA[زىيارەت قىلىش ھوقۇقى]]></string>
-    <string name="home_local_network_permission_denied"><![CDATA[Local network access is required for Wireless debugging.]]></string>
+    <string name="home_local_network_permission_denied">سىمسىز چاتاق ئۈچۈن يەرلىك تور زىيارەت قىلىش تەلەپ قىلىنىدۇ.</string>
     <string name="dialog_adb_discovery"><![CDATA[سىمسىز ھەل قىلىش مۇلازىمىتىنى ئىزدەش]]></string>
     <string name="dialog_adb_port"><![CDATA[Port]]></string>
-    <string name="dialog_adb_invalid_port"><![CDATA[Port is an integer ranging from 1 to 65535.]]></string>
+    <string name="dialog_adb_invalid_port">پورت 1 دىن 65535 گىچە بولغان پۈتۈن سان.</string>
     <string name="adb_pairing"><![CDATA[Pairing]]></string>
-    <string name="dialog_adb_pairing_title"><![CDATA[Pair with device]]></string>
-    <string name="dialog_adb_pairing_discovery"><![CDATA[Searching for pairing service]]></string>
-    <string name="dialog_adb_pairing_paring_code"><![CDATA[Pairing code]]></string>
+    <string name="dialog_adb_pairing_title">ئۈسكۈنى بىلەن جۈپلەش</string>
+    <string name="dialog_adb_pairing_discovery">جۈپلىشىش مۇلازىمىتىنى ئىزدەۋاتىدۇ</string>
+    <string name="dialog_adb_pairing_paring_code">جۈپلەش كودى</string>
     <string name="paring_code_is_wrong"><![CDATA[جۈپلەشتۈرۈش خاتا.]]></string>
-    <string name="cannot_connect_port"><![CDATA[Can\'t connect to wireless debugging service.]]></string>
+    <string name="cannot_connect_port">سىمسىز ھەل قىلىش مۇلازىمىتىگە ئۇلىنالمايدۇ.</string>
     <string name="dialog_wireless_adb_not_enabled"><![CDATA[Wireless debugging is not enabled.
 Note, before Android 11, to enable wireless debugging, computer connection is a must.]]></string>
-    <string name="adb_pairing_requires_multi_window"><![CDATA[Please enter split-screen (multi-window) mode first.]]></string>
-    <string name="adb_pairing_requires_multi_window_reason"><![CDATA[The system requires the pairing dialog always visible, using split-screen mode is the only way to let this app and system dialog visible at the same time.]]></string>
+    <string name="adb_pairing_requires_multi_window">ئالدى بىلەن بۆلۈش ئېكرانى (كۆپ كۆزنەك) ھالىتىنى كىرگۈزۈڭ.</string>
+    <string name="adb_pairing_requires_multi_window_reason">سىستېما جۈپلىشىش دىئالوگىنىڭ ھەمىشە كۆرۈنۈشىنى تەلەپ قىلىدۇ ، بۆلۈنمە ئېكران ھالىتىنى ئىشلىتىش بۇ دېتال ۋە سىستېما دىئالوگىنى بىرلا ۋاقىتتا كۆرسىتىشنىڭ بىردىنبىر ئۇسۇلى.</string>
     <string name="adb_error_key_store"><![CDATA[Unable to generate key for wireless debugging.
 This may be because KeyStore mechanism of this device is broken.]]></string>
-    <string name="adb_pair_required"><![CDATA[Please go through the pairing step first.]]></string>
-    <string name="development_settings"><![CDATA[Developer options]]></string>
-    <string name="notification_settings"><![CDATA[Notification options]]></string>
-    <string name="adb_pairing_tutorial_title"><![CDATA[Pair Shevery with your device]]></string>
-    <string name="adb_pairing_tutorial_content_notification"><![CDATA[A notification from Shevery will help you complete the pairing.]]></string>
-    <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Enter the code in the notification to complete pairing.]]></string>
-    <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[The pairing process needs you to interact with a notification from Shevery. Please allow Shevery to post notifications.]]></string>
-    <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Otherwise, you may not able to enter paring code from the notification.]]></string>
-    <string name="adb_pairing_tutorial_content_finish"><![CDATA[Back to Shevery and start Shevery.]]></string>
-    <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery needs to access local network. It is controlled by the network permission.]]></string>
-    <string name="adb_pairing_tutorial_content_network_limation_not_foreground"><![CDATA[Some systems (such as MIUI) disallow apps to access the network when they are not visible, even if the app uses foreground service as standard. Please disable battery optimization features for Shevery on such systems.]]></string>
+    <string name="adb_pair_required">ئالدى بىلەن جۈپلىشىش باسقۇچىدىن ئۆتۈڭ.</string>
+    <string name="development_settings">ئاچقۇچىلار تاللانمىلىرى</string>
+    <string name="notification_settings">ئۇقتۇرۇش تاللانمىلىرى</string>
+    <string name="adb_pairing_tutorial_title">ئۈسكۈنىڭىز بىلەن جۈپلەش</string>
+    <string name="adb_pairing_tutorial_content_notification">Shevery نىڭ ئۇقتۇرۇشى سىزنىڭ جۈپلىشىشنى تاماملىشىڭىزغا ياردەم بېرىدۇ.</string>
+    <string name="adb_pairing_tutorial_content_enter_pairing_code">قوشۇشنى تاماملاش ئۈچۈن ئۇقتۇرۇشقا كود كىرگۈزۈڭ.</string>
+    <string name="adb_pairing_tutorial_content_notification_blocked">جۈپلىشىش جەريانى سىزنىڭ Shevery نىڭ ئۇقتۇرۇشى بىلەن ئۆز-ئارا پىكىر ئالماشتۇرۇشىڭىزغا موھتاج. Shevery نىڭ ئۇقتۇرۇش يوللىشىغا يول قويۇڭ.</string>
+    <string name="adb_pairing_tutorial_content_miui_2">بولمىسا ، ئۇقتۇرۇشتىن پاراشوك كودىنى كىرگۈزەلمەسلىكىڭىز مۇمكىن.</string>
+    <string name="adb_pairing_tutorial_content_finish">Shevery غا قايتىپ Shevery نى باشلاڭ.</string>
+    <string name="adb_pairing_tutorial_content_network">Shevery يەرلىك تورغا كىرىشى كېرەك. ئۇ تور ئىجازىتى ئارقىلىق كونترول قىلىنىدۇ.</string>
+    <string name="adb_pairing_tutorial_content_network_limation_not_foreground">بەزى سىستېمىلار (MIUI غا ئوخشاش) ئەپلەر كۆرۈنمىگەن ۋاقىتتا تورغا چىقىشنى چەكلەيدۇ ، گەرچە بۇ دېتال ئالدىنقى مۇلازىمەتنى ئۆلچەملىك ئىشلەتسىمۇ. بۇ خىل سىستېمىلاردىكى Shevery نىڭ باتارېيەنى ئەلالاشتۇرۇش ئىقتىدارىنى چەكلەڭ.</string>
     <string name="home_root_button_start"><![CDATA[Start]]></string>
     <string name="home_root_button_restart"><![CDATA[Restart]]></string>
-    <string name="home_app_management_title"><![CDATA[Application management]]></string>
-    <string name="home_app_management_empty"><![CDATA[Apps that has requested or declared Shevery will show here.]]></string>
-    <string name="home_learn_more_title"><![CDATA[Learn Shevery]]></string>
-    <string name="home_learn_more_description"><![CDATA[Learn how to develop with Shevery]]></string>
+    <string name="home_app_management_title">ئىلتىماس باشقۇرۇش</string>
+    <string name="home_app_management_empty">Shevery نى تەلەپ قىلغان ياكى ئېلان قىلغان ئەپلەر بۇ يەردە كۆرسىتىلىدۇ.</string>
+    <string name="home_learn_more_title">Shevery نى ئۆگىنىڭ</string>
+    <string name="home_learn_more_description">Shevery بىلەن قانداق تەرەققىي قىلىشنى ئۆگىنىۋېلىڭ</string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
-    <string name="home_quick_wireless"><![CDATA[Wireless ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
-    <string name="home_manage_apps_button"><![CDATA[Manage apps]]></string>
+    <string name="home_quick_wireless">سىمسىز ADB</string>
+    <string name="home_quick_tcp">TCP 5555</string>
+    <string name="home_manage_apps_button">ئەپلەرنى باشقۇرۇش</string>
     <string name="home_refresh"><![CDATA[Refresh]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostics]]></string>
-    <string name="home_diagnostics_copy"><![CDATA[Copy diagnostics]]></string>
-    <string name="home_diagnostics_copied"><![CDATA[Diagnostics copied.]]></string>
-    <string name="home_modules_description"><![CDATA[Install and manage ADB-backed modules]]></string>
-    <string name="home_adb_is_limited_title"><![CDATA[You need to take an extra step]]></string>
-    <string name="app_management_select_all"><![CDATA[Select all]]></string>
-    <string name="app_management_deselect_all"><![CDATA[Deselect all]]></string>
-    <string name="app_management_dialog_adb_is_limited_title"><![CDATA[The permission of adb is limited]]></string>
-    <string name="app_management_item_summary_requires_root"><![CDATA[* requires Shevery runs with root]]></string>
-    <string name="app_management_loading"><![CDATA[Loading apps…]]></string>
-    <string name="home_terminal_title"><![CDATA[Use Shevery in terminal apps]]></string>
-    <string name="home_terminal_description"><![CDATA[Run commands through Shevery in terminal apps you like]]></string>
-    <string name="terminal_tutorial_1"><![CDATA[First, Export files to any where you want. You will find two files, %1$s and %2$s.]]></string>
+    <string name="home_diagnostics_copy">دىئاگنوزنى كۆچۈرۈڭ</string>
+    <string name="home_diagnostics_copied">دىئاگنوز كۆپەيتىلدى.</string>
+    <string name="home_modules_description">ADB قوللايدىغان مودۇللارنى ئورنىتىش ۋە باشقۇرۇش</string>
+    <string name="home_adb_is_limited_title">قوشۇمچە قەدەم تاشلىشىڭىز كېرەك</string>
+    <string name="app_management_select_all">ھەممىنى تاللاڭ</string>
+    <string name="app_management_deselect_all">ھەممىنى تاللاڭ</string>
+    <string name="app_management_dialog_adb_is_limited_title">Adb نىڭ رۇخسىتى چەكلىك</string>
+    <string name="app_management_item_summary_requires_root">* Shevery نى يىلتىز بىلەن ئىجرا قىلىشنى تەلەپ قىلىدۇ</string>
+    <string name="app_management_loading">ئەپلەرنى يۈكلەۋاتىدۇ…</string>
+    <string name="home_terminal_title">تېرمىنال ئەپلىرىدە Shevery نى ئىشلىتىڭ</string>
+    <string name="home_terminal_description">ئۆزىڭىز ياقتۇرىدىغان تېرمىنال ئەپلىرىدە Shevery ئارقىلىق بۇيرۇقلارنى ئىجرا قىلىڭ</string>
+    <string name="terminal_tutorial_1">بىرىنچى ، ھۆججەتلەرنى خالىغان ئورۇنغا چىقىرىڭ. % 1 $ s ۋە% 2 $ s دىن ئىبارەت ئىككى ھۆججەتنى تاپالايسىز.</string>
     <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
 
 The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
-    <string name="terminal_export_files"><![CDATA[Export files]]></string>
-    <string name="terminal_tutorial_2"><![CDATA[Then, use any text editor to open and edit %1$s.]]></string>
-    <string name="terminal_tutorial_2_description"><![CDATA[For example, if you want to use Shevery in %1$s, you should replace %2$s with %3$s (%4$s is the package name of %1$s).]]></string>
-    <string name="terminal_tutorial_3"><![CDATA[Finally, move the files to somewhere where your terminal app can access, you will be able to use %1$s to run commands through Shevery.]]></string>
-    <string name="terminal_tutorial_3_description"><![CDATA[Some tips: grant execute permission to %1$s and add it to %2$s, you will able to use %1$s directly.]]></string>
+    <string name="terminal_export_files">ھۆججەتلەرنى چىقىرىش</string>
+    <string name="terminal_tutorial_2">ئاندىن ھەر قانداق تېكىست تەھرىرلىگۈچنى ئىشلىتىپ% 1 $ s نى ئېچىڭ ۋە تەھرىرلەڭ.</string>
+    <string name="terminal_tutorial_2_description">مەسىلەن ، ئەگەر سىز Shevery نى% 1 $ s دە ئىشلەتمەكچى بولسىڭىز ،% 2 $ s نى% 3 $ s غا ئالماشتۇرۇشىڭىز كېرەك (% 4 $ s بولسا% 1 $ s نىڭ ئورالما ئىسمى).</string>
+    <string name="terminal_tutorial_3">ئاخىرىدا ، ھۆججەتلەرنى تېرمىنال دېتالى زىيارەت قىلالايدىغان يەرگە يۆتكەڭ ،% 1 $ s ئارقىلىق Shevery ئارقىلىق بۇيرۇق ئىجرا قىلالايسىز.</string>
+    <string name="terminal_tutorial_3_description">بەزى ئۇسۇللار:% 1 $ s نى ئىجرا قىلىشقا ئىجازەت بېرىڭ ھەمدە ئۇنى% 2 $ s غا قوشسىڭىز ،% 1 $ s نى بىۋاسىتە ئىشلىتەلەيسىز.</string>
     <string name="settings_title"><![CDATA[Settings]]></string>
     <string name="settings_language"><![CDATA[Language]]></string>
     <string name="settings_user_interface"><![CDATA[Appearance]]></string>
-    <string name="settings_black_night_theme"><![CDATA[Black night theme]]></string>
-    <string name="settings_black_night_theme_summary"><![CDATA[Use the pure black theme if night mode is enabled]]></string>
+    <string name="settings_black_night_theme">قارا كېچىلىك تېمىسى</string>
+    <string name="settings_black_night_theme_summary">ئەگەر كەچلىك ھالەت قوزغىتىلغان بولسا ساپ قارا تېمىنى ئىشلىتىڭ</string>
     <string name="settings_startup"><![CDATA[Startup]]></string>
-    <string name="settings_translation_contributors"><![CDATA[Translation contributors]]></string>
-    <string name="settings_translation"><![CDATA[Participate in translation]]></string>
-    <string name="settings_translation_summary"><![CDATA[Help us translate %s into your language]]></string>
-    <string name="settings_start_on_boot"><![CDATA[Start on boot via Root]]></string>
-    <string name="settings_start_on_boot_summary"><![CDATA[Start Shevery automatically on boot using root privileges.]]></string>
-    <string name="settings_start_on_boot_adb"><![CDATA[Start on boot via Wireless debugging]]></string>
-    <string name="settings_start_on_boot_adb_summary"><![CDATA[On boot, briefly enable Wireless debugging and start Shevery over ADB (TCP port 5555). No root required, Wi-Fi is needed only for a moment.]]></string>
-    <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[On boot, briefly enable Wireless debugging and start Shevery over ADB. No root required, Wi-Fi is needed only for a moment.]]></string>
+    <string name="settings_translation_contributors">تەرجىمە تۆھپىكارلىرى</string>
+    <string name="settings_translation">تەرجىمىگە قاتنىشىڭ</string>
+    <string name="settings_translation_summary">% S نى تىلىڭىزغا تەرجىمە قىلىشىمىزغا ياردەملىشىڭ</string>
+    <string name="settings_start_on_boot">Root ئارقىلىق قوزغىتىشنى باشلاڭ</string>
+    <string name="settings_start_on_boot_summary">يىلتىز ئىمتىيازلىرىنى ئىشلىتىپ قوزغىتىشتا Shevery نى ئاپتوماتىك قوزغىتىڭ.</string>
+    <string name="settings_start_on_boot_adb">سىمسىز چاتاق ئارقىلىق قوزغىتىشنى باشلاڭ</string>
+    <string name="settings_start_on_boot_adb_summary">قوزغىتىشتا ، سىمسىز چاتاقنى قىسقىچە قوزغىتىپ ، ADB ئۈستىدىن Shevery نى قوزغىتىڭ (TCP ئېغىزى 5555). ھېچقانداق يىلتىز تەلەپ قىلىنمايدۇ ، Wi-Fi پەقەت بىر دەملا لازىم بولىدۇ.</string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp">قوزغىتىشتا ، سىمسىز چاتاقنى قىسقىچە قوزغىتىپ ، ADB ئۈستىدىكى Shevery نى قوزغىتىڭ. ھېچقانداق يىلتىز تەلەپ قىلىنمايدۇ ، Wi-Fi پەقەت بىر دەملا لازىم بولىدۇ.</string>
     <string name="settings_start_on_boot_adb_granted"><![CDATA[WRITE_SECURE_SETTINGS قوشۇلدى.]]></string>
     <string name="settings_start_on_boot_adb_warning_no_tcp"><![CDATA[TCP binding (5555 ئېغىز) ئېتىك: سىمسىز خاتالىق تۈزەش داۋاملىق ئىناۋەتلىك بولىدۇ.]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_title"><![CDATA[ئىجازەت خاتا]]></string>
@@ -229,7 +229,7 @@ has been copied to clipboard.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku"><![CDATA[ئېچىۋېتىلگەن Shevery]]></string>
     <string name="lab_features_title"><![CDATA[تەجرىبىخانا ئالاھىدىلىكى]]></string>
     <string name="lab_features_summary"><![CDATA[تەجرىبە ئالاھىدىلىكى]]></string>
-    <string name="shizuku_connectors_title"><![CDATA[Shevery Connectors]]></string>
+    <string name="shizuku_connectors_title">Shevery Connectors</string>
     <string name="shizuku_connectors_summary"><![CDATA[قىستۇرمىلارنىڭ Shevery نى قوزغىتىشىغا رۇخسەت قىلىش]]></string>
     <string name="unsafe_warning_title"><![CDATA[ئاگاھلاندۇرۇش]]></string>
     <string name="unsafe_warning_message"><![CDATA[بۇ ئىقتىدارنى قوزغىتىش بىخەتەر ئەمەس. جەزىملەشتۇرالامسەن?]]></string>
@@ -255,14 +255,14 @@ has been copied to clipboard.]]></string>
     <string name="lab_notify_death_title"><![CDATA[مۇلازىمەت توختىتىشتا ئۇقتۇرۇش]]></string>
     <string name="lab_notify_death_summary"><![CDATA[Shevery مۇلازىمىتى تۇيۇقسىز توختاپ قالغاندا ئۇقتۇرۇش كۆرسىتىش]]></string>
     <string name="lab_debugging_title"><![CDATA[خاتالىق تۈزەش]]></string>
-    <string name="lab_verbose_logging_title"><![CDATA[Verbose Logging]]></string>
+    <string name="lab_verbose_logging_title">Verbose Logging</string>
     <string name="lab_verbose_logging_summary"><![CDATA[Logcat غا تەپسىلىي خاتالىق خاتىرىسىنى يېزىڭ. باتارېيە تېجەش ئۈچۈن ئىشلەپچىقىرىش جەريانىدا ئىناۋەتسىز قىلىش]]></string>
     <string name="notification_channel_watchdog"><![CDATA[مۇلازىمەت نازارەتچىلىكى]]></string>
     <string name="notification_watchdog_title"><![CDATA[شېۋېرى مۇلازىمىتى توختاپ قالدى]]></string>
     <string name="notification_watchdog_text"><![CDATA[Shevery مۇلازىمىتى تۇيۇقسىز توختاپ قالدى.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery Watchdog ئاكتىپ]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery مۇلازىمىتىنى نازارەت قىلىپ ئەسلىگە كەلتۈرۈش]]></string>
-    <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
+    <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery ئىگىلىك تىكلەش]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery نى باشلاش]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Wi-Fi خاتالىق تۈزىتىشنى قوزغىتىش...]]></string>
@@ -369,7 +369,7 @@ has been copied to clipboard.]]></string>
     <string name="backup_section_title"><![CDATA[زاپاس دېتاللار]]></string>
     <string name="comput_title"><![CDATA[كومپيۇتېر]]></string>
     <string name="comput_settings"><![CDATA[كومپيۇتېر تاختىسى تەڭشەكلىرى]]></string>
-    <string name="comput_adb_console"><![CDATA[ADB Comput Console]]></string>
+    <string name="comput_adb_console">ADB ھېسابلاش سۇپىسى</string>
     <string name="comput_recommand_title"><![CDATA[Comput ئۈچۈن ReCommand]]></string>
     <string name="comput_recommand_summary"><![CDATA[Comput سۇپىسىدا بۇيرۇقلارنى ئىجرا قىلىشتىن بۇرۇن جەزملەشتۈرۈش دىئالوگىنى كۆرسىتىش]]></string>
     <string name="comput_recommand_confirmation"><![CDATA[كومپيۇتېردا ADB بۇيرۇقىنى ئىجرا قىلىشنى جەزىملەشتۈرەلەمسىز؟]]></string>
@@ -423,7 +423,7 @@ Ready for commands.]]></string>
     <string name="comput_use_command"><![CDATA[بۇيرۇق ئىشلىتىش]]></string>
     <string name="comput_copied_to_clipboard"><![CDATA[چاپلاش تاختىسىغا كۆچۈرۈلدى.]]></string>
     <string name="comput_copy_command"><![CDATA[كۆچۈرۈش بۇيرۇقى]]></string>
-    <string name="comput_hero_title"><![CDATA[Shevery Console]]></string>
+    <string name="comput_hero_title">Shevery Console</string>
     <string name="comput_hero_subtitle"><![CDATA[سىزنىڭ ئۈسكۈنىڭىزدىكى كۈچلۈك قېپى تېرمىنالى ، Shizuku ئارقىلىق قوزغىلىدۇ .]]></string>
     <string name="comput_status_ready"><![CDATA[تەييار]]></string>
     <string name="comput_status_running"><![CDATA[يۈگۈرۈۋاتىدۇ]]></string>
@@ -443,7 +443,7 @@ Ready for commands.]]></string>
     <string name="comput_macro_name_label"><![CDATA[ماكرو نامى]]></string>
     <string name="comput_save"><![CDATA[ساقلا]]></string>
     <string name="comput_tab_terminal"><![CDATA[تېرمىنال]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[ماكرو]]></string>
     <string name="comput_tab_presets"><![CDATA[ئالدىن تەڭشەكلەر]]></string>
     <string name="comput_quick_chips"><![CDATA[تېز مەشغۇلات]]></string>
@@ -515,30 +515,30 @@ Ready for commands.]]></string>
     <string name="settings_compat_stub_none"><![CDATA[قانال يوق (Shevery ئاۋال باشلىنىدۇ)]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Start again to update to version %3$s]]></string>
-    <string name="home_adb_title"><![CDATA[Start by connecting to a computer]]></string>
-    <string name="home_adb_description"><![CDATA[For devices without root, you need to use adb to start Shevery (requires computer connection). This process needs to be repeated every time the device is restarted. Please <b><a href="%1$s">read the help</a></b>.]]></string>
-    <string name="home_wireless_adb_title"><![CDATA[Start via Wireless debugging]]></string>
-    <string name="home_wireless_adb_description"><![CDATA[On Android 11 or above, you can enable Wireless debugging and start Shevery directly from your device, without connecting to a computer.<p>Please view the step-by-step guide first.]]></string>
-    <string name="home_wireless_adb_description_pre_11"><![CDATA[Before Android 11, connecting to a computer is required to enable Wireless debugging.]]></string>
+    <string name="home_adb_title">كومپيۇتېرغا ئۇلىنىشتىن باشلاڭ</string>
+    <string name="home_adb_description"><![CDATA[يىلتىزى يوق ئۈسكۈنىلەرگە Shevery نى قوزغىتىش ئۈچۈن adb نى ئىشلىتىشىڭىز كېرەك (كومپيۇتېر ئۇلىنىشى تەلەپ قىلىنىدۇ). ئۈسكۈنىنى قايتا قوزغاتقاندا بۇ جەرياننى تەكرارلاش كېرەك. <b> <a href = "% 1 $ s"> ياردەمنى ئوقۇڭ </a> </b>.]]></string>
+    <string name="home_wireless_adb_title">سىمسىز ھەل قىلىش ئارقىلىق باشلاڭ</string>
+    <string name="home_wireless_adb_description"><![CDATA[ئاندىرويىد 11 ياكى ئۇنىڭدىن يۇقىرى نەشرىدە ، سىمسىز چاتاقنى قوزغىتىپ ، كومپيۇتېرغا ئۇلانمايلا ئۈسكۈنىڭىزدىن بىۋاسىتە Shevery نى قوزغىتالايسىز. <p> ئالدى بىلەن باسقۇچلۇق يېتەكچىنى كۆرۈڭ.]]></string>
+    <string name="home_wireless_adb_description_pre_11">ئاندىرويىد 11 دىن بۇرۇن ، سىمسىز چاتاقنى قوزغىتىش ئۈچۈن كومپيۇتېرغا ئۇلىنىش تەلەپ قىلىنىدۇ.</string>
     <string name="dialog_adb_discovery_message"><![CDATA[Please enable "Wireless debugging" in "Developer options". "Wireless debugging" is automatically disabled when network changes.
 
 Note, do not disable "Developer options" or "USB debugging", or Shevery will be stopped.]]></string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Please try to disable and enable "Wireless debugging" if it keeps searching.]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging">ئەگەر ئىزدەشنى داۋاملاشتۇرسا «سىمسىز چاتاق» نى ئىناۋەتسىز قىلىپ قوزغىتىڭ.</string>
     <string name="dialog_adb_pairing_message"><![CDATA[Please start paring by the following steps: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".
 
 After the pairing process starts, you will able to input the pairing code.]]></string>
-    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Enter "Developer options" - "Wireless debugging". Tap "Pair device with pairing code", you will see a six-digit code.]]></string>
-        <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Please note, left part of the "Wireless debugging" option is clickable, tapping it will open a new page. Only turing on the switch on the right is incorrect.]]></string>
-    <string name="home_root_title"><![CDATA[Start (for rooted devices)]]></string>
+    <string name="adb_pairing_tutorial_content_steps">«ئاچقۇچىلار تاللانمىلىرى» - «سىمسىز چاتاق» نى كىرگۈزۈڭ. «جۈپ كود بىلەن جۈپ ئۈسكۈنى» نى چېكىڭ ، ئالتە خانىلىق كودنى كۆرىسىز.</string>
+        <string name="adb_pairing_tutorial_content_left_is_clickable">دىققەت قىلىڭ ، «سىمسىز چاتاق» تاللانمىسىنىڭ سول قىسمىنى چېكىشكە بولىدۇ ، چەكسىڭىز يېڭى بەت ئاچىدۇ. پەقەت ئوڭ تەرەپتىكى ۋىكليۇچاتېلنى توغرىلاش توغرا ئەمەس.</string>
+    <string name="home_root_title">باشلاش (يىلتىز تارتقان ئۈسكۈنىلەر ئۈچۈن)</string>
     <string name="home_root_description"><![CDATA[In addition, Shevery can be started automatically on boot. If not, please check if your system or third-party tools have restricted Shevery.<br/>You can refer to %s.]]></string>
-    <string name="home_root_description_sui"><![CDATA[If you are using Magisk, you can try %1$s. For root users, it will eventually replace Shevery. Note, existing applications needs to change a little to use %2$s.]]></string>
-    <string name="home_app_management_view_authorized_apps"><![CDATA[Tap to manage authorized apps]]></string>
+    <string name="home_root_description_sui">ئەگەر Magisk نى ئىشلىتىۋاتقان بولسىڭىز ،% 1 $ s نى سىناپ باقسىڭىز بولىدۇ. يىلتىز ئىشلەتكۈچىلەر ئۈچۈن ئۇ ئاخىرىدا Shevery نىڭ ئورنىنى ئالىدۇ. دىققەت ، مەۋجۇت پروگراممىلار% 2 $ s نى ئىشلىتىش ئۈچۈن ئازراق ئۆزگەرتىش كېرەك.</string>
+    <string name="home_app_management_view_authorized_apps">ھوقۇق بېرىلگەن ئەپلەرنى باشقۇرۇش ئۈچۈن چېكىڭ</string>
     <string name="home_adb_is_limited_description"><![CDATA[Your device manufacturer has restricted adb permissions and apps using Shevery will not work properly.
 
 Usually, this limitation can be lifted by adjusting some options in "Developer options". Please read the help for details on how to do this.
 
 You may need to restart Shevery for the operation to take effect.]]></string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[It\'s highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href="%1$s">this document</a></b>.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[ئۈسكۈنىڭىز ئىشلەپچىقارغۇچىنىڭ ئېلاننىڭ رۇخسىتىنى چەكلىشى مۇمكىن. <p> <b> <a href = "% 1 $ s"> بۇ ھۆججەت </a> </b> دا سىستېمىڭىزغا ھەل قىلىش چارىسى بولۇشى مۇمكىن.]]></string>
     <string name="rish_description"><![CDATA[With %1$s, in any terminal app, you can connect to and interact with the shell runs by Shevery.
 <p>About the detailed usage %1$s, tap to view the document.]]></string>
     <string name="about_view_source_code"><![CDATA[٪s دىكى مەنبە كودىنى كۆرۈش]]></string>
@@ -552,4 +552,5 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="home_dhizuku_title"><![CDATA[باشلاش (Dhizuku)]]></string>
     <string name="home_dhizuku_description"><![CDATA[Dhizuku باشقۇرىدىغان ئۈسكۈنىلەرگە قارىتا، ئۈسكۈنە ئىگىسى ھوقۇقىدىن پايدىلىنىپ Shevery نى بىۋاستە قوزغىتالايسىز.]]></string>
     <string name="comput_no_macros"><![CDATA[تېخىچە ساقلىۋېلىنغان ماكرو يوق. \'Record Macro\' نى چېكىپ، كونۇپكا بۇيرۇقىنى ئۈنگە ئېلىشنى باشلاڭ.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI ئىشلەتكۈچىلەر سىستېما تەڭشىكىدە ئۇقتۇرۇش ئۇسلۇبىنى «ئۇقتۇرۇش» - «ئۇقتۇرۇش سايىسى» دىن «ئاندىرويىد» قا ئۆزگەرتىشى مۇمكىن.</string>
 </resources>

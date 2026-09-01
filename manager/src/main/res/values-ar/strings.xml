@@ -148,7 +148,7 @@
     <string name="modules_service_result"><![CDATA[اكتملت الخدمة: الخروج %d]]></string>
     <string name="modules_service_failed"><![CDATA[فشلت الخدمة]]></string>
     <string name="modules_recommand_title"><![CDATA[أعد القيادة]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[توسيع]]></string>
     <string name="modules_recommand_collapse"><![CDATA[طي]]></string>
     <string name="modules_recommand_copy"><![CDATA[نسخ]]></string>
@@ -551,4 +551,6 @@
 جاري التنفيذ...]]></string>
     <string name="comput_console_initialized"><![CDATA[تم تهيئة وحدة التحكم. تم الاتصال بخدمة Shevery ذات الصلاحيات الخاصة.
 جاهز لتلقي الأوامر.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">قد يحتاج مستخدمو MIUI إلى تبديل نمط الإشعارات إلى "Android" من "الإشعارات" - "مركز الإشعارات" في إعدادات النظام.</string>
+    <string name="comput_no_macros">لا توجد وحدات ماكرو محفوظة حتى الآن. انقر فوق \'تسجيل ماكرو\' لبدء تسجيل أوامر وحدة التحكم.</string>
 </resources>

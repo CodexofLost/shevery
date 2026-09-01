@@ -6,14 +6,14 @@
     <string name="home_update_available_title"><![CDATA[All uppdatering tillgänglig: %s]]></string>
     <string name="home_update_available_body"><![CDATA[En nyare version är klar. Tryck för att ladda ner.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Gå uppåt]]></string>
     <string name="accessibility_close"><![CDATA[Stäng]]></string>
     <string name="accessibility_more_options"><![CDATA[Fler alternativ]]></string>
     <string name="accessibility_open_on_github"><![CDATA[Öppna på GitHub]]></string>
     <string name="home_status_service_is_running"><![CDATA[%1$s körs]]></string>
     <string name="home_status_service_not_running"><![CDATA[%1$s körs inte]]></string>
-    <string name="home_status_service_version"><![CDATA[Version %2$s, %1$s]]></string>
+    <string name="home_status_service_version">Version %2$s, %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Börja om för att uppdatera till version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[Börja med att ansluta till en dator]]></string>
     <string name="home_adb_description"><![CDATA[För enheter utan root-behörighet måste du använda adb för att starta Shevery (kräver anslutning till en dator). Denna procedur måste upprepas varje gång enheten startas om. Vänligen <b><a href="%1$s">läs hjälpinformationen</a></b>.]]></string>
@@ -79,7 +79,7 @@ Detta kan bero på att KeyStore-mekanismen på den här enheten inte fungerar.]]
     <string name="home_learn_more_description"><![CDATA[Lär dig att utveckla med Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Trådlös ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Hantera appar]]></string>
     <string name="home_refresh"><![CDATA[Uppdatera]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostik]]></string>
@@ -139,7 +139,7 @@ Exportfunktionen använder SAF (Storage Access Framework). Det har rapporterats 
     <string name="modules_settings_title"><![CDATA[Moduler]]></string>
     <string name="modules_settings_summary"><![CDATA[Installera ZIP-moduler och kör deras åtgärder via den aktiva Shevery ADB/root-servern]]></string>
     <string name="modules_header_summary"><![CDATA[%1$d installerade, %2$d aktiverade]]></string>
-    <string name="modules_version_label"><![CDATA[Version: %s]]></string>
+    <string name="modules_version_label">Version: %s</string>
     <string name="modules_author_label"><![CDATA[Författare: %s]]></string>
     <string name="modules_access_mode"><![CDATA[Modulens åtkomstläge]]></string>
     <string name="modules_access_mode_safe"><![CDATA[Säker]]></string>
@@ -189,7 +189,7 @@ Exportfunktionen använder SAF (Storage Access Framework). Det har rapporterats 
     <string name="modules_service_result"><![CDATA[Tjänsten avslutad: avsluta %d]]></string>
     <string name="modules_service_failed"><![CDATA[Tjänsten misslyckades]]></string>
     <string name="modules_recommand_title"><![CDATA[Rekommendera]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Visa mer]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Dölj]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopiera]]></string>
@@ -271,7 +271,7 @@ har kopierats till urklipp.]]></string>
     <string name="unsafe_warning_message"><![CDATA[Det är FARLIGT att aktivera den här funktionen. Är du säker?]]></string>
     <string name="dhizuku_mode_title"><![CDATA[Dhizuku-läge]]></string>
     <string name="dhizuku_mode_summary"><![CDATA[Låt Shevery fungera genom att kopplas till Dhizuku]]></string>
-    <string name="home_dhizuku_title"><![CDATA[Start (via Dhizuku)]]></string>
+    <string name="home_dhizuku_title">Start (via Dhizuku)</string>
     <string name="home_dhizuku_description"><![CDATA[För enheter som hanteras av Dhizuku kan du starta Shevery direkt med behörigheten ”Enhetsägare”.]]></string>
     <string name="dhizuku_warning_title"><![CDATA[Varning: Dhizuku-läge]]></string>
     <string name="dhizuku_warning_message"><![CDATA[Dhizuku är utformat för behörigheter som enhetsägare/administratör. Vissa shell- och ADB-specifika kommandon kanske inte fungerar som de ska eller stöds inte alls när Shevery körs via Dhizuku. Är du säker på att du vill fortsätta?]]></string>
@@ -300,7 +300,7 @@ har kopierats till urklipp.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Tjänsten Shevery har avbrutits oväntat.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery-övervakningsprogrammet är aktivt]]></string>
     <string name="watchdog_service_text"><![CDATA[Övervakning av Shevery-tjänsten för återställning vid keep-alive-avbrott]]></string>
-    <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
+    <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery – ett nystartat företag]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery startar]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Aktiverar felsökning via Wi-Fi…]]></string>
@@ -363,7 +363,7 @@ har kopierats till urklipp.]]></string>
     <string name="shevery_update_channel"><![CDATA[Uppdateringskanal]]></string>
     <string name="shevery_update_channel_summary"><![CDATA[Välj uppdateringskanal]]></string>
     <string name="app_update_channel_stable"><![CDATA[Stall]]></string>
-    <string name="app_update_channel_beta"><![CDATA[Förhandsversion & betaversion]]></string>
+    <string name="app_update_channel_beta"><![CDATA[Förhandsversion &amp; betaversion]]></string>
     <string name="shevery_update_group_title"><![CDATA[Uppdateringar av Shevery-appen]]></string>
     <string name="shevery_update_modules_group_title"><![CDATA[Moduluppdateringar och katalog]]></string>
     <string name="shevery_update_check_failed"><![CDATA[Kontrollen av uppdateringar misslyckades: %s]]></string>
@@ -481,7 +481,7 @@ Redo för kommandon.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Makronamn]]></string>
     <string name="comput_save"><![CDATA[Spara]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makron]]></string>
     <string name="comput_tab_presets"><![CDATA[Förinställningar]]></string>
     <string name="comput_quick_chips"><![CDATA[Snabba åtgärder]]></string>
@@ -551,4 +551,6 @@ Redo för kommandon.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Gammal stubb borttagen]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Det gick inte att %1$s den äldre stubben via %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Ingen kanal tillgänglig (börja med Shevery först)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI-användare kan behöva byta meddelandestil till "Android" från "Meddelande" - "Meddelandeskärm" i systeminställningarna.</string>
+    <string name="comput_no_macros">Inga sparade makron ännu. Klicka på \'Spela in makro\' för att börja spela in konsolkommandon.</string>
 </resources>

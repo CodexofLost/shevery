@@ -175,7 +175,7 @@
     <string name="modules_service_result"><![CDATA[సేవ పూర్తయింది: నిష్క్రమించండి %d]]></string>
     <string name="modules_service_failed"><![CDATA[సేవ విఫలమైంది]]></string>
     <string name="modules_recommand_title"><![CDATA[మళ్ళీ సిఫార్సు చేయండి]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[విస్తరించు]]></string>
     <string name="modules_recommand_collapse"><![CDATA[మడత]]></string>
     <string name="modules_recommand_copy"><![CDATA[నకలు]]></string>
@@ -202,7 +202,7 @@
     <string name="modules_updating"><![CDATA[మాడ్యూల్‌ను అప్‌డేట్ చేస్తోంది…]]></string>
     <string name="modules_update_success"><![CDATA[మాడ్యూల్ v%s కు అప్‌డేట్ చేయబడింది]]></string>
     <string name="modules_download_downloads"><![CDATA[డౌన్‌లోడ్‌లకు డౌన్‌లోడ్ చేయండి]]></string>
-    <string name="modules_download_install"><![CDATA[డౌన్‌లోడ్ & ఇన్‌స్టాల్]]></string>
+    <string name="modules_download_install"><![CDATA[డౌన్‌లోడ్ &amp; ఇన్‌స్టాల్]]></string>
     <string name="modules_downloading"><![CDATA[డౌన్‌లోడ్ అవుతోంది…]]></string>
     <string name="modules_download_enqueued"><![CDATA[పొందుపరిచేది నేపథ్యంలో ప్రారంభమైంది]]></string>
     <string name="modules_search_placeholder"><![CDATA[కేటలాగ్ మాడ్యూల్స్ కోసం వెతకండి…]]></string>
@@ -349,9 +349,9 @@
     <string name="shevery_update_channel"><![CDATA[ఛానెల్‌ను నవీకరించండి]]></string>
     <string name="shevery_update_channel_summary"><![CDATA[అప్‌డేట్ విడుదల ఛానెల్‌ను ఎంచుకోండి]]></string>
     <string name="app_update_channel_stable"><![CDATA[స్థిరమైన]]></string>
-    <string name="app_update_channel_beta"><![CDATA[ముందస్తు విడుదల & బీటా]]></string>
+    <string name="app_update_channel_beta"><![CDATA[ముందస్తు విడుదల &amp; బీటా]]></string>
     <string name="shevery_update_group_title"><![CDATA[షెవరీ యాప్ అప్‌డేట్స్]]></string>
-    <string name="shevery_update_modules_group_title"><![CDATA[మాడ్యూల్ అప్‌డేట్‌లు & కేటలాగ్]]></string>
+    <string name="shevery_update_modules_group_title"><![CDATA[మాడ్యూల్ అప్‌డేట్‌లు &amp; కేటలాగ్]]></string>
     <string name="shevery_update_check_failed"><![CDATA[అప్‌డేట్ తనిఖీ విఫలమైంది: %s]]></string>
     <string name="modules_catalog"><![CDATA[జాబితా]]></string>
     <string name="modules_catalog_title"><![CDATA[మాడ్యూల్ క్యాటలాగ్]]></string>
@@ -384,10 +384,10 @@
     <string name="wear_catalog_sort_official"><![CDATA[అధికారిక]]></string>
     <string name="wear_catalog_sort_by"><![CDATA[క్రమబద్ధీకరించు]]></string>
     <string name="wear_catalog_filter"><![CDATA[ఫిల్టర్]]></string>
-    <string name="backup_restore_title"><![CDATA[బ్యాకప్ & పునరుద్ధరణ]]></string>
-    <string name="backup_title"><![CDATA[బ్యాకప్ సెట్టింగ్‌లు & మాడ్యూల్స్]]></string>
+    <string name="backup_restore_title"><![CDATA[బ్యాకప్ &amp; పునరుద్ధరణ]]></string>
+    <string name="backup_title"><![CDATA[బ్యాకప్ సెట్టింగ్‌లు &amp; మాడ్యూల్స్]]></string>
     <string name="backup_summary"><![CDATA[కాన్ఫిగరేషన్‌ను మరియు మాడ్యూల్స్‌ను ఒక ZIP ఫైల్‌కు ఎగుమతి చేయండి]]></string>
-    <string name="restore_title"><![CDATA[సెట్టింగ్‌లు & మాడ్యూల్స్‌ను పునరుద్ధరించండి]]></string>
+    <string name="restore_title"><![CDATA[సెట్టింగ్‌లు &amp; మాడ్యూల్స్‌ను పునరుద్ధరించండి]]></string>
     <string name="restore_summary"><![CDATA[ZIP ఫైల్ నుండి కాన్ఫిగరేషన్ మరియు మాడ్యూల్స్‌ను దిగుమతి చేయండి]]></string>
     <string name="settings_sections_title"><![CDATA[బ్యాకప్‌లు మరియు ఇతర]]></string>
     <string name="backup_section_title"><![CDATA[బ్యాకప్‌లు]]></string>
@@ -405,7 +405,7 @@
     <string name="comput_api_key_label"><![CDATA[API కీ]]></string>
     <string name="comput_show_api_key"><![CDATA[API కీని చూపించు]]></string>
     <string name="comput_hide_api_key"><![CDATA[API కీని దాచండి]]></string>
-    <string name="comput_gemini_model_performance"><![CDATA[అధిక పనితీరు కోడింగ్ & ఏజెంటిక్ (సిఫార్సు చేయబడింది)]]></string>
+    <string name="comput_gemini_model_performance"><![CDATA[అధిక పనితీరు కోడింగ్ &amp; ఏజెంటిక్ (సిఫార్సు చేయబడింది)]]></string>
     <string name="comput_gemini_model_lightweight"><![CDATA[తేలికపాటి అధిక వేగపు నమూనా]]></string>
     <string name="comput_gemini_api_error"><![CDATA[జెమిని API దోష కోడ్ %1$dను తిరిగి ఇచ్చింది: %2$s]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[కనెక్షన్ దోషం.]]></string>
@@ -536,4 +536,6 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[వారసత్వపు స్టుబ్ తొలగించబడింది]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[%2$s ద్వారా లెగసీ స్టబ్‌ను %1$s చేయడంలో విఫలమైంది: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[ఛానెల్ అందుబాటులో లేదు (మొదట షెవరీని ప్రారంభించండి)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI వినియోగదారులు సిస్టమ్ సెట్టింగ్‌లలో నోటిఫికేషన్ శైలిని "నోటిఫికేషన్" - "నోటిఫికేషన్ షేడ్" నుండి "Android"కి మార్చవలసి ఉంటుంది.</string>
+    <string name="comput_no_macros">ఇంకా సేవ్ చేయబడిన మాక్రోలు ఏవీ లేవు. కన్సోల్ ఆదేశాలను రికార్డ్ చేయడం ప్రారంభించడానికి \'రికార్డ్ మాక్రో\' క్లిక్ చేయండి.</string>
 </resources>

@@ -7,7 +7,7 @@
     <string name="accessibility_open_on_github"><![CDATA[Ouvrir sur GitHub]]></string>
     <string name="home_status_service_is_running"><![CDATA[%1$s est en cours d\'exécution]]></string>
     <string name="home_status_service_not_running"><![CDATA[%1$s n\'est pas en cours d\'exécution]]></string>
-    <string name="home_status_service_version"><![CDATA[Version %2$s, %1$s]]></string>
+    <string name="home_status_service_version">Version %2$s, %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Redémarrez pour mettre à jour vers la version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[Démarrer en vous connectant à un ordinateur]]></string>
     <string name="home_adb_description"><![CDATA[Pour les appareils non rootés, vous devez utiliser ADB pour démarrer Shevery (requiert une connexion ordinateur). Ce processus doit être répété après chaque redémarrage de l\'appareil. Veuillez <b><a href="%1$s">lire l\'aide</a></b>.]]></string>
@@ -165,7 +165,7 @@ L\'exportation utilise le SAF (Storage Access Framework). Sur MIUI, le SAF peut 
     <string name="modules_service_result"><![CDATA[Service terminé : code de sortie %d]]></string>
     <string name="modules_service_failed"><![CDATA[Échec du service]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Développer]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Réduire]]></string>
     <string name="modules_recommand_copy"><![CDATA[Copier]]></string>
@@ -445,7 +445,7 @@ Prêt pour les commandes.]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Il y a d\'autres éléments à prendre en compte ; veuillez vous assurer d\'avoir lu l\'aide au préalable.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB sans fil]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP5555</string>
     <string name="home_manage_apps_button"><![CDATA[Gérer les applications]]></string>
     <string name="app_management_loading"><![CDATA[Chargement des applications…]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Lancer au démarrage via le débogage sans fil]]></string>
@@ -508,7 +508,7 @@ Prêt pour les commandes.]]></string>
     <string name="comput_status_error"><![CDATA[Erreur]]></string>
     <string name="comput_console_section"><![CDATA[Console]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">Studio d\'IA</string>
     <string name="comput_tab_macros"><![CDATA[Macros]]></string>
     <string name="comput_tab_presets"><![CDATA[Préréglages]]></string>
     <string name="comput_quick_chips"><![CDATA[Actions rapides]]></string>
@@ -551,4 +551,6 @@ Prêt pour les commandes.]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Échec de %1$s du stub hérité via %2$s : %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Aucune chaîne disponible (commencez par Shevery)]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[Une connexion Wi-Fi est nécessaire lors du premier redémarrage, car Shevery doit se connecter au port de débogage sans fil actuel avant de basculer ADB sur le port 5555.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Les utilisateurs de MIUI devront peut-être changer le style de notification sur « Android » depuis « Notification » - « Nuance de notification » dans les paramètres système.</string>
+    <string name="comput_no_macros">Aucune macro enregistrée pour l\'instant. Cliquez sur \'Enregistrer une macro\' pour démarrer l\'enregistrement des commandes de la console.</string>
 </resources>

@@ -72,7 +72,7 @@
     <string name="home_learn_more_description"><![CDATA[了解如何使用 Shevery 進行開發]]></string>
     <string name="home_quick_terminal"><![CDATA[終端]]></string>
     <string name="home_quick_wireless"><![CDATA[無線 ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[管理應用]]></string>
     <string name="home_refresh"><![CDATA[重新整理]]></string>
     <string name="home_diagnostics_title"><![CDATA[診斷資訊]]></string>
@@ -168,7 +168,7 @@
     <string name="modules_service_result"><![CDATA[Service 已完成：結束碼 %d]]></string>
     <string name="modules_service_failed"><![CDATA[Service 執行失敗]]></string>
     <string name="modules_recommand_title"><![CDATA[重新命令]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[展開]]></string>
     <string name="modules_recommand_collapse"><![CDATA[折疊]]></string>
     <string name="modules_recommand_copy"><![CDATA[複製]]></string>
@@ -550,4 +550,6 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[已移除舊版存根]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[無法透過 %2$s 將舊版存根 %1$s：%3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[沒有可用頻道（請先啟動 Shevery）]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI用戶可能需要在系統設定的「通知」-「通知列」中將通知樣切換為「Android」。</string>
+    <string name="comput_no_macros">還沒有儲存的巨集。按一下「錄製巨集」開始錄製控制台指令。</string>
 </resources>

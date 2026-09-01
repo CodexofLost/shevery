@@ -184,7 +184,7 @@
     <string name="modules_service_result"><![CDATA[சேவை முடிந்தது: வெளியேறு %d]]></string>
     <string name="modules_service_failed"><![CDATA[சேவையில் தோல்வி]]></string>
     <string name="modules_recommand_title"><![CDATA[மீண்டும் பரிந்துரை]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[விரிவாக்கு]]></string>
     <string name="modules_recommand_collapse"><![CDATA[இடிந்து விழுதல்]]></string>
     <string name="modules_recommand_copy"><![CDATA[நகலெடுக்கவும்]]></string>
@@ -393,7 +393,7 @@
     <string name="wear_catalog_sort_official"><![CDATA[அதிகாரப்பூர்வமான]]></string>
     <string name="wear_catalog_sort_by"><![CDATA[வரிசைப்படுத்து]]></string>
     <string name="wear_catalog_filter"><![CDATA[வடிகட்டி]]></string>
-    <string name="backup_restore_title"><![CDATA[காப்புப் பிரதி & மீட்டெடுப்பு]]></string>
+    <string name="backup_restore_title"><![CDATA[காப்புப் பிரதி &amp; மீட்டெடுப்பு]]></string>
     <string name="backup_title"><![CDATA[காப்பு அமைப்புகள் மற்றும் தொகுதிகள்]]></string>
     <string name="backup_summary"><![CDATA[கட்டமைப்பு மற்றும் மாட்யூல்களை ஒரு ZIP கோப்பில் ஏற்றுமதி செய்யவும்]]></string>
     <string name="restore_title"><![CDATA[அமைப்புகள் மற்றும் மாட்யூல்களை மீட்டமை]]></string>
@@ -545,4 +545,6 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[பழைய எச்சம் நீக்கப்பட்டது]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[%2$s வழியாக %1$s செய்யத் தவறியது: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[சேனல் எதுவும் கிடைக்கவில்லை (முதலில் Shevery-ஐத் தொடங்குங்கள்)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI பயனர்கள் சிஸ்டம் அமைப்புகளில் "அறிவிப்பு" - "அறிவிப்பு நிழல்" இலிருந்து "Android" க்கு அறிவிப்பு பாணியை மாற்ற வேண்டியிருக்கலாம்.</string>
+    <string name="comput_no_macros">இதுவரை சேமிக்கப்பட்ட மேக்ரோக்கள் எதுவும் இல்லை. கன்சோல் கட்டளைகளைப் பதிவுசெய்யத் தொடங்க \'பதிவு மேக்ரோ\' என்பதைக் கிளிக் செய்யவும்.</string>
 </resources>

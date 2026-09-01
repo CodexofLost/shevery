@@ -6,7 +6,7 @@
     <string name="home_update_available_title"><![CDATA[Pieejams Shevery atjauninājums: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Jaunāka versija ir gatava. Pieskarieties, lai lejupielādētu.]]></string>
     <string name="app_name"><![CDATA[Ševeri]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Pāriet uz augšu]]></string>
     <string name="accessibility_close"><![CDATA[Aizvērt]]></string>
     <string name="accessibility_more_options"><![CDATA[Vairāk iespēju]]></string>
@@ -551,4 +551,6 @@ Gatava komandu pieņemšanai.]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Kanāls nav pieejams (sāciet ar „Shevery“ vispirms)]]></string>
     <string name="rish_description"><![CDATA[Izmantojot %1$s, jebkurā termināļa lietotnē varat izveidot savienojumu ar Shevery palaistajām čaulām un strādāt ar tām.
 <p>Lai uzzinātu sīkāku informāciju par %1$s lietošanu, pieskarieties, lai apskatītu dokumentu.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI lietotājiem, iespējams, sistēmas iestatījumos būs jāpārslēdz paziņojumu stils uz "Android" no "Notification" - "Notification shade".</string>
+    <string name="comput_no_macros">Vēl nav saglabātu makro. Noklikšķiniet uz \'Ierakstīt makro\', lai sāktu ierakstīt konsoles komandas.</string>
 </resources>

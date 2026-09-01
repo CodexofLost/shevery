@@ -127,7 +127,7 @@
     <string name="home_app_management_empty"><![CDATA[Shevery-ni tələb edən və ya elan edən tətbiqlər burada göstəriləcək.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Simsiz ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Tətbiqləri idarə et]]></string>
     <string name="home_refresh"><![CDATA[Təzələyin]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diaqnostika]]></string>
@@ -205,7 +205,7 @@
     <string name="modules_service_result"><![CDATA[Xidmət başa çatdı: çıxış %d]]></string>
     <string name="modules_service_failed"><![CDATA[Xidmət uğursuz oldu]]></string>
     <string name="modules_recommand_title"><![CDATA[Təkrar tövsiyə et]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Genişləndir]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Çöküş]]></string>
     <string name="modules_recommand_copy"><![CDATA[Nüsxə]]></string>
@@ -538,4 +538,6 @@ Orijinal: %1$s
     <string name="terminal_tutorial_1_description"><![CDATA[Əgər seçilmiş qovluqda eyni adla fayllar varsa, onlar silinəcək.  Eksport funksiyası SAF (Storage Access Framework) istifadə edir. Bildirilir ki, MIUI SAF-ın funksiyalarını pozur. Əgər MIUI istifadə edirsinizsə, faylı Shevery-nin APK-sından çıxarmalı və ya GitHub-dan yükləməlisiniz.]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
 kopyalanıb kəsim lövhəsinə.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI istifadəçiləri sistem parametrlərində bildiriş tərzini "Bildiriş" - "Bildiriş kölgəsi"ndən "Android"ə keçirməli ola bilər.</string>
+    <string name="comput_no_macros">Saxlanmış makro hələ yoxdur. Konsol əmrlərini yazmağa başlamaq üçün \'Makronu qeyd et\' üzərinə klikləyin.</string>
 </resources>

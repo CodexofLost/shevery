@@ -175,7 +175,7 @@
     <string name="modules_service_result"><![CDATA[سروس ختم: خارجی %d]]></string>
     <string name="modules_service_failed"><![CDATA[سروس ناکام ہو گئی]]></string>
     <string name="modules_recommand_title"><![CDATA[دوبارہ سفارش کریں]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[وسیع کریں]]></string>
     <string name="modules_recommand_collapse"><![CDATA[سقوط]]></string>
     <string name="modules_recommand_copy"><![CDATA[کاپی]]></string>
@@ -536,4 +536,6 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[لیگیسی اسٹب ہٹا دیا گیا]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[%2$s کے ذریعے %1$s کرنے میں ناکام: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[کوئی چینل دستیاب نہیں ہے (سب سے پہلے شیوری شروع کریں)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI صارفین کو سسٹم سیٹنگز میں "Notification" - "Notification shade" سے "Android" میں نوٹیفکیشن اسٹائل کو تبدیل کرنے کی ضرورت پڑسکتی ہے۔</string>
+    <string name="comput_no_macros">ابھی تک کوئی محفوظ شدہ میکرو نہیں ہے۔ کنسول کمانڈز کی ریکارڈنگ شروع کرنے کے لیے \'ریکارڈ میکرو\' پر کلک کریں۔</string>
 </resources>

@@ -137,7 +137,7 @@ Sau khi quá trình ghép nối bắt đầu, bạn sẽ có thể nhập mã gh
 Điều này có thể là do cơ chế KeyStore của thiết bị này bị lỗi.]]></string>
     <string name="home_quick_terminal"><![CDATA[Trạm]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB không dây]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Quản lý ứng dụng]]></string>
     <string name="home_refresh"><![CDATA[Làm mới]]></string>
     <string name="home_diagnostics_title"><![CDATA[Chẩn đoán]]></string>
@@ -222,7 +222,7 @@ Chức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có 
     <string name="modules_service_result"><![CDATA[Dịch vụ đã kết thúc: thoát %d]]></string>
     <string name="modules_service_failed"><![CDATA[Dịch vụ không thành công]]></string>
     <string name="modules_recommand_title"><![CDATA[lệnh lại]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Mở rộng]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Thu gọn]]></string>
     <string name="modules_recommand_copy"><![CDATA[Sao chép]]></string>
@@ -363,9 +363,9 @@ Chức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có 
     <string name="shevery_update_channel"><![CDATA[Kênh cập nhật]]></string>
     <string name="shevery_update_channel_summary"><![CDATA[Chọn kênh phát hành bản cập nhật]]></string>
     <string name="app_update_channel_stable"><![CDATA[Ổn định]]></string>
-    <string name="app_update_channel_beta"><![CDATA[Phiên bản thử nghiệm & Beta]]></string>
+    <string name="app_update_channel_beta"><![CDATA[Phiên bản thử nghiệm &amp; Beta]]></string>
     <string name="shevery_update_group_title"><![CDATA[Cập nhật ứng dụng Shevery]]></string>
-    <string name="shevery_update_modules_group_title"><![CDATA[Cập nhật mô-đun & Danh mục]]></string>
+    <string name="shevery_update_modules_group_title"><![CDATA[Cập nhật mô-đun &amp; Danh mục]]></string>
     <string name="shevery_update_check_failed"><![CDATA[Không kiểm tra được bản cập nhật: %s]]></string>
     <string name="modules_catalog"><![CDATA[Danh mục]]></string>
     <string name="modules_catalog_title"><![CDATA[Danh mục mô-đun]]></string>
@@ -419,7 +419,7 @@ Chức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có 
     <string name="comput_api_key_label"><![CDATA[Khóa API]]></string>
     <string name="comput_show_api_key"><![CDATA[Hiển thị khóa API]]></string>
     <string name="comput_hide_api_key"><![CDATA[Ẩn khóa API]]></string>
-    <string name="comput_gemini_model_performance"><![CDATA[Lập trình hiệu suất cao & cơ chế tác nhân (Được khuyến nghị)]]></string>
+    <string name="comput_gemini_model_performance"><![CDATA[Lập trình hiệu suất cao &amp; cơ chế tác nhân (Được khuyến nghị)]]></string>
     <string name="comput_gemini_model_lightweight"><![CDATA[Mẫu máy nhẹ, tốc độ cao]]></string>
     <string name="comput_gemini_api_error"><![CDATA[API Gemini đã trả về mã lỗi %1$d: %2$s]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[Lỗi kết nối.]]></string>
@@ -551,4 +551,6 @@ Sẵn sàng nhận lệnh.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Đã xóa mã giả lập cũ]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Không thể %1$s phần stub cũ qua %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Không có kênh nào khả dụng (bắt đầu từ Shevery trước)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Người dùng MIUI có thể cần chuyển kiểu thông báo sang "Android" từ "Thông báo" - "Bóng thông báo" trong cài đặt hệ thống.</string>
+    <string name="comput_no_macros">Chưa có macro nào được lưu. Nhấp vào \'Ghi Macro\' để bắt đầu ghi các lệnh trên bàn điều khiển.</string>
 </resources>

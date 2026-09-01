@@ -175,7 +175,7 @@
     <string name="modules_service_result"><![CDATA[Услугата заврши: излез %d]]></string>
     <string name="modules_service_failed"><![CDATA[Услугата не успеа]]></string>
     <string name="modules_recommand_title"><![CDATA[Препорачај повторно]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Прошири]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Колапс]]></string>
     <string name="modules_recommand_copy"><![CDATA[Копирај]]></string>
@@ -538,4 +538,6 @@
     <string name="settings_compat_stub_none"><![CDATA[Нема достапен канал (прво започнете со Shevery)]]></string>
     <string name="rish_description"><![CDATA[Со %1$s, во која било терминалска апликација, можете да се поврзете и да комуницирате со извршувањата на shell од Shevery.
 За детална употреба на %1$s, допрете за да го видите документот.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Корисниците на MIUI можеби ќе треба да го префрлат стилот на известување во „Android“ од „Notification“ - „Notification shade“ во системските поставки.</string>
+    <string name="comput_no_macros">Сè уште нема зачувани макроа. Кликнете на \'Сними макро\' за да започнете со снимање команди од конзолата.</string>
 </resources>

@@ -165,7 +165,7 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="modules_service_result"><![CDATA[Қызмет аяқталды: шығу коды %d]]></string>
     <string name="modules_service_failed"><![CDATA[Қызмет сәтсіз аяқталды]]></string>
     <string name="modules_recommand_title"><![CDATA[Ұсыныс беру]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Жаю]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Жию]]></string>
     <string name="modules_recommand_copy"><![CDATA[Көшіру]]></string>
@@ -440,7 +440,7 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Тағы бірнеше жайт бар, алдымен көмек бөлімін оқып шыққаныңызға көз жеткізіңіз.]]></string>
     <string name="home_quick_terminal"><![CDATA[Терминал]]></string>
     <string name="home_quick_wireless"><![CDATA[Сымсыз ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Қосымшаларды басқару]]></string>
     <string name="app_management_loading"><![CDATA[Қосымшаларды жүктеу…]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Құрылғыны қосқанда сымсыз қате түзетуді іске қосыңыз]]></string>
@@ -549,4 +549,6 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="settings_compat_stub_failed"><![CDATA[Мұраға қалған stub-ты %2$s арқылы %1$s жасау мүмкін болмады: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Ешқандай арна қолжетімді емес (алдымен Shevery-ді іске қосыңыз)]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[Wi-Fi алғашқы қайта жүктеу үшін қажет, себебі Shevery ADB-ны 5555 портына ауыстырмас бұрын ағымдағы сымсыз ақаулық түзету портына қосылуы керек.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI пайдаланушылары жүйе параметрлеріндегі «Хабарландыру» - «Хабарландыру көлеңкесі» параметрінен хабарландыру стилін «Android» түріне ауыстыру қажет болуы мүмкін.</string>
+    <string name="comput_no_macros">Сақталған макростар әлі жоқ. Консоль пәрмендерін жазуды бастау үшін \'Макро жазу\' түймесін басыңыз.</string>
 </resources>

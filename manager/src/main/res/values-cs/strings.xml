@@ -48,7 +48,7 @@
     <string name="home_status_service_not_running"><![CDATA[%1$s neběží]]></string>
     <string name="home_status_service_is_running"><![CDATA[%1$s běží]]></string>
     <string name="home_root_title"><![CDATA[Start (pro rootovaná zařízení)]]></string>
-    <string name="development_settings"><![CDATA[Developer options]]></string>
+    <string name="development_settings">Možnosti vývojáře</string>
     <string name="adb_pair_required"><![CDATA[Nejprve projděte krok párování.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Systém vyžaduje, aby bylo dialogové okno párování vždy viditelné, použití režimu rozdělené obrazovky je jediný způsob, jak nechat tuto aplikaci a systémový dialog viditelný současně.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Nejprve prosím přejděte do režimu rozdělené obrazovky (více oken).]]></string>
@@ -107,11 +107,11 @@
     <string name="home_adb_is_limited_title"><![CDATA[Je třeba udělat jeden krok navíc]]></string>
         <string name="notification_adb_pairing_searching_for_service_title"><![CDATA[Hledání párovací služby]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Prosím pamatujte, levá strana možnosti "Bezdrátové ladění" se dá rozkliknout, což otevře novou stranu. Pouhé přepnutí přepínače napravo je nesprávné.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check">Zkontrolujte aktualizace na pozadí</string>
+    <string name="shevery_update_auto_check_summary">Hledejte nové verze, i když je aplikace zavřená</string>
+    <string name="update_settings_frequency_label">Zkontrolujte frekvenci</string>
+    <string name="home_update_available_title">Dostupná aktualizace Shevery: %s</string>
+    <string name="home_update_available_body">Novější verze je připravena. Klepnutím stáhnete.</string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Přejít nahoru]]></string>
     <string name="accessibility_close"><![CDATA[Zavřít]]></string>
@@ -127,7 +127,7 @@
     <string name="home_app_management_empty"><![CDATA[Zde se zobrazí aplikace, které požádaly o přístup k Shevery nebo jej deklarovaly.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminál]]></string>
     <string name="home_quick_wireless"><![CDATA[Bezdrátové ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Správa aplikací]]></string>
     <string name="home_refresh"><![CDATA[Obnovit]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostika]]></string>
@@ -173,7 +173,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[Zobrazit okno „Shevery“ pouze v lokálním webovém rozhraní a pouze v případě, že je internet ve WebView vypnutý.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView – internet]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Povolit navigaci a soubory přes HTTPS. Tím se pro daný WebView deaktivuje vystavení shellového mostu.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download">WebUI ke stažení ()</string>
     <string name="modules_permission_web_download_summary"><![CDATA[Povolit stahování souborů přes HTTPS do složky WebUI, s výjimkou souboru index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Povolit akce na pozadí]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Umožnit nainstalovaným modulům požadovat provádění operací ADB na pozadí v režimu s plným přístupem]]></string>
@@ -204,7 +204,7 @@
     <string name="modules_service_result"><![CDATA[Služba ukončena: exit %d]]></string>
     <string name="modules_service_failed"><![CDATA[Služba selhala]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Rozbalit]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Sbalit]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopírovat]]></string>
@@ -386,7 +386,7 @@
     <string name="backup_section_title"><![CDATA[Zálohy]]></string>
     <string name="comput_title"><![CDATA[Výpočet]]></string>
     <string name="comput_settings"><![CDATA[Nastavení konzole Comput]]></string>
-    <string name="comput_adb_console"><![CDATA[ADB Comput Console]]></string>
+    <string name="comput_adb_console">Výpočetní konzole ADB</string>
     <string name="comput_recommand_title"><![CDATA[ReCommand pro počítače]]></string>
     <string name="comput_recommand_summary"><![CDATA[Zobrazit potvrzovací dialogové okno před spuštěním příkazů v konzoli Comput]]></string>
     <string name="comput_recommand_confirmation"><![CDATA[Opravdu chcete tento příkaz ADB spustit v aplikaci Comput?]]></string>
@@ -430,7 +430,7 @@ Spouštím...]]></string>
 Připraveno k přijímání příkazů.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Vysvětlení AI]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
-    <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>
+    <string name="comput_commandium_assistant">Commandium AI asistent</string>
     <string name="comput_commandium_description"><![CDATA[Vytvářejte příkazy pro příkazový řádek pomocí přirozeného jazyka. Gemini vygeneruje nezpracovaný příkaz, který lze zkopírovat.]]></string>
     <string name="comput_commandium_label"><![CDATA[Jaký příkaz potřebujete?]]></string>
     <string name="comput_commandium_placeholder"><![CDATA[např. Najít všechny soubory větší než 10 MB v adresáři /sdcard]]></string>
@@ -460,7 +460,7 @@ Připraveno k přijímání příkazů.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Název makra]]></string>
     <string name="comput_save"><![CDATA[Uložit]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminál]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makra]]></string>
     <string name="comput_tab_presets"><![CDATA[Předvolby]]></string>
     <string name="comput_quick_chips"><![CDATA[Rychlé akce]]></string>
@@ -552,4 +552,6 @@ Funkce exportu využívá SAF (Storage Access Framework). Podle dostupných info
 <p>Podrobné informace o použití %1$s najdete v dokumentu, který si můžete zobrazit klepnutím.]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
 bylo zkopírováno do schránky.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Uživatelé MIUI možná budou muset přepnout styl oznámení na „Android“ z „Oznámení“ - „Odstín oznámení“ v nastavení systému.</string>
+    <string name="comput_no_macros">Zatím žádná uložená makra. Kliknutím na \'Zaznamenat makro\' zahájíte nahrávání příkazů konzole.</string>
 </resources>

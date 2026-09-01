@@ -62,7 +62,7 @@
     <string name="home_learn_more_description"><![CDATA[Shizuku로 개발하는 방법 알아보기]]></string>
     <string name="home_quick_terminal"><![CDATA[터미널]]></string>
     <string name="home_quick_wireless"><![CDATA[무선 ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[앱 관리]]></string>
     <string name="home_refresh"><![CDATA[새로고침]]></string>
     <string name="home_diagnostics_title"><![CDATA[진단]]></string>
@@ -149,7 +149,7 @@
     <string name="modules_service_result"><![CDATA[서비스 완료: 종료 코드 %d]]></string>
     <string name="modules_service_failed"><![CDATA[서비스 실패]]></string>
     <string name="modules_recommand_title"><![CDATA[재명령]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[펼치기]]></string>
     <string name="modules_recommand_collapse"><![CDATA[접기]]></string>
     <string name="modules_recommand_copy"><![CDATA[복사]]></string>
@@ -551,4 +551,6 @@
 실행 중...]]></string>
     <string name="comput_console_initialized"><![CDATA[콘솔이 초기화되었습니다. 권한이 부여된 Shevery 서비스가 연결되었습니다.
 명령어를 입력할 준비가 되었습니다.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI 사용자는 시스템 설정의 "알림" - "알림 음영"에서 알림 스타일을 "Android"로 전환해야 할 수도 있습니다.</string>
+    <string name="comput_no_macros">아직 저장된 매크로가 없습니다. 콘솔 명령 기록을 시작하려면 \'Record Macro\'를 클릭하세요.</string>
 </resources>

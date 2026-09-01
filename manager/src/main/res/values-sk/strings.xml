@@ -6,7 +6,7 @@
     <string name="home_update_available_title"><![CDATA[Dostupná aktualizácia Shevery: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Pripravená je novšia verzia. Klepnutím stiahnete.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Prejsť hore]]></string>
     <string name="accessibility_close"><![CDATA[Zatvoriť]]></string>
     <string name="accessibility_more_options"><![CDATA[Ďalšie možnosti]]></string>
@@ -79,7 +79,7 @@ Príčinou môže byť porucha mechanizmu KeyStore v tomto zariadení.]]></strin
     <string name="home_learn_more_description"><![CDATA[Zistite, ako programovať s Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminál]]></string>
     <string name="home_quick_wireless"><![CDATA[Bezdrôtové ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Správa aplikácií]]></string>
     <string name="home_refresh"><![CDATA[Obnoviť]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostika]]></string>
@@ -189,7 +189,7 @@ Funkcia exportu využíva SAF (Storage Access Framework). Podľa správ MIUI nar
     <string name="modules_service_result"><![CDATA[Služba bola ukončená: exit %d]]></string>
     <string name="modules_service_failed"><![CDATA[Služba zlyhala]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Rozbaliť]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Zložiť]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopírovať]]></string>
@@ -300,7 +300,7 @@ bol skopírovaný do schránky.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Služba Shevery sa neočakávane zastavila.]]></string>
     <string name="watchdog_service_title"><![CDATA[Dohľadový systém Shevery je aktívny]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitorovanie služby Shevery na účely obnovy spojenia typu „keep-alive“]]></string>
-    <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
+    <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Začiatok Shevery]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Zapínam ladenie cez Wi-Fi…]]></string>
@@ -481,7 +481,7 @@ Sme pripravení prijímať príkazy.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Názov makra]]></string>
     <string name="comput_save"><![CDATA[Uložiť]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminál]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makrá]]></string>
     <string name="comput_tab_presets"><![CDATA[Prednastavenia]]></string>
     <string name="comput_quick_chips"><![CDATA[Rýchle akcie]]></string>
@@ -551,4 +551,6 @@ Sme pripravení prijímať príkazy.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Odstránený starý odkaz]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Nepodarilo sa %1$s starý stub prostredníctvom %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Žiadny kanál nie je k dispozícii (najskôr spustite Shevery)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Používatelia MIUI možno budú musieť prepnúť štýl upozornení na „Android“ v časti „Upozornenie“ – „Odtieň upozornení“ v systémových nastaveniach.</string>
+    <string name="comput_no_macros">Zatiaľ žiadne uložené makrá. Kliknutím na \'Nahrať makro\' spustíte nahrávanie príkazov konzoly.</string>
 </resources>

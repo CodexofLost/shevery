@@ -23,7 +23,7 @@
     <string name="home_update_available_title"><![CDATA[Actualització Shevery disponible: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Una versió més nova està preparada. Toqueu per descarregar.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Retornar]]></string>
     <string name="accessibility_close"><![CDATA[Tanca]]></string>
     <string name="accessibility_more_options"><![CDATA[Més opcions]]></string>
@@ -73,7 +73,7 @@
     <string name="home_learn_more_description"><![CDATA[Aprèn a desenvolupar amb Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Tèrmina]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB sense fils]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Gestiona aplicacions]]></string>
     <string name="home_refresh"><![CDATA[Actualitzar]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnòstic]]></string>
@@ -175,7 +175,7 @@
     <string name="modules_service_result"><![CDATA[Servei finalitzat: sortida %d]]></string>
     <string name="modules_service_failed"><![CDATA[El servei ha fallat]]></string>
     <string name="modules_recommand_title"><![CDATA[Recomanar]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s/%2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Expandir]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Col·lapse]]></string>
     <string name="modules_recommand_copy"><![CDATA[Copia]]></string>
@@ -249,11 +249,11 @@
     <string name="dialog_requesting_legacy_message"><![CDATA[%1$s té suport modern per a Shevery, però sol·licita Shevery antic. Això podria ser perquè Shevery no s\'està executant; si us plau, comproveu-ho a l\'aplicació Shevery.Shevery antic ha estat obsolet des del març de 2019.]]></string>
     <string name="lab_features_title"><![CDATA[Característiques del laboratori]]></string>
     <string name="lab_features_summary"><![CDATA[Característiques experimentals]]></string>
-    <string name="shizuku_connectors_title"><![CDATA[Shevery Connectors]]></string>
+    <string name="shizuku_connectors_title">Connectors Shevery</string>
     <string name="shizuku_connectors_summary"><![CDATA[Permetre que els complements activin Shevery]]></string>
     <string name="unsafe_warning_title"><![CDATA[Avís]]></string>
     <string name="unsafe_warning_message"><![CDATA[Activar aquesta funció és INsegur. Estàs segur?]]></string>
-    <string name="dhizuku_mode_title"><![CDATA[Dhizuku Mode]]></string>
+    <string name="dhizuku_mode_title">Mode Dhizuku</string>
     <string name="dhizuku_mode_summary"><![CDATA[Permeteu que Shevery operi mitjançant un vincle amb Dhizuku]]></string>
     <string name="home_dhizuku_title"><![CDATA[Comença (via Dhizuku)]]></string>
     <string name="home_dhizuku_description"><![CDATA[Per als dispositius gestionats per Dhizuku, podeu iniciar Shevery directament utilitzant privilegis de propietari del dispositiu.]]></string>
@@ -284,8 +284,8 @@
     <string name="notification_watchdog_text"><![CDATA[El servei Shevery s\'ha aturat inesperadament.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery vigilància activa]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoratge del servei Shevery per a la recuperació de la vigència]]></string>
-    <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
-    <string name="notification_startup_channel_name"><![CDATA[Shevery startup]]></string>
+    <string name="notification_control_channel_name">Shevery Control</string>
+    <string name="notification_startup_channel_name">Shevery startup</string>
     <string name="notification_startup_title"><![CDATA[Començant Shevery]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Activant el depurament Wi-Fi…]]></string>
     <string name="notification_startup_connecting"><![CDATA[Connectant-se a l\'ADB…]]></string>
@@ -391,7 +391,7 @@
     <string name="backup_section_title"><![CDATA[Copies de seguretat]]></string>
     <string name="comput_title"><![CDATA[Calcular]]></string>
     <string name="comput_settings"><![CDATA[Configuració de la consola Comput]]></string>
-    <string name="comput_adb_console"><![CDATA[ADB Comput Console]]></string>
+    <string name="comput_adb_console">Consola informàtica ADB</string>
     <string name="comput_recommand_title"><![CDATA[ReCommand per a Comput]]></string>
     <string name="comput_recommand_summary"><![CDATA[Mostra un quadre de diàleg de confirmació abans d\'executar comandes a la consola Comput]]></string>
     <string name="comput_recommand_confirmation"><![CDATA[Estàs segur que vols executar aquesta comanda ADB a Comput?]]></string>
@@ -537,4 +537,6 @@ S\'està executant...]]></string>
     <string name="dialog_adb_discovery_message"><![CDATA[Si us plau, activeu "Depuració sense fil" a "Opcions de desenvolupador". "Depuració sense fil" s\'inactiva automàticament quan canvia la xarxa. Nota: no desactiveu "Opcions de desenvolupador" ni "Depuració per USB", o Shevery s\'aturarà.]]></string>
     <string name="rish_description"><![CDATA[Amb %1$s, a qualsevol aplicació de terminal, podeu connectar-vos i interactuar amb les execucions de la shell de Shevery.
 Sobre l\'ús detallat de %1$s, toqueu per veure el document.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">És possible que els usuaris de MIUI hagin de canviar l\'estil de notificació a "Android" des de "Notificació" - "Ombra de notificació" a la configuració del sistema.</string>
+    <string name="comput_no_macros">Encara no s\'han desat macros. Feu clic a \'Enregistra la macro\' per començar a gravar les ordres de la consola.</string>
 </resources>

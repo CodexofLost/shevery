@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check">Se efter opdateringer i baggrunden</string>
+    <string name="shevery_update_auto_check_summary">Se efter nye versioner, selv når appen er lukket</string>
+    <string name="update_settings_frequency_label">Tjek frekvens</string>
+    <string name="home_update_available_title">En stor opdatering tilgængelig: %s</string>
+    <string name="home_update_available_body">En nyere version er klar. Tryk for at downloade.</string>
     <string name="app_name"><![CDATA[Shevery]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Gå op]]></string>
     <string name="accessibility_close"><![CDATA[Luk]]></string>
     <string name="accessibility_more_options"><![CDATA[Flere muligheder]]></string>
     <string name="accessibility_open_on_github"><![CDATA[Åbn på GitHub]]></string>
     <string name="home_status_service_is_running"><![CDATA[%1$s kører]]></string>
     <string name="home_status_service_not_running"><![CDATA[%1$s kører ikke]]></string>
-    <string name="home_status_service_version"><![CDATA[Version %2$s, %1$s]]></string>
+    <string name="home_status_service_version">Version %2$s, %1$s</string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Start forfra for at opdatere til version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[Start med at oprette forbindelse til en computer]]></string>
     <string name="home_adb_description"><![CDATA[På enheder uden root-adgang skal du bruge adb til at starte Shevery (kræver forbindelse til en computer). Denne fremgangsmåde skal gentages hver gang enheden genstartes. Læs venligst <b><a href="%1$s">hjælpen</a></b>.]]></string>
@@ -79,7 +79,7 @@ Dette kan skyldes, at KeyStore-mekanismen på denne enhed er beskadiget.]]></str
     <string name="home_learn_more_description"><![CDATA[Lær, hvordan du udvikler med Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Trådløs ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Administrer apps]]></string>
     <string name="home_refresh"><![CDATA[Opdater]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostik]]></string>
@@ -137,7 +137,7 @@ Eksportfunktionen bruger SAF (Storage Access Framework). Det forlyder, at MIUI f
     <string name="modules_settings_title"><![CDATA[Moduler]]></string>
     <string name="modules_settings_summary"><![CDATA[Installer ZIP-moduler, og kør deres handlinger via den aktive Shevery ADB/root-server]]></string>
     <string name="modules_header_summary"><![CDATA[%1$d installeret, %2$d aktiveret]]></string>
-    <string name="modules_version_label"><![CDATA[Version: %s]]></string>
+    <string name="modules_version_label">Version: %s</string>
     <string name="modules_author_label"><![CDATA[Forfatter: %s]]></string>
     <string name="modules_access_mode"><![CDATA[Moduladgangstilstand]]></string>
     <string name="modules_access_mode_safe"><![CDATA[Sikker]]></string>
@@ -156,7 +156,7 @@ Eksportfunktionen bruger SAF (Storage Access Framework). Det forlyder, at MIUI f
     <string name="modules_permission_web_bridge_summary"><![CDATA[Vis vinduet »Shevery« kun i den lokale WebUI og kun, når internetforbindelsen i WebView er slået fra.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView på internettet]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Tillad HTTPS-navigation/ressourcer. Dette deaktiverer eksponering via shell-broen for den pågældende WebView.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download">WebUI download()</string>
     <string name="modules_permission_web_download_summary"><![CDATA[Tillad download af HTTPS-filer til WebUI-mappen, undtagen index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Tillad handlinger i baggrunden]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Giv installerede moduler tilladelse til at anmode om ADB-opgaver i baggrunden i tilstand med fuld adgang]]></string>
@@ -187,7 +187,7 @@ Eksportfunktionen bruger SAF (Storage Access Framework). Det forlyder, at MIUI f
     <string name="modules_service_result"><![CDATA[Tjenesten er afsluttet: afslut %d]]></string>
     <string name="modules_service_failed"><![CDATA[Tjenesten mislykkedes]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Udvid]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Skjul]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopier]]></string>
@@ -221,7 +221,7 @@ Eksportfunktionen bruger SAF (Storage Access Framework). Det forlyder, at MIUI f
     <string name="action_about"><![CDATA[Om]]></string>
     <string name="about_source_code_button"><![CDATA[Kildekode]]></string>
     <string name="about_view_source_code"><![CDATA[Se kildekoden på %s]]></string>
-    <string name="action_stop"><![CDATA[Stop Shevery]]></string>
+    <string name="action_stop">Stop Shevery</string>
     <string name="dialog_stop_message"><![CDATA[Shevery-tjenesten vil blive indstillet.]]></string>
     <string name="service_already_stopped"><![CDATA[Shevery-tjenesten er allerede indstillet.]]></string>
     <string name="service_stop_success"><![CDATA[Shevery-tjenesten er indstillet.]]></string>
@@ -269,7 +269,7 @@ h er blevet kopieret til udklipsholderen.]]></string>
     <string name="unsafe_warning_message"><![CDATA[Det er FARLIGT at aktivere denne funktion. Er du sikker?]]></string>
     <string name="dhizuku_mode_title"><![CDATA[Dhizuku-tilstand]]></string>
     <string name="dhizuku_mode_summary"><![CDATA[Giv Shevery mulighed for at fungere ved at knytte sig til Dhizuku]]></string>
-    <string name="home_dhizuku_title"><![CDATA[Start (via Dhizuku)]]></string>
+    <string name="home_dhizuku_title">Start (via Dhizuku)</string>
     <string name="home_dhizuku_description"><![CDATA[For enheder, der administreres af Dhizuku, kan du starte Shevery direkte ved hjælp af rettighederne som enhedsejer.]]></string>
     <string name="dhizuku_warning_title"><![CDATA[Advarsel: Dhizuku-tilstand]]></string>
     <string name="dhizuku_warning_message"><![CDATA[Dhizuku er udviklet til enhedsejer- og administratorrettigheder. Visse shell- og ADB-specifikke kommandoer fungerer muligvis ikke korrekt eller understøttes slet ikke, når Shevery køres via Dhizuku. Er du sikker på, at du vil fortsætte?]]></string>
@@ -356,7 +356,7 @@ h er blevet kopieret til udklipsholderen.]]></string>
     <string name="shevery_update_up_to_date"><![CDATA[Shevery er opdateret (%s)]]></string>
     <string name="shevery_update_available_title"><![CDATA[Der er en ny opdatering til Shevery tilgængelig!]]></string>
     <string name="shevery_update_available_msg"><![CDATA[Version %1$s er tilgængelig (nuværende: %2$s)]]></string>
-    <string name="shevery_update_download_apk"><![CDATA[Download APK]]></string>
+    <string name="shevery_update_download_apk">Download APK</string>
     <string name="shevery_update_view_release"><![CDATA[Se på GitHub]]></string>
     <string name="shevery_update_channel"><![CDATA[Opdateringskanal]]></string>
     <string name="shevery_update_channel_summary"><![CDATA[Vælg opdateringskanal]]></string>
@@ -466,7 +466,7 @@ Klar til kommandoer.]]></string>
     <string name="comput_status_error"><![CDATA[Fejl]]></string>
     <string name="comput_console_section"><![CDATA[Konsol]]></string>
     <string name="comput_console_macros"><![CDATA[Makrokonsol]]></string>
-    <string name="comput_stop"><![CDATA[Stop (%1$d)]]></string>
+    <string name="comput_stop">Stop (%1$d)</string>
     <string name="comput_record_macro"><![CDATA[Optag makro]]></string>
     <string name="comput_recording_active"><![CDATA[Optagelse i gang. Kør kommandoer via hovedindgangen for at føje dem til denne makro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Gemte makroer]]></string>
@@ -479,7 +479,7 @@ Klar til kommandoer.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Makronavn]]></string>
     <string name="comput_save"><![CDATA[Gem]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makroer]]></string>
     <string name="comput_tab_presets"><![CDATA[Forudindstillinger]]></string>
     <string name="comput_quick_chips"><![CDATA[Hurtige handlinger]]></string>
@@ -551,4 +551,6 @@ Klar til kommandoer.]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Ingen kanal tilgængelig (start med Shevery først)]]></string>
     <string name="rish_description"><![CDATA[Med %1$s kan du i enhver terminal-app oprette forbindelse til og interagere med de shell-processer, der køres af Shevery.
 <p>Om den detaljerede brug af %1$s: Tryk her for at se dokumentet.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI-brugere skal muligvis skifte notifikationsstil til "Android" fra "Notifikation" - "Notifikationsskygge" i systemindstillinger.</string>
+    <string name="comput_no_macros">Ingen gemte makroer endnu. Klik på \'Optag makro\' for at begynde at optage konsolkommandoer.</string>
 </resources>

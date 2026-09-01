@@ -66,7 +66,7 @@
     <string name="home_learn_more_description"><![CDATA[Shevery менен иштеп чыгууну үйрөнүңүз]]></string>
     <string name="home_quick_terminal"><![CDATA[Терминал]]></string>
     <string name="home_quick_wireless"><![CDATA[Зымсыз ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Колдонмолорду башкаруу]]></string>
     <string name="home_refresh"><![CDATA[Жаңыртуу]]></string>
     <string name="home_diagnostics_title"><![CDATA[Диагностика]]></string>
@@ -156,7 +156,7 @@
     <string name="modules_service_result"><![CDATA[Кызмат аяктады: код %d]]></string>
     <string name="modules_service_failed"><![CDATA[Кызмат оңунан чыккан жок]]></string>
     <string name="modules_recommand_title"><![CDATA[Recommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Жайуу]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Жыйноо]]></string>
     <string name="modules_recommand_copy"><![CDATA[Көчүрүү]]></string>
@@ -402,7 +402,7 @@
     <string name="comput_macro_name_label"><![CDATA[Макрос Аты]]></string>
     <string name="comput_save"><![CDATA[Сактоо]]></string>
     <string name="comput_tab_terminal"><![CDATA[Терминал]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI студиясы</string>
     <string name="comput_tab_macros"><![CDATA[Макростор]]></string>
     <string name="comput_tab_presets"><![CDATA[Даяр командалар]]></string>
     <string name="comput_quick_chips"><![CDATA[Тез аракеттер]]></string>
@@ -428,7 +428,7 @@
     <string name="diagnostics_unknown"><![CDATA[белгисиз]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
     <string name="error_protect_summary"><![CDATA[Процесстин абалын текшерүү жана ката чыкса автоматтык кайра иштетүү.]]></string>
-    <string name="settings_tcp_5555_title"><![CDATA[TCP Binding 5555]]></string>
+    <string name="settings_tcp_5555_title">TCP Binding 5555</string>
     <string name="settings_tcp_5555_summary"><![CDATA[ADBди 5555 портуна туташтыруу.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555ке туташтыруу]]></string>
     <string name="settings_tcp_5555_bind_success"><![CDATA[ADB 5555 портуна ийгиликтүү туташтырылды]]></string>
@@ -537,4 +537,6 @@
     <string name="comput_adb_translate"><![CDATA[ADB буйрук которуу режими активдүү
 Оригинал: %1$s
 Аткарылып жатат...]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI колдонуучулары тутум жөндөөлөрүндөгү "Кабарлоо" - "Эскертме көлөкөсүнөн" "Android" билдирүү стилине которулушу керек болушу мүмкүн.</string>
+    <string name="comput_no_macros">Азырынча сакталган макроолор жок. Консолдун буйруктарын жаздыруу үчүн \'Макро жаздыруу\' чыкылдатыңыз.</string>
 </resources>

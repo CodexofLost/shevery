@@ -10,7 +10,7 @@
     <string name="home_adb_button_view_help"><![CDATA[Hilfe lesen]]></string>
     <string name="home_adb_title"><![CDATA[Verbindung mit dem Compter herstellen]]></string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Erneut starten, um auf Version %3$s zu aktualisieren]]></string>
-    <string name="home_status_service_version"><![CDATA[Version %2$s, %1$s]]></string>
+    <string name="home_status_service_version">Version %2$s, %1$s</string>
     <string name="home_status_service_not_running"><![CDATA[%1$s wird nicht ausgeführt]]></string>
     <string name="home_status_service_is_running"><![CDATA[%1$s läuft]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[ADB-Berechtigungen sind begrenzt]]></string>
@@ -128,7 +128,7 @@
     <string name="home_local_network_permission_denied"><![CDATA[Für die Fehlerbehebung im WLAN ist ein Zugang zum lokalen Netzwerk erforderlich.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Drahtloses ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Apps verwalten]]></string>
     <string name="home_refresh"><![CDATA[Aktualisieren]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnosen]]></string>
@@ -154,7 +154,7 @@
     <string name="modules_settings_title"><![CDATA[Module]]></string>
     <string name="modules_settings_summary"><![CDATA[ZIP-Module installieren und deren Aktionen über den aktiven Shevery-ADB-/Root-Server ausführen]]></string>
     <string name="modules_header_summary"><![CDATA[%1$d installiert, %2$d aktiviert]]></string>
-    <string name="modules_version_label"><![CDATA[Version: %s]]></string>
+    <string name="modules_version_label">Version: %s</string>
     <string name="modules_author_label"><![CDATA[Autor: %s]]></string>
     <string name="modules_access_mode"><![CDATA[Modulzugriffsmodus]]></string>
     <string name="modules_access_mode_safe"><![CDATA[Sicher]]></string>
@@ -173,7 +173,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[Das Fenster „Expose“ anzeigen. Dies gilt nur für die lokale WebUI und nur, wenn die Internetverbindung der WebView deaktiviert ist.]]></string>
     <string name="modules_permission_web_network"><![CDATA[Internet-WebView]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[HTTPS-Navigation/Ressourcen zulassen. Dadurch wird die Shell-Bridge-Freigabe für diese WebView deaktiviert.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download">WebUI-Download()</string>
     <string name="modules_permission_web_download_summary"><![CDATA[HTTPS-Dateidownloads in den WebUI-Ordner zulassen, mit Ausnahme von index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Hintergrundaktionen zulassen]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Installierten Modulen erlauben, ADB-Hintergrundvorgänge im Vollzugriffsmodus anzufordern]]></string>
@@ -204,7 +204,7 @@
     <string name="modules_service_result"><![CDATA[Dienst beendet: Beenden %d]]></string>
     <string name="modules_service_failed"><![CDATA[Der Dienst ist fehlgeschlagen]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Erweitern]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Zusammenklappen]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopieren]]></string>
@@ -299,7 +299,7 @@
     <string name="wadb_error_notify_dev"><![CDATA[Tippen Sie hier, um Shevery neu zu starten.]]></string>
     <string name="wadb_permission_error_notification_title"><![CDATA[Berechtigungsfehler]]></string>
     <string name="wadb_permission_error_notification_content"><![CDATA[Shevery konnte beim Systemstart nicht gestartet werden. Öffnen Sie Shevery, um das Problem zu überprüfen.]]></string>
-    <string name="wadb_notification_channel"><![CDATA[ADB auto-start service]]></string>
+    <string name="wadb_notification_channel">ADB-Autostartdienst</string>
     <string name="wadb_notification_attempt_now"><![CDATA[Jetzt versuchen]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery kandidiert]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery wird gestoppt]]></string>
@@ -448,7 +448,7 @@ Bereit für Befehle.]]></string>
     <string name="comput_status_error"><![CDATA[Fehler]]></string>
     <string name="comput_console_section"><![CDATA[Konsole]]></string>
     <string name="comput_console_macros"><![CDATA[Makro-Konsole]]></string>
-    <string name="comput_stop"><![CDATA[Stop (%1$d)]]></string>
+    <string name="comput_stop">Stopp (%1$d)</string>
     <string name="comput_record_macro"><![CDATA[Makro aufzeichnen]]></string>
     <string name="comput_recording_active"><![CDATA[Aufzeichnung läuft. Führen Sie Befehle über die Haupteingabe aus, um sie diesem Makro hinzuzufügen.]]></string>
     <string name="comput_saved_macros"><![CDATA[Gespeicherte Makros]]></string>
@@ -461,7 +461,7 @@ Bereit für Befehle.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Makroname]]></string>
     <string name="comput_save"><![CDATA[Speichern]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makros]]></string>
     <string name="comput_tab_presets"><![CDATA[Voreinstellungen]]></string>
     <string name="comput_quick_chips"><![CDATA[Schnellaktionen]]></string>
@@ -551,4 +551,6 @@ Möglicherweise müssen Sie Shevery neu starten, damit die Änderung wirksam wir
 Die Exportfunktion nutzt SAF (Storage Access Framework). Es gibt Berichte, dass MIUI die Funktionen von SAF beeinträchtigt. Wenn Sie MIUI verwenden, müssen Sie die Datei möglicherweise aus der APK-Datei von Shevery extrahieren oder von GitHub herunterladen.]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
 wurde in die Zwischenablage kopiert.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI-Benutzer müssen möglicherweise den Benachrichtigungsstil in den Systemeinstellungen von „Benachrichtigung“ – „Benachrichtigungsschatten“ auf „Android“ umstellen.</string>
+    <string name="comput_no_macros">Noch keine gespeicherten Makros. Klicken Sie auf „Makro aufzeichnen“, um mit der Aufzeichnung von Konsolenbefehlen zu beginnen.</string>
 </resources>

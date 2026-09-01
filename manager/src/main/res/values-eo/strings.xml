@@ -77,7 +77,7 @@
     <string name="home_learn_more_description"><![CDATA[Lernu kiel disvolvi kun Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Fina stacio]]></string>
     <string name="home_quick_wireless"><![CDATA[Sendrata ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Administri programojn]]></string>
     <string name="home_refresh"><![CDATA[Rafreŝigi]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnozo]]></string>
@@ -536,4 +536,6 @@ Ekzekutante...]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Neniu kanalo disponebla (komencu per Shevery unue)]]></string>
     <string name="rish_description"><![CDATA[Per %1$s, en ajna terminala aplikaĵo, vi povas konektiĝi al kaj interagi kun la ŝelaj rutoj de Shevery.
 Pri la detala uzado de %1$s, frapetu por vidi la dokumenton.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Uzantoj de MIUI eble bezonos ŝanĝi stilon de sciigo al "Android" de "Sciigo" - "Signo de sciigo" en sistemaj agordoj.</string>
+    <string name="comput_no_macros">Ankoraŭ neniuj konservitaj makrooj. Alklaku \'Registri Makroon\' por komenci registri konzolajn komandojn.</string>
 </resources>

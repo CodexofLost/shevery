@@ -165,7 +165,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="modules_service_result"><![CDATA[サービス終了: コード %d]]></string>
     <string name="modules_service_failed"><![CDATA[サービス失敗]]></string>
     <string name="modules_recommand_title"><![CDATA[再コマンド]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[展開]]></string>
     <string name="modules_recommand_collapse"><![CDATA[折りたたむ]]></string>
     <string name="modules_recommand_copy"><![CDATA[コピー]]></string>
@@ -446,7 +446,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[他にもいくつか留意点がありますので、まずはヘルプをお読みになったことをご確認ください。]]></string>
     <string name="home_quick_terminal"><![CDATA[ターミナル]]></string>
     <string name="home_quick_wireless"><![CDATA[ワイヤレスADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[アプリの管理]]></string>
     <string name="app_management_loading"><![CDATA[アプリを読み込み中…]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[起動時にワイヤレスデバッグを開始する]]></string>
@@ -551,4 +551,6 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[%2$s を使用してレガシースタブを %1$s できませんでした: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[利用可能なチャンネルはありません（まずは「Shevery」から始めてください）]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[最初の再起動時にはWi-Fiが必要です。これは、ADBを5555に切り替える前に、Sheveryが現在のワイヤレスデバッグポートに接続する必要があるためです。]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUIユーザーは、システム設定の「通知」-「通知シェード」から通知スタイルを「Android」に切り替える必要がある場合があります。</string>
+    <string name="comput_no_macros">保存されたマクロはまだありません。 「マクロの記録」をクリックして、コンソール コマンドの記録を開始します。</string>
 </resources>

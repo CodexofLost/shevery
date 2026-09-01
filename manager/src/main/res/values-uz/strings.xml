@@ -64,7 +64,7 @@
     <string name="home_learn_more_description"><![CDATA[Shevery bilan dasturlashni o\'rganing]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Simsiz ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Ilovalarni boshqarish]]></string>
     <string name="home_refresh"><![CDATA[Yangilash]]></string>
     <string name="home_diagnostics_title"><![CDATA[Tashxis (Diagnostics)]]></string>
@@ -154,7 +154,7 @@
     <string name="modules_service_result"><![CDATA[Xizmat yakunlandi: kod %d]]></string>
     <string name="modules_service_failed"><![CDATA[Xizmat bajarilmadi]]></string>
     <string name="modules_recommand_title"><![CDATA[Tavsiya buyrug'i]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Yoyish]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Yig\'ish]]></string>
     <string name="modules_recommand_copy"><![CDATA[Nusxalash]]></string>
@@ -400,7 +400,7 @@
     <string name="comput_macro_name_label"><![CDATA[Makros Nomi]]></string>
     <string name="comput_save"><![CDATA[Saqlash]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makroslar]]></string>
     <string name="comput_tab_presets"><![CDATA[Tayyor buyruqlar]]></string>
     <string name="comput_quick_chips"><![CDATA[Tezkor amallar]]></string>
@@ -411,7 +411,7 @@
     <string name="diagnostics_android"><![CDATA[Android]]></string>
     <string name="diagnostics_service"><![CDATA[Xizmat]]></string>
     <string name="diagnostics_server_uid"><![CDATA[Server UID]]></string>
-    <string name="diagnostics_server_api"><![CDATA[Server API]]></string>
+    <string name="diagnostics_server_api">Server API</string>
     <string name="diagnostics_selinux"><![CDATA[SELinux]]></string>
     <string name="diagnostics_adb_permission"><![CDATA[ADB ruxsati]]></string>
     <string name="diagnostics_authorized_apps"><![CDATA[Ruxsat berilgan ilovalar]]></string>
@@ -535,4 +535,6 @@ Ijro etilmoqda...]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Meros qoldirilgan stub olib tashlandi]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Meros stubini %2$s orqali %1$s qilish muvaffaqiyatsiz bo\'ldi: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Hech qanday kanal mavjud emas (avvalo Sheveryni ishga tushiring)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI foydalanuvchilari tizim sozlamalarida bildirishnoma uslubini “Xabarnoma” – “Bildirishnomalar soyasi”dan “Android”ga o‘tkazishlari kerak bo‘lishi mumkin.</string>
+    <string name="comput_no_macros">Hali saqlangan makroslar yo\'q. Konsol buyruqlarini yozishni boshlash uchun "Makroni yozib olish" tugmasini bosing.</string>
 </resources>

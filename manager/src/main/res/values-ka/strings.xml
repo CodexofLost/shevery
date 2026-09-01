@@ -177,7 +177,7 @@
     <string name="modules_service_result"><![CDATA[მომსახურება დასრულდა: გასვლა %d]]></string>
     <string name="modules_service_failed"><![CDATA[მომსახურება ვერ შესრულდა]]></string>
     <string name="modules_recommand_title"><![CDATA[რეკომენდაცია]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[გაფართოება]]></string>
     <string name="modules_recommand_collapse"><![CDATA[შეწყვეტა]]></string>
     <string name="modules_recommand_copy"><![CDATA[ასლის გადაღება]]></string>
@@ -540,4 +540,6 @@
     <string name="settings_compat_stub_none"><![CDATA[არხი არ არის ხელმისაწვდომი (დაიწყეთ Shevery პირველი)]]></string>
     <string name="rish_description"><![CDATA[%1$s-ის გამოყენებით, ნებისმიერ ტერმინალის აპლიკაციაში შეგიძლიათ დაუკავშირდეთ და იმუშაოთ Shevery-ს მიერ გაშვებულ შელებთან.
 %1$s-ის დეტალური გამოყენებისთვის, დააჭირეთ დოკუმენტის სანახავად.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI მომხმარებლებს შეიძლება დასჭირდეთ შეტყობინებების სტილის შეცვლა „Android“-ზე „Notification“-დან - „Notification shade“ სისტემის პარამეტრებში.</string>
+    <string name="comput_no_macros">შენახული მაკრო ჯერ არ არის. დააწკაპუნეთ \'მაკროს ჩაწერა\' კონსოლის ბრძანებების ჩაწერის დასაწყებად.</string>
 </resources>

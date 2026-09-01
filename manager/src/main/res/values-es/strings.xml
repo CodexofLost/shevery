@@ -445,7 +445,7 @@ Listo para comandos.]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Hay algunas otras cuestiones que debes tener en cuenta; por favor, confirma que has leído primero la ayuda.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB inalámbrico]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Gestionar aplicaciones]]></string>
     <string name="app_management_loading"><![CDATA[Cargando aplicaciones…]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Iniciar al arrancar el sistema mediante depuración inalámbrica]]></string>
@@ -508,7 +508,7 @@ Listo para comandos.]]></string>
     <string name="comput_status_error"><![CDATA[Error]]></string>
     <string name="comput_console_section"><![CDATA[Consola]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">Estudio de IA</string>
     <string name="comput_tab_macros"><![CDATA[macros]]></string>
     <string name="comput_tab_presets"><![CDATA[Ajustes predefinidos]]></string>
     <string name="comput_quick_chips"><![CDATA[Acciones rápidas]]></string>
@@ -551,4 +551,6 @@ Listo para comandos.]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[No se ha podido %1$s el stub heredado mediante %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[No hay ningún canal disponible (empieza primero por Shevery)]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[Se necesita conexión Wi-Fi para el primer reinicio, ya que Shevery debe conectarse al puerto de depuración inalámbrico actual antes de cambiar el ADB al 5555.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Es posible que los usuarios de MIUI necesiten cambiar el estilo de notificación a "Android" desde "Notificación" - "Tono de notificación" en la configuración del sistema.</string>
+    <string name="comput_no_macros">Aún no hay macros guardadas. Haga clic en \'Grabar macro\' para comenzar a grabar los comandos de la consola.</string>
 </resources>

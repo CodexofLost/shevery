@@ -109,11 +109,11 @@
     <string name="dialog_requesting_legacy_title"><![CDATA[Humihiling ng makalumang Shizuku ang %1$s]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku"><![CDATA[Buksan ang Shizuku]]></string>
     <string name="dialog_requesting_legacy_message"><![CDATA[Suportado ng <b>%1$s</b> ang makabagong Shizuku, pero humihiling ito nang makalumang Shizuku. Pakitingnan sa Shizuku app kung tumatakbo ba nang maayos ang Shizuku dahil baka ito ay dahil nagkakaproblema ang Shizuku.<p>Hindi na suportado ang makalumang Shizuku simula Marso 2019.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check">Tingnan kung may mga update sa background</string>
+    <string name="shevery_update_auto_check_summary">Maghanap ng mga bagong bersyon kahit na sarado ang app</string>
+    <string name="update_settings_frequency_label">Suriin ang dalas</string>
+    <string name="home_update_available_title">Magagamit ang napakaraming update: %s</string>
+    <string name="home_update_available_body">Ang isang mas bagong bersyon ay handa na. I-tap para mag-download.</string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Mag-navigate pataas]]></string>
     <string name="accessibility_close"><![CDATA[Isara]]></string>
@@ -128,7 +128,7 @@
     <string name="home_local_network_permission_denied"><![CDATA[Kinakailangan ang lokal na pag-access sa network para sa pag-debug ng Wireless.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Walang-samban ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Pamamahala ng mga app]]></string>
     <string name="home_refresh"><![CDATA[I-refresh]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostika]]></string>
@@ -150,7 +150,7 @@
     <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Paano gamitin:
 1. Ikonekta ang aparato sa kompyuter (USB o wireless debugging).
 2. Sa terminal, patakbuhin ang utos mula sa patlang sa itaas.]]></string>
-    <string name="modules_title"><![CDATA[ADB Modules]]></string>
+    <string name="modules_title">Mga Module ng ADB</string>
     <string name="modules_settings_title"><![CDATA[Mga Modulo]]></string>
     <string name="modules_settings_summary"><![CDATA[I-install ang mga ZIP module at patakbuhin ang kanilang mga aksyon sa pamamagitan ng aktibong Shevery ADB/root server.]]></string>
     <string name="modules_header_summary"><![CDATA[%1$d naka-install, %2$d naka-enable]]></string>
@@ -204,7 +204,7 @@
     <string name="modules_service_result"><![CDATA[Natapos ang serbisyo: lumabas %d]]></string>
     <string name="modules_service_failed"><![CDATA[Nabigo ang serbisyo]]></string>
     <string name="modules_recommand_title"><![CDATA[Muling Irekomenda]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Palawakin]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Ibagsak]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopya]]></string>
@@ -245,11 +245,11 @@
     <string name="starting_root_shell"><![CDATA[Sinimulan ang root shell…]]></string>
     <string name="lab_features_title"><![CDATA[Mga Tampok ng Lab]]></string>
     <string name="lab_features_summary"><![CDATA[Mga eksperimentong tampok]]></string>
-    <string name="shizuku_connectors_title"><![CDATA[Shevery Connectors]]></string>
+    <string name="shizuku_connectors_title">Mga Konektor ng Shevery</string>
     <string name="shizuku_connectors_summary"><![CDATA[Payagan ang mga plugin na i-aktiba ang Shevery]]></string>
     <string name="unsafe_warning_title"><![CDATA[Babala]]></string>
     <string name="unsafe_warning_message"><![CDATA[Ang pagpapagana ng tampok na ito ay hindi ligtas. Sigurado ka ba?]]></string>
-    <string name="dhizuku_mode_title"><![CDATA[Dhizuku Mode]]></string>
+    <string name="dhizuku_mode_title">Dhizuku Mode</string>
     <string name="dhizuku_mode_summary"><![CDATA[Payagan si Shevery na mag-operate sa pamamagitan ng pag-uugnay kay Dhizuku.]]></string>
     <string name="home_dhizuku_title"><![CDATA[Magsimula (sa pamamagitan ng Dhizuku)]]></string>
     <string name="home_dhizuku_description"><![CDATA[Para sa mga aparatong pinamamahalaan ng Dhizuku, maaari mong simulan nang direkta ang Shevery gamit ang mga pribilehiyo ng Device Owner.]]></string>
@@ -387,7 +387,7 @@
     <string name="backup_section_title"><![CDATA[Mga kopya ng reserba]]></string>
     <string name="comput_title"><![CDATA[Kalkulahin]]></string>
     <string name="comput_settings"><![CDATA[I-set up ang mga setting ng console]]></string>
-    <string name="comput_adb_console"><![CDATA[ADB Comput Console]]></string>
+    <string name="comput_adb_console">ADB Comput Console</string>
     <string name="comput_recommand_title"><![CDATA[ReCommand para sa Comput]]></string>
     <string name="comput_recommand_summary"><![CDATA[Ipakita ang dialog ng kumpirmasyon bago patakbuhin ang mga utos sa Comput console]]></string>
     <string name="comput_recommand_confirmation"><![CDATA[Sigurado ka bang gusto mong isagawa ang utos na ADB na ito sa Comput?]]></string>
@@ -406,7 +406,7 @@
     <string name="comput_gemini_failed"><![CDATA[Hindi naabot ang Gemini API: %1$s]]></string>
     <string name="comput_gemini_no_details"><![CDATA[Walang detalye.]]></string>
     <string name="comput_sh_mode"><![CDATA[kasama ang Mode]]></string>
-    <string name="comput_adb_mode"><![CDATA[adb Mode]]></string>
+    <string name="comput_adb_mode">adb Mode</string>
     <string name="comput_command_label"><![CDATA[Utos]]></string>
     <string name="comput_command_placeholder"><![CDATA[hal. pm list packages]]></string>
     <string name="comput_run"><![CDATA[Tumakbo]]></string>
@@ -440,7 +440,7 @@ Isinasagawa...]]></string>
     <string name="comput_use_command"><![CDATA[Gamitin ang utos]]></string>
     <string name="comput_copied_to_clipboard"><![CDATA[Nakalipat sa clipboard]]></string>
     <string name="comput_copy_command"><![CDATA[Kopya ng utos]]></string>
-    <string name="comput_hero_title"><![CDATA[Shevery Console]]></string>
+    <string name="comput_hero_title">Shevery Console</string>
     <string name="comput_hero_subtitle"><![CDATA[Makapangyarihang shell terminal sa iyong aparato, pinapagana ng Shizuku.]]></string>
     <string name="comput_status_ready"><![CDATA[Handa]]></string>
     <string name="comput_status_running"><![CDATA[Pagtakbo]]></string>
@@ -460,7 +460,7 @@ Isinasagawa...]]></string>
     <string name="comput_macro_name_label"><![CDATA[Pangalan ng Macro]]></string>
     <string name="comput_save"><![CDATA[I-save]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makro]]></string>
     <string name="comput_tab_presets"><![CDATA[Mga paunang setting]]></string>
     <string name="comput_quick_chips"><![CDATA[Mabilis na Mga Aksyon]]></string>
@@ -540,4 +540,6 @@ Pagkatapos magsimula ang proseso ng pag-paring, maaari mo nang ilagay ang pairin
     <string name="terminal_tutorial_1_description"><![CDATA[Kung may mga file na magkapangalan sa napiling folder, mabubura ang mga ito.   Gumagamit ang export function ng SAF (Storage Access Framework). Iniulat na sinisira ng MIUI ang mga function ng SAF. Kung gumagamit ka ng MIUI, maaaring kailangan mong i-extract ang file mula sa apk ni Shevery o i-download ito mula sa GitHub.]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[Na-kopya na sa clipboard ang %s
 .]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Maaaring kailanganin ng mga user ng MIUI na ilipat ang istilo ng notification sa "Android" mula sa "Notification" - "Notification shade" sa mga setting ng system.</string>
+    <string name="comput_no_macros">Wala pang naka-save na macro. I-click ang \'Record Macro\' upang simulan ang pagre-record ng mga console command.</string>
 </resources>

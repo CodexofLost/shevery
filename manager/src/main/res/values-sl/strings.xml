@@ -50,7 +50,7 @@
     <string name="home_update_available_title"><![CDATA[Na voljo je posodobitev Shevery: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Novejša različica je pripravljena. Tapnite za prenos.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Pojdi navzgor]]></string>
     <string name="accessibility_close"><![CDATA[Zapri]]></string>
     <string name="accessibility_more_options"><![CDATA[Več možnosti]]></string>
@@ -100,7 +100,7 @@ To je morda posledica okvare mehanizma KeyStore na tej napravi.]]></string>
     <string name="home_learn_more_description"><![CDATA[Izvedite, kako razvijati z Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Brezžični ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Upravljanje aplikacij]]></string>
     <string name="home_refresh"><![CDATA[Osveži]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostika]]></string>
@@ -173,7 +173,7 @@ Funkcija izvoza uporablja SAF (Storage Access Framework). Po poročilih naj bi M
     <string name="modules_permission_service_summary"><![CDATA[Omogoči izvajanje skripta service.sh, tudi če so omogočene dejavnosti v ozadju.]]></string>
     <string name="modules_permission_web_bridge"><![CDATA[Most med WebUI in lupino]]></string>
     <string name="modules_permission_web_bridge_summary"><![CDATA[Prikaži okno »Shevery« samo za lokalni WebUI in samo takrat, ko je internet v WebView izklopljen.]]></string>
-    <string name="modules_permission_web_network"><![CDATA[WebView internet]]></string>
+    <string name="modules_permission_web_network">WebView internet</string>
     <string name="modules_permission_web_network_summary"><![CDATA[Omogoči navigacijo/vsebine prek HTTPS. S tem se onemogoči izpostavljenost mostu lupine za ta WebView.]]></string>
     <string name="modules_permission_web_download"><![CDATA[Prenos spletnega uporabniškega vmesnika()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Omogoči prenašanje datotek prek HTTPS v mapo WebUI, razen datoteke index.html.]]></string>
@@ -206,7 +206,7 @@ Funkcija izvoza uporablja SAF (Storage Access Framework). Po poročilih naj bi M
     <string name="modules_service_result"><![CDATA[Storitev je končana: izhod %d]]></string>
     <string name="modules_service_failed"><![CDATA[Storitev ni uspela]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Razširi]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Zloži]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopiraj]]></string>
@@ -301,7 +301,7 @@ je bil kopiran v odložišče.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Storitev Shevery se je nepričakovano ustavila.]]></string>
     <string name="watchdog_service_title"><![CDATA[Nadzorni sistem Shevery je aktiven]]></string>
     <string name="watchdog_service_text"><![CDATA[Spremljanje storitve Shevery za obnovo povezave »keep-alive«]]></string>
-    <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
+    <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Začetek Shevery]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Vklop razhroščevanja prek Wi-Fi-ja…]]></string>
@@ -482,7 +482,7 @@ Pripravljena za ukaze.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Ime makra]]></string>
     <string name="comput_save"><![CDATA[Shrani]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makroji]]></string>
     <string name="comput_tab_presets"><![CDATA[Prednastavitve]]></string>
     <string name="comput_quick_chips"><![CDATA[Hitri ukrepi]]></string>
@@ -552,4 +552,6 @@ Pripravljena za ukaze.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Odstranjen zastareli stub]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Pri poskusu %1$s starega stub-a prek %2$s je prišlo do napake: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Ni na voljo noben kanal (najprej zaženi Shevery)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Uporabniki MIUI bodo morda morali preklopiti slog obvestil na »Android« iz »Obvestilo« – »Zasenčenje obvestil« v sistemskih nastavitvah.</string>
+    <string name="comput_no_macros">Ni še shranjenih makrov. Kliknite \'Snemaj makro\', da začnete snemati ukaze konzole.</string>
 </resources>

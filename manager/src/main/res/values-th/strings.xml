@@ -222,7 +222,7 @@
     <string name="modules_service_result"><![CDATA[บริการเสร็จสิ้น: ออก %d]]></string>
     <string name="modules_service_failed"><![CDATA[บริการไม่สำเร็จ]]></string>
     <string name="modules_recommand_title"><![CDATA[คำสั่งใหม่]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[ขยาย]]></string>
     <string name="modules_recommand_collapse"><![CDATA[ปิด]]></string>
     <string name="modules_recommand_copy"><![CDATA[คัดลอก]]></string>
@@ -551,4 +551,6 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[ลบหน้า stub ของ Legacy แล้ว]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[ไม่สามารถ %1$s สตั๊บแบบเก่าผ่าน %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[ไม่มีช่องใดให้รับชม (เริ่มจาก Shevery ก่อน)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">ผู้ใช้ MIUI อาจต้องเปลี่ยนรูปแบบการแจ้งเตือนเป็น "Android" จาก "การแจ้งเตือน" - "หน้าต่างแจ้งเตือน" ในการตั้งค่าระบบ</string>
+    <string name="comput_no_macros">ยังไม่มีมาโครที่บันทึกไว้ คลิก \'บันทึกมาโคร\' เพื่อเริ่มบันทึกคำสั่งคอนโซล</string>
 </resources>

@@ -6,7 +6,7 @@
     <string name="home_update_available_title"><![CDATA[Shevery dostupno ažuriranje: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Novija verzija je spremna. Dodirnite za preuzimanje.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Vrati se gore]]></string>
     <string name="accessibility_close"><![CDATA[Zatvori]]></string>
     <string name="accessibility_more_options"><![CDATA[Više opcija]]></string>
@@ -75,7 +75,7 @@ Nakon što proces uparivanja započne, moći ćete unijeti kod za uparivanje.]]>
     <string name="home_learn_more_description"><![CDATA[Naučite kako razvijati sa Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Bežični ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Upravljanje aplikacijama]]></string>
     <string name="home_refresh"><![CDATA[Osvježi]]></string>
     <string name="home_diagnostics_title"><![CDATA[Dijagnostika]]></string>
@@ -177,7 +177,7 @@ Nakon što proces uparivanja započne, moći ćete unijeti kod za uparivanje.]]>
     <string name="modules_service_result"><![CDATA[Usluga završena: izlaz %d]]></string>
     <string name="modules_service_failed"><![CDATA[Usluga je zakazala]]></string>
     <string name="modules_recommand_title"><![CDATA[Preporuči]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Proširi]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Kolaps]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopiraj]]></string>
@@ -468,7 +468,7 @@ Izvršavanje...]]></string>
     <string name="comput_macro_name_label"><![CDATA[Naziv makra]]></string>
     <string name="comput_save"><![CDATA[Sačuvaj]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makroi]]></string>
     <string name="comput_tab_presets"><![CDATA[Preddefinicije]]></string>
     <string name="comput_quick_chips"><![CDATA[Brze radnje]]></string>
@@ -540,4 +540,6 @@ Izvršavanje...]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Nijedan kanal nije dostupan (prvo pokrenite Shevery)]]></string>
     <string name="rish_description"><![CDATA[Pomoću %1$s-a, u bilo kojoj terminalnoj aplikaciji možete se povezati sa shellom i komunicirati s njim.
 Za detaljne upute o korištenju %1$s-a, dodirnite da biste vidjeli dokument.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Korisnici MIUI-a možda će morati promijeniti stil obavijesti na "Android" iz "Obavijest" - "Zaslon obavijesti" u postavkama sustava.</string>
+    <string name="comput_no_macros">Još nema spremljenih makronaredbi. Pritisnite \'Snimi makronaredbu\' za početak snimanja naredbi konzole.</string>
 </resources>

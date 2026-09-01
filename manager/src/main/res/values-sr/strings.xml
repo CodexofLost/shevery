@@ -538,4 +538,6 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[Уклоњена заоставштина]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Покушај %1$s-ања наслеђеног stub-а преко %2$s-а није успео: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Нема доступног канала (прво покрените Shevery)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Корисници МИУИ-ја ће можда морати да пребаце стил обавештења на „Андроид“ из „Обавештења“ – „Света обавештења“ у системским подешавањима.</string>
+    <string name="comput_no_macros">Још нема сачуваних макроа. Кликните на \'Сними макро\' да започнете снимање команди конзоле.</string>
 </resources>

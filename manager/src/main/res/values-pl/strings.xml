@@ -138,7 +138,7 @@ Po rozpoczęciu procesu parowania będzie można wprowadzić kod parowania.]]></
 Może to wynikać z nieprawidłowego działania mechanizmu KeyStore w tym urządzeniu.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Bezprzewodowy ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Zarządzaj aplikacjami]]></string>
     <string name="home_refresh"><![CDATA[Odśwież]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostyka]]></string>
@@ -222,7 +222,7 @@ Funkcja eksportu korzysta z biblioteki SAF (Storage Access Framework). Istnieją
     <string name="modules_service_result"><![CDATA[Usługa zakończona: wyjście %d]]></string>
     <string name="modules_service_failed"><![CDATA[Usługa nie powiodła się]]></string>
     <string name="modules_recommand_title"><![CDATA[Polecenie]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Rozwiń]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Zwiń]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopiuj]]></string>
@@ -551,4 +551,6 @@ Gotowość do przyjmowania poleceń.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Usunięto pozostałość po starej wersji]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Nie udało się %1$s starszej wersji za pomocą %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Brak dostępnego kanału (najpierw uruchom Shevery)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Użytkownicy MIUI mogą potrzebować zmienić styl powiadomień na „Android” z „Powiadomienia” – „Zacień powiadomień” w ustawieniach systemu.</string>
+    <string name="comput_no_macros">Nie ma jeszcze zapisanych makr. Kliknij \'Nagraj makro\', aby rozpocząć nagrywanie poleceń konsoli.</string>
 </resources>

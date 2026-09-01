@@ -128,7 +128,7 @@
     <string name="home_local_network_permission_denied"><![CDATA[Akses jaringan lokal diperlukan untuk proses debugging nirkabel.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB Nirkabel]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Kelola aplikasi]]></string>
     <string name="home_refresh"><![CDATA[Segarkan]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnosis]]></string>
@@ -204,7 +204,7 @@
     <string name="modules_service_result"><![CDATA[Layanan selesai: keluar %d]]></string>
     <string name="modules_service_failed"><![CDATA[Layanan gagal]]></string>
     <string name="modules_recommand_title"><![CDATA[Perintah Ulang]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Perluas]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Sembunyikan]]></string>
     <string name="modules_recommand_copy"><![CDATA[Salin]]></string>
@@ -551,4 +551,6 @@ Anda mungkin perlu me-restart Shevery agar perubahan tersebut berlaku.]]></strin
 Fungsi ekspor ini menggunakan SAF (Storage Access Framework). Dilaporkan bahwa MIUI mengganggu fungsi SAF. Jika Anda menggunakan MIUI, Anda mungkin perlu mengekstrak file tersebut dari apk Shevery atau mengunduhnya dari GitHub.]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
  telah disalin ke papan klip.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Pengguna MIUI mungkin perlu mengganti gaya notifikasi ke "Android" dari "Notification" - "Notification shade" di pengaturan sistem.</string>
+    <string name="comput_no_macros">Belum ada makro yang disimpan. Klik \'Rekam Makro\' untuk mulai merekam perintah konsol.</string>
 </resources>

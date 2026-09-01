@@ -5,7 +5,7 @@
     <string name="update_settings_frequency_label"><![CDATA[پشکنینی فریکانسی]]></string>
     <string name="home_update_available_title"><![CDATA[نوێکردنەوەی شیڤێری بەردەستە: ٪s]]></string>
     <string name="home_update_available_body"><![CDATA[وەشانێکی نوێتر ئامادەیە. نەرم لێبدە بۆ داگرتن.]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234، ڕوڤلاد</string>
     <string name="accessibility_navigate_up"><![CDATA[گەشتکردن بۆ سەرەوە]]></string>
     <string name="accessibility_close"><![CDATA[داخستن]]></string>
     <string name="accessibility_more_options"><![CDATA[هەڵبژاردنی زیاتر]]></string>
@@ -306,7 +306,7 @@ has been copied to clipboard.]]></string>
     <string name="update_settings_github_pat"><![CDATA[هێمای دەستگەیشتنی کەسی]]></string>
     <string name="update_settings_github_pat_set"><![CDATA[کۆمەڵەی تۆکن]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[دانەنراوە (60 داواکاری/کاتژمێر)]]></string>
-    <string name="update_settings_github_pat_title"><![CDATA[GitHub Personal Access Token]]></string>
+    <string name="update_settings_github_pat_title">نیشانەی دەستگەیشتن بە کەسی GitHub</string>
     <string name="update_settings_github_pat_description"><![CDATA[ئارەزوومەندانە. GitHub PAT سنووری رێژەی API لە 60 بۆ 5000 داواکاری لە کاتژمێرێکدا زیاد دەکات. تەنها پێویستی بە public_repo هەیە بۆ عەمباری گشتی.]]></string>
     <string name="update_settings_github_pat_label"><![CDATA[نیشانە]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[پیشاندان]]></string>
@@ -342,7 +342,7 @@ has been copied to clipboard.]]></string>
     <string name="modules_catalog_install_success"><![CDATA[مۆدیول بە سەرکەوتوویی دامەزرا]]></string>
     <string name="modules_catalog_install_failed"><![CDATA[دامەزراندن سەرکەوتوو نەبوو: ٪s]]></string>
     <string name="modules_catalog_token_required"><![CDATA[تۆکنی GitHub پێویستە]]></string>
-    <string name="modules_catalog_token_hint"><![CDATA[GitHub Personal Access Token]]></string>
+    <string name="modules_catalog_token_hint">نیشانەی دەستگەیشتن بە کەسی GitHub</string>
     <string name="modules_catalog_token_description"><![CDATA[تۆکنێک پێویستە بۆ گەڕان لە GitHub بۆ مۆدیولەکان. دەتوانیت دانەیەک دروست بکەیت لە github.com/settings/tokens]]></string>
     <string name="modules_catalog_token_format_warning"><![CDATA[تۆکن دەبێت بە ghp_ یان github_pat_ دەست پێبکات و بەلایەنی کەمەوە 30 پیت بێت]]></string>
     <string name="modules_catalog_loading"><![CDATA[کەتەلۆگ باردەکرێت...]]></string>
@@ -443,7 +443,7 @@ Ready for commands.]]></string>
     <string name="comput_macro_name_label"><![CDATA[ناوی ماکرۆ]]></string>
     <string name="comput_save"><![CDATA[تۆمارکردن]]></string>
     <string name="comput_tab_terminal"><![CDATA[تێرمیناڵ]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">ستۆدیۆی ئای ئای</string>
     <string name="comput_tab_macros"><![CDATA[ماکرۆکان]]></string>
     <string name="comput_tab_presets"><![CDATA[ڕێکخستنی پێشوەخت]]></string>
     <string name="comput_quick_chips"><![CDATA[چالاکیە خێراکان]]></string>

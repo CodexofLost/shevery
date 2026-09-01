@@ -426,12 +426,12 @@ Listo.]]></string>
     <string name="shevery_update_auto_check"><![CDATA[Buscar actualizaciones en segundo plano]]></string>
     <string name="shevery_update_auto_check_summary"><![CDATA[Busque nuevas versiones incluso cuando la aplicación esté cerrada]]></string>
     <string name="home_update_available_title"><![CDATA[Actualización de Shevery disponible: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="home_update_available_body">Una versión más nueva está lista. Toque para descargar.</string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Hay algunas otras cosas que debes tener en cuenta; por favor, confirma que ya leíste la sección de ayuda.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB inalámbrico]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Administrar aplicaciones]]></string>
     <string name="app_management_loading"><![CDATA[Cargando aplicaciones…]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Iniciar al arrancar mediante depuración inalámbrica]]></string>
@@ -496,7 +496,7 @@ Listo.]]></string>
     <string name="comput_status_error"><![CDATA[Error]]></string>
     <string name="comput_console_section"><![CDATA[Consola]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">Estudio de IA</string>
     <string name="comput_tab_macros"><![CDATA[Macros]]></string>
     <string name="comput_tab_presets"><![CDATA[Configuraciones predefinidas]]></string>
     <string name="comput_quick_chips"><![CDATA[Acciones rápidas]]></string>
@@ -542,4 +542,6 @@ Listo.]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[No se pudo %1$s el stub heredado mediante %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[No hay canales disponibles (empieza primero por Shevery)]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[Se requiere conexión Wi-Fi para el primer reinicio, ya que Shevery debe conectarse al puerto de depuración inalámbrico actual antes de cambiar el puerto ADB al 5555.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Es posible que los usuarios de MIUI necesiten cambiar el estilo de notificación a "Android" desde "Notificación" - "Tono de notificación" en la configuración del sistema.</string>
+    <string name="comput_no_macros">Aún no hay macros guardadas. Haga clic en \'Grabar macro\' para comenzar a grabar los comandos de la consola.</string>
 </resources>

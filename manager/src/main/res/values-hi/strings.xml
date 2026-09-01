@@ -183,7 +183,7 @@
     <string name="modules_service_result"><![CDATA[सेवा समाप्त: बाहर निकलें %d]]></string>
     <string name="modules_service_failed"><![CDATA[सेवा विफल हो गई]]></string>
     <string name="modules_recommand_title"><![CDATA[पुनः अनुशंसित करें]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[विस्तार करें]]></string>
     <string name="modules_recommand_collapse"><![CDATA[संकुचन]]></string>
     <string name="modules_recommand_copy"><![CDATA[प्रतिलिपि]]></string>
@@ -546,4 +546,6 @@
     <string name="settings_compat_stub_none"><![CDATA[कोई चैनल उपलब्ध नहीं है (सबसे पहले Shevery शुरू करें)]]></string>
     <string name="rish_description"><![CDATA[किसी भी टर्मिनल ऐप में %1$s के साथ, आप Shevery द्वारा चलाए गए शेल से कनेक्ट कर सकते हैं और उसके साथ इंटरैक्ट कर सकते हैं।
 %1$s के विस्तृत उपयोग के बारे में जानने के लिए, दस्तावेज़ देखने हेतु टैप करें।]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI उपयोगकर्ताओं को सिस्टम सेटिंग्स में अधिसूचना शैली को "अधिसूचना" - "अधिसूचना शेड" से "एंड्रॉइड" पर स्विच करने की आवश्यकता हो सकती है।</string>
+    <string name="comput_no_macros">अभी तक कोई सहेजा गया मैक्रोज़ नहीं. कंसोल कमांड रिकॉर्ड करना शुरू करने के लिए \'रिकॉर्ड मैक्रो\' पर क्लिक करें।</string>
 </resources>

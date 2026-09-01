@@ -6,7 +6,7 @@
     <string name="home_update_available_title"><![CDATA[Shevery-päivitys saatavilla: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Uudempi versio on valmis. Lataa napauttamalla.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Siirry ylöspäin]]></string>
     <string name="accessibility_close"><![CDATA[Sulje]]></string>
     <string name="accessibility_more_options"><![CDATA[Lisää vaihtoehtoja]]></string>
@@ -79,7 +79,7 @@ Tämä voi johtua siitä, että laitteen KeyStore-mekanismi on vioittunut.]]></s
     <string name="home_learn_more_description"><![CDATA[Opi kehittämään sovelluksia Sheveryn avulla]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminaali]]></string>
     <string name="home_quick_wireless"><![CDATA[Langaton ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Hallitse sovelluksia]]></string>
     <string name="home_refresh"><![CDATA[Päivitä]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnoosit]]></string>
@@ -187,7 +187,7 @@ Vientitoiminto käyttää SAF:ää (Storage Access Framework). On raportoitu, et
     <string name="modules_service_result"><![CDATA[Palvelu päättynyt: poistuminen %d]]></string>
     <string name="modules_service_failed"><![CDATA[Palvelu epäonnistui]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Laajenna]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Piilota]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopioi]]></string>
@@ -406,7 +406,7 @@ on kopioitu leikepöydälle.]]></string>
     <string name="comput_title"><![CDATA[Laskenta]]></string>
     <string name="comput_settings"><![CDATA[Comput-konsolin asetukset]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput -konsoli]]></string>
-    <string name="comput_recommand_title"><![CDATA[ReCommand for Comput]]></string>
+    <string name="comput_recommand_title">ReCommand Computille</string>
     <string name="comput_recommand_summary"><![CDATA[Näytä vahvistusikkuna ennen komentojen suorittamista Comput-konsolissa]]></string>
     <string name="comput_recommand_confirmation"><![CDATA[Oletko varma, että haluat suorittaa tämän ADB-komennon Computissa?]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio -sovellusliittymän avain on tyhjä! Määritä se Shevery-asetuksissa (Comput Console -asetukset).]]></string>
@@ -479,7 +479,7 @@ Valmis ottamaan komentoja vastaan.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Makron nimi]]></string>
     <string name="comput_save"><![CDATA[Tallenna]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminaali]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Makrot]]></string>
     <string name="comput_tab_presets"><![CDATA[Esiasetukset]]></string>
     <string name="comput_quick_chips"><![CDATA[Pikatoiminnot]]></string>
@@ -551,4 +551,6 @@ Valmis ottamaan komentoja vastaan.]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Kanavaa ei ole käytettävissä (aloita ensin Shevery)]]></string>
     <string name="rish_description"><![CDATA[%1$s:n avulla voit missä tahansa päätesovelluksessa muodostaa yhteyden Sheveryn suorittamiin komentotulkkeihin ja käyttää niitä.
 <p>Katso %1$s:n yksityiskohtaiset käyttöohjeet napauttamalla tätä.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI-käyttäjien on ehkä vaihdettava ilmoitustyyliksi "Android" järjestelmäasetuksista "Ilmoitus" - "Ilmoitussävy".</string>
+    <string name="comput_no_macros">Ei vielä tallennettuja makroja. Aloita konsolin komentojen tallennus napsauttamalla \'Tallenna makro\'.</string>
 </resources>

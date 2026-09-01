@@ -3,10 +3,10 @@
     <string name="shevery_update_auto_check"><![CDATA[Проверете за актуализации във фонов режим]]></string>
     <string name="shevery_update_auto_check_summary"><![CDATA[Търсете нови версии дори когато приложението е затворено]]></string>
     <string name="update_settings_frequency_label"><![CDATA[Проверете честотата]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="home_update_available_title">Налична актуализация на Shevery: %s</string>
+    <string name="home_update_available_body">Готова е по-нова версия. Докоснете за изтегляне.</string>
     <string name="app_name"><![CDATA[Шевери]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Нагоре]]></string>
     <string name="accessibility_close"><![CDATA[Затвори]]></string>
     <string name="accessibility_more_options"><![CDATA[Още опции]]></string>
@@ -79,7 +79,7 @@
     <string name="home_learn_more_description"><![CDATA[Научете как да разработвате с Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Терминал]]></string>
     <string name="home_quick_wireless"><![CDATA[Безжичен ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Управление на приложенията]]></string>
     <string name="home_refresh"><![CDATA[Опресни]]></string>
     <string name="home_diagnostics_title"><![CDATA[Диагностика]]></string>
@@ -187,7 +187,7 @@
     <string name="modules_service_result"><![CDATA[Услугата приключи: изход %d]]></string>
     <string name="modules_service_failed"><![CDATA[Услугата не успя]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Разгърни]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Скрий]]></string>
     <string name="modules_recommand_copy"><![CDATA[Копирай]]></string>
@@ -298,7 +298,7 @@
     <string name="notification_watchdog_text"><![CDATA[Услугата „Shevery“ неочаквано престана да работи.]]></string>
     <string name="watchdog_service_title"><![CDATA[Наблюдателната система „Shevery“ е активна]]></string>
     <string name="watchdog_service_text"><![CDATA[Наблюдение на услугата „Shevery“ с цел възстановяване чрез keep-alive]]></string>
-    <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
+    <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Стартъпът „Shevery“]]></string>
     <string name="notification_startup_title"><![CDATA[Начало на „Шевери“]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Активиране на отладката чрез Wi-Fi…]]></string>
@@ -449,7 +449,7 @@
 Готова за команди.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Обяснение на ИИ]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
-    <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>
+    <string name="comput_commandium_assistant">Командиум AI асистент</string>
     <string name="comput_commandium_description"><![CDATA[Създавайте команди за командния ред чрез естествен език. Gemini ще ви предостави необработена команда, която можете да копирате.]]></string>
     <string name="comput_commandium_label"><![CDATA[Каква команда ви е нужна?]]></string>
     <string name="comput_commandium_placeholder"><![CDATA[например: Намери всички файлове с размер над 10 MB в /sdcard]]></string>
@@ -479,7 +479,7 @@
     <string name="comput_macro_name_label"><![CDATA[Име на макроса]]></string>
     <string name="comput_save"><![CDATA[Запази]]></string>
     <string name="comput_tab_terminal"><![CDATA[Терминал]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Макроси]]></string>
     <string name="comput_tab_presets"><![CDATA[Предварителни настройки]]></string>
     <string name="comput_quick_chips"><![CDATA[Бързи действия]]></string>
@@ -551,4 +551,6 @@
     <string name="settings_compat_stub_none"><![CDATA[Няма наличен канал (започнете първо с „Shevery“)]]></string>
     <string name="rish_description"><![CDATA[С помощта на %1$s във всяко терминално приложение можете да се свържете и да взаимодействате с шела, изпълняван от Shevery.
 <p>За подробна информация относно използването на %1$s, натиснете, за да видите документа.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Потребителите на MIUI може да се наложи да превключат стила на известяване към "Android" от "Известие" - "Панел за известяване" в системните настройки.</string>
+    <string name="comput_no_macros">Все още няма запазени макроси. Щракнете върху \'Запис на макрос\', за да започнете да записвате конзолни команди.</string>
 </resources>

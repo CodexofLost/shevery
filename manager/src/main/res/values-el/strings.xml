@@ -25,7 +25,7 @@
     <string name="home_update_available_title"><![CDATA[Διαθέσιμη ενημέρωση Shevery: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Μια νεότερη έκδοση είναι έτοιμη. Πατήστε για λήψη.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Επιστροφή προς τα πάνω]]></string>
     <string name="accessibility_close"><![CDATA[Κλείσιμο]]></string>
     <string name="accessibility_more_options"><![CDATA[Περισσότερες επιλογές]]></string>
@@ -79,7 +79,7 @@
     <string name="home_learn_more_description"><![CDATA[Μάθετε πώς να προγραμματίζετε με το Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Τερματικός σταθμός]]></string>
     <string name="home_quick_wireless"><![CDATA[Ασύρματο ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Διαχείριση εφαρμογών]]></string>
     <string name="home_refresh"><![CDATA[Ανανέωση]]></string>
     <string name="home_diagnostics_title"><![CDATA[Διαγνωστικά]]></string>
@@ -187,7 +187,7 @@
     <string name="modules_service_result"><![CDATA[Η υπηρεσία ολοκληρώθηκε: έξοδος %d]]></string>
     <string name="modules_service_failed"><![CDATA[Η υπηρεσία απέτυχε]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Επέκταση]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Σύμπτυξη]]></string>
     <string name="modules_recommand_copy"><![CDATA[Αντιγραφή]]></string>
@@ -298,7 +298,7 @@
     <string name="notification_watchdog_text"><![CDATA[Η υπηρεσία Shevery σταμάτησε να λειτουργεί απροσδόκητα.]]></string>
     <string name="watchdog_service_title"><![CDATA[Το Shevery Watchdog είναι ενεργό]]></string>
     <string name="watchdog_service_text"><![CDATA[Παρακολούθηση της υπηρεσίας Shevery για ανάκτηση μέσω keep-alive]]></string>
-    <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
+    <string name="notification_control_channel_name">Έλεγχος Shevery</string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery: μια νεοφυής επιχείρηση]]></string>
     <string name="notification_startup_title"><![CDATA[Έναρξη του Shevery]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Ενεργοποίηση εντοπισμού σφαλμάτων μέσω Wi-Fi…]]></string>
@@ -449,7 +449,7 @@
 Έτοιμη για εντολές.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Επεξήγηση της τεχνητής νοημοσύνης]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
-    <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>
+    <string name="comput_commandium_assistant">Βοηθός AI Commandium</string>
     <string name="comput_commandium_description"><![CDATA[Δημιουργήστε εντολές shell χρησιμοποιώντας φυσική γλώσσα. Το Gemini θα εμφανίσει μια ακατέργαστη εντολή που μπορείτε να αντιγράψετε.]]></string>
     <string name="comput_commandium_label"><![CDATA[Ποια εντολή χρειάζεσαι;]]></string>
     <string name="comput_commandium_placeholder"><![CDATA[π.χ. Εύρεση όλων των αρχείων μεγέθους άνω των 10 MB στο /sdcard]]></string>
@@ -479,7 +479,7 @@
     <string name="comput_macro_name_label"><![CDATA[Όνομα μακροεντολής]]></string>
     <string name="comput_save"><![CDATA[Αποθήκευση]]></string>
     <string name="comput_tab_terminal"><![CDATA[Τερματικός σταθμός]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">Στούντιο AI</string>
     <string name="comput_tab_macros"><![CDATA[Μακροεντολές]]></string>
     <string name="comput_tab_presets"><![CDATA[Προεπιλογές]]></string>
     <string name="comput_quick_chips"><![CDATA[Γρήγορες ενέργειες]]></string>
@@ -551,4 +551,6 @@
     <string name="settings_compat_stub_none"><![CDATA[Δεν υπάρχει διαθέσιμο κανάλι (ξεκινήστε πρώτα με το Shevery)]]></string>
     <string name="rish_description"><![CDATA[Με το %1$s, σε οποιαδήποτε εφαρμογή τερματικού, μπορείτε να συνδεθείτε και να αλληλεπιδράσετε με το shell που εκτελεί το Shevery.
 <p>Για λεπτομερείς πληροφορίες σχετικά με τη χρήση του %1$s, πατήστε εδώ για να δείτε το έγγραφο.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Οι χρήστες του MIUI μπορεί να χρειαστεί να αλλάξουν το στυλ ειδοποίησης σε "Android" από το "Notification" - "Notification shade" στις ρυθμίσεις συστήματος.</string>
+    <string name="comput_no_macros">Δεν υπάρχουν ακόμα αποθηκευμένες μακροεντολές. Κάντε κλικ στο \'Εγγραφή μακροεντολής\' για να ξεκινήσετε την εγγραφή εντολών κονσόλας.</string>
 </resources>

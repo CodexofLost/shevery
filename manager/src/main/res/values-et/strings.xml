@@ -3,13 +3,13 @@
     <string name="home_adb_dialog_view_command_button_send"><![CDATA[Saada]]></string>
     <string name="home_adb_dialog_view_command_copy_button"><![CDATA[Kopeeri]]></string>
     <string name="home_status_service_version"><![CDATA[Versioon %2$s, %1$s]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check">Kontrollige värskendusi taustal</string>
+    <string name="shevery_update_auto_check_summary">Otsige uusi versioone isegi siis, kui rakendus on suletud</string>
+    <string name="update_settings_frequency_label">Kontrolli sagedust</string>
+    <string name="home_update_available_title">Saadaval on Shevery värskendus: %s</string>
+    <string name="home_update_available_body">Uuem versioon on valmis. Puudutage allalaadimiseks.</string>
     <string name="app_name"><![CDATA[Shevery]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Liigu ülespoole]]></string>
     <string name="accessibility_close"><![CDATA[Sulge]]></string>
     <string name="accessibility_more_options"><![CDATA[Veel valikuid]]></string>
@@ -79,7 +79,7 @@ See võib olla tingitud sellest, et selle seadme KeyStore-mehhanism ei tööta.]
     <string name="home_learn_more_description"><![CDATA[Õpi, kuidas arendada Shevery abil]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Traadita ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Rakenduste haldamine]]></string>
     <string name="home_refresh"><![CDATA[Värskenda]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostika]]></string>
@@ -156,7 +156,7 @@ Ekspordifunktsioon kasutab SAF-i (Storage Access Framework). On teatatud, et MIU
     <string name="modules_permission_web_bridge_summary"><![CDATA[Ava aken „Shevery“ ainult kohaliku WebUI jaoks ja ainult siis, kui WebView-i internetiühendus on välja lülitatud.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView internetis]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Luba HTTPS-navigatsioon/varad. See lülitab selle WebView jaoks välja shell-silla avalikustamise.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download">WebUI allalaadimine()</string>
     <string name="modules_permission_web_download_summary"><![CDATA[Luba HTTPS-failide allalaadimine WebUI-kausta, välja arvatud index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Luba taustatoiminguid]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Luba paigaldatud moodulitel taotleda ADB taustatööd täisjuurdepääsurežiimis]]></string>
@@ -187,7 +187,7 @@ Ekspordifunktsioon kasutab SAF-i (Storage Access Framework). On teatatud, et MIU
     <string name="modules_service_result"><![CDATA[Teenus lõpetatud: väljumine %d]]></string>
     <string name="modules_service_failed"><![CDATA[Teenus ebaõnnestus]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Laadi lahti]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Kokku klappida]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopeeri]]></string>
@@ -423,7 +423,7 @@ on kopeeritud lõikelauale.]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[Ühendusviga.]]></string>
     <string name="comput_gemini_failed"><![CDATA[Gemini API-ga ühenduse loomine ebaõnnestus: %1$s]]></string>
     <string name="comput_gemini_no_details"><![CDATA[Üksikasju pole.]]></string>
-    <string name="comput_sh_mode"><![CDATA[sh Mode]]></string>
+    <string name="comput_sh_mode">sh režiim</string>
     <string name="comput_adb_mode"><![CDATA[adb-režiim]]></string>
     <string name="comput_command_label"><![CDATA[Käsk]]></string>
     <string name="comput_command_placeholder"><![CDATA[nt pm list packages]]></string>
@@ -479,7 +479,7 @@ Valmis käskude vastuvõtmiseks.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Makro nimi]]></string>
     <string name="comput_save"><![CDATA[Salvesta]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI stuudio</string>
     <string name="comput_tab_macros"><![CDATA[Makrod]]></string>
     <string name="comput_tab_presets"><![CDATA[Eelseadistused]]></string>
     <string name="comput_quick_chips"><![CDATA[Kiirtoimingud]]></string>
@@ -551,4 +551,6 @@ Valmis käskude vastuvõtmiseks.]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Kanalit pole saadaval (alusta kõigepealt Sheveryst)]]></string>
     <string name="rish_description"><![CDATA[Kasutades %1$s-i, saate mis tahes terminali rakenduses ühenduda Shevery poolt käivitatud shelliga ja sellega suhelda.
 <p>%1$s-i üksikasjaliku kasutusjuhendi vaatamiseks puudutage seda.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI kasutajad peavad võib-olla süsteemiseadetes vahetama teavitusstiiliks "Teavitamine" - "Teavitusvari".</string>
+    <string name="comput_no_macros">Salvestatud makrosid pole veel. Konsooli käskude salvestamise alustamiseks klõpsake \'Salvesta makro\'.</string>
 </resources>

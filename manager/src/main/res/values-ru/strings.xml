@@ -197,7 +197,7 @@
     <string name="modules_service_result"><![CDATA[Service завершен: exit %d]]></string>
     <string name="modules_service_failed"><![CDATA[Service не выполнен]]></string>
     <string name="modules_recommand_title"><![CDATA[Повторная команда]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Раскрыть]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Свернуть]]></string>
     <string name="modules_recommand_copy"><![CDATA[Копировать]]></string>
@@ -551,4 +551,6 @@
     <string name="toast_copied_to_clipboard"><![CDATA[%s
 скопировано в буфер обмена.]]></string>
     <string name="settings_update_group_title"><![CDATA[Обновление]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Пользователям MIUI может потребоваться переключить стиль уведомлений на «Android» из «Уведомление» — «Тень уведомлений» в настройках системы.</string>
+    <string name="comput_no_macros">Сохраненных макросов пока нет. Нажмите «Запись макроса», чтобы начать запись консольных команд.</string>
 </resources>

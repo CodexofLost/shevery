@@ -146,7 +146,7 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="home_local_network_permission_denied"><![CDATA[A vezeték nélküli hibakereséshez helyi hálózati hozzáférés szükséges.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminál]]></string>
     <string name="home_quick_wireless"><![CDATA[Vezeték nélküli ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Alkalmazások kezelése]]></string>
     <string name="home_refresh"><![CDATA[Frissítés]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnosztika]]></string>
@@ -189,7 +189,7 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="modules_permission_service_summary"><![CDATA[Engedélyezze a service.sh futtatását akkor is, ha a háttérműveletek is engedélyezve vannak.]]></string>
     <string name="modules_permission_web_bridge"><![CDATA[WebUI-shell híd]]></string>
     <string name="modules_permission_web_bridge_summary"><![CDATA[A „window.Shevery” elemet kizárólag a helyi WebUI esetében, és csak akkor tegye láthatóvá, ha a WebView internetkapcsolata ki van kapcsolva.]]></string>
-    <string name="modules_permission_web_network"><![CDATA[WebView internet]]></string>
+    <string name="modules_permission_web_network">WebView internet</string>
     <string name="modules_permission_web_network_summary"><![CDATA[HTTPS-navigáció/erőforrások engedélyezése. Ez letiltja a shell bridge hozzáférését az adott WebView esetében.]]></string>
     <string name="modules_permission_web_download"><![CDATA[WebUI letöltés ()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Engedélyezze a HTTPS-en keresztüli fájlletöltéseket a WebUI mappába, az index.html fájl kivételével.]]></string>
@@ -222,7 +222,7 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="modules_service_result"><![CDATA[A szolgáltatás befejeződött: kilépés %d]]></string>
     <string name="modules_service_failed"><![CDATA[A szolgáltatás nem sikerült]]></string>
     <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Bontás]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Összecsukás]]></string>
     <string name="modules_recommand_copy"><![CDATA[Másolás]]></string>
@@ -296,7 +296,7 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="watchdog_service_title"><![CDATA[A Shevery felügyelő rendszer aktív]]></string>
     <string name="watchdog_service_text"><![CDATA[A Shevery szolgáltatás figyelése a keep-alive-helyreállítás érdekében]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery vezérlés]]></string>
-    <string name="notification_startup_channel_name"><![CDATA[Shevery startup]]></string>
+    <string name="notification_startup_channel_name">Shevery startup</string>
     <string name="notification_startup_title"><![CDATA[Shevery kezdése]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[A Wi-Fi-hibakeresés engedélyezése…]]></string>
     <string name="notification_startup_connecting"><![CDATA[Csatlakozás az ADB-hez…]]></string>
@@ -403,7 +403,7 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="comput_title"><![CDATA[Számítás]]></string>
     <string name="comput_settings"><![CDATA[A Comput konzol beállításai]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput konzol]]></string>
-    <string name="comput_recommand_title"><![CDATA[ReCommand for Comput]]></string>
+    <string name="comput_recommand_title">ReCommand a Comput számára</string>
     <string name="comput_recommand_summary"><![CDATA[A Comput konzolban a parancsok végrehajtása előtt jelenjen meg egy megerősítő párbeszédablak]]></string>
     <string name="comput_recommand_confirmation"><![CDATA[Biztosan végre akarod hajtani ezt az ADB-parancsot a Comput programban?]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[A Google AI Studio API-kulcs üres! Kérjük, állítsd be a Shevery beállításaiban (Comput Console beállítások).]]></string>
@@ -552,4 +552,6 @@ Készen áll a parancsok fogadására.]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[A root shell elindítása…]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Előfordulhat, hogy a MIUI-felhasználóknak át kell váltaniuk az értesítési stílust "Android"-ra a "Notification" - "Notification shade" közül a rendszerbeállításokban.</string>
+    <string name="comput_no_macros">Még nincsenek mentett makrók. Kattintson a \'Makró rögzítése\' gombra a konzolparancsok rögzítésének elindításához.</string>
 </resources>

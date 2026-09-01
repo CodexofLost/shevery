@@ -138,7 +138,7 @@ După ce procesul de asociere începe, veți putea introduce codul de asociere.]
 Este posibil ca acest lucru să se datoreze faptului că mecanismul KeyStore al acestui dispozitiv nu funcționează corect.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB fără fir]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Gestionarea aplicațiilor]]></string>
     <string name="home_refresh"><![CDATA[Reîmprospătează]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnosticare]]></string>
@@ -187,9 +187,9 @@ Funcția de export utilizează SAF (Storage Access Framework). Se pare că MIUI 
     <string name="modules_permission_action_summary"><![CDATA[Permiteți executarea manuală a fișierului „action.sh”.]]></string>
     <string name="modules_permission_service"><![CDATA[Executare serviciu]]></string>
     <string name="modules_permission_service_summary"><![CDATA[Permiteți rularea scriptului service.sh atunci când sunt activate și acțiunile în fundal.]]></string>
-    <string name="modules_permission_web_bridge"><![CDATA[WebUI shell bridge]]></string>
+    <string name="modules_permission_web_bridge">Podul shell WebUI</string>
     <string name="modules_permission_web_bridge_summary"><![CDATA[Afișează fereastra „Shevery” numai pentru interfața WebUI locală și numai atunci când conexiunea la internet a WebView este oprită.]]></string>
-    <string name="modules_permission_web_network"><![CDATA[WebView internet]]></string>
+    <string name="modules_permission_web_network">Internetul WebView</string>
     <string name="modules_permission_web_network_summary"><![CDATA[Permite navigarea/resursele HTTPS. Această opțiune dezactivează expunerea shell bridge pentru acel WebView.]]></string>
     <string name="modules_permission_web_download"><![CDATA[Descărcare WebUI()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Permite descărcarea fișierelor prin HTTPS în folderul WebUI, cu excepția fișierului index.html.]]></string>
@@ -222,7 +222,7 @@ Funcția de export utilizează SAF (Storage Access Framework). Se pare că MIUI 
     <string name="modules_service_result"><![CDATA[Serviciul s-a încheiat: ieșire %d]]></string>
     <string name="modules_service_failed"><![CDATA[Serviciul a eșuat]]></string>
     <string name="modules_recommand_title"><![CDATA[Recomanda]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Extindeți]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Reducere]]></string>
     <string name="modules_recommand_copy"><![CDATA[Copiere]]></string>
@@ -300,7 +300,7 @@ a fost copiat în clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Serviciul Shevery s-a oprit în mod neașteptat.]]></string>
     <string name="watchdog_service_title"><![CDATA[Funcția de monitorizare Shevery este activă]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitorizarea serviciului Shevery pentru recuperarea prin keep-alive]]></string>
-    <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
+    <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[O companie start-up din Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Începutul lui Shevery]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Activarea depanării prin Wi-Fi…]]></string>
@@ -481,7 +481,7 @@ Gata să primească comenzi.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Denumirea macrocomenzii]]></string>
     <string name="comput_save"><![CDATA[Salvare]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium">AI Studio</string>
     <string name="comput_tab_macros"><![CDATA[Macro-uri]]></string>
     <string name="comput_tab_presets"><![CDATA[Setări prestabilite]]></string>
     <string name="comput_quick_chips"><![CDATA[Acțiuni rapide]]></string>
@@ -505,7 +505,7 @@ Gata să primească comenzi.]]></string>
     <string name="diagnostics_android"><![CDATA[Android]]></string>
     <string name="diagnostics_service"><![CDATA[Servicii]]></string>
     <string name="diagnostics_server_uid"><![CDATA[UID-ul serverului]]></string>
-    <string name="diagnostics_server_api"><![CDATA[Server API]]></string>
+    <string name="diagnostics_server_api">API-ul serverului</string>
     <string name="diagnostics_selinux"><![CDATA[SELinux]]></string>
     <string name="diagnostics_adb_permission"><![CDATA[Autorizația ADB]]></string>
     <string name="diagnostics_authorized_apps"><![CDATA[Aplicații autorizate]]></string>
@@ -551,4 +551,6 @@ Gata să primească comenzi.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[S-a eliminat stubul vechi]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Nu s-a putut %1$s stub-ul vechi prin %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Nu există niciun canal disponibil (începeți mai întâi cu Shevery)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Este posibil ca utilizatorii MIUI să fie nevoiți să schimbe stilul de notificare la „Android” de la „Notificare” - „Nuanță de notificare” în setările sistemului.</string>
+    <string name="comput_no_macros">Nicio macrocomandă salvată încă. Faceți clic pe „Înregistrați macrocomandă” pentru a începe înregistrarea comenzilor consolei.</string>
 </resources>

@@ -551,4 +551,6 @@ Pronto para receber comandos.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Stub obsoleto removido]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Falha ao %1$s o stub legado por meio de %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Nenhum canal disponível (comece pelo Shevery primeiro)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">Os usuários MIUI podem precisar mudar o estilo de notificação para "Android" de "Notificação" - "Tom de notificação" nas configurações do sistema.</string>
+    <string name="comput_no_macros">Nenhuma macro salva ainda. Clique em \'Gravar Macro\' para começar a gravar comandos do console.</string>
 </resources>

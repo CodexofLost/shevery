@@ -62,7 +62,7 @@
     <string name="home_learn_more_description"><![CDATA[Shizuku ile nasıl uygulama geliştireceğinizi öğrenin]]></string>
     <string name="home_quick_terminal"><![CDATA[terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Kablosuz ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Uygulamaları yönet]]></string>
     <string name="home_refresh"><![CDATA[Yenile]]></string>
     <string name="home_diagnostics_title"><![CDATA[Tanılama]]></string>
@@ -149,7 +149,7 @@
     <string name="modules_service_result"><![CDATA[Hizmet tamamlandı: çıkış %d]]></string>
     <string name="modules_service_failed"><![CDATA[Hizmet başarısız]]></string>
     <string name="modules_recommand_title"><![CDATA[Yeniden Komut]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Genişlet]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Daralt]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopyala]]></string>
@@ -551,4 +551,6 @@ Komutlara hazır.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Eski yer tutucu kaldırıldı]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[%2$s aracılığıyla eski stub\'ı %1$s işlemi yapılamadı: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Kullanılabilir kanal yok (önce Shevery\'i başlatın)]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI kullanıcılarının, sistem ayarlarında "Bildirim" - "Bildirim gölgesi" bölümünden bildirim stilini "Android" olarak değiştirmeleri gerekebilir.</string>
+    <string name="comput_no_macros">Henüz kayıtlı makro yok. Konsol komutlarını kaydetmeye başlamak için \'Makro Kaydet\'i tıklayın.</string>
 </resources>

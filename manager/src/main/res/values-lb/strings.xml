@@ -6,7 +6,7 @@
     <string name="home_update_available_title"><![CDATA[Ganz Update verfügbar: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Eng méi nei Versioun ass prett. Tippen fir erofzelueden.]]></string>
     <string name="app_name"><![CDATA[Si huet]]></string>
-    <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
+    <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Gitt e Schrëtt zréck]]></string>
     <string name="accessibility_close"><![CDATA[Zoumaachen]]></string>
     <string name="accessibility_more_options"><![CDATA[Méi Optiounen]]></string>
@@ -75,7 +75,7 @@ Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]>
     <string name="home_learn_more_description"><![CDATA[Léiert, wéi een mat Shevery entwéckelt.]]></string>
     <string name="home_quick_terminal"><![CDATA[Endstatioun]]></string>
     <string name="home_quick_wireless"><![CDATA[Kabellos ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp">TCP 5555</string>
     <string name="home_manage_apps_button"><![CDATA[Apps verwalten]]></string>
     <string name="home_refresh"><![CDATA[Erfrëschen]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostik]]></string>
@@ -177,7 +177,7 @@ Nodeems de Paarungsprozess ugefaangen huet, kënnt Dir de Pairing-Code aginn.]]>
     <string name="modules_service_result"><![CDATA[Service fäerdeg: eraus %d]]></string>
     <string name="modules_service_failed"><![CDATA[De Service ass gescheitert]]></string>
     <string name="modules_recommand_title"><![CDATA[Neierempfeelen]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source">%1$s / %2$s</string>
     <string name="modules_recommand_expand"><![CDATA[Erweideren]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Zesummebroch]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopieéieren]]></string>
@@ -250,7 +250,7 @@ ass op d\'Zouschneidplack kopéiert ginn.]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery ass zënter Mäerz 2019 obsolet. Och funktionéiert legacy Shevery net op méi neie Android-Systemer.W.e.g. frot de Entwéckler vun <b>%1$s</b>, et ze aktualiséieren.]]></string>
     <string name="dialog_requesting_legacy_title"><![CDATA[%1$s freet no dem Legacy Shevery]]></string>
     <string name="dialog_requesting_legacy_message"><![CDATA[%1$s huet modern Shevery-Ënnerstëtzung, mä et freet no der legacy Shevery. Dëst kéint sinn, well Shevery net leeft; w.e.g. kontrolléiert an der Shevery-App.Legacy Shevery gouf zënter Mäerz 2019 obsolet.]]></string>
-    <string name="dialog_requesting_legacy_button_open_shizuku"><![CDATA[Open Shevery]]></string>
+    <string name="dialog_requesting_legacy_button_open_shizuku">Open Shevery</string>
     <string name="lab_features_title"><![CDATA[Laborfunktiounen]]></string>
     <string name="lab_features_summary"><![CDATA[Experimentell Funktiounen]]></string>
     <string name="shizuku_connectors_title"><![CDATA[Shevery-Verbinder]]></string>
@@ -540,4 +540,6 @@ Ausféierung...]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Kee Kanal verfügbar (start Shevery first)]]></string>
     <string name="rish_description"><![CDATA[Mat %1$s kënnt Dir an all Terminal-App mat de Shell-Ausféierungen vu Shevery verbannen an interagéieren.
 Fir méi Informatiounen iwwer den detailléierten Asaz vu %1$s, tippt op d\'Dokument fir et ze gesinn.]]></string>
+    <string name="adb_pairing_tutorial_content_miui">MIUI Benotzer mussen eventuell Notifikatiounsstil op "Android" vun "Notifikatioun" - "Notifikatioun Schied" an de Systemastellungen wiesselen.</string>
+    <string name="comput_no_macros">Keng gespäichert Makroen nach. Klickt \'Record Macro\' fir d\'Konsolbefehl opzehuelen.</string>
 </resources>
