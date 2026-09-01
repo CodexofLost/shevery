@@ -63,6 +63,7 @@ import moe.shizuku.manager.app.ThemeHelper.KEY_USE_SYSTEM_COLOR
 import moe.shizuku.manager.ktx.setComponentEnabled
 import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.manager.module.update.AppUpdateSettingsGroup
 import moe.shizuku.manager.receiver.BootCompleteReceiver
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.service.WatchdogManager
@@ -609,6 +610,10 @@ fun SettingsScreen() {
                     onClick = { showUpdateSettings = true }
                 )
             }
+        }
+
+        item {
+            AppUpdateSettingsGroup()
         }
 
         item {

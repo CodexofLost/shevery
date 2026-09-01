@@ -372,13 +372,14 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_control_text_stopped">Tap to open Shevery, or expand this notification to start it.</string>
     <string name="notification_control_action_start">Start</string>
     <string name="notification_control_action_stop">Stop</string>
+    <string name="settings_update_group_title">Update</string>
     <!-- Update Settings -->
-    <string name="update_settings_title">Update Settings</string>
+    <string name="update_settings_title">Module Updates</string>
     <string name="update_settings_catalog">Module Catalog</string>
     <string name="update_settings_catalog_enabled">Enable catalog</string>
     <string name="update_settings_catalog_enabled_summary">Show discovered modules from GitHub Topics</string>
     <string name="update_settings_frequency">Update Frequency</string>
-    <string name="update_settings_frequency_label">Check for updates</string>
+    <string name="update_settings_frequency_label">Check frequency</string>
     <string name="update_settings_frequency_manual">Manual</string>
     <string name="update_settings_frequency_daily">Daily</string>
     <string name="update_settings_frequency_weekly">Weekly</string>
@@ -412,11 +413,13 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="shevery_update_channel_summary">Choose update release channel</string>
     <string name="app_update_channel_stable">Stable</string>
     <string name="app_update_channel_beta">Pre-release &amp; Beta</string>
-    <string name="shevery_update_auto_check">Auto-check on launch</string>
-    <string name="shevery_update_auto_check_summary">Automatically check for Shevery updates on start</string>
+    <string name="shevery_update_auto_check">Check for updates in background</string>
+    <string name="shevery_update_auto_check_summary">Look for new versions even when the app is closed</string>
     <string name="shevery_update_group_title">Shevery App Updates</string>
     <string name="shevery_update_modules_group_title">Module Updates &amp; Catalog</string>
     <string name="shevery_update_check_failed">Update check failed: %s</string>
+    <string name="home_update_available_title">Shevery update available: %s</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
 
     <!-- Module Catalog -->
     <string name="modules_catalog">Catalog</string>
