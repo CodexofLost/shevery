@@ -409,7 +409,7 @@ on kopeeritud lõikelauale.]]></string>
     <string name="comput_recommand_title"><![CDATA[ReCommand arvutitele]]></string>
     <string name="comput_recommand_summary"><![CDATA[Näita kinnitusdialoog enne käskude käivitamist Comput-konsoolis]]></string>
     <string name="comput_recommand_confirmation"><![CDATA[Kas oled kindel, et soovid seda ADB-käsku programmis Comput käivitada?]]></string>
-    <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API-võti on tühi! Palun seadista see Shevery seadetes (Comput Console\'i seadetes).]]></string>
+    <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API-võti on tühi! Palun seadista see Shevery seadetes (Comput Console'i seadetes).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API-võti]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Ei ole konfigureeritud (Gemini AI ei tööta)]]></string>
     <string name="comput_gemini_model_title"><![CDATA[Gemini AI-mudel]]></string>

@@ -22,13 +22,13 @@
     <string name="paring_code_is_wrong"><![CDATA[Il codice di accoppiamento è sbagliato.]]></string>
     <string name="cannot_connect_port"><![CDATA[Impossibile connettersi al servizio di debug wireless.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Entra prima nella modalità schermo diviso (multi-finestra).]]></string>
-    <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Il sistema richiede che la finestra di dialogo di accoppiamento sia sempre visibile, l\'utilizzo della modalità schermo diviso è l\'unico modo per rendere visibili contemporaneamente l\'app e la finestra di dialogo di sistema.]]></string>
+    <string name="adb_pairing_requires_multi_window_reason"><![CDATA[Il sistema richiede che la finestra di dialogo di accoppiamento sia sempre visibile, l'utilizzo della modalità schermo diviso è l'unico modo per rendere visibili contemporaneamente l'app e la finestra di dialogo di sistema.]]></string>
     <string name="adb_pair_required"><![CDATA[Esegui prima la fase di accoppiamento.]]></string>
     <string name="development_settings"><![CDATA[Modalitá sviluppatore]]></string>
     <string name="adb_pairing_tutorial_title"><![CDATA[Accoppia Shizuku col tuo dispositivo]]></string>
-    <string name="adb_pairing_tutorial_content_notification"><![CDATA[Una notifica da Shizuku ti aiuterà a completare l\'accoppiamento.]]></string>
+    <string name="adb_pairing_tutorial_content_notification"><![CDATA[Una notifica da Shizuku ti aiuterà a completare l'accoppiamento.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Entra in "Modalità sviluppatore" - "Debug wireless". Seleziona "Accoppia dispositivo con codice di associazione", vedrai un codice a sei cifre.]]></string>
-    <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Inserisci il codice nella notifica per completare l\'accoppiamento.]]></string>
+    <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Inserisci il codice nella notifica per completare l'accoppiamento.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Il processo di accoppiamento richiede che tu interagisca con una notifica di Shizuku. Consenti a Shizuku di mostrare notifiche.]]></string>
         <string name="adb_pairing_tutorial_content_finish"><![CDATA[Torna a Shizuku e avvia Shizuku.]]></string>
     <string name="home_root_title"><![CDATA[Avvia (per dispositivi rootati)]]></string>
@@ -36,13 +36,13 @@
     <string name="dialog_adb_discovery"><![CDATA[Ricerca del servizio di Debug Wireless]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[La porta è un numero intero compreso tra 1 e 65535.]]></string>
     <string name="notification_settings"><![CDATA[Opzioni di notifica]]></string>
-    <string name="adb_pairing_tutorial_content_network_limation_not_foreground"><![CDATA[Alcuni sistemi (come MIUI) non consentono alle app di accedere alla rete quando queste non sono visibili, anche se l\'app utilizza il servizio in primo piano come standard. Disattiva le funzioni di ottimizzazione della batteria per Shizuku su tali sistemi.]]></string>
+    <string name="adb_pairing_tutorial_content_network_limation_not_foreground"><![CDATA[Alcuni sistemi (come MIUI) non consentono alle app di accedere alla rete quando queste non sono visibili, anche se l'app utilizza il servizio in primo piano come standard. Disattiva le funzioni di ottimizzazione della batteria per Shizuku su tali sistemi.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[In caso contrario, potresti non essere in grado di inserire il codice di accoppiamento dalla notifica.]]></string>
-    <string name="home_root_description"><![CDATA[Inoltre, Shizuku può essere avviato automaticamente all\'avvio. In caso contrario, controlla se il tuo sistema o l\'opzione app esterne hanno limitato Shizuku.<br/>Puoi fare riferimento a %s.]]></string>
+    <string name="home_root_description"><![CDATA[Inoltre, Shizuku può essere avviato automaticamente all'avvio. In caso contrario, controlla se il tuo sistema o l'opzione app esterne hanno limitato Shizuku.<br/>Puoi fare riferimento a %s.]]></string>
     <string name="home_root_button_start"><![CDATA[Avvia]]></string>
     <string name="home_root_description_sui"><![CDATA[Se stai usando Magisk, puoi provare %1$s. Per gli utenti root, alla fine sostituirà Shizuku. Nota, le applicazioni esistenti devono essere leggermente modificate per poter usare %2$s.]]></string>
     <string name="home_root_button_restart"><![CDATA[Riavvia]]></string>
-    <string name="home_app_management_title"><![CDATA[Gestione dell\'applicazione]]></string>
+    <string name="home_app_management_title"><![CDATA[Gestione dell'applicazione]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shizuku ha bisogno di accedere alla rete locale. È controllato dal permesso di rete.]]></string>
     <string name="terminal_tutorial_1"><![CDATA[Per primo, esporta i files ovunque tu voglia, %1$s e %2$s.]]></string>
     <string name="terminal_export_files"><![CDATA[Esporta files]]></string>
@@ -54,34 +54,34 @@
     <string name="app_management_item_summary_requires_root"><![CDATA[* richiede Shizuku in modalità root]]></string>
     <string name="home_learn_more_title"><![CDATA[Impara Shizuku]]></string>
     <string name="home_learn_more_description"><![CDATA[Impara a sviluppare con Shizuku]]></string>
-    <string name="home_terminal_title"><![CDATA[Utilizza Shizuku nell\'app terminale]]></string>
+    <string name="home_terminal_title"><![CDATA[Utilizza Shizuku nell'app terminale]]></string>
     <string name="translation_contributors"><![CDATA[Dany-coder778, xDonatello, cladiotto]]></string>
     <string name="action_stop"><![CDATA[Interrompi Shizuku]]></string>
-    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> ha il supporto al Shizuku moderno, ma sta richiedendo Shizuku legacy. Questo potrebbe essere perché Shizuku non è in esecuzione, controlla nell\'app Shizuku.<p>Shizuku legacy è stato deprecato a marzo 2019.]]></string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> ha il supporto al Shizuku moderno, ma sta richiedendo Shizuku legacy. Questo potrebbe essere perché Shizuku non è in esecuzione, controlla nell'app Shizuku.<p>Shizuku legacy è stato deprecato a marzo 2019.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku"><![CDATA[Apri Shizuku]]></string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Tieni presente che la parte a sinistra dell\'opzione "Debug wireless" è selezionabile, toccandola si aprirà una nuova pagina. Solo la pressione dell\'interruttore a destra non è corretta.]]></string>
+    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Tieni presente che la parte a sinistra dell'opzione "Debug wireless" è selezionabile, toccandola si aprirà una nuova pagina. Solo la pressione dell'interruttore a destra non è corretta.]]></string>
     <string name="settings_title"><![CDATA[Impostazioni]]></string>
     <string name="settings_language"><![CDATA[Lingua]]></string>
     <string name="settings_black_night_theme_summary"><![CDATA[Usa il tema nero puro se la modalità notte è abilitata]]></string>
     <string name="settings_translation"><![CDATA[Partecipa alla traduzione]]></string>
     <string name="settings_translation_summary"><![CDATA[Aiutaci a tradurre %s nella tua lingua]]></string>
-    <string name="settings_start_on_boot_summary"><![CDATA[Per i dispositivi rootati, Shizuku è in grado di avviarsi automaticamente all\'avvio]]></string>
+    <string name="settings_start_on_boot_summary"><![CDATA[Per i dispositivi rootati, Shizuku è in grado di avviarsi automaticamente all'avvio]]></string>
     <string name="notification_channel_service_status"><![CDATA[Stato di avvio del servizio]]></string>
     <string name="grant_dialog_button_allow_always"><![CDATA[Consenti sempre]]></string>
     <string name="notification_service_starting"><![CDATA[Il servizio Shizuku si sta avviando…]]></string>
     <string name="dialog_requesting_legacy_title"><![CDATA[%1$s sta richiedendo Shizuku legacy]]></string>
     <string name="permission_warning_template"><![CDATA[Consentire a <b>%1$s</b> di %2$s?]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> è stato copiato negli appunti.]]></string>
-    <string name="rish_description"><![CDATA[Con %1$s, in qualsiasi app terminale, puoi connetterti e interagire con la shell eseguita da Shizuku. <p>Per info sull\'utilizzo dettagliato di %1$s, tocca per visualizzare il documento.]]></string>
+    <string name="rish_description"><![CDATA[Con %1$s, in qualsiasi app terminale, puoi connetterti e interagire con la shell eseguita da Shizuku. <p>Per info sull'utilizzo dettagliato di %1$s, tocca per visualizzare il documento.]]></string>
     <string name="notification_adb_pairing_searching_for_service_title"><![CDATA[Ricerca del servizio di accoppiamento]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[Ad esempio, se vuoi utilizzare Shizuku in %1$s, devi sostituire %2$s con %3$s (%4$s è il nome del pacchetto di %1$s).]]></string>
-    <string name="terminal_tutorial_3"><![CDATA[Infine, sposta i file in un punto in cui l\'app del terminale può accedere, così sarai in grado di utilizzare %1$s per eseguire comandi tramite Shizuku.]]></string>
+    <string name="terminal_tutorial_3"><![CDATA[Infine, sposta i file in un punto in cui l'app del terminale può accedere, così sarai in grado di utilizzare %1$s per eseguire comandi tramite Shizuku.]]></string>
     <string name="terminal_tutorial_3_description"><![CDATA[Alcuni suggerimenti: concedi il permesso di esecuzione a %1$s e aggiungilo a %2$s, così potrai utilizzare %1$s direttamente.]]></string>
     <string name="settings_user_interface"><![CDATA[Aspetto]]></string>
     <string name="settings_black_night_theme"><![CDATA[Tema nero notte]]></string>
     <string name="settings_startup"><![CDATA[Avvio]]></string>
     <string name="settings_translation_contributors"><![CDATA[Contributori alla traduzione]]></string>
-    <string name="settings_start_on_boot"><![CDATA[Avvia all\'accensione (root)]]></string>
+    <string name="settings_start_on_boot"><![CDATA[Avvia all'accensione (root)]]></string>
     <string name="settings_use_system_color"><![CDATA[Usa il colore del tema di sistema]]></string>
     <string name="action_about"><![CDATA[Info]]></string>
     <string name="about_view_source_code"><![CDATA[Visualizza il codice sorgente a %s]]></string>
@@ -92,7 +92,7 @@
     <string name="notification_adb_pairing_succeed_text"><![CDATA[Ora puoi avviare il servizio Shizuku.]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Riprova]]></string>
     <string name="permission_label"><![CDATA[accesso Shizuku]]></string>
-    <string name="permission_description"><![CDATA[Consenti all\'app di usare Shizuku.]]></string>
+    <string name="permission_description"><![CDATA[Consenti all'app di usare Shizuku.]]></string>
     <string name="grant_dialog_button_deny"><![CDATA[Nega]]></string>
     <string name="starter"><![CDATA[Accensione]]></string>
     <string name="notification_channel_adb_pairing"><![CDATA[Accoppiamento debug wireless]]></string>
@@ -110,7 +110,7 @@
     <string name="home_app_management_empty"><![CDATA[Le app che hanno richiesto o dichiarato Shizuku verranno visualizzate qui]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Prova a disabilitare e abilitare "Debug Wireless" se continua a cercare.]]></string>
     <string name="shevery_update_auto_check"><![CDATA[Controlla aggiornamenti in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Cerca nuove versioni anche quando l\'app è chiusa]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Cerca nuove versioni anche quando l'app è chiusa]]></string>
     <string name="update_settings_frequency_label"><![CDATA[Frequenza controllo]]></string>
     <string name="home_update_available_title"><![CDATA[Aggiornamento Shevery disponibile: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Una versione più recente è pronta. Tocca per scaricare.]]></string>
@@ -124,8 +124,8 @@
     <string name="home_local_network_description"><![CDATA[Il debug wireless richiede %1$s su questa versione di Android.]]></string>
     <string name="home_local_network_granted"><![CDATA[%1$s è concesso.]]></string>
     <string name="home_local_network_missing"><![CDATA[%1$s non è concesso.]]></string>
-    <string name="home_local_network_grant"><![CDATA[Concedi l\'accesso]]></string>
-    <string name="home_local_network_permission_denied"><![CDATA[Per il debug wireless è necessario l\'accesso alla rete locale.]]></string>
+    <string name="home_local_network_grant"><![CDATA[Concedi l'accesso]]></string>
+    <string name="home_local_network_permission_denied"><![CDATA[Per il debug wireless è necessario l'accesso alla rete locale.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminale]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB wireless]]></string>
     <string name="home_quick_tcp"><![CDATA[TCP5555]]></string>
@@ -138,16 +138,16 @@
     <string name="app_management_select_all"><![CDATA[Seleziona tutto]]></string>
     <string name="app_management_deselect_all"><![CDATA[Deseleziona tutto]]></string>
     <string name="app_management_loading"><![CDATA[Caricamento delle app in corso…]]></string>
-    <string name="settings_start_on_boot_adb"><![CDATA[Avvio all\'accensione tramite debug wireless]]></string>
-    <string name="settings_start_on_boot_adb_summary"><![CDATA[All\'avvio, abilita temporaneamente il debug wireless e avvia Shevery tramite ADB (porta TCP 5555). Non è richiesto il root; il Wi-Fi è necessario solo per un istante.]]></string>
-    <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[All\'avvio, abilita temporaneamente il debug wireless e avvia Shevery tramite ADB. Non è richiesto il root; il Wi-Fi serve solo per un attimo.]]></string>
+    <string name="settings_start_on_boot_adb"><![CDATA[Avvio all'accensione tramite debug wireless]]></string>
+    <string name="settings_start_on_boot_adb_summary"><![CDATA[All'avvio, abilita temporaneamente il debug wireless e avvia Shevery tramite ADB (porta TCP 5555). Non è richiesto il root; il Wi-Fi è necessario solo per un istante.]]></string>
+    <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[All'avvio, abilita temporaneamente il debug wireless e avvia Shevery tramite ADB. Non è richiesto il root; il Wi-Fi serve solo per un attimo.]]></string>
     <string name="settings_start_on_boot_adb_granted"><![CDATA[Autorizzazione WRITE_SECURE_SETTINGS concessa.]]></string>
     <string name="settings_start_on_boot_adb_warning_no_tcp"><![CDATA[Il binding TCP (porta 5555) è disattivato: il debug wireless rimarrà abilitato.]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_title"><![CDATA[Autorizzazione mancante]]></string>
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery non è in esecuzione. Avvia prima il servizio, poi torna qui e abilita questa impostazione.]]></string>
-    <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[La concessione automatica dell\'autorizzazione non è andata a buon fine. Esegui questo comando da un computer per concederla manualmente:]]></string>
+    <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[La concessione automatica dell'autorizzazione non è andata a buon fine. Esegui questo comando da un computer per concederla manualmente:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Comando "Copia"]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Istruzioni per l\'uso:
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Istruzioni per l'uso:
 1. Collegare il dispositivo a un computer (tramite USB o debug wireless).
 2. Nel terminale, eseguire il comando riportato nel campo sopra.]]></string>
     <string name="modules_title"><![CDATA[Moduli ADB]]></string>
@@ -158,30 +158,30 @@
     <string name="modules_author_label"><![CDATA[Autore: %s]]></string>
     <string name="modules_access_mode"><![CDATA[Modalità di accesso al modulo]]></string>
     <string name="modules_access_mode_safe"><![CDATA[Sicuro]]></string>
-    <string name="modules_access_mode_safe_summary"><![CDATA[Nessun shell bridge, nessun download dell\'interfaccia Web, nessuna azione, nessun servizio.]]></string>
+    <string name="modules_access_mode_safe_summary"><![CDATA[Nessun shell bridge, nessun download dell'interfaccia Web, nessuna azione, nessun servizio.]]></string>
     <string name="modules_access_mode_custom"><![CDATA[Personalizzato]]></string>
     <string name="modules_access_mode_custom_summary"><![CDATA[Selezionare manualmente le autorizzazioni relative ad azioni, servizi, ponte WebUI, rete e download.]]></string>
     <string name="modules_access_mode_full"><![CDATA[Accesso completo]]></string>
-    <string name="modules_access_mode_full_summary"><![CDATA[Consente l\'accesso a Shell Bridge, alle azioni, ai servizi e ai download dall\'interfaccia utente web. L\'accesso a Internet tramite WebView rimane bloccato.]]></string>
+    <string name="modules_access_mode_full_summary"><![CDATA[Consente l'accesso a Shell Bridge, alle azioni, ai servizi e ai download dall'interfaccia utente web. L'accesso a Internet tramite WebView rimane bloccato.]]></string>
     <string name="modules_custom_permissions"><![CDATA[Autorizzazioni personalizzate]]></string>
     <string name="modules_custom_permissions_summary"><![CDATA[Configurare separatamente le autorizzazioni di ciascun modulo]]></string>
     <string name="modules_permission_action"><![CDATA[Esegui azione]]></string>
-    <string name="modules_permission_action_summary"><![CDATA[Consenti l\'esecuzione manuale del file action.sh.]]></string>
+    <string name="modules_permission_action_summary"><![CDATA[Consenti l'esecuzione manuale del file action.sh.]]></string>
     <string name="modules_permission_service"><![CDATA[Esegui servizio]]></string>
-    <string name="modules_permission_service_summary"><![CDATA[Consenti l\'esecuzione di service.sh anche quando sono attive le azioni in background.]]></string>
+    <string name="modules_permission_service_summary"><![CDATA[Consenti l'esecuzione di service.sh anche quando sono attive le azioni in background.]]></string>
     <string name="modules_permission_web_bridge"><![CDATA[Bridge della shell WebUI]]></string>
-    <string name="modules_permission_web_bridge_summary"><![CDATA[Mostra la finestra "Shevery" solo per l\'interfaccia utente web locale e solo quando la connessione Internet di WebView è disattivata.]]></string>
+    <string name="modules_permission_web_bridge_summary"><![CDATA[Mostra la finestra "Shevery" solo per l'interfaccia utente web locale e solo quando la connessione Internet di WebView è disattivata.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView Internet]]></string>
-    <string name="modules_permission_web_network_summary"><![CDATA[Consenti la navigazione/i risorse HTTPS. Questa opzione disabilita l\'esposizione del bridge della shell per quella WebView.]]></string>
+    <string name="modules_permission_web_network_summary"><![CDATA[Consenti la navigazione/i risorse HTTPS. Questa opzione disabilita l'esposizione del bridge della shell per quella WebView.]]></string>
     <string name="modules_permission_web_download"><![CDATA[Download dell'interfaccia utente Web()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Consentire il download di file HTTPS nella cartella WebUI, ad eccezione del file index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Consenti le azioni in background]]></string>
-    <string name="modules_background_actions_summary"><![CDATA[Consentire ai moduli installati di richiedere l\'esecuzione di operazioni ADB in background in modalità di accesso completo]]></string>
-    <string name="modules_background_allowed"><![CDATA[È consentito l\'uso di uno sfondo]]></string>
+    <string name="modules_background_actions_summary"><![CDATA[Consentire ai moduli installati di richiedere l'esecuzione di operazioni ADB in background in modalità di accesso completo]]></string>
+    <string name="modules_background_allowed"><![CDATA[È consentito l'uso di uno sfondo]]></string>
     <string name="modules_background_blocked"><![CDATA[Sfondo oscurato]]></string>
     <string name="modules_install_zip"><![CDATA[Installa il file ZIP]]></string>
     <string name="modules_empty_title"><![CDATA[Nessun modulo installato]]></string>
-    <string name="modules_empty_summary"><![CDATA[I moduli ADB utilizzano un file ZIP in stile KernelSU/Magisk contenente il file module.prop, un banner opzionale, l\'interfaccia WebUI, i file action.sh e service.sh.]]></string>
+    <string name="modules_empty_summary"><![CDATA[I moduli ADB utilizzano un file ZIP in stile KernelSU/Magisk contenente il file module.prop, un banner opzionale, l'interfaccia WebUI, i file action.sh e service.sh.]]></string>
     <string name="modules_install_success"><![CDATA[%s installato]]></string>
     <string name="modules_install_failed"><![CDATA[Installazione non riuscita: %s]]></string>
     <string name="modules_enabled"><![CDATA[Abilitato]]></string>
@@ -198,7 +198,7 @@
     <string name="modules_webui"><![CDATA[Moduli WebUI]]></string>
     <string name="modules_delete"><![CDATA[Elimina]]></string>
     <string name="modules_delete_title"><![CDATA[Eliminare il modulo?]]></string>
-    <string name="modules_delete_message"><![CDATA[%s verrà rimosso dall\'archivio del modulo Shevery.]]></string>
+    <string name="modules_delete_message"><![CDATA[%s verrà rimosso dall'archivio del modulo Shevery.]]></string>
     <string name="modules_action_result"><![CDATA[Azione completata: uscita %d]]></string>
     <string name="modules_action_failed"><![CDATA[Operazione non riuscita]]></string>
     <string name="modules_service_result"><![CDATA[Servizio terminato: uscita %d]]></string>
@@ -212,7 +212,7 @@
     <string name="modules_recommand_close"><![CDATA[Chiudi]]></string>
     <string name="modules_recommand_command_clip_label"><![CDATA[Comando del modulo]]></string>
     <string name="modules_recommand_webui"><![CDATA[ReCommand per WebUI]]></string>
-    <string name="modules_recommand_webui_summary"><![CDATA[Visualizza una finestra di dialogo di conferma prima dell\'esecuzione della shell nella WebUI.]]></string>
+    <string name="modules_recommand_webui_summary"><![CDATA[Visualizza una finestra di dialogo di conferma prima dell'esecuzione della shell nella WebUI.]]></string>
     <string name="modules_recommand_action"><![CDATA[Richiesta di intervento]]></string>
     <string name="modules_recommand_action_summary"><![CDATA[Visualizza una finestra di dialogo di conferma prima di eseguire action.sh.]]></string>
     <string name="modules_ai"><![CDATA[Intelligenza artificiale]]></string>
@@ -246,9 +246,9 @@
     <string name="lab_features_title"><![CDATA[Caratteristiche del laboratorio]]></string>
     <string name="lab_features_summary"><![CDATA[Caratteristiche sperimentali]]></string>
     <string name="shizuku_connectors_title"><![CDATA[Connettori Shevery]]></string>
-    <string name="shizuku_connectors_summary"><![CDATA[Consenti l\'attivazione dei plugin su Shevery]]></string>
+    <string name="shizuku_connectors_summary"><![CDATA[Consenti l'attivazione dei plugin su Shevery]]></string>
     <string name="unsafe_warning_title"><![CDATA[Avviso]]></string>
-    <string name="unsafe_warning_message"><![CDATA[L\'attivazione di questa funzione NON È SICURA. Sei sicuro di voler procedere?]]></string>
+    <string name="unsafe_warning_message"><![CDATA[L'attivazione di questa funzione NON È SICURA. Sei sicuro di voler procedere?]]></string>
     <string name="dhizuku_mode_title"><![CDATA[Modalità Dhizuku]]></string>
     <string name="dhizuku_mode_summary"><![CDATA[Consenti a Shevery di funzionare tramite il collegamento con Dhizuku]]></string>
     <string name="home_dhizuku_title"><![CDATA[Inizio (tramite Dhizuku)]]></string>
@@ -295,10 +295,10 @@
     <string name="wadb_notification_title"><![CDATA[Si parte con Shevery…]]></string>
     <string name="wadb_notification_wifi_required"><![CDATA[In attesa della connessione Wi-Fi prima di procedere]]></string>
     <string name="wadb_notification_retry"><![CDATA[In attesa di un nuovo tentativo]]></string>
-    <string name="wadb_error_title"><![CDATA[Errore all\'avvio del sistema]]></string>
+    <string name="wadb_error_title"><![CDATA[Errore all'avvio del sistema]]></string>
     <string name="wadb_error_notify_dev"><![CDATA[Tocca per riavviare Shevery.]]></string>
     <string name="wadb_permission_error_notification_title"><![CDATA[Errore di autorizzazione]]></string>
-    <string name="wadb_permission_error_notification_content"><![CDATA[Shevery non si avviava all\'avvio del sistema. Apri Shevery per verificare il problema.]]></string>
+    <string name="wadb_permission_error_notification_content"><![CDATA[Shevery non si avviava all'avvio del sistema. Apri Shevery per verificare il problema.]]></string>
     <string name="wadb_notification_channel"><![CDATA[Servizio di avvio automatico ADB]]></string>
     <string name="wadb_notification_attempt_now"><![CDATA[Prova ora]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery è in corsa]]></string>
@@ -325,7 +325,7 @@
     <string name="update_settings_github_pat_set"><![CDATA[Set di gettoni]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[Non impostato (60 richieste/ora)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[Token di accesso personale GitHub]]></string>
-    <string name="update_settings_github_pat_description"><![CDATA[Facoltativo. Un PAT di GitHub aumenta i limiti di frequenza dell\'API da 60 a 5000 richieste all\'ora. Richiede solo l\'ambito "public_repo" per i repository pubblici.]]></string>
+    <string name="update_settings_github_pat_description"><![CDATA[Facoltativo. Un PAT di GitHub aumenta i limiti di frequenza dell'API da 60 a 5000 richieste all'ora. Richiede solo l'ambito "public_repo" per i repository pubblici.]]></string>
     <string name="update_settings_github_pat_label"><![CDATA[Gettone]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Mostra]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Nascondi]]></string>
@@ -338,13 +338,13 @@
     <string name="shevery_update_up_to_date"><![CDATA[Shevery è aggiornato (%s)]]></string>
     <string name="shevery_update_available_title"><![CDATA[È disponibile un nuovo aggiornamento di Shevery!]]></string>
     <string name="shevery_update_available_msg"><![CDATA[È disponibile la versione %1$s (attuale: %2$s)]]></string>
-    <string name="shevery_update_download_apk"><![CDATA[Scarica l\'APK]]></string>
+    <string name="shevery_update_download_apk"><![CDATA[Scarica l'APK]]></string>
     <string name="shevery_update_view_release"><![CDATA[Visualizza su GitHub]]></string>
     <string name="shevery_update_channel"><![CDATA[Canale di aggiornamento]]></string>
     <string name="shevery_update_channel_summary"><![CDATA[Scegli il canale di distribuzione degli aggiornamenti]]></string>
     <string name="app_update_channel_stable"><![CDATA[Stabile]]></string>
     <string name="app_update_channel_beta"><![CDATA[Versioni preliminari e beta]]></string>
-    <string name="shevery_update_group_title"><![CDATA[Aggiornamenti dell\'app Shevery]]></string>
+    <string name="shevery_update_group_title"><![CDATA[Aggiornamenti dell'app Shevery]]></string>
     <string name="shevery_update_modules_group_title"><![CDATA[Aggiornamenti dei moduli e catalogo]]></string>
     <string name="shevery_update_check_failed"><![CDATA[Verifica aggiornamenti non riuscita: %s]]></string>
     <string name="modules_catalog"><![CDATA[Catalogo]]></string>
@@ -361,7 +361,7 @@
     <string name="modules_catalog_install_failed"><![CDATA[Installazione non riuscita: %s]]></string>
     <string name="modules_catalog_token_required"><![CDATA[È richiesto un token GitHub]]></string>
     <string name="modules_catalog_token_hint"><![CDATA[Token di accesso personale GitHub]]></string>
-    <string name="modules_catalog_token_description"><![CDATA[Per cercare i moduli su GitHub è necessario un token. Puoi crearne uno all\'indirizzo github.com/settings/tokens]]></string>
+    <string name="modules_catalog_token_description"><![CDATA[Per cercare i moduli su GitHub è necessario un token. Puoi crearne uno all'indirizzo github.com/settings/tokens]]></string>
     <string name="modules_catalog_token_format_warning"><![CDATA[Il token deve iniziare con "ghp_" o "github_pat_" e deve contenere almeno 30 caratteri]]></string>
     <string name="modules_catalog_loading"><![CDATA[Caricamento del catalogo in corso…]]></string>
     <string name="modules_catalog_error"><![CDATA[Impossibile caricare il catalogo]]></string>
@@ -401,9 +401,9 @@
     <string name="comput_hide_api_key"><![CDATA[Nascondi chiave API]]></string>
     <string name="comput_gemini_model_performance"><![CDATA[Codifica ad alte prestazioni e agentica (consigliata)]]></string>
     <string name="comput_gemini_model_lightweight"><![CDATA[Modello leggero ad alta velocità]]></string>
-    <string name="comput_gemini_api_error"><![CDATA[L\'API Gemini ha restituito il codice di errore %1$d: %2$s]]></string>
+    <string name="comput_gemini_api_error"><![CDATA[L'API Gemini ha restituito il codice di errore %1$d: %2$s]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[Errore di connessione.]]></string>
-    <string name="comput_gemini_failed"><![CDATA[Impossibile connettersi all\'API di Gemini: %1$s]]></string>
+    <string name="comput_gemini_failed"><![CDATA[Impossibile connettersi all'API di Gemini: %1$s]]></string>
     <string name="comput_gemini_no_details"><![CDATA[Nessun dettaglio.]]></string>
     <string name="comput_sh_mode"><![CDATA[inclusa la modalità]]></string>
     <string name="comput_adb_mode"><![CDATA[Modalità adb]]></string>
@@ -429,7 +429,7 @@ Esecuzione in corso...]]></string>
     <string name="comput_error_no_binder"><![CDATA[Errore: impossibile recuperare il raccoglitore Shevery.]]></string>
     <string name="comput_console_initialized"><![CDATA[Console inizializzata. Servizio Shevery con privilegi connesso.
 Pronto per i comandi.]]></string>
-    <string name="comput_ai_explanation"><![CDATA[Spiegazione dell\'IA]]></string>
+    <string name="comput_ai_explanation"><![CDATA[Spiegazione dell'IA]]></string>
     <string name="comput_commandium"><![CDATA[Comandio]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Assistente IA del Commandium]]></string>
     <string name="comput_commandium_description"><![CDATA[Genera comandi shell utilizzando il linguaggio naturale. Gemini fornirà un comando grezzo, che potrà essere copiato.]]></string>
@@ -450,7 +450,7 @@ Pronto per i comandi.]]></string>
     <string name="comput_console_macros"><![CDATA[Console delle macro]]></string>
     <string name="comput_stop"><![CDATA[Interrompi (%1$d)]]></string>
     <string name="comput_record_macro"><![CDATA[Registra macro]]></string>
-    <string name="comput_recording_active"><![CDATA[Registrazione attiva. Esegui i comandi utilizzando l\'input principale per aggiungerli a questa macro.]]></string>
+    <string name="comput_recording_active"><![CDATA[Registrazione attiva. Esegui i comandi utilizzando l'input principale per aggiungerli a questa macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Macro salvate]]></string>
         <string name="comput_delete"><![CDATA[Elimina]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Conferma ReCommand]]></string>
@@ -476,11 +476,11 @@ Pronto per i comandi.]]></string>
     <string name="comput_close_search_desc"><![CDATA[Chiudi ricerca]]></string>
     <string name="comput_history_desc"><![CDATA[Cronologia dei comandi]]></string>
     <string name="comput_history_title"><![CDATA[Storia]]></string>
-    <string name="comput_history_empty"><![CDATA[Non c\'è ancora alcuna cronologia dei comandi]]></string>
+    <string name="comput_history_empty"><![CDATA[Non c'è ancora alcuna cronologia dei comandi]]></string>
     <string name="comput_run_desc"><![CDATA[Esegui comando]]></string>
     <string name="comput_stop_desc"><![CDATA[Comando "Stop"]]></string>
     <string name="comput_scroll_bottom_desc"><![CDATA[Scorri fino in fondo alla pagina]]></string>
-    <string name="comput_cancelled"><![CDATA[Comando annullato dall\'utente.]]></string>
+    <string name="comput_cancelled"><![CDATA[Comando annullato dall'utente.]]></string>
     <string name="diagnostics_app"><![CDATA[App]]></string>
     <string name="diagnostics_android"><![CDATA[Androide]]></string>
     <string name="diagnostics_service"><![CDATA[Servizio]]></string>
@@ -503,17 +503,17 @@ Pronto per i comandi.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Binding TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Associa il server ADB locale alla porta 5555 per garantirne il funzionamento senza dover aggiornare la porta di debug wireless.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Collegare a 5555]]></string>
-    <string name="settings_tcp_5555_bind_success"><![CDATA[L\'ADB è stato collegato correttamente alla porta TCP 5555]]></string>
+    <string name="settings_tcp_5555_bind_success"><![CDATA[L'ADB è stato collegato correttamente alla porta TCP 5555]]></string>
     <string name="settings_tcp_5555_bind_failed"><![CDATA[Impossibile associare ADB alla porta 5555: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[È necessario Root, Dhizuku o Shevery attivo.]]></string>
-    <string name="accessibility_manager_title"><![CDATA[Responsabile dell\'accessibilità]]></string>
+    <string name="accessibility_manager_title"><![CDATA[Responsabile dell'accessibilità]]></string>
     <string name="accessibility_manager_lab_group"><![CDATA[Accessibilità]]></string>
-    <string name="accessibility_manager_lab_title"><![CDATA[Responsabile dell\'accessibilità]]></string>
+    <string name="accessibility_manager_lab_title"><![CDATA[Responsabile dell'accessibilità]]></string>
     <string name="accessibility_manager_lab_summary"><![CDATA[Gestire e mantenere attivi i servizi di accessibilità]]></string>
     <string name="accessibility_manager_keep_alive_group"><![CDATA[Mantenere attivo]]></string>
     <string name="accessibility_manager_keep_alive_title"><![CDATA[Mantieni attivi i servizi fissati in primo piano]]></string>
-    <string name="accessibility_manager_keep_alive_summary"><![CDATA[Riattivare i servizi di accessibilità aggiunti ai preferiti quando vengono disattivati dal sistema o dall\'utente]]></string>
-    <string name="accessibility_manager_auto_boot_title"><![CDATA[Avvio all\'accensione]]></string>
+    <string name="accessibility_manager_keep_alive_summary"><![CDATA[Riattivare i servizi di accessibilità aggiunti ai preferiti quando vengono disattivati dal sistema o dall'utente]]></string>
+    <string name="accessibility_manager_auto_boot_title"><![CDATA[Avvio all'accensione]]></string>
     <string name="accessibility_manager_auto_boot_summary"><![CDATA[Avvia automaticamente il demone keep-alive dopo il riavvio del dispositivo]]></string>
     <string name="accessibility_manager_shizuku_required"><![CDATA[Shevery non è in esecuzione. Avvialo per abilitare o disabilitare i servizi di accessibilità.]]></string>
     <string name="accessibility_manager_services_group"><![CDATA[Servizi di accessibilità (%1$d)]]></string>
@@ -522,7 +522,7 @@ Pronto per i comandi.]]></string>
     <string name="accessibility_manager_write_failed"><![CDATA[Impossibile aggiornare i servizi di accessibilità. Verifica che Shevery sia in esecuzione e disponga dei permessi necessari.]]></string>
     <string name="accessibility_manager_pin"><![CDATA[Servizio di pin per mantenere attiva la connessione]]></string>
     <string name="accessibility_manager_unpin"><![CDATA[Rimuovi il servizio dai preferiti]]></string>
-    <string name="accessibility_daemon_channel_name"><![CDATA[Mantenimento della connessione per l\'accessibilità]]></string>
+    <string name="accessibility_daemon_channel_name"><![CDATA[Mantenimento della connessione per l'accessibilità]]></string>
     <string name="accessibility_daemon_notification_title"><![CDATA[Funzione di mantenimento della connessione attiva]]></string>
     <string name="accessibility_daemon_notification_text"><![CDATA[I servizi di accessibilità fissati verranno ripristinati se disabilitati]]></string>
     <string name="settings_compat_stub"><![CDATA[Scheda preliminare di Legacy Shizuku]]></string>
@@ -536,7 +536,7 @@ Pronto per i comandi.]]></string>
 Attenzione: non disabilitare le “Opzioni sviluppatore” né il “Debug USB”, altrimenti Shevery verrà interrotto.]]></string>
     <string name="dialog_wireless_adb_not_enabled"><![CDATA[Il debug wireless non è abilitato.
 Nota: prima di Android 11, per abilitare il debug wireless è indispensabile la connessione a un computer.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Per avviare l\'accoppiamento, segui questi passaggi: "Opzioni sviluppatore" - "Debug wireless" - "Accoppia dispositivo tramite codice di accoppiamento".
+    <string name="dialog_adb_pairing_message"><![CDATA[Per avviare l'accoppiamento, segui questi passaggi: "Opzioni sviluppatore" - "Debug wireless" - "Accoppia dispositivo tramite codice di accoppiamento".
 
 Una volta avviato il processo di accoppiamento, potrai inserire il codice di accoppiamento.]]></string>
     <string name="adb_error_key_store"><![CDATA[Impossibile generare la chiave per il debug wireless.
@@ -548,7 +548,7 @@ Di solito, è possibile rimuovere questa limitazione modificando alcune impostaz
 Potrebbe essere necessario riavviare Shevery affinché la modifica abbia effetto.]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[Se nella cartella selezionata sono presenti file con lo stesso nome, questi verranno eliminati.
 
-La funzione di esportazione utilizza SAF (Storage Access Framework). È stato segnalato che MIUI compromette il corretto funzionamento di SAF. Se utilizzi MIUI, potrebbe essere necessario estrarre il file dall\'apk di Shevery o scaricarlo da GitHub.]]></string>
+La funzione di esportazione utilizza SAF (Storage Access Framework). È stato segnalato che MIUI compromette il corretto funzionamento di SAF. Se utilizzi MIUI, potrebbe essere necessario estrarre il file dall'apk di Shevery o scaricarlo da GitHub.]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
 è stato copiato negli appunti.]]></string>
     <string name="adb_pairing_tutorial_content_miui">Gli utenti MIUI potrebbero dover cambiare lo stile di notifica su "Android" da "Notifica" - "Ombreggiatura notifiche" nelle impostazioni di sistema.</string>

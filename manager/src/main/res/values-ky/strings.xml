@@ -360,7 +360,7 @@
     <string name="comput_console_output"><![CDATA[Консоль Чыгарышы]]></string>
     <string name="comput_output_copied"><![CDATA[Ныйтыйжа алмашуу буферине көчүрүлдү]]></string>
     <string name="comput_copy_output"><![CDATA[Натыйжаны көчүрүү]]></string>
-    <string name="comput_ask_gemini"><![CDATA[Gemini\'ден суроо]]></string>
+    <string name="comput_ask_gemini"><![CDATA[Gemini'ден суроо]]></string>
     <string name="comput_executing"><![CDATA[Аткарылууда: %1$s ...]]></string>
     <string name="comput_command_no_output"><![CDATA[Команда натыйжасыз аяктады.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Команда 120 секунддан ашык убакыт алды.]]></string>
@@ -376,7 +376,7 @@
     <string name="comput_commandium_description"><![CDATA[Табигый тилде командаларды түзүңүз.]]></string>
     <string name="comput_commandium_label"><![CDATA[Кандай команда керек?]]></string>
     <string name="comput_commandium_placeholder"><![CDATA[мисалы: 10MBдан чоң файлдарды табуу]]></string>
-    <string name="comput_ask_commandium"><![CDATA[Commandium\'дон суроо]]></string>
+    <string name="comput_ask_commandium"><![CDATA[Commandium'дон суроо]]></string>
     <string name="comput_generated_command"><![CDATA[Түзүлгөн команда:]]></string>
     <string name="comput_command_pasted"><![CDATA[Команда киргизүү талаасына коюлду]]></string>
     <string name="comput_use_command"><![CDATA[Команданы колдонуу]]></string>

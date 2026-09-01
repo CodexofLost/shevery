@@ -77,7 +77,7 @@ This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="terminal_tutorial_1"><![CDATA[ပထမဦးစွာ၊ သင်အလိုရှိသောမည်သည့်နေရာတွင်မဆိုဖိုင်များကို Export လုပ်ပါ။ ဖိုင်နှစ်ခု၊ %1$s နှင့် %2$s ကို သင်တွေ့လိမ့်မည်။]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
 
-The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
+The export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[ဖိုင်များကို ထုတ်ယူပါ။]]></string>
     <string name="terminal_tutorial_2"><![CDATA[ထို့နောက် %1$s ကိုဖွင့်ပြီး တည်းဖြတ်ရန် မည်သည့်စာသားတည်းဖြတ်မှုကိုမဆို အသုံးပြုပါ။]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[ဥပမာအားဖြင့်၊ သင်သည် %1$s တွင် Shevery ကိုအသုံးပြုလိုပါက၊ %2$s ကို %3$s ဖြင့် အစားထိုးသင့်သည် (%4$s သည် %1$s ၏ ပက်ကေ့ချ်အမည်ဖြစ်သည်)။]]></string>

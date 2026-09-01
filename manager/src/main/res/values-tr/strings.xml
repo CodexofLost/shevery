@@ -16,7 +16,7 @@
     <string name="home_adb_dialog_view_command_copy_button"><![CDATA[Kopyala]]></string>
     <string name="home_adb_dialog_view_command_button_send"><![CDATA[Gönder]]></string>
     <string name="home_wireless_adb_title"><![CDATA[Kablosuz hata ayıklama ile başlat]]></string>
-    <string name="home_wireless_adb_description"><![CDATA[Android 11 ve üzeri sürümlerde, Kablosuz hata ayıklama ve Shizuku\'yu cihazınızdan bir bilgisayara bağlanmadan direkt aktif edebilirsiniz.<p>Lütfen öncelikle adım adım kılavuz\'u inceleyin.]]></string>
+    <string name="home_wireless_adb_description"><![CDATA[Android 11 ve üzeri sürümlerde, Kablosuz hata ayıklama ve Shizuku'yu cihazınızdan bir bilgisayara bağlanmadan direkt aktif edebilirsiniz.<p>Lütfen öncelikle adım adım kılavuz'u inceleyin.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Android 11 ve önceki sürümlerde, Kablosuz hata ayıklama’yı aktif etmek için bir bilgisayara bağlanmak gereklidir.]]></string>
     <string name="home_wireless_adb_view_guide_button"><![CDATA[Adım adım kılavuz]]></string>
     <string name="home_local_network_title"><![CDATA[Yerel ağ erişimi]]></string>
@@ -44,14 +44,14 @@
     <string name="adb_pairing_tutorial_content_notification"><![CDATA[Shizuku’dan bir bildirim eşleştirmeyi tamamlamanıza yardım edecek.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA["Geliştirici Seçenekleri" - "Kablosuz hata ayıklama" girin. "Cihazı eşleştirme kodu ile eşleştir"e dokunun, altı haneli bir kod göreceksiniz.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Eşleştirmeyi tamamlamak için kodu bildirime girin.]]></string>
-    <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Eşleştirme işlemi, Shizuku\'dan gelen bir bildirimle etkileşim kurmanızı gerektirir. Lütfen Shizuku\'nun bildirim göndermesine izin verin.]]></string>
+    <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[Eşleştirme işlemi, Shizuku'dan gelen bir bildirimle etkileşim kurmanızı gerektirir. Lütfen Shizuku'nun bildirim göndermesine izin verin.]]></string>
         <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Aksi takdirde, bildirimden eşleştirme kodunu giremeyebilirsiniz.]]></string>
     <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Lütfen, "Kablosuz hata ayıklama" seçeneğinin sol kısmının tıklanabilir olduğunu, dokunulduğunda yeni bir sayfa açılacağını unutmayın. Yalnızca sağdaki düğmeyi açmak yanlıştır.]]></string>
-    <string name="adb_pairing_tutorial_content_finish"><![CDATA[Shizuku\'ya geri dönün ve Shizuku\'yu başlatın.]]></string>
+    <string name="adb_pairing_tutorial_content_finish"><![CDATA[Shizuku'ya geri dönün ve Shizuku'yu başlatın.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shizuku’nun yerel ağa erişmesi gerekiyor. Ağ izni tarafından kontrol edilir.]]></string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground"><![CDATA[Bazı sistemler (MIUI gibi), uygulama standart olarak ön plan hizmetini kullansa bile, arka planda çalıştıklarında ağa erişmesine izin vermez. Lütfen bu tür sistemlerde Shizuku için pil optimizasyon özelliklerini devre dışı bırakın.]]></string>
     <string name="home_root_title"><![CDATA[Başlat (rootlu cihazlar için)]]></string>
-    <string name="home_root_description"><![CDATA[Buna ek olarak, Shizuku otomatik olarak açılışta başlatılabilir. Aksi durumda ise, lütfen sisteminizin veya üçüncü taraf araçlarınızın Shizuku\'yu kısıtlayıp kısıtlamadığını kontrol edin. <br/>%s \'ye başvurabilirsiniz.]]></string>
+    <string name="home_root_description"><![CDATA[Buna ek olarak, Shizuku otomatik olarak açılışta başlatılabilir. Aksi durumda ise, lütfen sisteminizin veya üçüncü taraf araçlarınızın Shizuku'yu kısıtlayıp kısıtlamadığını kontrol edin. <br/>%s 'ye başvurabilirsiniz.]]></string>
     <string name="home_root_description_sui"><![CDATA[Magisk kullanıyorsanız, %1$s’yi deneyebilirsiniz. Kök kullanıcıları için sonunda Shizuku’nun yerini alacak. %2$s’yi kullanmak için mevcut uygulamaların biraz değişmesi gerektiğini unutmayın.]]></string>
     <string name="home_root_button_start"><![CDATA[Başlat]]></string>
     <string name="home_root_button_restart"><![CDATA[Yeniden başlat]]></string>
@@ -80,9 +80,9 @@
     <string name="terminal_tutorial_1"><![CDATA[İlk olarak, dosyaları istediğiniz yere aktarın. İki dosya bulacaksınız: %1$s ve %2$s.]]></string>
     <string name="terminal_export_files"><![CDATA[Dosyaları dışa aktar]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Ardından, herhangi bir metin düzenleyici kullanarak %1$s dosyasını açın ve düzenleyin.]]></string>
-    <string name="terminal_tutorial_2_description"><![CDATA[Örneğin, Shevery\'yi %1$s\'de kullanmak istiyorsanız %2$s yerine %3$s koymalısınız (%4$s, %1$s\'nin paket adıdır).]]></string>
+    <string name="terminal_tutorial_2_description"><![CDATA[Örneğin, Shevery'yi %1$s'de kullanmak istiyorsanız %2$s yerine %3$s koymalısınız (%4$s, %1$s'nin paket adıdır).]]></string>
     <string name="terminal_tutorial_3"><![CDATA[Son olarak, dosyaları terminal uygulamanızın erişebileceği bir yere taşıyın; Shevery aracılığıyla komut çalıştırmak için %1$s kullanabilirsiniz.]]></string>
-    <string name="terminal_tutorial_3_description"><![CDATA[Bazı ipuçları: %1$s\'ye çalıştırma izni verin ve %2$s\'ye ekleyin; böylece %1$s\'yi doğrudan kullanabilirsiniz.]]></string>
+    <string name="terminal_tutorial_3_description"><![CDATA[Bazı ipuçları: %1$s'ye çalıştırma izni verin ve %2$s'ye ekleyin; böylece %1$s'yi doğrudan kullanabilirsiniz.]]></string>
     <string name="settings_title"><![CDATA[Ayarlar]]></string>
     <string name="settings_language"><![CDATA[Dil]]></string>
     <string name="settings_user_interface"><![CDATA[Görünüm]]></string>
@@ -113,9 +113,9 @@
     <string name="modules_permission_action"><![CDATA[Eylem Çalıştır]]></string>
     <string name="modules_permission_action_summary"><![CDATA[Manuel action.sh çalıştırmasına izin ver.]]></string>
     <string name="modules_permission_service"><![CDATA[Hizmet Çalıştır]]></string>
-    <string name="modules_permission_service_summary"><![CDATA[Arka plan eylemleri de etkinleştirildiğinde service.sh\'ye izin ver.]]></string>
+    <string name="modules_permission_service_summary"><![CDATA[Arka plan eylemleri de etkinleştirildiğinde service.sh'ye izin ver.]]></string>
     <string name="modules_permission_web_bridge"><![CDATA[WebUI kabuk köprüsü]]></string>
-    <string name="modules_permission_web_bridge_summary"><![CDATA[window.Shevery\'yi yalnızca yerel WebUI için ve yalnızca WebView internet kapalıyken göster.]]></string>
+    <string name="modules_permission_web_bridge_summary"><![CDATA[window.Shevery'yi yalnızca yerel WebUI için ve yalnızca WebView internet kapalıyken göster.]]></string>
     <string name="modules_permission_web_network"><![CDATA[Webİnternet görünümü]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[HTTPS gezintisine/varlıklara izin ver. Bu, o WebView için kabuk köprüsü gösterimini devre dışı bırakır.]]></string>
     <string name="modules_permission_web_download"><![CDATA[WebUI indirme()]]></string>
@@ -183,7 +183,7 @@
     <string name="action_about"><![CDATA[Hakkında]]></string>
     <string name="about_source_code_button"><![CDATA[Kaynak kodu]]></string>
     <string name="about_view_source_code"><![CDATA[Kaynak kodunu %s adresinde görüntüle]]></string>
-    <string name="action_stop"><![CDATA[Shevery\'yi durdur]]></string>
+    <string name="action_stop"><![CDATA[Shevery'yi durdur]]></string>
     <string name="dialog_stop_message"><![CDATA[Shevery hizmeti durdurulacak.]]></string>
     <string name="service_already_stopped"><![CDATA[Shevery hizmeti zaten durdurulmuş.]]></string>
     <string name="service_stop_success"><![CDATA[Shevery hizmeti durduruldu.]]></string>
@@ -221,15 +221,15 @@
     <string name="lab_features_title"><![CDATA[Deneysel Özellikler]]></string>
     <string name="lab_features_summary"><![CDATA[Deneysel özellikler]]></string>
     <string name="shizuku_connectors_title"><![CDATA[Shevery Bağlayıcıları]]></string>
-    <string name="shizuku_connectors_summary"><![CDATA[Eklentilerin Shevery\'yi etkinleştirmesine izin ver]]></string>
+    <string name="shizuku_connectors_summary"><![CDATA[Eklentilerin Shevery'yi etkinleştirmesine izin ver]]></string>
     <string name="unsafe_warning_title"><![CDATA[Uyarı]]></string>
     <string name="unsafe_warning_message"><![CDATA[Bu özelliği etkinleştirmek GÜVENSİZDİR. Emin misiniz?]]></string>
     <string name="dhizuku_mode_title"><![CDATA[Dhizuku Modu]]></string>
-    <string name="dhizuku_mode_summary"><![CDATA[Shevery\'nin Dhizuku\'ya bağlı olarak çalışmasına izin ver]]></string>
+    <string name="dhizuku_mode_summary"><![CDATA[Shevery'nin Dhizuku'ya bağlı olarak çalışmasına izin ver]]></string>
     <string name="home_dhizuku_title"><![CDATA[Başlat (Dhizuku aracılığıyla)]]></string>
-    <string name="home_dhizuku_description"><![CDATA[Dhizuku tarafından yönetilen cihazlar için Cihaz Sahibi ayrıcalıklarını kullanarak Shevery\'yi doğrudan başlatabilirsiniz.]]></string>
+    <string name="home_dhizuku_description"><![CDATA[Dhizuku tarafından yönetilen cihazlar için Cihaz Sahibi ayrıcalıklarını kullanarak Shevery'yi doğrudan başlatabilirsiniz.]]></string>
     <string name="dhizuku_warning_title"><![CDATA[Uyarı: Dhizuku Modu]]></string>
-    <string name="dhizuku_warning_message"><![CDATA[Dhizuku, Cihaz Sahibi/yönetici ayrıcalıkları için tasarlanmıştır. Shevery\'yi Dhizuku aracılığıyla çalıştırırken bazı kabuk ve ADB\'ye özgü komutlar düzgün çalışmayabilir veya tamamen desteklenmeyebilir. Devam etmek istediğinizden emin misiniz?]]></string>
+    <string name="dhizuku_warning_message"><![CDATA[Dhizuku, Cihaz Sahibi/yönetici ayrıcalıkları için tasarlanmıştır. Shevery'yi Dhizuku aracılığıyla çalıştırırken bazı kabuk ve ADB'ye özgü komutlar düzgün çalışmayabilir veya tamamen desteklenmeyebilir. Devam etmek istediğinizden emin misiniz?]]></string>
     <string name="settings_tcp_mode"><![CDATA[TCP Modu]]></string>
     <string name="settings_tcp_mode_summary"><![CDATA[ADB başlatmayı TCP 5555 portuna yeniden bağla.]]></string>
     <string name="settings_restart_dialog_title"><![CDATA[Yeniden başlatma gerekli]]></string>
@@ -248,7 +248,7 @@
     <string name="lab_notify_death_summary"><![CDATA[Shevery hizmeti beklenmedik şekilde durduğunda bildirim göster]]></string>
     <string name="lab_debugging_title"><![CDATA[Hata Ayıklama]]></string>
     <string name="lab_verbose_logging_title"><![CDATA[Ayrıntılı Günlük Kaydı]]></string>
-    <string name="lab_verbose_logging_summary"><![CDATA[Logcat\'e ayrıntılı hata ayıklama günlükleri yaz. Pili korumak için üretimde devre dışı bırak]]></string>
+    <string name="lab_verbose_logging_summary"><![CDATA[Logcat'e ayrıntılı hata ayıklama günlükleri yaz. Pili korumak için üretimde devre dışı bırak]]></string>
     <string name="notification_channel_watchdog"><![CDATA[Hizmet İzleyici]]></string>
     <string name="notification_watchdog_title"><![CDATA[Shevery Hizmeti Durdu]]></string>
     <string name="notification_watchdog_text"><![CDATA[Shevery hizmeti beklenmedik şekilde durdu.]]></string>
@@ -257,14 +257,14 @@
     <string name="notification_control_channel_name"><![CDATA[Shevery Kontrolü]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery çalışıyor]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery durdu]]></string>
-    <string name="notification_control_text_running"><![CDATA[Shevery\'yi açmak için dokun veya durdurmak için bildirimi genişlet.]]></string>
-    <string name="notification_control_text_stopped"><![CDATA[Shevery\'yi açmak için dokun veya başlatmak için bildirimi genişlet.]]></string>
+    <string name="notification_control_text_running"><![CDATA[Shevery'yi açmak için dokun veya durdurmak için bildirimi genişlet.]]></string>
+    <string name="notification_control_text_stopped"><![CDATA[Shevery'yi açmak için dokun veya başlatmak için bildirimi genişlet.]]></string>
     <string name="notification_control_action_start"><![CDATA[Başlat]]></string>
     <string name="notification_control_action_stop"><![CDATA[Durdur]]></string>
     <string name="update_settings_title"><![CDATA[Güncelleme Ayarları]]></string>
     <string name="update_settings_catalog"><![CDATA[Modül Kataloğu]]></string>
     <string name="update_settings_catalog_enabled"><![CDATA[Kataloğu etkinleştir]]></string>
-    <string name="update_settings_catalog_enabled_summary"><![CDATA[GitHub Topics\'ten keşfedilen modülleri göster]]></string>
+    <string name="update_settings_catalog_enabled_summary"><![CDATA[GitHub Topics'ten keşfedilen modülleri göster]]></string>
     <string name="update_settings_frequency"><![CDATA[Güncelleme Sıklığı]]></string>
     <string name="update_settings_frequency_label"><![CDATA[Güncellemeleri kontrol et]]></string>
     <string name="update_settings_frequency_manual"><![CDATA[Manuel]]></string>
@@ -279,7 +279,7 @@
     <string name="update_settings_github_pat_set"><![CDATA[Belirteç ayarlandı]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[Ayarlanmadı (60 istek/saat)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[GitHub Kişisel Erişim Belirteci]]></string>
-    <string name="update_settings_github_pat_description"><![CDATA[İsteğe bağlı. GitHub PAT, API hız sınırlarını 60\'tan 5000 istek/saate çıkarır. Yalnızca public_repo kapsamı gerektirir.]]></string>
+    <string name="update_settings_github_pat_description"><![CDATA[İsteğe bağlı. GitHub PAT, API hız sınırlarını 60'tan 5000 istek/saate çıkarır. Yalnızca public_repo kapsamı gerektirir.]]></string>
     <string name="update_settings_github_pat_label"><![CDATA[Belirteç]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Göster]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Gizle]]></string>
@@ -300,13 +300,13 @@
     <string name="modules_catalog_install_failed"><![CDATA[Yükleme başarısız: %s]]></string>
     <string name="modules_catalog_token_required"><![CDATA[GitHub belirteci gerekli]]></string>
     <string name="modules_catalog_token_hint"><![CDATA[GitHub Kişisel Erişim Belirteci]]></string>
-    <string name="modules_catalog_token_description"><![CDATA[GitHub\'da modülleri aramak için bir belirteç gerekli. github.com/settings/tokens adresinde oluşturabilirsiniz]]></string>
+    <string name="modules_catalog_token_description"><![CDATA[GitHub'da modülleri aramak için bir belirteç gerekli. github.com/settings/tokens adresinde oluşturabilirsiniz]]></string>
     <string name="modules_catalog_token_format_warning"><![CDATA[Belirteç ghp_ veya github_pat_ ile başlamalı ve en az 30 karakter olmalıdır]]></string>
     <string name="modules_catalog_loading"><![CDATA[Katalog yükleniyor…]]></string>
     <string name="modules_catalog_error"><![CDATA[Katalog yüklenemedi]]></string>
     <string name="modules_catalog_install"><![CDATA[Yükle]]></string>
     <string name="modules_catalog_installing"><![CDATA[Yükleniyor…]]></string>
-    <string name="modules_catalog_view_github"><![CDATA[GitHub\'da görüntüle]]></string>
+    <string name="modules_catalog_view_github"><![CDATA[GitHub'da görüntüle]]></string>
     <string name="modules_catalog_skip_token"><![CDATA[Atla]]></string>
     <string name="modules_catalog_open"><![CDATA[Kataloğu Aç]]></string>
     <string name="tv_status_active"><![CDATA[ETKİN]]></string>
@@ -327,8 +327,8 @@
     <string name="comput_adb_console"><![CDATA[ADB Comput Konsolu]]></string>
     <string name="comput_recommand_title"><![CDATA[Comput için ReCommand]]></string>
     <string name="comput_recommand_summary"><![CDATA[Comput konsolunda komut çalıştırmadan önce onay diyaloğu göster]]></string>
-    <string name="comput_recommand_confirmation"><![CDATA[Bu ADB komutunu Comput\'ta çalıştırmak istediğinizden emin misiniz?]]></string>
-    <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API Anahtarı boş! Lütfen Shevery Ayarları\'nda yapılandırın.]]></string>
+    <string name="comput_recommand_confirmation"><![CDATA[Bu ADB komutunu Comput'ta çalıştırmak istediğinizden emin misiniz?]]></string>
+    <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API Anahtarı boş! Lütfen Shevery Ayarları'nda yapılandırın.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API Anahtarı]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Yapılandırılmadı (Gemini YZ çalışmayacak)]]></string>
     <string name="comput_gemini_model_title"><![CDATA[Gemini YZ Modeli]]></string>
@@ -340,7 +340,7 @@
     <string name="comput_gemini_model_lightweight"><![CDATA[Hafif yüksek hız modeli]]></string>
     <string name="comput_gemini_api_error"><![CDATA[Gemini API %1$d hata kodu döndürdü: %2$s]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[Bağlantı hatası.]]></string>
-    <string name="comput_gemini_failed"><![CDATA[Gemini API\'ye erişilemedi: %1$s]]></string>
+    <string name="comput_gemini_failed"><![CDATA[Gemini API'ye erişilemedi: %1$s]]></string>
     <string name="comput_gemini_no_details"><![CDATA[Ayrıntı yok.]]></string>
     <string name="comput_sh_mode"><![CDATA[sh Modu]]></string>
     <string name="comput_adb_mode"><![CDATA[adb Modu]]></string>
@@ -352,7 +352,7 @@
     <string name="comput_console_output"><![CDATA[Konsol Çıktısı]]></string>
     <string name="comput_output_copied"><![CDATA[Çıktı panoya kopyalandı]]></string>
     <string name="comput_copy_output"><![CDATA[Çıktıyı Kopyala]]></string>
-    <string name="comput_ask_gemini"><![CDATA[Gemini\'ye Sor]]></string>
+    <string name="comput_ask_gemini"><![CDATA[Gemini'ye Sor]]></string>
     <string name="comput_executing"><![CDATA[Çalıştırılıyor: %1$s ...]]></string>
     <string name="comput_command_no_output"><![CDATA[Komut çıktısız tamamlandı.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Komut 120 saniye sonra zaman aşımına uğradı.]]></string>
@@ -366,8 +366,8 @@
     <string name="comput_commandium_assistant"><![CDATA[Commandium YZ Asistanı]]></string>
     <string name="comput_commandium_description"><![CDATA[Doğal dil kullanarak kabuk komutları oluşturun.]]></string>
     <string name="comput_commandium_label"><![CDATA[Hangi komutu istiyorsunuz?]]></string>
-    <string name="comput_commandium_placeholder"><![CDATA[örn. /sdcard\'da 10MB\'dan büyük tüm dosyaları bul]]></string>
-    <string name="comput_ask_commandium"><![CDATA[Commandium\'a Sor]]></string>
+    <string name="comput_commandium_placeholder"><![CDATA[örn. /sdcard'da 10MB'dan büyük tüm dosyaları bul]]></string>
+    <string name="comput_ask_commandium"><![CDATA[Commandium'a Sor]]></string>
     <string name="comput_generated_command"><![CDATA[Oluşturulan Komut:]]></string>
     <string name="comput_command_pasted"><![CDATA[Komut girişe yapıştırıldı]]></string>
     <string name="comput_use_command"><![CDATA[Komutu kullan]]></string>
@@ -418,12 +418,12 @@
     <string name="diagnostics_limited"><![CDATA[kısıtlı]]></string>
     <string name="diagnostics_unknown"><![CDATA[bilinmiyor]]></string>
     <string name="error_protect_title"><![CDATA[Hata Koruması]]></string>
-    <string name="error_protect_summary"><![CDATA[Her 10 saniyede bir işlem sağlığını ve işlem hatalarını kontrol et. Sorun bulunursa Shevery\'yi otomatik olarak durdur ve yeniden başlat.]]></string>
+    <string name="error_protect_summary"><![CDATA[Her 10 saniyede bir işlem sağlığını ve işlem hatalarını kontrol et. Sorun bulunursa Shevery'yi otomatik olarak durdur ve yeniden başlat.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP Bağlantısı 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Kablosuz Hata Ayıklama bağlantı noktası güncellemeleri olmadan çalışmaya devam etmesi için yerel ADB sunucusunu 5555 bağlantı noktasına bağla.]]></string>
-    <string name="settings_tcp_5555_button"><![CDATA[5555\'e Bağla]]></string>
+    <string name="settings_tcp_5555_button"><![CDATA[5555'e Bağla]]></string>
     <string name="settings_tcp_5555_bind_success"><![CDATA[ADB başarıyla TCP 5555 bağlantı noktasına bağlandı]]></string>
-    <string name="settings_tcp_5555_bind_failed"><![CDATA[ADB\'yi 5555 bağlantı noktasına bağlama başarısız: %1$s]]></string>
+    <string name="settings_tcp_5555_bind_failed"><![CDATA[ADB'yi 5555 bağlantı noktasına bağlama başarısız: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Root, Dhizuku veya aktif Shevery gereklidir.]]></string>
     <string name="shevery_update_auto_check"><![CDATA[Arka planda güncellemeleri kontrol edin]]></string>
     <string name="shevery_update_auto_check_summary"><![CDATA[Uygulama kapalıyken bile yeni sürümleri arayın]]></string>
@@ -444,17 +444,17 @@ Android 11 sürümünden önce, kablosuz hata ayıklamayı etkinleştirmek için
 Eşleştirme işlemi başladıktan sonra, eşleştirme kodunu girebileceksiniz.]]></string>
     <string name="adb_error_key_store"><![CDATA[Kablosuz hata ayıklama için anahtar oluşturulamıyor.
 Bunun nedeni, bu cihazın KeyStore mekanizmasının bozuk olması olabilir.]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Cihazınızın üreticisi adb izinlerini kısıtlamıştır ve Shevery\'yi kullanan uygulamalar düzgün çalışmayacaktır.
+    <string name="home_adb_is_limited_description"><![CDATA[Cihazınızın üreticisi adb izinlerini kısıtlamıştır ve Shevery'yi kullanan uygulamalar düzgün çalışmayacaktır.
 
 Genellikle bu kısıtlama, "Geliştirici seçenekleri"ndeki bazı ayarları değiştirerek kaldırılabilir. Bunun nasıl yapılacağına dair ayrıntılar için lütfen yardım bölümünü okuyun.
 
-Değişikliğin yürürlüğe girmesi için Shevery\'yi yeniden başlatmanız gerekebilir.]]></string>
+Değişikliğin yürürlüğe girmesi için Shevery'yi yeniden başlatmanız gerekebilir.]]></string>
     <string name="app_management_loading"><![CDATA[Uygulamalar yükleniyor…]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[Seçilen klasörde aynı ada sahip dosyalar varsa, bunlar silinecektir.
 
 Dışa aktarma işlevi SAF’yi (Storage Access Framework) kullanır. MIUI’nin SAF’nin işlevlerini bozduğu bildirilmektedir. MIUI kullanıyorsanız, dosyayı Shevery’nin APK’sından ayıklamanız veya GitHub’dan indirmeniz gerekebilir.]]></string>
     <string name="rish_description"><![CDATA[%1$s ile herhangi bir terminal uygulamasından Shevery tarafından çalıştırılan kabuklara bağlanabilir ve bunlarla etkileşim kurabilirsiniz.
-<p>%1$s\'nin ayrıntılı kullanım bilgileri için belgeyi görüntülemek üzere buraya dokunun.]]></string>
+<p>%1$s'nin ayrıntılı kullanım bilgileri için belgeyi görüntülemek üzere buraya dokunun.]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Kablosuz hata ayıklama yoluyla sistem başlatıldığında başlat]]></string>
     <string name="settings_start_on_boot_adb_summary"><![CDATA[Sistem başlatılırken, Kablosuz hata ayıklamayı kısa bir süre için etkinleştirin ve Shevery’yi ADB üzerinden (TCP bağlantı noktası 5555) başlatın. Root erişimi gerekmez; Wi-Fi’ye sadece bir anlığına ihtiyaç vardır.]]></string>
     <string name="settings_start_on_boot_adb_summary_no_tcp"><![CDATA[Cihaz açılırken, Kablosuz hata ayıklamayı kısa bir süre için etkinleştirin ve ADB üzerinden Shevery’yi başlatın. Root erişimi gerekmez; Wi-Fi bağlantısı sadece bir anlığına gereklidir.]]></string>
@@ -474,23 +474,23 @@ Dışa aktarma işlevi SAF’yi (Storage Access Framework) kullanır. MIUI’nin
 panoya kopyalandı.]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[İlk yeniden başlatma için Wi-Fi gereklidir; çünkü Shevery, ADB’yi 5555’e geçmeden önce mevcut Kablosuz Hata Ayıklama bağlantı noktasına bağlanmalıdır.]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery girişimi]]></string>
-    <string name="notification_startup_title"><![CDATA[Shevery\'nin Başlangıcı]]></string>
+    <string name="notification_startup_title"><![CDATA[Shevery'nin Başlangıcı]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Wi-Fi hata ayıklama özelliği etkinleştiriliyor…]]></string>
-    <string name="notification_startup_connecting"><![CDATA[ADB\'ye bağlanılıyor…]]></string>
+    <string name="notification_startup_connecting"><![CDATA[ADB'ye bağlanılıyor…]]></string>
     <string name="notification_startup_started"><![CDATA[Shevery başladı.]]></string>
     <string name="notification_startup_failed"><![CDATA[Shevery başlatılamadı.]]></string>
     <string name="notification_startup_no_port"><![CDATA[Kablosuz hata ayıklama bağlantı noktası 15 saniye içinde bulunamadı.]]></string>
-    <string name="notification_startup_no_permission"><![CDATA[Sistem başlatılırken başlatılamıyor: Gerekli bir izin verilmemiş. Öncelikle Shevery\'yi açın ve izni verin.]]></string>
+    <string name="notification_startup_no_permission"><![CDATA[Sistem başlatılırken başlatılamıyor: Gerekli bir izin verilmemiş. Öncelikle Shevery'yi açın ve izni verin.]]></string>
     <string name="notification_startup_waiting_unlock"><![CDATA[Cihazın kilidinin açılmasının başlamasını bekliyorum…]]></string>
     <string name="notification_startup_cancel"><![CDATA[İptal et]]></string>
     <string name="notification_startup_attempt_now"><![CDATA[Şimdi dene]]></string>
-    <string name="wadb_notification_title"><![CDATA[Shevery\'yi başlatmak…]]></string>
+    <string name="wadb_notification_title"><![CDATA[Shevery'yi başlatmak…]]></string>
     <string name="wadb_notification_wifi_required"><![CDATA[Devam etmeden önce Wi-Fi bağlantısı bekleniyor]]></string>
     <string name="wadb_notification_retry"><![CDATA[Yeniden denemek için bekliyor]]></string>
     <string name="wadb_error_title"><![CDATA[Sistem başlatılırken hata oluştu]]></string>
     <string name="wadb_error_notify_dev"><![CDATA[Shevery’yi yeniden başlatmak için dokunun.]]></string>
     <string name="wadb_permission_error_notification_title"><![CDATA[İzin Hatası]]></string>
-    <string name="wadb_permission_error_notification_content"><![CDATA[Shevery, sistem başlatılırken çalışmadı. Sorunu kontrol etmek için Shevery\'yi açın.]]></string>
+    <string name="wadb_permission_error_notification_content"><![CDATA[Shevery, sistem başlatılırken çalışmadı. Sorunu kontrol etmek için Shevery'yi açın.]]></string>
     <string name="wadb_notification_attempt_now"><![CDATA[Şimdi deneyin]]></string>
     <string name="settings_update_group_title"><![CDATA[Güncelleme]]></string>
     <string name="shevery_update_check_title"><![CDATA[Shevery güncellemelerini kontrol edin]]></string>
@@ -499,8 +499,8 @@ panoya kopyalandı.]]></string>
     <string name="shevery_update_up_to_date"><![CDATA[Shevery güncel durumdadır (%s)]]></string>
     <string name="shevery_update_available_title"><![CDATA[Shevery için yeni güncelleme yayınlandı!]]></string>
     <string name="shevery_update_available_msg"><![CDATA[%1$s sürümü mevcuttur (mevcut sürüm: %2$s)]]></string>
-    <string name="shevery_update_download_apk"><![CDATA[APK\'yi indir]]></string>
-    <string name="shevery_update_view_release"><![CDATA[GitHub\'da Görüntüle]]></string>
+    <string name="shevery_update_download_apk"><![CDATA[APK'yi indir]]></string>
+    <string name="shevery_update_view_release"><![CDATA[GitHub'da Görüntüle]]></string>
     <string name="shevery_update_channel"><![CDATA[Güncelleme kanalı]]></string>
     <string name="shevery_update_channel_summary"><![CDATA[Güncelleme sürüm kanalını seçin]]></string>
     <string name="app_update_channel_stable"><![CDATA[Kararlı]]></string>
@@ -539,7 +539,7 @@ Komutlara hazır.]]></string>
     <string name="accessibility_manager_shizuku_required"><![CDATA[Shevery çalışmıyor. Erişilebilirlik hizmetlerini etkinleştirmek veya devre dışı bırakmak için programı başlatın.]]></string>
     <string name="accessibility_manager_services_group"><![CDATA[Erişilebilirlik hizmetleri (%1$d)]]></string>
     <string name="accessibility_manager_services_empty"><![CDATA[Yüklü erişilebilirlik hizmeti bulunamadı.]]></string>
-    <string name="accessibility_manager_write_failed"><![CDATA[Erişilebilirlik hizmetleri güncellenemedi. Shevery\'nin çalışır durumda olup olmadığını ve gerekli izinlere sahip olup olmadığını kontrol edin.]]></string>
+    <string name="accessibility_manager_write_failed"><![CDATA[Erişilebilirlik hizmetleri güncellenemedi. Shevery'nin çalışır durumda olup olmadığını ve gerekli izinlere sahip olup olmadığını kontrol edin.]]></string>
     <string name="accessibility_manager_pin"><![CDATA[Hizmeti aktif tutmak için sabitle]]></string>
     <string name="accessibility_manager_unpin"><![CDATA[Hizmeti sabitlemeden kaldır]]></string>
     <string name="accessibility_daemon_channel_name"><![CDATA[Erişilebilirlik bağlantısının açık tutulması]]></string>
@@ -547,10 +547,10 @@ Komutlara hazır.]]></string>
     <string name="accessibility_daemon_notification_text"><![CDATA[Sabitlenmiş erişilebilirlik hizmetleri, devre dışı bırakılmışsa yeniden etkinleştirilecektir]]></string>
     <string name="settings_compat_stub"><![CDATA[Eski Shizuku taslağı]]></string>
     <string name="settings_compat_stub_summary"><![CDATA[Eski Shizuku yöneticisini sıkı bir şekilde kontrol eden uygulamaların çalışmaya devam etmesini sağlamak için bir yer tutucu paket (moe.shizuku.privileged.api) yükler. İzin ve bağlayıcı istekleri Shevery’ye yönlendirilir.]]></string>
-    <string name="settings_compat_stub_installed"><![CDATA[%1$s aracılığıyla Legacy stub\'ı yüklendi]]></string>
+    <string name="settings_compat_stub_installed"><![CDATA[%1$s aracılığıyla Legacy stub'ı yüklendi]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Eski yer tutucu kaldırıldı]]></string>
-    <string name="settings_compat_stub_failed"><![CDATA[%2$s aracılığıyla eski stub\'ı %1$s işlemi yapılamadı: %3$s]]></string>
-    <string name="settings_compat_stub_none"><![CDATA[Kullanılabilir kanal yok (önce Shevery\'i başlatın)]]></string>
+    <string name="settings_compat_stub_failed"><![CDATA[%2$s aracılığıyla eski stub'ı %1$s işlemi yapılamadı: %3$s]]></string>
+    <string name="settings_compat_stub_none"><![CDATA[Kullanılabilir kanal yok (önce Shevery'i başlatın)]]></string>
     <string name="adb_pairing_tutorial_content_miui">MIUI kullanıcılarının, sistem ayarlarında "Bildirim" - "Bildirim gölgesi" bölümünden bildirim stilini "Android" olarak değiştirmeleri gerekebilir.</string>
     <string name="comput_no_macros">Henüz kayıtlı makro yok. Konsol komutlarını kaydetmeye başlamak için \'Makro Kaydet\'i tıklayın.</string>
 </resources>

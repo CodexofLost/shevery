@@ -77,7 +77,7 @@ This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="terminal_tutorial_1"><![CDATA[یەکەم، پەڕگەکان هەناردە بکە بۆ هەر شوێنێک کە دەتەوێت. دوو پەڕگە دەدۆزیتەوە، ٪1$s و ٪2$s.]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
 
-The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
+The export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[هەناردەکردنی فایلەکان]]></string>
     <string name="terminal_tutorial_2"><![CDATA[پاشان هەر دەستکاریکەرێکی دەق بەکاربێنە بۆ کردنەوە و دەستکاریکردنی ٪1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[بۆ نموونە، ئەگەر بتەوێت Shevery لە ٪1$s بەکاربێنیت، پێویستە ٪2$s بە ٪3$s بگۆڕیت (٪4$s ناوی پاکێجی ٪1$s یە).]]></string>
@@ -552,5 +552,5 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="home_dhizuku_title"><![CDATA[دەستپێک (لە ڕێگەی Dhizuku)]]></string>
     <string name="home_dhizuku_description"><![CDATA[بۆ ئەو ئامێرانەی کە لەلایەن Dhizuku بەڕێوە دەبرێن، دەتوانیت ڕاستەوخۆ بە بەکارهێنانی مافەکانی خاوەن ئامێر دەست پێبکەیت.]]></string>
     <string name="adb_pairing_tutorial_content_miui"><![CDATA[بەکارهێنەرانی MIUI لەوانەیە پێویستیان بە گۆڕینی شێوازی ئاگانامە بێت بۆ "Android" لە "ئاگادارکردنەوە" - "سێبەری ئاگانامەکان" لە رێکبەندەکانی سیستەم.]]></string>
-    <string name="comput_no_macros"><![CDATA[هێشتا هیچ ماکرۆیەکی پاشەکەوت نەکراوە. کرتە بکە لەسەر \'تۆمارکردنی ماکرۆ\' بۆ دەستپێکردنی تۆمارکردنی فەرمانەکانی کۆنسۆل.]]></string>
+    <string name="comput_no_macros"><![CDATA[هێشتا هیچ ماکرۆیەکی پاشەکەوت نەکراوە. کرتە بکە لەسەر 'تۆمارکردنی ماکرۆ' بۆ دەستپێکردنی تۆمارکردنی فەرمانەکانی کۆنسۆل.]]></string>
 </resources>

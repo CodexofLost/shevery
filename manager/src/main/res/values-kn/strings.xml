@@ -77,7 +77,7 @@ This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="terminal_tutorial_1"><![CDATA[ಮೊದಲಿಗೆ, ನೀವು ಬಯಸಿದ ಸ್ಥಳಕ್ಕೆ ಫೈಲ್ ಗಳನ್ನು ರಫ್ತು ಮಾಡಿ. ನೀವು ಎರಡು ಫೈಲ್ ಗಳನ್ನು ಕಾಣಬಹುದು, %1$s ಮತ್ತು %2$s.]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
 
-The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
+The export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[ಫೈಲ್ ಗಳನ್ನು ರಫ್ತು ಮಾಡಿ]]></string>
     <string name="terminal_tutorial_2"><![CDATA[ನಂತರ, %1$s ತೆರೆಯಲು ಮತ್ತು ಸಂಪಾದಿಸಲು ಯಾವುದೇ ಪಠ್ಯ ಸಂಪಾದಕವನ್ನು ಬಳಸಿ.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[ಉದಾಹರಣೆಗೆ, ನೀವು %1$s ನಲ್ಲಿ Sheach ಅನ್ನು ಬಳಸಲು ಬಯಸಿದರೆ, ನೀವು %2$s ಅನ್ನು %3$s ನೊಂದಿಗೆ ಬದಲಾಯಿಸಬೇಕು (%4$s ಎಂಬುದು %1$s ನ ಪ್ಯಾಕೇಜ್ ಹೆಸರು).]]></string>
@@ -552,5 +552,5 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="home_dhizuku_title"><![CDATA[ಪ್ರಾರಂಭ (ಡಿಜುಕು ಮೂಲಕ)]]></string>
     <string name="home_dhizuku_description"><![CDATA[Dhizuku ನಿರ್ವಹಿಸುವ ಸಾಧನಗಳಿಗಾಗಿ, ಸಾಧನ ಮಾಲೀಕರ ಸವಲತ್ತುಗಳನ್ನು ಬಳಸಿಕೊಂಡು ನೀವು ನೇರವಾಗಿ Sheach ಅನ್ನು ಪ್ರಾರಂಭಿಸಬಹುದು.]]></string>
     <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI ಬಳಕೆದಾರರು ಸಿಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್ಗಳಲ್ಲಿ "ನೋಟಿಫಿಕೇಷನ್" - "ನೋಟಿಫಿಕೇಶನ್ ಶೇಡ್" ನಿಂದ "ಆಂಡ್ರಾಯ್ಡ್" ಗೆ ಅಧಿಸೂಚನೆ ಶೈಲಿಯನ್ನು ಬದಲಾಯಿಸಬೇಕಾಗಬಹುದು.]]></string>
-    <string name="comput_no_macros"><![CDATA[ಇನ್ನೂ ಉಳಿಸಿದ ಮ್ಯಾಕ್ರೊಗಳು ಇಲ್ಲ. ರೆಕಾರ್ಡಿಂಗ್ ಕನ್ಸೋಲ್ ಆದೇಶಗಳನ್ನು ಪ್ರಾರಂಭಿಸಲು \'ರೆಕಾರ್ಡ್ ಮ್ಯಾಕ್ರೊ\' ಕ್ಲಿಕ್ ಮಾಡಿ.]]></string>
+    <string name="comput_no_macros"><![CDATA[ಇನ್ನೂ ಉಳಿಸಿದ ಮ್ಯಾಕ್ರೊಗಳು ಇಲ್ಲ. ರೆಕಾರ್ಡಿಂಗ್ ಕನ್ಸೋಲ್ ಆದೇಶಗಳನ್ನು ಪ್ರಾರಂಭಿಸಲು 'ರೆಕಾರ್ಡ್ ಮ್ಯಾಕ್ರೊ' ಕ್ಲಿಕ್ ಮಾಡಿ.]]></string>
 </resources>

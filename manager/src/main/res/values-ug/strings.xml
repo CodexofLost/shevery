@@ -77,7 +77,7 @@ This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="terminal_tutorial_1">بىرىنچى ، ھۆججەتلەرنى خالىغان ئورۇنغا چىقىرىڭ. % 1 $ s ۋە% 2 $ s دىن ئىبارەت ئىككى ھۆججەتنى تاپالايسىز.</string>
     <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
 
-The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
+The export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.]]></string>
     <string name="terminal_export_files">ھۆججەتلەرنى چىقىرىش</string>
     <string name="terminal_tutorial_2">ئاندىن ھەر قانداق تېكىست تەھرىرلىگۈچنى ئىشلىتىپ% 1 $ s نى ئېچىڭ ۋە تەھرىرلەڭ.</string>
     <string name="terminal_tutorial_2_description">مەسىلەن ، ئەگەر سىز Shevery نى% 1 $ s دە ئىشلەتمەكچى بولسىڭىز ،% 2 $ s نى% 3 $ s غا ئالماشتۇرۇشىڭىز كېرەك (% 4 $ s بولسا% 1 $ s نىڭ ئورالما ئىسمى).</string>
@@ -551,6 +551,6 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="dialog_requesting_legacy_message"><![CDATA[<b>٪1$s</b> ھازىرقى زامان Shevery نى قوللايدۇ، لېكىن ئۇ Shevery نى تەلەپ قىلىدۇ. بۇ Shevery ئىجرا قىلىنمىغاچقا، Shevery ئەپ دېتالىدىن تەكشۈرۈپ بېقىڭ. <p>Legacy Shevery 2019-يىلى مارتتىن باشلاپ ئەمەلدىن قالدۇرۇلدى.]]></string>
     <string name="home_dhizuku_title"><![CDATA[باشلاش (Dhizuku)]]></string>
     <string name="home_dhizuku_description"><![CDATA[Dhizuku باشقۇرىدىغان ئۈسكۈنىلەرگە قارىتا، ئۈسكۈنە ئىگىسى ھوقۇقىدىن پايدىلىنىپ Shevery نى بىۋاستە قوزغىتالايسىز.]]></string>
-    <string name="comput_no_macros"><![CDATA[تېخىچە ساقلىۋېلىنغان ماكرو يوق. \'Record Macro\' نى چېكىپ، كونۇپكا بۇيرۇقىنى ئۈنگە ئېلىشنى باشلاڭ.]]></string>
+    <string name="comput_no_macros"><![CDATA[تېخىچە ساقلىۋېلىنغان ماكرو يوق. 'Record Macro' نى چېكىپ، كونۇپكا بۇيرۇقىنى ئۈنگە ئېلىشنى باشلاڭ.]]></string>
     <string name="adb_pairing_tutorial_content_miui">MIUI ئىشلەتكۈچىلەر سىستېما تەڭشىكىدە ئۇقتۇرۇش ئۇسلۇبىنى «ئۇقتۇرۇش» - «ئۇقتۇرۇش سايىسى» دىن «ئاندىرويىد» قا ئۆزگەرتىشى مۇمكىن.</string>
 </resources>

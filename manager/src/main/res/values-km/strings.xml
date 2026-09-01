@@ -77,7 +77,7 @@ This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="terminal_tutorial_1"><![CDATA[ដំបូង នាំចេញឯកសារទៅកន្លែងណាមួយដែលអ្នកចង់បាន។អ្នកនឹងឃើញឯកសារពីរគឺ %1$s និង %2$s។]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
 
-The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
+The export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[នាំចេញឯកសារ]]></string>
     <string name="terminal_tutorial_2"><![CDATA[បន្ទាប់មក ប្រើកម្មវិធីកែសម្រួលអត្ថបទណាមួយដើម្បីបើក និងកែសម្រួល %1$s។]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[ឧទាហរណ៍ ប្រសិនបើអ្នកចង់ប្រើ Shevery ក្នុង %1$s អ្នកគួរជំនួស %2$s ជា %3$s (%4$s គឺជាឈ្មោះកញ្ចប់របស់ %1$s)។]]></string>
@@ -552,5 +552,5 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="home_dhizuku_title"><![CDATA[ចាប់ផ្តើម (តាមរយៈ Dhizuku)]]></string>
     <string name="home_dhizuku_description"><![CDATA[សម្រាប់ឧបករណ៍ដែលគ្រប់គ្រងដោយ Dhizuku អ្នកអាចចាប់ផ្តើម Shevery ដោយផ្ទាល់ដោយប្រើសិទ្ធិម្ចាស់ឧបករណ៍។]]></string>
     <string name="adb_pairing_tutorial_content_miui"><![CDATA[អ្នកប្រើ MIUI អាចត្រូវប្ដូររចនាប័ទ្មជូនដំណឹងទៅ "Android" ពី "Notification" - "Notification shade" ក្នុងការកំណត់ប្រព័ន្ធ។]]></string>
-    <string name="comput_no_macros"><![CDATA[មិនទាន់មានម៉ាក្រូដែលបានរក្សាទុកទេ។ចុច \'ថតម៉ាក្រូ\' ដើម្បីចាប់ផ្តើមកត់ត្រាពាក្យបញ្ជាកុងសូល។]]></string>
+    <string name="comput_no_macros"><![CDATA[មិនទាន់មានម៉ាក្រូដែលបានរក្សាទុកទេ។ចុច 'ថតម៉ាក្រូ' ដើម្បីចាប់ផ្តើមកត់ត្រាពាក្យបញ្ជាកុងសូល។]]></string>
 </resources>

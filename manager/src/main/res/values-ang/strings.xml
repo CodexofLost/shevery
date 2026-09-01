@@ -34,7 +34,7 @@
     <string name="dialog_adb_pairing_discovery"><![CDATA[Searching for pairing service]]></string>
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Pairing code]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Pairing code is wrong.]]></string>
-    <string name="cannot_connect_port"><![CDATA[Can\'t connect to wireless debugging service.]]></string>
+    <string name="cannot_connect_port"><![CDATA[Can't connect to wireless debugging service.]]></string>
     <string name="dialog_wireless_adb_not_enabled"><![CDATA[Wireless debugging is not enabled.
 Note, before Android 11, to enable wireless debugging, computer connection is a must.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Please enter split-screen (multi-window) mode first.]]></string>
@@ -78,7 +78,7 @@ This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="terminal_tutorial_1"><![CDATA[First, Export files to any where you want. You will find two files, %1$s and %2$s.]]></string>
     <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
 
-The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
+The export function uses SAF (Storage Access Framework). It's reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery's apk or download from GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[Export files]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Then, use any text editor to open and edit %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[For example, if you want to use Shevery in %1$s, you should replace %2$s with %3$s (%4$s is the package name of %1$s).]]></string>
@@ -220,8 +220,8 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="grant_dialog_button_allow_always"><![CDATA[Allow all the time]]></string>
     <string name="grant_dialog_button_deny"><![CDATA["Deny"]]></string>
     <string name="starter"><![CDATA[Starter]]></string>
-    <string name="start_with_root_failed"><![CDATA[Can\'t start service because root permission is not granted or this device is not rooted.]]></string>
-    <string name="dialog_cannot_open_browser_title"><![CDATA[Can\'t start browser]]></string>
+    <string name="start_with_root_failed"><![CDATA[Can't start service because root permission is not granted or this device is not rooted.]]></string>
+    <string name="dialog_cannot_open_browser_title"><![CDATA[Can't start browser]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
 has been copied to clipboard.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s does not support modern Shevery]]></string>
@@ -540,7 +540,7 @@ After the pairing process starts, you will able to input the pairing code.]]></s
 Usually, this limitation can be lifted by adjusting some options in "Developer options". Please read the help for details on how to do this.
 
 You may need to restart Shevery for the operation to take effect.]]></string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[It\'s highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href="%1$s">this document</a></b>.]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[It's highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href="%1$s">this document</a></b>.]]></string>
     <string name="rish_description"><![CDATA[With %1$s, in any terminal app, you can connect to and interact with the shell runs by Shevery.
 <p>About the detailed usage %1$s, tap to view the document.]]></string>
     <string name="about_view_source_code"><![CDATA[View source code at %s]]></string>
@@ -550,7 +550,7 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="starting_root_shell"><![CDATA[Starting root shell…]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> has been copied to clipboard.]]></string>
     <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery has been deprecated since March 2019. Also, legacy Shevery does not work on newer Android systems.<p>Please ask the developer of <b>%1$s</b> to update.]]></string>
-    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> has modern Shevery support, but it\'s requesting legacy Shevery. This could because Shevery is not running, please check in Shevery app.<p>Legacy Shevery has been deprecated since March 2019.]]></string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> has modern Shevery support, but it's requesting legacy Shevery. This could because Shevery is not running, please check in Shevery app.<p>Legacy Shevery has been deprecated since March 2019.]]></string>
     <string name="home_dhizuku_title"><![CDATA[Start (via Dhizuku)]]></string>
     <string name="home_dhizuku_description"><![CDATA[For devices managed by Dhizuku, you can start Shevery directly using Device Owner privileges.]]></string>
 </resources>

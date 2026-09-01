@@ -471,7 +471,7 @@ Klaar voor opdrachten.]]></string>
     <string name="comput_stop"><![CDATA[Stoppen (%1$d)]]></string>
     <string name="comput_record_macro"><![CDATA[Macro opnemen]]></string>
     <string name="comput_recording_active"><![CDATA[Opname actief. Voer opdrachten uit via de hoofdinvoer om ze aan deze macro toe te voegen.]]></string>
-    <string name="comput_saved_macros"><![CDATA[Opgeslagen macro\'s]]></string>
+    <string name="comput_saved_macros"><![CDATA[Opgeslagen macro's]]></string>
         <string name="comput_delete"><![CDATA[Verwijderen]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[Bevestiging van ReCommand]]></string>
     <string name="comput_execute"><![CDATA[Uitvoeren]]></string>
@@ -482,7 +482,7 @@ Klaar voor opdrachten.]]></string>
     <string name="comput_save"><![CDATA[Opslaan]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
     <string name="comput_tab_commandium"><![CDATA[AI-studio]]></string>
-    <string name="comput_tab_macros"><![CDATA[Macro\'s]]></string>
+    <string name="comput_tab_macros"><![CDATA[Macro's]]></string>
     <string name="comput_tab_presets"><![CDATA[Voorinstellingen]]></string>
     <string name="comput_quick_chips"><![CDATA[Snelle acties]]></string>
     <string name="comput_terminal_header"><![CDATA[SHELL-UITVOER]]></string>
