@@ -233,7 +233,7 @@ Nakon što proces uparivanja započne, moći ćete unijeti kod za uparivanje.]]>
     <string name="notification_adb_pairing_failed_title"><![CDATA[Upairanje nije uspjelo]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Ponovi]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
-    <string name="permission_group_description"><![CDATA[@string/oznaka_dopuštenja]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[pristup Shevery]]></string>
     <string name="permission_description"><![CDATA[Dopustite aplikaciji da koristi Shevery.]]></string>
     <string name="permission_warning_template"><![CDATA[Dopustiti <b>%1$s</b> da %2$s?]]></string>
