@@ -243,7 +243,7 @@ Eksportēšanas funkcija izmanto SAF (Storage Access Framework). Ir ziņots, ka 
     <string name="notification_adb_pairing_failed_title"><![CDATA[Pārošana neizdevās]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Mēģināt vēlreiz]]></string>
     <string name="permission_group_label"><![CDATA[Ševeri]]></string>
-    <string name="permission_group_description"><![CDATA[@string/atļaujas_nosaukums]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[piekļuve Shevery]]></string>
     <string name="permission_description"><![CDATA[Atļaujiet lietotnei izmantot „Shevery“.]]></string>
     <string name="permission_warning_template"><![CDATA[Atļaut <b>%1$s</b> veikt %2$s?]]></string>

@@ -535,7 +535,7 @@
     <string name="rish_description"><![CDATA[با %1$s، در هر اپلیکیشن ترمینال، می‌توانید به اجراهای شل Shevery متصل شده و با آن‌ها تعامل کنید.
 برای مشاهدهٔ راهنمای استفادهٔ دقیق از %1$s، ضربه بزنید.]]></string>
     <string name="permission_group_label"><![CDATA[شِوِری]]></string>
-    <string name="permission_group_description"><![CDATA[@string/برچسب_مجوز]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[شروع پوستهٔ ریشه…]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[برای اولین راه‌اندازی مجدد به وای‌فای نیاز است، زیرا Shevery باید قبل از تغییر پورت ADB به ۵۵۵۵ به پورت عیب‌یابی بی‌سیم فعلی متصل شود.]]></string>
     <string name="comput_adb_translate"><![CDATA[حالت ترجمه فرمان ADB فعال

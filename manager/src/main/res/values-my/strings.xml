@@ -541,7 +541,7 @@ Ready for commands.]]></string>
 %1$s ၏ အသေးစိတ် အသုံးပြုနည်းကို ကြည့်ရန် ဒီမှာ နှိပ်ပါ။]]></string>
     <string name="about_view_source_code"><![CDATA[%s တွင် မူရင်းကုဒ်ကို ကြည့်ပါ။]]></string>
     <string name="permission_group_label"><![CDATA[ရှီဗရီ]]></string>
-    <string name="permission_group_description"><![CDATA[@string/ခွင့်ပြုချက်အမှတ်အသား]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b> ကို %2$s ခွင့်ပြုပါသလား?]]></string>
     <string name="starting_root_shell"><![CDATA[ရုတ် shell စတင်နေပြီ…]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s ကို ကလစ်ဘုတ်သို့ ကူးယူထားပါပြီ။]]></string>

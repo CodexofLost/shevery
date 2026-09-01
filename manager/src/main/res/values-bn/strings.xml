@@ -233,7 +233,7 @@
     <string name="notification_adb_pairing_failed_title"><![CDATA[জোড়া বাঁধতে ব্যর্থ হয়েছে]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[পুনরায় চেষ্টা করুন]]></string>
     <string name="permission_group_label"><![CDATA[সেভরি]]></string>
-    <string name="permission_group_description"><![CDATA[@string/অনুমতি_লেবেল]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[অ্যাক্সেস শেভরি]]></string>
     <string name="permission_description"><![CDATA[অ্যাপটিকে Shevery ব্যবহার করতে দিন।]]></string>
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b>-কে %2$s করতে দিন?]]></string>

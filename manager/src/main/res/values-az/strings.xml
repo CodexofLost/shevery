@@ -242,7 +242,7 @@
     <string name="service_stop_still_running"><![CDATA[Xidmət hələ də işləyir]]></string>
     <string name="service_stop_failed"><![CDATA[Shevery-ni dayandırmaq mümkün olmadı: %1$s]]></string>
     <string name="permission_group_label"><![CDATA[Şeyvəri]]></string>
-    <string name="permission_group_description"><![CDATA[@string/icazə_etiketi]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[Root kabuğunu işə salır…]]></string>
     <string name="lab_features_title"><![CDATA[Laboratoriya Xüsusiyyətləri]]></string>
     <string name="lab_features_summary"><![CDATA[Təcrübi xüsusiyyətlər]]></string>

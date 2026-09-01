@@ -541,7 +541,7 @@
     <string name="rish_description"><![CDATA[باستخدام %1$s، في أي تطبيق محطة طرفية، يمكنك الاتصال ببيئة العمل التي تديرها Shevery والتفاعل معها.
 <p>لمعرفة المزيد عن كيفية استخدام %1$s بالتفصيل، انقر لعرض الوثيقة.]]></string>
     <string name="permission_group_label"><![CDATA[شيفري]]></string>
-    <string name="permission_group_description"><![CDATA[@string/تسمية_الإذن]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[بدء تشغيل شل الجذر…]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[تم نسخ %s
  إلى الحافظة.]]></string>

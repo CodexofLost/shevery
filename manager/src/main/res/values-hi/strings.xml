@@ -239,7 +239,7 @@
     <string name="notification_adb_pairing_failed_title"><![CDATA[पेयरिंग विफल हो गई]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[दोबारा प्रयास करें]]></string>
     <string name="permission_group_label"><![CDATA[शेवरी]]></string>
-    <string name="permission_group_description"><![CDATA[@string/अनुमति_लेबल]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[एक्सेस शेवरी]]></string>
     <string name="permission_description"><![CDATA[ऐप को Shevery का उपयोग करने की अनुमति दें।]]></string>
     <string name="permission_warning_template"><![CDATA[क्या <b>%1$s</b> को %2$s करने की अनुमति दें?]]></string>

@@ -243,7 +243,7 @@ Ekspordifunktsioon kasutab SAF-i (Storage Access Framework). On teatatud, et MIU
     <string name="notification_adb_pairing_failed_title"><![CDATA[Ühendamine ebaõnnestus]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Proovi uuesti]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
-    <string name="permission_group_description"><![CDATA[@string/õiguse_märge]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[juurdepääs Sheveryle]]></string>
     <string name="permission_description"><![CDATA[Luba rakendusel kasutada Sheveryt.]]></string>
     <string name="permission_warning_template"><![CDATA[Kas lubada <b>%1$s</b>-l %2$s?]]></string>
