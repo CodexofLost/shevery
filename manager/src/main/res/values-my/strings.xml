@@ -1,34 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Shevery</string>
-
-    <!-- To translators: you can leave your here -->
+    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
+    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
     <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
-
-    <!-- Accessibility -->
     <string name="accessibility_navigate_up"><![CDATA[Navigate up]]></string>
     <string name="accessibility_close"><![CDATA[Close]]></string>
     <string name="accessibility_more_options"><![CDATA[More options]]></string>
     <string name="accessibility_open_on_github"><![CDATA[Open on GitHub]]></string>
-
-    <!-- Home - Status -->
     <string name="home_status_service_is_running"><![CDATA[%1$s is running]]></string>
     <string name="home_status_service_not_running"><![CDATA[%1$s is not running]]></string>
     <string name="home_status_service_version"><![CDATA[Version %2$s, %1$s]]></string>
-    <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br>Start again to update to version %3$s]]></string>
-
-    <!-- Home - Adb -->
-    <string name="home_adb_title"><![CDATA[Start by connecting to a computer]]></string>
-    <string name="home_adb_description"><![CDATA[For devices without root, you need to use adb to start Shevery (requires computer connection). This process needs to be repeated every time the device is restarted. Please <b><a href="%1$s">read the help</a></b>.]]></string>
     <string name="home_adb_button_view_help"><![CDATA[Read help]]></string>
     <string name="home_adb_button_view_command"><![CDATA[View command]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[There are some other considerations, please confirm that you have read the help first.]]></string>
     <string name="home_adb_dialog_view_command_copy_button"><![CDATA[Copy]]></string>
     <string name="home_adb_dialog_view_command_button_send"><![CDATA[Send]]></string>
-
-    <!-- Home - Wireless Adb -->
-    <string name="home_wireless_adb_title"><![CDATA[Start via Wireless debugging]]></string>
-    <string name="home_wireless_adb_description"><![CDATA[On Android 11 or above, you can enable Wireless debugging and start Shevery directly from your device, without connecting to a computer.<p>Please view the step-by-step guide first.]]></string>
-    <string name="home_wireless_adb_description_pre_11"><![CDATA[Before Android 11, connecting to a computer is required to enable Wireless debugging.]]></string>
     <string name="home_wireless_adb_view_guide_button"><![CDATA[Step-by-step guide]]></string>
     <string name="home_local_network_title"><![CDATA[Local network access]]></string>
     <string name="home_local_network_description"><![CDATA[Wireless debugging needs %1$s on this Android version.]]></string>
@@ -36,11 +25,7 @@
     <string name="home_local_network_missing"><![CDATA[%1$s is not granted.]]></string>
     <string name="home_local_network_grant"><![CDATA[Grant access]]></string>
     <string name="home_local_network_permission_denied"><![CDATA[Local network access is required for Wireless debugging.]]></string>
-
-    <!-- Adb -->
     <string name="dialog_adb_discovery"><![CDATA[Searching for wireless debugging service]]></string>
-    <string name="dialog_adb_discovery_message"><![CDATA[Please enable "Wireless debugging" in "Developer options". "Wireless debugging" is automatically disabled when network changes.\n\nNote, do not disable "Developer options" or "USB debugging", or Shevery will be stopped.]]></string>
-    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Please try to disable and enable "Wireless debugging" if it keeps searching.]]></string>
     <string name="dialog_adb_port"><![CDATA[Port]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Port is an integer ranging from 1 to 65535.]]></string>
     <string name="adb_pairing"><![CDATA[Pairing]]></string>
@@ -49,87 +34,55 @@
     <string name="dialog_adb_pairing_paring_code"><![CDATA[Pairing code]]></string>
     <string name="paring_code_is_wrong"><![CDATA[Pairing code is wrong.]]></string>
     <string name="cannot_connect_port"><![CDATA[Can\'t connect to wireless debugging service.]]></string>
-    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Wireless debugging is not enabled.\nNote, before Android 11, to enable wireless debugging, computer connection is a must.]]></string>
-    <string name="dialog_adb_pairing_message"><![CDATA[Please start paring by the following steps: "Developer Options" - "Wireless debugging" - "Pairing device using pairing code".\n\nAfter the pairing process starts, you will able to input the pairing code.]]></string>
+    <string name="dialog_wireless_adb_not_enabled"><![CDATA[Wireless debugging is not enabled.
+Note, before Android 11, to enable wireless debugging, computer connection is a must.]]></string>
     <string name="adb_pairing_requires_multi_window"><![CDATA[Please enter split-screen (multi-window) mode first.]]></string>
     <string name="adb_pairing_requires_multi_window_reason"><![CDATA[The system requires the pairing dialog always visible, using split-screen mode is the only way to let this app and system dialog visible at the same time.]]></string>
-    <string name="adb_error_key_store"><![CDATA[Unable to generate key for wireless debugging.\nThis may be because KeyStore mechanism of this device is broken.]]></string>
+    <string name="adb_error_key_store"><![CDATA[Unable to generate key for wireless debugging.
+This may be because KeyStore mechanism of this device is broken.]]></string>
     <string name="adb_pair_required"><![CDATA[Please go through the pairing step first.]]></string>
     <string name="development_settings"><![CDATA[Developer options]]></string>
     <string name="notification_settings"><![CDATA[Notification options]]></string>
     <string name="adb_pairing_tutorial_title"><![CDATA[Pair Shevery with your device]]></string>
     <string name="adb_pairing_tutorial_content_notification"><![CDATA[A notification from Shevery will help you complete the pairing.]]></string>
-    <string name="adb_pairing_tutorial_content_steps"><![CDATA[Enter "Developer options" - "Wireless debugging". Tap "Pair device with pairing code", you will see a six-digit code.]]></string>
     <string name="adb_pairing_tutorial_content_enter_pairing_code"><![CDATA[Enter the code in the notification to complete pairing.]]></string>
     <string name="adb_pairing_tutorial_content_notification_blocked"><![CDATA[The pairing process needs you to interact with a notification from Shevery. Please allow Shevery to post notifications.]]></string>
-    <string name="adb_pairing_tutorial_content_miui"><![CDATA[MIUI users may need to switch notification style to "Android" from "Notification" - "Notification shade" in system settings.]]></string>
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[Otherwise, you may not able to enter paring code from the notification.]]></string>
-    <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[Please note, left part of the "Wireless debugging" option is clickable, tapping it will open a new page. Only turing on the switch on the right is incorrect.]]></string>
     <string name="adb_pairing_tutorial_content_finish"><![CDATA[Back to Shevery and start Shevery.]]></string>
     <string name="adb_pairing_tutorial_content_network"><![CDATA[Shevery needs to access local network. It is controlled by the network permission.]]></string>
     <string name="adb_pairing_tutorial_content_network_limation_not_foreground"><![CDATA[Some systems (such as MIUI) disallow apps to access the network when they are not visible, even if the app uses foreground service as standard. Please disable battery optimization features for Shevery on such systems.]]></string>
-
-    <!-- Home - Root -->
-    <string name="home_root_title"><![CDATA[Start (for rooted devices)]]></string>
-    <string name="home_root_description"><![CDATA[In addition, Shevery can be started automatically on boot. If not, please check if your system or third-party tools have restricted Shevery.<br>You can refer to %s.]]></string>
-    <string name="home_root_description_sui"><![CDATA[If you are using Magisk, you can try %1$s. For root users, it will eventually replace Shevery. Note, existing applications needs to change a little to use %2$s.]]></string>
     <string name="home_root_button_start"><![CDATA[Start]]></string>
     <string name="home_root_button_restart"><![CDATA[Restart]]></string>
-
-    <!-- Home - Application management -->
     <string name="home_app_management_title"><![CDATA[Application management]]></string>
-    <plurals name="home_app_management_authorized_apps_count">
-        <item quantity="one"><![CDATA[Authorized %d application]]></item>
-        <item quantity="other"><![CDATA[Authorized %d applications]]></item>
-    </plurals>
-    <string name="home_app_management_view_authorized_apps"><![CDATA[Tap to manage authorized apps]]></string>
     <string name="home_app_management_empty"><![CDATA[Apps that has requested or declared Shevery will show here.]]></string>
-
-    <!-- Home - Learn more -->
     <string name="home_learn_more_title"><![CDATA[Learn Shevery]]></string>
     <string name="home_learn_more_description"><![CDATA[Learn how to develop with Shevery]]></string>
-
-    <!-- Home - Quick actions -->
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[Wireless ADB]]></string>
     <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
     <string name="home_manage_apps_button"><![CDATA[Manage apps]]></string>
-
-    <!-- Home - Diagnostics -->
     <string name="home_refresh"><![CDATA[Refresh]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostics]]></string>
     <string name="home_diagnostics_copy"><![CDATA[Copy diagnostics]]></string>
     <string name="home_diagnostics_copied"><![CDATA[Diagnostics copied.]]></string>
     <string name="home_modules_description"><![CDATA[Install and manage ADB-backed modules]]></string>
-
-    <!-- Home - Adb permissions limited -->
     <string name="home_adb_is_limited_title"><![CDATA[You need to take an extra step]]></string>
-    <string name="home_adb_is_limited_description"><![CDATA[Your device manufacturer has restricted adb permissions and apps using Shevery will not work properly.\n\nUsually, this limitation can be lifted by adjusting some options in "Developer options". Please read the help for details on how to do this.\n\nYou may need to restart Shevery for the operation to take effect.]]></string>
-
-    <!-- Application management -->
     <string name="app_management_select_all"><![CDATA[Select all]]></string>
     <string name="app_management_deselect_all"><![CDATA[Deselect all]]></string>
     <string name="app_management_dialog_adb_is_limited_title"><![CDATA[The permission of adb is limited]]></string>
-    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[It\'s highly possible that your device manufacturer limits the permission of adb.<p>There may be a solution for your system in <b><a href="%1$s">this document</a></b>.]]></string>
     <string name="app_management_item_summary_requires_root"><![CDATA[* requires Shevery runs with root]]></string>
     <string name="app_management_loading"><![CDATA[Loading apps…]]></string>
-
-    <!-- Terminal -->
     <string name="home_terminal_title"><![CDATA[Use Shevery in terminal apps]]></string>
     <string name="home_terminal_description"><![CDATA[Run commands through Shevery in terminal apps you like]]></string>
     <string name="terminal_tutorial_1"><![CDATA[First, Export files to any where you want. You will find two files, %1$s and %2$s.]]></string>
-    <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.\n\nThe export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
+    <string name="terminal_tutorial_1_description"><![CDATA[If there are files with the same name in the selected folder, they will be deleted.
+
+The export function uses SAF (Storage Access Framework). It\'s reported that MIUI breaks the functions of SAF. If you are using MIUI, you may have to extract the file from Shevery\'s apk or download from GitHub.]]></string>
     <string name="terminal_export_files"><![CDATA[Export files]]></string>
     <string name="terminal_tutorial_2"><![CDATA[Then, use any text editor to open and edit %1$s.]]></string>
     <string name="terminal_tutorial_2_description"><![CDATA[For example, if you want to use Shevery in %1$s, you should replace %2$s with %3$s (%4$s is the package name of %1$s).]]></string>
     <string name="terminal_tutorial_3"><![CDATA[Finally, move the files to somewhere where your terminal app can access, you will be able to use %1$s to run commands through Shevery.]]></string>
     <string name="terminal_tutorial_3_description"><![CDATA[Some tips: grant execute permission to %1$s and add it to %2$s, you will able to use %1$s directly.]]></string>
-    <string name="rish_description"><![CDATA[
-With %1$s, in any terminal app, you can connect to and interact with the shell runs by Shevery.
-<p>About the detailed usage %1$s, tap to view the document.
-    ]]></string>
-
-    <!-- Settings -->
     <string name="settings_title"><![CDATA[Settings]]></string>
     <string name="settings_language"><![CDATA[Language]]></string>
     <string name="settings_user_interface"><![CDATA[Appearance]]></string>
@@ -150,10 +103,10 @@ With %1$s, in any terminal app, you can connect to and interact with the shell r
     <string name="settings_start_on_boot_adb_not_running"><![CDATA[Shevery is not running. Start the service first, then come back and enable this setting.]]></string>
     <string name="settings_start_on_boot_adb_grant_failed"><![CDATA[The automatic permission grant failed. Run this command from a computer to grant it manually:]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Copy command]]></string>
-    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[How to use:\n1. Connect the device to a computer (USB or wireless debugging).\n2. In the terminal, run the command from the field above.]]></string>
+    <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[How to use:
+1. Connect the device to a computer (USB or wireless debugging).
+2. In the terminal, run the command from the field above.]]></string>
     <string name="settings_use_system_color"><![CDATA[Use system theme color]]></string>
-
-    <!-- ADB modules -->
     <string name="modules_title"><![CDATA[ADB Modules]]></string>
     <string name="modules_settings_title"><![CDATA[Modules]]></string>
     <string name="modules_settings_summary"><![CDATA[Install ZIP modules and run their actions through the active Shevery ADB/root server]]></string>
@@ -239,21 +192,14 @@ With %1$s, in any terminal app, you can connect to and interact with the shell r
     <string name="modules_downloading"><![CDATA[Downloading…]]></string>
     <string name="modules_download_enqueued"><![CDATA[Download started in background]]></string>
     <string name="modules_search_placeholder"><![CDATA[Search catalog modules…]]></string>
-
-    <!-- About -->
     <string name="action_about"><![CDATA[About]]></string>
     <string name="about_source_code_button"><![CDATA[Source code]]></string>
-    <string name="about_view_source_code"><![CDATA[View source code at %s]]></string>
-
-    <!-- Stop -->
     <string name="action_stop"><![CDATA[Stop Shevery]]></string>
     <string name="dialog_stop_message"><![CDATA[Shevery service will be stopped.]]></string>
     <string name="service_already_stopped"><![CDATA[Shevery service is already stopped.]]></string>
     <string name="service_stop_success"><![CDATA[Shevery service stopped.]]></string>
     <string name="service_stop_still_running"><![CDATA[service is still running]]></string>
     <string name="service_stop_failed"><![CDATA[Failed to stop Shevery: %1$s]]></string>
-
-    <!-- Notification -->
     <string name="notification_channel_service_status"><![CDATA[Service start status]]></string>
     <string name="notification_service_starting"><![CDATA[Shevery service is starting…]]></string>
     <string name="notification_service_start_failed"><![CDATA[Start Shevery service failed.]]></string>
@@ -269,34 +215,18 @@ With %1$s, in any terminal app, you can connect to and interact with the shell r
     <string name="notification_adb_pairing_succeed_text"><![CDATA[You can start Shevery service now.]]></string>
     <string name="notification_adb_pairing_failed_title"><![CDATA[Pairing failed]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Retry]]></string>
-
-    <!-- Permission related, appears in system permission UI -->
-    <string name="permission_group_label" translatable="false">Shevery</string>
-    <string name="permission_group_description" translatable="false">@string/permission_label</string>
     <string name="permission_label"><![CDATA[access Shevery]]></string>
     <string name="permission_description"><![CDATA[Allow the app to use Shevery.]]></string>
-    <string name="permission_warning_template"><![CDATA[Allow <b>%1$s</b> to %2$s?]]></string>
     <string name="grant_dialog_button_allow_always"><![CDATA[Allow all the time]]></string>
     <string name="grant_dialog_button_deny"><![CDATA["Deny"]]></string>
-
-    <!-- Starter -->
     <string name="starter"><![CDATA[Starter]]></string>
-    <string name="starting_root_shell" translatable="false">Starting root shell…</string>
     <string name="start_with_root_failed"><![CDATA[Can\'t start service because root permission is not granted or this device is not rooted.]]></string>
-
-    <!-- Misc -->
     <string name="dialog_cannot_open_browser_title"><![CDATA[Can\'t start browser]]></string>
-    <string name="toast_copied_to_clipboard"><![CDATA[%s\nhas been copied to clipboard.]]></string>
-    <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> has been copied to clipboard.]]></string>
-
-    <!-- Messages for legacy -->
+    <string name="toast_copied_to_clipboard"><![CDATA[%s
+has been copied to clipboard.]]></string>
     <string name="dialog_legacy_not_support_title"><![CDATA[%1$s does not support modern Shevery]]></string>
-    <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery has been deprecated since March 2019. Also, legacy Shevery does not work on newer Android systems.<p>Please ask the developer of <b>%1$s</b> to update.]]></string>
     <string name="dialog_requesting_legacy_title"><![CDATA[%1$s is requesting legacy Shevery]]></string>
-    <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> has modern Shevery support, but it\'s requesting legacy Shevery. This could because Shevery is not running, please check in Shevery app.<p>Legacy Shevery has been deprecated since March 2019.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku"><![CDATA[Open Shevery]]></string>
-
-    <!-- Lab Features -->
     <string name="lab_features_title"><![CDATA[Lab Features]]></string>
     <string name="lab_features_summary"><![CDATA[Experimental features]]></string>
     <string name="shizuku_connectors_title"><![CDATA[Shevery Connectors]]></string>
@@ -305,8 +235,6 @@ With %1$s, in any terminal app, you can connect to and interact with the shell r
     <string name="unsafe_warning_message"><![CDATA[Enabling this feature is UNSAFE. Are you sure?]]></string>
     <string name="dhizuku_mode_title"><![CDATA[Dhizuku Mode]]></string>
     <string name="dhizuku_mode_summary"><![CDATA[Allow Shevery to operate via binding to Dhizuku]]></string>
-    <string name="home_dhizuku_title"><![CDATA[Start (via Dhizuku)]]></string>
-    <string name="home_dhizuku_description"><![CDATA[For devices managed by Dhizuku, you can start Shevery directly using Device Owner privileges.]]></string>
     <string name="dhizuku_warning_title"><![CDATA[Warning: Dhizuku Mode]]></string>
     <string name="dhizuku_warning_message"><![CDATA[Dhizuku is designed for Device Owner/admin privileges. Some shell and ADB-specific commands may not work properly or may be entirely unsupported when running Shevery via Dhizuku. Are you sure you want to proceed?]]></string>
     <string name="settings_tcp_mode"><![CDATA[TCP Mode]]></string>
@@ -321,8 +249,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="settings_service_group"><![CDATA[Service Maintenance]]></string>
     <string name="settings_application"><![CDATA[Application]]></string>
     <string name="settings_appearance"><![CDATA[Appearance]]></string>
-
-    <!-- Lab Features - Service Behavior -->
     <string name="lab_service_behavior_title"><![CDATA[Service Behavior]]></string>
     <string name="lab_keep_alive_title"><![CDATA[Keep Service Alive]]></string>
     <string name="lab_keep_alive_summary"><![CDATA[Periodically check that the Shevery service is running and restart it if needed]]></string>
@@ -330,8 +256,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="lab_auto_restart_summary"><![CDATA[Automatically attempt to restart the Shevery service if it crashes unexpectedly]]></string>
     <string name="lab_notify_death_title"><![CDATA[Notify on Service Stop]]></string>
     <string name="lab_notify_death_summary"><![CDATA[Show a notification when the Shevery service stops unexpectedly]]></string>
-
-    <!-- Lab Features - Debugging -->
     <string name="lab_debugging_title"><![CDATA[Debugging]]></string>
     <string name="lab_verbose_logging_title"><![CDATA[Verbose Logging]]></string>
     <string name="lab_verbose_logging_summary"><![CDATA[Write detailed debug logs to Logcat. Disable in production to save battery]]></string>
@@ -340,8 +264,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_watchdog_text"><![CDATA[The Shevery service has stopped unexpectedly.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery watchdog is active]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoring the Shevery service for keep-alive recovery]]></string>
-
-    <!-- Shevery Control Notification -->
     <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery startup]]></string>
     <string name="notification_startup_title"><![CDATA[Starting Shevery]]></string>
@@ -354,8 +276,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_startup_waiting_unlock"><![CDATA[Waiting for device unlock to start…]]></string>
     <string name="notification_startup_cancel"><![CDATA[Cancel]]></string>
     <string name="notification_startup_attempt_now"><![CDATA[Attempt now]]></string>
-
-    <!-- WADB Starter (WorkManager-based boot start) -->
     <string name="wadb_notification_title"><![CDATA[Starting Shevery…]]></string>
     <string name="wadb_notification_wifi_required"><![CDATA[Awaiting Wi-Fi connection before proceeding]]></string>
     <string name="wadb_notification_retry"><![CDATA[Waiting to retry]]></string>
@@ -365,7 +285,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="wadb_permission_error_notification_content"><![CDATA[Shevery could not start on boot. Open Shevery to check the issue.]]></string>
     <string name="wadb_notification_channel"><![CDATA[ADB auto-start service]]></string>
     <string name="wadb_notification_attempt_now"><![CDATA[Attempt now]]></string>
-
     <string name="notification_control_title_running"><![CDATA[Shevery is running]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery is stopped]]></string>
     <string name="notification_control_text_running"><![CDATA[Tap to open Shevery, or expand this notification to stop it.]]></string>
@@ -373,13 +292,11 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_control_action_start"><![CDATA[Start]]></string>
     <string name="notification_control_action_stop"><![CDATA[Stop]]></string>
     <string name="settings_update_group_title"><![CDATA[Update]]></string>
-    <!-- Update Settings -->
     <string name="update_settings_title"><![CDATA[Module Updates]]></string>
     <string name="update_settings_catalog"><![CDATA[Module Catalog]]></string>
     <string name="update_settings_catalog_enabled"><![CDATA[Enable catalog]]></string>
     <string name="update_settings_catalog_enabled_summary"><![CDATA[Show discovered modules from GitHub Topics]]></string>
     <string name="update_settings_frequency"><![CDATA[Update Frequency]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
     <string name="update_settings_frequency_manual"><![CDATA[Manual]]></string>
     <string name="update_settings_frequency_daily"><![CDATA[Daily]]></string>
     <string name="update_settings_frequency_weekly"><![CDATA[Weekly]]></string>
@@ -399,8 +316,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="update_settings_github_pat_clear"><![CDATA[Clear]]></string>
     <string name="update_settings_github_pat_delete"><![CDATA[Delete token]]></string>
     <string name="update_settings_github_pat_delete_summary"><![CDATA[Remove stored GitHub token]]></string>
-
-    <!-- Shevery App Updates -->
     <string name="shevery_update_check_title"><![CDATA[Check for Shevery updates]]></string>
     <string name="shevery_update_check_summary"><![CDATA[Check for newer versions of Shevery manager]]></string>
     <string name="shevery_update_checking"><![CDATA[Checking for Shevery updates…]]></string>
@@ -413,15 +328,9 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="shevery_update_channel_summary"><![CDATA[Choose update release channel]]></string>
     <string name="app_update_channel_stable"><![CDATA[Stable]]></string>
     <string name="app_update_channel_beta"><![CDATA[Pre-release &amp; Beta]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
     <string name="shevery_update_group_title"><![CDATA[Shevery App Updates]]></string>
     <string name="shevery_update_modules_group_title"><![CDATA[Module Updates &amp; Catalog]]></string>
     <string name="shevery_update_check_failed"><![CDATA[Update check failed: %s]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
-
-    <!-- Module Catalog -->
     <string name="modules_catalog"><![CDATA[Catalog]]></string>
     <string name="modules_catalog_title"><![CDATA[Module Catalog]]></string>
     <string name="modules_catalog_empty"><![CDATA[No modules found]]></string>
@@ -445,20 +354,14 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="modules_catalog_view_github"><![CDATA[View on GitHub]]></string>
     <string name="modules_catalog_skip_token"><![CDATA[Skip]]></string>
     <string name="modules_catalog_open"><![CDATA[Open Catalog]]></string>
-
-    <!-- TV Status -->
     <string name="tv_status_active"><![CDATA[ACTIVE]]></string>
     <string name="tv_status_disabled"><![CDATA[DISABLED]]></string>
     <string name="tv_status_trusted"><![CDATA[TRUSTED]]></string>
-
-    <!-- Wear Catalog -->
     <string name="wear_catalog_sort_newest"><![CDATA[Newest]]></string>
     <string name="wear_catalog_sort_stars"><![CDATA[Stars]]></string>
     <string name="wear_catalog_sort_official"><![CDATA[Official]]></string>
     <string name="wear_catalog_sort_by"><![CDATA[Sort by]]></string>
     <string name="wear_catalog_filter"><![CDATA[Filter]]></string>
-
-    <!-- Backup &amp; Restore -->
     <string name="backup_restore_title"><![CDATA[Backup &amp; Restore]]></string>
     <string name="backup_title"><![CDATA[Backup Settings &amp; Modules]]></string>
     <string name="backup_summary"><![CDATA[Export configuration and modules to a ZIP file]]></string>
@@ -466,8 +369,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="restore_summary"><![CDATA[Import configuration and modules from a ZIP file]]></string>
     <string name="settings_sections_title"><![CDATA[Backups and other]]></string>
     <string name="backup_section_title"><![CDATA[Backups]]></string>
-
-    <!-- Comput Console -->
     <string name="comput_title"><![CDATA[Comput]]></string>
     <string name="comput_settings"><![CDATA[Comput Console Settings]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput Console]]></string>
@@ -500,7 +401,9 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_copy_output"><![CDATA[Copy Output]]></string>
     <string name="comput_ask_gemini"><![CDATA[Ask Gemini]]></string>
     <string name="comput_executing"><![CDATA[Executing: %1$s ...]]></string>
-    <string name="comput_adb_translate"><![CDATA[ADB Command Translation Mode Active\nOriginal: %1$s\nExecuting...]]></string>
+    <string name="comput_adb_translate"><![CDATA[ADB Command Translation Mode Active
+Original: %1$s
+Executing...]]></string>
     <string name="comput_command_no_output"><![CDATA[Command completed with no output.]]></string>
     <string name="comput_timed_out"><![CDATA[[E] Command timed out after 120 seconds.]]></string>
     <string name="comput_exit_code"><![CDATA[[E] Command exited with code %1$d.]]></string>
@@ -508,7 +411,8 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_executing_cmd"><![CDATA[> Executing command: %1$s]]></string>
     <string name="comput_error_not_running"><![CDATA[Error: Privileged Shevery Service is not running. Please start the service first.]]></string>
     <string name="comput_error_no_binder"><![CDATA[Error: Unable to retrieve Shevery binder.]]></string>
-    <string name="comput_console_initialized"><![CDATA[Console initialized. Privileged Shevery service connected.\nReady for commands.]]></string>
+    <string name="comput_console_initialized"><![CDATA[Console initialized. Privileged Shevery service connected.
+Ready for commands.]]></string>
     <string name="comput_ai_explanation"><![CDATA[AI Explanation]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>
@@ -532,8 +436,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_record_macro"><![CDATA[Record Macro]]></string>
     <string name="comput_recording_active"><![CDATA[Recording active. Run commands using the main input to add them to this macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Saved Macros]]></string>
-    <string name="comput_no_macros"><![CDATA[No saved macros yet. Click \'Record Macro\' to start recording console commands.]]></string>
-    <string name="comput_delete"><![CDATA[Delete]]></string>
+        <string name="comput_delete"><![CDATA[Delete]]></string>
     <string name="comput_recommand_confirmation_title"><![CDATA[ReCommand confirmation]]></string>
     <string name="comput_execute"><![CDATA[Execute]]></string>
     <string name="comput_cancel"><![CDATA[Cancel]]></string>
@@ -579,8 +482,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="diagnostics_full"><![CDATA[full]]></string>
     <string name="diagnostics_limited"><![CDATA[limited]]></string>
     <string name="diagnostics_unknown"><![CDATA[unknown]]></string>
-
-    <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
     <string name="error_protect_summary"><![CDATA[Check process health and transactional errors every 10 seconds. Automatically stops and restarts Shevery if issues are found.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP Binding 5555]]></string>
@@ -589,8 +490,6 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="settings_tcp_5555_bind_success"><![CDATA[Successfully bound ADB to TCP port 5555]]></string>
     <string name="settings_tcp_5555_bind_failed"><![CDATA[Failed to bind ADB to port 5555: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Root, Dhizuku, or active Shevery is required.]]></string>
-
-    <!-- Accessibility Manager -->
     <string name="accessibility_manager_title"><![CDATA[Accessibility Manager]]></string>
     <string name="accessibility_manager_lab_group"><![CDATA[Accessibility]]></string>
     <string name="accessibility_manager_lab_title"><![CDATA[Accessibility Manager]]></string>
@@ -610,12 +509,44 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="accessibility_daemon_channel_name"><![CDATA[Accessibility keep-alive]]></string>
     <string name="accessibility_daemon_notification_title"><![CDATA[Accessibility keep-alive active]]></string>
     <string name="accessibility_daemon_notification_text"><![CDATA[Pinned accessibility services will be restored if disabled]]></string>
-
-    <!-- Shizuku compatibility stub -->
     <string name="settings_compat_stub"><![CDATA[Legacy Shizuku stub]]></string>
     <string name="settings_compat_stub_summary"><![CDATA[Installs a stub package (moe.shizuku.privileged.api) so apps that hard-check for the legacy Shizuku manager keep working. Permission and binder requests are forwarded to Shevery.]]></string>
     <string name="settings_compat_stub_installed"><![CDATA[Legacy stub installed via %1$s]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Legacy stub removed]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Failed to %1$s the legacy stub via %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[No channel available (start Shevery first)]]></string>
+    <string name="app_name"><![CDATA[ရှီဗရီ]]></string>
+    <string name="home_status_service_version_update"><![CDATA[ဗားရှင်း %2$s, %1$s ဗားရှင်း %3$s သို့ အပ်ဒိတ်လုပ်ရန် ပြန်စပါ။]]></string>
+    <string name="home_adb_title"><![CDATA[ကွန်ပျူတာနှင့် ချိတ်ဆက်ခြင်းဖြင့် စတင်ပါ။]]></string>
+    <string name="home_adb_description"><![CDATA[root မပြုထားသေးသော စက်များအတွက် adb ကို အသုံးပြုပြီး Shevery ကို စတင်ဖွင့်ရန် လိုအပ်ပါသည် (ကွန်ပျူတာနှင့် ချိတ်ဆက်ထားရမည်)။ စက်ကို ပြန်စတင်တိုင်း ဤလုပ်ငန်းစဉ်ကို ထပ်မံ ဆောင်ရွက်ရမည်။ ကျေးဇူးပြု၍ <b><a href="%1$s">အကူအညီကို ဖတ်ရှုပါ</b>။]]></string>
+    <string name="home_wireless_adb_title"><![CDATA[ကြိုးမဲ့ဒက်ဘတ်ဂျင်းဖြင့် စတင်ပါ။]]></string>
+    <string name="home_wireless_adb_description"><![CDATA[Android 11 သို့မဟုတ် ထိုထက်မြင့်မားသော ဗားရှင်းတွင်၊ ကွန်ပျူတာနှင့် ချိတ်ဆက်စရာမလိုဘဲ သင့်စက်မှ တိုက်ရိုက် Wireless debugging ကို ဖွင့်ပြီး Shevery ကို စတင်အသုံးပြုနိုင်ပါသည်။ အဆင့်ဆင့် လမ်းညွှန်ချက်ကို ပထမဦးစွာ ကြည့်ရှုပါ။]]></string>
+    <string name="home_wireless_adb_description_pre_11"><![CDATA[Android 11 မထွက်ခင် Wireless debugging ကို ဖွင့်ရန် ကွန်ပျူတာနှင့် ချိတ်ဆက်ရပါသည်။]]></string>
+    <string name="dialog_adb_discovery_message"><![CDATA[ကျေးဇူးပြု၍ "Developer options" ထဲမှ "Wireless debugging" ကို ဖွင့်ပါ။ ကွန်ယက်ပြောင်းလဲသည့်အခါ "Wireless debugging" သည် အလိုအလျောက် ပိတ်သွားပါသည်။ မှတ်ချက် – "Developer options" သို့မဟုတ် "USB debugging" ကို မပိတ်ပါနှင့်၊ မဟုတ်လျှင် Shevery ရပ်သွားမည်။]]></string>
+    <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[ဆက်တိုက်ရှာဖွေနေခဲ့ပါက "Wireless debugging" ကို ပိတ်ပြီး ပြန်ဖွင့်ကြည့်ပါ။]]></string>
+    <string name="dialog_adb_pairing_message"><![CDATA[အောက်ပါအဆင့်များအတိုင်း တွဲဖက်ခြင်းကို စတင်ပါ။   "Developer Options" → "Wireless debugging" → "Pairing device using pairing code"   တွဲဖက်ခြင်းလုပ်ငန်းစတင်ပြီးနောက် သင်သည် တွဲဖက်ကုဒ်ကို ထည့်သွင်းနိုင်ပါမည်။]]></string>
+    <string name="adb_pairing_tutorial_content_steps"><![CDATA["Developer options" → "Wireless debugging" သို့ ဝင်ပါ။ "Pair device with pairing code" ကို နှိပ်လိုက်ပါက ခြောက်လုံးဂဏန်းကုဒ်ကို မြင်ရပါမည်။]]></string>
+        <string name="adb_pairing_tutorial_content_left_is_clickable"><![CDATA[သတိပြုပါ၊ "Wireless debugging" ရွေးချယ်စရာ၏ ဘယ်ဘက်ပိုင်းကို နှိပ်နိုင်ပြီး၊ ထိုကို နှိပ်လျှင် စာမျက်နှာအသစ်တစ်ခု ဖွင့်ပါလိမ့်မည်။ ညာဘက်ရှိ switch ကိုသာ ဖွင့်ထားခြင်း မှားနေပါသည်။]]></string>
+    <string name="home_root_title"><![CDATA[စတင် (Root ပြီးသော စက်များအတွက်)]]></string>
+    <string name="home_root_description"><![CDATA[ထို့အပြင်၊ Shevery ကို စက်စတင်တိုင်း အလိုအလျောက် စတင်အောင် ပြုလုပ်နိုင်ပါသည်။ မဟုတ်ပါက သင့်စနစ် သို့မဟုတ် တတိယပါတီကိရိယာများက Shevery ကို ကန့်သတ်ထားခြင်းရှိမရှိ စစ်ဆေးပါ။ သင်သည် %s ကို ကိုးကားနိုင်ပါသည်။]]></string>
+    <string name="home_root_description_sui"><![CDATA[Magisk ကို အသုံးပြုနေပါက %1$s ကို စမ်းသုံးနိုင်ပါသည်။ root အသုံးပြုသူများအတွက် နောက်ဆုံးတွင် Shevery ကို အစားထိုးသွားမည်ဖြစ်သည်။ မှတ်ချက် – ရှိပြီးသား အက်ပလီကေးရှင်းများကို %2$s ကို အသုံးပြုရန် အနည်းငယ် ပြင်ဆင်ရမည်။]]></string>
+    <string name="home_app_management_view_authorized_apps"><![CDATA[ခွင့်ပြုထားသော အက်ပ်များကို စီမံရန် နှိပ်ပါ။]]></string>
+    <string name="home_adb_is_limited_description"><![CDATA[သင့်စက်ထုတ်လုပ်သူက adb ခွင့်ပြုချက်များကို ကန့်သတ်ထားသောကြောင့် Shevery ကို အသုံးပြုနေသော အက်ပ်များ မမှန်ကန်စွာ လည်ပတ်နိုင်ပါ။
+
+ပုံမှန်အားဖြင့် ဤကန့်သတ်ချက်ကို "Developer options" တွင် ရွေးချယ်စရာအချို့ကို ပြင်ဆင်ခြင်းဖြင့် ဖယ်ရှားနိုင်ပါသည်။ အသေးစိတ်အချက်အလက်များအတွက် အကူအညီစာမျက်နှာကို ဖတ်ရှုပါ။
+
+လုပ်ဆောင်ချက်များ အကျိုးသက်ရောက်စေရန် Shevery ကို ပြန်စတင်ဖွင့်ရန် လိုအပ်နိုင်ပါသည်။]]></string>
+    <string name="app_management_dialog_adb_is_limited_message"><![CDATA[သင့်စက်ထုတ်လုပ်သူက adb ၏ ခွင့်ပြုချက်ကို ကန့်သတ်ထားနိုင်ခြေ အလွန်မြင့်မားပါသည်။ သင့်စနစ်အတွက် ဖြေရှင်းနည်းတစ်ခုကို <b><a href="%1$s">ဤစာရွက်စာတမ်းတွင်</a> ရှာတွေ့နိုင်ပါသည်။]]></string>
+    <string name="rish_description"><![CDATA[မည်သည့် terminal အက်ပ်တွင်မဆို %1$s ဖြင့် Shevery မှ ပြုလုပ်ထားသော shell များနှင့် ချိတ်ဆက်ကာ ဆက်သွယ်အသုံးပြုနိုင်ပါသည်။
+%1$s ၏ အသေးစိတ် အသုံးပြုနည်းကို ကြည့်ရန် ဒီမှာ နှိပ်ပါ။]]></string>
+    <string name="about_view_source_code"><![CDATA[%s တွင် မူရင်းကုဒ်ကို ကြည့်ပါ။]]></string>
+    <string name="permission_group_label"><![CDATA[ရှီဗရီ]]></string>
+    <string name="permission_group_description"><![CDATA[@string/ခွင့်ပြုချက်အမှတ်အသား]]></string>
+    <string name="permission_warning_template"><![CDATA[<b>%1$s</b> ကို %2$s ခွင့်ပြုပါသလား?]]></string>
+    <string name="starting_root_shell"><![CDATA[ရုတ် shell စတင်နေပြီ…]]></string>
+    <string name="toast_copied_to_clipboard_with_text"><![CDATA[%s ကို ကလစ်ဘုတ်သို့ ကူးယူထားပါပြီ။]]></string>
+    <string name="dialog_legacy_not_support_message"><![CDATA[Legacy Shevery ကို ၂၀၁၉ မတ်လမှစ၍ အသုံးမပြုတော့ပါ။ ထို့အပြင် Legacy Shevery သည် နောက်ဆုံးထွက် Android စနစ်များတွင် မလည်ပတ်ပါ။ %1$s ၏ ဖွံ့ဖြိုးသူအား အပ်ဒိတ်လုပ်ရန် တောင်းဆိုပါ။]]></string>
+    <string name="dialog_requesting_legacy_message"><![CDATA[%1$s သည် ခေတ်မီ Shevery ကို ထောက်ပံ့ထားသော်လည်း အဟောင်း Shevery ကို တောင်းဆိုနေပါသည်။ Shevery မလည်ပတ်နေခြင်းကြောင့် ဖြစ်နိုင်ပါသည်။ Shevery အက်ပ်တွင် စစ်ဆေးပါ။ အဟောင်း Shevery ကို ၂၀၁၉ မတ်လမှစ၍ အသုံးမပြုတော့ပါ။]]></string>
+    <string name="home_dhizuku_title"><![CDATA[စတင် (Dhizuku မှတဆင့်)]]></string>
+    <string name="home_dhizuku_description"><![CDATA[Dhizuku မှ စီမံခန့်ခွဲထားသော စက်ပစ္စည်းများတွင် Device Owner အခွင့်အရေးဖြင့် Shevery ကို တိုက်ရိုက် စတင်အသုံးပြုနိုင်သည်။]]></string>
 </resources>
