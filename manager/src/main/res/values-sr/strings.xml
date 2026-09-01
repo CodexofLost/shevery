@@ -233,7 +233,7 @@
     <string name="notification_adb_pairing_failed_title"><![CDATA[Парiranje није успело]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Поново покушај]]></string>
     <string name="permission_group_label"><![CDATA[Шевери]]></string>
-    <string name="permission_group_description"><![CDATA[@низа/ознака_дозволе]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[приступ Шевери]]></string>
     <string name="permission_description"><![CDATA[Дозволите апликацији да користи Shevery.]]></string>
     <string name="permission_warning_template"><![CDATA[Дозволите ли <b>%1$s</b> да %2$s?]]></string>

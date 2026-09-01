@@ -231,7 +231,7 @@
     <string name="notification_adb_pairing_failed_title"><![CDATA[L\'aparellament ha fallat]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Tornar a provar]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
-    <string name="permission_group_description"><![CDATA[@string/etiqueta_de_permisos]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[accés Shevery]]></string>
     <string name="permission_description"><![CDATA[Permet que l\'aplicació utilitzi Shevery.]]></string>
     <string name="permission_warning_template"><![CDATA[Permetre que <b>%1$s</b> %2$s?]]></string>

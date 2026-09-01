@@ -233,7 +233,7 @@ Selepas proses penjodohan bermula, anda akan dapat memasukkan kod penjodohan.]]>
     <string name="notification_adb_pairing_failed_title"><![CDATA[Pairing gagal]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Cuba semula]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
-    <string name="permission_group_description"><![CDATA[@string/label_kebenaran]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[akses Shevery]]></string>
     <string name="permission_description"><![CDATA[Benarkan aplikasi menggunakan Shevery.]]></string>
     <string name="permission_warning_template"><![CDATA[Benarkan <b>%1$s</b> untuk %2$s?]]></string>

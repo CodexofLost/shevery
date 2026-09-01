@@ -7,7 +7,7 @@
     <string name="starter"><![CDATA[Սկսնակ]]></string>
     <string name="permission_description"><![CDATA[Թողնել ծրագրին օգտվել ավելի բարձր արտոնություններով համակարգային API-ներից։]]></string>
     <string name="permission_label"><![CDATA[օգտվել Shizuku-ից]]></string>
-    <string name="permission_group_description"><![CDATA[օգտվել Shizuku-ից]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="notification_working"><![CDATA[Աշխատում է…]]></string>
     <string name="notification_service_start_no_root"><![CDATA[Չհաջողվեց ստանալ root թույլտվություն։]]></string>
     <string name="notification_service_start_failed"><![CDATA[Shizuku-ի միացումը ձախողվեց։]]></string>

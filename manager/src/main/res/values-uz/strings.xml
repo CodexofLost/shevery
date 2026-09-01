@@ -456,7 +456,7 @@
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Ko\'chirish buyrug\'i]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Qanday ishlatish: 1. Qurilmani kompyuterga ulang (USB yoki simsiz xatoklarni tuzatish orqali). 2. Terminalda yuqoridagi maydondan buyrug\'ni ishga tushiring.]]></string>
     <string name="permission_group_label"><![CDATA[Uchuvchi]]></string>
-    <string name="permission_group_description"><![CDATA[@string/ruxsatnoma_belgisi]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[Root qobig\'ini ishga tushirish…]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
 klipbordga nusxalandi.]]></string>

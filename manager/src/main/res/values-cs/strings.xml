@@ -11,7 +11,7 @@
     <string name="starter"><![CDATA[Spouštěč]]></string>
     <string name="permission_description"><![CDATA[povolí aplikaci používat systémová rozhraní API s vyššími oprávněními (Shizuku).]]></string>
     <string name="permission_label"><![CDATA[přístup k Shizuku]]></string>
-    <string name="permission_group_description"><![CDATA[přístup k Shizuku]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="notification_working"><![CDATA[Pracuji…]]></string>
     <string name="notification_service_start_no_root"><![CDATA[Nepodařilo se požádat o oprávnění root.]]></string>
     <string name="notification_service_start_failed"><![CDATA[Spuštění služby Shizuku se nezdařilo.]]></string>

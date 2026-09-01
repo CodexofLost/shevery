@@ -231,7 +231,7 @@
     <string name="notification_adb_pairing_failed_title"><![CDATA[జత చేయడంలో విఫలమైంది]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[మళ్లీ ప్రయత్నించండి]]></string>
     <string name="permission_group_label"><![CDATA[షేవరీ]]></string>
-    <string name="permission_group_description"><![CDATA[@సాంకేతికపదం/అనుమతి_లేబుల్]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_label"><![CDATA[శివెరీని యాక్సెస్ చేయండి]]></string>
     <string name="permission_description"><![CDATA[షెవరిని ఉపయోగించడానికి యాప్‌కు అనుమతించండి.]]></string>
     <string name="permission_warning_template"><![CDATA[%1$sను %2$s చేయడానికి అనుమతించాలా?]]></string>
