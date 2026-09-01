@@ -158,7 +158,7 @@
     <string name="modules_action_failed"><![CDATA[عملیات ناموفق بود]]></string>
     <string name="modules_service_result"><![CDATA[سرویس کامل شد: خروج %d]]></string>
     <string name="modules_service_failed"><![CDATA[سرویس ناموفق بود]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[دستور دهید]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[گسترش]]></string>
     <string name="modules_recommand_collapse"><![CDATA[جمع کردن]]></string>
@@ -334,7 +334,7 @@
     <string name="backup_summary"><![CDATA[صادر کردن پیکربندی و ماژول‌ها به فایل ZIP]]></string>
     <string name="restore_title"><![CDATA[بازیابی تنظیمات و ماژول‌ها]]></string>
     <string name="restore_summary"><![CDATA[وارد کردن پیکربندی و ماژول‌ها از فایل ZIP]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[محاسبه کنید]]></string>
     <string name="comput_settings"><![CDATA[تنظیمات کنسول Comput]]></string>
     <string name="comput_adb_console"><![CDATA[کنسول ADB Comput]]></string>
     <string name="comput_recommand_title"><![CDATA[ReCommand برای Comput]]></string>
@@ -374,7 +374,7 @@
     <string name="comput_error_not_running"><![CDATA[خطا: سرویس Shevery با امتیاز در حال اجرا نیست. ابتدا سرویس را شروع کنید.]]></string>
     <string name="comput_error_no_binder"><![CDATA[خطا: بازیابی binder Shevery امکان‌پذیر نبود.]]></string>
     <string name="comput_ai_explanation"><![CDATA[توضیح هوش مصنوعی]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[فرماندهی]]></string>
     <string name="comput_commandium_assistant"><![CDATA[دستیار هوش مصنوعی Commandium]]></string>
     <string name="comput_commandium_description"><![CDATA[با استفاده از زبان طبیعی دستورات shell تولید کنید. Gemini یک دستور قابل کپی تولید خواهد کرد.]]></string>
     <string name="comput_commandium_label"><![CDATA[به چه دستوری نیاز دارید؟]]></string>
@@ -413,7 +413,7 @@
     <string name="comput_presets_title"><![CDATA[کتابخانه پیش‌تنظیم‌ها]]></string>
     <string name="comput_presets_subtitle"><![CDATA[روی هر دستوری ضربه بزنید تا سریعاً اجرا شود یا به‌صورت خودکار در ترمینال پر شود.]]></string>
     <string name="diagnostics_app"><![CDATA[برنامه]]></string>
-    <string name="diagnostics_android"><![CDATA[Android]]></string>
+    <string name="diagnostics_android"><![CDATA[اندروید]]></string>
     <string name="diagnostics_service"><![CDATA[سرویس]]></string>
     <string name="diagnostics_server_uid"><![CDATA[uid سرور]]></string>
     <string name="diagnostics_server_api"><![CDATA[API سرور]]></string>
@@ -437,10 +437,10 @@
     <string name="settings_tcp_5555_bind_success"><![CDATA[ADB با موفقیت به پورت TCP 5555 متصل شد]]></string>
     <string name="settings_tcp_5555_bind_failed"><![CDATA[اتصال ADB به پورت ۵۵۵۵ ناموفق بود: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Root، Dhizuku یا Shevery فعال لازم است.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[به‌روزرسانی‌ها را در پس‌زمینه بررسی کنید]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[حتی زمانی که برنامه بسته است به دنبال نسخه های جدید باشید]]></string>
+    <string name="home_update_available_title"><![CDATA[به‌روزرسانی Shevery در دسترس است: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[نسخه جدیدتر آماده است. برای دانلود ضربه بزنید.]]></string>
     <string name="wadb_notification_channel"><![CDATA[ADB-Autostart-Dienst]]></string>
     <string name="comput_stop_desc"><![CDATA[Stop-Befehl]]></string>
     <string name="accessibility_manager_service_no_description"><![CDATA[Keine Beschreibung vom Dienst bereitgestellt.]]></string>

@@ -338,7 +338,7 @@
     <string name="backup_summary"><![CDATA[Експортувати конфігурацію та модулі у ZIP-файл]]></string>
     <string name="restore_title"><![CDATA[Відновити налаштування та модулі]]></string>
     <string name="restore_summary"><![CDATA[Імпортувати конфігурацію та модулі із ZIP-файлу]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[обчис]]></string>
     <string name="comput_settings"><![CDATA[Налаштування консолі Comput]]></string>
     <string name="comput_adb_console"><![CDATA[Консоль ADB Comput]]></string>
     <string name="comput_recommand_title"><![CDATA[ReCommand для Comput]]></string>
@@ -383,7 +383,7 @@
     <string name="comput_console_initialized"><![CDATA[Консоль ініціалізовано. Привілейовану службу Shevery підключено.
 Готово.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Пояснення ШІ]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[Коммандіум]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Асистент Commandium ШІ]]></string>
     <string name="comput_commandium_description"><![CDATA[Генеруйте команди консолі звичайною мовою. Gemini створить команду для копіювання.]]></string>
     <string name="comput_commandium_label"><![CDATA[Яка команда вам потрібна?]]></string>

@@ -109,12 +109,12 @@
     <string name="home_adb_is_limited_title"><![CDATA[คุณต้องทำขั้นตอนเพิ่มเติม]]></string>
     <string name="home_app_management_empty"><![CDATA[แอปที่ขอร้องหรือขอใช้ Shizuku จะแสดงที่นี่]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[โปรดลองปิดและเปิดใช้งาน "การแก้ไขข้อบกพร่องผ่าน Wi-Fi" ใหม่ หากระบบยังคงค้นหาอยู่]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[ตรวจสอบการอัปเดตในเบื้องหลัง]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[ค้นหาเวอร์ชันใหม่แม้ในขณะที่แอปปิดอยู่]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[ตรวจสอบความถี่]]></string>
+    <string name="home_update_available_title"><![CDATA[มีการอัปเดตมากมาย: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[เวอร์ชันใหม่พร้อมแล้ว แตะเพื่อดาวน์โหลด]]></string>
+    <string name="app_name"><![CDATA[เชเวรี่]]></string>
     <string name="accessibility_navigate_up"><![CDATA[กลับขึ้นด้านบน]]></string>
     <string name="accessibility_close"><![CDATA[ปิด]]></string>
     <string name="accessibility_more_options"><![CDATA[ตัวเลือกเพิ่มเติม]]></string>
@@ -138,7 +138,7 @@
 สาเหตุอาจเกิดจากกลไก KeyStore ของอุปกรณ์นี้ไม่ทำงาน]]></string>
     <string name="home_quick_terminal"><![CDATA[เทอร์มินัล]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB แบบไร้สาย]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp"><![CDATA[ทีพีซี 5555]]></string>
     <string name="home_manage_apps_button"><![CDATA[จัดการแอป]]></string>
     <string name="home_refresh"><![CDATA[รีเฟรช]]></string>
     <string name="home_diagnostics_title"><![CDATA[การวินิจฉัย]]></string>
@@ -191,7 +191,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[เปิดหน้าต่าง Shevery เฉพาะสำหรับ WebUI ในเครื่องเท่านั้น และเฉพาะเมื่อการเชื่อมต่ออินเทอร์เน็ตของ WebView ถูกปิด]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView บนอินเทอร์เน็ต]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[อนุญาตให้ใช้ HTTPS สำหรับการนำทางและทรัพยากร ซึ่งจะทำให้การเปิดเผย shell bridge สำหรับ WebView ดังกล่าวถูกปิดใช้งาน]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[ดาวน์โหลด WebUI()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[อนุญาตให้ดาวน์โหลดไฟล์ผ่าน HTTPS เข้าสู่โฟลเดอร์ WebUI ยกเว้นไฟล์ index.html]]></string>
     <string name="modules_background_actions"><![CDATA[อนุญาตให้ดำเนินการในพื้นหลัง]]></string>
     <string name="modules_background_actions_summary"><![CDATA[อนุญาตให้โมดูลที่ติดตั้งแล้วสามารถขอทำงาน ADB ในพื้นหลังในโหมดเข้าถึงเต็มรูปแบบ]]></string>
@@ -212,7 +212,7 @@
     <string name="modules_run_action"><![CDATA[การกระทำ]]></string>
     <string name="modules_run_service"><![CDATA[บริการ]]></string>
     <string name="modules_running"><![CDATA[กำลังเรียกใช้สคริปต์โมดูล…]]></string>
-    <string name="modules_open_webui"><![CDATA[WebUI]]></string>
+    <string name="modules_open_webui"><![CDATA[เว็บ UI]]></string>
     <string name="modules_webui"><![CDATA[โมดูล WebUI]]></string>
     <string name="modules_delete"><![CDATA[ลบ]]></string>
     <string name="modules_delete_title"><![CDATA[จะลบโมดูลหรือไม่?]]></string>
@@ -221,7 +221,7 @@
     <string name="modules_action_failed"><![CDATA[การดำเนินการไม่สำเร็จ]]></string>
     <string name="modules_service_result"><![CDATA[บริการเสร็จสิ้น: ออก %d]]></string>
     <string name="modules_service_failed"><![CDATA[บริการไม่สำเร็จ]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[คำสั่งใหม่]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[ขยาย]]></string>
     <string name="modules_recommand_collapse"><![CDATA[ปิด]]></string>
@@ -258,14 +258,14 @@
     <string name="service_stop_success"><![CDATA[บริการ Shevery ได้หยุดให้บริการแล้ว]]></string>
     <string name="service_stop_still_running"><![CDATA[บริการยังคงทำงานอยู่]]></string>
     <string name="service_stop_failed"><![CDATA[ไม่สามารถหยุด Shevery ได้: %1$s]]></string>
-    <string name="permission_group_label"><![CDATA[Shevery]]></string>
+    <string name="permission_group_label"><![CDATA[เชเวรี่]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[กำลังเปิด root shell…]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
  ได้ถูกคัดลอกไปยังคลิปบอร์ดแล้ว]]></string>
     <string name="lab_features_title"><![CDATA[คุณสมบัติของห้องปฏิบัติการ]]></string>
     <string name="lab_features_summary"><![CDATA[คุณสมบัติทดลอง]]></string>
-    <string name="shizuku_connectors_title"><![CDATA[Shevery Connectors]]></string>
+    <string name="shizuku_connectors_title"><![CDATA[ตัวเชื่อมต่อ Shevery]]></string>
     <string name="shizuku_connectors_summary"><![CDATA[อนุญาตให้ปลั๊กอินเปิดใช้งาน Shevery]]></string>
     <string name="unsafe_warning_title"><![CDATA[คำเตือน]]></string>
     <string name="unsafe_warning_message"><![CDATA[การเปิดใช้งานคุณสมบัตินี้อาจไม่ปลอดภัย คุณแน่ใจหรือไม่?]]></string>
@@ -301,7 +301,7 @@
     <string name="watchdog_service_title"><![CDATA[Shevery watchdog กำลังทำงานอยู่]]></string>
     <string name="watchdog_service_text"><![CDATA[การติดตามบริการ Shevery เพื่อการกู้คืนระบบ keep-alive]]></string>
     <string name="notification_control_channel_name"><![CDATA[ระบบควบคุม Shevery]]></string>
-    <string name="notification_startup_channel_name"><![CDATA[Shevery startup]]></string>
+    <string name="notification_startup_channel_name"><![CDATA[การเริ่มต้น Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[เริ่มต้น Shevery]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[กำลังเปิดใช้งานการดีบักผ่าน Wi-Fi…]]></string>
     <string name="notification_startup_connecting"><![CDATA[กำลังเชื่อมต่อกับ ADB…]]></string>
@@ -450,7 +450,7 @@
     <string name="comput_console_initialized"><![CDATA[คอนโซลได้รับการเริ่มต้นแล้ว บริการ Shevery ที่มีสิทธิ์พิเศษได้เชื่อมต่อแล้ว
 พร้อมรับคำสั่งแล้ว]]></string>
     <string name="comput_ai_explanation"><![CDATA[คำอธิบาย AI]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[คอมมานเดียม]]></string>
     <string name="comput_commandium_assistant"><![CDATA[ผู้ช่วย AI Commandium]]></string>
     <string name="comput_commandium_description"><![CDATA[สร้างคำสั่งเชลล์โดยใช้ภาษาธรรมชาติ Gemini จะสร้างคำสั่งในรูปแบบดิบที่สามารถคัดลอกได้]]></string>
     <string name="comput_commandium_label"><![CDATA[คุณต้องการคำสั่งอะไร?]]></string>
@@ -461,7 +461,7 @@
     <string name="comput_use_command"><![CDATA[ใช้คำสั่ง]]></string>
     <string name="comput_copied_to_clipboard"><![CDATA[คัดลอกไปยังคลิปบอร์ดแล้ว]]></string>
     <string name="comput_copy_command"><![CDATA[คำสั่งคัดลอก]]></string>
-    <string name="comput_hero_title"><![CDATA[Shevery Console]]></string>
+    <string name="comput_hero_title"><![CDATA[คอนโซล Shevery]]></string>
     <string name="comput_hero_subtitle"><![CDATA[เทอร์มินัลเชลล์ที่ทรงพลังบนอุปกรณ์ของคุณ ซึ่งพัฒนาโดย Shizuku]]></string>
     <string name="comput_status_ready"><![CDATA[พร้อมแล้ว]]></string>
     <string name="comput_status_running"><![CDATA[การวิ่ง]]></string>
@@ -481,7 +481,7 @@
     <string name="comput_macro_name_label"><![CDATA[ชื่อมาโคร]]></string>
     <string name="comput_save"><![CDATA[บันทึก]]></string>
     <string name="comput_tab_terminal"><![CDATA[เทอร์มินัล]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium"><![CDATA[เอไอ สตูดิโอ]]></string>
     <string name="comput_tab_macros"><![CDATA[มาโคร]]></string>
     <string name="comput_tab_presets"><![CDATA[การตั้งค่าล่วงหน้า]]></string>
     <string name="comput_quick_chips"><![CDATA[การดำเนินการอย่างรวดเร็ว]]></string>
@@ -502,11 +502,11 @@
     <string name="comput_scroll_bottom_desc"><![CDATA[เลื่อนลงสู่ส่วนล่าง]]></string>
     <string name="comput_cancelled"><![CDATA[คำสั่งถูกยกเลิกโดยผู้ใช้]]></string>
     <string name="diagnostics_app"><![CDATA[แอป]]></string>
-    <string name="diagnostics_android"><![CDATA[Android]]></string>
+    <string name="diagnostics_android"><![CDATA[หุ่นยนต์]]></string>
     <string name="diagnostics_service"><![CDATA[บริการ]]></string>
     <string name="diagnostics_server_uid"><![CDATA[UID ของเซิร์ฟเวอร์]]></string>
     <string name="diagnostics_server_api"><![CDATA[เซิร์ฟเวอร์ API]]></string>
-    <string name="diagnostics_selinux"><![CDATA[SELinux]]></string>
+    <string name="diagnostics_selinux"><![CDATA[ซีลีนุกซ์]]></string>
     <string name="diagnostics_adb_permission"><![CDATA[การอนุญาตจาก ADB]]></string>
     <string name="diagnostics_authorized_apps"><![CDATA[แอปที่ได้รับอนุญาต]]></string>
     <string name="diagnostics_local_network"><![CDATA[เครือข่ายท้องถิ่น]]></string>
@@ -518,7 +518,7 @@
     <string name="diagnostics_full"><![CDATA[เต็ม]]></string>
     <string name="diagnostics_limited"><![CDATA[จำกัด]]></string>
     <string name="diagnostics_unknown"><![CDATA[ไม่ทราบ]]></string>
-    <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
+    <string name="error_protect_title"><![CDATA[ข้อผิดพลาดป้องกัน]]></string>
     <string name="error_protect_summary"><![CDATA[ตรวจสอบสภาพการทำงานของระบบและข้อผิดพลาดในการทำธุรกรรมทุก 10 วินาที หากพบปัญหา ระบบจะหยุดและเริ่มต้น Shevery ใหม่โดยอัตโนมัติ]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[พอร์ต TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ผูกเซิร์ฟเวอร์ ADB ท้องถิ่นกับพอร์ต 5555 เพื่อให้มันทำงานได้ต่อไปโดยไม่ต้องอัปเดตพอร์ต Wireless Debugging]]></string>

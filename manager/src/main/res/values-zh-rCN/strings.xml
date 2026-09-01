@@ -150,7 +150,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[仅在本地 WebUI 且 WebView 网络禁用时暴露 window.Shevery。]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView 网络]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[允许 HTTPS 导航和资源加载。这将禁用该 WebView 的 Shell 桥接。]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[WebUI下载()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[允许将 HTTPS 文件下载到 WebUI 目录（index.html 除外）。]]></string>
     <string name="modules_background_actions"><![CDATA[允许后台操作]]></string>
     <string name="modules_background_actions_summary"><![CDATA[允许已安装的模块在完全访问模式下请求后台 ADB 任务]]></string>
@@ -168,10 +168,10 @@
     <string name="modules_full_trust"><![CDATA[完全信任]]></string>
     <string name="modules_trust"><![CDATA[信任]]></string>
     <string name="modules_untrust"><![CDATA[取消信任]]></string>
-    <string name="modules_run_action"><![CDATA[Action]]></string>
-    <string name="modules_run_service"><![CDATA[Service]]></string>
+    <string name="modules_run_action"><![CDATA[行动]]></string>
+    <string name="modules_run_service"><![CDATA[服务]]></string>
     <string name="modules_running"><![CDATA[正在运行模块脚本…]]></string>
-    <string name="modules_open_webui"><![CDATA[WebUI]]></string>
+    <string name="modules_open_webui"><![CDATA[网页用户界面]]></string>
     <string name="modules_webui"><![CDATA[模块 WebUI]]></string>
     <string name="modules_delete"><![CDATA[删除]]></string>
     <string name="modules_delete_title"><![CDATA[删除模块？]]></string>
@@ -180,7 +180,7 @@
     <string name="modules_action_failed"><![CDATA[Action 执行失败]]></string>
     <string name="modules_service_result"><![CDATA[Service 已完成：退出码 %d]]></string>
     <string name="modules_service_failed"><![CDATA[Service 执行失败]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[重新命令]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[展开]]></string>
     <string name="modules_recommand_collapse"><![CDATA[折叠]]></string>
@@ -192,7 +192,7 @@
     <string name="modules_recommand_webui_summary"><![CDATA[在 WebUI 执行 Shell 命令前显示二次确认弹窗]]></string>
     <string name="modules_recommand_action"><![CDATA[Action 确认弹窗]]></string>
     <string name="modules_recommand_action_summary"><![CDATA[在执行 action.sh 前显示二次确认弹窗]]></string>
-    <string name="modules_ai"><![CDATA[AI]]></string>
+    <string name="modules_ai"><![CDATA[人工智能]]></string>
     <string name="modules_ai_api_key"><![CDATA[API 密钥]]></string>
     <string name="modules_ai_api_key_summary"><![CDATA[通过 Android Keystore 加密存储。]]></string>
     <string name="modules_ai_unlocked"><![CDATA[AI 检查已解锁]]></string>
@@ -378,7 +378,7 @@
     <string name="backup_summary"><![CDATA[将配置和模块导出为 ZIP 文件]]></string>
     <string name="restore_title"><![CDATA[恢复设置和模块]]></string>
     <string name="restore_summary"><![CDATA[从 ZIP 文件导入配置和模块]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[电脑]]></string>
     <string name="comput_settings"><![CDATA[Comput 控制台设置]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput 控制台]]></string>
     <string name="comput_recommand_title"><![CDATA[Comput 确认弹窗]]></string>
@@ -423,7 +423,7 @@
     <string name="comput_console_initialized"><![CDATA[控制台已初始化。已连接到特权服务。
 就绪。]]></string>
     <string name="comput_ai_explanation"><![CDATA[AI 解释]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[司令部]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI 助手]]></string>
     <string name="comput_commandium_description"><![CDATA[使用自然语言生成 Shell 命令，Gemini 将直接输出可复制的命令。]]></string>
     <string name="comput_commandium_label"><![CDATA[您需要什么命令？]]></string>
@@ -475,7 +475,7 @@
     <string name="comput_scroll_bottom_desc"><![CDATA[滚动到底部]]></string>
     <string name="comput_cancelled"><![CDATA[命令已被用户取消。]]></string>
     <string name="diagnostics_app"><![CDATA[应用]]></string>
-    <string name="diagnostics_android"><![CDATA[Android]]></string>
+    <string name="diagnostics_android"><![CDATA[安卓]]></string>
     <string name="diagnostics_service"><![CDATA[服务]]></string>
     <string name="diagnostics_server_uid"><![CDATA[服务 UID]]></string>
     <string name="diagnostics_server_api"><![CDATA[服务 API]]></string>
@@ -531,7 +531,7 @@
     <string name="shevery_update_check_failed"><![CDATA[Aktualisierungsprüfung fehlgeschlagen: %s]]></string>
     <string name="app_name"><![CDATA[谢弗里]]></string>
     <string name="permission_group_label"><![CDATA[谢维里]]></string>
-    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
+    <string name="permission_group_description"><![CDATA[@字符串/权限标签]]></string>
     <string name="starting_root_shell"><![CDATA[正在启动 root 终端……]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[首次重启时需要连接 Wi-Fi，因为 Shevery 必须先连接到当前的无线调试端口，然后才能将 ADB 切换到 5555。]]></string>
     <string name="settings_update_group_title"><![CDATA[更新]]></string>

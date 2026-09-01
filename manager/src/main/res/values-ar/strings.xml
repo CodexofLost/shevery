@@ -1,9 +1,9 @@
 <resources>
     <string name="translation_contributors"><![CDATA[AI]]></string>
-    <string name="accessibility_navigate_up"><![CDATA[Navigate up]]></string>
-    <string name="accessibility_close"><![CDATA[Close]]></string>
-    <string name="accessibility_more_options"><![CDATA[More options]]></string>
-    <string name="accessibility_open_on_github"><![CDATA[Open on GitHub]]></string>
+    <string name="accessibility_navigate_up"><![CDATA[انتقل لأعلى]]></string>
+    <string name="accessibility_close"><![CDATA[يغلق]]></string>
+    <string name="accessibility_more_options"><![CDATA[المزيد من الخيارات]]></string>
+    <string name="accessibility_open_on_github"><![CDATA[مفتوح على جيثب]]></string>
     <string name="home_status_service_is_running"><![CDATA[%1$s يعمل بنجاح]]></string>
     <string name="home_status_service_not_running"><![CDATA[%1$s لا يعمل]]></string>
     <string name="home_status_service_version"><![CDATA[الإصدار %2$s, %1$s]]></string>
@@ -19,12 +19,12 @@
     <string name="home_wireless_adb_description"><![CDATA[على أندرويد 11 وما فوق ، يمكنك تفعيل التصحيح اللاسلكي وبدء Shizuku مباشرة من جهازك ، دون الاحتياج إتصال بالكمبيوتر.<p>يرجى الإطلاع أولاً على التعليمات المفصلة خطوة بخطوة.]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[على الأجهزة الأقدم من إصدار الأندرويد 11 ، يلزم الاتصال بجهاز كمبيوتر لتمكين المعالجة/التصحيح اللاسلكي.]]></string>
     <string name="home_wireless_adb_view_guide_button"><![CDATA[‌دليل خطوة بخطوة]]></string>
-    <string name="home_local_network_title"><![CDATA[Local network access]]></string>
-    <string name="home_local_network_description"><![CDATA[Wireless debugging needs %1$s on this Android version.]]></string>
-    <string name="home_local_network_granted"><![CDATA[%1$s is granted.]]></string>
-    <string name="home_local_network_missing"><![CDATA[%1$s is not granted.]]></string>
-    <string name="home_local_network_grant"><![CDATA[Grant access]]></string>
-    <string name="home_local_network_permission_denied"><![CDATA[Local network access is required for Wireless debugging.]]></string>
+    <string name="home_local_network_title"><![CDATA[الوصول إلى الشبكة المحلية]]></string>
+    <string name="home_local_network_description"><![CDATA[يحتاج تصحيح الأخطاء اللاسلكية إلى %1$s على إصدار Android هذا.]]></string>
+    <string name="home_local_network_granted"><![CDATA[تم منح %1$s.]]></string>
+    <string name="home_local_network_missing"><![CDATA[لم يتم منح %1$s.]]></string>
+    <string name="home_local_network_grant"><![CDATA[منح الوصول]]></string>
+    <string name="home_local_network_permission_denied"><![CDATA[مطلوب الوصول إلى الشبكة المحلية لتصحيح الأخطاء اللاسلكية.]]></string>
     <string name="dialog_adb_discovery"><![CDATA[البحث عن خدمة التصحيح اللاسلكي]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[يرجى محاولة تعطيل "التصحيح اللاسلكي" وتمكينه إذا استمر في البحث.]]></string>
     <string name="dialog_adb_port"><![CDATA[المنفذ]]></string>
@@ -61,7 +61,7 @@
     <string name="home_learn_more_description"><![CDATA[تعلم كيف تطور مع Shizuku]]></string>
     <string name="home_quick_terminal"><![CDATA[الطرفية]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB لاسلكي]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp"><![CDATA[تي سي بي 5555]]></string>
     <string name="home_manage_apps_button"><![CDATA[إدارة التطبيقات]]></string>
     <string name="home_refresh"><![CDATA[تحديث]]></string>
     <string name="home_diagnostics_title"><![CDATA[التشخيص]]></string>
@@ -117,7 +117,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[كشف window.Shevery فقط لـ WebUI المحلي وفقط عند إيقاف إنترنت WebView.]]></string>
     <string name="modules_permission_web_network"><![CDATA[إنترنت WebView]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[السماح بالتصفح/الأصول عبر HTTPS. هذا يعطّل كشف جسر Shell لـ WebView ذاك.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[تنزيل واجهة الويب ()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[السماح بتنزيل ملفات HTTPS إلى مجلد WebUI، باستثناء index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[السماح بإجراءات الخلفية]]></string>
     <string name="modules_background_actions_summary"><![CDATA[السماح للوحدات المثبّتة بطلب عمل ADB في الخلفية في وضع الوصول الكامل]]></string>
@@ -138,7 +138,7 @@
     <string name="modules_run_action"><![CDATA[إجراء]]></string>
     <string name="modules_run_service"><![CDATA[خدمة]]></string>
     <string name="modules_running"><![CDATA[جاري تشغيل سكريبت الوحدة…]]></string>
-    <string name="modules_open_webui"><![CDATA[WebUI]]></string>
+    <string name="modules_open_webui"><![CDATA[واجهة مستخدم الويب]]></string>
     <string name="modules_webui"><![CDATA[WebUI الوحدة]]></string>
     <string name="modules_delete"><![CDATA[حذف]]></string>
     <string name="modules_delete_title"><![CDATA[حذف الوحدة؟]]></string>
@@ -147,7 +147,7 @@
     <string name="modules_action_failed"><![CDATA[فشل الإجراء]]></string>
     <string name="modules_service_result"><![CDATA[اكتملت الخدمة: الخروج %d]]></string>
     <string name="modules_service_failed"><![CDATA[فشلت الخدمة]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[أعد القيادة]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[توسيع]]></string>
     <string name="modules_recommand_collapse"><![CDATA[طي]]></string>
@@ -273,7 +273,7 @@
     <string name="update_settings_install_mode_label"><![CDATA[طريقة التثبيت الافتراضية]]></string>
     <string name="update_settings_install_mode_sources"><![CDATA[البناء من المصدر]]></string>
     <string name="update_settings_install_mode_release"><![CDATA[تنزيل ZIP الإصدار]]></string>
-    <string name="update_settings_github"><![CDATA[GitHub]]></string>
+    <string name="update_settings_github"><![CDATA[جيثب]]></string>
     <string name="update_settings_github_pat"><![CDATA[رمز الوصول الشخصي]]></string>
     <string name="update_settings_github_pat_set"><![CDATA[تم تعيين الرمز]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[غير معيّن (60 طلبًا/ساعة)]]></string>
@@ -321,7 +321,7 @@
     <string name="backup_summary"><![CDATA[تصدير الإعداد والوحدات إلى ملف ZIP]]></string>
     <string name="restore_title"><![CDATA[استعادة الإعدادات والوحدات]]></string>
     <string name="restore_summary"><![CDATA[استيراد الإعداد والوحدات من ملف ZIP]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[حساب]]></string>
     <string name="comput_settings"><![CDATA[إعدادات وحدة تحكم Comput]]></string>
     <string name="comput_adb_console"><![CDATA[وحدة تحكم ADB Comput]]></string>
     <string name="comput_recommand_title"><![CDATA[ReCommand لـ Comput]]></string>
@@ -361,7 +361,7 @@
     <string name="comput_error_not_running"><![CDATA[خطأ: خدمة Shevery المتميزة غير قيد التشغيل. يرجى تشغيل الخدمة أولاً.]]></string>
     <string name="comput_error_no_binder"><![CDATA[خطأ: تعذّر استرداد binder الخاص بـ Shevery.]]></string>
     <string name="comput_ai_explanation"><![CDATA[شرح الذكاء الاصطناعي]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[كومانديوم]]></string>
     <string name="comput_commandium_assistant"><![CDATA[مساعد Commandium الذكاء الاصطناعي]]></string>
     <string name="comput_commandium_description"><![CDATA[إنشاء أوامر Shell باستخدام اللغة الطبيعية. سيُنشئ Gemini أمرًا قابلًا للنسخ.]]></string>
     <string name="comput_commandium_label"><![CDATA[ما الأمر الذي تحتاجه؟]]></string>
@@ -392,7 +392,7 @@
     <string name="comput_macro_name_label"><![CDATA[اسم الماكرو]]></string>
     <string name="comput_save"><![CDATA[حفظ]]></string>
     <string name="comput_tab_terminal"><![CDATA[الطرفية]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium"><![CDATA[استوديو الذكاء الاصطناعي]]></string>
     <string name="comput_tab_macros"><![CDATA[ماكروهات]]></string>
     <string name="comput_tab_presets"><![CDATA[الإعدادات المسبقة]]></string>
     <string name="comput_quick_chips"><![CDATA[إجراءات سريعة]]></string>
@@ -400,7 +400,7 @@
     <string name="comput_presets_title"><![CDATA[مكتبة الإعدادات المسبقة]]></string>
     <string name="comput_presets_subtitle"><![CDATA[اضغط على أي أمر لتشغيله بسرعة أو الملء التلقائي في الطرفية.]]></string>
     <string name="diagnostics_app"><![CDATA[التطبيق]]></string>
-    <string name="diagnostics_android"><![CDATA[Android]]></string>
+    <string name="diagnostics_android"><![CDATA[أندرويد]]></string>
     <string name="diagnostics_service"><![CDATA[الخدمة]]></string>
     <string name="diagnostics_server_uid"><![CDATA[uid الخادم]]></string>
     <string name="diagnostics_server_api"><![CDATA[API الخادم]]></string>
@@ -416,7 +416,7 @@
     <string name="diagnostics_full"><![CDATA[كامل]]></string>
     <string name="diagnostics_limited"><![CDATA[محدود]]></string>
     <string name="diagnostics_unknown"><![CDATA[غير معروف]]></string>
-    <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
+    <string name="error_protect_title"><![CDATA[خطأ حماية]]></string>
     <string name="error_protect_summary"><![CDATA[فحص صحة العملية والأخطاء كل 10 ثوانٍ. إيقاف Shevery وإعادة تشغيله تلقائيًا إذا وُجدت مشكلات.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[ربط TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ربط خادم ADB المحلي بالمنفذ 5555 للحفاظ على تشغيله بدون تحديثات منفذ التصحيح اللاسلكي.]]></string>

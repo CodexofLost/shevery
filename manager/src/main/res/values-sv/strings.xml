@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Sök efter uppdateringar i bakgrunden]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Leta efter nya versioner även när appen är stängd]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Kontrollera frekvensen]]></string>
+    <string name="home_update_available_title"><![CDATA[All uppdatering tillgänglig: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[En nyare version är klar. Tryck för att ladda ner.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Gå uppåt]]></string>
@@ -116,7 +116,7 @@ Exportfunktionen använder SAF (Storage Access Framework). Det har rapporterats 
     <string name="settings_user_interface"><![CDATA[Utseende]]></string>
     <string name="settings_black_night_theme"><![CDATA[Tema: Svart natt]]></string>
     <string name="settings_black_night_theme_summary"><![CDATA[Använd det helt svarta temat om nattläget är aktiverat]]></string>
-    <string name="settings_startup"><![CDATA[Startup]]></string>
+    <string name="settings_startup"><![CDATA[Uppstart]]></string>
     <string name="settings_translation_contributors"><![CDATA[Översättare]]></string>
     <string name="settings_translation"><![CDATA[Delta i översättningsarbetet]]></string>
     <string name="settings_translation_summary"><![CDATA[Hjälp oss att översätta %s till ditt språk]]></string>
@@ -158,7 +158,7 @@ Exportfunktionen använder SAF (Storage Access Framework). Det har rapporterats 
     <string name="modules_permission_web_bridge_summary"><![CDATA[Visa fönstret ”Shevery” endast för det lokala webbgränssnittet och endast när internetanslutningen i WebView är avstängd.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView på internet]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Tillåt HTTPS-navigering/resurser. Detta inaktiverar exponeringen av shell-bryggan för den aktuella WebView-instansen.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[WebUI nedladdning()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Tillåt nedladdning av filer via HTTPS till mappen WebUI, med undantag för index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Tillåt bakgrundsåtgärder]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Tillåt installerade moduler att begära ADB-uppgifter i bakgrunden i läget för full åtkomst]]></string>
@@ -175,7 +175,7 @@ Exportfunktionen använder SAF (Storage Access Framework). Det har rapporterats 
     <string name="modules_disable"><![CDATA[Inaktivera]]></string>
     <string name="modules_full_trust"><![CDATA[Fullt förtroende]]></string>
     <string name="modules_trust"><![CDATA[Förtroende]]></string>
-    <string name="modules_untrust"><![CDATA[Untrust]]></string>
+    <string name="modules_untrust"><![CDATA[Oförtroende]]></string>
     <string name="modules_run_action"><![CDATA[Åtgärd]]></string>
     <string name="modules_run_service"><![CDATA[Service]]></string>
     <string name="modules_running"><![CDATA[Kör modulskript…]]></string>
@@ -188,7 +188,7 @@ Exportfunktionen använder SAF (Storage Access Framework). Det har rapporterats 
     <string name="modules_action_failed"><![CDATA[Åtgärden misslyckades]]></string>
     <string name="modules_service_result"><![CDATA[Tjänsten avslutad: avsluta %d]]></string>
     <string name="modules_service_failed"><![CDATA[Tjänsten misslyckades]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[Rekommendera]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Visa mer]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Dölj]]></string>
@@ -346,7 +346,7 @@ har kopierats till urklipp.]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[Ej inställt (60 förfrågningar/timme)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[GitHub-token för personlig åtkomst]]></string>
     <string name="update_settings_github_pat_description"><![CDATA[Valfritt. En GitHub PAT höjer API-begränsningarna från 60 till 5 000 förfrågningar per timme. Kräver endast omfattningen public_repo för offentliga repositorier.]]></string>
-    <string name="update_settings_github_pat_label"><![CDATA[Token]]></string>
+    <string name="update_settings_github_pat_label"><![CDATA[Tecken]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Visa]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Dölj]]></string>
     <string name="update_settings_github_pat_clear"><![CDATA[Rensa]]></string>
@@ -397,7 +397,7 @@ har kopierats till urklipp.]]></string>
     <string name="wear_catalog_sort_stars"><![CDATA[Stjärnor]]></string>
     <string name="wear_catalog_sort_official"><![CDATA[Officiell]]></string>
     <string name="wear_catalog_sort_by"><![CDATA[Sortera efter]]></string>
-    <string name="wear_catalog_filter"><![CDATA[Filter]]></string>
+    <string name="wear_catalog_filter"><![CDATA[Filtrera]]></string>
     <string name="backup_restore_title"><![CDATA[Säkerhetskopiering och återställning]]></string>
     <string name="backup_title"><![CDATA[Inställningar och moduler för säkerhetskopiering]]></string>
     <string name="backup_summary"><![CDATA[Exportera konfigurationen och modulerna till en ZIP-fil]]></string>

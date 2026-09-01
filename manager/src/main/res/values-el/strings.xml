@@ -19,11 +19,11 @@
     <string name="home_status_service_is_running"><![CDATA[Το %1$s εκτελείται]]></string>
     <string name="dialog_adb_port"><![CDATA[Θύρα]]></string>
     <string name="home_wireless_adb_title"><![CDATA[Έναρξη μέσω Ασύρματου εντοπισμού σφαλμάτων]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Ελέγξτε για ενημερώσεις στο παρασκήνιο]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Αναζητήστε νέες εκδόσεις ακόμα και όταν η εφαρμογή είναι κλειστή]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Ελέγξτε τη συχνότητα]]></string>
+    <string name="home_update_available_title"><![CDATA[Διαθέσιμη ενημέρωση Shevery: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Μια νεότερη έκδοση είναι έτοιμη. Πατήστε για λήψη.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Επιστροφή προς τα πάνω]]></string>
@@ -114,7 +114,7 @@
     <string name="settings_user_interface"><![CDATA[Εμφάνιση]]></string>
     <string name="settings_black_night_theme"><![CDATA[Θέμα «Μαύρη νύχτα»]]></string>
     <string name="settings_black_night_theme_summary"><![CDATA[Χρησιμοποιήστε το καθαρά μαύρο θέμα εάν είναι ενεργοποιημένη η νυχτερινή λειτουργία]]></string>
-    <string name="settings_startup"><![CDATA[Startup]]></string>
+    <string name="settings_startup"><![CDATA[Εκκίνηση]]></string>
     <string name="settings_translation_contributors"><![CDATA[Συνεργάτες στη μετάφραση]]></string>
     <string name="settings_translation"><![CDATA[Συμμετέχετε στη μετάφραση]]></string>
     <string name="settings_translation_summary"><![CDATA[Βοηθήστε μας να μεταφράσουμε το %s στη γλώσσα σας]]></string>
@@ -156,7 +156,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[Εμφάνιση παραθύρου «Shevery» μόνο για το τοπικό WebUI και μόνο όταν η σύνδεση στο διαδίκτυο του WebView είναι απενεργοποιημένη.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView στο Διαδίκτυο]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Επιτρέψτε την πλοήγηση/χρήση αρχείων μέσω HTTPS. Αυτό απενεργοποιεί την έκθεση της γέφυρας shell για το συγκεκριμένο WebView.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[Λήψη WebUI ()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Να επιτρέπονται οι λήψεις αρχείων μέσω HTTPS στον φάκελο WebUI, με εξαίρεση το αρχείο index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Να επιτρέπονται οι ενέργειες στο παρασκήνιο]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Να επιτρέπεται στις εγκατεστημένες εφαρμογές να ζητούν εκτέλεση ADB στο παρασκήνιο σε λειτουργία πλήρους πρόσβασης]]></string>
@@ -173,7 +173,7 @@
     <string name="modules_disable"><![CDATA[Απενεργοποίηση]]></string>
     <string name="modules_full_trust"><![CDATA[Πλήρης εμπιστοσύνη]]></string>
     <string name="modules_trust"><![CDATA[Εμπιστοσύνη]]></string>
-    <string name="modules_untrust"><![CDATA[Untrust]]></string>
+    <string name="modules_untrust"><![CDATA[Αναξιοπιστία]]></string>
     <string name="modules_run_action"><![CDATA[Δράση]]></string>
     <string name="modules_run_service"><![CDATA[Υπηρεσία]]></string>
     <string name="modules_running"><![CDATA[Εκτέλεση του σενάριου της ενότητας…]]></string>
@@ -344,7 +344,7 @@
     <string name="update_settings_github_pat_unset"><![CDATA[Δεν έχει οριστεί (60 αιτήσεις/ώρα)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[Προσωπικό διακριτικό πρόσβασης GitHub]]></string>
     <string name="update_settings_github_pat_description"><![CDATA[Προαιρετικό. Με ένα PAT του GitHub αυξάνονται τα όρια συχνότητας κλήσεων του API από 60 σε 5.000 αιτήσεις/ώρα. Απαιτείται μόνο το πεδίο εφαρμογής «public_repo» για τα δημόσια αποθετήρια.]]></string>
-    <string name="update_settings_github_pat_label"><![CDATA[Token]]></string>
+    <string name="update_settings_github_pat_label"><![CDATA[Ενδειξη]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Εμφάνιση]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Απόκρυψη]]></string>
     <string name="update_settings_github_pat_clear"><![CDATA[Εκκαθάριση]]></string>

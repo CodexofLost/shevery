@@ -108,11 +108,11 @@
     <string name="settings_use_system_color"><![CDATA[Sử dụng màu chủ đề hệ thống]]></string>
     <string name="home_app_management_empty"><![CDATA[Các ứng dụng đã yêu cầu hoặc khai báo Shizuku sẽ hiển thị ở đây.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Vui lòng thử tắt và bật "Gỡ lỗi không dây" nếu nó tiếp tục tìm kiếm.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Kiểm tra các bản cập nhật ở chế độ nền]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Tìm phiên bản mới ngay cả khi đóng ứng dụng]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Kiểm tra tần suất]]></string>
+    <string name="home_update_available_title"><![CDATA[Đã có bản cập nhật Shevery: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Một phiên bản mới hơn đã sẵn sàng. Nhấn để tải xuống.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Quay lại trang trên]]></string>
     <string name="accessibility_close"><![CDATA[Đóng]]></string>
@@ -191,7 +191,7 @@ Chức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có 
     <string name="modules_permission_web_bridge_summary"><![CDATA[Chỉ hiển thị cửa sổ Shevery cho giao diện người dùng web cục bộ và chỉ khi kết nối Internet của WebView bị ngắt.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView Internet]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Cho phép điều hướng/tài nguyên qua HTTPS. Tính năng này sẽ vô hiệu hóa việc tiếp xúc với shell bridge đối với WebView đó.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[Tải xuống WebUI()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Cho phép tải xuống các tệp qua HTTPS vào thư mục WebUI, ngoại trừ tệp index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Cho phép thực hiện các tác vụ nền]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Cho phép các mô-đun đã cài đặt yêu cầu thực thi tác vụ ADB ở chế độ nền với quyền truy cập đầy đủ]]></string>
@@ -221,7 +221,7 @@ Chức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có 
     <string name="modules_action_failed"><![CDATA[Hành động không thành công]]></string>
     <string name="modules_service_result"><![CDATA[Dịch vụ đã kết thúc: thoát %d]]></string>
     <string name="modules_service_failed"><![CDATA[Dịch vụ không thành công]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[lệnh lại]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Mở rộng]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Thu gọn]]></string>
@@ -346,7 +346,7 @@ Chức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có 
     <string name="update_settings_github_pat_unset"><![CDATA[Chưa được thiết lập (60 yêu cầu/giờ)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[Mã thông báo truy cập cá nhân GitHub]]></string>
     <string name="update_settings_github_pat_description"><![CDATA[Tùy chọn. Việc sử dụng PAT trên GitHub giúp tăng giới hạn tốc độ API từ 60 lên 5.000 yêu cầu/giờ. Chỉ cần phạm vi `public_repo` cho các kho lưu trữ công khai.]]></string>
-    <string name="update_settings_github_pat_label"><![CDATA[Token]]></string>
+    <string name="update_settings_github_pat_label"><![CDATA[Mã thông báo]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Hiển thị]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Ẩn]]></string>
     <string name="update_settings_github_pat_clear"><![CDATA[Xóa]]></string>
@@ -481,7 +481,7 @@ Sẵn sàng nhận lệnh.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Tên macro]]></string>
     <string name="comput_save"><![CDATA[Lưu lại]]></string>
     <string name="comput_tab_terminal"><![CDATA[Trạm]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium"><![CDATA[Studio AI]]></string>
     <string name="comput_tab_macros"><![CDATA[Các hàm macro]]></string>
     <string name="comput_tab_presets"><![CDATA[Cài đặt sẵn]]></string>
     <string name="comput_quick_chips"><![CDATA[Các thao tác nhanh]]></string>
@@ -518,7 +518,7 @@ Sẵn sàng nhận lệnh.]]></string>
     <string name="diagnostics_full"><![CDATA[đầy đủ]]></string>
     <string name="diagnostics_limited"><![CDATA[hạn chế]]></string>
     <string name="diagnostics_unknown"><![CDATA[không rõ]]></string>
-    <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
+    <string name="error_protect_title"><![CDATA[Bảo vệ lỗi]]></string>
     <string name="error_protect_summary"><![CDATA[Kiểm tra tình trạng hoạt động của quy trình và các lỗi giao dịch cứ sau 10 giây. Tự động dừng và khởi động lại Shevery nếu phát hiện có sự cố.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Kết nối TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Gán máy chủ ADB cục bộ vào cổng 5555 để đảm bảo máy chủ này vẫn hoạt động mà không cần cập nhật cổng Gỡ lỗi không dây.]]></string>

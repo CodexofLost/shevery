@@ -161,7 +161,7 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="modules_service_result"><![CDATA[ସେବା ସମାପ୍ତ ହୋଇଛି: %d ପ୍ରସ୍ଥାନ କରନ୍ତୁ]]></string>
     <string name="modules_service_failed"><![CDATA[ସେବା ବିଫଳ ହୋଇଛି]]></string>
     <string name="modules_recommand_title"><![CDATA[ରିକମାଣ୍ଡ]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source"><![CDATA[% 1 $ s /% 2 $ s |]]></string>
     <string name="modules_recommand_expand"><![CDATA[ବିସ୍ତାର କରନ୍ତୁ]]></string>
     <string name="modules_recommand_collapse"><![CDATA[ପତନ]]></string>
     <string name="modules_recommand_copy"><![CDATA[କପି]]></string>
@@ -188,7 +188,7 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="modules_updating"><![CDATA[ମଡ୍ୟୁଲ୍ ଅପଡେଟ୍ ହେଉଛି...]]></string>
     <string name="modules_update_success"><![CDATA[v%sକୁ ମଡ୍ୟୁଲ୍ ଅପଡେଟ୍ ହୋଇଛି]]></string>
     <string name="modules_download_downloads"><![CDATA[ଡାଉନଲୋଡଗୁଡିକୁ ଡାଉନଲୋଡ୍ କରନ୍ତୁ]]></string>
-    <string name="modules_download_install"><![CDATA[Download &amp; Install]]></string>
+    <string name="modules_download_install"><![CDATA[ଡାଉନଲୋଡ୍ & amp; ସଂସ୍ଥାପନ କରନ୍ତୁ |]]></string>
     <string name="modules_downloading"><![CDATA[ଡାଉନଲୋଡ୍ ହେଉଛି...]]></string>
     <string name="modules_download_enqueued"><![CDATA[ପୃଷ୍ଠପଟରେ ଡାଉନଲୋଡ୍ ଆରମ୍ଭ ହୋଇଛି]]></string>
     <string name="modules_search_placeholder"><![CDATA[କ୍ୟାଟଲଗ୍ ମଡ୍ୟୁଲ୍ ସନ୍ଧାନ କରନ୍ତୁ...]]></string>
@@ -325,9 +325,9 @@ has been copied to clipboard.]]></string>
     <string name="shevery_update_channel"><![CDATA[ଚ୍ୟାନେଲ୍ ଅପଡେଟ୍ କରନ୍ତୁ]]></string>
     <string name="shevery_update_channel_summary"><![CDATA[ଅପଡେଟ୍ ରିଲିଜ୍ ଚ୍ୟାନେଲ୍ ବାଛନ୍ତୁ]]></string>
     <string name="app_update_channel_stable"><![CDATA[ସ୍ଥିର]]></string>
-    <string name="app_update_channel_beta"><![CDATA[Pre-release &amp; Beta]]></string>
+    <string name="app_update_channel_beta"><![CDATA[ପୂର୍ବ-ପ୍ରକାଶନ & amp; ବିଟା |]]></string>
     <string name="shevery_update_group_title"><![CDATA[ସିଭ୍ରି ଆପ୍ ଅପଡେଟସ୍]]></string>
-    <string name="shevery_update_modules_group_title"><![CDATA[Module Updates &amp; Catalog]]></string>
+    <string name="shevery_update_modules_group_title"><![CDATA[ମଡ୍ୟୁଲ୍ ଅଦ୍ୟତନଗୁଡିକ & amp; କାଟାଲଗ୍]]></string>
     <string name="shevery_update_check_failed"><![CDATA[ଅପଡେଟ୍ ଯାଞ୍ଚ ବିଫଳ ହୋଇଛି: %s]]></string>
     <string name="modules_catalog"><![CDATA[କାଟାଲଗ୍]]></string>
     <string name="modules_catalog_title"><![CDATA[ମଡ୍ୟୁଲ୍ କାଟାଲଗ୍]]></string>
@@ -360,10 +360,10 @@ has been copied to clipboard.]]></string>
     <string name="wear_catalog_sort_official"><![CDATA[ଅଫିସିଆଲ୍]]></string>
     <string name="wear_catalog_sort_by"><![CDATA[ଅନୁଯାୟୀ ସଜାନ୍ତୁ]]></string>
     <string name="wear_catalog_filter"><![CDATA[ଫିଲ୍ଟର]]></string>
-    <string name="backup_restore_title"><![CDATA[Backup &amp; Restore]]></string>
-    <string name="backup_title"><![CDATA[Backup Settings &amp; Modules]]></string>
+    <string name="backup_restore_title"><![CDATA[ବ୍ୟାକଅପ୍ & amp; ପୁନରୁଦ୍ଧାର କରନ୍ତୁ |]]></string>
+    <string name="backup_title"><![CDATA[ବ୍ୟାକଅପ୍ ସେଟିଂସମୂହ & amp; ମଡ୍ୟୁଲ୍]]></string>
     <string name="backup_summary"><![CDATA[ଏକ ZIP ଫାଇଲକୁ କନଫିଗ୍ୟୁରେସନ୍ ଏବଂ ମଡ୍ୟୁଲ୍ ରପ୍ତାନୀ କରନ୍ତୁ]]></string>
-    <string name="restore_title"><![CDATA[Restore Settings &amp; Modules]]></string>
+    <string name="restore_title"><![CDATA[ସେଟିଂସମୂହ ପୁନ ore ସ୍ଥାପନ କରନ୍ତୁ & amp; ମଡ୍ୟୁଲ୍]]></string>
     <string name="restore_summary"><![CDATA[ଏକ ZIP ଫାଇଲରୁ କନଫିଗ୍ୟୁରେସନ୍ ଏବଂ ମଡ୍ୟୁଲଗୁଡିକ ଆମଦାନୀ କରନ୍ତୁ]]></string>
     <string name="settings_sections_title"><![CDATA[ବ୍ୟାକଅପ୍ ଏବଂ ଅନ୍ୟାନ୍ୟ]]></string>
     <string name="backup_section_title"><![CDATA[ବ୍ୟାକଅପ୍]]></string>
@@ -381,7 +381,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_api_key_label"><![CDATA[API କୀ]]></string>
     <string name="comput_show_api_key"><![CDATA[API କୀ ଦେଖାନ୍ତୁ]]></string>
     <string name="comput_hide_api_key"><![CDATA[API କୀ ଲୁଚାନ୍ତୁ]]></string>
-    <string name="comput_gemini_model_performance"><![CDATA[High performance coding &amp; agentic (Recommended)]]></string>
+    <string name="comput_gemini_model_performance"><![CDATA[ଉଚ୍ଚ କାର୍ଯ୍ୟଦକ୍ଷତା କୋଡିଂ & amp; ଏଜେଣ୍ଟିକ୍ (ସୁପାରିଶ)]]></string>
     <string name="comput_gemini_model_lightweight"><![CDATA[ହାଲୁକା ଅଧିକ ବେଗ ମଡେଲ୍]]></string>
     <string name="comput_gemini_api_error"><![CDATA[Gemini API ତ୍ରୁଟି କୋଡ୍ %1$d: %2$s ଫେରସ୍ତ କରିଛି]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[ସଂଯୋଜନା ତ୍ରୁଟି ।]]></string>
@@ -543,7 +543,7 @@ You may need to restart Shevery for the operation to take effect.]]></string>
 <p>ବିସ୍ତୃତ ବ୍ୟବହାର %1$s ବିଷୟରେ, ଡକ୍ୟୁମେଣ୍ଟ ଦର୍ଶନ କରିବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ।]]></string>
     <string name="about_view_source_code"><![CDATA[%sରେ ଉତ୍ସ କୋଡ୍ ଦର୍ଶନ କରନ୍ତୁ]]></string>
     <string name="permission_group_label"><![CDATA[ଶେଭ]]></string>
-    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
+    <string name="permission_group_description"><![CDATA[@ ଷ୍ଟ୍ରିଙ୍ଗ୍ / ଅନୁମତି_ ଲେବଲ୍ |]]></string>
     <string name="permission_warning_template"><![CDATA[<b>%1$sକୁ</b> %2$sକୁ ଅନୁମତି ଦେବେ?]]></string>
     <string name="starting_root_shell"><![CDATA[ରୁଟ୍ ସେଲ୍ ଆରମ୍ଭ ହେଉଛି...]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> କ୍ଲିପବୋର୍ଡକୁ କପି ହୋଇଛି।]]></string>

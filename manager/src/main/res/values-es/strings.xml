@@ -155,7 +155,7 @@ La función de exportación usa SAF (Storage Access Framework). En MIUI, SAF pue
     <string name="modules_run_action"><![CDATA[Acción]]></string>
     <string name="modules_run_service"><![CDATA[Servicio]]></string>
     <string name="modules_running"><![CDATA[Ejecutando script del módulo…]]></string>
-    <string name="modules_open_webui"><![CDATA[WebUI]]></string>
+    <string name="modules_open_webui"><![CDATA[interfaz de usuario web]]></string>
     <string name="modules_webui"><![CDATA[WebUI del módulo]]></string>
     <string name="modules_delete"><![CDATA[Eliminar]]></string>
     <string name="modules_delete_title"><![CDATA[¿Eliminar módulo?]]></string>
@@ -164,8 +164,8 @@ La función de exportación usa SAF (Storage Access Framework). En MIUI, SAF pue
     <string name="modules_action_failed"><![CDATA[Fallo en la acción]]></string>
     <string name="modules_service_result"><![CDATA[Servicio finalizado: código %d]]></string>
     <string name="modules_service_failed"><![CDATA[Fallo en el servicio]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_title"><![CDATA[ReComando]]></string>
+    <string name="modules_recommand_source"><![CDATA[%1$s/%2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Expandir]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Contraer]]></string>
     <string name="modules_recommand_copy"><![CDATA[Copiar]]></string>
@@ -296,7 +296,7 @@ se ha copiado al portapapeles.]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[Sin configurar (60 peticiones/hora)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[Token de acceso personal de GitHub]]></string>
     <string name="update_settings_github_pat_description"><![CDATA[Opcional. Un token de GitHub aumenta el límite de API de 60 a 5000 peticiones/hora. Solo requiere alcance public_repo.]]></string>
-    <string name="update_settings_github_pat_label"><![CDATA[Token]]></string>
+    <string name="update_settings_github_pat_label"><![CDATA[Simbólico]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Mostrar]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Ocultar]]></string>
     <string name="update_settings_github_pat_clear"><![CDATA[Limpiar]]></string>
@@ -338,7 +338,7 @@ se ha copiado al portapapeles.]]></string>
     <string name="backup_summary"><![CDATA[Exportar configuración y módulos a un archivo ZIP]]></string>
     <string name="restore_title"><![CDATA[Restaurar ajustes y módulos]]></string>
     <string name="restore_summary"><![CDATA[Importar configuración y módulos desde un archivo ZIP]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[computar]]></string>
     <string name="comput_settings"><![CDATA[Ajustes de consola Comput]]></string>
     <string name="comput_adb_console"><![CDATA[Consola Comput ADB]]></string>
     <string name="comput_recommand_title"><![CDATA[ReCommand para Comput]]></string>
@@ -383,7 +383,7 @@ Ejecutando...]]></string>
     <string name="comput_console_initialized"><![CDATA[Consola inicializada. Servicio privilegiado Shevery conectado.
 Listo para comandos.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Explicación de la IA]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[Comando]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Asistente IA Commandium]]></string>
     <string name="comput_commandium_description"><![CDATA[Genere comandos de consola usando lenguaje natural. Gemini generará un comando listo para copiar.]]></string>
     <string name="comput_commandium_label"><![CDATA[¿Qué comando necesita?]]></string>
@@ -408,7 +408,7 @@ Listo para comandos.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Nombre de macro]]></string>
     <string name="comput_save"><![CDATA[Guardar]]></string>
     <string name="diagnostics_app"><![CDATA[Aplicación]]></string>
-    <string name="diagnostics_android"><![CDATA[Android]]></string>
+    <string name="diagnostics_android"><![CDATA[Androide]]></string>
     <string name="diagnostics_service"><![CDATA[Servicio]]></string>
     <string name="diagnostics_server_uid"><![CDATA[UID de servidor]]></string>
     <string name="diagnostics_server_api"><![CDATA[API de servidor]]></string>
@@ -460,8 +460,8 @@ Listo para comandos.]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_instruction"><![CDATA[Instrucciones de uso:
 1. Conecta el dispositivo a un ordenador (a través de USB o depuración inalámbrica).
 2. En la terminal, ejecuta el comando que aparece en el campo de arriba.]]></string>
-    <string name="permission_group_label"><![CDATA[Shevery]]></string>
-    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
+    <string name="permission_group_label"><![CDATA[shevery]]></string>
+    <string name="permission_group_description"><![CDATA[@cadena/etiqueta_permiso]]></string>
     <string name="starting_root_shell"><![CDATA[Iniciando el shell de root…]]></string>
     <string name="settings_application"><![CDATA[Aplicación]]></string>
     <string name="settings_appearance"><![CDATA[Aspecto]]></string>
@@ -509,7 +509,7 @@ Listo para comandos.]]></string>
     <string name="comput_console_section"><![CDATA[Consola]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
     <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
-    <string name="comput_tab_macros"><![CDATA[Macros]]></string>
+    <string name="comput_tab_macros"><![CDATA[macros]]></string>
     <string name="comput_tab_presets"><![CDATA[Ajustes predefinidos]]></string>
     <string name="comput_quick_chips"><![CDATA[Acciones rápidas]]></string>
     <string name="comput_terminal_header"><![CDATA[SALIDA DEL SHELL]]></string>

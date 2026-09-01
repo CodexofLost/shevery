@@ -90,7 +90,7 @@
     <string name="dialog_adb_pairing_title"><![CDATA[Cihaz ilə cütləşdir]]></string>
     <string name="adb_pairing"><![CDATA[Cütləşmə]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Port 1 ilə 65535 arasında dəyişən tam ədəddir.]]></string>
-    <string name="dialog_adb_port"><![CDATA[Port]]></string>
+    <string name="dialog_adb_port"><![CDATA[liman]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Simsiz debaq cihazı axtarılır]]></string>
     <string name="home_wireless_adb_view_guide_button"><![CDATA[Addım-Addım Təlimat]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA[Android 11 - dən aşağı android versiyalarında simsiz debaq üçün kompüterə bağlanmaq mütləqdir]]></string>
@@ -106,11 +106,11 @@
     <string name="home_status_service_version"><![CDATA[Versiya %2$s, %1$s]]></string>
     <string name="home_status_service_not_running"><![CDATA[%1$s davam etmir]]></string>
     <string name="home_status_service_is_running"><![CDATA[%1$s davam edir]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Arxa fonda yeniləmələri yoxlayın]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Proqram qapalı olsa belə, yeni versiyaları axtarın]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Tezliyi yoxlayın]]></string>
+    <string name="home_update_available_title"><![CDATA[Shever yeniləməsi mövcuddur: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Daha yeni versiya hazırdır. Endirmək üçün toxunun.]]></string>
     <string name="app_name"><![CDATA[Şevri]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Yuxarıya keç]]></string>
     <string name="accessibility_close"><![CDATA[Bağla]]></string>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[पृष्ठभूमि में अद्यतनों की जांच करें]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[ऐप बंद होने पर भी नए संस्करण देखें]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[आवृत्ति की जाँच करें]]></string>
+    <string name="home_update_available_title"><![CDATA[हर अपडेट उपलब्ध: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[एक नया संस्करण तैयार है. डाउनलोड करने के लिए टैप करें.]]></string>
     <string name="app_name"><![CDATA[शेवरी]]></string>
     <string name="translation_contributors"><![CDATA[सर्मार्ट1234, रवलैड]]></string>
     <string name="accessibility_navigate_up"><![CDATA[ऊपर जाएँ]]></string>
@@ -239,7 +239,7 @@
     <string name="notification_adb_pairing_failed_title"><![CDATA[पेयरिंग विफल हो गई]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[दोबारा प्रयास करें]]></string>
     <string name="permission_group_label"><![CDATA[शेवरी]]></string>
-    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
+    <string name="permission_group_description"><![CDATA[@स्ट्रिंग/अनुमति_लेबल]]></string>
     <string name="permission_label"><![CDATA[एक्सेस शेवरी]]></string>
     <string name="permission_description"><![CDATA[ऐप को Shevery का उपयोग करने की अनुमति दें।]]></string>
     <string name="permission_warning_template"><![CDATA[क्या <b>%1$s</b> को %2$s करने की अनुमति दें?]]></string>

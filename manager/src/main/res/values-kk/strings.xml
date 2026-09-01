@@ -134,7 +134,7 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="modules_permission_web_bridge_summary"><![CDATA[window.Shevery-ді тек жергілікті WebUI үшін және WebView интернеті өшірулі болғанда ұсыну.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView интернеті]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[HTTPS навигациясы мен ресурстарына рұқсат беру. Бұл WebView үшін командалық көпірді өшіреді.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[WebUI жүктеп алу()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[index.html қоспағанда, WebUI бумасына HTTPS файылдарын жүктеуге рұқсат беру.]]></string>
     <string name="modules_background_actions"><![CDATA[Фондық әрекеттерге рұқсат беру]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Толық кіру режимінде орнатылған модульдерге фондық ADB тапсырмаларын сұрауға рұқсат беру]]></string>
@@ -152,8 +152,8 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="modules_full_trust"><![CDATA[Толық сенім]]></string>
     <string name="modules_trust"><![CDATA[Сену]]></string>
     <string name="modules_untrust"><![CDATA[Сенбеу]]></string>
-    <string name="modules_run_action"><![CDATA[Action]]></string>
-    <string name="modules_run_service"><![CDATA[Service]]></string>
+    <string name="modules_run_action"><![CDATA[Әрекет]]></string>
+    <string name="modules_run_service"><![CDATA[Қызмет]]></string>
     <string name="modules_running"><![CDATA[Модуль скрипті орындалуда…]]></string>
     <string name="modules_open_webui"><![CDATA[WebUI]]></string>
     <string name="modules_webui"><![CDATA[Модуль WebUI-і]]></string>
@@ -164,7 +164,7 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="modules_action_failed"><![CDATA[Әрекет сәтсіз аяқталды]]></string>
     <string name="modules_service_result"><![CDATA[Қызмет аяқталды: шығу коды %d]]></string>
     <string name="modules_service_failed"><![CDATA[Қызмет сәтсіз аяқталды]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[Ұсыныс беру]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Жаю]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Жию]]></string>
@@ -294,7 +294,7 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="update_settings_github_pat"><![CDATA[Жеке кіру токені]]></string>
     <string name="update_settings_github_pat_set"><![CDATA[Токен орнатылды]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[Орнатылмаған (60 сұрау/сағат)]]></string>
-    <string name="update_settings_github_pat_title"><![CDATA[GitHub Personal Access Token]]></string>
+    <string name="update_settings_github_pat_title"><![CDATA[GitHub жеке қол жеткізу белгісі]]></string>
     <string name="update_settings_github_pat_description"><![CDATA[Міндетті емес. GitHub токені API сұрау шегін 60-тан 5000-ға дейін арттырады.]]></string>
     <string name="update_settings_github_pat_label"><![CDATA[Токен]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Көрсету]]></string>
@@ -338,7 +338,7 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="backup_summary"><![CDATA[Конфигурация мен модульдерді ZIP файылына экспорттау]]></string>
     <string name="restore_title"><![CDATA[Баптаулар мен модульдерді қалпына келтіру]]></string>
     <string name="restore_summary"><![CDATA[Конфигурация мен модульдерді ZIP файылынан импорттау]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[Есептеу]]></string>
     <string name="comput_settings"><![CDATA[Comput Консолі баптаулары]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput Консолі]]></string>
     <string name="comput_recommand_title"><![CDATA[Comput үшін ReCommand]]></string>
@@ -383,7 +383,7 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="comput_console_initialized"><![CDATA[Консоль инициализацияланды. Қосылды.
 Дайын.]]></string>
     <string name="comput_ai_explanation"><![CDATA[ЖИ Түсіндірмесі]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[Коммандиум]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium ЖИ Көмекшісі]]></string>
     <string name="comput_commandium_description"><![CDATA[Табиғи тіл арқылы командаларды жасаңыз. Gemini орындауға дайын команда береді.]]></string>
     <string name="comput_commandium_label"><![CDATA[Сізге қандай команда қажет?]]></string>
@@ -432,10 +432,10 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="settings_tcp_5555_bind_success"><![CDATA[ADB сервері 5555 TCP портына сәтті байланды]]></string>
     <string name="settings_tcp_5555_bind_failed"><![CDATA[ADB-ді 5555 портына байлау сәтсіз аяқталды: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Root, Dhizuku немесе белсенді Shevery талап етіледі.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Жаңартуларды фондық режимде тексеріңіз]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Қолданба жабылған кезде де жаңа нұсқаларды іздеңіз]]></string>
+    <string name="home_update_available_title"><![CDATA[Жаңарту қолжетімді: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Жаңарақ нұсқасы дайын. Жүктеп алу үшін түртіңіз.]]></string>
     <string name="app_name"><![CDATA[Шевери]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Тағы бірнеше жайт бар, алдымен көмек бөлімін оқып шыққаныңызға көз жеткізіңіз.]]></string>
     <string name="home_quick_terminal"><![CDATA[Терминал]]></string>

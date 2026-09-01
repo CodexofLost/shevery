@@ -123,7 +123,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[Local WebUI uchun window.Shevery ko\'prigi.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView Internet]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[HTTPS so\'rovlariga ruxsat berish.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[WebUI yuklab olish()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Fayllarni WebUI papkasiga yuklab olishga ruxsat.]]></string>
     <string name="modules_background_actions"><![CDATA[Fon amallariga ruxsat berish]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Modullarga fonda ADB topshiriqlarini bajarishga ruxsat berish]]></string>
@@ -153,7 +153,7 @@
     <string name="modules_action_failed"><![CDATA[Amal bajarilmadi]]></string>
     <string name="modules_service_result"><![CDATA[Xizmat yakunlandi: kod %d]]></string>
     <string name="modules_service_failed"><![CDATA[Xizmat bajarilmadi]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[Tavsiya buyrug'i]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Yoyish]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Yig\'ish]]></string>
@@ -214,7 +214,7 @@
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b> ilovasiga %2$s ruxsati berilsinmi?]]></string>
     <string name="grant_dialog_button_allow_always"><![CDATA[Har doim ruxsat berish]]></string>
     <string name="grant_dialog_button_deny"><![CDATA["Rad etish"]]></string>
-    <string name="starter"><![CDATA[Starter]]></string>
+    <string name="starter"><![CDATA[Boshlovchi]]></string>
     <string name="start_with_root_failed"><![CDATA[Root ruxsati berilmaganligi sababli xizmatni ishga tushirib bo\'lmadi.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Brauzerni ochib bo\'lmadi]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> buferga nusxalandi.]]></string>
@@ -328,7 +328,7 @@
     <string name="backup_summary"><![CDATA[Konfiguratsiyani ZIP faylga eksport qilish]]></string>
     <string name="restore_title"><![CDATA[Sozlamalar va modullarni tiklash]]></string>
     <string name="restore_summary"><![CDATA[Konfiguratsiyani ZIP fayldan import qilish]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[Hisoblash]]></string>
     <string name="comput_settings"><![CDATA[Comput Konsol sozlamalari]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput Konsoli]]></string>
     <string name="comput_recommand_title"><![CDATA[Comput uchun ReCommand]]></string>
@@ -369,7 +369,7 @@
     <string name="comput_error_no_binder"><![CDATA[Xatolik: Shevery binder olinmadi.]]></string>
     <string name="comput_console_initialized"><![CDATA[Konsol tayyor. Shevery xizmati ulandi.]]></string>
     <string name="comput_ai_explanation"><![CDATA[AI Izohi]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[Komandium]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI Yordamchisi]]></string>
     <string name="comput_commandium_description"><![CDATA[Tabiiy tilda buyruqlar yarating.]]></string>
     <string name="comput_commandium_label"><![CDATA[Qanday buyruq kerak?]]></string>
@@ -426,16 +426,16 @@
     <string name="diagnostics_unknown"><![CDATA[noma\'lum]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
     <string name="error_protect_summary"><![CDATA[Jarayon salomatligini tekshirish va xatolik yuz berganda avtomatik qayta yoqish.]]></string>
-    <string name="settings_tcp_5555_title"><![CDATA[TCP Binding 5555]]></string>
+    <string name="settings_tcp_5555_title"><![CDATA[TCP ulanishi 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ADB ni 5555 portiga biriktirish.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555 ga biriktirish]]></string>
     <string name="settings_tcp_5555_bind_success"><![CDATA[ADB 5555 portiga muvaffaqiyatli biriktirildi]]></string>
     <string name="settings_tcp_5555_bind_failed"><![CDATA[ADB ni 5555 portiga biriktirib bo\'lmadi: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Root, Dhizuku yoki faol Shevery talab qilinadi.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Orqa fonda yangilanishlarni tekshiring]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Ilova yopilganda ham yangi versiyalarni qidiring]]></string>
+    <string name="home_update_available_title"><![CDATA[Yangilanish mavjud: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Yangi versiya tayyor. Yuklab olish uchun bosing.]]></string>
     <string name="wadb_permission_error_notification_title"><![CDATA[Permission Error 15. wadb_permission_error_notification_content: Shevery konnte nicht auf dem Startbildschirm gestartet werden. Öffnen Sie Shevery, um das Problem zu überprüfen.]]></string>
     <string name="wadb_notification_channel"><![CDATA[ADB-Autostartdienst]]></string>
     <string name="comput_stop_desc"><![CDATA[Stop-Befehl]]></string>

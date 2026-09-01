@@ -160,7 +160,7 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="modules_action_failed"><![CDATA[សកម្មភាពបរាជ័យ]]></string>
     <string name="modules_service_result"><![CDATA[សេវាកម្មបានបញ្ចប់៖ ចេញ %d]]></string>
     <string name="modules_service_failed"><![CDATA[សេវាកម្មបរាជ័យ]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[បញ្ជាឡើងវិញ]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[ពង្រីក]]></string>
     <string name="modules_recommand_collapse"><![CDATA[ការធ្លាក់ចុះ]]></string>
@@ -172,7 +172,7 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="modules_recommand_webui_summary"><![CDATA[បង្ហាញប្រអប់បញ្ជាក់មុន WebUI shell exec។]]></string>
     <string name="modules_recommand_action"><![CDATA[សេចក្តីណែនាំសម្រាប់សកម្មភាព]]></string>
     <string name="modules_recommand_action_summary"><![CDATA[បង្ហាញប្រអប់បញ្ជាក់មុន action.sh។]]></string>
-    <string name="modules_ai"><![CDATA[AI]]></string>
+    <string name="modules_ai"><![CDATA[អាយ]]></string>
     <string name="modules_ai_api_key"><![CDATA[កូនសោ API]]></string>
     <string name="modules_ai_api_key_summary"><![CDATA[បានរក្សាទុកដោយអ៊ិនគ្រីបជាមួយ Android Keystore។]]></string>
     <string name="modules_ai_unlocked"><![CDATA[កម្មវិធីពិនិត្យ AI បានបើក]]></string>
@@ -188,7 +188,7 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="modules_updating"><![CDATA[កំពុងធ្វើបច្ចុប្បន្នភាពម៉ូឌុល...]]></string>
     <string name="modules_update_success"><![CDATA[ម៉ូឌុលបានធ្វើបច្ចុប្បន្នភាពទៅ v%s]]></string>
     <string name="modules_download_downloads"><![CDATA[ទាញយកទៅទាញយក]]></string>
-    <string name="modules_download_install"><![CDATA[Download &amp; Install]]></string>
+    <string name="modules_download_install"><![CDATA[ទាញយក &amp; ដំឡើង]]></string>
     <string name="modules_downloading"><![CDATA[កំពុងទាញយក...]]></string>
     <string name="modules_download_enqueued"><![CDATA[ការទាញយកបានចាប់ផ្តើមនៅផ្ទៃខាងក្រោយ]]></string>
     <string name="modules_search_placeholder"><![CDATA[ស្វែងរកម៉ូឌុលកាតាឡុក...]]></string>
@@ -219,7 +219,7 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="permission_description"><![CDATA[អនុញ្ញាតឱ្យកម្មវិធីប្រើ Shevery។]]></string>
     <string name="grant_dialog_button_allow_always"><![CDATA[អនុញ្ញាតគ្រប់ពេល]]></string>
     <string name="grant_dialog_button_deny"><![CDATA["បដិសេធ"]]></string>
-    <string name="starter"><![CDATA[Starter]]></string>
+    <string name="starter"><![CDATA[អ្នកចាប់ផ្តើម]]></string>
     <string name="start_with_root_failed"><![CDATA[មិនអាចចាប់ផ្តើមសេវាកម្មបានទេ ព្រោះសិទ្ធិ root មិនត្រូវបានផ្តល់ ឬឧបករណ៍នេះមិនទាន់បាន root ទេ។]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[មិនអាចចាប់ផ្តើមកម្មវិធីរុករកបាន]]></string>
     <string name="toast_copied_to_clipboard"><![CDATA[%s
@@ -325,9 +325,9 @@ has been copied to clipboard.]]></string>
     <string name="shevery_update_channel"><![CDATA[ធ្វើបច្ចុប្បន្នភាពឆានែល]]></string>
     <string name="shevery_update_channel_summary"><![CDATA[ជ្រើសរើសឆានែលចេញផ្សាយបច្ចុប្បន្នភាព]]></string>
     <string name="app_update_channel_stable"><![CDATA[មានស្ថិរភាព]]></string>
-    <string name="app_update_channel_beta"><![CDATA[Pre-release &amp; Beta]]></string>
+    <string name="app_update_channel_beta"><![CDATA[ការចេញផ្សាយមុន &amp; បេតា]]></string>
     <string name="shevery_update_group_title"><![CDATA[ការអាប់ដេតកម្មវិធី Shevery]]></string>
-    <string name="shevery_update_modules_group_title"><![CDATA[Module Updates &amp; Catalog]]></string>
+    <string name="shevery_update_modules_group_title"><![CDATA[ការអាប់ដេតម៉ូឌុល &amp; កាតាឡុក]]></string>
     <string name="shevery_update_check_failed"><![CDATA[ការត្រួតពិនិត្យបច្ចុប្បន្នភាពបរាជ័យ៖ %s]]></string>
     <string name="modules_catalog"><![CDATA[កាតាឡុក]]></string>
     <string name="modules_catalog_title"><![CDATA[កាតាឡុកម៉ូឌុល]]></string>
@@ -360,10 +360,10 @@ has been copied to clipboard.]]></string>
     <string name="wear_catalog_sort_official"><![CDATA[ផ្លូវការជាផ្លូវការ]]></string>
     <string name="wear_catalog_sort_by"><![CDATA[តម្រៀបតាម]]></string>
     <string name="wear_catalog_filter"><![CDATA[តម្រង]]></string>
-    <string name="backup_restore_title"><![CDATA[Backup &amp; Restore]]></string>
-    <string name="backup_title"><![CDATA[Backup Settings &amp; Modules]]></string>
+    <string name="backup_restore_title"><![CDATA[បម្រុងទុក &amp; ស្តារ]]></string>
+    <string name="backup_title"><![CDATA[ការ​កំណត់​ការ​បម្រុង​ទុក &amp; ម៉ូឌុល]]></string>
     <string name="backup_summary"><![CDATA[នាំចេញការកំណត់រចនាសម្ព័ន្ធ និងម៉ូឌុលទៅឯកសារ ZIP]]></string>
-    <string name="restore_title"><![CDATA[Restore Settings &amp; Modules]]></string>
+    <string name="restore_title"><![CDATA[ស្តារការកំណត់ &amp; ម៉ូឌុល]]></string>
     <string name="restore_summary"><![CDATA[នាំចូលការកំណត់រចនាសម្ព័ន្ធ និងម៉ូឌុលពីឯកសារ ZIP]]></string>
     <string name="settings_sections_title"><![CDATA[ការបម្រុងទុក និងផ្សេងៗ]]></string>
     <string name="backup_section_title"><![CDATA[ការបម្រុងទុក]]></string>
@@ -381,7 +381,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_api_key_label"><![CDATA[កូនសោ API]]></string>
     <string name="comput_show_api_key"><![CDATA[បង្ហាញកូនសោ API]]></string>
     <string name="comput_hide_api_key"><![CDATA[លាក់កូនសោ API]]></string>
-    <string name="comput_gemini_model_performance"><![CDATA[High performance coding &amp; agentic (Recommended)]]></string>
+    <string name="comput_gemini_model_performance"><![CDATA[ការសរសេរកូដដែលមានប្រសិទ្ធភាពខ្ពស់ &amp; ភ្នាក់ងារ (បានណែនាំ)]]></string>
     <string name="comput_gemini_model_lightweight"><![CDATA[ម៉ូដែលទំងន់ស្រាលល្បឿនលឿន]]></string>
     <string name="comput_gemini_api_error"><![CDATA[Gemini API បានត្រឡប់កូដកំហុស %1$d: %2$s]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[កំហុសការតភ្ជាប់។]]></string>
@@ -412,7 +412,7 @@ Executing...]]></string>
     <string name="comput_console_initialized"><![CDATA[Console initialized. Privileged Shevery service connected.
 Ready for commands.]]></string>
     <string name="comput_ai_explanation"><![CDATA[ការពន្យល់អំពី AI]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[បញ្ជាការ]]></string>
     <string name="comput_commandium_assistant"><![CDATA[ជំនួយការបញ្ញាសិប្បនិម្មិត Commandium]]></string>
     <string name="comput_commandium_description"><![CDATA[បង្កើតពាក្យបញ្ជា shell ដោយប្រើភាសាធម្មជាតិ។Gemini នឹងបញ្ចេញពាក្យបញ្ជាដើមដែលអាចចម្លងបាន។]]></string>
     <string name="comput_commandium_label"><![CDATA[តើអ្នកត្រូវការពាក្យបញ្ជាអ្វី?]]></string>
@@ -464,7 +464,7 @@ Ready for commands.]]></string>
     <string name="comput_scroll_bottom_desc"><![CDATA[រមូរទៅខាងក្រោម]]></string>
     <string name="comput_cancelled"><![CDATA[ពាក្យបញ្ជាត្រូវបានបោះបង់ដោយអ្នកប្រើ។]]></string>
     <string name="diagnostics_app"><![CDATA[កម្មវិធី]]></string>
-    <string name="diagnostics_android"><![CDATA[Android]]></string>
+    <string name="diagnostics_android"><![CDATA[ប្រព័ន្ធប្រតិបត្តិការ Android]]></string>
     <string name="diagnostics_service"><![CDATA[សេវាកម្ម]]></string>
     <string name="diagnostics_server_uid"><![CDATA[អត្តសញ្ញាណម៉ាស៊ីនបម្រើ]]></string>
     <string name="diagnostics_server_api"><![CDATA[API ម៉ាស៊ីនបម្រើ]]></string>
@@ -480,7 +480,7 @@ Ready for commands.]]></string>
     <string name="diagnostics_full"><![CDATA[ពេញ]]></string>
     <string name="diagnostics_limited"><![CDATA[មានកំណត់]]></string>
     <string name="diagnostics_unknown"><![CDATA[មិនស្គាល់]]></string>
-    <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
+    <string name="error_protect_title"><![CDATA[ការពារកំហុស]]></string>
     <string name="error_protect_summary"><![CDATA[ពិនិត្យសុខភាពដំណើរការ និងកំហុសប្រតិបត្តិការរៀងរាល់ ១០ វិនាទី។បញ្ឈប់ និងចាប់ផ្តើមឡើងវិញដោយស្វ័យប្រវត្តិ Shevery ប្រសិនបើមានបញ្ហា។]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[ការចង TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ភ្ជាប់ម៉ាស៊ីនបម្រើ ADB ក្នុងតំបន់ទៅច្រក 5555 ដើម្បីរក្សាឲ្យវាដំណើរការដោយមិនចាំបាច់ធ្វើបច្ចុប្បន្នភាពច្រក Wireless Debuging។]]></string>
@@ -513,7 +513,7 @@ Ready for commands.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[ស្ទុបចាស់ដែលបានដកចេញ]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[បរាជ័យក្នុងការ %1$s សម្រាប់ stub ចាស់តាមរយៈ %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[មិនមានឆានែលទេ (ចាប់ផ្តើម Shevery ជាមុន)]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
+    <string name="app_name"><![CDATA[សេវេរី]]></string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Start again to update to version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[ចាប់ផ្តើមដោយភ្ជាប់ទៅកុំព្យូទ័រ]]></string>
     <string name="home_adb_description"><![CDATA[សម្រាប់ឧបករណ៍ដែលមិនមាន root អ្នកត្រូវប្រើ adb ដើម្បីចាប់ផ្តើម Shevery (ត្រូវការការតភ្ជាប់កុំព្យូទ័រ)។ដំណើរការនេះត្រូវធ្វើម្តងទៀតរាល់ពេលឧបករណ៍ត្រូវបានចាប់ផ្តើមឡើងវិញ។សូម <b><a href="%1$s">អានជំនួយ</a></b>។]]></string>
@@ -542,7 +542,7 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="rish_description"><![CDATA[ជាមួយ %1$s នៅក្នុងកម្មវិធី terminal ណាមួយ អ្នកអាចភ្ជាប់ និងអន្តរកម្មជាមួយ shell ដែលដំណើរការដោយ Shevery។ 
 <p>អំពីការប្រើប្រាស់លម្អិត %1$s ចុចដើម្បីមើលឯកសារ។]]></string>
     <string name="about_view_source_code"><![CDATA[មើលកូដប្រភពនៅ %s]]></string>
-    <string name="permission_group_label"><![CDATA[Shevery]]></string>
+    <string name="permission_group_label"><![CDATA[សេវេរី]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="permission_warning_template"><![CDATA[អនុញ្ញាតឲ្យ <b>%1$s</b> ទៅ %2$s?]]></string>
     <string name="starting_root_shell"><![CDATA[កំពុងចាប់ផ្តើមសែលឫស...]]></string>

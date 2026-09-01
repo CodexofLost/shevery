@@ -137,7 +137,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[僅在本地 WebUI 且 WebView 網路停用時暴露 window.Shevery。]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView 網路]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[允許 HTTPS 導覽與資源載入。這將停用該 WebView 的 Shell 橋接。]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[WebUI下載()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[允許將 HTTPS 檔案下載至 WebUI 目錄（index.html 除外）。]]></string>
     <string name="modules_background_actions"><![CDATA[允許背景操作]]></string>
     <string name="modules_background_actions_summary"><![CDATA[允許已安裝的模組在完全存取模式下請求背景 ADB 任務]]></string>
@@ -155,10 +155,10 @@
     <string name="modules_full_trust"><![CDATA[完全信任]]></string>
     <string name="modules_trust"><![CDATA[信任]]></string>
     <string name="modules_untrust"><![CDATA[取消信任]]></string>
-    <string name="modules_run_action"><![CDATA[Action]]></string>
-    <string name="modules_run_service"><![CDATA[Service]]></string>
+    <string name="modules_run_action"><![CDATA[行動]]></string>
+    <string name="modules_run_service"><![CDATA[服務]]></string>
     <string name="modules_running"><![CDATA[正在執行模組指令碼…]]></string>
-    <string name="modules_open_webui"><![CDATA[WebUI]]></string>
+    <string name="modules_open_webui"><![CDATA[網頁使用者介面]]></string>
     <string name="modules_webui"><![CDATA[模組 WebUI]]></string>
     <string name="modules_delete"><![CDATA[刪除]]></string>
     <string name="modules_delete_title"><![CDATA[刪除模組？]]></string>
@@ -167,7 +167,7 @@
     <string name="modules_action_failed"><![CDATA[Action 執行失敗]]></string>
     <string name="modules_service_result"><![CDATA[Service 已完成：結束碼 %d]]></string>
     <string name="modules_service_failed"><![CDATA[Service 執行失敗]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[重新命令]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[展開]]></string>
     <string name="modules_recommand_collapse"><![CDATA[折疊]]></string>
@@ -179,7 +179,7 @@
     <string name="modules_recommand_webui_summary"><![CDATA[在 WebUI 執行 Shell 指令前顯示確認對話方塊。]]></string>
     <string name="modules_recommand_action"><![CDATA[Action 對話方塊]]></string>
     <string name="modules_recommand_action_summary"><![CDATA[在執行 action.sh 前顯示確認對話方塊。]]></string>
-    <string name="modules_ai"><![CDATA[AI]]></string>
+    <string name="modules_ai"><![CDATA[人工智慧]]></string>
     <string name="modules_ai_api_key"><![CDATA[API 金鑰]]></string>
     <string name="modules_ai_api_key_summary"><![CDATA[透過 Android Keystore 加密儲存。]]></string>
     <string name="modules_ai_unlocked"><![CDATA[AI 檢查已解鎖]]></string>
@@ -343,7 +343,7 @@
     <string name="backup_summary"><![CDATA[將設定與模組匯出為 ZIP 檔案]]></string>
     <string name="restore_title"><![CDATA[還原設定和模組]]></string>
     <string name="restore_summary"><![CDATA[從 ZIP 檔案匯入設定與模組]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[電腦]]></string>
     <string name="comput_settings"><![CDATA[Comput 控制台設定]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput 控制台]]></string>
     <string name="comput_recommand_title"><![CDATA[Comput 對話方塊]]></string>
@@ -388,7 +388,7 @@
     <string name="comput_console_initialized"><![CDATA[控制台已初始化。已連接至特權服務。
 就緒。]]></string>
     <string name="comput_ai_explanation"><![CDATA[AI 解釋]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[司令部]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI 助手]]></string>
     <string name="comput_commandium_description"><![CDATA[使用自然語言產生 Shell 指令，Gemini 將直接輸出可複製的指令。]]></string>
     <string name="comput_commandium_label"><![CDATA[您需要什麼指令？]]></string>
@@ -427,7 +427,7 @@
     <string name="comput_presets_title"><![CDATA[預設庫]]></string>
     <string name="comput_presets_subtitle"><![CDATA[點按任意指令即可快速執行或自動填入終端提示符。]]></string>
     <string name="diagnostics_app"><![CDATA[應用程式]]></string>
-    <string name="diagnostics_android"><![CDATA[Android]]></string>
+    <string name="diagnostics_android"><![CDATA[安卓]]></string>
     <string name="diagnostics_service"><![CDATA[服務]]></string>
     <string name="diagnostics_server_uid"><![CDATA[服務 UID]]></string>
     <string name="diagnostics_server_api"><![CDATA[服務 API]]></string>
@@ -443,7 +443,7 @@
     <string name="diagnostics_full"><![CDATA[完全]]></string>
     <string name="diagnostics_limited"><![CDATA[受限]]></string>
     <string name="diagnostics_unknown"><![CDATA[未知]]></string>
-    <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
+    <string name="error_protect_title"><![CDATA[錯誤保護]]></string>
     <string name="error_protect_summary"><![CDATA[每 10 秒檢查處理程序健康狀態與事務錯誤。若發現異常自動停止並重啟 Shevery。]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[繫結 TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[將本地 ADB 服務繫結至 5555 連接埠，無需無線偵錯連接埠變動即可保持連接。]]></string>
@@ -474,7 +474,7 @@
 1. 將裝置連接至電腦（透過 USB 或無線除錯）。
 2. 在終端機中，執行上方欄位中的指令。]]></string>
     <string name="permission_group_label"><![CDATA[謝維里]]></string>
-    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
+    <string name="permission_group_description"><![CDATA[@字串/權限標籤]]></string>
     <string name="starting_root_shell"><![CDATA[正在啟動 root 命令列介面……]]></string>
     <string name="settings_restart_dialog_message_wifi_required"><![CDATA[首次重新啟動時需要 Wi-Fi，因為 Shevery 必須先連線至當前的無線除錯埠，才能將 ADB 切換至 5555。]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery 新創公司]]></string>

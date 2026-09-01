@@ -33,7 +33,7 @@
     <string name="start_with_root_failed"><![CDATA[Nie można uruchomić usługi ponieważ nie przyznano uprawnień root lub urządzenie nie jest zrootowane.]]></string>
     <string name="home_app_management_view_authorized_apps"><![CDATA[Kliknij aby zarządzać autoryzowanymi aplikacjami]]></string>
     <string name="home_app_management_title"><![CDATA[Zarządzanie aplikacjami]]></string>
-    <string name="home_root_button_restart"><![CDATA[Restart]]></string>
+    <string name="home_root_button_restart"><![CDATA[Uruchom ponownie]]></string>
     <string name="home_root_button_start"><![CDATA[Start]]></string>
     <string name="translation_contributors"><![CDATA[Gabriel Markowski, Piotr Pietrzak (YT:IeFHC233)]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Szukanie usługi bezprzewodowego debugowania]]></string>
@@ -109,11 +109,11 @@
     <string name="adb_pairing_tutorial_content_miui_2"><![CDATA[W przeciwnym razie wprowadzenie kodu parowania z powiadomienia może nie być możliwe.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Proszę spróbować wyłączyć i włączyć ponownie "Debugowanie bezprzewodowe" jeśli nadal szuka.]]></string>
     <string name="settings_use_system_color"><![CDATA[Użyj systemowego motywu kolorystycznego]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Sprawdź dostępność aktualizacji w tle]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Szukaj nowych wersji nawet wtedy, gdy aplikacja jest zamknięta]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Sprawdź częstotliwość]]></string>
+    <string name="home_update_available_title"><![CDATA[Dostępna aktualizacja Shevery: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Nowsza wersja jest gotowa. Kliknij, aby pobrać.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Przejdź do poziomu wyższego]]></string>
     <string name="accessibility_close"><![CDATA[Zamknij]]></string>
@@ -191,7 +191,7 @@ Funkcja eksportu korzysta z biblioteki SAF (Storage Access Framework). Istnieją
     <string name="modules_permission_web_bridge_summary"><![CDATA[Wyświetl okno „Shevery” wyłącznie w lokalnym interfejsie użytkownika (WebUI) i tylko wtedy, gdy połączenie internetowe w WebView jest wyłączone.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView – przeglądarka internetowa]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Zezwól na nawigację/zasoby HTTPS. Spowoduje to wyłączenie ekspozycji mostka powłoki dla tego widoku WebView.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[Pobieranie WebUI()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Zezwól na pobieranie plików przez protokół HTTPS do folderu WebUI, z wyjątkiem pliku index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Zezwól na działania w tle]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Zezwól zainstalowanym modułom na wysyłanie żądań dotyczących operacji ADB w tle w trybie pełnego dostępu]]></string>
@@ -221,7 +221,7 @@ Funkcja eksportu korzysta z biblioteki SAF (Storage Access Framework). Istnieją
     <string name="modules_action_failed"><![CDATA[Operacja nie powiodła się]]></string>
     <string name="modules_service_result"><![CDATA[Usługa zakończona: wyjście %d]]></string>
     <string name="modules_service_failed"><![CDATA[Usługa nie powiodła się]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[Polecenie]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Rozwiń]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Zwiń]]></string>
@@ -300,7 +300,7 @@ zostało skopiowane do schowka.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Usługa Shevery została nieoczekiwanie przerwana.]]></string>
     <string name="watchdog_service_title"><![CDATA[Program Shevery Watchdog jest aktywny]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitorowanie usługi Shevery pod kątem przywracania połączenia za pomocą protokołu keep-alive]]></string>
-    <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
+    <string name="notification_control_channel_name"><![CDATA[Kontrola Shevera]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Początki Shevery]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Włączanie debugowania Wi-Fi…]]></string>
@@ -326,7 +326,7 @@ zostało skopiowane do schowka.]]></string>
     <string name="notification_control_text_running"><![CDATA[Dotknij, aby otworzyć aplikację Shevery, lub rozwiń to powiadomienie, aby je wyłączyć.]]></string>
     <string name="notification_control_text_stopped"><![CDATA[Dotknij, aby otworzyć aplikację Shevery, lub rozwiń to powiadomienie, aby ją uruchomić.]]></string>
     <string name="notification_control_action_start"><![CDATA[Start]]></string>
-    <string name="notification_control_action_stop"><![CDATA[Stop]]></string>
+    <string name="notification_control_action_stop"><![CDATA[Zatrzymywać się]]></string>
     <string name="settings_update_group_title"><![CDATA[Aktualizacja]]></string>
     <string name="update_settings_title"><![CDATA[Aktualizacje modułów]]></string>
     <string name="update_settings_catalog"><![CDATA[Katalog modułów]]></string>
@@ -346,7 +346,7 @@ zostało skopiowane do schowka.]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[Nieustalone (60 żądań na godzinę)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[Osobisty token dostępu GitHub]]></string>
     <string name="update_settings_github_pat_description"><![CDATA[Opcjonalnie. Użycie tokenu PAT z serwisu GitHub pozwala zwiększyć limity liczby żądań API z 60 do 5000 na godzinę. W przypadku repozytoriów publicznych wymagany jest jedynie zakres uprawnień „public_repo”.]]></string>
-    <string name="update_settings_github_pat_label"><![CDATA[Token]]></string>
+    <string name="update_settings_github_pat_label"><![CDATA[Znak]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Pokaż]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Ukryj]]></string>
     <string name="update_settings_github_pat_clear"><![CDATA[Wyczyść]]></string>
@@ -450,7 +450,7 @@ Wykonywanie...]]></string>
     <string name="comput_console_initialized"><![CDATA[Konsola zainicjowana. Połączono z uprzywilejowaną usługą Shevery.
 Gotowość do przyjmowania poleceń.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Wyjaśnienie dotyczące sztucznej inteligencji]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[Komenda]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Asystent Commandium AI]]></string>
     <string name="comput_commandium_description"><![CDATA[Generuj polecenia powłoki za pomocą języka naturalnego. Gemini wygeneruje surowe polecenie, które można skopiować.]]></string>
     <string name="comput_commandium_label"><![CDATA[Jakiego polecenia potrzebujesz?]]></string>
@@ -468,7 +468,7 @@ Gotowość do przyjmowania poleceń.]]></string>
     <string name="comput_status_error"><![CDATA[Błąd]]></string>
     <string name="comput_console_section"><![CDATA[Konsola]]></string>
     <string name="comput_console_macros"><![CDATA[Konsola makr]]></string>
-    <string name="comput_stop"><![CDATA[Stop (%1$d)]]></string>
+    <string name="comput_stop"><![CDATA[Zatrzymaj (%1$d)]]></string>
     <string name="comput_record_macro"><![CDATA[Nagraj makro]]></string>
     <string name="comput_recording_active"><![CDATA[Trwa nagrywanie. Wprowadzaj polecenia za pomocą głównego kanału wejściowego, aby dodać je do tego makra.]]></string>
     <string name="comput_saved_macros"><![CDATA[Zapisane makra]]></string>
@@ -481,7 +481,7 @@ Gotowość do przyjmowania poleceń.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Nazwa makra]]></string>
     <string name="comput_save"><![CDATA[Zapisz]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium"><![CDATA[Studio AI]]></string>
     <string name="comput_tab_macros"><![CDATA[Makra]]></string>
     <string name="comput_tab_presets"><![CDATA[Ustawienia wstępne]]></string>
     <string name="comput_quick_chips"><![CDATA[Szybkie działania]]></string>
@@ -518,7 +518,7 @@ Gotowość do przyjmowania poleceń.]]></string>
     <string name="diagnostics_full"><![CDATA[pełny]]></string>
     <string name="diagnostics_limited"><![CDATA[ograniczone]]></string>
     <string name="diagnostics_unknown"><![CDATA[nieznane]]></string>
-    <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
+    <string name="error_protect_title"><![CDATA[Ochrona przed błędami]]></string>
     <string name="error_protect_summary"><![CDATA[Co 10 sekund sprawdzaj stan procesu i błędy transakcyjne. W razie wykrycia problemów Shevery zostanie automatycznie zatrzymane i ponownie uruchomione.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Powiązanie TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Przypisz lokalny serwer ADB do portu 5555, aby zapewnić jego działanie bez konieczności aktualizacji portu debugowania bezprzewodowego.]]></string>

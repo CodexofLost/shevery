@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Проверете за актуализации във фонов режим]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Търсете нови версии дори когато приложението е затворено]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Проверете честотата]]></string>
     <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
     <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
     <string name="app_name"><![CDATA[Шевери]]></string>
@@ -156,7 +156,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[Отваряне на прозореца „Shevery“ само за локалния WebUI и само когато интернет връзката на WebView е изключена.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView интернет]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Разрешаване на HTTPS навигация/ресурси. Това деактивира излагането на Shell Bridge за този WebView.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[Изтегляне на WebUI()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Разрешете изтеглянето на файлове по HTTPS в папката WebUI, с изключение на index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Разреши действия на заден план]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Да се позволи на инсталираните модули да изискват ADB операции във фонов режим в режим на пълен достъп]]></string>

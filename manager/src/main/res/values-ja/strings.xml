@@ -134,7 +134,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="modules_permission_web_bridge_summary"><![CDATA[ローカルWebUIかつWebViewインターネット無効時のみ window.Shevery を公開。]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebViewインターネット]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[HTTPSナビゲーションとアセットを許可。このWebViewのシェルブリッジは無効化されます。]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[WebUIのダウンロード()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[index.html を除くファイルをWebUIフォルダにHTTPSダウンロードすることを許可。]]></string>
     <string name="modules_background_actions"><![CDATA[バックグラウンドアクションを許可]]></string>
     <string name="modules_background_actions_summary"><![CDATA[フルアクセスモード時にモジュールがバックグラウンドでADBタスクを実行することを許可]]></string>
@@ -164,7 +164,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="modules_action_failed"><![CDATA[アクション失敗]]></string>
     <string name="modules_service_result"><![CDATA[サービス終了: コード %d]]></string>
     <string name="modules_service_failed"><![CDATA[サービス失敗]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[再コマンド]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[展開]]></string>
     <string name="modules_recommand_collapse"><![CDATA[折りたたむ]]></string>
@@ -338,7 +338,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="backup_summary"><![CDATA[設定とモジュールをZIPファイルにエクスポート]]></string>
     <string name="restore_title"><![CDATA[設定とモジュールを復元]]></string>
     <string name="restore_summary"><![CDATA[設定とモジュールをZIPファイルからインポート]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[コンピューティング]]></string>
     <string name="comput_settings"><![CDATA[Comput コンソール設定]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput コンソール]]></string>
     <string name="comput_recommand_title"><![CDATA[Comput用 ReCommand]]></string>
@@ -383,7 +383,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="comput_console_initialized"><![CDATA[コンソールが初期化されました。特権Sheveryサービスに接続完了。
 準備完了。]]></string>
     <string name="comput_ai_explanation"><![CDATA[AIによる解説]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[コマンディウム]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI アシスタント]]></string>
     <string name="comput_commandium_description"><![CDATA[自然言語でシェルコマンドを生成します。Geminiが直接使用可能なコマンドを生成します。]]></string>
     <string name="comput_commandium_label"><![CDATA[どのようなコマンドが必要ですか？]]></string>
@@ -408,7 +408,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="comput_macro_name_label"><![CDATA[マクロ名]]></string>
     <string name="comput_save"><![CDATA[保存]]></string>
     <string name="diagnostics_app"><![CDATA[アプリ]]></string>
-    <string name="diagnostics_android"><![CDATA[Android]]></string>
+    <string name="diagnostics_android"><![CDATA[アンドロイド]]></string>
     <string name="diagnostics_service"><![CDATA[サービス]]></string>
     <string name="diagnostics_server_uid"><![CDATA[サーバー UID]]></string>
     <string name="diagnostics_server_api"><![CDATA[サーバー API]]></string>
@@ -424,7 +424,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="diagnostics_full"><![CDATA[フル]]></string>
     <string name="diagnostics_limited"><![CDATA[制限付き]]></string>
     <string name="diagnostics_unknown"><![CDATA[不明]]></string>
-    <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
+    <string name="error_protect_title"><![CDATA[エラープロテクト]]></string>
     <string name="error_protect_summary"><![CDATA[プロセスの健全性とエラーを10秒ごとに監視。問題を検知するとSheveryを自動再起動します。]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP 5555 バインド]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ローカルADBサーバーをポート5555にバインドし、ワイヤレスデバッグのポート変動なしで接続維持。]]></string>
@@ -508,7 +508,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="comput_status_error"><![CDATA[エラー]]></string>
     <string name="comput_console_section"><![CDATA[コンソール]]></string>
     <string name="comput_tab_terminal"><![CDATA[ターミナル]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium"><![CDATA[AIスタジオ]]></string>
     <string name="comput_tab_macros"><![CDATA[マクロ]]></string>
     <string name="comput_tab_presets"><![CDATA[プリセット]]></string>
     <string name="comput_quick_chips"><![CDATA[クイックアクション]]></string>

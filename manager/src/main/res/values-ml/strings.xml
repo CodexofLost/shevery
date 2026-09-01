@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[പശ്ചാത്തലത്തിൽ അപ്ഡേറ്റുകൾ പരിശോധിക്കുക]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[ആപ്പ് അടച്ചിരിക്കുമ്പോഴും പുതിയ പതിപ്പുകൾക്കായി നോക്കുക]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[ആവൃത്തി പരിശോധിക്കുക]]></string>
+    <string name="home_update_available_title"><![CDATA[ഷെവറി അപ്‌ഡേറ്റ് ലഭ്യമാണ്: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[ഒരു പുതിയ പതിപ്പ് തയ്യാറാണ്. ഡൗൺലോഡ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക.]]></string>
     <string name="app_name"><![CDATA[ഷെവറി]]></string>
     <string name="translation_contributors"><![CDATA[സെർമാർട്ട്1234, റുവ്ലാഡ്]]></string>
     <string name="accessibility_navigate_up"><![CDATA[മുകളിലേക്ക് പോകുക]]></string>

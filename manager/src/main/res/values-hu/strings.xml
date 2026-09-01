@@ -20,7 +20,7 @@
     <string name="dialog_adb_discovery_message"><![CDATA[Engedélyezze a "Vezeték nélküli hibakeresés"t a "Fejlesztői lehetőségek"nél. A "Vezeték nélküli hibakeresés" hálózatváltáskor auto. le van tiltva.
 
 Megj.: ne tiltsa le a "Fejlesztői lehetőségek"et vagy az "USB hibakeresés"t, ekkor a Shizuku le fog állni.]]></string>
-    <string name="dialog_adb_port"><![CDATA[Port]]></string>
+    <string name="dialog_adb_port"><![CDATA[Kikötő]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[A port egy 1 és 65535 közötti egész szám.]]></string>
     <string name="adb_pairing"><![CDATA[Párosítás]]></string>
     <string name="dialog_adb_pairing_title"><![CDATA[Párosítás a készülékkel]]></string>
@@ -128,11 +128,11 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="dialog_requesting_legacy_message"><![CDATA[<b>%1$s</b> modern Shizuku támogatással rendelkezik, de az örökölt Shizukut kéri. Ez azért lehet, mert a Shizuku nem fut, ellenőrizze a Shizuku alkalmazást.<p>Az örökölt Shizuku 2019 márciusa óta elavult.]]></string>
     <string name="dialog_requesting_legacy_button_open_shizuku"><![CDATA[Nyissa meg a Shizukut]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Próbálja kikapcsolni majd engedélyezni a "Vezeték nélküli hibakeresés" opciót, ha továbbra is keres.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Ellenőrizze a frissítéseket a háttérben]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Keresse az új verziókat akkor is, ha az alkalmazás be van zárva]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Ellenőrizze a gyakoriságot]]></string>
+    <string name="home_update_available_title"><![CDATA[Shevery frissítés elérhető: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Elkészült az újabb verzió. Koppintson a letöltéshez.]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Feljebb lépés]]></string>
     <string name="accessibility_close"><![CDATA[Bezárás]]></string>
     <string name="accessibility_more_options"><![CDATA[További lehetőségek]]></string>
@@ -191,7 +191,7 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="modules_permission_web_bridge_summary"><![CDATA[A „window.Shevery” elemet kizárólag a helyi WebUI esetében, és csak akkor tegye láthatóvá, ha a WebView internetkapcsolata ki van kapcsolva.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView internet]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[HTTPS-navigáció/erőforrások engedélyezése. Ez letiltja a shell bridge hozzáférését az adott WebView esetében.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[WebUI letöltés ()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Engedélyezze a HTTPS-en keresztüli fájlletöltéseket a WebUI mappába, az index.html fájl kivételével.]]></string>
     <string name="modules_background_actions"><![CDATA[Háttérműveletek engedélyezése]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Lehetővé teszi a telepített modulok számára, hogy teljes hozzáférési módban háttérben futó ADB-műveleteket kérjenek]]></string>
@@ -208,7 +208,7 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="modules_disable"><![CDATA[Letiltás]]></string>
     <string name="modules_full_trust"><![CDATA[Teljes bizalom]]></string>
     <string name="modules_trust"><![CDATA[Bizalom]]></string>
-    <string name="modules_untrust"><![CDATA[Untrust]]></string>
+    <string name="modules_untrust"><![CDATA[Bizalmatlanság]]></string>
     <string name="modules_run_action"><![CDATA[Akció]]></string>
     <string name="modules_run_service"><![CDATA[Szolgáltatás]]></string>
     <string name="modules_running"><![CDATA[A modul szkriptje fut…]]></string>
@@ -341,7 +341,7 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="update_settings_github_pat_unset"><![CDATA[Nincs beállítva (60 kérés/óra)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[GitHub személyes hozzáférési token]]></string>
     <string name="update_settings_github_pat_description"><![CDATA[Opcionális. A GitHub PAT segítségével az API kéréskorlátja 60-ról 5000 kérés/órára emelkedik. Nyilvános reposztorik esetén csupán a public_repo hatókörre van szükség.]]></string>
-    <string name="update_settings_github_pat_label"><![CDATA[Token]]></string>
+    <string name="update_settings_github_pat_label"><![CDATA[Jelképes]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Megjelenítés]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Elrejtés]]></string>
     <string name="update_settings_github_pat_clear"><![CDATA[Törlés]]></string>
@@ -463,7 +463,7 @@ Készen áll a parancsok fogadására.]]></string>
     <string name="comput_status_error"><![CDATA[Hiba]]></string>
     <string name="comput_console_section"><![CDATA[Konzol]]></string>
     <string name="comput_console_macros"><![CDATA[Makrókonzol]]></string>
-    <string name="comput_stop"><![CDATA[Stop (%1$d)]]></string>
+    <string name="comput_stop"><![CDATA[Leállítás (%1$d)]]></string>
     <string name="comput_record_macro"><![CDATA[Makró rögzítése]]></string>
     <string name="comput_recording_active"><![CDATA[Felvétel folyamatban. A fő bemeneten keresztül futtass parancsokat, hogy azok bekerüljenek ebbe a makróba.]]></string>
     <string name="comput_saved_macros"><![CDATA[Mentett makrók]]></string>
@@ -476,7 +476,7 @@ Készen áll a parancsok fogadására.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Makró neve]]></string>
     <string name="comput_save"><![CDATA[Mentés]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminál]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium"><![CDATA[AI Stúdió]]></string>
     <string name="comput_tab_macros"><![CDATA[Makrók]]></string>
     <string name="comput_tab_presets"><![CDATA[Előre beállított értékek]]></string>
     <string name="comput_quick_chips"><![CDATA[Gyors műveletek]]></string>

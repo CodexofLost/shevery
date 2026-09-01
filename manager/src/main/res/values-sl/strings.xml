@@ -44,11 +44,11 @@
     <string name="home_status_service_version"><![CDATA[Verzija %2$s, %1$s]]></string>
     <string name="home_status_service_not_running"><![CDATA[%1$s ne teče]]></string>
     <string name="home_status_service_is_running"><![CDATA[%1$s teče]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Preverite posodobitve v ozadju]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Iščite nove različice, tudi ko je aplikacija zaprta]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Preverite pogostost]]></string>
+    <string name="home_update_available_title"><![CDATA[Na voljo je posodobitev Shevery: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Novejša različica je pripravljena. Tapnite za prenos.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Pojdi navzgor]]></string>
@@ -137,7 +137,7 @@ Funkcija izvoza uporablja SAF (Storage Access Framework). Po poročilih naj bi M
     <string name="settings_user_interface"><![CDATA[Videz]]></string>
     <string name="settings_black_night_theme"><![CDATA[Tema črne noči]]></string>
     <string name="settings_black_night_theme_summary"><![CDATA[Če je nočni način omogočen, uporabite čisto črno temo]]></string>
-    <string name="settings_startup"><![CDATA[Startup]]></string>
+    <string name="settings_startup"><![CDATA[Zagon]]></string>
     <string name="settings_translation_contributors"><![CDATA[Avtorji prevodov]]></string>
     <string name="settings_translation"><![CDATA[Sodelujte pri prevajanju]]></string>
     <string name="settings_start_on_boot_adb"><![CDATA[Zagon ob zagonu sistema prek brezžičnega odpravljanja napak]]></string>
@@ -175,7 +175,7 @@ Funkcija izvoza uporablja SAF (Storage Access Framework). Po poročilih naj bi M
     <string name="modules_permission_web_bridge_summary"><![CDATA[Prikaži okno »Shevery« samo za lokalni WebUI in samo takrat, ko je internet v WebView izklopljen.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView internet]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Omogoči navigacijo/vsebine prek HTTPS. S tem se onemogoči izpostavljenost mostu lupine za ta WebView.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[Prenos spletnega uporabniškega vmesnika()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Omogoči prenašanje datotek prek HTTPS v mapo WebUI, razen datoteke index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Dovoli dejavnosti v ozadju]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Omogoči nameščenim modulom, da zahtevajo izvajanje ADB v ozadju v načinu s polnim dostopom]]></string>
@@ -192,7 +192,7 @@ Funkcija izvoza uporablja SAF (Storage Access Framework). Po poročilih naj bi M
     <string name="modules_disable"><![CDATA[Onemogoči]]></string>
     <string name="modules_full_trust"><![CDATA[Popolno zaupanje]]></string>
     <string name="modules_trust"><![CDATA[Zaupanje]]></string>
-    <string name="modules_untrust"><![CDATA[Untrust]]></string>
+    <string name="modules_untrust"><![CDATA[Nezaupanje]]></string>
     <string name="modules_run_action"><![CDATA[Akcija]]></string>
     <string name="modules_run_service"><![CDATA[Storitve]]></string>
     <string name="modules_running"><![CDATA[Izvajanje skripta modula…]]></string>
@@ -246,7 +246,7 @@ Funkcija izvoza uporablja SAF (Storage Access Framework). Po poročilih naj bi M
     <string name="notification_adb_pairing_failed_title"><![CDATA[Povezovanje ni uspelo]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Ponovi poskus]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
-    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
+    <string name="permission_group_description"><![CDATA[@string/oznaka_dovoljenja]]></string>
     <string name="permission_label"><![CDATA[dostop do Sheveryja]]></string>
     <string name="permission_description"><![CDATA[Aplikaciji dovoli uporabo Shevery.]]></string>
     <string name="permission_warning_template"><![CDATA[Ali naj <b>%1$s</b> dovoli %2$s?]]></string>
@@ -427,7 +427,7 @@ je bil kopiran v odložišče.]]></string>
     <string name="comput_gemini_failed"><![CDATA[Povezava z API-jem Gemini ni uspela: %1$s]]></string>
     <string name="comput_gemini_no_details"><![CDATA[Podrobnosti niso navedene.]]></string>
     <string name="comput_sh_mode"><![CDATA[vključno z načinom]]></string>
-    <string name="comput_adb_mode"><![CDATA[adb Mode]]></string>
+    <string name="comput_adb_mode"><![CDATA[način adb]]></string>
     <string name="comput_command_label"><![CDATA[Ukaz]]></string>
     <string name="comput_command_placeholder"><![CDATA[npr. pm list packages]]></string>
     <string name="comput_run"><![CDATA[Teči]]></string>
@@ -452,7 +452,7 @@ Izvajanje...]]></string>
 Pripravljena za ukaze.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Pojasnilo umetne inteligence]]></string>
     <string name="comput_commandium"><![CDATA[Commandium]]></string>
-    <string name="comput_commandium_assistant"><![CDATA[Commandium AI Assistant]]></string>
+    <string name="comput_commandium_assistant"><![CDATA[Pomočnik Commandium AI]]></string>
     <string name="comput_commandium_description"><![CDATA[Ustvarite ukaze za lupino z uporabo naravnega jezika. Gemini bo izpisal surovi ukaz, ki ga lahko kopirate.]]></string>
     <string name="comput_commandium_label"><![CDATA[Kateri ukaz potrebujete?]]></string>
     <string name="comput_commandium_placeholder"><![CDATA[npr. Poišči vse datoteke, večje od 10 MB, v mapi /sdcard]]></string>
@@ -469,7 +469,7 @@ Pripravljena za ukaze.]]></string>
     <string name="comput_status_error"><![CDATA[Napaka]]></string>
     <string name="comput_console_section"><![CDATA[Konzola]]></string>
     <string name="comput_console_macros"><![CDATA[Konzola za makre]]></string>
-    <string name="comput_stop"><![CDATA[Stop (%1$d)]]></string>
+    <string name="comput_stop"><![CDATA[Ustavi (%1$d)]]></string>
     <string name="comput_record_macro"><![CDATA[Snemanje makra]]></string>
     <string name="comput_recording_active"><![CDATA[Snemanje je v teku. Izvajajte ukaze prek glavnega vnosa, da jih dodate v ta makro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Shranjeni makroji]]></string>

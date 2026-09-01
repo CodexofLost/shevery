@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Pārbaudiet atjauninājumus fonā]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Meklējiet jaunas versijas pat tad, kad lietotne ir aizvērta]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Pārbaudiet biežumu]]></string>
+    <string name="home_update_available_title"><![CDATA[Pieejams Shevery atjauninājums: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Jaunāka versija ir gatava. Pieskarieties, lai lejupielādētu.]]></string>
     <string name="app_name"><![CDATA[Ševeri]]></string>
     <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Pāriet uz augšu]]></string>
@@ -79,7 +79,7 @@ Iespējams, ka šīs ierīces KeyStore mehānisms nedarbojas.]]></string>
     <string name="home_learn_more_description"><![CDATA[Uzziniet, kā veikt izstrādi, izmantojot Shevery]]></string>
     <string name="home_quick_terminal"><![CDATA[Termināls]]></string>
     <string name="home_quick_wireless"><![CDATA[Bezvadu ADB]]></string>
-    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
+    <string name="home_quick_tcp"><![CDATA[TCP 5555]]></string>
     <string name="home_manage_apps_button"><![CDATA[Lietotņu pārvaldība]]></string>
     <string name="home_refresh"><![CDATA[Atjaunināt]]></string>
     <string name="home_diagnostics_title"><![CDATA[Diagnostika]]></string>
@@ -156,7 +156,7 @@ Eksportēšanas funkcija izmanto SAF (Storage Access Framework). Ir ziņots, ka 
     <string name="modules_permission_web_bridge_summary"><![CDATA[Parādīt logu „Shevery“ tikai vietējai WebUI un tikai tad, ja WebView interneta savienojums ir atslēgts.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView internetā]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Atļaut HTTPS navigāciju/resursus. Tas atspējo „shell bridge” piekļuvi attiecīgajam WebView.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[WebUI lejupielāde ()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Atļaut HTTPS failu lejupielādes WebUI mapē, izņemot failu „index.html“.]]></string>
     <string name="modules_background_actions"><![CDATA[Atļaut darbības fonā]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Atļaut instalētajiem moduļiem pieprasīt ADB darbību fonā pilnīgas piekļuves režīmā]]></string>
@@ -186,8 +186,8 @@ Eksportēšanas funkcija izmanto SAF (Storage Access Framework). Ir ziņots, ka 
     <string name="modules_action_failed"><![CDATA[Darbība neizdevās]]></string>
     <string name="modules_service_result"><![CDATA[Pakalpojums pabeigts: iziešana %d]]></string>
     <string name="modules_service_failed"><![CDATA[Pakalpojuma sniegšana neizdevās]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_title"><![CDATA[Ieteikt]]></string>
+    <string name="modules_recommand_source"><![CDATA[%1$s/%2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Paplašināt]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Saslēgt]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopēt]]></string>
@@ -466,7 +466,7 @@ Gatava komandu pieņemšanai.]]></string>
     <string name="comput_status_error"><![CDATA[Kļūda]]></string>
     <string name="comput_console_section"><![CDATA[Konsoles]]></string>
     <string name="comput_console_macros"><![CDATA[Makro konsoles]]></string>
-    <string name="comput_stop"><![CDATA[Stop (%1$d)]]></string>
+    <string name="comput_stop"><![CDATA[Apstāties (%1$d)]]></string>
     <string name="comput_record_macro"><![CDATA[Ierakstīt makro]]></string>
     <string name="comput_recording_active"><![CDATA[Ierakstīšana notiek. Izpildiet komandas, izmantojot galveno ievadi, lai tās pievienotu šim makro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Saglabātie makroi]]></string>
@@ -479,7 +479,7 @@ Gatava komandu pieņemšanai.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Makro nosaukums]]></string>
     <string name="comput_save"><![CDATA[Saglabāt]]></string>
     <string name="comput_tab_terminal"><![CDATA[Termināls]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium"><![CDATA[AI studija]]></string>
     <string name="comput_tab_macros"><![CDATA[Makrokomandas]]></string>
     <string name="comput_tab_presets"><![CDATA[Iestatījumi]]></string>
     <string name="comput_quick_chips"><![CDATA[Ātrās darbības]]></string>

@@ -125,7 +125,7 @@
     <string name="modules_permission_web_bridge_summary"><![CDATA[Жергиликтүү WebUI үчүн window.Shevery көпүрөсү.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView Интернет]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[HTTPS сурамдарына уруксат берүү.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[WebUI жүктөп алуу()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Файлдарды WebUI папкасына жүктөөгө уруксат.]]></string>
     <string name="modules_background_actions"><![CDATA[Фондук аракеттерге уруксат берүү]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Модулдарга фондо ADB тапшырмаларын аткарууга уруксат берүү]]></string>
@@ -155,7 +155,7 @@
     <string name="modules_action_failed"><![CDATA[Аракет оңунан чыккан жок]]></string>
     <string name="modules_service_result"><![CDATA[Кызмат аяктады: код %d]]></string>
     <string name="modules_service_failed"><![CDATA[Кызмат оңунан чыккан жок]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[Recommand]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Жайуу]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Жыйноо]]></string>
@@ -216,7 +216,7 @@
     <string name="permission_warning_template"><![CDATA[<b>%1$s</b> тиркемесине %2$s уруксаты берилсинби?]]></string>
     <string name="grant_dialog_button_allow_always"><![CDATA[Дайыма уруксат берүү]]></string>
     <string name="grant_dialog_button_deny"><![CDATA["Тартуу"]]></string>
-    <string name="starter"><![CDATA[Starter]]></string>
+    <string name="starter"><![CDATA[Стартер]]></string>
     <string name="start_with_root_failed"><![CDATA[Root укугу берилбегендиктен кызматты иштетүү мүмкүн эмес.]]></string>
     <string name="dialog_cannot_open_browser_title"><![CDATA[Brauzerди ачуу мүмкүн болгон жок]]></string>
     <string name="toast_copied_to_clipboard_with_text"><![CDATA[<b>%s</b> алмашуу буферине көчүрүлдү.]]></string>
@@ -330,7 +330,7 @@
     <string name="backup_summary"><![CDATA[Конфигурацияны ZIP файлына экспорттоо]]></string>
     <string name="restore_title"><![CDATA[Жөндөөлөрдү жана модулдарды калыбына келтирүү]]></string>
     <string name="restore_summary"><![CDATA[Конфигурацияны ZIP файлынан импорттоо]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[Эсептөө]]></string>
     <string name="comput_settings"><![CDATA[Comput Консолунун жөндөөлөрү]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput Консолу]]></string>
     <string name="comput_recommand_title"><![CDATA[Comput үчүн ReCommand]]></string>
@@ -371,7 +371,7 @@
     <string name="comput_error_no_binder"><![CDATA[Ката: Shevery binder алынган жок.]]></string>
     <string name="comput_console_initialized"><![CDATA[Консоль даяр. Shevery кызматы туташты.]]></string>
     <string name="comput_ai_explanation"><![CDATA[AI Түшүндүрмөсү]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[Командиум]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Commandium AI Жардамчысы]]></string>
     <string name="comput_commandium_description"><![CDATA[Табигый тилде командаларды түзүңүз.]]></string>
     <string name="comput_commandium_label"><![CDATA[Кандай команда керек?]]></string>
@@ -434,10 +434,10 @@
     <string name="settings_tcp_5555_bind_success"><![CDATA[ADB 5555 портуна ийгиликтүү туташтырылды]]></string>
     <string name="settings_tcp_5555_bind_failed"><![CDATA[ADBди 5555 портуна туташтыруу мүмкүн болгон жок: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Root, Dhizuku же жигердүү Shevery талап кылынат.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Фондогу жаңыртууларды текшериңиз]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Колдонмо жабык болгондо да жаңы версияларды издеңиз]]></string>
+    <string name="home_update_available_title"><![CDATA[Жаңыртуу жеткиликтүү: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Жаңыраак версия даяр. Жүктөп алуу үчүн таптаңыз.]]></string>
     <string name="wadb_notification_channel"><![CDATA[ADB-Autostartdienst]]></string>
     <string name="comput_stop_desc"><![CDATA[Stop-Befehl]]></string>
     <string name="accessibility_manager_service_no_description"><![CDATA[Keine Beschreibung vom Dienst bereitgestellt.]]></string>

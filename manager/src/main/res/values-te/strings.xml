@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[నేపథ్యంలో నవీకరణల కోసం తనిఖీ చేయండి]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[యాప్ మూసివేయబడినప్పుడు కూడా కొత్త వెర్షన్‌ల కోసం చూడండి]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[ఫ్రీక్వెన్సీని తనిఖీ చేయండి]]></string>
+    <string name="home_update_available_title"><![CDATA[షెవెరీ అప్‌డేట్ అందుబాటులో ఉంది: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[కొత్త వెర్షన్ సిద్ధంగా ఉంది. డౌన్‌లోడ్ చేయడానికి నొక్కండి.]]></string>
     <string name="app_name"><![CDATA[షెవరి]]></string>
     <string name="translation_contributors"><![CDATA[సెర్మార్ట్1234, రువ్లాడ్]]></string>
     <string name="accessibility_navigate_up"><![CDATA[పైకి వెళ్ళు]]></string>

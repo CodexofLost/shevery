@@ -23,7 +23,7 @@
     <string name="home_adb_dialog_view_command_button_send"><![CDATA[Kirim ke...]]></string>
     <string name="home_wireless_adb_title"><![CDATA[Mulai melalui Debug Nirkabel]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Mencari layanan debug nirkabel]]></string>
-    <string name="dialog_adb_port"><![CDATA[Port]]></string>
+    <string name="dialog_adb_port"><![CDATA[Pelabuhan]]></string>
     <string name="dialog_adb_invalid_port"><![CDATA[Port adalah integer antara 1 sampai 65535.]]></string>
     <string name="adb_pairing"><![CDATA[Sambungkan]]></string>
     <string name="dialog_adb_pairing_title"><![CDATA[Sambungkan dengan perangkat]]></string>
@@ -109,11 +109,11 @@
     <string name="home_adb_is_limited_title"><![CDATA[Anda perlu mengambil langkah ekstra]]></string>
     <string name="home_app_management_empty"><![CDATA[Aplikasi yang telah meminta atau mendeklarasikan Shizuku akan ditampilkan di sini.]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Coba untuk matikan dan hidupkan kembali "Debug nirkabel" jika terus mencari.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Periksa pembaruan di latar belakang]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Cari versi baru meskipun aplikasi ditutup]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Periksa frekuensi]]></string>
+    <string name="home_update_available_title"><![CDATA[Pembaruan terbaru tersedia: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Versi yang lebih baru sudah siap. Ketuk untuk mengunduh.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Kembali ke atas]]></string>
     <string name="accessibility_close"><![CDATA[Tutup]]></string>
@@ -171,9 +171,9 @@
     <string name="modules_permission_service_summary"><![CDATA[Izinkan service.sh ketika tindakan latar belakang juga diaktifkan.]]></string>
     <string name="modules_permission_web_bridge"><![CDATA[Jembatan antarmuka pengguna web (WebUI)]]></string>
     <string name="modules_permission_web_bridge_summary"><![CDATA[Tampilkan jendela Shevery hanya untuk WebUI lokal dan hanya saat koneksi internet WebView dimatikan.]]></string>
-    <string name="modules_permission_web_network"><![CDATA[WebView internet]]></string>
+    <string name="modules_permission_web_network"><![CDATA[Internet Tampilan Web]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Izinkan navigasi/aset HTTPS. Pengaturan ini menonaktifkan paparan shell bridge untuk WebView tersebut.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[Unduhan UI Web()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Izinkan pengunduhan berkas melalui HTTPS ke dalam folder WebUI, kecuali berkas index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Izinkan tindakan di latar belakang]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Izinkan modul yang terpasang untuk meminta proses ADB latar belakang dalam mode akses penuh]]></string>
@@ -194,7 +194,7 @@
     <string name="modules_run_action"><![CDATA[Aksi]]></string>
     <string name="modules_run_service"><![CDATA[Layanan]]></string>
     <string name="modules_running"><![CDATA[Menjalankan skrip modul…]]></string>
-    <string name="modules_open_webui"><![CDATA[WebUI]]></string>
+    <string name="modules_open_webui"><![CDATA[UI Web]]></string>
     <string name="modules_webui"><![CDATA[Modul WebUI]]></string>
     <string name="modules_delete"><![CDATA[Hapus]]></string>
     <string name="modules_delete_title"><![CDATA[Hapus modul?]]></string>
@@ -203,7 +203,7 @@
     <string name="modules_action_failed"><![CDATA[Tindakan gagal]]></string>
     <string name="modules_service_result"><![CDATA[Layanan selesai: keluar %d]]></string>
     <string name="modules_service_failed"><![CDATA[Layanan gagal]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[Perintah Ulang]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Perluas]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Sembunyikan]]></string>
@@ -216,7 +216,7 @@
     <string name="modules_recommand_action"><![CDATA[Rekomendasi Tindakan]]></string>
     <string name="modules_recommand_action_summary"><![CDATA[Tampilkan kotak dialog konfirmasi sebelum menjalankan action.sh.]]></string>
     <string name="modules_ai"><![CDATA[Kecerdasan Buatan]]></string>
-    <string name="modules_ai_api_key"><![CDATA[API key]]></string>
+    <string name="modules_ai_api_key"><![CDATA[Kunci API]]></string>
     <string name="modules_ai_api_key_summary"><![CDATA[Disimpan dalam bentuk terenkripsi menggunakan Android Keystore.]]></string>
     <string name="modules_ai_unlocked"><![CDATA[Pemeriksa AI telah dibuka kuncinya]]></string>
     <string name="modules_ai_hidden"><![CDATA[Pemeriksa AI tersembunyi]]></string>
@@ -249,7 +249,7 @@
     <string name="shizuku_connectors_summary"><![CDATA[Izinkan plugin untuk mengaktifkan Shevery]]></string>
     <string name="unsafe_warning_title"><![CDATA[Peringatan]]></string>
     <string name="unsafe_warning_message"><![CDATA[Mengaktifkan fitur ini TIDAK AMAN. Apakah Anda yakin?]]></string>
-    <string name="dhizuku_mode_title"><![CDATA[Dhizuku Mode]]></string>
+    <string name="dhizuku_mode_title"><![CDATA[Modus Dhizuku]]></string>
     <string name="dhizuku_mode_summary"><![CDATA[Izinkan Shevery untuk beroperasi melalui ikatan dengan Dhizuku]]></string>
     <string name="home_dhizuku_title"><![CDATA[Mulai (melalui Dhizuku)]]></string>
     <string name="home_dhizuku_description"><![CDATA[Untuk perangkat yang dikelola oleh Dhizuku, Anda dapat menjalankan Shevery secara langsung menggunakan hak akses Pemilik Perangkat.]]></string>
@@ -377,7 +377,7 @@
     <string name="wear_catalog_sort_stars"><![CDATA[Bintang]]></string>
     <string name="wear_catalog_sort_official"><![CDATA[Resmi]]></string>
     <string name="wear_catalog_sort_by"><![CDATA[Urutkan berdasarkan]]></string>
-    <string name="wear_catalog_filter"><![CDATA[Filter]]></string>
+    <string name="wear_catalog_filter"><![CDATA[Menyaring]]></string>
     <string name="backup_restore_title"><![CDATA[Pencadangan &amp; Pemulihan]]></string>
     <string name="backup_title"><![CDATA[Pengaturan &amp; Modul Cadangan]]></string>
     <string name="backup_summary"><![CDATA[Ekspor konfigurasi dan modul ke berkas ZIP]]></string>
@@ -396,9 +396,9 @@
     <string name="comput_ai_api_key_not_configured"><![CDATA[Belum dikonfigurasi (Gemini AI tidak akan berfungsi)]]></string>
     <string name="comput_gemini_model_title"><![CDATA[Model AI Gemini]]></string>
     <string name="comput_gemini_explain"><![CDATA[Penjelasan tentang Gemini]]></string>
-    <string name="comput_api_key_label"><![CDATA[API Key]]></string>
-    <string name="comput_show_api_key"><![CDATA[Show API key]]></string>
-    <string name="comput_hide_api_key"><![CDATA[Hide API key]]></string>
+    <string name="comput_api_key_label"><![CDATA[Kunci API]]></string>
+    <string name="comput_show_api_key"><![CDATA[Tampilkan kunci API]]></string>
+    <string name="comput_hide_api_key"><![CDATA[Sembunyikan kunci API]]></string>
     <string name="comput_gemini_model_performance"><![CDATA[Pengkodean berkinerja tinggi &amp; berbasis agen (Disarankan)]]></string>
     <string name="comput_gemini_model_lightweight"><![CDATA[Model ringan berkecepatan tinggi]]></string>
     <string name="comput_gemini_api_error"><![CDATA[API Gemini mengembalikan kode kesalahan %1$d: %2$s]]></string>
@@ -430,7 +430,7 @@ Sedang dijalankan...]]></string>
     <string name="comput_console_initialized"><![CDATA[Konsol telah diinisialisasi. Layanan Shevery dengan hak istimewa telah terhubung.
 Siap menerima perintah.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Penjelasan AI]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[Komando]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Asisten AI Commandium]]></string>
     <string name="comput_commandium_description"><![CDATA[Buat perintah shell menggunakan bahasa alami. Gemini akan menampilkan perintah mentah yang dapat disalin.]]></string>
     <string name="comput_commandium_label"><![CDATA[Perintah apa yang Anda butuhkan?]]></string>
@@ -461,7 +461,7 @@ Siap menerima perintah.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Nama Makro]]></string>
     <string name="comput_save"><![CDATA[Simpan]]></string>
     <string name="comput_tab_terminal"><![CDATA[Terminal]]></string>
-    <string name="comput_tab_commandium"><![CDATA[AI Studio]]></string>
+    <string name="comput_tab_commandium"><![CDATA[Studio AI]]></string>
     <string name="comput_tab_macros"><![CDATA[Makro]]></string>
     <string name="comput_tab_presets"><![CDATA[Pengaturan Default]]></string>
     <string name="comput_quick_chips"><![CDATA[Tindakan Cepat]]></string>
@@ -485,7 +485,7 @@ Siap menerima perintah.]]></string>
     <string name="diagnostics_android"><![CDATA[Android]]></string>
     <string name="diagnostics_service"><![CDATA[Layanan]]></string>
     <string name="diagnostics_server_uid"><![CDATA[UID Server]]></string>
-    <string name="diagnostics_server_api"><![CDATA[Server API]]></string>
+    <string name="diagnostics_server_api"><![CDATA[API server]]></string>
     <string name="diagnostics_selinux"><![CDATA[SELinux]]></string>
     <string name="diagnostics_adb_permission"><![CDATA[Izin ADB]]></string>
     <string name="diagnostics_authorized_apps"><![CDATA[Aplikasi yang Diizinkan]]></string>
@@ -498,7 +498,7 @@ Siap menerima perintah.]]></string>
     <string name="diagnostics_full"><![CDATA[seluruhnya]]></string>
     <string name="diagnostics_limited"><![CDATA[terbatas]]></string>
     <string name="diagnostics_unknown"><![CDATA[tidak diketahui]]></string>
-    <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
+    <string name="error_protect_title"><![CDATA[Perlindungan Kesalahan]]></string>
     <string name="error_protect_summary"><![CDATA[Periksa status proses dan kesalahan transaksi setiap 10 detik. Shevery akan secara otomatis dihentikan dan dijalankan kembali jika ditemukan masalah.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Pengikatan TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Hubungkan server ADB lokal ke port 5555 agar tetap berfungsi tanpa perlu memperbarui port Debugging Nirkabel.]]></string>

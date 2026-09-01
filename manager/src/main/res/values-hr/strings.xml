@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Provjerite ima li ažuriranja u pozadini]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Potražite nove verzije čak i kada je aplikacija zatvorena]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Provjerite učestalost]]></string>
+    <string name="home_update_available_title"><![CDATA[Shevery dostupno ažuriranje: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Novija verzija je spremna. Dodirnite za preuzimanje.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Vrati se gore]]></string>
@@ -233,7 +233,7 @@ Nakon što proces uparivanja započne, moći ćete unijeti kod za uparivanje.]]>
     <string name="notification_adb_pairing_failed_title"><![CDATA[Upairanje nije uspjelo]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Ponovi]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
-    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
+    <string name="permission_group_description"><![CDATA[@string/oznaka_dopuštenja]]></string>
     <string name="permission_label"><![CDATA[pristup Shevery]]></string>
     <string name="permission_description"><![CDATA[Dopustite aplikaciji da koristi Shevery.]]></string>
     <string name="permission_warning_template"><![CDATA[Dopustiti <b>%1$s</b> da %2$s?]]></string>
@@ -289,7 +289,7 @@ kopiran je u međuspremnik.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery nadzornik je aktivan]]></string>
     <string name="watchdog_service_text"><![CDATA[Praćenje usluge Shevery za oporavak uz održavanje veze]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery Kontrola]]></string>
-    <string name="notification_startup_channel_name"><![CDATA[Shevery startup]]></string>
+    <string name="notification_startup_channel_name"><![CDATA[Snažan startup]]></string>
     <string name="notification_startup_title"><![CDATA[Početni Shevery]]></string>
     <string name="notification_startup_enabling_wifi"><![CDATA[Omogućavanje Wi-Fi otklanjanja pogrešaka…]]></string>
     <string name="notification_startup_connecting"><![CDATA[Povezivanje na ADB…]]></string>

@@ -160,7 +160,7 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="modules_action_failed"><![CDATA[ಕ್ರಿಯೆ ವಿಫಲವಾಗಿದೆ]]></string>
     <string name="modules_service_result"><![CDATA[ಸೇವೆ ಮುಗಿದಿದೆ: %d ನಿರ್ಗಮಿಸಿ]]></string>
     <string name="modules_service_failed"><![CDATA[ಸೇವೆ ವಿಫಲವಾಗಿದೆ]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[ಶಿಫಾರಸು ಮಾಡಿ]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[ವಿಸ್ತರಿಸಿ]]></string>
     <string name="modules_recommand_collapse"><![CDATA[ಕುಸಿಯುವಿಕೆ]]></string>
@@ -188,7 +188,7 @@ The export function uses SAF (Storage Access Framework). It\'s reported that MIU
     <string name="modules_updating"><![CDATA[ಮಾಡ್ಯೂಲ್ ಮಾರ್ಪಡಿಸಲಾಗುತ್ತಿದೆ...]]></string>
     <string name="modules_update_success"><![CDATA[ಮಾಡ್ಯೂಲ್ ಅನ್ನು v%s ಗೆ ನವೀಕರಿಸಲಾಗಿದೆ]]></string>
     <string name="modules_download_downloads"><![CDATA[ಡೌನ್ ಲೋಡ್ ಗಳಿಗೆ ಡೌನ್ ಲೋಡ್ ಮಾಡಿ]]></string>
-    <string name="modules_download_install"><![CDATA[Download &amp; Install]]></string>
+    <string name="modules_download_install"><![CDATA[ಡೌನ್ಲೋಡ್ &amp; ಸ್ಥಾಪಿಸಿ]]></string>
     <string name="modules_downloading"><![CDATA[ಡೌನ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...]]></string>
     <string name="modules_download_enqueued"><![CDATA[ಆವರಣದಲ್ಲಿ ಡೌನ್ ಲೋಡ್ ಪ್ರಾರಂಭವಾಯಿತು]]></string>
     <string name="modules_search_placeholder"><![CDATA[ಕ್ಯಾಟಲಾಗ್ ಮಾಡ್ಯೂಲ್ ಗಳನ್ನು ಶೋಧಿಸಿ...]]></string>
@@ -325,9 +325,9 @@ has been copied to clipboard.]]></string>
     <string name="shevery_update_channel"><![CDATA[ಚಾನಲ್ ಅಪ್ ಡೇಟ್ ಮಾಡಿ]]></string>
     <string name="shevery_update_channel_summary"><![CDATA[ನವೀಕರಣ ಬಿಡುಗಡೆ ಚಾನಲ್ ಆಯ್ಕೆಮಾಡಿ]]></string>
     <string name="app_update_channel_stable"><![CDATA[ಸ್ಥಿರ]]></string>
-    <string name="app_update_channel_beta"><![CDATA[Pre-release &amp; Beta]]></string>
+    <string name="app_update_channel_beta"><![CDATA[ಪೂರ್ವ ಬಿಡುಗಡೆ &amp; ಬೀಟಾ]]></string>
     <string name="shevery_update_group_title"><![CDATA[Sheach App ನವೀಕರಣಗಳು]]></string>
-    <string name="shevery_update_modules_group_title"><![CDATA[Module Updates &amp; Catalog]]></string>
+    <string name="shevery_update_modules_group_title"><![CDATA[ಮಾಡ್ಯೂಲ್ ನವೀಕರಣಗಳು &amp; ಕ್ಯಾಟಲಾಗ್]]></string>
     <string name="shevery_update_check_failed"><![CDATA[ನವೀಕರಣ ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ: %s]]></string>
     <string name="modules_catalog"><![CDATA[ಕ್ಯಾಟಲಾಗ್]]></string>
     <string name="modules_catalog_title"><![CDATA[ಮಾಡ್ಯೂಲ್ ಕ್ಯಾಟಲಾಗ್]]></string>
@@ -360,10 +360,10 @@ has been copied to clipboard.]]></string>
     <string name="wear_catalog_sort_official"><![CDATA[ಅಧಿಕೃತ]]></string>
     <string name="wear_catalog_sort_by"><![CDATA[ಮೂಲಕ ವಿಂಗಡಿಸಿ]]></string>
     <string name="wear_catalog_filter"><![CDATA[ಫಿಲ್ಟರ್]]></string>
-    <string name="backup_restore_title"><![CDATA[Backup &amp; Restore]]></string>
-    <string name="backup_title"><![CDATA[Backup Settings &amp; Modules]]></string>
+    <string name="backup_restore_title"><![CDATA[ಬ್ಯಾಕಪ್ &amp; ಮರುಸ್ಥಾಪಿಸಿ]]></string>
+    <string name="backup_title"><![CDATA[ಬ್ಯಾಕಪ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು &amp; ಮಾಡ್ಯೂಲ್‌ಗಳು]]></string>
     <string name="backup_summary"><![CDATA[ಕಾನ್ಫಿಗರೇಶನ್ ಮತ್ತು ಮಾಡ್ಯೂಲ್ ಗಳನ್ನು ZIP ಫೈಲ್ ಗೆ ರಫ್ತು ಮಾಡಿ]]></string>
-    <string name="restore_title"><![CDATA[Restore Settings &amp; Modules]]></string>
+    <string name="restore_title"><![CDATA[ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಿ &amp; ಮಾಡ್ಯೂಲ್‌ಗಳು]]></string>
     <string name="restore_summary"><![CDATA[ZIP ಫೈಲ್ ನಿಂದ ಕಾನ್ಫಿಗರೇಶನ್ ಮತ್ತು ಮಾಡ್ಯೂಲ್ ಗಳನ್ನು ಆಮದು ಮಾಡಿ]]></string>
     <string name="settings_sections_title"><![CDATA[ಬ್ಯಾಕಪ್ ಗಳು ಮತ್ತು ಇತರ]]></string>
     <string name="backup_section_title"><![CDATA[ಬ್ಯಾಕಪ್ ಗಳು]]></string>
@@ -381,7 +381,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_api_key_label"><![CDATA[API ಕೀಲಿ]]></string>
     <string name="comput_show_api_key"><![CDATA[API ಕೀಲಿಯನ್ನು ತೋರಿಸು]]></string>
     <string name="comput_hide_api_key"><![CDATA[API ಕೀಲಿಯನ್ನು ಮರೆಮಾಡಿ]]></string>
-    <string name="comput_gemini_model_performance"><![CDATA[High performance coding &amp; agentic (Recommended)]]></string>
+    <string name="comput_gemini_model_performance"><![CDATA[ಹೆಚ್ಚಿನ ಕಾರ್ಯಕ್ಷಮತೆಯ ಕೋಡಿಂಗ್ &amp; ಏಜೆಂಟ್ (ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ)]]></string>
     <string name="comput_gemini_model_lightweight"><![CDATA[ಹಗುರವಾದ ಹೈ ಸ್ಪೀಡ್ ಮಾಡೆಲ್]]></string>
     <string name="comput_gemini_api_error"><![CDATA[ಜೆಮಿನಿ API ದೋಷ ಕೋಡ್ %1$d: %2$s ಅನ್ನು ಹಿಂದಿರುಗಿಸಿದೆ]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[ಸಂಪರ್ಕ ದೋಷ.]]></string>

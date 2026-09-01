@@ -146,7 +146,7 @@ Nota: antes de Android 11 requiere computadora.]]></string>
     <string name="modules_run_action"><![CDATA[Acción]]></string>
     <string name="modules_run_service"><![CDATA[Servicio]]></string>
     <string name="modules_running"><![CDATA[Ejecutando módulo…]]></string>
-    <string name="modules_open_webui"><![CDATA[WebUI]]></string>
+    <string name="modules_open_webui"><![CDATA[interfaz de usuario web]]></string>
     <string name="modules_webui"><![CDATA[WebUI del módulo]]></string>
     <string name="modules_delete"><![CDATA[Eliminar]]></string>
     <string name="modules_delete_title"><![CDATA[¿Eliminar módulo?]]></string>
@@ -155,8 +155,8 @@ Nota: antes de Android 11 requiere computadora.]]></string>
     <string name="modules_action_failed"><![CDATA[Fallo en acción]]></string>
     <string name="modules_service_result"><![CDATA[Servicio finalizado: código %d]]></string>
     <string name="modules_service_failed"><![CDATA[Fallo en servicio]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_title"><![CDATA[ReComando]]></string>
+    <string name="modules_recommand_source"><![CDATA[%1$s/%2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Expandir]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Contraer]]></string>
     <string name="modules_recommand_copy"><![CDATA[Copiar]]></string>
@@ -287,7 +287,7 @@ copiado al portapapeles.]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[Sin configurar (60 req/h)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[Token de acceso personal GitHub]]></string>
     <string name="update_settings_github_pat_description"><![CDATA[Aumenta el límite a 5000 req/h.]]></string>
-    <string name="update_settings_github_pat_label"><![CDATA[Token]]></string>
+    <string name="update_settings_github_pat_label"><![CDATA[Simbólico]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Mostrar]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Ocultar]]></string>
     <string name="update_settings_github_pat_clear"><![CDATA[Limpiar]]></string>
@@ -329,7 +329,7 @@ copiado al portapapeles.]]></string>
     <string name="backup_summary"><![CDATA[Exportar configuración y módulos a ZIP]]></string>
     <string name="restore_title"><![CDATA[Restaurar ajustes y módulos]]></string>
     <string name="restore_summary"><![CDATA[Importar configuración y módulos desde ZIP]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[computar]]></string>
     <string name="comput_settings"><![CDATA[Ajustes de consola Comput]]></string>
     <string name="comput_adb_console"><![CDATA[Consola Comput ADB]]></string>
     <string name="comput_recommand_title"><![CDATA[ReCommand para Comput]]></string>
@@ -374,7 +374,7 @@ Ejecutando...]]></string>
     <string name="comput_console_initialized"><![CDATA[Consola inicializada. Servicio privilegiado conectado.
 Listo.]]></string>
     <string name="comput_ai_explanation"><![CDATA[Explicación de IA]]></string>
-    <string name="comput_commandium"><![CDATA[Commandium]]></string>
+    <string name="comput_commandium"><![CDATA[Comando]]></string>
     <string name="comput_commandium_assistant"><![CDATA[Asistente Commandium IA]]></string>
     <string name="comput_commandium_description"><![CDATA[Genere comandos de consola en lenguaje natural.]]></string>
     <string name="comput_commandium_label"><![CDATA[¿Qué comando necesita?]]></string>
@@ -423,9 +423,9 @@ Listo.]]></string>
     <string name="settings_tcp_5555_bind_success"><![CDATA[Servidor ADB vinculado a TCP 5555]]></string>
     <string name="settings_tcp_5555_bind_failed"><![CDATA[Fallo al vincular a 5555: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Se requiere Root, Dhizuku o Shevery activo.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Buscar actualizaciones en segundo plano]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Busque nuevas versiones incluso cuando la aplicación esté cerrada]]></string>
+    <string name="home_update_available_title"><![CDATA[Actualización de Shevery disponible: %s]]></string>
     <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Hay algunas otras cosas que debes tener en cuenta; por favor, confirma que ya leíste la sección de ayuda.]]></string>

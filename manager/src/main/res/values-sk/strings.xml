@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Skontrolujte aktualizácie na pozadí]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Hľadajte nové verzie, aj keď je aplikácia zatvorená]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Skontrolujte frekvenciu]]></string>
+    <string name="home_update_available_title"><![CDATA[Dostupná aktualizácia Shevery: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Pripravená je novšia verzia. Klepnutím stiahnete.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="translation_contributors"><![CDATA[sermart1234, ruvlad]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Prejsť hore]]></string>
@@ -116,7 +116,7 @@ Funkcia exportu využíva SAF (Storage Access Framework). Podľa správ MIUI nar
     <string name="settings_user_interface"><![CDATA[Vzhľad]]></string>
     <string name="settings_black_night_theme"><![CDATA[Téma „Čierna noc“]]></string>
     <string name="settings_black_night_theme_summary"><![CDATA[Ak je zapnutý nočný režim, použite čisto čiernu šablónu]]></string>
-    <string name="settings_startup"><![CDATA[Startup]]></string>
+    <string name="settings_startup"><![CDATA[Spustenie]]></string>
     <string name="settings_translation_contributors"><![CDATA[Prispievatelia prekladov]]></string>
     <string name="settings_translation"><![CDATA[Zapojte sa do prekladu]]></string>
     <string name="settings_translation_summary"><![CDATA[Pomôžte nám preložiť %s do vášho jazyka]]></string>
@@ -158,7 +158,7 @@ Funkcia exportu využíva SAF (Storage Access Framework). Podľa správ MIUI nar
     <string name="modules_permission_web_bridge_summary"><![CDATA[Zobraziť okno „Shevery“ iba pre lokálne webové rozhranie a iba v prípade, že je internet v WebView vypnutý.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView – internet]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Povoliť navigáciu/súbory cez HTTPS. Týmto sa pre daný WebView deaktivuje vystavenie shell bridge.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[Stiahnutie cez WebUI()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Povoliť sťahovanie súborov cez HTTPS do priečinka WebUI, s výnimkou súboru index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Povoliť akcie na pozadí]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Umožniť nainštalovaným modulom požiadať o vykonávanie úloh ADB na pozadí v režime s plným prístupom]]></string>

@@ -329,7 +329,7 @@ copiado al portapapeles.]]></string>
     <string name="backup_summary"><![CDATA[Exportar configuración y módulos a ZIP]]></string>
     <string name="restore_title"><![CDATA[Restaurar ajustes y módulos]]></string>
     <string name="restore_summary"><![CDATA[Importar configuración y módulos desde ZIP]]></string>
-    <string name="comput_title"><![CDATA[Comput]]></string>
+    <string name="comput_title"><![CDATA[computar]]></string>
     <string name="comput_settings"><![CDATA[Ajustes de consola Comput]]></string>
     <string name="comput_adb_console"><![CDATA[Consola Comput ADB]]></string>
     <string name="comput_recommand_title"><![CDATA[ReCommand para Comput]]></string>
@@ -399,7 +399,7 @@ Listo.]]></string>
     <string name="comput_macro_name_label"><![CDATA[Nombre de macro]]></string>
     <string name="comput_save"><![CDATA[Guardar]]></string>
     <string name="diagnostics_app"><![CDATA[Aplicación]]></string>
-    <string name="diagnostics_android"><![CDATA[Android]]></string>
+    <string name="diagnostics_android"><![CDATA[Androide]]></string>
     <string name="diagnostics_service"><![CDATA[Servicio]]></string>
     <string name="diagnostics_server_uid"><![CDATA[UID de servidor]]></string>
     <string name="diagnostics_server_api"><![CDATA[API de servidor]]></string>
@@ -423,8 +423,8 @@ Listo.]]></string>
     <string name="settings_tcp_5555_bind_success"><![CDATA[Servidor ADB vinculado a TCP 5555]]></string>
     <string name="settings_tcp_5555_bind_failed"><![CDATA[Fallo al vincular a 5555: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Se requiere Root, Dhizuku o Shevery activo.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Buscar actualizaciones en segundo plano]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Busque nuevas versiones incluso cuando la aplicación esté cerrada]]></string>
     <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
     <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>

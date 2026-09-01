@@ -381,7 +381,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_api_key_label"><![CDATA[کلیلی API]]></string>
     <string name="comput_show_api_key"><![CDATA[پیشاندانی کلیلی API]]></string>
     <string name="comput_hide_api_key"><![CDATA[شاردنەوەی کلیلی API]]></string>
-    <string name="comput_gemini_model_performance"><![CDATA[High performance coding &amp; agentic (Recommended)]]></string>
+    <string name="comput_gemini_model_performance"><![CDATA[کۆدکردنی کارایی بەرز &amp; agentic (پێشنیارکراوە)]]></string>
     <string name="comput_gemini_model_lightweight"><![CDATA[مۆدێلی خێرای سووک]]></string>
     <string name="comput_gemini_api_error"><![CDATA[Gemini API کۆدی هەڵەی گەڕاندەوە ٪1$d: ٪2$s]]></string>
     <string name="comput_gemini_connection_error"><![CDATA[هەڵەی گرێدان.]]></string>

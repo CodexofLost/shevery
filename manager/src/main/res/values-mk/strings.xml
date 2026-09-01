@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Проверете дали има ажурирања во позадина]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Побарајте нови верзии дури и кога апликацијата е затворена]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Проверете ја фреквенцијата]]></string>
+    <string name="home_update_available_title"><![CDATA[Достапно ажурирање на Shevery: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Понова верзија е подготвена. Допрете за преземање.]]></string>
     <string name="app_name"><![CDATA[Шевери]]></string>
     <string name="translation_contributors"><![CDATA[сермарт1234, рувлад]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Назад]]></string>

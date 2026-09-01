@@ -16,11 +16,11 @@
     <string name="home_status_service_not_running"><![CDATA[%1$s ne estas funkcianta]]></string>
     <string name="home_status_service_is_running"><![CDATA[%1$s estas funkcianta]]></string>
     <string name="translation_contributors"><![CDATA[JakubFabijan]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Kontrolu ĝisdatigojn en fono]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Serĉu novajn versiojn eĉ kiam la aplikaĵo estas fermita]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Kontrolu frekvencon]]></string>
+    <string name="home_update_available_title"><![CDATA[Havebla ĝisdatigo de Shevery: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Pli nova versio estas preta. Frapu por elŝuti.]]></string>
     <string name="app_name"><![CDATA[Ŝeŭeri]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Navigu supren]]></string>
     <string name="accessibility_close"><![CDATA[Fermu]]></string>
@@ -173,7 +173,7 @@
     <string name="modules_service_result"><![CDATA[Servo finita: eliri %d]]></string>
     <string name="modules_service_failed"><![CDATA[Servo malsukcesis]]></string>
     <string name="modules_recommand_title"><![CDATA[Rekomandi]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source"><![CDATA[%1$s/%2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Etendi]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Kolapso]]></string>
     <string name="modules_recommand_copy"><![CDATA[Kopii]]></string>
@@ -229,7 +229,7 @@
     <string name="notification_adb_pairing_failed_title"><![CDATA[Parigo malsukcesis]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Repruvi]]></string>
     <string name="permission_group_label"><![CDATA[Ŝeŭeri]]></string>
-    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
+    <string name="permission_group_description"><![CDATA[@string/permeso_label]]></string>
     <string name="permission_label"><![CDATA[aliro Shevery]]></string>
     <string name="permission_description"><![CDATA[Permesu al la aplikaĵo uzi Shevery.]]></string>
     <string name="permission_warning_template"><![CDATA[Permesi <b>%1$s</b> fari %2$s?]]></string>
@@ -259,7 +259,7 @@ kopiita al la tondujo.]]></string>
     <string name="home_dhizuku_description"><![CDATA[Por aparatoj administrataj de Dhizuku, vi povas rekte lanĉi Shevery uzante la privilegiojn de Aparato-posedanto.]]></string>
     <string name="dhizuku_warning_title"><![CDATA[Averto: Dizuku-reĝimo]]></string>
     <string name="dhizuku_warning_message"><![CDATA[Dhizuku estas desegnita por posedantaj/administrantaj privilegioj. Iuj ŝelaj kaj ADB-specifaj komandoj eble ne funkcios ĝuste aŭ eble estos tute ne subtenataj kiam oni rulas Shevery per Dhizuku. Ĉu vi certas, ke vi volas daŭrigi?]]></string>
-    <string name="settings_tcp_mode"><![CDATA[TCP Mode]]></string>
+    <string name="settings_tcp_mode"><![CDATA[TCP-reĝimo]]></string>
     <string name="settings_tcp_mode_summary"><![CDATA[Restarto de la ADB-lanĉo al TCP-pordo 5555, por ke Shevery povu rekonekti sen devi fidi je la ŝanĝiĝanta sendrata debug-pordo.]]></string>
     <string name="settings_restart_dialog_title"><![CDATA[Restartigo bezonata]]></string>
     <string name="settings_restart_dialog_message"><![CDATA[Shevery bezonas rekomenciĝi por apliki ĉi tiun ŝanĝon de TCP-reĝimo.]]></string>

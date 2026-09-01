@@ -109,11 +109,11 @@
     <string name="home_app_management_empty"><![CDATA[Aplicațiile care au solicitat sau au declarat Shizuku se vor afișa aici.]]></string>
     <string name="home_adb_is_limited_title"><![CDATA[Trebuie să faci un pas suplimentar]]></string>
     <string name="dialog_adb_discovery_message_toggle_wireless_debugging"><![CDATA[Încearcă să dezactivezi și să activezi „Depanare fără fir” dacă caută în continuare.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Verificați actualizările în fundal]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Căutați versiuni noi chiar și atunci când aplicația este închisă]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Verificați frecvența]]></string>
+    <string name="home_update_available_title"><![CDATA[Actualizare Shevery disponibilă: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[O versiune mai nouă este gata. Atingeți pentru a descărca.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Navigare în sus]]></string>
     <string name="accessibility_close"><![CDATA[Închide]]></string>
@@ -191,7 +191,7 @@ Funcția de export utilizează SAF (Storage Access Framework). Se pare că MIUI 
     <string name="modules_permission_web_bridge_summary"><![CDATA[Afișează fereastra „Shevery” numai pentru interfața WebUI locală și numai atunci când conexiunea la internet a WebView este oprită.]]></string>
     <string name="modules_permission_web_network"><![CDATA[WebView internet]]></string>
     <string name="modules_permission_web_network_summary"><![CDATA[Permite navigarea/resursele HTTPS. Această opțiune dezactivează expunerea shell bridge pentru acel WebView.]]></string>
-    <string name="modules_permission_web_download"><![CDATA[WebUI download()]]></string>
+    <string name="modules_permission_web_download"><![CDATA[Descărcare WebUI()]]></string>
     <string name="modules_permission_web_download_summary"><![CDATA[Permite descărcarea fișierelor prin HTTPS în folderul WebUI, cu excepția fișierului index.html.]]></string>
     <string name="modules_background_actions"><![CDATA[Permite acțiunile în fundal]]></string>
     <string name="modules_background_actions_summary"><![CDATA[Permite modulelor instalate să solicite operațiuni ADB în fundal în modul de acces complet]]></string>
@@ -213,7 +213,7 @@ Funcția de export utilizează SAF (Storage Access Framework). Se pare că MIUI 
     <string name="modules_run_service"><![CDATA[Servicii]]></string>
     <string name="modules_running"><![CDATA[Se execută scriptul modulului…]]></string>
     <string name="modules_open_webui"><![CDATA[WebUI]]></string>
-    <string name="modules_webui"><![CDATA[Module WebUI]]></string>
+    <string name="modules_webui"><![CDATA[Modulul WebUI]]></string>
     <string name="modules_delete"><![CDATA[Șterge]]></string>
     <string name="modules_delete_title"><![CDATA[Să ștergi modulul?]]></string>
     <string name="modules_delete_message"><![CDATA[%s va fi eliminat din spațiul de stocare al modulului Shevery.]]></string>
@@ -221,7 +221,7 @@ Funcția de export utilizează SAF (Storage Access Framework). Se pare că MIUI 
     <string name="modules_action_failed"><![CDATA[Acțiunea a eșuat]]></string>
     <string name="modules_service_result"><![CDATA[Serviciul s-a încheiat: ieșire %d]]></string>
     <string name="modules_service_failed"><![CDATA[Serviciul a eșuat]]></string>
-    <string name="modules_recommand_title"><![CDATA[ReCommand]]></string>
+    <string name="modules_recommand_title"><![CDATA[Recomanda]]></string>
     <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
     <string name="modules_recommand_expand"><![CDATA[Extindeți]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Reducere]]></string>
@@ -346,7 +346,7 @@ a fost copiat în clipboard.]]></string>
     <string name="update_settings_github_pat_unset"><![CDATA[Nedefinit (60 de solicitări/oră)]]></string>
     <string name="update_settings_github_pat_title"><![CDATA[Token de acces personal GitHub]]></string>
     <string name="update_settings_github_pat_description"><![CDATA[Opțional. Un PAT GitHub mărește limitele de rată ale API-ului de la 60 la 5000 de solicitări pe oră. Este necesar doar domeniul de aplicare „public_repo” pentru depozitele publice.]]></string>
-    <string name="update_settings_github_pat_label"><![CDATA[Token]]></string>
+    <string name="update_settings_github_pat_label"><![CDATA[Jeton]]></string>
     <string name="update_settings_github_pat_show"><![CDATA[Afișare]]></string>
     <string name="update_settings_github_pat_hide"><![CDATA[Ascunde]]></string>
     <string name="update_settings_github_pat_clear"><![CDATA[Șterge]]></string>
@@ -468,7 +468,7 @@ Gata să primească comenzi.]]></string>
     <string name="comput_status_error"><![CDATA[Eroare]]></string>
     <string name="comput_console_section"><![CDATA[Consolă]]></string>
     <string name="comput_console_macros"><![CDATA[Consola de macro-uri]]></string>
-    <string name="comput_stop"><![CDATA[Stop (%1$d)]]></string>
+    <string name="comput_stop"><![CDATA[Opriți (%1$d)]]></string>
     <string name="comput_record_macro"><![CDATA[Înregistrare macro]]></string>
     <string name="comput_recording_active"><![CDATA[Înregistrarea este activă. Executați comenzi folosind intrarea principală pentru a le adăuga la această macro.]]></string>
     <string name="comput_saved_macros"><![CDATA[Macro-uri salvate]]></string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dialog_adb_port"><![CDATA[Port]]></string>
+    <string name="dialog_adb_port"><![CDATA[Порт]]></string>
     <string name="dialog_adb_discovery"><![CDATA[Traženje servisa Bežično otklanjanje grešaka]]></string>
     <string name="home_wireless_adb_view_guide_button"><![CDATA[Vodič Korak-po-korak]]></string>
     <string name="home_wireless_adb_description_pre_11"><![CDATA["Pre Android verzije softvera 11, konekcija sa računarom bila je neophodna  u cilju omogućavanja rada režima Bežično otklanjanja grešaka."]]></string>
@@ -28,11 +28,11 @@
     <string name="adb_pairing_tutorial_title"><![CDATA[Uparite Shizuku sa Vašim uređajem]]></string>
     <string name="adb_pairing_tutorial_content_notification"><![CDATA[Notifikacija iz Shizuku aplikacije će Vam pomoći da dovršite uparivanje.]]></string>
     <string name="adb_pairing_tutorial_content_steps"><![CDATA[Otvorite sekciju "Razvojne opcije programera" - "Bežično otklanjanje grešaka". Dodirnite "Uparivanje uređaja pomoću kóda za uparivanje" i pojaviće Vam se 6-cifreni kód.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[Check for updates in background]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[Look for new versions even when the app is closed]]></string>
-    <string name="update_settings_frequency_label"><![CDATA[Check frequency]]></string>
-    <string name="home_update_available_title"><![CDATA[Shevery update available: %s]]></string>
-    <string name="home_update_available_body"><![CDATA[A newer version is ready. Tap to download.]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Проверите да ли постоје ажурирања у позадини]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Потражите нове верзије чак и када је апликација затворена]]></string>
+    <string name="update_settings_frequency_label"><![CDATA[Проверите фреквенцију]]></string>
+    <string name="home_update_available_title"><![CDATA[Доступно је пуно ажурирање: %с]]></string>
+    <string name="home_update_available_body"><![CDATA[Новија верзија је спремна. Додирните за преузимање.]]></string>
     <string name="app_name"><![CDATA[Шевери]]></string>
     <string name="translation_contributors"><![CDATA[сермарт1234, рувлад]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Врати се горе]]></string>
@@ -177,7 +177,7 @@
     <string name="modules_service_result"><![CDATA[Услуга завршена: излаз %d]]></string>
     <string name="modules_service_failed"><![CDATA[Услуга је неуспела]]></string>
     <string name="modules_recommand_title"><![CDATA[Рекомандуј]]></string>
-    <string name="modules_recommand_source"><![CDATA[%1$s / %2$s]]></string>
+    <string name="modules_recommand_source"><![CDATA[%1$с / %2$с]]></string>
     <string name="modules_recommand_expand"><![CDATA[Прошири]]></string>
     <string name="modules_recommand_collapse"><![CDATA[Срушити се]]></string>
     <string name="modules_recommand_copy"><![CDATA[Копирај]]></string>
@@ -233,7 +233,7 @@
     <string name="notification_adb_pairing_failed_title"><![CDATA[Парiranje није успело]]></string>
     <string name="notification_adb_pairing_retry"><![CDATA[Поново покушај]]></string>
     <string name="permission_group_label"><![CDATA[Шевери]]></string>
-    <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
+    <string name="permission_group_description"><![CDATA[@стринг/ознака_дозволе]]></string>
     <string name="permission_label"><![CDATA[приступ Шевери]]></string>
     <string name="permission_description"><![CDATA[Дозволите апликацији да користи Shevery.]]></string>
     <string name="permission_warning_template"><![CDATA[Дозволите ли <b>%1$s</b> да %2$s?]]></string>
