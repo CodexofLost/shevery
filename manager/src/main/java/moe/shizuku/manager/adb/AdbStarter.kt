@@ -22,6 +22,7 @@ object AdbStarter {
         listener: ((ByteArray) -> Unit)? = null,
         log: ((String) -> Unit)? = null,
     ) {
+        moe.shizuku.manager.service.WatchdogManager.expectingDeath = true
         val key = AdbKey(PreferenceAdbKeyStore(ShizukuSettings.getPreferences()), "shizuku")
         val tcpMode = ShizukuSettings.isTcpMode()
         val targetPort = if (tcpMode) TCP_MODE_PORT else port
@@ -35,6 +36,7 @@ object AdbStarter {
             log?.invoke("Connecting to ADB on port $targetPort...")
             connectWithRetry(host, targetPort, key) { client ->
                 ShizukuSettings.setLastLaunchMode(ShizukuSettings.LaunchMethod.ADB)
+                ShizukuSettings.setLastAdbPort(targetPort)
                 client.shellCommand(Starter.internalCommand, listener)
             }
         } finally {
@@ -47,6 +49,7 @@ object AdbStarter {
         currentPort: Int,
         targetPort: Int = TCP_MODE_PORT,
     ) {
+        moe.shizuku.manager.service.WatchdogManager.expectingDeath = true
         val key = AdbKey(PreferenceAdbKeyStore(ShizukuSettings.getPreferences()), "shizuku")
         switchToTcp(host, currentPort, targetPort, key)
     }

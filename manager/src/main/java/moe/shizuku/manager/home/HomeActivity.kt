@@ -50,7 +50,9 @@ import androidx.compose.material.icons.rounded.NearMe
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material.icons.rounded.Terminal
 import androidx.compose.material.icons.rounded.Wifi
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -74,6 +76,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -83,6 +86,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import android.widget.Toast
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
@@ -200,6 +204,9 @@ abstract class HomeActivity : AppActivity() {
                 buildLocalNetworkPermissionState()
             }
 
+            var showTcpPromptDialog by rememberSaveable { mutableStateOf(false) }
+            var doNotRemindChecked by rememberSaveable { mutableStateOf(false) }
+
             LaunchedEffect(serviceResource?.status, serviceResource?.data?.uid) {
                 val status = serviceResource?.data ?: return@LaunchedEffect
                 if (serviceResource?.status == Status.SUCCESS && status.isRunning) {
@@ -216,6 +223,16 @@ abstract class HomeActivity : AppActivity() {
                     try {
                         AdbModuleManager.runEnabledServicesIfAllowed(applicationContext)
                     } catch (_: Throwable) {
+                    }
+
+                    val isAdbRunning = status.uid != 0
+                    val needsTcpPrompt = isAdbRunning &&
+                        !ShizukuSettings.isTcpMode() &&
+                        !ShizukuSettings.isTcpModePromptSuppressed()
+
+                    if (!hasPromptedTcpDialogThisSession && needsTcpPrompt) {
+                        hasPromptedTcpDialogThisSession = true
+                        showTcpPromptDialog = true
                     }
                 }
             }
@@ -288,6 +305,106 @@ abstract class HomeActivity : AppActivity() {
                     onItemSelected = { selectedTab = it },
                     modifier = Modifier.align(Alignment.BottomCenter)
                 )
+
+                if (showTcpPromptDialog && !ShizukuSettings.isTcpMode()) {
+                    AlertDialog(
+                        onDismissRequest = {
+                            hasPromptedTcpDialogThisSession = true
+                            if (doNotRemindChecked) {
+                                ShizukuSettings.setTcpModePromptSuppressed(true)
+                            }
+                            showTcpPromptDialog = false
+                        },
+                        title = {
+                            Text(
+                                text = stringResource(R.string.tcp_prompt_dialog_title),
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold
+                            )
+                        },
+                        text = {
+                            Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                                Text(
+                                    text = stringResource(R.string.tcp_prompt_dialog_message),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clip(MaterialTheme.shapes.small)
+                                        .clickable { doNotRemindChecked = !doNotRemindChecked }
+                                        .padding(vertical = 4.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Checkbox(
+                                        checked = doNotRemindChecked,
+                                        onCheckedChange = { doNotRemindChecked = it }
+                                    )
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    Text(
+                                        text = stringResource(R.string.tcp_prompt_dialog_do_not_remind),
+                                        style = MaterialTheme.typography.bodyMedium
+                                    )
+                                }
+                            }
+                        },
+                        confirmButton = {
+                            Button(
+                                onClick = {
+                                    hasPromptedTcpDialogThisSession = true
+                                    if (doNotRemindChecked) {
+                                        ShizukuSettings.setTcpModePromptSuppressed(true)
+                                    }
+                                    showTcpPromptDialog = false
+                                    ShizukuSettings.setTcpMode(true)
+
+                                    lifecycleScope.launch(Dispatchers.IO) {
+                                        val isAlreadyOn5555 = EnvironmentUtils.isAdbPortLive(AdbStarter.TCP_MODE_PORT)
+                                        if (isAlreadyOn5555) {
+                                            withContext(Dispatchers.Main) {
+                                                Toast.makeText(this@HomeActivity, R.string.settings_tcp_mode, Toast.LENGTH_SHORT).show()
+                                            }
+                                        } else {
+                                            val port = EnvironmentUtils.getLiveAdbTcpPort().takeIf { it > 0 }
+                                                ?: EnvironmentUtils.getAdbTcpPort().takeIf { it > 0 }
+                                                ?: ShizukuSettings.getLastAdbPort().takeIf { it > 0 }
+                                            if (port != null && port > 0) {
+                                                withContext(Dispatchers.Main) {
+                                                    moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
+                                                    startActivity(
+                                                        Intent(this@HomeActivity, StarterActivity::class.java).apply {
+                                                            putExtra(StarterActivity.EXTRA_IS_ROOT, false)
+                                                            putExtra(StarterActivity.EXTRA_HOST, "127.0.0.1")
+                                                            putExtra(StarterActivity.EXTRA_PORT, port)
+                                                        }
+                                                    )
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ) {
+                                Text(stringResource(R.string.tcp_prompt_dialog_enable))
+                            }
+                        },
+                        dismissButton = {
+                            TextButton(
+                                onClick = {
+                                    hasPromptedTcpDialogThisSession = true
+                                    if (doNotRemindChecked) {
+                                        ShizukuSettings.setTcpModePromptSuppressed(true)
+                                    }
+                                    showTcpPromptDialog = false
+                                }
+                            ) {
+                                Text(stringResource(R.string.tcp_prompt_dialog_later))
+                            }
+                        },
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        shape = MaterialTheme.shapes.extraLarge
+                    )
+                }
                 }
             }
         }
@@ -660,6 +777,7 @@ abstract class HomeActivity : AppActivity() {
         private const val SDK_ANDROID_17 = 37
         private const val PERMISSION_ACCESS_LOCAL_NETWORK = "android.permission.ACCESS_LOCAL_NETWORK"
         private const val PERMISSION_USE_LOOPBACK_INTERFACE = "android.permission.USE_LOOPBACK_INTERFACE"
+        private var hasPromptedTcpDialogThisSession = false
     }
 }
 

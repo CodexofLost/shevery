@@ -52,7 +52,8 @@ object EnvironmentUtils {
 
     fun getLiveAdbTcpPort(): Int {
         val configuredPort = getAdbTcpPort()
-        val candidates = sequenceOf(configuredPort, 5555)
+        val lastPort = ShizukuSettings.getLastAdbPort()
+        val candidates = sequenceOf(configuredPort, lastPort, 5555)
             .filter { it > 0 }
             .distinct()
 
