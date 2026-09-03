@@ -40,6 +40,9 @@ object ShizukuStateMachine {
 
     init {
         registerListeners()
+        if (Shizuku.pingBinder()) {
+            state.set(State.RUNNING)
+        }
     }
 
     private fun registerListeners() {

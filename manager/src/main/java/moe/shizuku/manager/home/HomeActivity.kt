@@ -71,6 +71,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableIntStateOf
@@ -130,6 +131,7 @@ import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuApiConstants
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.compat.StubManager
+import moe.shizuku.manager.utils.ShizukuStateMachine
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.*
 
@@ -198,6 +200,7 @@ abstract class HomeActivity : AppActivity() {
 
         setContent {
             val serviceResource by homeModel.serviceStatus.observeAsState()
+            val serverState by homeModel.serverState.collectAsState()
             val grantedResource by appsModel.grantedCount.observeAsState()
             val localNetworkPermissionState = remember(permissionRefreshTick.intValue) {
                 buildLocalNetworkPermissionState()
@@ -254,6 +257,7 @@ abstract class HomeActivity : AppActivity() {
                             when (targetTab) {
                                 0 -> HomeScreen(
                                     serviceResource = serviceResource,
+                                    serverState = serverState,
                                     grantedResource = grantedResource,
                                     localNetworkPermissionState = localNetworkPermissionState,
                                     isPrimaryUser = UserHandleCompat.myUserId() == 0,
@@ -805,6 +809,7 @@ private data class HomeButtonSpec(
 @Composable
 private fun HomeScreen(
     serviceResource: Resource<ServiceStatus>?,
+    serverState: ShizukuStateMachine.State = ShizukuStateMachine.State.STOPPED,
     grantedResource: Resource<Int>?,
     localNetworkPermissionState: LocalNetworkPermissionState,
     isPrimaryUser: Boolean,
@@ -830,7 +835,7 @@ private fun HomeScreen(
     val context = LocalContext.current
     val status = serviceResource?.data ?: ServiceStatus()
     val grantedCount = grantedResource?.data ?: 0
-    val running = status.isRunning
+    val running = serverState == ShizukuStateMachine.State.RUNNING || status.isRunning
     val adbPermission = status.permission
     val canUseWirelessAdb = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
         || EnvironmentUtils.isAdbPortLive(AdbStarter.TCP_MODE_PORT)
@@ -913,6 +918,7 @@ private fun HomeScreen(
                     serviceResource = serviceResource,
                     status = status,
                     running = running,
+                    serverState = serverState,
                     adbPermission = adbPermission,
                     isPrimaryUser = isPrimaryUser,
                     isRooted = isRooted,
@@ -1044,6 +1050,7 @@ private fun StatusHero(
     serviceResource: Resource<ServiceStatus>?,
     status: ServiceStatus,
     running: Boolean,
+    serverState: ShizukuStateMachine.State = ShizukuStateMachine.State.STOPPED,
     adbPermission: Boolean,
     isPrimaryUser: Boolean,
     isRooted: Boolean,
@@ -1128,7 +1135,7 @@ private fun StatusHero(
                 }
             }
 
-            if (serviceResource == null) {
+            if (serviceResource == null || serverState == ShizukuStateMachine.State.STARTING) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     LoadingIndicator(Modifier.size(24.dp))
                 }
