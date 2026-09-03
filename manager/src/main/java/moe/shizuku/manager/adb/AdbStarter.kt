@@ -40,7 +40,7 @@ object AdbStarter {
                 client.shellCommand(Starter.internalCommand, listener)
             }
         } finally {
-            if (tcpMode) disableWirelessDebugging(context)
+            disableWirelessDebugging(context)
         }
     }
 

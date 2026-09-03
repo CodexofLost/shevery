@@ -235,7 +235,9 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             }
 
             AdbStarter.start("127.0.0.1", port, applicationContext)
-            Starter.waitForBinder()
+            if (!Starter.waitForBinder()) {
+                throw TimeoutException("Failed to receive binder within 1 minute")
+            }
 
             val nm = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             nm.cancel(ShizukuReceiverStarter.NOTIFICATION_ID)
