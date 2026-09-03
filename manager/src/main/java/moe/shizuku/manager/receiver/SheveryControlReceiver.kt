@@ -22,6 +22,13 @@ class SheveryControlReceiver : BroadcastReceiver() {
         when (intent.action) {
             ACTION_START_SERVER -> {
                 WatchdogManager.clearUserStopRequest(context.applicationContext)
+                // Re-enqueue the constrained worker too: the error
+                // notification's tap previously only attempted an immediate
+                // mDNS start (which fails on cellular) and left the boot work
+                // in FAILED state, so returning to Wi-Fi never resumed it.
+                // The worker carries the UNMETERED constraint and now retries
+                // transient failures instead of terminally failing.
+                moe.shizuku.manager.worker.AdbStartWorker.enqueueIfIdle(context.applicationContext)
                 WatchdogManager.attemptRestart(context.applicationContext)
             }
             ACTION_STOP_SERVER -> {

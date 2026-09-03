@@ -8,5 +8,9 @@ import moe.shizuku.manager.worker.AdbStartWorker
 class NotifAttemptReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         AdbStartWorker.enqueue(context)
+        ShizukuReceiverStarter.updateNotification(
+            context,
+            ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+        )
     }
 }

@@ -36,7 +36,6 @@ import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import moe.shizuku.manager.AppConstants
-import java.io.EOFException
 import java.util.concurrent.TimeoutException
 import java.util.concurrent.TimeUnit
 
@@ -44,6 +43,8 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
     companion object {
         private const val MAX_RETRY_COUNT = 3
+
+        const val UNIQUE_WORK_NAME = "adb_start_worker"
 
         fun enqueue(context: Context) {
             val cb = Constraints.Builder()
@@ -58,15 +59,58 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 .build()
 
             WorkManager.getInstance(context).enqueueUniqueWork(
-                "adb_start_worker",
+                UNIQUE_WORK_NAME,
                 ExistingWorkPolicy.REPLACE,
                 request
             )
+        }
+
+        /**
+         * Re-enqueue only if no adb_start work is already pending/running.
+         * Used by the Wi-Fi-return safety net so it never cancels an
+         * actively running worker (REPLACE would restart it mid-discovery).
+         */
+        fun enqueueIfIdle(context: Context) {
+            try {
+                val infos = WorkManager.getInstance(context)
+                    .getWorkInfosForUniqueWork(UNIQUE_WORK_NAME).get()
+                if (infos != null && infos.any { !it.state.isFinished }) return
+            } catch (_: Exception) {
+                // Fall through to enqueue on lookup failure.
+            }
+            enqueue(context)
+        }
+
+        /** True when an unmetered, internet-capable network is available. */
+        fun isUnmeteredNetworkAvailable(context: Context): Boolean {
+            return try {
+                val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE)
+                    as? android.net.ConnectivityManager ?: return false
+                val network = cm.activeNetwork ?: return false
+                val caps = cm.getNetworkCapabilities(network) ?: return false
+                caps.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                    caps.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_NOT_METERED)
+            } catch (_: Exception) {
+                false
+            }
         }
     }
 
     override suspend fun doWork(): Result {
         try {
+            // Fast path: Wi-Fi required but only a metered network (cellular)
+            // is up. Skip the 15s mDNS timeout entirely and stay pending so
+            // WorkManager resumes us when unmetered Wi-Fi returns.
+            if (EnvironmentUtils.isWifiRequired() &&
+                !isUnmeteredNetworkAvailable(applicationContext)
+            ) {
+                ShizukuReceiverStarter.updateNotification(
+                    applicationContext,
+                    ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
+                )
+                return Result.retry()
+            }
+
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
                 ShizukuReceiverStarter.WorkerState.RUNNING
@@ -210,12 +254,8 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             ShizukuReceiverStarter.updateNotification(applicationContext, state)
             throw e
         } catch (e: Exception) {
-            val ignored = listOf(
-                EOFException::class,
-                SecurityException::class,
-                TimeoutException::class
-            )
-            if (ignored.none { it.isInstance(e) }) {
+            val isTransient = e is TimeoutException || e is java.io.IOException
+            if (!isTransient && e !is SecurityException) {
                 // Only surface the error if the service did not actually start —
                 // avoids a stale "stopped/failed" notification coexisting with a
                 // running service (e.g. binder arrived while we were unwinding).
@@ -226,6 +266,22 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             if (ShizukuStateMachine.update() == ShizukuStateMachine.State.RUNNING) {
                 return Result.success()
+            } else if (isTransient) {
+                // Cellular boot / link flap: stay pending so the UNMETERED
+                // constraint (and the Wi-Fi-return observer) resumes us.
+                // Surface AWAITING_WIFI when Wi-Fi is the blocker so the user
+                // sees "awaiting Wi-Fi" instead of a terminal error.
+                val state = if (EnvironmentUtils.isWifiRequired() &&
+                    !isUnmeteredNetworkAvailable(applicationContext)
+                ) {
+                    ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
+                } else {
+                    ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+                }
+                ShizukuReceiverStarter.updateNotification(applicationContext, state)
+                // Never terminally fail on transient errors: the UNMETERED
+                // constraint keeps this pending until Wi-Fi returns.
+                return Result.retry()
             } else {
                 val attemptCount = runAttemptCount
                 if (attemptCount < MAX_RETRY_COUNT) {
