@@ -144,12 +144,20 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             val tcpPort = EnvironmentUtils.getAdbTcpPort()
 
-            val port = if (!EnvironmentUtils.isWifiRequired()) {
-                tcpPort
-            } else if (EnvironmentUtils.isTelevision()) {
+            val port = if (EnvironmentUtils.isTelevision()) {
                 // TV devices with a configured/static TCP port use TCP directly;
                 // avoid mDNS discovery which is unreliable on LEANBACK.
                 if (tcpPort > 0) tcpPort else throw SecurityException("TV device requires TCP ADB port to be configured")
+            } else if (!EnvironmentUtils.isWifiRequired() && EnvironmentUtils.isAdbPortLive(tcpPort)) {
+
+                // A configured/static TCP port that is actually live can be used directly.
+
+                // NOTE: TCP mode alone does NOT imply the port is live: adbd's wireless
+                // debugging port is random per boot,and 5555 (TCP_MODE_PORT( exists only
+                // AFTER the first successful start rebinds adbd to it. When a configured port
+                // is stale (e.g., fresh reboot before the service started(, fall through to mDNS
+                // so the worker still discovers the live random wireless port.
+                tcpPort
             } else {
                 callbackFlow {
                     val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { p ->
