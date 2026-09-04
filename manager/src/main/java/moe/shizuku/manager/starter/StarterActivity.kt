@@ -21,6 +21,7 @@ import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.adb.AdbKeyException
 import moe.shizuku.manager.app.AppActivity
+import moe.shizuku.manager.utils.ShizukuStateMachine
 import moe.shizuku.manager.ui.compose.ExpressiveCard
 import moe.shizuku.manager.ui.compose.HtmlText
 import moe.shizuku.manager.ui.compose.MonospaceLog
@@ -295,12 +296,7 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
     }
 
     private suspend fun waitForShizukuBinder(timeoutMs: Long = 10_000L): Boolean {
-        val deadline = android.os.SystemClock.elapsedRealtime() + timeoutMs
-        while (android.os.SystemClock.elapsedRealtime() < deadline) {
-            if (Shizuku.pingBinder()) return true
-            kotlinx.coroutines.delay(500)
-        }
-        return Shizuku.pingBinder()
+        return ShizukuStateMachine.awaitRunning(timeoutMs)
     }
 
     private fun startDhizuku(context: Context) {
