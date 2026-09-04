@@ -104,37 +104,35 @@ object AdbNetworkObserver {
         }
         scope.launch {
             try {
-                            // Unmetered Wi-Fi is back: re-enqueue, then post a banner that
-                            // reflects the actual WorkManager state instead of optimistic RUNNING.
-                            // Actively RUNNING work is left alone, since REPLACE would cancel a
-                            // live discovery mid-flight. Everything else is stale now that the
-                            // network is back: REPLACE cancels the pending wait and starts a
-                            // fresh attempt immediately, instead of KEEP no-op'ing, which would
-                            // leave a delayed retry parked until its countdown has expired.
-                            val state = withTimeout(5_000L) {
-                                val info = WorkManager.getInstance(app.applicationContext)
-                                    .getWorkInfosForUniqueWork(AdbStartWorker.UNIQUE_WORK_NAME)
-                                    .get()
-                                    .firstOrNull()
-                                if (info?.state != WorkInfo.State.RUNNING) {
+                // Unmetered Wi-Fi is back: re-enqueue, then post a banner that
+                // reflects the actual WorkManager state instead of optimistic RUNNING.
+                // Actively RUNNING work is left alone, since REPLACE would cancel a
+                // live discovery mid-flight. Everything else is stale now that the
+                // network is back: REPLACE cancels the pending wait and starts a
+                // fresh attempt immediately, instead of KEEP no-op'ing, which would
+                // leave a delayed retry parked until its countdown has expired.
+                val state = withTimeout(5_000L) {
+                    val info = WorkManager.getInstance(app.applicationContext)
+                        .getWorkInfosForUniqueWork(AdbStartWorker.UNIQUE_WORK_NAME)
+                        .get()
+                        .firstOrNull()
+                    if (info?.state != WorkInfo.State.RUNNING) {
 
-                                    AdbStartWorker.enqueue(app.applicationContext)
-                                }
+                        AdbStartWorker.enqueue(app.applicationContext)
+                    }
 
-                                when (info?.state) {
-                                    WorkInfo.State.RUNNING -> ShizukuReceiverStarter.WorkerState.RUNNING
-                                    WorkInfo.State.BLOCKED -> ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
+                    when (info?.state) {
+                        WorkInfo.State.RUNNING -> ShizukuReceiverStarter.WorkerState.RUNNING
+                        WorkInfo.State.BLOCKED -> ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
 
-                                    // Post-enqueue race:the fresh row may not be visible yet, or
-                            // the constraint hasn't flipped when we read, so fall back to
-                                    // the worker's own environment-based guess, same as the worker
-                                    // itself uses when it wakes.
-                                    else -> AdbStartWorker.bannerStateFor(app.applicationContext)
-                                }
-                            }
-                        }
-
-                        ShizukuReceiverStarter.updateNotification(app.applicationContext, state)
+                        // Post-enqueue race:the fresh row may not be visible yet, or
+                        // the constraint hasn't flipped when we read, so fall back to
+                        // the worker's own environment-based guess, same as the worker
+                        // itself uses when it wakes.
+                        else -> AdbStartWorker.bannerStateFor(app.applicationContext)
+                }
+                }
+                ShizukuReceiverStarter.updateNotification(app.applicationContext, state)
             } catch (e: Exception) {
                 Log.w(TAG, "onUnmeteredAvailable enqueue failed", e)
             }
