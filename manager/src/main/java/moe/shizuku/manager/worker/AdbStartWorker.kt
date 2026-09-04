@@ -94,6 +94,18 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 false
             }
         }
+
+        /** Banner state matching what will actually happen next: while Wi-Fi is
+         *  the blocker show AWAITING_WIFI; otherwise RUNNING — or, for the
+         *  backing-off worker, AWAITING_RETRY. */
+        fun bannerStateFor(context: Context, retrying: Boolean = false): ShizukuReceiverStarter.WorkerState =
+            if (EnvironmentUtils.isWifiRequired() && !isUnmeteredNetworkAvailable(context)) {
+                ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
+            } else if (retrying) {
+                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+            } else {
+                ShizukuReceiverStarter.WorkerState.RUNNING
+            }
     }
 
     override suspend fun doWork(): Result {
@@ -308,13 +320,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                     )
                     return Result.failure()
                 }
-                val state = if (EnvironmentUtils.isWifiRequired() &&
-                    !isUnmeteredNetworkAvailable(applicationContext)
-                ) {
-                    ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
-                } else {
-                    ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
-                }
+                val state = bannerStateFor(applicationContext, retrying = true)
                 ShizukuReceiverStarter.updateNotification(applicationContext, state)
                 // Never terminally fail on transient errors: the UNMETERED
                 // constraint keeps this pending until Wi-Fi returns.

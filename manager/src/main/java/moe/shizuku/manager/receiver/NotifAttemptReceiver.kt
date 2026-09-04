@@ -8,9 +8,9 @@ import moe.shizuku.manager.worker.AdbStartWorker
 class NotifAttemptReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         AdbStartWorker.enqueue(context)
-        ShizukuReceiverStarter.updateNotification(
-            context,
-            ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
-        )
+        // REPLACE enqueues a fresh work that runs immediately (when the
+        // UNMETERED constraint allows), so the banner must mirror the actual
+        // next state, not a hardcoded "awaiting retry".
+        ShizukuReceiverStarter.updateNotification(context, AdbStartWorker.bannerStateFor(context))
     }
 }
