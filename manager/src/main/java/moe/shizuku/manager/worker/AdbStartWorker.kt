@@ -311,6 +311,10 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // runAttemptCount is the caller's prior-run count (0 on the
                 // first run(; hitting the cap here means the initial attempt + cap
                 // retries have all failed — surface the error instead of forever.
+                // (The guard evaluates here,post-attempt: every run 0..5
+                // actually executes — count 5 is the 6th run (initial +
+                // TRANSIENT_MAX_RETRY_COUNT retries(,then the error surfaces.
+                // No off-by-one.)
                 if (runAttemptCount >= TRANSIENT_MAX_RETRY_COUNT) {
                     ShizukuReceiverStarter.updateNotification(
                         applicationContext,
@@ -329,6 +333,11 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // constraint keeps this work pending,so Wi-Fi-return resumes it.
                 return Result.retry()
             } else {
+                // Unclassified I/O (wrapped "stream closed", plain InterruptedIOException,
+                // etc.( lands here by design: unknown subclasses get neither the 5
+                // transient retries nor the constraint-park; they get the standard 3
+                // and terminal failure. The Wi-Fi-return observer is the backstop
+                // ifa real flap was miscast terminal.
                 val attemptCount = runAttemptCount
                 if (attemptCount < MAX_RETRY_COUNT) {
                     ShizukuReceiverStarter.updateNotification(

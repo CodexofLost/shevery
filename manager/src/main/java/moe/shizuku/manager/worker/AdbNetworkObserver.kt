@@ -6,6 +6,7 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.os.Build
+import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -26,6 +27,8 @@ import rikka.shizuku.Shizuku
 
  */
 object AdbNetworkObserver {
+
+    private const val TAG = "AdbNetworkObserver"
 
     @Volatile
     private var registered = false
@@ -65,8 +68,9 @@ object AdbNetworkObserver {
                 networkCallback = callback
                 cm.registerNetworkCallback(request, callback)
                 registered = true
-            } catch (_: Exception) {
+            } catch (e: Exception) {
                 // Observing is best-effort; the constrained worker covers the
+                Log.w(TAG, "registerNetworkCallback failed", e)
                 // normal path on its own.
 
             }
@@ -110,8 +114,8 @@ object AdbNetworkObserver {
                 )
                 AdbStartWorker.enqueueIfIdle(app.applicationContext)
 
-            } catch (_: Exception) {
-
+            } catch (e: Exception) {
+                Log.w(TAG, "onUnmeteredAvailable enqueue failed", e)
             }
         }
     }
