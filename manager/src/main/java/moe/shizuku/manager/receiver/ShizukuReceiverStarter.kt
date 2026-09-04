@@ -34,8 +34,8 @@ object ShizukuReceiverStarter {
         AWAITING_WIFI,
         AWAITING_RETRY,
         RUNNING,
-        // STOPPED cancels any stale progress UI (see updateNotification(;
-        // the terminal path re-posts the error after it,same NOTIFICATION_ID.
+        // STOPPED cancels any stale progress UI (see updateNotification();the
+        // terminal path re-posts the error after it on the same NOTIFICATION_ID.)
         STOPPED
     }
 

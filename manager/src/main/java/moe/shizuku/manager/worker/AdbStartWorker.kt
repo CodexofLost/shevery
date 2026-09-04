@@ -309,12 +309,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // sees "awaiting Wi-Fi" instead of a terminal error.
                 // Guarded so genuine flaps can't retry forever on battery:
                 // runAttemptCount is the caller's prior-run count (0 on the
-                // first run(; hitting the cap here means the initial attempt + cap
+                // first run). Hitting the cap here means the initial attempt + cap
                 // retries have all failed — surface the error instead of forever.
-                // (The guard evaluates here,post-attempt: every run 0..5
+                // The guard evaluates post-attempt: every run 0..5
                 // actually executes — count 5 is the 6th run (initial +
-                // TRANSIENT_MAX_RETRY_COUNT retries(,then the error surfaces.
-                // No off-by-one.)
+                // TRANSIENT_MAX_RETRY_COUNT retries), whereupon the error surfaces.
+
+                // No off-by-one.
                 if (runAttemptCount >= TRANSIENT_MAX_RETRY_COUNT) {
                     ShizukuReceiverStarter.updateNotification(
                         applicationContext,
@@ -334,10 +335,10 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 return Result.retry()
             } else {
                 // Unclassified I/O (wrapped "stream closed", plain InterruptedIOException,
-                // etc.( lands here by design: unknown subclasses get neither the 5
-                // transient retries nor the constraint-park; they get the standard 3
-                // and terminal failure. The Wi-Fi-return observer is the backstop
-                // ifa real flap was miscast terminal.
+                // etc.) lands here by design: unknown subclasses get neither the 5
+                // transient retries nor the constraint-park;they get the standard 3
+                // retries,and then a terminal failure. The Wi-Fi-return observer is
+                // the backstop if a real flap was miscast as terminal.
                 val attemptCount = runAttemptCount
                 if (attemptCount < MAX_RETRY_COUNT) {
                     ShizukuReceiverStarter.updateNotification(

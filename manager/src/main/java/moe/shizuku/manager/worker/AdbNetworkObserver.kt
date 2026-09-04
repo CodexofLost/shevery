@@ -7,10 +7,13 @@ import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.os.Build
 import android.util.Log
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeout
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.receiver.ShizukuReceiverStarter
 import rikka.shizuku.Shizuku
@@ -101,19 +104,37 @@ object AdbNetworkObserver {
         }
         scope.launch {
             try {
-                // Unmetered Wi-Fi is back: refresh the banner immediately so a
-                // frozen "awaiting Wi-Fi" can't survive the transition while the
-                // worker (re)starts — enqueueIfIdle with KEEP is a silent no-op
+                // Unmetered Wi-Fi is back: re-enqueue the start worker, then post a
+                // banner that reflects the actual WorkManager state instead of an
+                // optimistic RUNNING. KEEP no-ops when work is already pending,so
+                // the old unconditional RUNNING lied when a backoff-parked worker
+                // would sit "awaiting Wi-Fi" on a now-present network for minutes.
 
-                // when work is already pending,and a pending retry may sit in
-                // backoff for minutes without posting anything itself.
-
-                ShizukuReceiverStarter.updateNotification(
-                    app.applicationContext,
-                    ShizukuReceiverStarter.WorkerState.RUNNING
-                )
                 AdbStartWorker.enqueueIfIdle(app.applicationContext)
 
+                val state = withTimeout(5_000L) {
+                    val info = WorkManager.getInstance(app.applicationContext)
+                        .getWorkInfosForUniqueWork(AdbStartWorker.UNIQUE_WORK_NAME)
+                        .get()
+                        .firstOrNull()
+                    when (info?.state) {
+                        WorkInfo.State.RUNNING -> ShizukuReceiverStarter.WorkerState.RUNNING
+                        // Constraint still unmet:don't claim RUNNING yet.
+                        WorkInfo.State.BLOCKED -> ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
+
+                        // Still enqueued (backoff or constraint wait(:the worker owns its
+                        // banner,and will post the accurate state when it wakes — show
+                        // "awaiting" meanwhile (AWAITING_WIFI iff Wi-Fi is missing).
+                        WorkInfo.State.ENQUEUED ->
+                            AdbStartWorker.bannerStateFor(app.applicationContext, retrying = true)
+
+                        // Enqueue race:(the row above is not in the DB yet, or the chain was
+                        // just re-enqueued after being finished(:use the same
+                        // environment-based guess the worker itself uses.
+                        else -> AdbStartWorker.bannerStateFor(app.applicationContext)
+                    }
+                }
+                ShizukuReceiverStarter.updateNotification(app.applicationContext, state)
             } catch (e: Exception) {
                 Log.w(TAG, "onUnmeteredAvailable enqueue failed", e)
             }
