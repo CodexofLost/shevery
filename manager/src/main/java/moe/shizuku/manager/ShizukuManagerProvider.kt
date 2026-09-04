@@ -10,7 +10,6 @@ import rikka.shizuku.ShizukuProvider
 import rikka.shizuku.server.ktx.workerHandler
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
-import java.util.concurrent.TimeoutException
 
 class ShizukuManagerProvider : ShizukuProvider() {
 
@@ -36,6 +35,23 @@ class ShizukuManagerProvider : ShizukuProvider() {
                 val binder = extras.getParcelable<BinderContainer>(EXTRA_BINDER)?.binder
                     ?: extras.getParcelable<BinderContainer>(EXTRA_BINDER_SHEVERY)?.binder
                     ?: return null
+
+                // Fast path: attach immediately if Shizuku binder is already available
+                if (Shizuku.pingBinder()) {
+                    return try {
+                        Shizuku.attachUserService(binder, bundleOf(
+                            USER_SERVICE_ARG_TOKEN to token
+                        ))
+                        val container = BinderContainer(Shizuku.getBinder())
+                        Bundle().apply {
+                            putParcelable(EXTRA_BINDER, container)
+                            putParcelable(EXTRA_BINDER_SHEVERY, container)
+                        }
+                    } catch (e: Throwable) {
+                        LOGGER.e(e, "attachUserService fast-path $token")
+                        null
+                    }
+                }
 
                 val countDownLatch = CountDownLatch(1)
                 var reply: Bundle? = Bundle()
@@ -63,11 +79,17 @@ class ShizukuManagerProvider : ShizukuProvider() {
 
                 Shizuku.addBinderReceivedListenerSticky(listener, workerHandler)
 
-                return try {
+                val completed = try {
                     countDownLatch.await(5, TimeUnit.SECONDS)
+                } catch (e: InterruptedException) {
+                    false
+                }
+
+                if (completed) {
                     reply
-                } catch (e: TimeoutException) {
-                    LOGGER.e(e, "Binder not received in 5s")
+                } else {
+                    LOGGER.e("Binder not received in 5s for sendUserService")
+                    Shizuku.removeBinderReceivedListener(listener)
                     null
                 }
             } catch (e: Throwable) {
