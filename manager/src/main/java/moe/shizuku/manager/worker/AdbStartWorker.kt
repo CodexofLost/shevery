@@ -54,7 +54,11 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
         private fun enqueueWithPolicy(context: Context, policy: ExistingWorkPolicy) {
             val cb = Constraints.Builder()
-            if (EnvironmentUtils.isWifiRequired()) {
+
+            // Wireless ADB needs a live unmetered LAN: park while none exists,
+            // regardless of TCP mode, so WorkManager itself resumes this on Wi-Fi return.
+
+            if (EnvironmentUtils.isWifiRequired() || !isUnmeteredNetworkAvailable(context)) {
                 cb.setRequiredNetworkType(NetworkType.UNMETERED)
             }
             val constraints = cb.build()
@@ -99,7 +103,8 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
          *  the blocker show AWAITING_WIFI; otherwise RUNNING — or, for the
          *  backing-off worker, AWAITING_RETRY. */
         fun bannerStateFor(context: Context, retrying: Boolean = false): ShizukuReceiverStarter.WorkerState =
-            if (EnvironmentUtils.isWifiRequired() && !isUnmeteredNetworkAvailable(context)) {
+            // Matches the enqueue constraint: parked while no unmetered LAN exists.
+            if (!isUnmeteredNetworkAvailable(context)) {
                 ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
             } else if (retrying) {
                 ShizukuReceiverStarter.WorkerState.AWAITING_RETRY

@@ -61,9 +61,11 @@ object ShizukuReceiverStarter {
                         // is actually required-but-unavailable (previously this unconditionally
                         // posted AWAITING_WIFI, so any re-invocation on Wi-Fi overwrote the
                         // worker's RUNNING state with a stale "awaiting Wi-Fi" banner).
-                        val state = if (EnvironmentUtils.isWifiRequired() &&
-                            !AdbStartWorker.isUnmeteredNetworkAvailable(context)
-                        ) {
+                        // Parked while no unmetered network exists — same condition as
+                        // the worker's constraint (see AdbStartWorker.enqueueWithPolicy);
+                        // TCP mode does NOT mean the boot can run without Wi-Fi: wireless
+                        // ADB still needs the live local network to discover/connect.
+                        val state = if (!AdbStartWorker.isUnmeteredNetworkAvailable(context)) {
                             WorkerState.AWAITING_WIFI
                         } else {
                             WorkerState.RUNNING
