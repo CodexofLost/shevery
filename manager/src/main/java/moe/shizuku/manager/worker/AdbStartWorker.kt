@@ -36,7 +36,7 @@ import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import moe.shizuku.manager.AppConstants
-import java.io.EOFException
+import rikka.shizuku.Shizuku
 import java.util.concurrent.TimeoutException
 import java.util.concurrent.TimeUnit
 
@@ -44,8 +44,15 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
     companion object {
         private const val MAX_RETRY_COUNT = 3
+        private const val TRANSIENT_MAX_RETRY_COUNT = 5
+
+        const val UNIQUE_WORK_NAME = "adb_start_worker"
 
         fun enqueue(context: Context) {
+            enqueueWithPolicy(context, ExistingWorkPolicy.REPLACE)
+        }
+
+        private fun enqueueWithPolicy(context: Context, policy: ExistingWorkPolicy) {
             val cb = Constraints.Builder()
             if (EnvironmentUtils.isWifiRequired()) {
                 cb.setRequiredNetworkType(NetworkType.UNMETERED)
@@ -58,11 +65,47 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 .build()
 
             WorkManager.getInstance(context).enqueueUniqueWork(
-                "adb_start_worker",
-                ExistingWorkPolicy.REPLACE,
+                UNIQUE_WORK_NAME,
+                policy,
                 request
             )
         }
+
+        /**
+         * Re-enqueue only if no adb_start work is already pending/running.
+         * Uses KEEP so it never cancels an actively running worker (REPLACE
+         * would restart it mid-discovery). Never blocks: no Future.get(),
+         * safe to call from onReceive()/NetworkCallback (main thread).
+         */
+        fun enqueueIfIdle(context: Context) {
+            enqueueWithPolicy(context, ExistingWorkPolicy.KEEP)
+        }
+
+        /** True when an unmetered, internet-capable network is available. */
+        fun isUnmeteredNetworkAvailable(context: Context): Boolean {
+            return try {
+                val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE)
+                    as? android.net.ConnectivityManager ?: return false
+                val network = cm.activeNetwork ?: return false
+                val caps = cm.getNetworkCapabilities(network) ?: return false
+                caps.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                    caps.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_NOT_METERED)
+            } catch (_: Exception) {
+                false
+            }
+        }
+
+        /** Banner state matching what will actually happen next: while Wi-Fi is
+         *  the blocker show AWAITING_WIFI; otherwise RUNNING — or, for the
+         *  backing-off worker, AWAITING_RETRY. */
+        fun bannerStateFor(context: Context, retrying: Boolean = false): ShizukuReceiverStarter.WorkerState =
+            if (EnvironmentUtils.isWifiRequired() && !isUnmeteredNetworkAvailable(context)) {
+                ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
+            } else if (retrying) {
+                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+            } else {
+                ShizukuReceiverStarter.WorkerState.RUNNING
+            }
     }
 
     override suspend fun doWork(): Result {
@@ -191,10 +234,23 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             }
 
             AdbStarter.start("127.0.0.1", port, applicationContext)
-            Starter.waitForBinder()
+            if (!Starter.waitForBinder()) {
+                // waitForBinder can time out while the binder actually arrived;
+                // re-ping once before treating this as a failure.
+                if (Shizuku.pingBinder()) {
+                    ShizukuReceiverStarter.updateNotification(
+                        applicationContext,
+                        ShizukuReceiverStarter.WorkerState.STOPPED
+                    )
+                    return Result.success()
+                }
+                throw TimeoutException("Failed to receive binder within 1 minute")
+            }
 
-            val nm = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            nm.cancel(ShizukuReceiverStarter.NOTIFICATION_ID)
+            ShizukuReceiverStarter.updateNotification(
+                applicationContext,
+                ShizukuReceiverStarter.WorkerState.STOPPED
+            )
 
             return Result.success()
         } catch (e: CancellationException) {
@@ -210,23 +266,79 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             ShizukuReceiverStarter.updateNotification(applicationContext, state)
             throw e
         } catch (e: Exception) {
-            val ignored = listOf(
-                EOFException::class,
-                SecurityException::class,
-                TimeoutException::class
+            // Terminal failures: auth denial, broken pipe / TLS / DNS errors.
+            // These never heal with backoff — fail (with an error notification)
+            // and let the Wi-Fi-return observer re-enqueue when appropriate.
+            val isTerminal = e is SecurityException ||
+                e is java.io.EOFException ||
+                e is javax.net.ssl.SSLException ||
+                e is java.net.UnknownHostException
+            // Retriable: timeouts and refused/reset connections only.
+            // Guarded by !isTerminal so EOF/SSL/DNS subclasses of IOException
+            // never count as transient.
+            val isTransient = !isTerminal && (
+                e is TimeoutException ||
+                e is java.net.SocketTimeoutException ||
+                e is java.net.SocketException
             )
-            if (ignored.none { it.isInstance(e) }) {
+            val currentState = ShizukuStateMachine.update()
+            if (currentState == ShizukuStateMachine.State.RUNNING) {
+                // Binder arrived during unwind — cancel any stale progress UI, then succeed.
+                ShizukuReceiverStarter.updateNotification(applicationContext, ShizukuReceiverStarter.WorkerState.STOPPED)
+                return Result.success()
+            }
+            if (isTerminal) {
                 // Only surface the error if the service did not actually start —
                 // avoids a stale "stopped/failed" notification coexisting with a
                 // running service (e.g. binder arrived while we were unwinding).
-                if (ShizukuStateMachine.update() != ShizukuStateMachine.State.RUNNING) {
-                    showErrorNotification(applicationContext, e)
-                }
+                // Terminal: return failure now; the Wi-Fi-return observer
+                // re-enqueues when appropriate. No fall-through into retry.
+                // STOPPED cancels any stale progress notification first, then
+                // the error posts last so it stays visible (same NOTIFICATION_ID).
+                ShizukuReceiverStarter.updateNotification(
+                    applicationContext,
+                    ShizukuReceiverStarter.WorkerState.STOPPED
+                )
+                showErrorNotification(applicationContext, e)
+                return Result.failure()
             }
+            if (isTransient) {
+                // Cellular boot / link flap: stay pending so the UNMETERED
+                // constraint (and the Wi-Fi-return observer) resumes us.
+                // Surface AWAITING_WIFI when Wi-Fi is the blocker so the user
+                // sees "awaiting Wi-Fi" instead of a terminal error.
+                // Guarded so genuine flaps can't retry forever on battery:
+                // runAttemptCount is the caller's prior-run count (0 on the
+                // first run). Hitting the cap here means the initial attempt + cap
+                // retries have all failed — surface the error instead of forever.
+                // The guard evaluates post-attempt: every run 0..5
+                // actually executes — count 5 is the 6th run (initial +
+                // TRANSIENT_MAX_RETRY_COUNT retries), whereupon the error surfaces.
 
-            if (ShizukuStateMachine.update() == ShizukuStateMachine.State.RUNNING) {
-                return Result.success()
+                // No off-by-one.
+                if (runAttemptCount >= TRANSIENT_MAX_RETRY_COUNT) {
+                    ShizukuReceiverStarter.updateNotification(
+                        applicationContext,
+                        ShizukuReceiverStarter.WorkerState.STOPPED
+                    )
+                    showErrorNotification(
+                        applicationContext,
+                        TimeoutException("Exceeded maximum retry attempts ($TRANSIENT_MAX_RETRY_COUNT) connecting to wireless ADB")
+                    )
+                    return Result.failure()
+                }
+                val state = bannerStateFor(applicationContext, retrying = true)
+                ShizukuReceiverStarter.updateNotification(applicationContext, state)
+                // Retry until the cap is exhausted:the guard above surfaces an
+                // error instead of spinning forever. Until then the UNMETERED
+                // constraint keeps this work pending,so Wi-Fi-return resumes it.
+                return Result.retry()
             } else {
+                // Unclassified I/O (wrapped "stream closed", plain InterruptedIOException,
+                // etc.) lands here by design: unknown subclasses get neither the 5
+                // transient retries nor the constraint-park;they get the standard 3
+                // retries,and then a terminal failure. The Wi-Fi-return observer is
+                // the backstop if a real flap was miscast as terminal.
                 val attemptCount = runAttemptCount
                 if (attemptCount < MAX_RETRY_COUNT) {
                     ShizukuReceiverStarter.updateNotification(
@@ -239,6 +351,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                         applicationContext,
                         ShizukuReceiverStarter.WorkerState.STOPPED
                     )
+                    showErrorNotification(applicationContext, e)
                     return Result.failure()
                 }
             }

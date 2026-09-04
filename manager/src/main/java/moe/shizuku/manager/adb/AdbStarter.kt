@@ -40,7 +40,12 @@ object AdbStarter {
                 client.shellCommand(Starter.internalCommand, listener)
             }
         } finally {
-            if (tcpMode) disableWirelessDebugging(context)
+            // Only touch wireless debugging when this starter put the device
+            // in TCP mode; unconditional disable would kill USB-started
+            // sessions and override the user's system setting.
+            if (tcpMode) {
+                disableWirelessDebugging(context)
+            }
         }
     }
 
