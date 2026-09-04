@@ -33,7 +33,7 @@ object AdbNetworkObserver {
     /** Suppresses back-to-back onAvailable flaps racing the constraint-unblock. */
     @Volatile
     private var lastTriggerMs = 0L
-    private const val DEBOUNCE_MS =  ‎5_000L
+    private const val DEBOUNCE_MS =  5_000L
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
