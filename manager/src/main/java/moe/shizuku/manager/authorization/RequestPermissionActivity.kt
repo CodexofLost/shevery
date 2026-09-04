@@ -29,9 +29,6 @@ import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuApiConstants.REQUEST_PERMISSION_REPLY_ALLOWED
 import rikka.shizuku.ShizukuApiConstants.REQUEST_PERMISSION_REPLY_IS_ONETIME
 import rikka.shizuku.server.ktx.workerHandler
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.TimeUnit
-import java.util.concurrent.TimeoutException
 
 class RequestPermissionActivity : AppActivity() {
 
@@ -70,34 +67,29 @@ class RequestPermissionActivity : AppActivity() {
         return false
     }
 
-    private fun waitForBinder(): Boolean {
-        val countDownLatch = CountDownLatch(1)
-
-        val listener = object : Shizuku.OnBinderReceivedListener {
-            override fun onBinderReceived() {
-                countDownLatch.countDown()
-                Shizuku.removeBinderReceivedListener(this)
-            }
+    private var binderListener: Shizuku.OnBinderReceivedListener? = null
+    private val timeoutRunnable = Runnable {
+        binderListener?.let {
+            Shizuku.removeBinderReceivedListener(it)
+            binderListener = null
         }
-
-        Shizuku.addBinderReceivedListenerSticky(listener, workerHandler)
-
-        return try {
-            countDownLatch.await(5, TimeUnit.SECONDS)
-            true
-        } catch (e: TimeoutException) {
-            LOGGER.e(e, "Binder not received in 5s")
-            false
+        if (!isFinishing && !isDestroyed) {
+            LOGGER.w("Binder not received within timeout for permission request")
+            finish()
         }
+    }
+
+    override fun onDestroy() {
+        binderListener?.let {
+            Shizuku.removeBinderReceivedListener(it)
+            binderListener = null
+        }
+        window?.decorView?.removeCallbacks(timeoutRunnable)
+        super.onDestroy()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        if (!waitForBinder()) {
-            finish()
-            return
-        }
 
         val uid = intent.getIntExtra("uid", -1)
         val pid = intent.getIntExtra("pid", -1)
@@ -107,6 +99,29 @@ class RequestPermissionActivity : AppActivity() {
             finish()
             return
         }
+
+        if (Shizuku.pingBinder()) {
+            initUi(uid, pid, requestCode, ai)
+        } else {
+            val listener = object : Shizuku.OnBinderReceivedListener {
+                override fun onBinderReceived() {
+                    binderListener?.let { Shizuku.removeBinderReceivedListener(it) }
+                    binderListener = null
+                    window?.decorView?.removeCallbacks(timeoutRunnable)
+                    runOnUiThread {
+                        if (!isFinishing && !isDestroyed) {
+                            initUi(uid, pid, requestCode, ai)
+                        }
+                    }
+                }
+            }
+            binderListener = listener
+            Shizuku.addBinderReceivedListenerSticky(listener, workerHandler)
+            window?.decorView?.postDelayed(timeoutRunnable, 5000)
+        }
+    }
+
+    private fun initUi(uid: Int, pid: Int, requestCode: Int, ai: ApplicationInfo) {
         if (!checkSelfPermission()) {
             setResult(uid, pid, requestCode, allowed = false, onetime = true)
             return
