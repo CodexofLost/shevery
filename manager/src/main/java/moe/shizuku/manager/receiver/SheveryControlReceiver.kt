@@ -29,6 +29,19 @@ class SheveryControlReceiver : BroadcastReceiver() {
                 // The worker carries the UNMETERED constraint and now retries
                 // transient failures instead of terminally failing.
                 moe.shizuku.manager.worker.AdbStartWorker.enqueueIfIdle(context.applicationContext)
+                // Refresh the worker banner to match reality: enqueueIfIdle with
+                // KEEP is a silent no-op when work is already pending, so without
+                // this the tap looks dead and a stale "awaiting Wi-Fi" survives
+                // even on Wi-Fi.
+                val appCtx = context.applicationContext
+                val state = if (moe.shizuku.manager.utils.EnvironmentUtils.isWifiRequired() &&
+                    !moe.shizuku.manager.worker.AdbStartWorker.isUnmeteredNetworkAvailable(appCtx)
+                ) {
+                    ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
+                } else {
+                    ShizukuReceiverStarter.WorkerState.RUNNING
+                }
+                ShizukuReceiverStarter.updateNotification(appCtx, state)
                 WatchdogManager.attemptRestart(context.applicationContext)
             }
             ACTION_STOP_SERVER -> {

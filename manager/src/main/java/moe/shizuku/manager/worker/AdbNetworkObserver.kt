@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.ShizukuSettings
+import moe.shizuku.manager.receiver.ShizukuReceiverStarter
 import rikka.shizuku.Shizuku
 
 /**
@@ -73,8 +74,25 @@ object AdbNetworkObserver {
         }
         scope.launch {
             try {
+                // Binder already up (started by another path): any lingering
+                // "awaiting Wi-Fi" banner is definitively stale — clear it.
+                if (Shizuku.pingBinder()) {
+                    ShizukuReceiverStarter.updateNotification(
+                        app.applicationContext,
+                        ShizukuReceiverStarter.WorkerState.STOPPED
+                    )
+                    return@launch
+                }
                 if (!ShizukuSettings.getStartOnBootAdb()) return@launch
-                if (Shizuku.pingBinder()) return@launch
+                // Unmetered Wi-Fi is back: refresh the banner immediately so a
+                // frozen "awaiting Wi-Fi" can't survive the transition while the
+                // worker (re)starts — enqueueIfIdle with KEEP is a silent no-op
+                // when work is already pending, and a pending retry may sit in
+                // backoff for minutes without posting anything itself.
+                ShizukuReceiverStarter.updateNotification(
+                    app.applicationContext,
+                    ShizukuReceiverStarter.WorkerState.RUNNING
+                )
                 AdbStartWorker.enqueueIfIdle(app.applicationContext)
             } catch (_: Exception) {
             }

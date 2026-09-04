@@ -55,7 +55,18 @@ object ShizukuReceiverStarter {
                         // Cancel the startup notification (id 1005) since the worker
                         // notification (id 1447) is now the source of truth.
                         moe.shizuku.manager.service.StartupNotificationManager.dismiss(context)
-                        updateNotification(context, WorkerState.AWAITING_WIFI)
+                        // Post the banner that matches reality: AWAITING_WIFI only when Wi-Fi
+                        // is actually required-but-unavailable (previously this unconditionally
+                        // posted AWAITING_WIFI, so any re-invocation on Wi-Fi overwrote the
+                        // worker's RUNNING state with a stale "awaiting Wi-Fi" banner).
+                        val state = if (EnvironmentUtils.isWifiRequired() &&
+                            !AdbStartWorker.isUnmeteredNetworkAvailable(context)
+                        ) {
+                            WorkerState.AWAITING_WIFI
+                        } else {
+                            WorkerState.RUNNING
+                        }
+                        updateNotification(context, state)
                     } else {
                         showPermissionErrorNotification(context)
                     }
