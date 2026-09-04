@@ -8,6 +8,7 @@ import android.net.NetworkRequest
 import android.os.Build
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.ShizukuSettings
 import rikka.shizuku.Shizuku
@@ -27,6 +28,16 @@ object AdbNetworkObserver {
     @Volatile
     private var registered = false
 
+    /** Suppresses back-to-back onAvailable flaps racing the constraint-unblock. */
+    @Volatile
+    private var lastTriggerMs = 0L
+    private const val DEBOUNCE_MS = 5_000L
+
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
+    /** Strong ref: ConnectivityManager does not retain the callback; an anonymous instance would be GC'd and silently kill the observer. */
+    private var networkCallback: ConnectivityManager.NetworkCallback? = null
+
     fun register(app: Application) {
         if (registered) return
         synchronized(this) {
@@ -37,11 +48,13 @@ object AdbNetworkObserver {
                     .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
                     .addCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)
                     .build()
-                cm.registerNetworkCallback(request, object : ConnectivityManager.NetworkCallback() {
+                val callback = object : ConnectivityManager.NetworkCallback() {
                     override fun onAvailable(network: Network) {
                         onUnmeteredAvailable(app)
                     }
-                })
+                }
+                networkCallback = callback
+                cm.registerNetworkCallback(request, callback)
                 registered = true
             } catch (_: Exception) {
                 // Observing is best-effort; the constrained worker covers the
@@ -52,7 +65,13 @@ object AdbNetworkObserver {
 
     private fun onUnmeteredAvailable(app: Application) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return
-        CoroutineScope(Dispatchers.IO).launch {
+        // Wireless debugging needs API 30+; the gate stays.
+        synchronized(this) {
+            val now = android.os.SystemClock.elapsedRealtime()
+            if (now - lastTriggerMs < DEBOUNCE_MS) return
+            lastTriggerMs = now
+        }
+        scope.launch {
             try {
                 if (!ShizukuSettings.getStartOnBootAdb()) return@launch
                 if (Shizuku.pingBinder()) return@launch
