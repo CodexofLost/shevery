@@ -11,6 +11,7 @@ import moe.shizuku.manager.AppConstants
 import moe.shizuku.manager.ktx.logw
 import moe.shizuku.manager.service.SheveryNotificationManager
 import moe.shizuku.manager.service.WatchdogManager
+import moe.shizuku.manager.worker.AdbStartWorker
 
 class SheveryControlReceiver : BroadcastReceiver() {
     companion object {
@@ -28,13 +29,13 @@ class SheveryControlReceiver : BroadcastReceiver() {
                 // in FAILED state, so returning to Wi-Fi never resumed it.
                 // The worker carries the UNMETERED constraint and now retries
                 // transient failures instead of terminally failing.
-                moe.shizuku.manager.worker.AdbStartWorker.enqueue(context.applicationContext)
+                AdbStartWorker.enqueue(context.applicationContext)
                 // Refresh the worker banner to match reality: REPLACE force-
                 // starts a fresh attempt, so the state flips immediately instead
                 // of looking dead or leaving a stale "awaiting Wi-Fi" banner.
                 val appCtx = context.applicationContext
                 ShizukuReceiverStarter.updateNotification(appCtx,
-                    moe.shizuku.manager.worker.AdbStartWorker.bannerStateFor(appCtx)
+                    AdbStartWorker.bannerStateFor(appCtx)
                 )
                 WatchdogManager.attemptRestart(context.applicationContext)
             }

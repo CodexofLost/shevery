@@ -279,8 +279,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             val isTransient = !isTerminal && (
                 e is TimeoutException ||
                 e is java.net.SocketTimeoutException ||
-                e is java.net.ConnectException ||
-                e is java.io.IOException
+                e is java.net.SocketException
             )
             val currentState = ShizukuStateMachine.update()
             if (currentState == ShizukuStateMachine.State.RUNNING) {
@@ -308,7 +307,10 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // constraint (and the Wi-Fi-return observer) resumes us.
                 // Surface AWAITING_WIFI when Wi-Fi is the blocker so the user
                 // sees "awaiting Wi-Fi" instead of a terminal error.
-                // Guarded so genuine flaps can't retry forever on battery.
+                // Guarded so genuine flaps can't retry forever on battery:
+                // runAttemptCount is the caller's prior-run count (0 on the
+                // first run(; hitting the cap here means the initial attempt + cap
+                // retries have all failed — surface the error instead of forever.
                 if (runAttemptCount >= TRANSIENT_MAX_RETRY_COUNT) {
                     ShizukuReceiverStarter.updateNotification(
                         applicationContext,
@@ -322,8 +324,9 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 }
                 val state = bannerStateFor(applicationContext, retrying = true)
                 ShizukuReceiverStarter.updateNotification(applicationContext, state)
-                // Never terminally fail on transient errors: the UNMETERED
-                // constraint keeps this pending until Wi-Fi returns.
+                // Retry until the cap is exhausted:the guard above surfaces an
+                // error instead of spinning forever. Until then the UNMETERED
+                // constraint keeps this work pending,so Wi-Fi-return resumes it.
                 return Result.retry()
             } else {
                 val attemptCount = runAttemptCount
