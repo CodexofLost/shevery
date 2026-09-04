@@ -71,10 +71,25 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
 
 
     private static void waitSystemService(String name) {
+        if (ServiceManager.getService(name) != null) {
+            return;
+        }
+
+        try {
+            java.lang.reflect.Method waitForServiceMethod = ServiceManager.class.getMethod("waitForService", String.class);
+            LOGGER.i("waiting for service " + name + " via ServiceManager.waitForService...");
+            IBinder binder = (IBinder) waitForServiceMethod.invoke(null, name);
+            if (binder != null) {
+                return;
+            }
+        } catch (Throwable ignored) {
+            // Pre-Android 11 or hidden-api restricted, fall back to check loop
+        }
+
         while (ServiceManager.getService(name) == null) {
             try {
-                LOGGER.i("service " + name + " is not started, wait 1s.");
-                Thread.sleep(1000);
+                LOGGER.i("service " + name + " is not started, wait 200ms.");
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 LOGGER.w(e.getMessage(), e);
             }
