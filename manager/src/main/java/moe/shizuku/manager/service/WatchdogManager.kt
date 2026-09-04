@@ -31,6 +31,7 @@ import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.EnvironmentUtils
+import moe.shizuku.manager.utils.ShizukuStateMachine
 import rikka.shizuku.Shizuku
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
@@ -284,12 +285,7 @@ object WatchdogManager {
     }
 
     private suspend fun waitUntilBinderStops(timeoutMs: Long): Boolean {
-        val deadline = SystemClock.elapsedRealtime() + timeoutMs
-        while (SystemClock.elapsedRealtime() < deadline) {
-            if (!Shizuku.pingBinder()) return true
-            delay(250L)
-        }
-        return !Shizuku.pingBinder()
+        return ShizukuStateMachine.awaitStopped(timeoutMs)
     }
 
     private fun forceStopServerProcess(): String? {
@@ -400,12 +396,7 @@ object WatchdogManager {
     }
 
     private suspend fun waitForShizukuBinder(timeoutMs: Long = 10_000L): Boolean {
-        val deadline = SystemClock.elapsedRealtime() + timeoutMs
-        while (SystemClock.elapsedRealtime() < deadline) {
-            if (Shizuku.pingBinder()) return true
-            kotlinx.coroutines.delay(500)
-        }
-        return Shizuku.pingBinder()
+        return ShizukuStateMachine.awaitRunning(timeoutMs)
     }
 
     private suspend fun restartDhizuku(context: Context) {
