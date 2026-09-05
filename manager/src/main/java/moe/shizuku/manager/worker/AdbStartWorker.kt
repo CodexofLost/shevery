@@ -1,7 +1,6 @@
 package moe.shizuku.manager.worker
 
 import android.app.KeyguardManager
-import android.content.pm.ServiceInfo
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -120,28 +119,14 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ShizukuReceiverStarter.WorkerState.RUNNING
             )
 
-            // Promote to an expedited foreground service so the worker survives
-            // the mDNS discovery + keyguard wait on Android 12+: setForeground
-            // requires expedited work since Android 12 — without it a plain background
-            // worker throws ForegroundServiceStartNotAllowedException and loops forever.
+            // No FGS promotion here: the reference (thedjchi/Shizuku( only foregrounds
+            // to wait out an *unbounded* keyguard unlock; every wait in our fork is
+            // bounded (15s discovery, 30s unlock(+ plus retries, so a background
+            // startForegroundService would only throw ForegroundServiceStartNotAllowed
+            // on Android  12+, looping forever. The expedited request gives a best-effort
+            // execution window; process death mid-attempt is covered by Result.retry().
 
-            // If quota exhausts, the request degrades to a plain job — catch the
-            // refusal and keep running instead of failing into the retry treadmill.
-            val fgNotification = ShizukuReceiverStarter.buildNotification(applicationContext, null)
-            val fgInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-                ForegroundInfo(
-                    ShizukuReceiverStarter.NOTIFICATION_ID,
-                    fgNotification,
-                    ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
-                )
-            } else {
-                ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, fgNotification)
-            }
-            try {
-                setForeground(fgInfo)
-            } catch (e: Exception) {
-                Log.w(AppConstants.TAG, "FGS promotion denied — running as plain background job (retries still apply(: ${e.message}")
-            }
+
 
             val cr = applicationContext.contentResolver
 
