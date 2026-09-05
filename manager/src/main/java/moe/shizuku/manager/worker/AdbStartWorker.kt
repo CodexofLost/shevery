@@ -169,7 +169,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // finds it instantly,and a wrong-service connect dies fast (
                 // TLS/A_AUTH handshake(, so this fallback is safe.
                 val liveTcpPort = EnvironmentUtils.getLiveAdbTcpPort()
-                if (liveTcpPort >   0)) liveTcpPort else callbackFlow {
+                if (liveTcpPort >   0) liveTcpPort else callbackFlow {
                     val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { p ->
                         if (p > 0) trySend(p)
                     }
