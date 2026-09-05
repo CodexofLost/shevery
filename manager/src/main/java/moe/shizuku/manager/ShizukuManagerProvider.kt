@@ -27,7 +27,30 @@ class ShizukuManagerProvider : ShizukuProvider() {
     override fun call(method: String, arg: String?, extras: Bundle?): Bundle? {
         if (extras == null) return null
 
-        return if (method == METHOD_SEND_USER_SERVICE) {
+        return when (method) {
+            METHOD_SEND_BINDER -> {
+                try {
+                    extras.classLoader = BinderContainer::class.java.classLoader
+                    val container = extras.getParcelable<BinderContainer>(EXTRA_BINDER)
+                        ?: extras.getParcelable<BinderContainer>(EXTRA_BINDER_SHEVERY)
+                    val newBinder = container?.binder
+                    if (newBinder != null) {
+                        // Accept if no living binder OR if this is a new replacement binder from a restarted server
+                        if (!Shizuku.pingBinder() || Shizuku.getBinder() != newBinder) {
+                            LOGGER.i("Received new/replacement Shizuku server binder in manager provider")
+                            val pkg = context?.packageName ?: "com.hamondev.shevery"
+                            Shizuku.onBinderReceived(newBinder, pkg)
+                        } else {
+                            LOGGER.d("sendBinder ignored: identical living binder already registered")
+                        }
+                    }
+                    Bundle()
+                } catch (e: Throwable) {
+                    LOGGER.e(e, "sendBinder")
+                    super.call(method, arg, extras)
+                }
+            }
+            METHOD_SEND_USER_SERVICE -> {
             try {
                 extras.classLoader = BinderContainer::class.java.classLoader
 
@@ -96,8 +119,9 @@ class ShizukuManagerProvider : ShizukuProvider() {
                 LOGGER.e(e, "sendUserService")
                 null
             }
-        } else {
-            super.call(method, arg, extras)
         }
+        else -> super.call(method, arg, extras)
     }
 }
+}
+

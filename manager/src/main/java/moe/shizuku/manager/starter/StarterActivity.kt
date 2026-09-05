@@ -9,12 +9,15 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.topjohnwu.superuser.CallbackList
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import moe.shizuku.manager.AppConstants.EXTRA
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
@@ -40,7 +43,6 @@ private class DhizukuException(message: String, cause: Throwable? = null) : Exce
 class StarterActivity : AppActivity() {
 
     private var waitingForService = false
-    private var binderReceivedListener: Shizuku.OnBinderReceivedListener? = null
 
     private val viewModel by viewModels {
         ViewModel(
@@ -50,14 +52,6 @@ class StarterActivity : AppActivity() {
             intent.getStringExtra(EXTRA_HOST),
             intent.getIntExtra(EXTRA_PORT, 0)
         )
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binderReceivedListener?.let {
-            Shizuku.removeBinderReceivedListener(it)
-            binderReceivedListener = null
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,24 +73,46 @@ class StarterActivity : AppActivity() {
                 }, 3000)
             } else if (!waitingForService && finished) {
                 waitingForService = true
-                viewModel.appendOutput("")
-                viewModel.appendOutput("Waiting for service...")
+                if (Shizuku.pingBinder() || ShizukuStateMachine.isRunning()) {
+                    moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
+                    viewModel.appendOutput("")
+                    viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
+                    window?.decorView?.postDelayed({
+                        if (!isFinishing) finish()
+                    }, 3000)
+                } else {
+                    viewModel.appendOutput("")
+                    viewModel.appendOutput("Waiting for service...")
 
-                val listener = object : Shizuku.OnBinderReceivedListener {
-                    override fun onBinderReceived() {
-                        Shizuku.removeBinderReceivedListener(this)
-                        binderReceivedListener = null
-                        runOnUiThread {
+                    lifecycleScope.launch {
+                        var running = false
+                        val startTime = System.currentTimeMillis()
+                        while (!running && (System.currentTimeMillis() - startTime) < 12_000L) {
+                            if (Shizuku.pingBinder() || ShizukuStateMachine.isRunning()) {
+                                ShizukuStateMachine.set(ShizukuStateMachine.State.RUNNING)
+                                running = true
+                                break
+                            }
+                            withTimeoutOrNull(500L) {
+                                ShizukuStateMachine.asFlow().first { it == ShizukuStateMachine.State.RUNNING }
+                                running = true
+                            }
+                        }
+
+                        if (running) {
                             moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
                             viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
                             window?.decorView?.postDelayed({
                                 if (!isFinishing) finish()
                             }, 3000)
+                        } else {
+                            viewModel.appendOutput("")
+                            viewModel.appendOutput("✗ Timed out waiting for Shevery service to initialize.")
+                            viewModel.appendOutput("  The starter process completed, but the server binder was not received.")
+                            viewModel.appendOutput("  Please try starting again, or check background battery restrictions.")
                         }
                     }
                 }
-                binderReceivedListener = listener
-                Shizuku.addBinderReceivedListenerSticky(listener)
             } else if (it.status == Status.ERROR) {
                 var message = 0
                 when (it.error) {
