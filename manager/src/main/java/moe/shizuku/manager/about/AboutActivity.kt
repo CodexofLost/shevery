@@ -1,3 +1,5 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class)
+
 package moe.shizuku.manager.about
 
 import android.os.Bundle
@@ -118,7 +120,7 @@ class AboutActivity : AppActivity() {
                                 horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp),
                                 modifier = Modifier.padding(vertical = 8.dp)
                             ) {
-                                androidx.compose.material3.CircularProgressIndicator(modifier = Modifier.size(28.dp))
+                                LoadingIndicator(modifier = Modifier.size(28.dp))
                                 Text(stringResource(R.string.shevery_update_checking))
                             }
                         },
@@ -163,7 +165,7 @@ class AboutActivity : AppActivity() {
                         contentDescription = "App Icon",
                         modifier = Modifier
                             .size(96.dp)
-                            .clip(CircleShape)
+                            .clip(RoundedCornerShape(24.dp))
                     )
                 }
 
@@ -180,14 +182,14 @@ class AboutActivity : AppActivity() {
 
                 Surface(
                     shape = RoundedCornerShape(16.dp),
-                    color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.1f),
+                    color = MaterialTheme.colorScheme.surfaceContainerHighest,
                     modifier = Modifier.padding(top = 8.dp)
                 ) {
                     Text(
                         text = "Version $versionName",
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
                     )
                 }
@@ -201,7 +203,7 @@ class AboutActivity : AppActivity() {
         Card(
             shape = RoundedCornerShape(24.dp),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow
             ),
             modifier = Modifier
                 .fillMaxWidth()

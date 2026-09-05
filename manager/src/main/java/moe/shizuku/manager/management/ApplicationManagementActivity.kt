@@ -310,7 +310,7 @@ private fun AppPermissionRow(
     ) {
         Surface(
             modifier = Modifier.size(46.dp),
-            shape = CircleShape,
+            shape = RoundedCornerShape(14.dp),
             color = MaterialTheme.colorScheme.surfaceContainerHighest
         ) {
             Image(
