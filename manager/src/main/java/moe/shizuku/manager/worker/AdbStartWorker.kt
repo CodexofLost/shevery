@@ -54,8 +54,9 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             // Matches the reference implementation (thedjchi/Shizuku): only
             // constrain on UNMETERED when wireless discovery actually needs
-            // Wi-Fi. In TCP mode adbd listens on loopback regardless of Wi-Fi
-            // state, so the worker runs immediately and connects directly.
+            // Wi-Fi. In TCP mode the worker runs immediately: live-port
+            // reuse if adbd is up, otherwise mDNS discovery (which times
+            // out fast when Wi-Fi is off and retries with backoff).
             if (EnvironmentUtils.isWifiRequired()) {
                 cb.setRequiredNetworkType(NetworkType.UNMETERED)
             }
