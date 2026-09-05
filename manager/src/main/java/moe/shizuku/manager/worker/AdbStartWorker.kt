@@ -65,6 +65,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             val request = OneTimeWorkRequestBuilder<AdbStartWorker>()
                 .setConstraints(constraints)
                 .setBackoffCriteria(BackoffPolicy.LINEAR, 30_000L, TimeUnit.MILLISECONDS)
+                .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
                 .build()
 
             WorkManager.getInstance(context).enqueueUniqueWork(
@@ -119,8 +120,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ShizukuReceiverStarter.WorkerState.RUNNING
             )
 
-            // Promote to a foreground service so the worker survives
-            // the mDNS discovery + keyguard wait on Android 12+.
+            // Promote to an expedited foreground service so the worker survives
+            // the mDNS discovery + keyguard wait on Android 12+: setForeground
+            // requires expedited work since Android 12 — without it a plain background
+            // worker throws ForegroundServiceStartNotAllowedException and loops forever.
+
+            // If quota exhausts, the request degrades to a plain job — catch the
+            // refusal and keep running instead of failing into the retry treadmill.
             val fgNotification = ShizukuReceiverStarter.buildNotification(applicationContext, null)
             val fgInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
                 ForegroundInfo(
@@ -131,7 +137,11 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             } else {
                 ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, fgNotification)
             }
-            setForeground(fgInfo)
+            try {
+                setForeground(fgInfo)
+            } catch (e: Exception) {
+                Log.w(AppConstants.TAG, "FGS promotion denied — running as plain background job (retries still apply(: ${e.message}")
+            }
 
             val cr = applicationContext.contentResolver
 
