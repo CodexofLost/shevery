@@ -128,7 +128,7 @@ object ShizukuReceiverStarter {
             .build()
     }
 
-    fun updateNotification(context: Context, state: WorkerState, detail: String? = null) {
+    fun updateNotification(context: Context, state: WorkerState) {
         val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         // STOPPED means "no notification" — explicitly cancel any stale one
         // (previously returned without cancelling, leaving a stale "stopped"
@@ -142,12 +142,7 @@ object ShizukuReceiverStarter {
             WorkerState.AWAITING_RETRY -> R.string.wadb_notification_retry
             else -> null
         }
-        val base = if (msgId != null) context.getString(msgId) else null
-        val msg = when {
-            detail.isNullOrBlank() -> base
-            base == null -> detail
-            else -> "$base — $detail"
-        }
+        val msg = if (msgId != null) context.getString(msgId) else null
         nm.notify(NOTIFICATION_ID, buildNotification(context, msg))
     }
 

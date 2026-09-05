@@ -325,10 +325,12 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ShizukuReceiverStarter.updateNotification(applicationContext, ShizukuReceiverStarter.WorkerState.STOPPED)
                 return Result.success()
             }
+            // Device-side debugging tip: temporarily re-surface the exception here
+            // (see docs/DEBUGGING_INSTRUMENTATION.md(; never ship raw exception text
+            // user-facing.
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
-                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY,
-                (e::class.java.simpleName + ": " + (e.message ?: "no message")).take(90)
+                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
             )
             return Result.retry()
         }
