@@ -163,7 +163,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // so the worker still discovers the live random wireless port.
                 tcpPort
             } else {
-                callbackFlow {
+                // mDNS advert can go stale when Wi-Fi drops and reconnects (the
+                // Framework never re-publishes _adb-tls-connect(; adbd's TLS
+                // listener usually survives on loopback though,cached last port probe
+                // finds it instantly,and a wrong-service connect dies fast (
+                // TLS/A_AUTH handshake(, so this fallback is safe.
+                val liveTcpPort = EnvironmentUtils.getLiveAdbTcpPort()
+                if (liveTcpPort >   0)) liveTcpPort else callbackFlow {
                     val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { p ->
                         if (p > 0) trySend(p)
                     }
@@ -326,7 +332,8 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             }
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
-                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY,
+                (e::class.java.simpleName + ": " + (e.message ?: "no message")).take(90)
             )
             return Result.retry()
         }
