@@ -5,7 +5,6 @@ package moe.shizuku.manager.management
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.os.Bundle
-import android.text.method.LinkMovementMethod
 import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -18,12 +17,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,6 +34,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,17 +45,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import moe.shizuku.manager.Helps
 import moe.shizuku.manager.R
 import moe.shizuku.manager.app.AppActivity
 import moe.shizuku.manager.authorization.AuthorizationManager
-import moe.shizuku.manager.ktx.toHtml
 import moe.shizuku.manager.ui.compose.ExpressiveSwitch
 import moe.shizuku.manager.ui.compose.ExpressiveCard
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import moe.shizuku.manager.ui.compose.ShizukuIcon
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
+import moe.shizuku.manager.utils.CustomTabsHelper
 import moe.shizuku.manager.utils.ShizukuSystemApis
 import moe.shizuku.manager.utils.UserHandleCompat
 import rikka.html.text.HtmlCompat
@@ -97,6 +99,7 @@ class ApplicationManagementActivity : AppActivity() {
             val packagesResource by viewModel.packages.observeAsState()
             val packages = packagesResource?.data.orEmpty()
             val tick = permissionTick.intValue
+            var showAdbLimitedDialog by rememberSaveable { mutableStateOf(false) }
 
             ShizukuExpressiveTheme {
                 ShizukuLazyScaffold(
@@ -177,7 +180,7 @@ class ApplicationManagementActivity : AppActivity() {
                                             AppPermissionRow(
                                                 packageInfo = packageInfo,
                                                 tick = tick,
-                                                onLimitedAdb = ::showAdbLimitedDialog,
+                                                onLimitedAdb = { showAdbLimitedDialog = true },
                                                 onPermissionChanged = {
                                                     setResult(RESULT_OK)
                                                     permissionTick.intValue++
@@ -196,6 +199,48 @@ class ApplicationManagementActivity : AppActivity() {
                             }
                         }
                     }
+                }
+
+                if (showAdbLimitedDialog) {
+                    AlertDialog(
+                        onDismissRequest = { showAdbLimitedDialog = false },
+                        title = {
+                            Text(
+                                text = stringResource(R.string.app_management_dialog_adb_is_limited_title),
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold
+                            )
+                        },
+                        text = {
+                            Text(
+                                text = HtmlCompat.fromHtml(
+                                    getString(R.string.app_management_dialog_adb_is_limited_message, Helps.ADB.get()),
+                                    HtmlCompat.FROM_HTML_OPTION_TRIM_WHITESPACE
+                                ).toString(),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        },
+                        confirmButton = {
+                            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                OutlinedButton(
+                                    onClick = {
+                                        CustomTabsHelper.launchUrlOrCopy(
+                                            this@ApplicationManagementActivity,
+                                            Helps.ADB.get()
+                                        )
+                                    }
+                                ) {
+                                    Text(stringResource(R.string.home_adb_button_view_help))
+                                }
+                                Button(onClick = { showAdbLimitedDialog = false }) {
+                                    Text(stringResource(android.R.string.ok))
+                                }
+                            }
+                        },
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        shape = MaterialTheme.shapes.extraLarge
+                    )
                 }
             }
         }
@@ -233,20 +278,6 @@ class ApplicationManagementActivity : AppActivity() {
     override fun onResume() {
         super.onResume()
         permissionTick.intValue++
-    }
-
-    private fun showAdbLimitedDialog() {
-        val dialog = MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.app_management_dialog_adb_is_limited_title)
-            .setMessage(
-                getString(R.string.app_management_dialog_adb_is_limited_message, Helps.ADB.get())
-                    .toHtml(HtmlCompat.FROM_HTML_OPTION_TRIM_WHITESPACE)
-            )
-            .setPositiveButton(android.R.string.ok, null)
-            .show()
-
-        dialog.findViewById<android.widget.TextView>(android.R.id.message)?.movementMethod =
-            LinkMovementMethod.getInstance()
     }
 }
 
