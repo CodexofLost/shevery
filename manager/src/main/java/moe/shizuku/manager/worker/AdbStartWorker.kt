@@ -43,9 +43,6 @@ import java.util.concurrent.TimeUnit
 class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
 
     companion object {
-        private const val MAX_RETRY_COUNT = 3
-        private const val TRANSIENT_MAX_RETRY_COUNT = 5
-
         const val UNIQUE_WORK_NAME = "adb_start_worker"
 
         fun enqueue(context: Context) {
@@ -54,6 +51,11 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
         private fun enqueueWithPolicy(context: Context, policy: ExistingWorkPolicy) {
             val cb = Constraints.Builder()
+
+            // Matches the reference implementation (thedjchi/Shizuku): only
+            // constrain on UNMETERED when wireless discovery actually needs
+            // Wi-Fi. In TCP mode adbd listens on loopback regardless of Wi-Fi
+            // state, so the worker runs immediately and connects directly.
             if (EnvironmentUtils.isWifiRequired()) {
                 cb.setRequiredNetworkType(NetworkType.UNMETERED)
             }
@@ -99,7 +101,8 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
          *  the blocker show AWAITING_WIFI; otherwise RUNNING — or, for the
          *  backing-off worker, AWAITING_RETRY. */
         fun bannerStateFor(context: Context, retrying: Boolean = false): ShizukuReceiverStarter.WorkerState =
-            if (EnvironmentUtils.isWifiRequired() && !isUnmeteredNetworkAvailable(context)) {
+            // Matches the enqueue constraint: parked while no unmetered LAN exists.
+            if (!isUnmeteredNetworkAvailable(context)) {
                 ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
             } else if (retrying) {
                 ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
@@ -144,12 +147,20 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             val tcpPort = EnvironmentUtils.getAdbTcpPort()
 
-            val port = if (!EnvironmentUtils.isWifiRequired()) {
-                tcpPort
-            } else if (EnvironmentUtils.isTelevision()) {
+            val port = if (EnvironmentUtils.isTelevision()) {
                 // TV devices with a configured/static TCP port use TCP directly;
                 // avoid mDNS discovery which is unreliable on LEANBACK.
                 if (tcpPort > 0) tcpPort else throw SecurityException("TV device requires TCP ADB port to be configured")
+            } else if (!EnvironmentUtils.isWifiRequired() && EnvironmentUtils.isAdbPortLive(tcpPort)) {
+
+                // A configured/static TCP port that is actually live can be used directly.
+
+                // NOTE: TCP mode alone does NOT imply the port is live: adbd's wireless
+                // debugging port is random per boot,and 5555 (TCP_MODE_PORT( exists only
+                // AFTER the first successful start rebinds adbd to it. When a configured port
+                // is stale (e.g., fresh reboot before the service started(, fall through to mDNS
+                // so the worker still discovers the live random wireless port.
+                tcpPort
             } else {
                 callbackFlow {
                     val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { p ->
@@ -158,10 +169,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
                     var awaitingAuth = false
                     var timeoutJob: Job? = null
+                    var authWaitJob: Job? = null
                     var unlockReceiver: BroadcastReceiver? = null
 
                     fun startDiscoveryWithTimeout() {
                         adbMdns.start()
+                        authWaitJob?.cancel()
+                        authWaitJob = null
                         timeoutJob?.cancel()
                         timeoutJob = this.launch {
                             delay(15_000)
@@ -171,44 +185,65 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
                     fun handleAuth() {
                         val km = applicationContext.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+                        timeoutJob?.cancel()
+                        timeoutJob = null
+                        adbMdns.stop()
+                        authWaitJob?.cancel()
+                        authWaitJob = null
                         if (km.isKeyguardLocked) {
-                            val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
-                            unlockReceiver = object : BroadcastReceiver() {
-                                override fun onReceive(context: Context, intent: Intent) {
-                                    if (intent.action == Intent.ACTION_USER_PRESENT) {
-                                        context.unregisterReceiver(this)
-                                        unlockReceiver = null
-                                        Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+                            if (unlockReceiver == null) {
+                                val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
+                                unlockReceiver = object : BroadcastReceiver() {
+                                    override fun onReceive(context: Context, intent: Intent) {
+                                        if (intent.action == Intent.ACTION_USER_PRESENT) {
+                                            context.unregisterReceiver(this)
+                                            unlockReceiver = null
+                                            Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+                                        }
                                     }
                                 }
+                                val receiverFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                    ContextCompat.RECEIVER_EXPORTED
+                                } else {
+                                    ContextCompat.RECEIVER_NOT_EXPORTED
+                                }
+                                ContextCompat.registerReceiver(
+                                    applicationContext,
+                                    unlockReceiver,
+                                    filter,
+                                    receiverFlags
+                                )
                             }
-                            val receiverFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                                ContextCompat.RECEIVER_EXPORTED
-                            } else {
-                                ContextCompat.RECEIVER_NOT_EXPORTED
+                            // Bound the unlock wait: an uncapped wait wedges the worker
+                            // when the flag flaps during Wi-Fi bring-up. This timeout is
+                            // transient, so a later retry (or the unlock) resumes us.
+                            authWaitJob = this.launch {
+                                delay(60_000)
+                                close(TimeoutException("Timed out waiting for unlock to authorize wireless debugging"))
                             }
-                            ContextCompat.registerReceiver(
-                                applicationContext,
-                                unlockReceiver,
-                                filter,
-                                receiverFlags
-                            )
                         } else {
+                            // System cleared adb_wifi_enabled mid-run (typical during
+                            // Wi-Fi bring-up). Re-assert once and resume discovery under
+                            // timeout instead of wedging; a repeat clear surfaces as a
+                            // transient timeout below, never terminal death.
                             awaitingAuth = true
+                            runCatching { Settings.Global.putInt(cr, "adb_wifi_enabled", 1) }
+                            startDiscoveryWithTimeout()
                         }
-                        timeoutJob?.cancel()
-                        adbMdns.stop()
                     }
 
                     val observer = object : ContentObserver(null) {
                         override fun onChange(selfChange: Boolean) {
                             when (Settings.Global.getInt(cr, "adb_wifi_enabled", 0)) {
                                 0 -> if (awaitingAuth) {
-                                    close(SecurityException("Network is not authorized for wireless debugging"))
+                                    close(TimeoutException("Wireless debugging was disabled again mid-run"))
                                 } else {
                                     handleAuth()
                                 }
-                                1 -> startDiscoveryWithTimeout()
+                                1 -> {
+                                    awaitingAuth = false
+                                    startDiscoveryWithTimeout()
+                                }
                             }
                         }
                     }
@@ -222,6 +257,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
                     awaitClose {
                         adbMdns.stop()
+                        authWaitJob?.cancel()
                         timeoutJob?.cancel()
                         cr.unregisterContentObserver(observer)
                         unlockReceiver?.let {
@@ -266,95 +302,31 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             ShizukuReceiverStarter.updateNotification(applicationContext, state)
             throw e
         } catch (e: Exception) {
-            // Terminal failures: auth denial, broken pipe / TLS / DNS errors.
-            // These never heal with backoff — fail (with an error notification)
-            // and let the Wi-Fi-return observer re-enqueue when appropriate.
-            val isTerminal = e is SecurityException ||
-                e is java.io.EOFException ||
-                e is javax.net.ssl.SSLException ||
-                e is java.net.UnknownHostException
-            // Retriable: timeouts and refused/reset connections only.
-            // Guarded by !isTerminal so EOF/SSL/DNS subclasses of IOException
-            // never count as transient.
-            val isTransient = !isTerminal && (
-                e is TimeoutException ||
-                e is java.net.SocketTimeoutException ||
-                e is java.net.SocketException
+            // Matches the reference implementation (thedjchi/Shizuku): the
+            // auto-start worker never terminally fails. Anything below a
+            // running binder — adbd restarts, TLS/key flaps, mDNS misses,
+            // Wi-Fi bring-up races — heals with backoff, so retry until the
+            // binder is up. Failing here strands the device until the next
+            // boot or a manual start.
+            val ignored = listOf(
+                java.io.EOFException::class,
+                SecurityException::class,
+                TimeoutException::class,
+                javax.net.ssl.SSLException::class,
+                java.net.UnknownHostException::class
             )
-            val currentState = ShizukuStateMachine.update()
-            if (currentState == ShizukuStateMachine.State.RUNNING) {
+            if (ignored.none { it.isInstance(e) }) showErrorNotification(applicationContext, e)
+
+            if (ShizukuStateMachine.update() == ShizukuStateMachine.State.RUNNING) {
                 // Binder arrived during unwind — cancel any stale progress UI, then succeed.
                 ShizukuReceiverStarter.updateNotification(applicationContext, ShizukuReceiverStarter.WorkerState.STOPPED)
                 return Result.success()
             }
-            if (isTerminal) {
-                // Only surface the error if the service did not actually start —
-                // avoids a stale "stopped/failed" notification coexisting with a
-                // running service (e.g. binder arrived while we were unwinding).
-                // Terminal: return failure now; the Wi-Fi-return observer
-                // re-enqueues when appropriate. No fall-through into retry.
-                // STOPPED cancels any stale progress notification first, then
-                // the error posts last so it stays visible (same NOTIFICATION_ID).
-                ShizukuReceiverStarter.updateNotification(
-                    applicationContext,
-                    ShizukuReceiverStarter.WorkerState.STOPPED
-                )
-                showErrorNotification(applicationContext, e)
-                return Result.failure()
-            }
-            if (isTransient) {
-                // Cellular boot / link flap: stay pending so the UNMETERED
-                // constraint (and the Wi-Fi-return observer) resumes us.
-                // Surface AWAITING_WIFI when Wi-Fi is the blocker so the user
-                // sees "awaiting Wi-Fi" instead of a terminal error.
-                // Guarded so genuine flaps can't retry forever on battery:
-                // runAttemptCount is the caller's prior-run count (0 on the
-                // first run). Hitting the cap here means the initial attempt + cap
-                // retries have all failed — surface the error instead of forever.
-                // The guard evaluates post-attempt: every run 0..5
-                // actually executes — count 5 is the 6th run (initial +
-                // TRANSIENT_MAX_RETRY_COUNT retries), whereupon the error surfaces.
-
-                // No off-by-one.
-                if (runAttemptCount >= TRANSIENT_MAX_RETRY_COUNT) {
-                    ShizukuReceiverStarter.updateNotification(
-                        applicationContext,
-                        ShizukuReceiverStarter.WorkerState.STOPPED
-                    )
-                    showErrorNotification(
-                        applicationContext,
-                        TimeoutException("Exceeded maximum retry attempts ($TRANSIENT_MAX_RETRY_COUNT) connecting to wireless ADB")
-                    )
-                    return Result.failure()
-                }
-                val state = bannerStateFor(applicationContext, retrying = true)
-                ShizukuReceiverStarter.updateNotification(applicationContext, state)
-                // Retry until the cap is exhausted:the guard above surfaces an
-                // error instead of spinning forever. Until then the UNMETERED
-                // constraint keeps this work pending,so Wi-Fi-return resumes it.
-                return Result.retry()
-            } else {
-                // Unclassified I/O (wrapped "stream closed", plain InterruptedIOException,
-                // etc.) lands here by design: unknown subclasses get neither the 5
-                // transient retries nor the constraint-park;they get the standard 3
-                // retries,and then a terminal failure. The Wi-Fi-return observer is
-                // the backstop if a real flap was miscast as terminal.
-                val attemptCount = runAttemptCount
-                if (attemptCount < MAX_RETRY_COUNT) {
-                    ShizukuReceiverStarter.updateNotification(
-                        applicationContext,
-                        ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
-                    )
-                    return Result.retry()
-                } else {
-                    ShizukuReceiverStarter.updateNotification(
-                        applicationContext,
-                        ShizukuReceiverStarter.WorkerState.STOPPED
-                    )
-                    showErrorNotification(applicationContext, e)
-                    return Result.failure()
-                }
-            }
+            ShizukuReceiverStarter.updateNotification(
+                applicationContext,
+                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
+            )
+            return Result.retry()
         }
     }
 
