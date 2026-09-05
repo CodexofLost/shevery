@@ -15,9 +15,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.topjohnwu.superuser.CallbackList
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeoutOrNull
 import moe.shizuku.manager.AppConstants.EXTRA
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
@@ -68,49 +67,28 @@ class StarterActivity : AppActivity() {
                 waitingForService = true
                 moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
                 viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
-                window?.decorView?.postDelayed({
+                lifecycleScope.launch {
+                    delay(3000L)
                     if (!isFinishing) finish()
-                }, 3000)
+                }
             } else if (!waitingForService && finished) {
                 waitingForService = true
-                if (Shizuku.pingBinder() || ShizukuStateMachine.isRunning()) {
-                    moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
-                    viewModel.appendOutput("")
-                    viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
-                    window?.decorView?.postDelayed({
+                viewModel.appendOutput("")
+                viewModel.appendOutput("Waiting for service...")
+
+                lifecycleScope.launch {
+                    val running = ShizukuStateMachine.awaitRunning(12_000L)
+
+                    if (running) {
+                        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
+                        viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
+                        delay(3000L)
                         if (!isFinishing) finish()
-                    }, 3000)
-                } else {
-                    viewModel.appendOutput("")
-                    viewModel.appendOutput("Waiting for service...")
-
-                    lifecycleScope.launch {
-                        var running = false
-                        val startTime = System.currentTimeMillis()
-                        while (!running && (System.currentTimeMillis() - startTime) < 12_000L) {
-                            if (Shizuku.pingBinder() || ShizukuStateMachine.isRunning()) {
-                                ShizukuStateMachine.set(ShizukuStateMachine.State.RUNNING)
-                                running = true
-                                break
-                            }
-                            withTimeoutOrNull(500L) {
-                                ShizukuStateMachine.asFlow().first { it == ShizukuStateMachine.State.RUNNING }
-                                running = true
-                            }
-                        }
-
-                        if (running) {
-                            moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
-                            viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
-                            window?.decorView?.postDelayed({
-                                if (!isFinishing) finish()
-                            }, 3000)
-                        } else {
-                            viewModel.appendOutput("")
-                            viewModel.appendOutput("✗ Timed out waiting for Shevery service to initialize.")
-                            viewModel.appendOutput("  The starter process completed, but the server binder was not received.")
-                            viewModel.appendOutput("  Please try starting again, or check background battery restrictions.")
-                        }
+                    } else {
+                        viewModel.appendOutput("")
+                        viewModel.appendOutput("✗ Timed out waiting for Shevery service to initialize.")
+                        viewModel.appendOutput("  The starter process completed, but the server binder was not received.")
+                        viewModel.appendOutput("  Please try starting again, or check background battery restrictions.")
                     }
                 }
             } else if (it.status == Status.ERROR) {

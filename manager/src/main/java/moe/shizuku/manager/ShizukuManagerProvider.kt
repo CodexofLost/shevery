@@ -38,7 +38,7 @@ class ShizukuManagerProvider : ShizukuProvider() {
                         // Accept if no living binder OR if this is a new replacement binder from a restarted server
                         if (!Shizuku.pingBinder() || Shizuku.getBinder() != newBinder) {
                             LOGGER.i("Received new/replacement Shizuku server binder in manager provider")
-                            val pkg = context?.packageName ?: "com.hamondev.shevery"
+                            val pkg = context?.packageName ?: BuildConfig.APPLICATION_ID
                             Shizuku.onBinderReceived(newBinder, pkg)
                         } else {
                             LOGGER.d("sendBinder ignored: identical living binder already registered")
