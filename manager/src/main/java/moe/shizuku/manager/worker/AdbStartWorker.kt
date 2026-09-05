@@ -171,10 +171,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
                     var awaitingAuth = false
                     var timeoutJob: Job? = null
+                    var authWaitJob: Job? = null
                     var unlockReceiver: BroadcastReceiver? = null
 
                     fun startDiscoveryWithTimeout() {
                         adbMdns.start()
+                        authWaitJob?.cancel()
+                        authWaitJob = null
                         timeoutJob?.cancel()
                         timeoutJob = this.launch {
                             delay(15_000)
@@ -184,44 +187,65 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
                     fun handleAuth() {
                         val km = applicationContext.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+                        timeoutJob?.cancel()
+                        timeoutJob = null
+                        adbMdns.stop()
+                        authWaitJob?.cancel()
+                        authWaitJob = null
                         if (km.isKeyguardLocked) {
-                            val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
-                            unlockReceiver = object : BroadcastReceiver() {
-                                override fun onReceive(context: Context, intent: Intent) {
-                                    if (intent.action == Intent.ACTION_USER_PRESENT) {
-                                        context.unregisterReceiver(this)
-                                        unlockReceiver = null
-                                        Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+                            if (unlockReceiver == null) {
+                                val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
+                                unlockReceiver = object : BroadcastReceiver() {
+                                    override fun onReceive(context: Context, intent: Intent) {
+                                        if (intent.action == Intent.ACTION_USER_PRESENT) {
+                                            context.unregisterReceiver(this)
+                                            unlockReceiver = null
+                                            Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+                                        }
                                     }
                                 }
+                                val receiverFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                    ContextCompat.RECEIVER_EXPORTED
+                                } else {
+                                    ContextCompat.RECEIVER_NOT_EXPORTED
+                                }
+                                ContextCompat.registerReceiver(
+                                    applicationContext,
+                                    unlockReceiver,
+                                    filter,
+                                    receiverFlags
+                                )
                             }
-                            val receiverFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                                ContextCompat.RECEIVER_EXPORTED
-                            } else {
-                                ContextCompat.RECEIVER_NOT_EXPORTED
+                            // Bound the unlock wait: an uncapped wait wedges the worker
+                            // when the flag flaps during Wi-Fi bring-up. This timeout is
+                            // transient, so a later retry (or the unlock) resumes us.
+                            authWaitJob = this.launch {
+                                delay(60_000)
+                                close(TimeoutException("Timed out waiting for unlock to authorize wireless debugging"))
                             }
-                            ContextCompat.registerReceiver(
-                                applicationContext,
-                                unlockReceiver,
-                                filter,
-                                receiverFlags
-                            )
                         } else {
+                            // System cleared adb_wifi_enabled mid-run (typical during
+                            // Wi-Fi bring-up). Re-assert once and resume discovery under
+                            // timeout instead of wedging; a repeat clear surfaces as a
+                            // transient timeout below, never terminal death.
                             awaitingAuth = true
+                            runCatching { Settings.Global.putInt(cr, "adb_wifi_enabled", 1) }
+                            startDiscoveryWithTimeout()
                         }
-                        timeoutJob?.cancel()
-                        adbMdns.stop()
                     }
 
                     val observer = object : ContentObserver(null) {
                         override fun onChange(selfChange: Boolean) {
                             when (Settings.Global.getInt(cr, "adb_wifi_enabled", 0)) {
                                 0 -> if (awaitingAuth) {
-                                    close(SecurityException("Network is not authorized for wireless debugging"))
+                                    close(TimeoutException("Wireless debugging was disabled again mid-run"))
                                 } else {
                                     handleAuth()
                                 }
-                                1 -> startDiscoveryWithTimeout()
+                                1 -> {
+                                    awaitingAuth = false
+                                    startDiscoveryWithTimeout()
+                                }
                             }
                         }
                     }
@@ -235,6 +259,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
                     awaitClose {
                         adbMdns.stop()
+                        authWaitJob?.cancel()
                         timeoutJob?.cancel()
                         cr.unregisterContentObserver(observer)
                         unlockReceiver?.let {
