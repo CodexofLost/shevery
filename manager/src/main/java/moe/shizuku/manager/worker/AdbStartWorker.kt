@@ -224,12 +224,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                             }
                         } else {
                             // System cleared adb_wifi_enabled mid-run (typical during
-                            // Wi-Fi bring-up). Re-assert once and resume discovery under
-                            // timeout instead of wedging; a repeat clear surfaces as a
-                            // transient timeout below, never terminal death.
+                            // Wi-Fi bring-up). Wait for it to restore the flag (it does
+                            // once the wireless stack settles; the observer below re-arms
+                            // discovery), instead of re-asserting now and racing its cleanup
+                            // — a mid-flight clear would otherwise wedge us in a retry
+                            // loop just when the network is coming back.
+
                             awaitingAuth = true
-                            runCatching { Settings.Global.putInt(cr, "adb_wifi_enabled", 1) }
-                            startDiscoveryWithTimeout()
                         }
                     }
 
