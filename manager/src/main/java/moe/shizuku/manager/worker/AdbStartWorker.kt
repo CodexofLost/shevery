@@ -63,7 +63,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             val request = OneTimeWorkRequestBuilder<AdbStartWorker>()
                 .setConstraints(constraints)
-                .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30_000L, TimeUnit.MILLISECONDS)
+                .setBackoffCriteria(BackoffPolicy.LINEAR, 30_000L, TimeUnit.MILLISECONDS)
                 .build()
 
             WorkManager.getInstance(context).enqueueUniqueWork(
@@ -218,7 +218,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                             // when the flag flaps during Wi-Fi bring-up. This timeout is
                             // transient, so a later retry (or the unlock) resumes us.
                             authWaitJob = this.launch {
-                                delay(60_000)
+                                delay(30_000)
                                 close(TimeoutException("Timed out waiting for unlock to authorize wireless debugging"))
                             }
                         } else {
@@ -280,7 +280,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                     )
                     return Result.success()
                 }
-                throw TimeoutException("Failed to receive binder within 1 minute")
+                throw TimeoutException("Failed to receive binder within 30 seconds")
             }
 
             ShizukuReceiverStarter.updateNotification(

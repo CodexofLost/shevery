@@ -17,7 +17,7 @@ object Starter {
 
     val internalCommand = "$userCommand --apk=${app.applicationInfo.sourceDir}"
 
-    suspend fun waitForBinder(timeoutMs: Long = 60_000L): Boolean {
+    suspend fun waitForBinder(timeoutMs: Long = 30_000L): Boolean {
         return ShizukuStateMachine.awaitRunning(timeoutMs)
     }
 }
