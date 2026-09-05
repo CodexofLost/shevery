@@ -8,8 +8,6 @@ import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -167,21 +165,20 @@ class StarterActivity : AppActivity() {
                             } else if (isServiceStarted) {
                                 stringResource(R.string.home_status_service_is_running, stringResource(R.string.app_name))
                             } else {
-                                stringResource(R.string.notification_service_starting)
+                                ""
                             },
                             danger = failed
                         ) {
                             if (!failed && !isServiceStarted) {
-                                Spacer(Modifier.height(8.dp))
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                                 ) {
-                                    LoadingIndicator(modifier = Modifier.size(20.dp))
+                                    LoadingIndicator(modifier = Modifier.size(18.dp))
                                     Text(
                                         text = stringResource(R.string.notification_service_starting),
-                                        style = MaterialTheme.typography.labelMedium,
-                                        color = MaterialTheme.colorScheme.primary
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                 }
                             }
