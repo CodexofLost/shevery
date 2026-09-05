@@ -53,8 +53,9 @@ import androidx.compose.material.icons.rounded.Wifi
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
@@ -77,6 +78,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -266,7 +268,6 @@ abstract class HomeActivity : AppActivity() {
                                         checkServerStatus()
                                         appsModel.load()
                                     },
-                                    onAbout = ::showAboutDialog,
                                     onStop = ::showStopDialog,
                                     onManageApps = { manageAppsLauncher.launch(Intent(this@HomeActivity, ApplicationManagementActivity::class.java)) },
                                     onTerminal = { startActivity(Intent(this@HomeActivity, ShellTutorialActivity::class.java)) },
@@ -815,7 +816,6 @@ private fun HomeScreen(
     isPrimaryUser: Boolean,
     isRooted: Boolean,
     onRefresh: () -> Unit,
-    onAbout: () -> Unit,
     onStop: () -> Unit,
     onManageApps: () -> Unit,
     onTerminal: () -> Unit,
@@ -844,7 +844,9 @@ private fun HomeScreen(
     val diagnostics = remember(status, grantedCount, localNetworkPermissionState) {
         buildDiagnostics(context, status, grantedCount, localNetworkPermissionState)
     }
-    var moreOpen by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+    var isRefreshing by remember { mutableStateOf(false) }
+    val pullToRefreshState = rememberPullToRefreshState()
 
     Scaffold(
         contentWindowInsets = WindowInsets(0.dp),
@@ -858,47 +860,6 @@ private fun HomeScreen(
                         overflow = TextOverflow.Ellipsis
                     )
                 },
-                actions = {
-                    IconButton(onClick = onRefresh) {
-                        ShizukuIcon(
-                            icon = R.drawable.ic_server_restart,
-                            contentDescription = stringResource(R.string.home_refresh)
-                        )
-                    }
-                    Box {
-                        IconButton(onClick = { moreOpen = true }) {
-                            ShizukuIcon(
-                                icon = R.drawable.ic_more_vert_24,
-                                contentDescription = stringResource(R.string.accessibility_more_options)
-                            )
-                        }
-                        DropdownMenu(
-                            expanded = moreOpen,
-                            onDismissRequest = { moreOpen = false }
-                        ) {
-                            DropdownMenuItem(
-                                text = { Text(stringResource(R.string.action_stop)) },
-                                leadingIcon = {
-                                    ShizukuIcon(R.drawable.ic_close_24, contentDescription = null)
-                                },
-                                onClick = {
-                                    moreOpen = false
-                                    onStop()
-                                }
-                            )
-                            DropdownMenuItem(
-                                text = { Text(stringResource(R.string.action_about)) },
-                                leadingIcon = {
-                                    ShizukuIcon(R.drawable.ic_outline_info_24, contentDescription = null)
-                                },
-                                onClick = {
-                                    moreOpen = false
-                                    onAbout()
-                                }
-                            )
-                        }
-                    }
-                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
                     scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer
@@ -906,13 +867,30 @@ private fun HomeScreen(
             )
         }
     ) { innerPadding ->
-        LazyColumn(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding),
-            contentPadding = PaddingValues(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 112.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+                .padding(innerPadding)
         ) {
+            PullToRefreshBox(
+                modifier = Modifier.fillMaxSize(),
+                isRefreshing = isRefreshing,
+                onRefresh = {
+                    scope.launch {
+                        isRefreshing = true
+                        onRefresh()
+                        delay(500L)
+                        isRefreshing = false
+                    }
+                },
+                state = pullToRefreshState,
+                indicator = {}
+            ) {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 112.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
             item {
                 StatusHero(
                     serviceResource = serviceResource,
@@ -1043,6 +1021,15 @@ private fun HomeScreen(
             }
         }
     }
+    PullToRefreshDefaults.LoadingIndicator(
+        state = pullToRefreshState,
+        isRefreshing = isRefreshing,
+        modifier = Modifier
+            .align(Alignment.TopCenter)
+            .padding(top = 8.dp)
+    )
+}
+}
 }
 
 @Composable
