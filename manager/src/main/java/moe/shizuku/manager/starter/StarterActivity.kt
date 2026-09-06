@@ -17,10 +17,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import com.topjohnwu.superuser.CallbackList
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.AppConstants.EXTRA
 import moe.shizuku.manager.R
@@ -47,7 +49,6 @@ private class DhizukuException(message: String, cause: Throwable? = null) : Exce
 class StarterActivity : AppActivity() {
 
     private var waitingForService = false
-    private var binderReceivedListener: Shizuku.OnBinderReceivedListener? = null
 
     private val viewModel by viewModels {
         ViewModel(
@@ -57,14 +58,6 @@ class StarterActivity : AppActivity() {
             intent.getStringExtra(EXTRA_HOST),
             intent.getIntExtra(EXTRA_PORT, 0)
         )
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binderReceivedListener?.let {
-            Shizuku.removeBinderReceivedListener(it)
-            binderReceivedListener = null
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,29 +74,57 @@ class StarterActivity : AppActivity() {
                 waitingForService = true
                 moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
                 viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
-                window?.decorView?.postDelayed({
+                lifecycleScope.launch {
+                    delay(3000L)
                     if (!isFinishing) finish()
-                }, 3000)
+                }
             } else if (!waitingForService && finished) {
                 waitingForService = true
                 viewModel.appendOutput("")
                 viewModel.appendOutput("Waiting for service...")
 
-                val listener = object : Shizuku.OnBinderReceivedListener {
-                    override fun onBinderReceived() {
-                        Shizuku.removeBinderReceivedListener(this)
-                        binderReceivedListener = null
-                        runOnUiThread {
-                            moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
-                            viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
-                            window?.decorView?.postDelayed({
-                                if (!isFinishing) finish()
-                            }, 3000)
-                        }
+                lifecycleScope.launch {
+                    val running = ShizukuStateMachine.awaitRunning(12_000L)
+
+                    if (running) {
+                        moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
+                        viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
+                        delay(3000L)
+                        if (!isFinishing) finish()
+                    } else {
+                        viewModel.appendOutput("")
+                        viewModel.appendOutput("✗ Timed out waiting for Shevery service to initialize.")
+                        viewModel.appendOutput("  The starter process completed, but the server binder was not received.")
+                        viewModel.appendOutput("  Please try starting again, or check background battery restrictions.")
                     }
                 }
-                binderReceivedListener = listener
-                Shizuku.addBinderReceivedListenerSticky(listener)
+            } else if (it.status == Status.ERROR) {
+                var message = 0
+                when (it.error) {
+                    is AdbKeyException -> {
+                        message = R.string.adb_error_key_store
+                    }
+                    is NotRootedException -> {
+                        message = R.string.start_with_root_failed
+                    }
+                    is ConnectException -> {
+                        message = R.string.cannot_connect_port
+                    }
+                    is SSLProtocolException -> {
+                        message = R.string.adb_pair_required
+                    }
+                    is DhizukuException -> {
+                        // Already logged in the output
+                    }
+
+                }
+
+                if (message != 0) {
+                    MaterialAlertDialogBuilder(this)
+                        .setMessage(message)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show()
+                }
             }
         }
 
@@ -393,45 +414,11 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
                         appendLine("✓ Shevery binder verified.")
                         postResult()
                     } else {
-                        appendLine("Direct Dhizuku execution did not publish binder, attempting ADB TCP 5555 activation via Dhizuku...")
-                        var adbSuccess = false
-                        try {
-                            dhizukuService.enableAdb()
-                            val bound = dhizukuService.bindAdbTcp(AdbStarter.TCP_MODE_PORT)
-                            if (bound) {
-                                appendLine("✓ Port 5555 bound via Dhizuku. Connecting via ADB...")
-                                AdbStarter.start(
-                                    host = "127.0.0.1",
-                                    port = AdbStarter.TCP_MODE_PORT,
-                                    context = appContext,
-                                    listener = {
-                                        synchronized(outputLock) {
-                                            sb.append(String(it))
-                                        }
-                                        postResult()
-                                    },
-                                    log = {
-                                        appendLine(it)
-                                    }
-                                )
-                                if (waitForShizukuBinder()) {
-                                    appendLine("✓ Shevery binder verified via ADB 5555.")
-                                    adbSuccess = true
-                                    postResult()
-                                }
-                            } else {
-                                appendLine("✗ Failed to bind ADB to port 5555 via Dhizuku.")
-                            }
-                        } catch (adbEx: Exception) {
-                            appendLine("✗ ADB TCP activation via Dhizuku failed: ${adbEx.message}")
-                        }
-
-                        if (!adbSuccess) {
-                            appendLine("✗ Starter command completed, but Shevery service did not become available.")
-                            appendLine("  Direct Dhizuku startup can fail when the Device Owner context cannot provide the same shell/root environment as ADB or root.")
-                            appendLine("  Try starting with Wireless ADB or root, then copy diagnostics if this repeats.")
-                            postResult(DhizukuException("Dhizuku starter did not publish a Shevery binder"))
-                        }
+                        appendLine("✗ Starter command completed,but Shevery service did not become available.")
+                        appendLine("  Per README: start Shevery first by PC/OTG or Wireless Debugging, then use Dhizuku — \"Do not start Shevery via Dhizuku first.\"")
+                        appendLine("  Direct Dhizuku startup can fail when the Device Owner context cannot provide the same shell/root environment as ADB or root.")
+                        appendLine("  Try starting with Wireless ADB or root, then copy diagnostics if this repeats.")
+                        postResult(DhizukuException("Dhizuku starter did not publish a Shevery binder"))
                     }
                 } finally {
                     connection?.let { conn ->
