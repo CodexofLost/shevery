@@ -640,7 +640,7 @@ private fun CatalogModuleCard(
     Surface(
         modifier = modifier.fillMaxWidth().clickable(onClick = onCardClick),
         shape = MaterialTheme.shapes.large,
-        color = if (installed) MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.3f) else MaterialTheme.colorScheme.surfaceContainerLow,
+        color = if (installed) MaterialTheme.colorScheme.surfaceContainerHigh else MaterialTheme.colorScheme.surfaceContainerLow,
         tonalElevation = if (installed) 0.dp else 2.dp
     ) {
         Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -676,15 +676,16 @@ private fun CatalogModuleCard(
 @Composable
 private fun CatalogAvatar(ownerAvatar: String, moduleName: String, modifier: Modifier = Modifier) {
     val initials = remember(moduleName) { moduleName.take(2).uppercase(Locale.getDefault()) }
+    val avatarShape = RoundedCornerShape(12.dp)
     if (ownerAvatar.isNotBlank()) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current).data(ownerAvatar).crossfade(true).build(),
             contentDescription = moduleName,
-            modifier = modifier.clip(CircleShape),
+            modifier = modifier.clip(avatarShape),
             contentScale = ContentScale.Crop
         )
     } else {
-        Box(modifier = modifier.clip(CircleShape).background(MaterialTheme.colorScheme.primaryContainer), contentAlignment = Alignment.Center) {
+        Box(modifier = modifier.clip(avatarShape).background(MaterialTheme.colorScheme.primaryContainer), contentAlignment = Alignment.Center) {
             Text(initials, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onPrimaryContainer)
         }
     }

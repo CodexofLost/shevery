@@ -1,11 +1,17 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class)
+
 package moe.shizuku.manager.starter
 
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.LaunchedEffect
@@ -14,7 +20,10 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
@@ -160,6 +169,7 @@ class StarterActivity : AppActivity() {
                     item {
                         val startedWithRoot = intent.getBooleanExtra(EXTRA_IS_ROOT, true)
                         val startedWithDhizuku = intent.getBooleanExtra(EXTRA_IS_DHIZUKU, false)
+                        val isServiceStarted = output.contains("Service started")
                         ExpressiveCard(
                             icon = when {
                                 startedWithDhizuku -> R.drawable.ic_system_icon
@@ -173,11 +183,27 @@ class StarterActivity : AppActivity() {
                             },
                             body = if (failed) {
                                 stringResource(R.string.notification_service_start_failed)
+                            } else if (isServiceStarted) {
+                                stringResource(R.string.home_status_service_is_running, stringResource(R.string.app_name))
                             } else {
-                                stringResource(R.string.notification_service_starting)
+                                ""
                             },
                             danger = failed
-                        )
+                        ) {
+                            if (!failed && !isServiceStarted) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    LoadingIndicator(modifier = Modifier.size(18.dp))
+                                    Text(
+                                        text = stringResource(R.string.notification_service_starting),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                            }
+                        }
                     }
                     item {
                         MonospaceLog(
