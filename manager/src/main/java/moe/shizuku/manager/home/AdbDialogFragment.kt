@@ -64,9 +64,15 @@ fun AdbDiscoveryDialog(
     LaunchedEffect(Unit) {
         if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
             val cr = context.contentResolver
-            Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
-            Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
-            Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
+            if (Settings.Global.getInt(cr, "adb_wifi_enabled", 0) != 1) {
+                Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+            }
+            if (Settings.Global.getInt(cr, Settings.Global.ADB_ENABLED, 0) != 1) {
+                Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
+            }
+            if (Settings.Global.getLong(cr, "adb_allowed_connection_time", -1L) != 0L) {
+                Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
+            }
         }
 
         withContext(Dispatchers.IO) {
