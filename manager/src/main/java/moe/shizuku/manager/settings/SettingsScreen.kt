@@ -8,6 +8,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import moe.shizuku.manager.about.AboutActivity
 import android.os.Build
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatDelegate
@@ -671,6 +672,24 @@ fun SettingsScreen() {
                     summary = stringResource(R.string.restore_summary),
                     onClick = {
                         restoreLauncher.launch(arrayOf("application/zip", "application/octet-stream"))
+                    }
+                )
+            }
+        }
+
+        item {
+            SettingsGroup(title = stringResource(R.string.action_about)) {
+                val versionName = remember {
+                    try {
+                        context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: ""
+                    } catch (e: Exception) { "" }
+                }
+                SettingsRow(
+                    icon = R.drawable.ic_outline_info_24,
+                    title = stringResource(R.string.app_name),
+                    summary = if (versionName.isNotBlank()) "v$versionName" else null,
+                    onClick = {
+                        context.startActivity(Intent(context, AboutActivity::class.java))
                     }
                 )
             }
