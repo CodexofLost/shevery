@@ -72,6 +72,7 @@ class StarterActivity : AppActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        moe.shizuku.manager.service.WatchdogManager.isStarterActive = true
 
         val startedWithRoot = intent.getBooleanExtra(EXTRA_IS_ROOT, true)
         val startedWithDhizuku = intent.getBooleanExtra(EXTRA_IS_DHIZUKU, false)
@@ -210,6 +211,11 @@ class StarterActivity : AppActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        moe.shizuku.manager.service.WatchdogManager.isStarterActive = false
     }
 
     companion object {
