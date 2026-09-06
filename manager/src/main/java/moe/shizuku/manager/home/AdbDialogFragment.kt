@@ -55,12 +55,10 @@ fun AdbDiscoveryDialog(
     val context = LocalContext.current
     var startCommitted by remember { mutableStateOf(false) }
 
-    val fallbackPort = remember {
-        if (ShizukuSettings.isTcpMode()) {
-            AdbStarter.TCP_MODE_PORT
-        } else {
-            EnvironmentUtils.getAdbTcpPort()
-        }
+    var activePort by remember {
+        mutableStateOf(
+            if (ShizukuSettings.isTcpMode()) AdbStarter.TCP_MODE_PORT else -1
+        )
     }
 
     LaunchedEffect(Unit) {
@@ -71,14 +69,14 @@ fun AdbDiscoveryDialog(
             Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
         }
 
-        if (ShizukuSettings.isTcpMode()) {
-            withContext(Dispatchers.IO) {
-                if (EnvironmentUtils.isAdbPortLive(AdbStarter.TCP_MODE_PORT)) {
-                    withContext(Dispatchers.Main) {
-                        if (!startCommitted) {
-                            startCommitted = true
-                            onStartService(AdbStarter.TCP_MODE_PORT)
-                        }
+        withContext(Dispatchers.IO) {
+            val livePort = EnvironmentUtils.getLiveAdbTcpPort()
+            if (livePort in 1..65535) {
+                withContext(Dispatchers.Main) {
+                    activePort = livePort
+                    if (ShizukuSettings.isTcpMode() && !startCommitted) {
+                        startCommitted = true
+                        onStartService(livePort)
                     }
                 }
             }
@@ -141,16 +139,16 @@ fun AdbDiscoveryDialog(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                if (fallbackPort in 1..65535) {
+                if (activePort in 1..65535) {
                     OutlinedButton(
                         onClick = {
                             if (!startCommitted) {
                                 startCommitted = true
-                                onStartService(fallbackPort)
+                                onStartService(activePort)
                             }
                         }
                     ) {
-                        Text("$fallbackPort")
+                        Text("$activePort")
                     }
                 }
                 Button(
