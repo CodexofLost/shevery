@@ -1,7 +1,6 @@
 package moe.shizuku.manager.worker
 
 import android.app.KeyguardManager
-import android.content.pm.ServiceInfo
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -54,8 +53,9 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             // Matches the reference implementation (thedjchi/Shizuku): only
             // constrain on UNMETERED when wireless discovery actually needs
-            // Wi-Fi. In TCP mode adbd listens on loopback regardless of Wi-Fi
-            // state, so the worker runs immediately and connects directly.
+            // Wi-Fi. In TCP mode the worker runs immediately: live-port
+            // reuse if adbd is up, otherwise mDNS discovery (which times
+            // out fast when Wi-Fi is off and retries with backoff).
             if (EnvironmentUtils.isWifiRequired()) {
                 cb.setRequiredNetworkType(NetworkType.UNMETERED)
             }
@@ -63,7 +63,8 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             val request = OneTimeWorkRequestBuilder<AdbStartWorker>()
                 .setConstraints(constraints)
-                .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30_000L, TimeUnit.MILLISECONDS)
+                .setBackoffCriteria(BackoffPolicy.LINEAR, 30_000L, TimeUnit.MILLISECONDS)
+                .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
                 .build()
 
             WorkManager.getInstance(context).enqueueUniqueWork(
@@ -118,19 +119,14 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ShizukuReceiverStarter.WorkerState.RUNNING
             )
 
-            // Promote to a foreground service so the worker survives
-            // the mDNS discovery + keyguard wait on Android 12+.
-            val fgNotification = ShizukuReceiverStarter.buildNotification(applicationContext, null)
-            val fgInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-                ForegroundInfo(
-                    ShizukuReceiverStarter.NOTIFICATION_ID,
-                    fgNotification,
-                    ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
-                )
-            } else {
-                ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, fgNotification)
-            }
-            setForeground(fgInfo)
+            // No FGS promotion here: the reference (thedjchi/Shizuku( only foregrounds
+            // to wait out an *unbounded* keyguard unlock; every wait in our fork is
+            // bounded (15s discovery, 30s unlock(+ plus retries, so a background
+            // startForegroundService would only throw ForegroundServiceStartNotAllowed
+            // on Android  12+, looping forever. The expedited request gives a best-effort
+            // execution window; process death mid-attempt is covered by Result.retry().
+
+
 
             val cr = applicationContext.contentResolver
 
@@ -162,7 +158,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // so the worker still discovers the live random wireless port.
                 tcpPort
             } else {
-                callbackFlow {
+                // mDNS advert can go stale when Wi-Fi drops and reconnects (the
+                // Framework never re-publishes _adb-tls-connect(; adbd's TLS
+                // listener usually survives on loopback though,cached last port probe
+                // finds it instantly,and a wrong-service connect dies fast (
+                // TLS/A_AUTH handshake(, so this fallback is safe.
+                val liveTcpPort = EnvironmentUtils.getLiveAdbTcpPort()
+                if (liveTcpPort >   0) liveTcpPort else callbackFlow {
                     val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { p ->
                         if (p > 0) trySend(p)
                     }
@@ -218,17 +220,18 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                             // when the flag flaps during Wi-Fi bring-up. This timeout is
                             // transient, so a later retry (or the unlock) resumes us.
                             authWaitJob = this.launch {
-                                delay(60_000)
+                                delay(30_000)
                                 close(TimeoutException("Timed out waiting for unlock to authorize wireless debugging"))
                             }
                         } else {
                             // System cleared adb_wifi_enabled mid-run (typical during
-                            // Wi-Fi bring-up). Re-assert once and resume discovery under
-                            // timeout instead of wedging; a repeat clear surfaces as a
-                            // transient timeout below, never terminal death.
+                            // Wi-Fi bring-up). Wait for it to restore the flag (it does
+                            // once the wireless stack settles; the observer below re-arms
+                            // discovery), instead of re-asserting now and racing its cleanup
+                            // — a mid-flight clear would otherwise wedge us in a retry
+                            // loop just when the network is coming back.
+
                             awaitingAuth = true
-                            runCatching { Settings.Global.putInt(cr, "adb_wifi_enabled", 1) }
-                            startDiscoveryWithTimeout()
                         }
                     }
 
@@ -280,7 +283,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                     )
                     return Result.success()
                 }
-                throw TimeoutException("Failed to receive binder within 1 minute")
+                throw TimeoutException("Failed to receive binder within 30 seconds")
             }
 
             ShizukuReceiverStarter.updateNotification(
@@ -322,6 +325,9 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ShizukuReceiverStarter.updateNotification(applicationContext, ShizukuReceiverStarter.WorkerState.STOPPED)
                 return Result.success()
             }
+            // Device-side debugging tip: temporarily re-surface the exception here
+            // (see docs/DEBUGGING_INSTRUMENTATION.md(; never ship raw exception text
+            // user-facing.
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
                 ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
