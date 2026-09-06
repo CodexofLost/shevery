@@ -107,33 +107,6 @@ class StarterActivity : AppActivity() {
                         viewModel.appendOutput("  Please try starting again, or check background battery restrictions.")
                     }
                 }
-            } else if (it.status == Status.ERROR) {
-                var message = 0
-                when (it.error) {
-                    is AdbKeyException -> {
-                        message = R.string.adb_error_key_store
-                    }
-                    is NotRootedException -> {
-                        message = R.string.start_with_root_failed
-                    }
-                    is ConnectException -> {
-                        message = R.string.cannot_connect_port
-                    }
-                    is SSLProtocolException -> {
-                        message = R.string.adb_pair_required
-                    }
-                    is DhizukuException -> {
-                        // Already logged in the output
-                    }
-
-                }
-
-                if (message != 0) {
-                    MaterialAlertDialogBuilder(this)
-                        .setMessage(message)
-                        .setPositiveButton(android.R.string.ok, null)
-                        .show()
-                }
             }
         }
 
