@@ -9,14 +9,11 @@ package moe.shizuku.manager.home
 import android.Manifest
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -93,7 +90,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import moe.shizuku.manager.BuildConfig
 import moe.shizuku.manager.Helps
 import moe.shizuku.manager.R
@@ -210,6 +206,9 @@ abstract class HomeActivity : AppActivity() {
 
             var showTcpPromptDialog by rememberSaveable { mutableStateOf(false) }
             var doNotRemindChecked by rememberSaveable { mutableStateOf(false) }
+            var showStopDialog by rememberSaveable { mutableStateOf(false) }
+            var showAdbCommandDialog by rememberSaveable { mutableStateOf(false) }
+            var showWadbNotEnabledDialog by rememberSaveable { mutableStateOf(false) }
 
             LaunchedEffect(serviceResource?.status, serviceResource?.data?.uid) {
                 val status = serviceResource?.data ?: return@LaunchedEffect
@@ -268,14 +267,26 @@ abstract class HomeActivity : AppActivity() {
                                         checkServerStatus()
                                         appsModel.load()
                                     },
-                                    onStop = ::showStopDialog,
+                                    onStop = {
+                                        if (!Shizuku.pingBinder()) {
+                                            checkServerStatus()
+                                            moe.shizuku.manager.service.SheveryNotificationManager.updateNotification(this@HomeActivity)
+                                            Toast.makeText(this@HomeActivity, R.string.service_already_stopped, Toast.LENGTH_SHORT).show()
+                                        } else {
+                                            showStopDialog = true
+                                        }
+                                    },
                                     onManageApps = { manageAppsLauncher.launch(Intent(this@HomeActivity, ApplicationManagementActivity::class.java)) },
                                     onTerminal = { startActivity(Intent(this@HomeActivity, ShellTutorialActivity::class.java)) },
                                     onStartRoot = ::startRoot,
-                                    onStartWirelessAdb = { runWithLocalNetworkAccess(::startWirelessAdb) },
+                                    onStartWirelessAdb = {
+                                        runWithLocalNetworkAccess {
+                                            startWirelessAdb { showWadbNotEnabledDialog = true }
+                                        }
+                                    },
                                     onPairWirelessAdb = { runWithLocalNetworkAccess(::pairWirelessAdb) },
                                     onOpenWirelessGuide = { CustomTabsHelper.launchUrlOrCopy(this@HomeActivity, Helps.ADB_ANDROID11.get()) },
-                                    onShowAdbCommand = ::showAdbCommandDialog,
+                                    onShowAdbCommand = { showAdbCommandDialog = true },
                                     onOpenAdbHelp = { CustomTabsHelper.launchUrlOrCopy(this@HomeActivity, Helps.ADB.get()) },
                                     onOpenAdbPermissionHelp = { CustomTabsHelper.launchUrlOrCopy(this@HomeActivity, Helps.ADB_PERMISSION.get()) },
                                     onLearnMore = { CustomTabsHelper.launchUrlOrCopy(this@HomeActivity, Helps.HOME.get()) },
@@ -409,6 +420,161 @@ abstract class HomeActivity : AppActivity() {
                         shape = MaterialTheme.shapes.extraLarge
                     )
                 }
+
+                if (showStopDialog) {
+                    AlertDialog(
+                        onDismissRequest = { showStopDialog = false },
+                        title = {
+                            Text(
+                                text = stringResource(R.string.action_stop),
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold
+                            )
+                        },
+                        text = {
+                            Text(
+                                text = stringResource(R.string.dialog_stop_message),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        },
+                        confirmButton = {
+                            Button(
+                                onClick = {
+                                    showStopDialog = false
+                                    lifecycleScope.launch {
+                                        val result = moe.shizuku.manager.service.WatchdogManager.stopServerAndWait(
+                                            this@HomeActivity,
+                                            userInitiated = true
+                                        )
+                                        checkServerStatus()
+                                        appsModel.load(onlyCount = true)
+                                        moe.shizuku.manager.service.SheveryNotificationManager.updateNotification(this@HomeActivity)
+
+                                        if (result.stopped) {
+                                            Toast.makeText(this@HomeActivity, R.string.service_stop_success, Toast.LENGTH_SHORT).show()
+                                        } else {
+                                            val reason = result.error ?: getString(R.string.service_stop_still_running)
+                                            Toast.makeText(
+                                                this@HomeActivity,
+                                                getString(R.string.service_stop_failed, reason),
+                                                Toast.LENGTH_LONG
+                                            ).show()
+                                        }
+                                    }
+                                }
+                            ) {
+                                Text(stringResource(android.R.string.ok))
+                            }
+                        },
+                        dismissButton = {
+                            TextButton(onClick = { showStopDialog = false }) {
+                                Text(stringResource(android.R.string.cancel))
+                            }
+                        },
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        shape = MaterialTheme.shapes.extraLarge
+                    )
+                }
+
+                if (showAdbCommandDialog) {
+                    AlertDialog(
+                        onDismissRequest = { showAdbCommandDialog = false },
+                        title = {
+                            Text(
+                                text = stringResource(R.string.home_adb_button_view_command),
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold
+                            )
+                        },
+                        text = {
+                            Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                                MonospaceLog(text = Starter.adbCommand)
+                                Text(
+                                    text = stringResource(R.string.home_adb_dialog_view_command_notice),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        },
+                        confirmButton = {
+                            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                OutlinedButton(
+                                    onClick = {
+                                        var intent = Intent(Intent.ACTION_SEND).apply {
+                                            type = "text/plain"
+                                            putExtra(Intent.EXTRA_TEXT, Starter.adbCommand)
+                                        }
+                                        intent = Intent.createChooser(
+                                            intent,
+                                            getString(R.string.home_adb_dialog_view_command_button_send)
+                                        )
+                                        startActivity(intent)
+                                    }
+                                ) {
+                                    Text(stringResource(R.string.home_adb_dialog_view_command_button_send))
+                                }
+                                Button(
+                                    onClick = {
+                                        if (ClipboardUtils.put(this@HomeActivity, Starter.adbCommand)) {
+                                            Toast.makeText(
+                                                this@HomeActivity,
+                                                getString(R.string.toast_copied_to_clipboard, Starter.adbCommand),
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                        showAdbCommandDialog = false
+                                    }
+                                ) {
+                                    Text(stringResource(R.string.home_adb_dialog_view_command_copy_button))
+                                }
+                            }
+                        },
+                        dismissButton = {
+                            TextButton(onClick = { showAdbCommandDialog = false }) {
+                                Text(stringResource(android.R.string.cancel))
+                            }
+                        },
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        shape = MaterialTheme.shapes.extraLarge
+                    )
+                }
+
+                if (showWadbNotEnabledDialog) {
+                    AlertDialog(
+                        onDismissRequest = { showWadbNotEnabledDialog = false },
+                        text = {
+                            Text(
+                                text = stringResource(R.string.dialog_wireless_adb_not_enabled),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        },
+                        confirmButton = {
+                            Button(
+                                onClick = {
+                                    showWadbNotEnabledDialog = false
+                                    val intent = Intent(this@HomeActivity, StarterActivity::class.java).apply {
+                                        putExtra(StarterActivity.EXTRA_IS_ROOT, false)
+                                        putExtra(StarterActivity.EXTRA_HOST, "127.0.0.1")
+                                        putExtra(StarterActivity.EXTRA_PORT, AdbStarter.TCP_MODE_PORT)
+                                    }
+                                    startActivity(intent)
+                                }
+                            ) {
+                                Text(stringResource(R.string.home_quick_tcp))
+                            }
+                        },
+                        dismissButton = {
+                            TextButton(onClick = { showWadbNotEnabledDialog = false }) {
+                                Text(stringResource(android.R.string.ok))
+                            }
+                        },
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        shape = MaterialTheme.shapes.extraLarge
+                    )
+                }
                 }
             }
         }
@@ -442,42 +608,6 @@ abstract class HomeActivity : AppActivity() {
         startActivity(Intent(this, AboutActivity::class.java))
     }
 
-    private fun showStopDialog() {
-        if (!Shizuku.pingBinder()) {
-            checkServerStatus()
-            moe.shizuku.manager.service.SheveryNotificationManager.updateNotification(this)
-            Toast.makeText(this, R.string.service_already_stopped, Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        MaterialAlertDialogBuilder(this)
-            .setMessage(R.string.dialog_stop_message)
-            .setPositiveButton(android.R.string.ok) { _: DialogInterface?, _: Int ->
-                lifecycleScope.launch {
-                    val result = moe.shizuku.manager.service.WatchdogManager.stopServerAndWait(
-                        this@HomeActivity,
-                        userInitiated = true
-                    )
-                    checkServerStatus()
-                    appsModel.load(onlyCount = true)
-                    moe.shizuku.manager.service.SheveryNotificationManager.updateNotification(this@HomeActivity)
-
-                    if (result.stopped) {
-                        Toast.makeText(this@HomeActivity, R.string.service_stop_success, Toast.LENGTH_SHORT).show()
-                    } else {
-                        val reason = result.error ?: getString(R.string.service_stop_still_running)
-                        Toast.makeText(
-                            this@HomeActivity,
-                            getString(R.string.service_stop_failed, reason),
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                }
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
-    }
-
     private fun startRoot() {
         moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         startActivity(
@@ -487,7 +617,7 @@ abstract class HomeActivity : AppActivity() {
         )
     }
 
-    private fun startWirelessAdb() {
+    private fun startWirelessAdb(onWadbNotEnabled: () -> Unit) {
         moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@HomeActivity)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             AdbDialogFragment().show(supportFragmentManager, "adb")
@@ -509,7 +639,7 @@ abstract class HomeActivity : AppActivity() {
             return
         }
 
-        WadbNotEnabledDialogFragment().show(supportFragmentManager, "wadb_not_enabled")
+        onWadbNotEnabled()
     }
 
     private fun pairWirelessAdb() {
@@ -520,35 +650,6 @@ abstract class HomeActivity : AppActivity() {
         } else {
             startActivity(Intent(this, moe.shizuku.manager.adb.AdbPairingTutorialActivity::class.java))
         }
-    }
-
-    private fun showAdbCommandDialog() {
-        val view = LayoutInflater.from(this).inflate(R.layout.command_dialog, null)
-        view.findViewById<TextView>(R.id.command_text).text = Starter.adbCommand
-        MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.home_adb_button_view_command)
-            .setView(view)
-            .setPositiveButton(R.string.home_adb_dialog_view_command_copy_button) { _, _ ->
-                if (ClipboardUtils.put(this, Starter.adbCommand)) {
-                    Toast.makeText(
-                        this,
-                        getString(R.string.toast_copied_to_clipboard, Starter.adbCommand),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .setNeutralButton(R.string.home_adb_dialog_view_command_button_send) { _, _ ->
-                var intent = Intent(Intent.ACTION_SEND)
-                intent.type = "text/plain"
-                intent.putExtra(Intent.EXTRA_TEXT, Starter.adbCommand)
-                intent = Intent.createChooser(
-                    intent,
-                    getString(R.string.home_adb_dialog_view_command_button_send)
-                )
-                startActivity(intent)
-            }
-            .show()
     }
 
     private fun runWithLocalNetworkAccess(action: () -> Unit) {

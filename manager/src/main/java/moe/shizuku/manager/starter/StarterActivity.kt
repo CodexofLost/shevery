@@ -4,14 +4,21 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.compose.setContent
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.topjohnwu.superuser.CallbackList
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
@@ -126,6 +133,23 @@ class StarterActivity : AppActivity() {
             val output = outputResource?.data.orEmpty()
             val failed = outputResource?.status == Status.ERROR
 
+            var errorDialogRes by rememberSaveable { mutableStateOf<Int?>(null) }
+
+            LaunchedEffect(outputResource?.status, outputResource?.error) {
+                if (outputResource?.status == Status.ERROR) {
+                    val msg = when (outputResource?.error) {
+                        is AdbKeyException -> R.string.adb_error_key_store
+                        is NotRootedException -> R.string.start_with_root_failed
+                        is ConnectException -> R.string.cannot_connect_port
+                        is SSLProtocolException -> R.string.adb_pair_required
+                        else -> null
+                    }
+                    if (msg != null) {
+                        errorDialogRes = msg
+                    }
+                }
+            }
+
             ShizukuExpressiveTheme {
                 ShizukuLazyScaffold(
                     title = stringResource(R.string.starter),
@@ -160,6 +184,26 @@ class StarterActivity : AppActivity() {
                             text = output.ifBlank { stringResource(R.string.starting_root_shell) }
                         )
                     }
+                }
+
+                errorDialogRes?.let { messageRes ->
+                    AlertDialog(
+                        onDismissRequest = { errorDialogRes = null },
+                        text = {
+                            Text(
+                                text = stringResource(messageRes),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        },
+                        confirmButton = {
+                            Button(onClick = { errorDialogRes = null }) {
+                                Text(stringResource(android.R.string.ok))
+                            }
+                        },
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        shape = MaterialTheme.shapes.extraLarge
+                    )
                 }
             }
         }
