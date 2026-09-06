@@ -518,6 +518,8 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
         sendBinderToUserApp(binder, packageName, userId, true);
     }
 
+    private static final long[] NULL_PROVIDER_RETRY_BACKOFF_MS = {250L, 500L, 1000L, 1500L};
+
     static void sendBinderToUserApp(Binder binder, String packageName, int userId, boolean retry) {
         try {
             DeviceIdleControllerApis.addPowerSaveTempWhitelistApp(packageName, 30 * 1000, userId,
@@ -532,10 +534,19 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
         IBinder token = null;
 
         try {
-            provider = ActivityManagerApis.getContentProviderExternal(name, userId, token, name);
-            if (provider == null) {
-                LOGGER.e("provider is null %s %d", name, userId);
-                return;
+            for (int attempt = 0; ; attempt++) {
+                provider = ActivityManagerApis.getContentProviderExternal(name, userId, token, name);
+                if (provider != null) {
+                    break;
+                }
+                if (attempt >= NULL_PROVIDER_RETRY_BACKOFF_MS.length) {
+                    LOGGER.e("provider is null %s %d (gave up after %d attempts)", name, userId, attempt + 1);
+                    return;
+                }
+                long backoff = NULL_PROVIDER_RETRY_BACKOFF_MS[attempt];
+                LOGGER.w("provider is null %s %d, retrying in %dms (attempt %d/%d)",
+                        name, userId, backoff, attempt + 1, NULL_PROVIDER_RETRY_BACKOFF_MS.length + 1);
+                Thread.sleep(backoff);
             }
             if (!provider.asBinder().pingBinder()) {
                 LOGGER.e("provider is dead %s %d", name, userId);
