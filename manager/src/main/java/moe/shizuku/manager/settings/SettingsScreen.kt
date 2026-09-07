@@ -8,6 +8,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import moe.shizuku.manager.about.AboutActivity
 import android.os.Build
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatDelegate
@@ -43,8 +44,10 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -58,10 +61,10 @@ import moe.shizuku.manager.ShizukuSettings.NIGHT_MODE
 import moe.shizuku.manager.app.ThemeHelper
 import moe.shizuku.manager.app.ThemeHelper.KEY_BLACK_NIGHT_THEME
 import moe.shizuku.manager.app.ThemeHelper.KEY_USE_SYSTEM_COLOR
-import moe.shizuku.manager.ktx.isComponentEnabled
 import moe.shizuku.manager.ktx.setComponentEnabled
 import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.manager.module.update.AppUpdateSettingsGroup
 import moe.shizuku.manager.receiver.BootCompleteReceiver
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.service.WatchdogManager
@@ -85,13 +88,13 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Lifecycle.State
 import android.widget.Toast
-import moe.shizuku.manager.accessibility.AccessibilityManagerActivity
-import moe.shizuku.manager.ui.compose.SectionHeader
 import moe.shizuku.manager.utils.BackupRestoreUtil
 
 
@@ -105,10 +108,33 @@ fun SettingsScreen() {
     val prefs = ShizukuSettings.getPreferences()
 
     var startOnBoot by remember {
-        mutableStateOf(
-            ShizukuSettings.getStartOnBoot()
-                || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
-        )
+        mutableStateOf(ShizukuSettings.getStartOnBoot())
+    }
+    var rooted by remember { mutableStateOf(false) }
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    // Root check + one-time stale-pref cleanup on first composition
+    LaunchedEffect(Unit) {
+        rooted = withContext(Dispatchers.IO) { EnvironmentUtils.isRooted() }
+        if (!rooted && ShizukuSettings.getStartOnBoot()) {
+            withContext(Dispatchers.IO) {
+                ShizukuSettings.setStartOnBoot(false)
+                startOnBoot = false
+                packageManager.setComponentEnabled(
+                    componentName,
+                    ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                )
+            }
+        }
+    }
+
+    // Re-check root whenever the activity is in the foreground
+    LaunchedEffect(lifecycleOwner) {
+        lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            withContext(Dispatchers.IO) {
+                rooted = EnvironmentUtils.isRooted()
+            }
+        }
     }
     var adbStartOnBoot by remember {
         mutableStateOf(ShizukuSettings.getStartOnBootAdb())
@@ -235,7 +261,6 @@ fun SettingsScreen() {
             }.onSuccess {
                 Toast.makeText(context, "Restore completed successfully", Toast.LENGTH_SHORT).show()
                 startOnBoot = ShizukuSettings.getStartOnBoot()
-                    || (packageManager.isComponentEnabled(componentName) && !ShizukuSettings.getStartOnBootAdb())
                 adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
                 errorProtect = ModuleSettings.isErrorProtectEnabled()
                 languageTag = prefs.getString(LANGUAGE, "SYSTEM") ?: "SYSTEM"
@@ -320,20 +345,25 @@ fun SettingsScreen() {
         item {
             SettingsGroup(title = stringResource(R.string.settings_application)) {
                 SectionHeader(stringResource(R.string.settings_startup))
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_server_restart,
-                    title = stringResource(R.string.settings_start_on_boot),
-                    summary = stringResource(R.string.settings_start_on_boot_summary),
-                    checked = startOnBoot,
-                    onCheckedChange = { enabled ->
-                        ShizukuSettings.setStartOnBoot(enabled)
-                        startOnBoot = ShizukuSettings.getStartOnBoot()
-                        packageManager.setComponentEnabled(
-                            componentName,
-                            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
-                        )
-                    }
-                )
+                if (rooted) {
+                    SwitchSettingsRow(
+                        icon = R.drawable.ic_server_restart,
+                        title = stringResource(R.string.settings_start_on_boot),
+                        summary = stringResource(R.string.settings_start_on_boot_summary),
+                        checked = startOnBoot,
+                        onCheckedChange = { enabled ->
+                            ShizukuSettings.setStartOnBoot(enabled)
+                            startOnBoot = ShizukuSettings.getStartOnBoot()
+                            packageManager.setComponentEnabled(
+                                componentName,
+                                ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                            )
+                            if (enabled) {
+                                EnvironmentUtils.requestIgnoreBatteryOptimizations(context)
+                            }
+                        }
+                    )
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     SwitchSettingsRow(
                         icon = R.drawable.ic_wadb_24,
@@ -568,7 +598,12 @@ fun SettingsScreen() {
                         recommandAction = enabled
                     }
                 )
-                GroupDivider()
+            }
+        }
+
+        item {
+            SettingsGroup(title = stringResource(R.string.settings_application)) {
+                SectionHeader(stringResource(R.string.settings_update_group_title))
                 SettingsRow(
                     icon = R.drawable.ic_settings_outline_24dp,
                     title = stringResource(R.string.update_settings_title),
@@ -576,6 +611,10 @@ fun SettingsScreen() {
                     onClick = { showUpdateSettings = true }
                 )
             }
+        }
+
+        item {
+            AppUpdateSettingsGroup()
         }
 
         item {
@@ -609,14 +648,6 @@ fun SettingsScreen() {
 
         item {
             SettingsGroup(title = stringResource(R.string.settings_sections_title)) {
-                SectionHeader(stringResource(R.string.accessibility_manager_lab_group))
-                SettingsRow(
-                    icon = R.drawable.ic_system_icon,
-                    title = stringResource(R.string.accessibility_manager_lab_title),
-                    summary = stringResource(R.string.accessibility_manager_lab_summary),
-                    onClick = { context.startActivity(Intent(context, AccessibilityManagerActivity::class.java)) }
-                )
-                GroupDivider()
                 SectionHeader(stringResource(R.string.lab_features_title))
                 SettingsRow(
                     icon = R.drawable.ic_settings_outline_24dp,
@@ -641,6 +672,24 @@ fun SettingsScreen() {
                     summary = stringResource(R.string.restore_summary),
                     onClick = {
                         restoreLauncher.launch(arrayOf("application/zip", "application/octet-stream"))
+                    }
+                )
+            }
+        }
+
+        item {
+            SettingsGroup(title = stringResource(R.string.action_about)) {
+                val versionName = remember {
+                    try {
+                        context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: ""
+                    } catch (e: Exception) { "" }
+                }
+                SettingsRow(
+                    icon = R.drawable.ic_outline_info_24,
+                    title = stringResource(R.string.app_name),
+                    summary = if (versionName.isNotBlank()) "v$versionName" else null,
+                    onClick = {
+                        context.startActivity(Intent(context, AboutActivity::class.java))
                     }
                 )
             }
@@ -912,13 +961,22 @@ fun SettingsScreen() {
     }
 }
 
+@Composable
+private fun SectionHeader(title: String) {
+    Text(
+        text = title,
+        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 14.dp, bottom = 4.dp),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+        fontWeight = FontWeight.SemiBold
+    )
+}
+
 private data class LocaleOption(
     val tag: String,
     val title: String,
     val summary: String?
-)
-
-private fun buildLocaleOptions(context: android.content.Context, currentTag: String): List<LocaleOption> {
+)private fun buildLocaleOptions(context: android.content.Context, currentTag: String): List<LocaleOption> {
     val localeTags = ShizukuLocales.LOCALES
     val displayLocaleTags = ShizukuLocales.DISPLAY_LOCALES
     val currentLocale = ShizukuSettings.getLocale()

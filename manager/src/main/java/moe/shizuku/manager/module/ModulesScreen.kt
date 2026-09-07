@@ -54,7 +54,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.LoadingIndicator
@@ -402,7 +401,7 @@ fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
                                 .padding(16.dp),
                             contentAlignment = Alignment.Center
                         ) {
-                            CircularProgressIndicator()
+                            LoadingIndicator(modifier = Modifier.size(32.dp))
                         }
                     } else if (aiExplanation != null) {
                         Text(
@@ -624,7 +623,7 @@ private fun ModuleCard(
                                 modifier = Modifier.height(32.dp)
                             ) {
                                 if (updating) {
-                                    CircularProgressIndicator(modifier = Modifier.size(14.dp), strokeWidth = 2.dp)
+                                    LoadingIndicator(modifier = Modifier.size(16.dp))
                                 } else {
                                     Text(stringResource(R.string.modules_update_button))
                                 }

@@ -51,6 +51,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.automirrored.rounded.HelpOutline
@@ -481,7 +482,7 @@ fun ExpressiveCard(
         ) {
             Surface(
                 modifier = Modifier.size(44.dp),
-                shape = CircleShape,
+                shape = RoundedCornerShape(14.dp),
                 color = iconContainer
             ) {
                 Box(contentAlignment = Alignment.Center) {
