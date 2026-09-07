@@ -100,12 +100,13 @@ class StarterActivity : AppActivity() {
                     }
                     val running = ShizukuStateMachine.awaitRunning(12_000L)
 
-                    if (running) {
+                    if (running || Shizuku.pingBinder()) {
                         moe.shizuku.manager.service.WatchdogManager.clearUserStopRequest(this@StarterActivity)
                         viewModel.appendOutput("Service started, this window will be automatically closed in 3 seconds")
                         delay(3000L)
                         if (!isFinishing) finish()
                     } else {
+                        Log.e("Shizuku", "Timed out waiting for service binder. State=${ShizukuStateMachine.get()}, ping=${Shizuku.pingBinder()}")
                         viewModel.appendOutput("")
                         viewModel.appendOutput("✗ Timed out waiting for Shevery service to initialize.")
                         viewModel.appendOutput("  The starter process completed, but the server binder was not received.")

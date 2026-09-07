@@ -69,7 +69,7 @@ object ShizukuStateMachine {
             if (oldState == newState) return
         } while (!state.compareAndSet(oldState, newState))
 
-        Log.d(TAG, "ShizukuStateMachine: $oldState -> $newState")
+        Log.i("Shizuku", "State transition: $oldState -> $newState")
         java.util.ArrayList<(State) -> Unit>().apply {
             listeners.forEach { add(it) }
         }.forEach { it(newState) }
