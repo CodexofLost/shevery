@@ -344,6 +344,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="lab_verbose_logging_title">Verbose Logging</string>
     <string name="lab_verbose_logging_summary">Write detailed debug logs to Logcat. Disable in production to save battery</string>
     <string name="notification_channel_watchdog">Service Watchdog</string>
+    <string name="notification_channel_watchdog_death">Watchdog alert</string>
     <string name="notification_watchdog_title">Shevery Service Stopped</string>
     <string name="notification_watchdog_text">The Shevery service has stopped unexpectedly.</string>
     <string name="watchdog_service_title">Shevery watchdog is active</string>
