@@ -417,6 +417,15 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="shevery_update_available_msg">Version %1$s is available (current: %2$s)</string>
     <string name="shevery_update_download_apk">Download APK</string>
     <string name="shevery_update_view_release">View on GitHub</string>
+    <string name="shevery_update_download_install">Download &amp; Install</string>
+    <string name="shevery_update_downloading_title">Downloading update…</string>
+    <string name="shevery_update_download_progress">%1$d%% downloaded</string>
+    <string name="shevery_update_preparing">Preparing download…</string>
+    <string name="shevery_update_installing">Installing update…</string>
+    <string name="shevery_update_install_failed_title">Installation failed</string>
+    <string name="shevery_update_retry">Retry</string>
+    <string name="shevery_update_download_manual">Download manually</string>
+    <string name="shevery_update_install_success">Update installed</string>
     <string name="shevery_update_channel">Update channel</string>
     <string name="shevery_update_channel_summary">Choose update release channel</string>
     <string name="app_update_channel_stable">Stable</string>
