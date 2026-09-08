@@ -437,10 +437,10 @@
     <string name="home_update_available_title"><![CDATA[Доступне оновлення Shevery: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Нова версія готова. Натисніть, щоб завантажити.]]></string>
     <string name="app_name"><![CDATA[Шевери]]></string>
-    <string name="shevery_update_check_title"><![CDATA[Prüfen Sie, ob es neue Versionen des Shevery-Managers gibt]]></string>
-    <string name="comput_hero_title"><![CDATA[Shevery Console 2. comput_hero_subtitle: Leistungsstarker Shell-Terminal auf Ihrem Gerät, powered by Shizuku. 3. comput_status_ready: Bereit 4. comput_status_running: Läuft 5. comput_status_error: Fehler 6. comput_console_section: Konsole 7. comput_tab_terminal: Terminal 8. comput_tab_commandium: AI Studio 9. comput_tab_macros: Makros 10. comput_tab_presets: Vorlagen 11. comput_quick_chips: Schnellaktionen 12. comput_terminal_header: SHELL-AUSGABE 13. comput_presets_title: Vorlagenbibliothek 14. comput_presets_subtitle: Tippen Sie auf eine beliebige Befehle, um sie schnell auszuführen oder in die Terminalprompt zu automatisieren. 15. comput_output_label: Ausgabe]]></string>
-    <string name="accessibility_manager_lab_summary"><![CDATA[Verwalten und aufrechterhalten von Accessibility-Diensten]]></string>
-    <string name="accessibility_daemon_notification_text"><![CDATA[Festgelegte Zugriffsdienste werden wiederhergestellt, wenn sie deaktiviert werden. 2. settings_compat_stub: Legacy Shizuku-Stub 3. settings_compat_stub_summary: Installiert einen Stub-Paket (moe.shizuku.privileged.api), damit Anwendungen, die nach dem Legacy-Shizuku-Manager suchen, weiterhin funktionieren. Berechtigungs- und Binder-Anfragen werden an Shevery weitergeleitet. 4. settings_compat_stub_installed: Legacy-Stub wurde über %1$s installiert. 5. settings_compat_stub_uninstalled: Legacy-Stub wurde entfernt. 6. settings_compat_stub_failed: Das Legacy-Stub konnte über %2$s nicht %1$s werden: %3$s 7. settings_compat_stub_none: Kein Kanal verfügbar (starten Sie Shevery zuerst)]]></string>
+    <string name="shevery_update_check_title"><![CDATA[Перевірити оновлення Shevery Manager]]></string>
+    <string name="comput_hero_title"><![CDATA[Консоль Shevery]]></string>
+    <string name="accessibility_manager_lab_summary"><![CDATA[Управління та підтримання служб доступності активними]]></string>
+    <string name="accessibility_daemon_notification_text"><![CDATA[Закріплені служби доступності будуть відновлені, якщо їх вимкнено.]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Є ще кілька моментів, на які слід звернути увагу. Будь ласка, переконайтеся, що ви спочатку ознайомилися з довідкою.]]></string>
     <string name="home_quick_terminal"><![CDATA[Термінал]]></string>
     <string name="home_quick_wireless"><![CDATA[Бездротовий ADB]]></string>

@@ -425,10 +425,10 @@
     <string name="settings_tcp_5555_bind_success"><![CDATA[ADB vinculado com sucesso à porta TCP 5555]]></string>
     <string name="settings_tcp_5555_bind_failed"><![CDATA[Falha ao vincular ADB à porta 5555: %1$s]]></string>
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Root, Dhizuku ou Shevery ativo é necessário.]]></string>
-    <string name="shevery_update_auto_check"><![CDATA[]]></string>
-    <string name="shevery_update_auto_check_summary"><![CDATA[]]></string>
-    <string name="home_update_available_title"><![CDATA[]]></string>
-    <string name="home_update_available_body"><![CDATA[]]></string>
+    <string name="shevery_update_auto_check"><![CDATA[Verificar atualizações em segundo plano]]></string>
+    <string name="shevery_update_auto_check_summary"><![CDATA[Procurar novas versões mesmo quando a aplicação estiver fechada]]></string>
+    <string name="home_update_available_title"><![CDATA[Atualização do Shevery disponível: %s]]></string>
+    <string name="home_update_available_body"><![CDATA[Uma versão mais recente está pronta. Toque para transferir.]]></string>
     <string name="wadb_notification_channel"><![CDATA[ADB-Autostartdienst]]></string>
     <string name="comput_stop_desc"><![CDATA[Stop-Befehl]]></string>
     <string name="accessibility_manager_service_no_description"><![CDATA[Keine Beschreibung vom Dienst bereitgestellt.]]></string>

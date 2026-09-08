@@ -438,10 +438,10 @@ Prêt pour les commandes.]]></string>
     <string name="home_update_available_body"><![CDATA[Une version plus récente est prête. Appuyez pour télécharger.]]></string>
     <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopieren des Befehls]]></string>
-    <string name="shevery_update_check_title"><![CDATA[Kontrollieren Sie, ob es neue Versionen des Shevery-Managers gibt]]></string>
-    <string name="comput_search_desc"><![CDATA[Suchergebnisse]]></string>
-    <string name="accessibility_manager_lab_summary"><![CDATA[Verwalten und aufrechterhalten von Accessibility-Diensten]]></string>
-    <string name="accessibility_daemon_notification_text"><![CDATA[Festgelegte Zugriffsdienste werden wiederhergestellt, wenn sie deaktiviert werden. 2. settings_compat_stub: Legacy-Shizuku-Stub 3. settings_compat_stub_summary: Installiert einen Stub-Paket (moe.shizuku.privileged.api), damit Anwendungen, die nach dem Legacy-Shizuku-Manager suchen, weiterhin funktionieren. Berechtigungs- und Binder-Anfragen werden an Shevery weitergeleitet. 4. settings_compat_stub_installed: Legacy-Stub wurde über %1$s installiert. 5. settings_compat_stub_uninstalled: Legacy-Stub wurde entfernt. 6. settings_compat_stub_failed: Das Legacy-Stub konnte nicht über %2$s %1$s: %3$s]]></string>
+    <string name="shevery_update_check_title"><![CDATA[Rechercher des mises à jour pour Shevery Manager]]></string>
+    <string name="comput_search_desc"><![CDATA[Rechercher dans la sortie]]></string>
+    <string name="accessibility_manager_lab_summary"><![CDATA[Gérer et maintenir actifs les services d\'accessibilité]]></string>
+    <string name="accessibility_daemon_notification_text"><![CDATA[Les services d\'accessibilité épinglés seront restaurés s\'ils sont désactivés.]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Il y a d\'autres éléments à prendre en compte ; veuillez vous assurer d\'avoir lu l\'aide au préalable.]]></string>
     <string name="home_quick_terminal"><![CDATA[Terminal]]></string>
     <string name="home_quick_wireless"><![CDATA[ADB sans fil]]></string>
