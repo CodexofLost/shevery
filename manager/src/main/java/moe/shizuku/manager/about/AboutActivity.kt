@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.graphics.drawable.toBitmap
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.BuildConfig
+import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.module.update.SheveryAppUpdateDialog
 import moe.shizuku.manager.module.update.SheveryAppUpdateResult
 import moe.shizuku.manager.module.update.SheveryUpdateChecker
@@ -82,7 +83,22 @@ class AboutActivity : AppActivity() {
                                 onClick = {
                                     scope.launch {
                                         isCheckingUpdate = true
-                                        appUpdateResult = SheveryUpdateChecker.getInstance().checkAppUpdate(this@AboutActivity)
+                                        val result = SheveryUpdateChecker.getInstance().checkAppUpdate(this@AboutActivity)
+                                        // Keep the home card in sync: refresh pending update on a live check,
+                                        // and clear it once no newer release exists (so it never advertises an old version.
+
+                                        if (result.error == null) {
+                                            if (result.hasUpdate && result.downloadUrl != null) {
+                                                ModuleSettings.setPendingUpdate(
+                                                    version = result.latestVersion ?: "",
+                                                    url = result.downloadUrl ?: "",
+                                                    detectedAt = System.currentTimeMillis()
+                                                )
+                                            } else {
+                                                ModuleSettings.clearPendingUpdate()
+                                            }
+                                        }
+                                        appUpdateResult = result
                                         isCheckingUpdate = false
                                     }
                                 }

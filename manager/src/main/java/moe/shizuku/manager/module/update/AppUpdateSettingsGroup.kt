@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,6 +33,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import java.io.File
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 import android.content.Intent
 import androidx.compose.material3.Icon
@@ -165,11 +168,11 @@ fun AppUpdateSettingsGroup() {
         AlertDialog(
             onDismissRequest = { isCheckingAppUpdate = false },
             title = { Text(stringResource(R.string.shevery_update_check_title)) },
-            text = {
+text = {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    modifier = Modifier.padding(vertical = 8.dp)
+                    modifier = Modifier.padding(vertical =  8.dp),
                 ) {
                     LoadingIndicator(modifier = Modifier.size(28.dp))
                     Text(stringResource(R.string.shevery_update_checking))
@@ -282,82 +285,221 @@ private fun UpdateFrequencyDropdownForApp(
     }
 }
 
+private enum class AppUpdatePhase { Idle, Downloading, Installing, Failed }
+
 @Composable
 internal fun SheveryAppUpdateDialog(
     result: SheveryAppUpdateResult,
     onDismiss: () -> Unit
 ) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val apkFile = remember { File(context.cacheDir, "shevery-app-update.apk") }
+
+    var phase by remember(result) { mutableStateOf(AppUpdatePhase.Idle) }
+    var progress by remember(result) { mutableStateOf(-1f) } // -1 = unknown length (indeterminate)
+    var errorMessage by remember(result) { mutableStateOf<String?>(null) }
+
+    fun startDownload() {
+        scope.launch {
+            phase = AppUpdatePhase.Downloading
+            progress = -1f
+            errorMessage = null
+            try {
+                AppUpdateDownloader.downloadToFile(
+                    url = result.downloadUrl!!,
+                    targetFile = apkFile,
+                    onProgress = { read, total ->
+                        progress = total?.takeIf { it > 0 }?.let { read.toFloat() / it } ?: -1f
+                    }
+                )
+                phase = AppUpdatePhase.Installing
+                when (val outcome = AppUpdateInstaller.install(context.applicationContext, apkFile)) {
+
+                    is AppUpdateInstaller.Result.UserActionRequired -> {
+                        outcome.confirmIntent?.let { confirm ->
+                            runCatching {
+                                context.startActivity(confirm.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                            }
+                        }
+                        onDismiss()
+                    }
+                    is AppUpdateInstaller.Result.Success -> {
+                        runCatching {
+                            android.widget.Toast.makeText(
+                                context, R.string.shevery_update_install_success,
+                                android.widget.Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        onDismiss()
+                    }
+                    is AppUpdateInstaller.Result.Failed -> {
+                        apkFile.delete()
+                        phase = AppUpdatePhase.Failed
+                        errorMessage = outcome.message
+                    }
+                }
+            } catch (e: CancellationException) {
+                apkFile.delete()
+                throw e
+            } catch (e: Exception) {
+                apkFile.delete()
+                phase = AppUpdatePhase.Failed
+                errorMessage = e.message ?: e.javaClass.simpleName
+            }
+        }
+    }
 
     AlertDialog(
-        onDismissRequest = onDismiss,
+        onDismissRequest = {
+            if (phase != AppUpdatePhase.Installing) onDismiss()
+        },
         title = {
-            Text(
-                text = if (result.hasUpdate) {
-                    stringResource(R.string.shevery_update_available_title)
+            when (phase) {
+                AppUpdatePhase.Idle -> if (result.hasUpdate) {
+                    Text(stringResource(R.string.shevery_update_available_title))
                 } else if (result.error != null) {
-                    stringResource(R.string.shevery_update_check_failed, result.error)
+                    Text(stringResource(R.string.shevery_update_check_failed, result.error))
                 } else {
-                    stringResource(R.string.shevery_update_up_to_date, result.currentVersion)
+                    Text(stringResource(R.string.shevery_update_up_to_date, result.currentVersion))
                 }
-            )
+                AppUpdatePhase.Downloading -> Text(stringResource(R.string.shevery_update_downloading_title))
+                AppUpdatePhase.Installing -> Text(stringResource(R.string.shevery_update_installing))
+                AppUpdatePhase.Failed -> Text(stringResource(R.string.shevery_update_install_failed_title))
+            }
         },
         text = {
-            if (result.hasUpdate && result.latestVersion != null) {
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text(
-                        text = stringResource(
-                            R.string.shevery_update_available_msg,
-                            result.latestVersion,
-                            result.currentVersion
-                        ),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    if (!result.releaseNotes.isNullOrBlank()) {
-                        Text(
-                            text = result.releaseNotes.take(400).let {
-                                if (result.releaseNotes.length > 400) "$it…" else it
-                            },
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
-                    if (result.isPreRelease) {
-                        Text(
-                            text = "⚠ Pre-release / Beta",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.error
-                        )
+            when (phase) {
+AppUpdatePhase.Downloading -> {
+                    Column(
+                        modifier = Modifier.padding(vertical =  8.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        if (progress >=  0f) {
+                            LinearProgressIndicator(
+                                progress = { progress.coerceIn(0f,  1f) },
+                                modifier = Modifier.fillMaxWidth(),
+                            )
+                            Text(
+                                text = stringResource(R.string.shevery_update_download_progress, (progress.coerceIn(0f,  1f) * 100).toInt()),
+                                style = MaterialTheme.typography.bodyMedium,
+                            )
+                        } else {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                            ) {
+                                LoadingIndicator(modifier = Modifier.size(28.dp))
+                                Text(stringResource(R.string.shevery_update_preparing), style = MaterialTheme.typography.bodyMedium)
+                            }
+                        }
                     }
                 }
-            } else if (result.error != null) {
-                Text(result.error, style = MaterialTheme.typography.bodyMedium)
-            } else {
-                null
+                AppUpdatePhase.Installing -> Row(
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+
+                    LoadingIndicator(modifier = Modifier.size(28.dp))
+                    Text(stringResource(R.string.shevery_update_installing), style = MaterialTheme.typography.bodyMedium)
+
+
+                }
+                AppUpdatePhase.Failed -> Column(
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+
+                    Text(errorMessage ?: "?", style = MaterialTheme.typography.bodyMedium)
+
+
+                }
+                AppUpdatePhase.Idle -> {
+                    if (result.hasUpdate && result.latestVersion != null) {
+                        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+
+
+                            Text(
+                                text = stringResource(
+                                    R.string.shevery_update_available_msg, 
+                                    result.latestVersion, 
+                                    result.currentVersion
+                                ),
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                            if (!result.releaseNotes.isNullOrBlank()) {
+                                Text(
+                                    text = result.releaseNotes.take(400).let {
+                                        if (result.releaseNotes.length >400) "$it…" else it
+
+                                    },
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            if (result.isPreRelease) {
+                                Text(
+                                    text = "⚠ Pre-release / Beta",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.error
+                                )
+                            }
+                        }
+                    } else if (result.error != null) {
+                        Text(result.error ?: "", style = MaterialTheme.typography.bodyMedium)
+                    } else {
+                        null
+
+
+                    }
+                }
             }
         },
         confirmButton = {
-            if (result.hasUpdate && result.downloadUrl != null) {
-                TextButton(onClick = {
-                    CustomTabsHelper.launchUrlOrCopy(context, result.downloadUrl)
-                    onDismiss()
-                }) {
-                    Text(stringResource(R.string.shevery_update_download_apk))
+            when (phase) {
+
+                AppUpdatePhase.Idle -> if (result.hasUpdate && result.downloadUrl != null) {
+                    TextButton(onClick = { startDownload() }) {
+                        Text(stringResource(R.string.shevery_update_download_install))
+                    }
                 }
+                AppUpdatePhase.Failed -> TextButton(onClick = { startDownload() }) {
+                    Text(stringResource(R.string.shevery_update_retry))
+                }
+                else -> Unit
+
+
+
             }
         },
         dismissButton = {
-            if (result.hasUpdate && result.htmlUrl != null) {
-                TextButton(onClick = {
-                    CustomTabsHelper.launchUrlOrCopy(context, result.htmlUrl)
+            when (phase) {
+
+                AppUpdatePhase.Idle -> if (result.hasUpdate && result.htmlUrl != null) {
+                    TextButton(onClick = {
+                        CustomTabsHelper.launchUrlOrCopy(context, result.htmlUrl)
+                        onDismiss()
+                    }) {
+                        Text(stringResource(R.string.shevery_update_view_release))
+                    }
+                } else {
+                    TextButton(onClick = onDismiss) {
+                        Text(stringResource(android.R.string.ok))
+                    }
+                }
+                AppUpdatePhase.Downloading -> TextButton(onClick = onDismiss) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+                AppUpdatePhase.Failed -> TextButton(onClick = {
+                    val url = result.downloadUrl ?: result.htmlUrl ?: ""
+                    if (url.isNotBlank()) CustomTabsHelper.launchUrlOrCopy(context, url)
                     onDismiss()
                 }) {
-                    Text(stringResource(R.string.shevery_update_view_release))
+                    Text(stringResource(R.string.shevery_update_download_manual))
                 }
-            } else {
-                TextButton(onClick = onDismiss) {
-                    Text(stringResource(android.R.string.ok))
-                }
+                AppUpdatePhase.Installing -> Unit
+
+
             }
         }
     )

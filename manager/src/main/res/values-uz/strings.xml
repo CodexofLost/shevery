@@ -436,7 +436,7 @@
     <string name="shevery_update_auto_check_summary"><![CDATA[Ilova yopilganda ham yangi versiyalarni qidiring]]></string>
     <string name="home_update_available_title"><![CDATA[Yangilanish mavjud: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Yangi versiya tayyor. Yuklab olish uchun bosing.]]></string>
-    <string name="wadb_permission_error_notification_title"><![CDATA[Permission Error 15. wadb_permission_error_notification_content: Shevery konnte nicht auf dem Startbildschirm gestartet werden. Öffnen Sie Shevery, um das Problem zu überprüfen.]]></string>
+    <string name="wadb_permission_error_notification_title"><![CDATA[Ruxsat xatosi]]></string>
     <string name="wadb_notification_channel"><![CDATA[ADB-Autostartdienst]]></string>
     <string name="comput_stop_desc"><![CDATA[Stop-Befehl]]></string>
     <string name="accessibility_manager_service_no_description"><![CDATA[Keine Beschreibung vom Dienst bereitgestellt.]]></string>
