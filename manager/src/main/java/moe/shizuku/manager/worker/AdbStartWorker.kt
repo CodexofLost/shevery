@@ -31,6 +31,7 @@ import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbMdns
 import moe.shizuku.manager.adb.AdbStarter
+import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.receiver.SheveryControlReceiver
 import moe.shizuku.manager.receiver.ShizukuReceiverStarter
 import moe.shizuku.manager.starter.Starter
@@ -204,6 +205,15 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             if (hasSecureSettingsPermission) {
                 Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
                 Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
+                // Opt-in hammer for hostile ROMs: some clear adb_wifi_enabled when
+                // legacy TCP mode is used or on lock. Toggling 0 -> 1 forces the
+                // wireless stack to refresh instead of just re-stating 1.
+                if (ModuleSettings.isWifiReassertEnabled()) {
+                    Settings.Global.putInt(cr, "adb_wifi_enabled", 0)
+                    delay(1_000)
+                    Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+                    Log.d(AppConstants.TAG, "AdbStartWorker: re-asserted adb_wifi_enabled (0 -> 1)")
+                }
             } else {
                 Log.d(AppConstants.TAG, "WRITE_SECURE_SETTINGS not granted, skipping ADB secure settings")
             }
