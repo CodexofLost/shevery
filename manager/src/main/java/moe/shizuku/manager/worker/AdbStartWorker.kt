@@ -205,15 +205,6 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             if (hasSecureSettingsPermission) {
                 Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
                 Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
-                // Opt-in hammer for hostile ROMs: some clear adb_wifi_enabled when
-                // legacy TCP mode is used or on lock. Toggling 0 -> 1 forces the
-                // wireless stack to refresh instead of just re-stating 1.
-                if (ModuleSettings.isWifiReassertEnabled()) {
-                    Settings.Global.putInt(cr, "adb_wifi_enabled", 0)
-                    delay(1_000)
-                    Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
-                    Log.d(AppConstants.TAG, "AdbStartWorker: re-asserted adb_wifi_enabled (0 -> 1)")
-                }
             } else {
                 Log.d(AppConstants.TAG, "WRITE_SECURE_SETTINGS not granted, skipping ADB secure settings")
             }
@@ -354,6 +345,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // waitForBinder can time out while the binder actually arrived;
                 // re-ping once before treating this as a failure.
                 if (Shizuku.pingBinder()) {
+                    reassertWifiFlagIfEnabled(cr)
                     ShizukuReceiverStarter.updateNotification(
                         applicationContext,
                         ShizukuReceiverStarter.WorkerState.STOPPED
@@ -362,6 +354,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 }
                 throw TimeoutException("Failed to receive binder within 30 seconds")
             }
+            reassertWifiFlagIfEnabled(cr)
 
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
@@ -411,6 +404,19 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             )
             return Result.retry()
         }
+    }
+
+    // Opt-in hammer for hostile ROMs: runs AFTER AdbStarter.start (incl. the
+    // tcpip:5555 rebind), because some ROMs clear adb_wifi_enabled when legacy
+    // TCP mode activates — a write before the bind lands in the wiped window.
+    // Toggling 0 -> 1 forces the wireless stack to refresh; mirrors the proven
+    // "enable wireless debugging while already on 5555" manual workaround.
+    private suspend fun reassertWifiFlagIfEnabled(cr: android.content.ContentResolver) {
+        if (!ModuleSettings.isWifiReassertEnabled()) return
+        Settings.Global.putInt(cr, "adb_wifi_enabled", 0)
+        delay(1_000)
+        Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+        Log.d(AppConstants.TAG, "AdbStartWorker: re-asserted adb_wifi_enabled (0 -> 1) post-connect")
     }
 
     private fun showErrorNotification(context: Context, e: Exception) {
