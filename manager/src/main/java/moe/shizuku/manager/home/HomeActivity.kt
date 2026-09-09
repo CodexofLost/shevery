@@ -106,6 +106,7 @@ import moe.shizuku.manager.model.ServiceStatus
 import moe.shizuku.manager.shell.ShellTutorialActivity
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.starter.StarterActivity
+import moe.shizuku.manager.worker.WifiDebugReassert
 import moe.shizuku.manager.ui.compose.ShizukuIcon
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import androidx.compose.animation.fadeIn
@@ -228,6 +229,7 @@ abstract class HomeActivity : AppActivity() {
                     }
                     try {
                         AdbModuleManager.runEnabledServicesIfAllowed(applicationContext)
+                        WifiDebugReassert.reassertIfEnabled(applicationContext)
                     } catch (_: Throwable) {
                     }
 
