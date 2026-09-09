@@ -415,9 +415,12 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
     // TCP mode activates — a write before the bind lands in the wiped window.
     // Shells out through the Shizuku service (same as ADB modules: shell UID),
     // NOT the app ContentResolver — the app UID typically lacks
-    // WRITE_SECURE_SETTINGS. Toggling 0 -> 1 forces the wireless stack to
-    // refresh; mirrors the proven "enable wireless debugging while already on
-    // 5555" manual workaround.
+    // WRITE_SECURE_SETTINGS. Reads first and NEVER writes 0: a manufactured
+    // disable event mid-connection makes hostile ROMs tear down the live socket
+    // (visible "turns on and off" flapping) — watchdog restarts just re-fire it.
+
+    // Only re-arm with a bare put 1 when the ROM actually wiped it (0 -> 1
+    // state change at the provider level, no socket disruption).
     //
     // TIMING MATTERS more than the transport: the ROM wipes the flag
     // asynchronously around the rebind, so an immediate toggle fires too early
@@ -438,13 +441,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                     return@withContext
                 }
                 val service = IShizukuService.Stub.asInterface(Shizuku.getBinder())
-                shellToggleWifiFlag(service)
+                ensureWifiFlag(service)
                 delay(1_000)
                 var stuck = readWifiFlag()
                 if (stuck != 1) {
-                    Log.d(AppConstants.TAG, "AdbStartWorker: adb_wifi_enabled read back as $stuck after toggle, retrying once")
+                    Log.d(AppConstants.TAG, "AdbStartWorker: adb_wifi_enabled read back as $stuck after re-arm, retrying once")
                     delay(2_000)
-                    shellToggleWifiFlag(service)
+                    ensureWifiFlag(service)
                     delay(1_000)
                     stuck = readWifiFlag()
                 }
@@ -455,11 +458,20 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
         }
     }
 
-    private suspend fun shellToggleWifiFlag(service: IShizukuService) {
+    private suspend fun ensureWifiFlag(service: IShizukuService): Boolean {
+        // Read first: if the flag is already armed there is nothing to do —and,
+        // vitally, nothing to disturb. A live wireless-debugging session must
+        // never see a synthetic 0.
+        if (readWifiFlag() == 1) {
+            Log.d(AppConstants.TAG, "AdbStartWorker: adb_wifi_enabled already 1, no-op")
+            return true
+        }
+        // Bare re-arm (no 0-first):the ROM cleared the flag (typically to 0),
+        // so this single put is a real 0 -> 1 state change at the provider level.
         val process = service.newProcess(
             arrayOf(
                 "sh", "-c",
-                "settings put global adb_wifi_enabled 0 >/dev/null 2>&1; sleep 1; settings put global adb_wifi_enabled 1 >/dev/null 2>&1"
+                "settings put global adb_wifi_enabled 1 >/dev/null 2>&1"
             ),
             null,
             null
@@ -468,10 +480,11 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             runInterruptible { process.waitFor() }
         } ?: run {
             process.destroy()
-            Log.d(AppConstants.TAG, "AdbStartWorker: wifi flag toggle timed out; killed shell")
+            Log.d(AppConstants.TAG, "AdbStartWorker: wifi flag re-arm timed out; killed shell")
             -1
         }
-        Log.d(AppConstants.TAG, "AdbStartWorker: wifi flag toggle (0 -> 1) exit=$exitCode")
+        Log.d(AppConstants.TAG, "AdbStartWorker: wifi flag re-arm exit=$exitCode")
+        return exitCode == 0
     }
 
     private fun readWifiFlag(): Int {
