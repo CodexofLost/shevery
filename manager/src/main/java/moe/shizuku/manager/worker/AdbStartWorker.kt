@@ -37,6 +37,7 @@ import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.receiver.SheveryControlReceiver
 import moe.shizuku.manager.receiver.ShizukuReceiverStarter
 import moe.shizuku.manager.starter.Starter
+import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import moe.shizuku.manager.AppConstants
