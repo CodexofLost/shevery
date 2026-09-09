@@ -18,6 +18,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.work.*
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
@@ -25,6 +26,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.withTimeoutOrNull
 import moe.shizuku.manager.R
@@ -345,7 +347,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // waitForBinder can time out while the binder actually arrived;
                 // re-ping once before treating this as a failure.
                 if (Shizuku.pingBinder()) {
-                    reassertWifiFlagIfEnabled(cr)
+                    reassertWifiFlagIfEnabled()
                     ShizukuReceiverStarter.updateNotification(
                         applicationContext,
                         ShizukuReceiverStarter.WorkerState.STOPPED
@@ -354,7 +356,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 }
                 throw TimeoutException("Failed to receive binder within 30 seconds")
             }
-            reassertWifiFlagIfEnabled(cr)
+            reassertWifiFlagIfEnabled()
 
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
@@ -409,14 +411,34 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
     // Opt-in hammer for hostile ROMs: runs AFTER AdbStarter.start (incl. the
     // tcpip:5555 rebind), because some ROMs clear adb_wifi_enabled when legacy
     // TCP mode activates — a write before the bind lands in the wiped window.
-    // Toggling 0 -> 1 forces the wireless stack to refresh; mirrors the proven
-    // "enable wireless debugging while already on 5555" manual workaround.
-    private suspend fun reassertWifiFlagIfEnabled(cr: android.content.ContentResolver) {
+    // Shells out through the Shizuku service (same as ADB modules: shell UID),
+    // NOT the app ContentResolver — the app UID typically lacks
+    // WRITE_SECURE_SETTINGS. Toggling 0 -> 1 forces the wireless stack to
+    // refresh; mirrors the proven "enable wireless debugging while already on
+    // 5555" manual workaround.
+    private suspend fun reassertWifiFlagIfEnabled() {
         if (!ModuleSettings.isWifiReassertEnabled()) return
-        Settings.Global.putInt(cr, "adb_wifi_enabled", 0)
-        delay(1_000)
-        Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
-        Log.d(AppConstants.TAG, "AdbStartWorker: re-asserted adb_wifi_enabled (0 -> 1) post-connect")
+        withContext(Dispatchers.IO) {
+            try {
+                if (!Shizuku.pingBinder()) {
+                    Log.d(AppConstants.TAG, "AdbStartWorker: binder down, skipping wifi re-assert")
+                    return@withContext
+                }
+                val service = IShizukuService.Stub.asInterface(Shizuku.getBinder())
+                val process = service.newProcess(
+                    arrayOf(
+                        "sh", "-c",
+                        "settings put global adb_wifi_enabled 0; sleep 1; settings put global adb_wifi_enabled 1"
+                    ),
+                    null,
+                    null
+                )
+                val exitCode = process.waitFor()
+                Log.d(AppConstants.TAG, "AdbStartWorker: re-asserted adb_wifi_enabled (0 -> 1) post-connect, exit=$exitCode")
+            } catch (e: Throwable) {
+                Log.d(AppConstants.TAG, "AdbStartWorker: wifi re-assert failed: ${e.message}")
+            }
+        }
     }
 
     private fun showErrorNotification(context: Context, e: Exception) {
