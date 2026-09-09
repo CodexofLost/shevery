@@ -27,6 +27,7 @@ import moe.shizuku.manager.adb.AdbMdns
 import moe.shizuku.manager.adb.PreferenceAdbKeyStore
 import moe.shizuku.manager.ktx.logd
 import moe.shizuku.manager.ktx.logi
+import moe.shizuku.manager.ktx.logw
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.starter.Starter
@@ -51,6 +52,7 @@ object WatchdogManager {
     private const val EXPECTED_DEATH_WINDOW_MS = 10_000L
     private const val WIRELESS_ADB_DISCOVERY_TIMEOUT_SECONDS = 5L
     private const val DHIZUKU_BIND_TIMEOUT_MS = 10_000L
+    private const val MIN_RESTART_INTERVAL_MS = 15_000L
     private const val KEY_USER_STOP_REQUESTED = "watchdog_user_stop_requested"
 
     @Volatile
@@ -74,6 +76,9 @@ object WatchdogManager {
     private var initialized = false
 
     private val restartInProgress = AtomicBoolean(false)
+
+    @Volatile
+    private var lastRestartAttemptMs = 0L
 
     @Volatile
     private var userStopRequested = false
@@ -109,7 +114,7 @@ object WatchdogManager {
     }
 
     private fun onServiceDied(context: Context) {
-        logd("Service died detected by watchdog")
+        logw("Service died detected by watchdog")
 
         if (isStarterActive) {
             logi("Service death occurred while StarterActivity is active. Suppressing watchdog restart.")
@@ -207,6 +212,12 @@ object WatchdogManager {
         return userStopRequested || ShizukuSettings.getPreferences().getBoolean(KEY_USER_STOP_REQUESTED, false)
     }
 
+    /** Public so [WatchdogService] can notify when a restart did not recover. */
+    fun showDeathNotificationPublic(context: Context) = showDeathNotification(context)
+
+    /** Public so [WatchdogService] can verify recovery after [attemptRestart]. */
+    suspend fun waitForBinder(timeoutMs: Long = 10_000L): Boolean = waitForShizukuBinder(timeoutMs)
+
     fun attemptRestart(context: Context) {
         val appContext = context.applicationContext
         clearExpectedDeathWhenStale()
@@ -221,20 +232,35 @@ object WatchdogManager {
             return
         }
 
+        val lastMode = ShizukuSettings.getLastLaunchMode()
+        if (lastMode == LaunchMethod.UNKNOWN) {
+            logd("Skipping watchdog restart: server was never started (UNKNOWN mode)")
+            return
+        }
+
+        // Cooldown: BinderDead listener + ErrorProtect polling can fire at the
+        // same time, and a failing restart must not spin every 10s forever.
+        val now = SystemClock.elapsedRealtime()
+        if (now - lastRestartAttemptMs < MIN_RESTART_INTERVAL_MS) {
+            logd("Skipping watchdog restart: cooldown active")
+            return
+        }
+
         if (!restartInProgress.compareAndSet(false, true)) {
             logd("Restart already in progress, skipping duplicate watchdog restart")
             return
         }
+        lastRestartAttemptMs = now
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val lastMode = ShizukuSettings.getLastLaunchMode()
                 logi("Attempting to restart service (Last mode: $lastMode)")
 
                 when (lastMode) {
                     LaunchMethod.ROOT -> restartRoot()
                     LaunchMethod.ADB -> restartAdb(appContext)
                     LaunchMethod.DHIZUKU -> restartDhizuku(appContext)
+                    else -> logd("Skipping watchdog restart: unknown last mode $lastMode")
                 }
             } finally {
                 restartInProgress.set(false)
