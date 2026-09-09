@@ -244,16 +244,16 @@ object ModuleSettings {
         ShizukuSettings.getPreferences().edit().putBoolean(KEY_NOTIFY_DEATH, value).apply()
     }
 
-    fun isErrorProtectEnabled(): Boolean {
+    fun isWatchdogEnabled(): Boolean {
         return ShizukuSettings.getPreferences().getBoolean(KEY_ERROR_PROTECT, true)
     }
 
-    fun setErrorProtectEnabled(value: Boolean) {
+    fun setWatchdogEnabled(value: Boolean) {
         ShizukuSettings.getPreferences().edit().putBoolean(KEY_ERROR_PROTECT, value).apply()
     }
 
     // Maps pre-consolidation watchdog prefs (PR #186（ into the single master toggle.
-    // Users who had the legacy keep-alive or auto-restart prefs enabled but ErrorProtect
+    // Users who had the legacy keep-alive or auto-restart prefs enabled but Watchdog
     // off would otherwise silently lose watchdog coverage after updating.
 
     fun migrateLegacyWatchdogPrefs() {

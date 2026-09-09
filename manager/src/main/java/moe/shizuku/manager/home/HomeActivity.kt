@@ -128,6 +128,7 @@ import rikka.lifecycle.viewModels
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuApiConstants
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.manager.module.update.SheveryUpdateChecker
 import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import androidx.lifecycle.lifecycleScope
@@ -1059,12 +1060,22 @@ private fun HomeScreen(
                 val pendingUrl = remember { mutableStateOf<String?>(null) }
                 val ctx = LocalContext.current
                 LaunchedEffect(Unit) {
-                    pendingVersion.value = ModuleSettings.getPendingUpdateVersion()
-                    pendingUrl.value = ModuleSettings.getPendingUpdateUrl()
+                    val storedVersion = ModuleSettings.getPendingUpdateVersion()
+                    val storedUrl = ModuleSettings.getPendingUpdateUrl()
+                    if (!storedVersion.isNullOrEmpty() && !storedUrl.isNullOrEmpty()
+                        && !SheveryUpdateChecker.isTagNewerThanInstalled(storedVersion)
+                    ) {
+                        ModuleSettings.clearPendingUpdate()
+                    } else {
+                        pendingVersion.value = storedVersion
+                        pendingUrl.value = storedUrl
+                    }
                 }
                 val version = pendingVersion.value
                 val url = pendingUrl.value
-                if (!version.isNullOrEmpty() && !url.isNullOrEmpty()) {
+                if (!version.isNullOrEmpty() && !url.isNullOrEmpty()
+                    && SheveryUpdateChecker.isTagNewerThanInstalled(version)
+                ) {
                     HomeCard(
                         icon = R.drawable.ic_outline_info_24,
                         title = ctx.getString(R.string.home_update_available_title, version),

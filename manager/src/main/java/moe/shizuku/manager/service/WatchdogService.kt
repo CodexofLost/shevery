@@ -19,10 +19,10 @@ import moe.shizuku.manager.ktx.logd
 
 class WatchdogService : Service() {
 
-    private var errorProtectJob: Job? = null
-    private val errorProtectScope = CoroutineScope(Dispatchers.Default)
+    private var watchdogJob: Job? = null
+    private val watchdogScope = CoroutineScope(Dispatchers.Default)
 
-    // ErrorProtect restart backoff: doubles per failure, from 30s up to a 5min cap.
+    // Watchdog restart backoff: doubles per failure, from 30s up to a 5min cap.
 
     // The 10s base poll stays for health checks; only RESTART actions back off, so the loop cannot
     // hammer adbd behind the lockscreen or in a permanently-dead state.
@@ -52,7 +52,7 @@ class WatchdogService : Service() {
         }
 
         startAsForeground()
-        startErrorProtectLoop()
+        startWatchdogLoop()
         rikka.shizuku.Shizuku.removeBinderReceivedListener(binderReceivedListener)
         rikka.shizuku.Shizuku.removeBinderDeadListener(binderDeadListener)
         rikka.shizuku.Shizuku.addBinderReceivedListenerSticky(binderReceivedListener)
@@ -63,19 +63,19 @@ class WatchdogService : Service() {
     override fun onDestroy() {
         rikka.shizuku.Shizuku.removeBinderReceivedListener(binderReceivedListener)
         rikka.shizuku.Shizuku.removeBinderDeadListener(binderDeadListener)
-        stopErrorProtectLoop()
+        stopWatchdogLoop()
         super.onDestroy()
     }
 
-    private fun startErrorProtectLoop() {
-        errorProtectJob?.cancel()
-        if (!moe.shizuku.manager.module.ModuleSettings.isErrorProtectEnabled()) return
+    private fun startWatchdogLoop() {
+        watchdogJob?.cancel()
+        if (!moe.shizuku.manager.module.ModuleSettings.isWatchdogEnabled()) return
 
-        errorProtectJob = errorProtectScope.launch {
+        watchdogJob = watchdogScope.launch {
             var consecutiveFailures = 0
             while (isActive) {
                 delay(10_000)
-                if (!moe.shizuku.manager.module.ModuleSettings.isErrorProtectEnabled()) break
+                if (!moe.shizuku.manager.module.ModuleSettings.isWatchdogEnabled()) break
 
                 var healthy = false
                 try {
@@ -86,7 +86,7 @@ class WatchdogService : Service() {
                         }
                     }
                 } catch (e: Throwable) {
-                    logd("ErrorProtect: Binder check threw exception: ${e.message}")
+                    logd("Watchdog: Binder check threw exception: ${e.message}")
                 }
 
                 if (!healthy && !WatchdogManager.isExpectingDeathActive() && !WatchdogManager.isUserStopRequested() && WatchdogManager.shouldRunService()) {
@@ -98,10 +98,10 @@ class WatchdogService : Service() {
                     // discovery + adbd rebind itself.
                     val km = getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
                     if (km?.isKeyguardLocked == true) {
-                        logd("ErrorProtect: device locked -- deferring restart until unlock")
+                        logd("Watchdog: device locked -- deferring restart until unlock")
                         continue
                     }
-                    logd("ErrorProtect: service check failed. Stopping and restarting...")
+                    logd("Watchdog: service check failed. Stopping and restarting...")
                     withContext(Dispatchers.IO) {
                         moe.shizuku.manager.service.WatchdogManager.stopServer(applicationContext, userInitiated = false)
                         moe.shizuku.manager.service.WatchdogManager.attemptRestart(applicationContext)
@@ -109,7 +109,7 @@ class WatchdogService : Service() {
                     consecutiveFailures += 1
                     val shiftCount = (consecutiveFailures.minus(1)).coerceAtMost(4)
                     val backoffMs = (retryBackoffBaseMs * (1L shl shiftCount)).coerceAtMost(retryBackoffMaxMs)
-                    logd("ErrorProtect: restart scheduled; backing off ${backoffMs} ms before next check")
+                    logd("Watchdog: restart scheduled; backing off ${backoffMs} ms before next check")
                     delay(backoffMs)
                 } else if (healthy) {
                     consecutiveFailures = 0
@@ -118,9 +118,9 @@ class WatchdogService : Service() {
         }
     }
 
-    private fun stopErrorProtectLoop() {
-        errorProtectJob?.cancel()
-        errorProtectJob = null
+    private fun stopWatchdogLoop() {
+        watchdogJob?.cancel()
+        watchdogJob = null
     }
 
     override fun onBind(intent: Intent?): IBinder? = null

@@ -91,7 +91,7 @@ object WatchdogManager {
     }
 
     fun isEnabled(): Boolean {
-        return ModuleSettings.isErrorProtectEnabled()
+        return ModuleSettings.isWatchdogEnabled()
     }
 
     /**
@@ -131,7 +131,7 @@ object WatchdogManager {
             return
         }
 
-        if (ModuleSettings.isNotifyOnServiceDeath()) {
+        if (ModuleSettings.isNotifyOnServiceDeath() || isEnabled()) {
             showDeathNotification(context)
         }
 
@@ -392,7 +392,7 @@ object WatchdogManager {
                     logi("Watchdog verified Shevery binder after Dhizuku restart")
                 } else {
                     logd("Watchdog Dhizuku starter command completed, but binder did not become available")
-                    if (ModuleSettings.isNotifyOnServiceDeath()) {
+                    if (ModuleSettings.isNotifyOnServiceDeath() || isEnabled()) {
                         showDeathNotification(context)
                     }
                 }

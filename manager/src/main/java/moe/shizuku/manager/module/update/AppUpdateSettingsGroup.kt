@@ -64,12 +64,24 @@ fun AppUpdateSettingsGroup() {
     val pendingVersion = remember { mutableStateOf<String?>(null) }
     val pendingUrl = remember { mutableStateOf<String?>(null) }
     LaunchedEffect(Unit) {
-        pendingVersion.value = ModuleSettings.getPendingUpdateVersion()
-        pendingUrl.value = ModuleSettings.getPendingUpdateUrl()
+        val storedVersion = ModuleSettings.getPendingUpdateVersion()
+        val storedUrl = ModuleSettings.getPendingUpdateUrl()
+        if (!storedVersion.isNullOrEmpty() && !storedUrl.isNullOrEmpty()
+            && !SheveryUpdateChecker.isTagNewerThanInstalled(storedVersion)
+        ) {
+            // Stale pending (e.g. r35 stored before r36 was installed, with no
+            // check run since): drop it instead of advertising an old version.
+            ModuleSettings.clearPendingUpdate()
+        } else {
+            pendingVersion.value = storedVersion
+            pendingUrl.value = storedUrl
+        }
     }
     val version = pendingVersion.value
     val url = pendingUrl.value
-    if (!version.isNullOrEmpty() && !url.isNullOrEmpty()) {
+    if (!version.isNullOrEmpty() && !url.isNullOrEmpty()
+        && SheveryUpdateChecker.isTagNewerThanInstalled(version)
+    ) {
         val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url))
         Surface(
             onClick = { context.startActivity(intent) },
