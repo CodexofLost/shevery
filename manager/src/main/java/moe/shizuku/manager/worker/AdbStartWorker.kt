@@ -417,6 +417,11 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
     // WRITE_SECURE_SETTINGS. Toggling 0 -> 1 forces the wireless stack to
     // refresh; mirrors the proven "enable wireless debugging while already on
     // 5555" manual workaround.
+    //
+    // TIMING MATTERS more than the transport: the ROM wipes the flag
+    // asynchronously around the rebind, so an immediate toggle fires too early
+    // and gets wiped again. Wait for the wipe to land first, toggle, read the
+    // value back, and retry once if the ROM cleared it again.
     private suspend fun reassertWifiFlagIfEnabled() {
         if (!ModuleSettings.isWifiReassertEnabled()) return
         withContext(Dispatchers.IO) {
@@ -425,20 +430,48 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                     Log.d(AppConstants.TAG, "AdbStartWorker: binder down, skipping wifi re-assert")
                     return@withContext
                 }
+                // Let the ROM's post-bind wipe land before touching the flag.
+                delay(3_000)
+                if (!Shizuku.pingBinder()) {
+                    Log.d(AppConstants.TAG, "AdbStartWorker: binder died during wifi re-assert settle wait")
+                    return@withContext
+                }
                 val service = IShizukuService.Stub.asInterface(Shizuku.getBinder())
-                val process = service.newProcess(
-                    arrayOf(
-                        "sh", "-c",
-                        "settings put global adb_wifi_enabled 0; sleep 1; settings put global adb_wifi_enabled 1"
-                    ),
-                    null,
-                    null
-                )
-                val exitCode = process.waitFor()
-                Log.d(AppConstants.TAG, "AdbStartWorker: re-asserted adb_wifi_enabled (0 -> 1) post-connect, exit=$exitCode")
+                shellToggleWifiFlag(service)
+                delay(1_000)
+                var stuck = readWifiFlag()
+                if (stuck != 1) {
+                    Log.d(AppConstants.TAG, "AdbStartWorker: adb_wifi_enabled read back as $stuck after toggle, retrying once")
+                    delay(2_000)
+                    shellToggleWifiFlag(service)
+                    delay(1_000)
+                    stuck = readWifiFlag()
+                }
+                Log.d(AppConstants.TAG, "AdbStartWorker: adb_wifi_enabled final value=$stuck")
             } catch (e: Throwable) {
                 Log.d(AppConstants.TAG, "AdbStartWorker: wifi re-assert failed: ${e.message}")
             }
+        }
+    }
+
+    private fun shellToggleWifiFlag(service: IShizukuService) {
+        val process = service.newProcess(
+            arrayOf(
+                "sh", "-c",
+                "settings put global adb_wifi_enabled 0; sleep 1; settings put global adb_wifi_enabled 1"
+            ),
+            null,
+            null
+        )
+        val exitCode = process.waitFor()
+        Log.d(AppConstants.TAG, "AdbStartWorker: wifi flag toggle (0 -> 1) exit=$exitCode")
+    }
+
+    private fun readWifiFlag(): Int {
+        return try {
+            Settings.Global.getInt(applicationContext.contentResolver, "adb_wifi_enabled", 0)
+        } catch (_: Exception) {
+            -1
         }
     }
 
