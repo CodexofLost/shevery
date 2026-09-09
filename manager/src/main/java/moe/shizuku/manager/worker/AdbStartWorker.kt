@@ -114,6 +114,28 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             }
     }
 
+    /**
+     * Expedited work on API <31 runs inside a foreground service, and WorkManager
+     * fetches its notification through this method BEFORE doWork() runs. The default
+     * implementation throws IllegalStateException, which crashed every
+     * watchdog-triggered ADB restart on Android 7-11. Reuses the starter channel
+     * and NOTIFICATION_ID so the worker's own progress updates replace it.
+     * WorkManager only calls this on API <31 (it skips the foreground path on
+     * 31+), so the typeless form is used: no FGS-type bits that those releases
+     * don't know. Manifest's SystemForegroundService declaration is unaffected.
+     */
+    override suspend fun getForegroundInfo(): ForegroundInfo {
+        ShizukuReceiverStarter.ensureChannel(applicationContext)
+        val notification = NotificationCompat.Builder(applicationContext, ShizukuReceiverStarter.CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_system_icon)
+            .setContentTitle(applicationContext.getString(R.string.wadb_notification_title))
+            .setOngoing(true)
+            .setSilent(true)
+            .build()
+        @Suppress("DEPRECATION")
+        return ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, notification)
+    }
+
     override suspend fun doWork(): Result {
         try {
             ShizukuReceiverStarter.updateNotification(
