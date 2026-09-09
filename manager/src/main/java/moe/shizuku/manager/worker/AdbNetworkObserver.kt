@@ -142,7 +142,7 @@ object AdbNetworkObserver {
         }
     }
 
-    private fun reArmWifiAfterSettle(app: Application() {
+    private fun reArmWifiAfterSettle(app: Application) {
         scope.launch {
             delay(3_000)
             WifiDebugReassert.reassertIfEnabled(app.applicationContext)
