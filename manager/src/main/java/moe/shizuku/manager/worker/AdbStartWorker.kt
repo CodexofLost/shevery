@@ -25,6 +25,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runInterruptible
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
@@ -454,16 +455,22 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
         }
     }
 
-    private fun shellToggleWifiFlag(service: IShizukuService) {
+    private suspend fun shellToggleWifiFlag(service: IShizukuService) {
         val process = service.newProcess(
             arrayOf(
                 "sh", "-c",
-                "settings put global adb_wifi_enabled 0; sleep 1; settings put global adb_wifi_enabled 1"
+                "settings put global adb_wifi_enabled 0 >/dev/null 2>&1; sleep 1; settings put global adb_wifi_enabled 1 >/dev/null 2>&1"
             ),
             null,
             null
         )
-        val exitCode = process.waitFor()
+        val exitCode = withTimeoutOrNull(5_000) {
+            runInterruptible { process.waitFor() }
+        } ?: run {
+            process.destroy()
+            Log.d(AppConstants.TAG, "AdbStartWorker: wifi flag toggle timed out; killed shell")
+            -1
+        }
         Log.d(AppConstants.TAG, "AdbStartWorker: wifi flag toggle (0 -> 1) exit=$exitCode")
     }
 
