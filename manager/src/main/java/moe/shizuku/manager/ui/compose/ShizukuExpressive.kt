@@ -6,7 +6,10 @@
 
 package moe.shizuku.manager.ui.compose
 
+import android.app.UiModeManager
+import android.content.res.Configuration
 import android.os.Build
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.animation.AnimatedVisibility
@@ -22,7 +25,6 @@ import androidx.compose.animation.core.spring
 import androidx.compose.animation.expandHorizontally
 import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -97,6 +99,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.ui.semantics.semantics
+import moe.shizuku.manager.ShizukuSettings
 import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MotionScheme
@@ -293,7 +297,23 @@ fun ExpressiveFloatingNavigationBar(
 @Composable
 fun ShizukuExpressiveTheme(content: @Composable () -> Unit) {
     val context = LocalContext.current
-    val dark = isSystemInDarkTheme()
+    // Resolve dark from the user's night-mode setting, not the raw system flag:
+    // isSystemInDarkTheme() ignores AppCompatDelegate overrides, so explicit
+    // Light/Dark choices (and follow-system on some ROMs) never reached Compose.
+    val systemDark = remember {
+        val uiModeManager = context.getSystemService(UiModeManager::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && uiModeManager != null) {
+            uiModeManager.nightMode == UiModeManager.MODE_NIGHT_YES
+        } else {
+            (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                Configuration.UI_MODE_NIGHT_YES
+        }
+    }
+    val dark = when (ShizukuSettings.getNightMode()) {
+        AppCompatDelegate.MODE_NIGHT_YES -> true
+        AppCompatDelegate.MODE_NIGHT_NO -> false
+        else -> systemDark
+    }
     val baseScheme = when {
         ThemeHelper.isUsingSystemColor() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && dark ->
             dynamicDarkColorScheme(context)
@@ -617,6 +637,7 @@ fun SettingsRow(
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .semantics(mergeDescendants = true) {}
             .then(clickableModifier)
             .alpha(if (enabled) 1f else 0.56f)
             .padding(horizontal = 16.dp, vertical = 14.dp),
