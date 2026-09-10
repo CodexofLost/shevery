@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
+import androidx.core.view.WindowCompat
 import moe.shizuku.manager.R
 import rikka.core.res.isNight
 import rikka.material.app.MaterialActivity
@@ -13,6 +14,13 @@ import rikka.material.app.MaterialActivity
 abstract class AppActivity : MaterialActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Run enableEdgeToEdge after super.onCreate: SystemBarStyle.auto's dark detection
+        // reads the activity's (resolved( resources (EdgeToEdge passes view.getResources()),
+        // so it must see the AppCompat-resolved night mode — running it before super.onCreate
+        // can capture the stale pre-resolution configuration, leaving the bars on the old
+        // icon appearance after a theme switch until the process restarts.
+
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.auto(Color.TRANSPARENT, Color.TRANSPARENT),
             navigationBarStyle = SystemBarStyle.auto(Color.TRANSPARENT, Color.TRANSPARENT)
@@ -20,7 +28,6 @@ abstract class AppActivity : MaterialActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             window.isNavigationBarContrastEnforced = false
         }
-        super.onCreate(savedInstanceState)
     }
 
     override fun computeUserThemeKey(): String {
@@ -36,6 +43,19 @@ abstract class AppActivity : MaterialActivity() {
         }
 
         theme.applyStyle(ThemeHelper.getThemeStyleRes(this), true)
+
+        // Re-assert the bar icon appearance on the decor pass: enableEdgeToEdge's auto
+        // style computes once when the window is wired up, and a theme-driven recreate can
+        // leave a stale legacy window flag (API≤29( — the bars keep the old icons until the
+        // process restarts. This pass runs after the theme dispatch, so the activity's resources
+        // are already resolved — re-write the appearance from them, which makes a Follow-System
+        // switch take effect immediately on a theme change, without needing a process restart.
+        if (isDecorView) {
+            val controller = WindowCompat.getInsetsController(window, window.decorView)
+            val light = !resources.configuration.isNight()
+            controller.setAppearanceLightStatusBars(light)
+            controller.setAppearanceLightNavigationBars(light)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
