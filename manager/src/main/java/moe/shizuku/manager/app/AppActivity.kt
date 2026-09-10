@@ -47,16 +47,14 @@ abstract class AppActivity : MaterialActivity() {
         // Re-assert the bar icon appearance on the decor pass: enableEdgeToEdge's auto
         // style computes once when the window is wired up, and a theme-driven recreate can
         // leave a stale legacy window flag (API≤29( — the bars keep the old icons until the
-        // process restarts. This pass runs after the theme dispatch,so the activity's resources
+        // process restarts. This pass runs after the theme dispatch, so the activity's resources
         // are already resolved — re-write the appearance from them, which makes a Follow-System
         // switch take effect immediately on a theme change, without needing a process restart.
-
         if (isDecorView) {
-            WindowCompat.getInsetsController(window, window.decorView)..apply {
-                val light = !resources.configuration.isNight()
-                isAppearanceLightStatusBars = light
-                isAppearanceLightNavigationBars = light
-            }
+            val controller = WindowCompat.getInsetsController(window, window.decorView)
+            val light = !resources.configuration.isNight()
+            controller.setAppearanceLightStatusBars(light)
+            controller.setAppearanceLightNavigationBars(light)
         }
     }
 
