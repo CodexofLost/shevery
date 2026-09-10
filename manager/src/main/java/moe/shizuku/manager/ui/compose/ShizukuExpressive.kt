@@ -693,7 +693,7 @@ fun SwitchSettingsRow(
         enabled = enabled,
         onClick = { if (enabled) onCheckedChange(!checked) },
         trailing = {
-            Box(modifier = Modifier.clearAndSetSemantics()) {
+            Box(modifier = Modifier.clearAndSetSemantics {}) {
                 ExpressiveSwitch(
                     checked = checked,
                     enabled = enabled,
