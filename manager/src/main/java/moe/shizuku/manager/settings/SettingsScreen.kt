@@ -143,6 +143,9 @@ fun SettingsScreen() {
     var watchdog by remember {
         mutableStateOf(ModuleSettings.isWatchdogEnabled())
     }
+    var wifiReassert by remember {
+        mutableStateOf(ModuleSettings.isWifiReassertEnabled())
+    }
     var compatStub by remember {
         mutableStateOf(StubManager.isInstalled(context))
     }
@@ -417,6 +420,17 @@ fun SettingsScreen() {
                         ModuleSettings.setWatchdogEnabled(enabled)
                         watchdog = ModuleSettings.isWatchdogEnabled()
                         moe.shizuku.manager.service.WatchdogManager.reconcileService(context)
+                    }
+                )
+                GroupDivider()
+                SwitchSettingsRow(
+                    icon = R.drawable.ic_adb_24dp,
+                    title = stringResource(R.string.settings_wifi_reassert_title),
+                    summary = stringResource(R.string.settings_wifi_reassert_summary),
+                    checked = wifiReassert,
+                    onCheckedChange = { enabled ->
+                        ModuleSettings.setWifiReassertEnabled(enabled)
+                        wifiReassert = ModuleSettings.isWifiReassertEnabled()
                     }
                 )
                 GroupDivider()

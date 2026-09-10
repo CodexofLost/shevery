@@ -36,6 +36,7 @@ object ModuleSettings {
     private const val KEY_LEGACY_KEEP_ALIVE = "shizuku_keep_alive"
     private const val KEY_LEGACY_AUTO_RESTART = "shizuku_auto_restart_on_crash"
     private const val KEY_COMPAT_STUB = "shizuku_compat_stub"
+    private const val KEY_WIFI_REASSERT = "shizuku_wifi_adb_reassert"
 
 
     enum class AccessMode(
@@ -262,7 +263,10 @@ object ModuleSettings {
         val legacyEnabled = prefs.getBoolean(KEY_LEGACY_KEEP_ALIVE, false) ||
             prefs.getBoolean(KEY_LEGACY_AUTO_RESTART, false)
         if (legacyEnabled) {
-            prefs.edit().putBoolean(KEY_ERROR_PROTECT, true).apply()
+            prefs.edit().putBoolean(KEY_ERROR_PROTECT, true)
+                .remove(KEY_LEGACY_KEEP_ALIVE)
+                .remove(KEY_LEGACY_AUTO_RESTART)
+                .apply()
         }
     }
 
@@ -272,6 +276,16 @@ object ModuleSettings {
 
     fun setCompatibilityStubEnabled(value: Boolean) {
         ShizukuSettings.getPreferences().edit().putBoolean(KEY_COMPAT_STUB, value).apply()
+    }
+
+    // Off by default: only ROMs that silently clear adb_wifi_enabled (legacy
+    // TCP mode in use, or on lock) need the 0 -> 1 toggle during ADB start.
+    fun isWifiReassertEnabled(): Boolean {
+        return ShizukuSettings.getPreferences().getBoolean(KEY_WIFI_REASSERT, false)
+    }
+
+    fun setWifiReassertEnabled(value: Boolean) {
+        ShizukuSettings.getPreferences().edit().putBoolean(KEY_WIFI_REASSERT, value).apply()
     }
 
     // Comput Settings

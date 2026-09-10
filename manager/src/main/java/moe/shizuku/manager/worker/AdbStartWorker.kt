@@ -18,22 +18,27 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.work.*
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runInterruptible
 import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.withTimeoutOrNull
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbMdns
 import moe.shizuku.manager.adb.AdbStarter
+import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.receiver.SheveryControlReceiver
 import moe.shizuku.manager.receiver.ShizukuReceiverStarter
 import moe.shizuku.manager.starter.Starter
+import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import moe.shizuku.manager.AppConstants
@@ -344,6 +349,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // waitForBinder can time out while the binder actually arrived;
                 // re-ping once before treating this as a failure.
                 if (Shizuku.pingBinder()) {
+                    reassertWifiFlagIfEnabled()
                     ShizukuReceiverStarter.updateNotification(
                         applicationContext,
                         ShizukuReceiverStarter.WorkerState.STOPPED
@@ -352,6 +358,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 }
                 throw TimeoutException("Failed to receive binder within 30 seconds")
             }
+            reassertWifiFlagIfEnabled()
 
             ShizukuReceiverStarter.updateNotification(
                 applicationContext,
@@ -400,6 +407,91 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
             )
             return Result.retry()
+        }
+    }
+
+    // Opt-in hammer for hostile ROMs: runs AFTER AdbStarter.start (incl. the
+    // tcpip:5555 rebind), because some ROMs clear adb_wifi_enabled when legacy
+    // TCP mode activates — a write before the bind lands in the wiped window.
+    // Shells out through the Shizuku service (same as ADB modules: shell UID),
+    // NOT the app ContentResolver — the app UID typically lacks
+    // WRITE_SECURE_SETTINGS. Reads first and NEVER writes 0: a manufactured
+    // disable event mid-connection makes hostile ROMs tear down the live socket
+    // (visible "turns on and off" flapping) — watchdog restarts just re-fire it.
+
+    // Only re-arm with a bare put 1 when the ROM actually wiped it (0 -> 1
+    // state change at the provider level, no socket disruption).
+    //
+    // TIMING MATTERS more than the transport: the ROM wipes the flag
+    // asynchronously around the rebind, so an immediate toggle fires too early
+    // and gets wiped again. Wait for the wipe to land first, toggle, read the
+    // value back, and retry once if the ROM cleared it again.
+    private suspend fun reassertWifiFlagIfEnabled() {
+        if (!ModuleSettings.isWifiReassertEnabled()) return
+        withContext(Dispatchers.IO) {
+            try {
+                if (!Shizuku.pingBinder()) {
+                    Log.d(AppConstants.TAG, "AdbStartWorker: binder down, skipping wifi re-assert")
+                    return@withContext
+                }
+                // Let the ROM's post-bind wipe land before touching the flag.
+                delay(3_000)
+                if (!Shizuku.pingBinder()) {
+                    Log.d(AppConstants.TAG, "AdbStartWorker: binder died during wifi re-assert settle wait")
+                    return@withContext
+                }
+                val service = IShizukuService.Stub.asInterface(Shizuku.getBinder())
+                ensureWifiFlag(service)
+                delay(1_000)
+                var stuck = readWifiFlag()
+                if (stuck != 1) {
+                    Log.d(AppConstants.TAG, "AdbStartWorker: adb_wifi_enabled read back as $stuck after re-arm, retrying once")
+                    delay(2_000)
+                    ensureWifiFlag(service)
+                    delay(1_000)
+                    stuck = readWifiFlag()
+                }
+                Log.d(AppConstants.TAG, "AdbStartWorker: adb_wifi_enabled final value=$stuck")
+            } catch (e: Throwable) {
+                Log.d(AppConstants.TAG, "AdbStartWorker: wifi re-assert failed: ${e.message}")
+            }
+        }
+    }
+
+    private suspend fun ensureWifiFlag(service: IShizukuService): Boolean {
+        // Read first: if the flag is already armed there is nothing to do —and,
+        // vitally, nothing to disturb. A live wireless-debugging session must
+        // never see a synthetic 0.
+        if (readWifiFlag() == 1) {
+            Log.d(AppConstants.TAG, "AdbStartWorker: adb_wifi_enabled already 1, no-op")
+            return true
+        }
+        // Bare re-arm (no 0-first):the ROM cleared the flag (typically to 0),
+        // so this single put is a real 0 -> 1 state change at the provider level.
+        val process = service.newProcess(
+            arrayOf(
+                "sh", "-c",
+                "settings put global adb_wifi_enabled 1 >/dev/null 2>&1"
+            ),
+            null,
+            null
+        )
+        val exitCode = withTimeoutOrNull(5_000) {
+            runInterruptible { process.waitFor() }
+        } ?: run {
+            process.destroy()
+            Log.d(AppConstants.TAG, "AdbStartWorker: wifi flag re-arm timed out; killed shell")
+            -1
+        }
+        Log.d(AppConstants.TAG, "AdbStartWorker: wifi flag re-arm exit=$exitCode")
+        return exitCode == 0
+    }
+
+    private fun readWifiFlag(): Int {
+        return try {
+            Settings.Global.getInt(applicationContext.contentResolver, "adb_wifi_enabled", 0)
+        } catch (_: Exception) {
+            -1
         }
     }
 
