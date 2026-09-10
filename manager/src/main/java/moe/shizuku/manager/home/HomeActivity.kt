@@ -130,6 +130,7 @@ import rikka.lifecycle.viewModels
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuApiConstants
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.manager.module.update.SheveryUpdateChecker
 import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import androidx.lifecycle.lifecycleScope
@@ -1061,8 +1062,16 @@ private fun HomeScreen(
                 val pendingUrl = remember { mutableStateOf<String?>(null) }
                 val ctx = LocalContext.current
                 LaunchedEffect(Unit) {
-                    pendingVersion.value = ModuleSettings.getPendingUpdateVersion()
-                    pendingUrl.value = ModuleSettings.getPendingUpdateUrl()
+                    val storedVersion = ModuleSettings.getPendingUpdateVersion()
+                    val storedUrl = ModuleSettings.getPendingUpdateUrl()
+                    if (!storedVersion.isNullOrEmpty() && !storedUrl.isNullOrEmpty()
+                        && !SheveryUpdateChecker.isTagNewerThanInstalled(storedVersion)
+                    ) {
+                        ModuleSettings.clearPendingUpdate()
+                    } else {
+                        pendingVersion.value = storedVersion
+                        pendingUrl.value = storedUrl
+                    }
                 }
                 val version = pendingVersion.value
                 val url = pendingUrl.value

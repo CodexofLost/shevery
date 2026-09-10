@@ -140,8 +140,8 @@ fun SettingsScreen() {
     var adbStartOnBoot by remember {
         mutableStateOf(ShizukuSettings.getStartOnBootAdb())
     }
-    var errorProtect by remember {
-        mutableStateOf(ModuleSettings.isErrorProtectEnabled())
+    var watchdog by remember {
+        mutableStateOf(ModuleSettings.isWatchdogEnabled())
     }
     var compatStub by remember {
         mutableStateOf(StubManager.isInstalled(context))
@@ -263,7 +263,7 @@ fun SettingsScreen() {
                 Toast.makeText(context, "Restore completed successfully", Toast.LENGTH_SHORT).show()
                 startOnBoot = ShizukuSettings.getStartOnBoot()
                 adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
-                errorProtect = ModuleSettings.isErrorProtectEnabled()
+                watchdog = ModuleSettings.isWatchdogEnabled()
                 languageTag = prefs.getString(LANGUAGE, "SYSTEM") ?: "SYSTEM"
                 nightMode = ShizukuSettings.getNightMode()
                 blackNightTheme = ThemeHelper.isBlackNightTheme(context)
@@ -412,10 +412,10 @@ fun SettingsScreen() {
                     icon = R.drawable.ic_server_restart,
                     title = stringResource(R.string.error_protect_title),
                     summary = stringResource(R.string.error_protect_summary),
-                    checked = errorProtect,
+                    checked = watchdog,
                     onCheckedChange = { enabled ->
-                        ModuleSettings.setErrorProtectEnabled(enabled)
-                        errorProtect = ModuleSettings.isErrorProtectEnabled()
+                        ModuleSettings.setWatchdogEnabled(enabled)
+                        watchdog = ModuleSettings.isWatchdogEnabled()
                         moe.shizuku.manager.service.WatchdogManager.reconcileService(context)
                     }
                 )

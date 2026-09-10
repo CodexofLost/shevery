@@ -24,7 +24,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.withTimeoutOrNull
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbMdns
@@ -63,7 +65,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             val request = OneTimeWorkRequestBuilder<AdbStartWorker>()
                 .setConstraints(constraints)
-                .setBackoffCriteria(BackoffPolicy.LINEAR, 30_000L, TimeUnit.MILLISECONDS)
+                .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30_000L, TimeUnit.MILLISECONDS)
                 .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
                 .build()
 
@@ -112,6 +114,28 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             }
     }
 
+    /**
+     * Expedited work on API <31 runs inside a foreground service, and WorkManager
+     * fetches its notification through this method BEFORE doWork() runs. The default
+     * implementation throws IllegalStateException, which crashed every
+     * watchdog-triggered ADB restart on Android 7-11. Reuses the starter channel
+     * and NOTIFICATION_ID so the worker's own progress updates replace it.
+     * WorkManager only calls this on API <31 (it skips the foreground path on
+     * 31+), so the typeless form is used: no FGS-type bits that those releases
+     * don't know. Manifest's SystemForegroundService declaration is unaffected.
+     */
+    override suspend fun getForegroundInfo(): ForegroundInfo {
+        ShizukuReceiverStarter.ensureChannel(applicationContext)
+        val notification = NotificationCompat.Builder(applicationContext, ShizukuReceiverStarter.CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_system_icon)
+            .setContentTitle(applicationContext.getString(R.string.wadb_notification_title))
+            .setOngoing(true)
+            .setSilent(true)
+            .build()
+        @Suppress("DEPRECATION")
+        return ForegroundInfo(ShizukuReceiverStarter.NOTIFICATION_ID, notification)
+    }
+
     override suspend fun doWork(): Result {
         try {
             ShizukuReceiverStarter.updateNotification(
@@ -119,7 +143,50 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 ShizukuReceiverStarter.WorkerState.RUNNING
             )
 
-            // No FGS promotion here: the reference (thedjchi/Shizuku( only foregrounds
+            // Gate ALL start paths (TCP fast-path, TV, mDNS) behind unlock.
+            // Android tears down plain-TCP adb while the keyguard is up, so starting
+            // behind the lockscreen (as the watchdog did) just loops. Waitfor
+            // USER_PRESENT like the reference implementation, bounded so a locked
+            // device falls through to backoff retries instead of wedging the worker.
+            val keyguardManager = applicationContext.getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
+            if (keyguardManager?.isKeyguardLocked == true) {
+                Log.d(AppConstants.TAG, "AdbStartWorker: device locked -- waiting for USER_PRESENT before starting ADB")
+                val unlocked = withTimeoutOrNull(30_000L) {
+                    suspendCancellableCoroutine<Boolean> { cont ->
+                        val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
+                        val unlockReceiver = object : BroadcastReceiver() {
+                            override fun onReceive(context: Context, intent: Intent) {
+                                if (intent.action == Intent.ACTION_USER_PRESENT) {
+                                    runCatching { applicationContext.unregisterReceiver(this) }
+                                    if (cont.isActive) cont.resumeWith(kotlin.Result.success(true))
+                                }
+                            }
+                        }
+                        val receiverFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                            ContextCompat.RECEIVER_EXPORTED
+                        } else {
+                            ContextCompat.RECEIVER_NOT_EXPORTED
+                        }
+                        ContextCompat.registerReceiver(applicationContext, unlockReceiver, filter, receiverFlags)
+                        // Re-check after registration: the device may have unlocked between
+                        // the check above and now, so USER_PRESENT fired and was missed.
+
+                        if (keyguardManager?.isKeyguardLocked == false) {
+                            runCatching { applicationContext.unregisterReceiver(unlockReceiver) }
+                            if (cont.isActive) cont.resumeWith(kotlin.Result.success(true))
+                        }
+                        cont.invokeOnCancellation {
+                            runCatching { applicationContext.unregisterReceiver(unlockReceiver) }
+                        }
+                    }
+                }
+                if (unlocked != true) {
+                    Log.d(AppConstants.TAG, "AdbStartWorker: device stayed locked; parking worker for backoff retry")
+                    return Result.retry()
+                }
+            }
+
+            // No FGS promotion here:the reference (thedjchi/Shizuku( only foregrounds
             // to wait out an *unbounded* keyguard unlock; every wait in our fork is
             // bounded (15s discovery, 30s unlock(+ plus retries, so a background
             // startForegroundService would only throw ForegroundServiceStartNotAllowed
@@ -142,12 +209,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
             }
 
             val tcpPort = EnvironmentUtils.getAdbTcpPort()
+            val liveTcpPort = EnvironmentUtils.getLiveAdbTcpPort()
 
             val port = if (EnvironmentUtils.isTelevision()) {
                 // TV devices with a configured/static TCP port use TCP directly;
                 // avoid mDNS discovery which is unreliable on LEANBACK.
                 if (tcpPort > 0) tcpPort else throw SecurityException("TV device requires TCP ADB port to be configured")
-            } else if (!EnvironmentUtils.isWifiRequired() && EnvironmentUtils.isAdbPortLive(tcpPort)) {
+            } else if (!EnvironmentUtils.isWifiRequired() && liveTcpPort > 0) {
 
                 // A configured/static TCP port that is actually live can be used directly.
 
@@ -156,14 +224,13 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                 // AFTER the first successful start rebinds adbd to it. When a configured port
                 // is stale (e.g., fresh reboot before the service started(, fall through to mDNS
                 // so the worker still discovers the live random wireless port.
-                tcpPort
+                liveTcpPort
             } else {
                 // mDNS advert can go stale when Wi-Fi drops and reconnects (the
                 // Framework never re-publishes _adb-tls-connect(; adbd's TLS
                 // listener usually survives on loopback though,cached last port probe
                 // finds it instantly,and a wrong-service connect dies fast (
                 // TLS/A_AUTH handshake(, so this fallback is safe.
-                val liveTcpPort = EnvironmentUtils.getLiveAdbTcpPort()
                 if (liveTcpPort >   0) liveTcpPort else callbackFlow {
                     val adbMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT) { p ->
                         if (p > 0) trySend(p)

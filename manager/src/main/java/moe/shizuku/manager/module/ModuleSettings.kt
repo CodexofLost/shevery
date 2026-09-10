@@ -29,11 +29,12 @@ object ModuleSettings {
     private const val KEY_TRUSTED_MODULES = "adb_modules_trusted_modules"
     private const val KEY_CONNECTOR_ENABLED = "shizuku_connector_enabled"
     private const val KEY_DHIZUKU_ENABLED = "shizuku_dhizuku_enabled"
-    private const val KEY_KEEP_ALIVE = "shizuku_keep_alive"
     private const val KEY_VERBOSE_LOGGING = "shizuku_verbose_logging"
-    private const val KEY_AUTO_RESTART = "shizuku_auto_restart_on_crash"
     private const val KEY_NOTIFY_DEATH = "shizuku_notify_service_death"
     private const val KEY_ERROR_PROTECT = "shizuku_error_protect"
+    // Legacy watchdog prefs from before the toggle consolidation (PR #186).
+    private const val KEY_LEGACY_KEEP_ALIVE = "shizuku_keep_alive"
+    private const val KEY_LEGACY_AUTO_RESTART = "shizuku_auto_restart_on_crash"
     private const val KEY_COMPAT_STUB = "shizuku_compat_stub"
 
 
@@ -227,28 +228,12 @@ object ModuleSettings {
     }
 
 
-    fun isKeepAlive(): Boolean {
-        return ShizukuSettings.getPreferences().getBoolean(KEY_KEEP_ALIVE, false)
-    }
-
-    fun setKeepAlive(value: Boolean) {
-        ShizukuSettings.getPreferences().edit().putBoolean(KEY_KEEP_ALIVE, value).apply()
-    }
-
     fun isVerboseLogging(): Boolean {
         return ShizukuSettings.getPreferences().getBoolean(KEY_VERBOSE_LOGGING, false)
     }
 
     fun setVerboseLogging(value: Boolean) {
         ShizukuSettings.getPreferences().edit().putBoolean(KEY_VERBOSE_LOGGING, value).apply()
-    }
-
-    fun isAutoRestartOnCrash(): Boolean {
-        return ShizukuSettings.getPreferences().getBoolean(KEY_AUTO_RESTART, false)
-    }
-
-    fun setAutoRestartOnCrash(value: Boolean) {
-        ShizukuSettings.getPreferences().edit().putBoolean(KEY_AUTO_RESTART, value).apply()
     }
 
     fun isNotifyOnServiceDeath(): Boolean {
@@ -259,12 +244,26 @@ object ModuleSettings {
         ShizukuSettings.getPreferences().edit().putBoolean(KEY_NOTIFY_DEATH, value).apply()
     }
 
-    fun isErrorProtectEnabled(): Boolean {
+    fun isWatchdogEnabled(): Boolean {
         return ShizukuSettings.getPreferences().getBoolean(KEY_ERROR_PROTECT, true)
     }
 
-    fun setErrorProtectEnabled(value: Boolean) {
+    fun setWatchdogEnabled(value: Boolean) {
         ShizukuSettings.getPreferences().edit().putBoolean(KEY_ERROR_PROTECT, value).apply()
+    }
+
+    // Maps pre-consolidation watchdog prefs (PR #186（ into the single master toggle.
+    // Users who had the legacy keep-alive or auto-restart prefs enabled but Watchdog
+    // off would otherwise silently lose watchdog coverage after updating.
+
+    fun migrateLegacyWatchdogPrefs() {
+        val prefs = ShizukuSettings.getPreferences()
+        if (prefs.getBoolean(KEY_ERROR_PROTECT, true)) return
+        val legacyEnabled = prefs.getBoolean(KEY_LEGACY_KEEP_ALIVE, false) ||
+            prefs.getBoolean(KEY_LEGACY_AUTO_RESTART, false)
+        if (legacyEnabled) {
+            prefs.edit().putBoolean(KEY_ERROR_PROTECT, true).apply()
+        }
     }
 
     fun isCompatibilityStubEnabled(): Boolean {

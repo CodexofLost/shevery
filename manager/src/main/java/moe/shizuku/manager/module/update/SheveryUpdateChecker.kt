@@ -196,5 +196,19 @@ class SheveryUpdateChecker private constructor() {
                 }
             }
         }
+
+        /**
+         * True when [releaseTag] (e.g. "r35") is newer than the installed build.
+         * Used to suppress stale stored pendings: a banner saved before an update
+         * must not keep advertising the old version after a newer build is installed.
+         */
+        fun isTagNewerThanInstalled(releaseTag: String?): Boolean {
+            if (releaseTag.isNullOrBlank()) return false
+            return getInstance().isReleaseNewer(
+                releaseTag,
+                BuildConfig.VERSION_NAME,
+                BuildConfig.VERSION_CODE
+            )
+        }
     }
 }
