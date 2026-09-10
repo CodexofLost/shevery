@@ -50,6 +50,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -393,6 +395,7 @@ fun ShizukuLazyScaffold(
     verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(10.dp),
     isRefreshing: Boolean = false,
     onRefresh: (() -> Unit)? = null,
+    listState: LazyListState = rememberLazyListState(),
     content: LazyListScope.() -> Unit
 ) {
     ShizukuScaffold(
@@ -406,6 +409,7 @@ fun ShizukuLazyScaffold(
         val navigationBarPadding = WindowInsets.navigationBars.asPaddingValues()
         val list = @Composable {
             LazyColumn(
+                state = listState,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding),

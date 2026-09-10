@@ -38,6 +38,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -244,6 +245,13 @@ abstract class HomeActivity : AppActivity() {
 
             var selectedTab by remember { mutableIntStateOf(0) }
 
+            // Hoisted above the AnimatedContent tab switch: SettingsScreen leaves
+            // composition on tab change, so state kept here survives; saveable
+            // so it also survives rotation.
+            val settingsListState = rememberSaveable(saver = LazyListState.Saver) {
+                LazyListState()
+            }
+
             ShizukuExpressiveTheme {
                 Box(Modifier.fillMaxSize()) {
                 Scaffold(
@@ -315,7 +323,7 @@ abstract class HomeActivity : AppActivity() {
                                     )
                                 })
                                 2 -> moe.shizuku.manager.logs.ComputScreen()
-                                3 -> moe.shizuku.manager.settings.SettingsScreen()
+                                3 -> moe.shizuku.manager.settings.SettingsScreen(listState = settingsListState)
                             }
                         }
                     }
