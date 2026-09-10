@@ -263,7 +263,10 @@ object ModuleSettings {
         val legacyEnabled = prefs.getBoolean(KEY_LEGACY_KEEP_ALIVE, false) ||
             prefs.getBoolean(KEY_LEGACY_AUTO_RESTART, false)
         if (legacyEnabled) {
-            prefs.edit().putBoolean(KEY_ERROR_PROTECT, true).apply()
+            prefs.edit().putBoolean(KEY_ERROR_PROTECT, true)
+                .remove(KEY_LEGACY_KEEP_ALIVE)
+                .remove(KEY_LEGACY_AUTO_RESTART)
+                .apply()
         }
     }
 
