@@ -601,8 +601,8 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <!-- ErrorProtect &amp; TCP 5555 -->
     <string name="error_protect_title">Watchdog</string>
     <string name="error_protect_summary">Check process health and transactional errors every 10 seconds. Automatically stops and restarts Shevery if issues are found.</string>
-    <string name="settings_wifi_reassert_title">Re-assert wireless debugging on start</string>
-    <string name="settings_wifi_reassert_summary">Off by default. When on, re-asserts adb_wifi_enabled during ADB start if the ROM silently cleared it. For ROMs that disable wireless debugging when legacy TCP mode is used or on lock. Never forces wireless debugging off.</string>
+    <string name="settings_wifi_reassert_title">Re-assert wireless debugging</string>
+    <string name="settings_wifi_reassert_summary">Off by default. Restores the wireless debugging flag if the ROM cleared it (at ADB start and Wi-Fi reconnect). Never turns it off.</string>
     <string name="settings_tcp_5555_title">TCP Binding 5555</string>
     <string name="settings_tcp_5555_summary">Bind local ADB server to port 5555 to keep it working without Wireless Debugging port updates.</string>
     <string name="settings_tcp_5555_button">Bind to 5555</string>
