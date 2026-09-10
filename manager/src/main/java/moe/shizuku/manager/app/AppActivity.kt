@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
+import androidx.core.view.WindowCompat
 import moe.shizuku.manager.R
 import rikka.core.res.isNight
 import rikka.material.app.MaterialActivity
@@ -36,6 +37,13 @@ abstract class AppActivity : MaterialActivity() {
         }
 
         theme.applyStyle(ThemeHelper.getThemeStyleRes(this), true)
+        if (isDecorView) {
+            WindowCompat.getInsetsController(window, window.decorView)..apply {
+                val light = !resources.configuration.isNight()
+                isAppearanceLightStatusBars = light
+                isAppearanceLightNavigationBars = light
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
