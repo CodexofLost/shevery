@@ -626,6 +626,7 @@ fun SettingsRow(
     title: String,
     modifier: Modifier = Modifier,
     summary: String? = null,
+    stateDescription: String? = null,
     enabled: Boolean = true,
     onClick: (() -> Unit)? = null,
     trailing: @Composable (() -> Unit)? = null
@@ -639,7 +640,7 @@ fun SettingsRow(
             modifier = modifier
                 .fillMaxWidth()
                 .then(clickableModifier)
-                .semantics(mergeDescendants = true) {} // AFTER clickable, so the merged node wraps the click action too
+                .semantics(mergeDescendants = true) { stateDescription?.let { this.stateDescription = it } } // AFTER clickable, so the merged node wraps the click action too
                 .alpha(if (enabled) 1f else  0.56f)
                 .padding(horizontal = 16.dp, vertical = 14.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -690,6 +691,7 @@ fun SwitchSettingsRow(
         title = title,
         modifier = modifier,
         summary = summary,
+        stateDescription = if (checked) "On" else "Off",
         enabled = enabled,
         onClick = { if (enabled) onCheckedChange(!checked) },
         trailing = {
