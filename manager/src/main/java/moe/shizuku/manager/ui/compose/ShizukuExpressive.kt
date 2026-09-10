@@ -99,6 +99,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.semantics
 import moe.shizuku.manager.ShizukuSettings
 import androidx.compose.material3.MaterialExpressiveTheme
@@ -635,12 +636,12 @@ fun SettingsRow(
         Modifier
     }
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .semantics(mergeDescendants = true) {}
-            .then(clickableModifier)
-            .alpha(if (enabled) 1f else 0.56f)
-            .padding(horizontal = 16.dp, vertical = 14.dp),
+            modifier = modifier
+                .fillMaxWidth()
+                .then(clickableModifier)
+                .semantics(mergeDescendants = true) {} // AFTER clickable, so the merged node wraps the click action too
+                .alpha(if (enabled) 1f else  ​0.56f)
+                .padding(horizontal = 16.dp, vertical = 14.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -692,11 +693,13 @@ fun SwitchSettingsRow(
         enabled = enabled,
         onClick = { if (enabled) onCheckedChange(!checked) },
         trailing = {
-            ExpressiveSwitch(
-                checked = checked,
-                enabled = enabled,
-                onCheckedChange = onCheckedChange
-            )
+            Box(modifier = Modifier.clearAndSetSemantics()) {
+                ExpressiveSwitch(
+                    checked = checked,
+                    enabled = enabled,
+                    onCheckedChange = null // Row's clickable handles the toggle; hide the switch's own node so it doesn't fight the merged row
+                )
+            }
         }
     )
 }
