@@ -39,6 +39,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -251,6 +252,15 @@ abstract class HomeActivity : AppActivity() {
             val settingsListState = rememberSaveable(saver = LazyListState.Saver) {
                 LazyListState()
             }
+            val modulesListState = rememberSaveable(saver = LazyListState.Saver) {
+                LazyListState()
+            }
+            val computListState = rememberSaveable(saver = LazyListState.Saver) {
+                LazyListState()
+            }
+            val homeListState = rememberSaveable(saver = LazyListState.Saver) {
+                LazyListState()
+            }
 
             ShizukuExpressiveTheme {
                 Box(Modifier.fillMaxSize()) {
@@ -314,15 +324,17 @@ abstract class HomeActivity : AppActivity() {
                                         requestLocalNetworkPermission { permissionRefreshTick.intValue++ }
                                     },
                                     onStartDhizuku = { startDhizukuMode() },
-                                    dhizukuEnabled = ModuleSettings.isDhizukuEnabled()
+                                    dhizukuEnabled = ModuleSettings.isDhizukuEnabled(),
+                                    listState = homeListState
                                 )
                                 1 -> moe.shizuku.manager.module.ModulesScreen(onOpenWebUi = {
                                     startActivity(
                                         Intent(this@HomeActivity, moe.shizuku.manager.module.ModuleWebViewActivity::class.java)
                                             .putExtra(moe.shizuku.manager.module.ModuleWebViewActivity.EXTRA_MODULE_ID, it)
-                                    )
-                                })
-                                2 -> moe.shizuku.manager.logs.ComputScreen()
+                                    ),
+                                    listState = modulesListState
+                                )
+                                2 -> moe.shizuku.manager.logs.ComputScreen(listState = computListState)
                                 3 -> moe.shizuku.manager.settings.SettingsScreen(listState = settingsListState)
                             }
                         }
@@ -982,7 +994,8 @@ private fun HomeScreen(
     onCopyDiagnostics: (String) -> Unit,
     onRequestLocalNetworkPermission: () -> Unit,
     onStartDhizuku: () -> Unit,
-    dhizukuEnabled: Boolean
+    dhizukuEnabled: Boolean,
+    listState: LazyListState = rememberLazyListState()
 ) {
     val context = LocalContext.current
     val status = serviceResource?.data ?: ServiceStatus()
@@ -1039,6 +1052,7 @@ private fun HomeScreen(
                 indicator = {}
             ) {
                 LazyColumn(
+                    state = listState,
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 112.dp),
                     verticalArrangement = Arrangement.spacedBy(12.dp)

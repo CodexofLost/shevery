@@ -43,7 +43,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -127,7 +129,10 @@ private val MODULE_MIME_TYPES = arrayOf(
 )
 
 @Composable
-fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
+fun ModulesScreen(
+    onOpenWebUi: (String) -> Unit,
+    listState: LazyListState = rememberLazyListState()
+) {
     val context = LocalContext.current
     val view = LocalView.current
     val scope = rememberCoroutineScope()
@@ -281,6 +286,7 @@ fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
             title = stringResource(R.string.modules_title),
             onNavigateUp = null,
             bottomInset = 112.dp,
+            listState = listState,
             isRefreshing = checkingUpdates,
             onRefresh = if (selectedTab == 0) ({
                 view.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)
