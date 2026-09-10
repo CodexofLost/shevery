@@ -38,7 +38,7 @@ abstract class AppActivity : MaterialActivity() {
 
         theme.applyStyle(ThemeHelper.getThemeStyleRes(this), true)
         if (isDecorView) {
-            WindowCompat.getInsetsController(window, window.decorView)..apply {
+            WindowCompat.getInsetsController(window, window.decorView).apply {
                 val light = !resources.configuration.isNight()
                 isAppearanceLightStatusBars = light
                 isAppearanceLightNavigationBars = light
