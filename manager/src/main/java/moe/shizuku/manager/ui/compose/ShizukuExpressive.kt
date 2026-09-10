@@ -640,7 +640,7 @@ fun SettingsRow(
                 .fillMaxWidth()
                 .then(clickableModifier)
                 .semantics(mergeDescendants = true) {} // AFTER clickable, so the merged node wraps the click action too
-                .alpha(if (enabled) 1f else  ​0.56f)
+                .alpha(if (enabled) 1f else  0.56f)
                 .padding(horizontal = 16.dp, vertical = 14.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically
