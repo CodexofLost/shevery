@@ -29,9 +29,7 @@ class LabFeaturesActivity : AppActivity() {
         setContent {
             var connectorEnabled by remember { mutableStateOf(ModuleSettings.isConnectorEnabled()) }
             var dhizukuEnabled by remember { mutableStateOf(ModuleSettings.isDhizukuEnabled()) }
-            var keepAlive by remember { mutableStateOf(ModuleSettings.isKeepAlive()) }
             var verboseLogging by remember { mutableStateOf(ModuleSettings.isVerboseLogging()) }
-            var autoRestart by remember { mutableStateOf(ModuleSettings.isAutoRestartOnCrash()) }
             var notifyDeath by remember { mutableStateOf(ModuleSettings.isNotifyOnServiceDeath()) }
             var showUnsafeDialog by remember { mutableStateOf(false) }
             var showDhizukuDialog by remember { mutableStateOf(false) }
@@ -77,30 +75,6 @@ class LabFeaturesActivity : AppActivity() {
 
                     item {
                         SettingsGroup(title = stringResource(R.string.lab_service_behavior_title)) {
-                            SwitchSettingsRow(
-                                icon = R.drawable.ic_server_ok_24dp,
-                                title = stringResource(R.string.lab_keep_alive_title),
-                                summary = stringResource(R.string.lab_keep_alive_summary),
-                                checked = keepAlive,
-                                onCheckedChange = { value ->
-                                    keepAlive = value
-                                    ModuleSettings.setKeepAlive(value)
-                                    WatchdogManager.reconcileService(this@LabFeaturesActivity)
-                                }
-                            )
-                            GroupDivider()
-                            SwitchSettingsRow(
-                                icon = R.drawable.ic_system_icon,
-                                title = stringResource(R.string.lab_auto_restart_title),
-                                summary = stringResource(R.string.lab_auto_restart_summary),
-                                checked = autoRestart,
-                                onCheckedChange = { value ->
-                                    autoRestart = value
-                                    ModuleSettings.setAutoRestartOnCrash(value)
-                                    WatchdogManager.reconcileService(this@LabFeaturesActivity)
-                                }
-                            )
-                            GroupDivider()
                             SwitchSettingsRow(
                                 icon = R.drawable.ic_outline_notifications_active_24,
                                 title = stringResource(R.string.lab_notify_death_title),

@@ -64,15 +64,42 @@ fun AppUpdateSettingsGroup() {
     val pendingVersion = remember { mutableStateOf<String?>(null) }
     val pendingUrl = remember { mutableStateOf<String?>(null) }
     LaunchedEffect(Unit) {
-        pendingVersion.value = ModuleSettings.getPendingUpdateVersion()
-        pendingUrl.value = ModuleSettings.getPendingUpdateUrl()
+        val storedVersion = ModuleSettings.getPendingUpdateVersion()
+        val storedUrl = ModuleSettings.getPendingUpdateUrl()
+        if (!storedVersion.isNullOrEmpty() && !storedUrl.isNullOrEmpty()
+            && !SheveryUpdateChecker.isTagNewerThanInstalled(storedVersion)
+        ) {
+            // Stale pending (e.g. r35 stored before r36 was installed, with no
+            // check run since): drop it instead of advertising an old version.
+            ModuleSettings.clearPendingUpdate()
+        } else {
+            pendingVersion.value = storedVersion
+            pendingUrl.value = storedUrl
+        }
     }
     val version = pendingVersion.value
     val url = pendingUrl.value
+    val showPendingInstall = remember { mutableStateOf(false) }
     if (!version.isNullOrEmpty() && !url.isNullOrEmpty()) {
-        val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url))
+        if (showPendingInstall.value) {
+            SheveryAppUpdateDialog(
+                result = SheveryAppUpdateResult(
+                    hasUpdate = true,
+                    currentVersion = BuildConfig.VERSION_NAME,
+                    latestVersion = version,
+                    releaseTitle = null,
+                    releaseNotes = null,
+                    downloadUrl = url,
+                    htmlUrl = null,
+                    isPreRelease = false,
+                    publishedAt = null,
+                    error = null
+                ),
+                onDismiss = { showPendingInstall.value = false },
+            )
+        }
         Surface(
-            onClick = { context.startActivity(intent) },
+            onClick = { showPendingInstall.value = true },
             shape = MaterialTheme.shapes.extraLarge,
             color = MaterialTheme.colorScheme.primaryContainer,
             tonalElevation = 2.dp,

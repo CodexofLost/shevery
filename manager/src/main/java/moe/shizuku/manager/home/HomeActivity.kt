@@ -103,6 +103,8 @@ import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.app.AppActivity
 import moe.shizuku.manager.management.ApplicationManagementActivity
 import moe.shizuku.manager.module.AdbModuleManager
+import moe.shizuku.manager.module.update.SheveryAppUpdateDialog
+import moe.shizuku.manager.module.update.SheveryAppUpdateResult
 
 import moe.shizuku.manager.management.appsViewModel
 import moe.shizuku.manager.model.ServiceStatus
@@ -110,6 +112,7 @@ import moe.shizuku.manager.model.ServiceStatus
 import moe.shizuku.manager.shell.ShellTutorialActivity
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.starter.StarterActivity
+import moe.shizuku.manager.worker.WifiDebugReassert
 import moe.shizuku.manager.ui.compose.ShizukuIcon
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import androidx.compose.animation.fadeIn
@@ -132,6 +135,7 @@ import rikka.lifecycle.viewModels
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuApiConstants
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.manager.module.update.SheveryUpdateChecker
 import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import androidx.lifecycle.lifecycleScope
@@ -231,6 +235,7 @@ abstract class HomeActivity : AppActivity() {
                     }
                     try {
                         AdbModuleManager.runEnabledServicesIfAllowed(applicationContext)
+                        WifiDebugReassert.reassertIfEnabled(applicationContext)
                     } catch (_: Throwable) {
                     }
 
@@ -1088,21 +1093,44 @@ private fun HomeScreen(
                 val pendingUrl = remember { mutableStateOf<String?>(null) }
                 val ctx = LocalContext.current
                 LaunchedEffect(Unit) {
-                    pendingVersion.value = ModuleSettings.getPendingUpdateVersion()
-                    pendingUrl.value = ModuleSettings.getPendingUpdateUrl()
+                    val storedVersion = ModuleSettings.getPendingUpdateVersion()
+                    val storedUrl = ModuleSettings.getPendingUpdateUrl()
+                    if (!storedVersion.isNullOrEmpty() && !storedUrl.isNullOrEmpty()
+                        && !SheveryUpdateChecker.isTagNewerThanInstalled(storedVersion)
+                    ) {
+                        ModuleSettings.clearPendingUpdate()
+                    } else {
+                        pendingVersion.value = storedVersion
+                        pendingUrl.value = storedUrl
+                    }
                 }
                 val version = pendingVersion.value
                 val url = pendingUrl.value
+                val showAppUpdateInstall = remember { mutableStateOf(false) }
                 if (!version.isNullOrEmpty() && !url.isNullOrEmpty()) {
+                    if (showAppUpdateInstall.value) {
+                        SheveryAppUpdateDialog(
+                            result = SheveryAppUpdateResult(
+                                hasUpdate = true,
+                                currentVersion = BuildConfig.VERSION_NAME,
+                                latestVersion = version,
+                                releaseTitle = null,
+                                releaseNotes = null,
+                                downloadUrl = url,
+                                htmlUrl = null,
+                                isPreRelease = false,
+                                publishedAt = null,
+                                error = null
+                            ),
+                            onDismiss = { showAppUpdateInstall.value = false },
+                        )
+                    }
                     HomeCard(
                         icon = R.drawable.ic_outline_info_24,
                         title = ctx.getString(R.string.home_update_available_title, version),
                         body = ctx.getString(R.string.home_update_available_body),
                         enabled = true,
-                        onClick = {
-                            val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url))
-                            ctx.startActivity(intent)
-                        }
+                        onClick = { showAppUpdateInstall.value = true },
                     )
                 }
             }

@@ -337,13 +337,14 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="lab_auto_restart_title">Auto-Restart on Crash</string>
     <string name="lab_auto_restart_summary">Automatically attempt to restart the Shevery service if it crashes unexpectedly</string>
     <string name="lab_notify_death_title">Notify on Service Stop</string>
-    <string name="lab_notify_death_summary">Show a notification when the Shevery service stops unexpectedly</string>
+    <string name="lab_notify_death_summary">Show a notification when the Shevery service stops unexpectedly (always shown while Watchdog is on).</string>
 
     <!-- Lab Features - Debugging -->
     <string name="lab_debugging_title">Debugging</string>
     <string name="lab_verbose_logging_title">Verbose Logging</string>
     <string name="lab_verbose_logging_summary">Write detailed debug logs to Logcat. Disable in production to save battery</string>
     <string name="notification_channel_watchdog">Service Watchdog</string>
+    <string name="notification_channel_watchdog_death">Watchdog alert</string>
     <string name="notification_watchdog_title">Shevery Service Stopped</string>
     <string name="notification_watchdog_text">The Shevery service has stopped unexpectedly.</string>
     <string name="watchdog_service_title">Shevery watchdog is active</string>
@@ -436,7 +437,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="shevery_update_modules_group_title">Module Updates &amp; Catalog</string>
     <string name="shevery_update_check_failed">Update check failed: %s</string>
     <string name="home_update_available_title">Shevery update available: %s</string>
-    <string name="home_update_available_body">A newer version is ready. Tap to download.</string>
+    <string name="home_update_available_body">A newer version is ready. Tap to update.</string>
 
     <!-- Module Catalog -->
     <string name="modules_catalog">Catalog</string>
@@ -598,8 +599,10 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="diagnostics_unknown">unknown</string>
 
     <!-- ErrorProtect &amp; TCP 5555 -->
-    <string name="error_protect_title">ErrorProtect</string>
+    <string name="error_protect_title">Watchdog</string>
     <string name="error_protect_summary">Check process health and transactional errors every 10 seconds. Automatically stops and restarts Shevery if issues are found.</string>
+    <string name="settings_wifi_reassert_title">Re-assert wireless debugging on start</string>
+    <string name="settings_wifi_reassert_summary">Off by default. When on, re-asserts adb_wifi_enabled during ADB start if the ROM silently cleared it. For ROMs that disable wireless debugging when legacy TCP mode is used or on lock. Never forces wireless debugging off.</string>
     <string name="settings_tcp_5555_title">TCP Binding 5555</string>
     <string name="settings_tcp_5555_summary">Bind local ADB server to port 5555 to keep it working without Wireless Debugging port updates.</string>
     <string name="settings_tcp_5555_button">Bind to 5555</string>
