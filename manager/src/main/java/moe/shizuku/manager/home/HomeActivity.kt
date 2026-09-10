@@ -331,7 +331,8 @@ abstract class HomeActivity : AppActivity() {
                                     startActivity(
                                         Intent(this@HomeActivity, moe.shizuku.manager.module.ModuleWebViewActivity::class.java)
                                             .putExtra(moe.shizuku.manager.module.ModuleWebViewActivity.EXTRA_MODULE_ID, it)
-                                    ),
+                                    )
+                                },
                                     listState = modulesListState
                                 )
                                 2 -> moe.shizuku.manager.logs.ComputScreen(listState = computListState)
