@@ -74,8 +74,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -246,8 +248,8 @@ abstract class HomeActivity : AppActivity() {
 
             var selectedTab by remember { mutableIntStateOf(0) }
 
-            // Hoisted above the AnimatedContent tab switch: SettingsScreen leaves
-            // composition on tab change, so state kept here survives; saveable
+            // Hoisted above the AnimatedContent tab switch: tab screens leave
+            // composition on change, so state kept here survives; saveable
             // so it also survives rotation.
             val settingsListState = rememberSaveable(saver = LazyListState.Saver) {
                 LazyListState()
@@ -257,6 +259,9 @@ abstract class HomeActivity : AppActivity() {
             }
             val computListState = rememberSaveable(saver = LazyListState.Saver) {
                 LazyListState()
+            }
+            val cachedModules = remember {
+                mutableStateOf<List<moe.shizuku.manager.module.AdbModule>>(emptyList(), neverEqualPolicy())
             }
             val homeListState = rememberSaveable(saver = LazyListState.Saver) {
                 LazyListState()
@@ -333,7 +338,8 @@ abstract class HomeActivity : AppActivity() {
                                             .putExtra(moe.shizuku.manager.module.ModuleWebViewActivity.EXTRA_MODULE_ID, it)
                                     )
                                 },
-                                    listState = modulesListState
+                                    listState = modulesListState,
+                                    modulesState = cachedModules
                                 )
                                 2 -> moe.shizuku.manager.logs.ComputScreen(listState = computListState)
                                 3 -> moe.shizuku.manager.settings.SettingsScreen(listState = settingsListState)
