@@ -43,7 +43,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -66,9 +68,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -127,13 +129,17 @@ private val MODULE_MIME_TYPES = arrayOf(
 )
 
 @Composable
-fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
+fun ModulesScreen(
+    onOpenWebUi: (String) -> Unit,
+    listState: LazyListState = rememberLazyListState(),
+    modulesState: MutableState<List<AdbModule>>
+) {
     val context = LocalContext.current
     val view = LocalView.current
     val scope = rememberCoroutineScope()
     var selectedTab by remember { mutableStateOf(0) } // 0: Installed, 1: Catalog
     var showCatalog by remember { mutableStateOf(false) }
-    var modules by remember { mutableStateOf<List<AdbModule>>(emptyList(), neverEqualPolicy()) }
+    var modules by modulesState
     var checkingUpdates by remember { mutableStateOf(false) }
     var updatingModuleId by remember { mutableStateOf<String?>(null) }
     var output by remember { mutableStateOf<Pair<String, String>?>(null) }
@@ -281,6 +287,7 @@ fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
             title = stringResource(R.string.modules_title),
             onNavigateUp = null,
             bottomInset = 112.dp,
+            listState = listState,
             isRefreshing = checkingUpdates,
             onRefresh = if (selectedTab == 0) ({
                 view.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)

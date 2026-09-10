@@ -38,6 +38,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -72,8 +74,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -249,6 +253,25 @@ abstract class HomeActivity : AppActivity() {
 
             var selectedTab by remember { mutableIntStateOf(0) }
 
+            // Hoisted above the AnimatedContent tab switch: tab screens leave
+            // composition on change, so state kept here survives; saveable
+            // so it also survives rotation.
+            val settingsListState = rememberSaveable(saver = LazyListState.Saver) {
+                LazyListState()
+            }
+            val modulesListState = rememberSaveable(saver = LazyListState.Saver) {
+                LazyListState()
+            }
+            val computListState = rememberSaveable(saver = LazyListState.Saver) {
+                LazyListState()
+            }
+            val cachedModules = remember {
+                mutableStateOf<List<moe.shizuku.manager.module.AdbModule>>(emptyList(), neverEqualPolicy())
+            }
+            val homeListState = rememberSaveable(saver = LazyListState.Saver) {
+                LazyListState()
+            }
+
             ShizukuExpressiveTheme {
                 Box(Modifier.fillMaxSize()) {
                 Scaffold(
@@ -311,16 +334,20 @@ abstract class HomeActivity : AppActivity() {
                                         requestLocalNetworkPermission { permissionRefreshTick.intValue++ }
                                     },
                                     onStartDhizuku = { startDhizukuMode() },
-                                    dhizukuEnabled = ModuleSettings.isDhizukuEnabled()
+                                    dhizukuEnabled = ModuleSettings.isDhizukuEnabled(),
+                                    listState = homeListState
                                 )
                                 1 -> moe.shizuku.manager.module.ModulesScreen(onOpenWebUi = {
                                     startActivity(
                                         Intent(this@HomeActivity, moe.shizuku.manager.module.ModuleWebViewActivity::class.java)
                                             .putExtra(moe.shizuku.manager.module.ModuleWebViewActivity.EXTRA_MODULE_ID, it)
                                     )
-                                })
-                                2 -> moe.shizuku.manager.logs.ComputScreen()
-                                3 -> moe.shizuku.manager.settings.SettingsScreen()
+                                },
+                                    listState = modulesListState,
+                                    modulesState = cachedModules
+                                )
+                                2 -> moe.shizuku.manager.logs.ComputScreen(listState = computListState)
+                                3 -> moe.shizuku.manager.settings.SettingsScreen(listState = settingsListState)
                             }
                         }
                     }
@@ -979,7 +1006,8 @@ private fun HomeScreen(
     onCopyDiagnostics: (String) -> Unit,
     onRequestLocalNetworkPermission: () -> Unit,
     onStartDhizuku: () -> Unit,
-    dhizukuEnabled: Boolean
+    dhizukuEnabled: Boolean,
+    listState: LazyListState = rememberLazyListState()
 ) {
     val context = LocalContext.current
     val status = serviceResource?.data ?: ServiceStatus()
@@ -1036,6 +1064,7 @@ private fun HomeScreen(
                 indicator = {}
             ) {
                 LazyColumn(
+                    state = listState,
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 112.dp),
                     verticalArrangement = Arrangement.spacedBy(12.dp)

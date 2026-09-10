@@ -26,6 +26,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -100,7 +102,9 @@ import moe.shizuku.manager.utils.BackupRestoreUtil
 
 
 @Composable
-fun SettingsScreen() {
+fun SettingsScreen(
+    listState: LazyListState = rememberLazyListState()
+) {
     val context = LocalContext.current
     val activity = context as? Activity
     val packageManager = context.packageManager
@@ -344,7 +348,8 @@ fun SettingsScreen() {
         ShizukuLazyScaffold(
             title = stringResource(R.string.settings_title),
             onNavigateUp = null,
-            bottomInset = 112.dp
+            bottomInset = 112.dp,
+            listState = listState
         ) {
         item {
             SettingsGroup(title = stringResource(R.string.settings_application)) {

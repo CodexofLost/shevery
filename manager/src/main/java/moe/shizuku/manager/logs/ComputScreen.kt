@@ -48,6 +48,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
@@ -162,7 +163,9 @@ private val ComputSpring = spring<Float>(
 )
 
 @Composable
-fun ComputScreen() {
+fun ComputScreen(
+    listState: LazyListState = rememberLazyListState()
+) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
 
@@ -590,6 +593,7 @@ fun ComputScreen() {
                 .padding(innerPadding)
         ) {
             LazyColumn(
+                state = listState,
                 modifier = Modifier
                     .widthIn(max = 840.dp)
                     .fillMaxWidth()
