@@ -622,8 +622,7 @@ fun SettingsScreen(
         }
 
         item {
-            SettingsGroup(title = stringResource(R.string.settings_application)) {
-                SectionHeader(stringResource(R.string.settings_update_group_title))
+            SettingsGroup(title = stringResource(R.string.settings_update_group_title)) {
                 SettingsRow(
                     icon = R.drawable.ic_settings_outline_24dp,
                     title = stringResource(R.string.update_settings_title),
