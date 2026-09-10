@@ -51,11 +51,27 @@ abstract class AppActivity : MaterialActivity() {
         // are already resolved — re-write the appearance from them, which makes a Follow-System
         // switch take effect immediately on a theme change, without needing a process restart.
         if (isDecorView) {
-            val controller = WindowCompat.getInsetsController(window, window.decorView)
-            val light = !resources.configuration.isNight()
-            controller.setAppearanceLightStatusBars(light)
-            controller.setAppearanceLightNavigationBars(light)
+            reassertSystemBars()
         }
+    }
+
+    /**
+     * Follow-System can flip the night mode while the activity is already alive (auto-dark /
+     * QS tile(, and a stopped activity isn't always recreated for uiMode — the system bar icons
+     * would then stay on the old appearance while the content follows live. Re-derive them from
+     * whatever configuration the content is rendering with, on every resume and the decor pass..
+     */
+    private fun reassertSystemBars() {
+        if (window.decorView == null) return
+        val controller = WindowCompat.getInsetsController(window, window.decorView)
+        val light = !resources.configuration.isNight()
+        controller.setAppearanceLightStatusBars(light)
+        controller.setAppearanceLightNavigationBars(light)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        reassertSystemBars()
     }
 
     override fun onSupportNavigateUp(): Boolean {
