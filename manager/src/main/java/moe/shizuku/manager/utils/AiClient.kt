@@ -61,7 +61,7 @@ object AiClient {
             resp.use {
                 val text = it.body?.string().orEmpty()
                 if (!it.isSuccessful) {
-                    return@withContext Result.failure(RuntimeException(httpError(it.code, text)))))
+                    return@withContext Result.failure(RuntimeException(httpError(it.code, text)))
                 }
                 val content = JSONObject(text)
                     .getJSONArray("choices")
