@@ -398,7 +398,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[La clau de l\'API de Google AI Studio està buida! Si us plau, configureu-la a la configuració de Shevery (Configuració de la consola Comput).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Clau de l\'API de Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[No configurat (l\'IA Gemini no funcionarà)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Model d\'IA Gemini]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Model d\'IA ]]></string>
     <string name="comput_gemini_explain"><![CDATA[Geminis explica]]></string>
     <string name="comput_api_key_label"><![CDATA[Clau de l\'API]]></string>
     <string name="comput_show_api_key"><![CDATA[Mostra la clau de l\'API]]></string>

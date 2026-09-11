@@ -331,7 +331,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API Anahtarı boş! Lütfen Shevery Ayarları\'nda yapılandırın.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API Anahtarı]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Yapılandırılmadı (Gemini YZ çalışmayacak)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini YZ Modeli]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[YZ Modeli]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini Açıklaması]]></string>
     <string name="comput_api_key_label"><![CDATA[API Anahtarı]]></string>
     <string name="comput_show_api_key"><![CDATA[API anahtarını göster]]></string>

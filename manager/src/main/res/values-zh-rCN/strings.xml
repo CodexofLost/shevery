@@ -398,7 +398,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API 密钥为空！请在 Shevery 设置（Comput 控制台设置）中配置。]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API 密钥]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[未配置（Gemini AI 将无法工作）]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini AI 模型]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI 模型]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini 解析]]></string>
     <string name="comput_api_key_label"><![CDATA[API 密钥]]></string>
     <string name="comput_show_api_key"><![CDATA[显示密钥]]></string>

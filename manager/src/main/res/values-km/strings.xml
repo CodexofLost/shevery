@@ -376,7 +376,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[កូនសោ API របស់ Google AI Studio ទទេ!សូមកំណត់វានៅក្នុងការកំណត់ Shevery (ការកំណត់កុងសូល Comput)។]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[កូនសោ API របស់ Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[មិនបានកំណត់រចនាសម្ព័ន្ធ (Gemini AI មិនដំណើរការ)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[ម៉ូដែល AI Gemini]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[ម៉ូដែល AI ]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini ពន្យល់]]></string>
     <string name="comput_api_key_label"><![CDATA[កូនសោ API]]></string>
     <string name="comput_show_api_key"><![CDATA[បង្ហាញកូនសោ API]]></string>

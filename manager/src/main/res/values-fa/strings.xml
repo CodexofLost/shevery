@@ -343,7 +343,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[کلید API Google AI Studio خالی است! لطفاً در تنظیمات Shevery پیکربندی کنید.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[کلید API Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[پیکربندی نشده (Gemini AI کار نخواهد کرد)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[مدل هوش مصنوعی Gemini]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[مدل هوش مصنوعی ]]></string>
     <string name="comput_gemini_explain"><![CDATA[توضیح Gemini]]></string>
     <string name="comput_api_key_label"><![CDATA[کلید API]]></string>
     <string name="comput_show_api_key"><![CDATA[نمایش کلید API]]></string>

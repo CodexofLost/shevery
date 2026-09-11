@@ -330,7 +330,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[مفتاح API لـ Google AI Studio فارغ! يرجى تكوينه في إعدادات Shevery.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[مفتاح API لـ Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[غير مكوَّن (لن يعمل Gemini)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[نموذج Gemini للذكاء الاصطناعي]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[نموذج للذكاء الاصطناعي]]></string>
     <string name="comput_gemini_explain"><![CDATA[شرح Gemini]]></string>
     <string name="comput_api_key_label"><![CDATA[مفتاح API]]></string>
     <string name="comput_show_api_key"><![CDATA[إظهار مفتاح API]]></string>

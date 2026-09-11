@@ -412,7 +412,7 @@ on kopioitu leikepöydälle.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio -sovellusliittymän avain on tyhjä! Määritä se Shevery-asetuksissa (Comput Console -asetukset).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio -sovellusliittymän avain]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Ei määritetty (Gemini AI ei toimi)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini-tekoälymalli]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[tekoälymalli]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini selittää]]></string>
     <string name="comput_api_key_label"><![CDATA[API-avain]]></string>
     <string name="comput_show_api_key"><![CDATA[Näytä API-avain]]></string>

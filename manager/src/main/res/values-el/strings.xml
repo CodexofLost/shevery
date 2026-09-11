@@ -412,7 +412,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Το κλειδί API του Google AI Studio είναι κενό! Παρακαλώ ρυθμίστε το στις Ρυθμίσεις του Shevery (Ρυθμίσεις της Κονσόλας υπολογιστών).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Κλειδί API του Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Δεν έχει ρυθμιστεί (το Gemini AI δεν θα λειτουργήσει)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Μοντέλο τεχνητής νοημοσύνης Gemini]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Μοντέλο τεχνητής νοημοσύνης ]]></string>
     <string name="comput_gemini_explain"><![CDATA[Επεξήγηση για τους Διδύμους]]></string>
     <string name="comput_api_key_label"><![CDATA[Κλειδί API]]></string>
     <string name="comput_show_api_key"><![CDATA[Εμφάνιση κλειδιού API]]></string>

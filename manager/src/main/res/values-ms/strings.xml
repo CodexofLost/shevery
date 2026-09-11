@@ -402,7 +402,7 @@ Selepas proses penjodohan bermula, anda akan dapat memasukkan kod penjodohan.]]>
     <string name="comput_ai_api_key_empty"><![CDATA[Kunci API Google AI Studio kosong! Sila konfigurasikan ia dalam Tetapan Shevery (Tetapan Konsol Comput).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Kunci API Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Tidak dikonfigurasikan (Gemini AI tidak akan berfungsi)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Model AI Gemini]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Model AI ]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini Terangkan]]></string>
     <string name="comput_api_key_label"><![CDATA[Kunci API]]></string>
     <string name="comput_show_api_key"><![CDATA[Tunjukkan kunci API]]></string>

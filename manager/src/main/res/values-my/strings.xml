@@ -376,7 +376,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API ကီးသည် ဗလာဖြစ်နေသည်။ Shevery ဆက်တင်များ (Comput Console ဆက်တင်များ) တွင် ၎င်းကို configure လုပ်ပါ။]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API သော့]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[ပြင်ဆင်မထားပါ (Gemini AI အလုပ်မလုပ်ပါ)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini AI မော်ဒယ်]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI မော်ဒယ်]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini ရှင်းပြပါ။]]></string>
     <string name="comput_api_key_label"><![CDATA[API သော့]]></string>
     <string name="comput_show_api_key"><![CDATA[API သော့ကိုပြပါ။]]></string>

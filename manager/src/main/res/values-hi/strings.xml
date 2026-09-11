@@ -408,7 +408,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API कुंजी खाली है! कृपया इसे Shevery सेटिंग्स (Comput कंसोल सेटिंग्स) में कॉन्फ़िगर करें।]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[गूगल एआई स्टूडियो एपीआई कुंजी]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[कॉन्फ़िगर नहीं किया गया (Gemini AI काम नहीं करेगा)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[मिथुन एआई मॉडल]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[एआई मॉडल]]></string>
     <string name="comput_gemini_explain"><![CDATA[मिथुन समझाएं]]></string>
     <string name="comput_api_key_label"><![CDATA[एपीआई कुंजी]]></string>
     <string name="comput_show_api_key"><![CDATA[एपीआई कुंजी दिखाएँ]]></string>

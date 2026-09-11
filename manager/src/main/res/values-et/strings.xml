@@ -412,7 +412,7 @@ on kopeeritud lõikelauale.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API-võti on tühi! Palun seadista see Shevery seadetes (Comput Console\'i seadetes).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API-võti]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Ei ole konfigureeritud (Gemini AI ei tööta)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini AI-mudel]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI-mudel]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini selgitab]]></string>
     <string name="comput_api_key_label"><![CDATA[API-võti]]></string>
     <string name="comput_show_api_key"><![CDATA[Näita API-võti]]></string>

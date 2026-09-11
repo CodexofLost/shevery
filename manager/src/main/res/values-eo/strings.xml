@@ -398,7 +398,7 @@ kopiita al la tondujo.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[La API-ŝlosilo de Google AI Studio estas malplena! Bonvolu agordi ĝin en la agordoj de Shevery (agordoj de la komputila konzolo).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Ŝlosilo de API de Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Ne agordita (Gemini AI ne funkcios)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Ĝemela AI-modelo]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI-modelo]]></string>
     <string name="comput_gemini_explain"><![CDATA[Ĝeminoj klarigu]]></string>
     <string name="comput_api_key_label"><![CDATA[API-ŝlosilo]]></string>
     <string name="comput_show_api_key"><![CDATA[Montru API-ŝlosilon]]></string>

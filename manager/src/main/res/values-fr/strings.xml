@@ -347,7 +347,7 @@ a été copié dans le presse-papiers.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[La clé d\'API Google AI Studio est vide ! Veuillez la configurer dans les Paramètres Shevery (Paramètres de la console Comput).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Clé d\'API Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Non configurée (l\'IA Gemini ne fonctionnera pas)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Modèle d\'IA Gemini]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Modèle d\'IA ]]></string>
     <string name="comput_gemini_explain"><![CDATA[Explication Gemini]]></string>
     <string name="comput_api_key_label"><![CDATA[Clé d\'API]]></string>
     <string name="comput_show_api_key"><![CDATA[Afficher la clé]]></string>

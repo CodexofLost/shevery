@@ -395,7 +395,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API açarı boşdur! Zəhmət olmasa onu Shevery Tənzimləmələrində (Comput Konsol Tənzimləmələri) konfiqurasiya edin.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API açarı]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Konfiqurasiya edilməyib (Gemini AI işləməyəcək)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Əkizlər AI modeli]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI modeli]]></string>
     <string name="comput_gemini_explain"><![CDATA[Əkizlər izah et]]></string>
     <string name="comput_api_key_label"><![CDATA[API açarı]]></string>
     <string name="comput_show_api_key"><![CDATA[API açarını göstər]]></string>

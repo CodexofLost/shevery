@@ -402,7 +402,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API কী ফাঁকা! অনুগ্রহ করে এটি Shevery সেটিংসে (Comput কনসোল সেটিংসে) কনফিগার করুন।]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[গুগল এআই স্টুডিও এপিআই কী]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[সংরক্ষণ করা হয়নি (Gemini AI কাজ করবে না)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[জেমিনি এআই মডেল]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[এআই মডেল]]></string>
     <string name="comput_gemini_explain"><![CDATA[জেমিনি ব্যাখ্যা করুন]]></string>
     <string name="comput_api_key_label"><![CDATA[এপিআই কী]]></string>
     <string name="comput_show_api_key"><![CDATA[API কী দেখান]]></string>

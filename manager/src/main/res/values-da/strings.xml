@@ -412,7 +412,7 @@ h er blevet kopieret til udklipsholderen.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio-API-nøglen er tom! Du skal konfigurere den i Shevery-indstillingerne (Comput Console-indstillinger).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API-nøgle]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Ikke konfigureret (Gemini AI fungerer ikke)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini AI-model]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI-model]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini Forklar]]></string>
     <string name="comput_api_key_label"><![CDATA[API-nøgle]]></string>
     <string name="comput_show_api_key"><![CDATA[Vis API-nøgle]]></string>

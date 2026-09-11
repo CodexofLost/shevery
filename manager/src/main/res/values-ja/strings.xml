@@ -347,7 +347,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio APIキーが未設定です。Shevery設定で設定してください。]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio APIキー]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[未設定 (Gemini AIは機能しません)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini AI モデル]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI モデル]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini 解説]]></string>
     <string name="comput_api_key_label"><![CDATA[APIキー]]></string>
     <string name="comput_show_api_key"><![CDATA[キーを表示]]></string>

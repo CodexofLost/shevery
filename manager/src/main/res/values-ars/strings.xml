@@ -378,7 +378,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_ai_api_key_empty">مفتاح Google AI Studio API فارغ! يرجى تكوينه في إعدادات Shevery (إعدادات وحدة التحكم بالكمبيوتر).</string>
     <string name="comput_ai_api_key_title">جوجل AI ستوديو API مفتاح</string>
     <string name="comput_ai_api_key_not_configured">لم يتم تكوينه (لن يعمل Gemini AI)</string>
-    <string name="comput_gemini_model_title">نموذج الجوزاء للذكاء الاصطناعي</string>
+    <string name="comput_gemini_model_title">نموذج للذكاء الاصطناعي</string>
     <string name="comput_gemini_explain">شرح برج الجوزاء</string>
     <string name="comput_api_key_label">مفتاح واجهة برمجة التطبيقات</string>
     <string name="comput_show_api_key">إظهار مفتاح API</string>

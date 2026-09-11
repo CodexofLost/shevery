@@ -393,7 +393,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Klíč API služby Google AI Studio je prázdný! Nastavte jej prosím v nastavení Shevery (nastavení konzoly Comput).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Klíč API služby Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Není nakonfigurováno (Gemini AI nebude fungovat)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Model Gemini AI]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Model AI]]></string>
     <string name="comput_gemini_explain"><![CDATA[Vysvětlení znamení Blíženců]]></string>
     <string name="comput_api_key_label"><![CDATA[Klíč API]]></string>
     <string name="comput_show_api_key"><![CDATA[Zobrazit klíč API]]></string>

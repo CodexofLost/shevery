@@ -398,7 +398,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[ഗൂഗിൾ എഐ സ്റ്റുഡിയോ എപിഐ കീ ഒഴിഞ്ഞതാണ്! ദയവായി അത് ഷെവറി സെറ്റിംഗ്‌സിൽ (കമ്പ്യൂട്ട് കൺസോൾ സെറ്റിംഗ്‌സ്) കോൺഫിഗർ ചെയ്യുക.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[ഗൂഗിൾ എഐ സ്റ്റുഡിയോ എപിഐ കീ]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[കോൺഫിഗർ ചെയ്തിട്ടില്ല (ജെമിനി എഐ പ്രവർത്തിക്കില്ല)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[മിഥുനം എഐ മോഡൽ]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[എഐ മോഡൽ]]></string>
     <string name="comput_gemini_explain"><![CDATA[മിഥുനം വിശദീകരിക്കുക]]></string>
     <string name="comput_api_key_label"><![CDATA[എപിഐ കീ]]></string>
     <string name="comput_show_api_key"><![CDATA[എപിഐ കീ കാണിക്കുക]]></string>

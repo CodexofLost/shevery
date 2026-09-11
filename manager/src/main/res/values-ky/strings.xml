@@ -339,7 +339,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API ачкычы киргизилген эмес!]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API Ачкычы]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Коюлган эмес (Gemini AI иштебейт)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini AI Модели]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI Модели]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini Түшүндүрмөсү]]></string>
     <string name="comput_api_key_label"><![CDATA[API Ачкычы]]></string>
     <string name="comput_show_api_key"><![CDATA[API ачкычын көрсөтүү]]></string>

@@ -331,7 +331,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API 키가 비어 있습니다! Shevery 설정에서 구성하세요.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API 키]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[구성되지 않음 (Gemini AI 작동 안 함)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini AI 모델]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI 모델]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini 설명]]></string>
     <string name="comput_api_key_label"><![CDATA[API 키]]></string>
     <string name="comput_show_api_key"><![CDATA[API 키 표시]]></string>

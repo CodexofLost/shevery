@@ -343,7 +343,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[מפתח API של Google AI Studio ריק! אנא הגדר בהגדרות Shevery.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[מפתח API של Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[לא מוגדר (Gemini AI לא יפעל)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[מודל Gemini AI]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[מודל AI]]></string>
     <string name="comput_gemini_explain"><![CDATA[הסבר Gemini]]></string>
     <string name="comput_api_key_label"><![CDATA[מפתח API]]></string>
     <string name="comput_show_api_key"><![CDATA[הצג מפתח API]]></string>

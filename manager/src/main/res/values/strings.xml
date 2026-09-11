@@ -495,7 +495,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_ai_api_key_empty">Google AI Studio API Key is empty! Please configure it in Shevery Settings (Comput Console Settings).</string>
     <string name="comput_ai_api_key_title">Google AI Studio API Key</string>
     <string name="comput_ai_api_key_not_configured">Not configured (Gemini AI will not work)</string>
-    <string name="comput_gemini_model_title">Gemini AI Model</string>
+    <string name="comput_gemini_model_title">AI Model</string>
     <string name="comput_gemini_explain">Gemini Explain</string>
     <string name="comput_api_key_label">API Key</string>
     <string name="comput_show_api_key">Show API key</string>

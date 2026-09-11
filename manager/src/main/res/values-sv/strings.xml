@@ -414,7 +414,7 @@ har kopierats till urklipp.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[API-nyckeln för Google AI Studio är tom! Konfigurera den i Shevery-inställningarna (inställningarna för Comput Console).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[API-nyckel för Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Ej konfigurerat (Gemini AI fungerar inte)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Gemini AI-modell]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[AI-modell]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini förklarar]]></string>
     <string name="comput_api_key_label"><![CDATA[API-nyckel]]></string>
     <string name="comput_show_api_key"><![CDATA[Visa API-nyckel]]></string>

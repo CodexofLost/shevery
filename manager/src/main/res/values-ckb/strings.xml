@@ -376,7 +376,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[کلیلی Google AI Studio API بەتاڵە! تکایە لە رێکبەندەکانی Shevery (Comput Console Settings) شێوەبەندی بکە.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[کلیلی Google AI Studio API]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[شێوەبەند نەکراوە (Gemini AI کارناکات)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[مۆدێلی Gemini AI]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[مۆدێلی AI]]></string>
     <string name="comput_gemini_explain"><![CDATA[ڕوونکردنەوەی Gemini]]></string>
     <string name="comput_api_key_label"><![CDATA[کلیلی API]]></string>
     <string name="comput_show_api_key"><![CDATA[پیشاندانی کلیلی API]]></string>
