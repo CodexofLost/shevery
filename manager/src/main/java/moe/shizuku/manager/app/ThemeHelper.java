@@ -1,9 +1,7 @@
 package moe.shizuku.manager.app;
 
-import android.app.UiModeManager;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Build;
 
 import androidx.annotation.StyleRes;
@@ -55,20 +53,23 @@ public class ThemeHelper {
      * Single source of truth for "is the app dark right now", shared by the
      * activity system bars (AppActivity) and the Compose content
      * (ShizukuExpressiveTheme). An explicit Light/Dark choice always wins;
-     * Follow System reads the system night state the same way in both places,
-     * so the bars and the content can never disagree after a theme switch.
+     * Follow System reads the caller context's *resolved* configuration --
+     * i.e. what AppCompat actually applied -- so bars and content agree by
+     * construction.
+     *
+     * Deliberately NOT UiModeManager and NOT Resources.getSystem(): on phones
+     * UiModeManager.getNightMode() reports car-dock state (almost always NO),
+     * and the system config is the input to AppCompat, not its output.
+     * Value 3 (legacy "follow" constant once shipped in night_mode_value) is
+     * normalized to FOLLOW_SYSTEM so devices that stored it keep working.
      */
     public static boolean resolveAppDark(Context context) {
         int nightMode = ShizukuSettings.getNightMode();
         if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) return true;
         if (nightMode == AppCompatDelegate.MODE_NIGHT_NO) return false;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            UiModeManager uiModeManager = context.getSystemService(UiModeManager.class);
-            if (uiModeManager != null) {
-                return uiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES;
-            }
-        }
-        return (Resources.getSystem().getConfiguration().uiMode
-                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
+        if (nightMode == 3) nightMode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+        Configuration config = context.getResources().getConfiguration();
+        return (config.uiMode & Configuration.UI_MODE_NIGHT_MASK)
+                == Configuration.UI_MODE_NIGHT_YES;
     }
 }
