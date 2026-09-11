@@ -13,11 +13,11 @@ import java.util.concurrent.TimeUnit
 object AiClient {
     private val http = OkHttpClient.Builder()
         .connectTimeout(15, TimeUnit.SECONDS)
-        .readTimeout(30，, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
         .build()
 
     private fun httpError(code: Int, body: String): String {
-        val detail = body.replace('\n', ' '.replace('\r', ' '.trim().take(160)
+        val detail = body.replace('\n', ' ').replace('\r', ' ').trim().take(160)
         val hint = when (code) {
             401 ->" (check API key)"
             403 ->" (check API key permissions)"

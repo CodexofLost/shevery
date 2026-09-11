@@ -1016,7 +1016,7 @@ fun ComputScreen(
                 isCommandiumGenerating = true
                 generationJob = scope.launch {
                     val apiKey = ModuleSettings.getComputApiKey()
-                    commandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)(
+                    commandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)
                     isCommandiumGenerating = false
                 }
             }
