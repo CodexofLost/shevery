@@ -6,10 +6,7 @@
 
 package moe.shizuku.manager.ui.compose
 
-import android.app.UiModeManager
-import android.content.res.Configuration
 import android.os.Build
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.animation.AnimatedVisibility
@@ -102,7 +99,6 @@ import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
-import moe.shizuku.manager.ShizukuSettings
 import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MotionScheme
@@ -299,23 +295,9 @@ fun ExpressiveFloatingNavigationBar(
 @Composable
 fun ShizukuExpressiveTheme(content: @Composable () -> Unit) {
     val context = LocalContext.current
-    // Resolve dark from the user's night-mode setting, not the raw system flag:
-    // isSystemInDarkTheme() ignores AppCompatDelegate overrides, so explicit
-    // Light/Dark choices (and follow-system on some ROMs) never reached Compose.
-    val systemDark = remember {
-        val uiModeManager = context.getSystemService(UiModeManager::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && uiModeManager != null) {
-            uiModeManager.nightMode == UiModeManager.MODE_NIGHT_YES
-        } else {
-            (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
-                Configuration.UI_MODE_NIGHT_YES
-        }
-    }
-    val dark = when (ShizukuSettings.getNightMode()) {
-        AppCompatDelegate.MODE_NIGHT_YES -> true
-        AppCompatDelegate.MODE_NIGHT_NO -> false
-        else -> systemDark
-    }
+    // Same detector as the activity system bars (ThemeHelper.resolveAppDark):
+    // one source of truth, so bars and content can never disagree after a switch.
+    val dark = remember { ThemeHelper.resolveAppDark(context) }
     val baseScheme = when {
         ThemeHelper.isUsingSystemColor() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && dark ->
             dynamicDarkColorScheme(context)
