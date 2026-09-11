@@ -1,9 +1,13 @@
 package moe.shizuku.manager.app;
 
+import android.app.UiModeManager;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Build;
 
 import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import moe.shizuku.manager.R;
 import moe.shizuku.manager.ShizukuSettings;
@@ -45,5 +49,26 @@ public class ThemeHelper {
             default:
                 return R.style.ThemeOverlay;
         }
+    }
+
+    /**
+     * Single source of truth for "is the app dark right now", shared by the
+     * activity system bars (AppActivity) and the Compose content
+     * (ShizukuExpressiveTheme). An explicit Light/Dark choice always wins;
+     * Follow System reads the system night state the same way in both places,
+     * so the bars and the content can never disagree after a theme switch.
+     */
+    public static boolean resolveAppDark(Context context) {
+        int nightMode = ShizukuSettings.getNightMode();
+        if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) return true;
+        if (nightMode == AppCompatDelegate.MODE_NIGHT_NO) return false;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            UiModeManager uiModeManager = context.getSystemService(UiModeManager.class);
+            if (uiModeManager != null) {
+                return uiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES;
+            }
+        }
+        return (Resources.getSystem().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
     }
 }

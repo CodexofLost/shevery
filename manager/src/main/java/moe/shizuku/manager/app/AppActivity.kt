@@ -37,7 +37,12 @@ abstract class AppActivity : MaterialActivity() {
     }
 
     override fun computeUserThemeKey(): String {
-        return ThemeHelper.getTheme(this) + ThemeHelper.isUsingSystemColor()
+        // Include the resolved night state: rikka keys themed state by this string,
+        // and a Light/Dark/Follow switch that leaves the key unchanged can keep
+        // stale theme attributes (e.g. the Light theme's opaque bar color) alive
+        // across recreate() -- cleared only by process death, i.e. "restart fixes it".
+        val night = if (isAppDark()) "dark" else "light"
+        return ThemeHelper.getTheme(this) + ThemeHelper.isUsingSystemColor() + night
     }
 
     override fun onApplyUserThemeResource(theme: Theme, isDecorView: Boolean) {
@@ -68,29 +73,30 @@ abstract class AppActivity : MaterialActivity() {
      * whatever configuration the content is rendering with, on every resume and the decor pass..
      */
     /**
-     * The source of truth for "dark" must be the AppCompat night-mode decision itself:
-     * a forced Theme (MODE_NIGHT_YES/NO( must beat whatever the activity resources config
-     * currently reports. After a forced Light/Dark switch that resource can still carry the stale
-     * system night bit,which would leave the bar icons wrong (white icons on light(.
-     * Only Follow System falls back to the real system night state.
+     * Single source of truth lives in ThemeHelper.resolveAppDark(), shared with
+     * the Compose content (ShizukuExpressiveTheme): explicit Light/Dark wins,
+     * Follow System reads the system night state the same way in both places.
+     * Two different detectors here is exactly how the bars ended up disagreeing
+     * with the content after a Light/Dark to Follow System switch.
      */
-    private fun isAppDark(): Boolean = when (AppCompatDelegate.getDefaultNightMode()) {
-        AppCompatDelegate.MODE_NIGHT_YES -> true
-        AppCompatDelegate.MODE_NIGHT_NO -> false
-        else -> (Resources.getSystem().configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
-    }
- 
+    private fun isAppDark(): Boolean = ThemeHelper.resolveAppDark(this)
+
     private fun reassertSystemBars() {
         if (window.decorView == null) return
         val controller = WindowCompat.getInsetsController(window, window.decorView)
         val light = !isAppDark()
- 
+
         Log.i(TAG, "reassert act=" + this::class.java.simpleName +
                 " nightPref=" + AppCompatDelegate.getDefaultNightMode() +
                 " sysNight=" + Resources.getSystem().configuration.isNight() +
                 " resNight=" + resources.configuration.isNight() +
                 " lightFlag=" + light + " api=" + Build.VERSION.SDK_INT)
- 
+
+        // Re-assert the colors too, not just the icon flags: the activity theme
+        // is always Theme.Light, whose opaque statusBarColor resurfaces on any
+        // path that re-applies the theme without running enableEdgeToEdge again.
+        window.statusBarColor = Color.TRANSPARENT
+        window.navigationBarColor = Color.TRANSPARENT
         controller.setAppearanceLightStatusBars(light)
         controller.setAppearanceLightNavigationBars(light)
         controller.setAppearanceLightStatusBars(light)
