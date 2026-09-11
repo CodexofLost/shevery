@@ -1008,8 +1008,8 @@ fun ComputScreen(
     if (showCommandiumSheet) {
         val requestCommandium: () -> Unit = {
             if (commandiumPrompt.isNotBlank() && !isCommandiumGenerating) {
+                isCommandiumGenerating = true
                 scope.launch {
-                    isCommandiumGenerating = true
                     val apiKey = ModuleSettings.getComputApiKey()
                     generatedCommandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)
                     isCommandiumGenerating = false
