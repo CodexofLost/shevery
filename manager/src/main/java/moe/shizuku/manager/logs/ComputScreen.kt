@@ -1006,18 +1006,19 @@ fun ComputScreen(
 
     // Modal BottomSheet for Commandium AI Studio
     if (showCommandiumSheet) {
-        ModalBottomSheet(
+        val requestCommandium: () -> Unit = {
+            if (commandiumPrompt.isNotBlank() && !isCommandiumGenerating) {
+                scope.launch {
+                    isCommandiumGenerating = true
+                    val apiKey = ModuleSettings.getComputApiKey()
+                    generatedCommandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)
+                    isCommandiumGenerating = false
+                }
+            }
+        }
+        AlertDialog(
             onDismissRequest = { showCommandiumSheet = false },
-            sheetState = rememberModalBottomSheetState()
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp)
-                    .verticalScroll(rememberScrollState())
-                    .imePadding(),
-                verticalArrangement = Arrangement.spacedBy(14.dp)
-            ) {
+            title = {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
@@ -1035,7 +1036,16 @@ fun ComputScreen(
                         color = MaterialTheme.colorScheme.onSurface
                     )
                 }
-
+            },
+            text = {
+                Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp)
+                    .verticalScroll(rememberScrollState())
+                    .imePadding(),
+                verticalArrangement = Arrangement.spacedBy(14.dp)
+            ) {
                 Text(
                     text = stringResource(R.string.comput_commandium_description),
                     style = MaterialTheme.typography.bodyMedium,
@@ -1068,19 +1078,28 @@ fun ComputScreen(
                     shape = RoundedCornerShape(20.dp),
                     label = { Text(stringResource(R.string.comput_commandium_label)) },
                     placeholder = { Text(stringResource(R.string.comput_commandium_placeholder)) },
+                    trailingIcon = {
+                        IconButton(
+                            onClick = { requestCommandium() }
+                        ) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Rounded.Send,
+                                contentDescription = stringResource(R.string.comput_command_send)
+                            )
+                        }
+                    },
+                    keyboardOptions = KeyboardOptions(
+                        imeAction = ImeAction.Send
+                    ),
+                    keyboardActions = KeyboardActions(
+                        onSend = { requestCommandium() }
+                    ),
                     maxLines = 3
                 )
 
                 Button(
-                    onClick = {
-                        scope.launch {
-                            isCommandiumGenerating = true
-                            val apiKey = ModuleSettings.getComputApiKey()
-                            generatedCommandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)
-                            isCommandiumGenerating = false
-                        }
-                    },
-                    enabled = !isCommandiumGenerating && commandiumPrompt.isNotBlank(),
+                    onClick = { requestCommandium() },
+                    enabled = !isCommandiumGenerating,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(48.dp),
@@ -1138,9 +1157,10 @@ fun ComputScreen(
                         }
                     }
                 }
-                Spacer(Modifier.height(16.dp))
-            }
-        }
+            },
+            containerColor = MaterialTheme.colorScheme.surface,
+            shape = RoundedCornerShape(28.dp)
+        )
     }
 
     // Modal BottomSheet for Macros

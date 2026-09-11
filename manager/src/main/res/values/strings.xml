@@ -547,6 +547,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_commandium_label">What command do you need?</string>
     <string name="comput_commandium_placeholder">e.g. Find all files larger than 10MB in /sdcard</string>
     <string name="comput_ask_commandium">Ask Commandium</string>
+    <string name="comput_command_send">Send</string>
     <string name="comput_generated_command">Generated Command:</string>
     <string name="comput_command_pasted">Command pasted to input</string>
     <string name="comput_use_command">Use command</string>
