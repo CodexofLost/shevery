@@ -1099,7 +1099,6 @@ fun ComputScreen(
 
                 Button(
                     onClick = { requestCommandium() },
-                    enabled = !isCommandiumGenerating,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(48.dp),
@@ -1151,7 +1150,7 @@ fun ComputScreen(
                                         copyToClipboard("Commandium", generatedCommandiumResult, context.getString(R.string.comput_copied_to_clipboard))
                                     }
                                 ) {
-                                    Icon(Icons.Rounded.ContentCopy, contentDescription = null)
+                                    Icon(Icons.Rounded.ContentCopy, contentDescription = stringResource(android.R.string.copy))
                                 }
                             }
                         }
