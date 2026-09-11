@@ -503,6 +503,8 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_gemini_model_performance">High performance coding &amp; agentic (Recommended)</string>
     <string name="comput_gemini_model_lightweight">Lightweight high speed model</string>
     <string name="comput_ai_provider_title">AI Provider</string>
+    <string name="comput_ai_preset_label">Preset</string>
+    <string name="comput_ai_preset_custom">Custom</string>
     <string name="comput_ai_provider_not_configured">Not configured</string>
     <string name="comput_ai_name_label">Provider name</string>
     <string name="comput_ai_name_placeholder">e.g. OpenRouter, Gemini, Custom</string>

@@ -32,8 +32,32 @@ import moe.shizuku.manager.R
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.utils.AiClient
 
+private data class ProviderPreset(
+    val name: String,
+    val baseUrl: String,
+    val nameRes: Int? = null,
+)
+
+private val providerPresets = listOf(
+    ProviderPreset("OpenRouter", "https://openrouter.ai/api/v1"),
+    ProviderPreset("OpenAI", "https://api.openai.com/v1"),
+    ProviderPreset("DeepSeek", "https://api.deepseek.com/v1"),
+    ProviderPreset("Groq", "https://api.groq.com/openai/v1"),
+    ProviderPreset("Mistral", "https://api.mistral.ai/v1"),
+    ProviderPreset("Google Gemini", "https://generativelanguage.googleapis.com/v1beta/openai"),
+    ProviderPreset("Together AI", "https://api.together.xyz/v1"),
+    ProviderPreset("", "", R.string.comput_ai_preset_custom),
+)
+
 private fun urlIsValid(url: String): Boolean =
     url.startsWith("http://") || url.startsWith("https://")
+
+private fun initialPresetName(currentName: String, currentBaseUrl: String): String =
+    when {
+        currentName.isBlank() -> "OpenRouter"
+        else ->
+            providerPresets.firstOrNull { it.name == currentName && it.baseUrl == currentBaseUrl.trim() }?.name ?: "Custom"
+    }
 
 @Composable
 fun AiProviderDialog(
@@ -53,6 +77,8 @@ fun AiProviderDialog(
     var modelsUnavailable by remember { mutableStateOf(false) }
     var menuExpanded by remember { mutableStateOf(false) }
     var baseUrlError by remember { mutableStateOf(false) }
+    var presetName by remember { mutableStateOf(initialPresetName(currentName, currentBaseUrl)) }
+    var presetMenuExpanded by remember { mutableStateOf(false) }
 
     LaunchedEffect(baseUrl.trim(), apiKey.trim()) {
 
@@ -84,6 +110,40 @@ fun AiProviderDialog(
         title = { Text(stringResource(R.string.comput_ai_provider_title)) },
         text = {
             Column(modifier = Modifier.fillMaxWidth()) {
+                Box {
+                    OutlinedTextField(
+                        value = presetName,
+                        onValueChange = {},
+                        readOnly = true,
+                        label = { Text(stringResource(R.string.comput_ai_preset_label)) },
+                        trailingIcon = {
+                            IconButton(onClick = { presetMenuExpanded = !presetMenuExpanded }) {
+                                Icon(
+                                    imageVector = Icons.Default.ArrowDropDown,
+                                    contentDescription = null
+                                )
+                            }
+                        },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    DropdownMenu(expanded = presetMenuExpanded, onDismissRequest = { presetMenuExpanded = false }) {
+                        providerPresets.forEach { preset ->
+                            val presetLabel = preset.nameRes?.let { stringResource(it) } ?: preset.name
+                            DropdownMenuItem(
+                                text = { Text(presetLabel) },
+                                onClick = {
+                                    presetMenuExpanded = false
+                                    presetName = presetLabel
+                                    name = preset.name
+                                    baseUrl = preset.baseUrl
+                                    baseUrlError = false
+                                },
+                            )
+                        }
+                    }
+                }
+                Spacer(Modifier.height(12.dp))
                 OutlinedTextField(
                     value = name,
                     onValueChange = { name = it },
@@ -104,7 +164,7 @@ fun AiProviderDialog(
                     singleLine = true,
                     isError = baseUrlError,
                     supportingText = if (baseUrlError) {
-                        { Text(stringResource(R.string.comput_ai_base_url_invalid))) }
+                        { Text(stringResource(R.string.comput_ai_base_url_invalid)) }
                     } else null,
                     modifier = Modifier.fillMaxWidth()
                 )
