@@ -32,6 +32,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -92,6 +95,7 @@ import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import androidx.lifecycle.repeatOnLifecycle
@@ -99,6 +103,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Lifecycle.State
 import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
+import moe.shizuku.manager.utils.AiClient
 
 
 @Composable
@@ -192,17 +197,19 @@ fun SettingsScreen(
     var recommandAction by remember {
         mutableStateOf(ModuleSettings.recommandForAction())
     }
-    var computApiKey by remember {
-        mutableStateOf(ModuleSettings.getComputApiKey())
+    var computAiName by remember {
+        mutableStateOf(ModuleSettings.getComputAiName())
+    }
+    var computAiBaseUrl by remember {
+        mutableStateOf(ModuleSettings.getComputAiBaseUrl())
+    }
+    var computAiModel by remember {
+        mutableStateOf(ModuleSettings.getComputAiModel())
     }
     var computRecommand by remember {
         mutableStateOf(ModuleSettings.isComputRecommandEnabled())
     }
-    var computGeminiModel by remember {
-        mutableStateOf(ModuleSettings.getComputGeminiModel())
-    }
-    var showApiKeyDialog by remember { mutableStateOf(false) }
-    var showGeminiModelDialog by remember { mutableStateOf(false) }
+    var showProviderDialog by remember { mutableStateOf(false) }
     var showMissingPermissionDialog by remember { mutableStateOf(false) }
     var recreateTick by remember { mutableIntStateOf(0) }
     var showUpdateSettings by remember { mutableStateOf(false) }
@@ -280,9 +287,10 @@ fun SettingsScreen(
                 moduleBackground = ModuleSettings.allowBackgroundActions()
                 recommandWebUi = ModuleSettings.recommandForWebUi()
                 recommandAction = ModuleSettings.recommandForAction()
-                computApiKey = ModuleSettings.getComputApiKey()
+                computAiName = ModuleSettings.getComputAiName()
+                computAiBaseUrl = ModuleSettings.getComputAiBaseUrl()
+                computAiModel = ModuleSettings.getComputAiModel()
                 computRecommand = ModuleSettings.isComputRecommandEnabled()
-                computGeminiModel = ModuleSettings.getComputGeminiModel()
                 recreateTick++
             }.onFailure {
                 Toast.makeText(context, "Restore failed: ${it.message}", Toast.LENGTH_LONG).show()
@@ -642,16 +650,9 @@ fun SettingsScreen(
             SettingsGroup(title = stringResource(R.string.comput_settings)) {
                 SettingsRow(
                     icon = R.drawable.ic_code_24dp,
-                    title = stringResource(R.string.comput_ai_api_key_title),
-                    summary = if (computApiKey.isBlank()) stringResource(R.string.comput_ai_api_key_not_configured) else "••••••••••••••••" + computApiKey.takeLast(4),
-                    onClick = { showApiKeyDialog = true }
-                )
-                GroupDivider()
-                SettingsRow(
-                    icon = R.drawable.ic_outline_info_24,
-                    title = stringResource(R.string.comput_gemini_model_title),
-                    summary = computGeminiModel,
-                    onClick = { showGeminiModelDialog = true }
+                    title = stringResource(R.string.comput_ai_provider_title),
+                    summary = computProviderSummary(computAiName, computAiModel),
+                    onClick = { showProviderDialog = true }
                 )
                 GroupDivider()
                 SwitchSettingsRow(
@@ -854,71 +855,20 @@ fun SettingsScreen(
         )
     }
 
-    if (showApiKeyDialog) {
-        var tempKey by remember { mutableStateOf(computApiKey) }
-        var keyVisible by remember { mutableStateOf(false) }
-        AlertDialog(
-            onDismissRequest = { showApiKeyDialog = false },
-            title = { Text(stringResource(R.string.comput_ai_api_key_title)) },
-            text = {
-                OutlinedTextField(
-                    value = tempKey,
-                    onValueChange = { tempKey = it },
-                    label = { Text(stringResource(R.string.comput_api_key_label)) },
-                    placeholder = { Text("AQ.Ab8...") },
-                    modifier = Modifier.fillMaxWidth(),
-                    singleLine = true,
-                    visualTransformation = if (keyVisible) VisualTransformation.None else PasswordVisualTransformation(),
-                    trailingIcon = {
-                        val image = if (keyVisible) R.drawable.ic_close_24 else R.drawable.ic_outline_info_24
-                        androidx.compose.material3.IconButton(onClick = { keyVisible = !keyVisible }) {
-                            moe.shizuku.manager.ui.compose.ShizukuIcon(
-                                icon = image,
-                                contentDescription = if (keyVisible) stringResource(R.string.comput_hide_api_key) else stringResource(R.string.comput_show_api_key)
-                            )
-                        }
-                    }
-                )
-            },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        ModuleSettings.setComputApiKey(tempKey)
-                        computApiKey = tempKey
-                        showApiKeyDialog = false
-                    }
-                ) {
-                    Text(stringResource(android.R.string.ok))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { showApiKeyDialog = false }) {
-                    Text(stringResource(android.R.string.cancel))
-                }
-            },
-            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
-            shape = MaterialTheme.shapes.extraLarge
-        )
-    }
-
-    if (showGeminiModelDialog) {
-        val modelOptions = listOf("gemini-3.6-flash", "gemini-3.5-flash-lite")
-        ChoiceDialog(
-            title = stringResource(R.string.comput_gemini_model_title),
-            choices = modelOptions.map {
-                ChoiceOption(
-                    title = it,
-                    summary = if (it == "gemini-3.6-flash") stringResource(R.string.comput_gemini_model_performance) else stringResource(R.string.comput_gemini_model_lightweight),
-                    icon = R.drawable.ic_outline_info_24
-                )
-            },
-            selectedIndex = modelOptions.indexOf(computGeminiModel),
-            onDismiss = { showGeminiModelDialog = false },
-            onSelect = { index ->
-                val selected = modelOptions[index]
-                ModuleSettings.setComputGeminiModel(selected)
-                computGeminiModel = selected
-                showGeminiModelDialog = false
+    if (showProviderDialog) {
+        AiProviderDialog(
+            currentName = computAiName,
+            currentBaseUrl = computAiBaseUrl,
+            currentModel = computAiModel,
+            onDismiss = { showProviderDialog = false },
+            onSave = { name, baseUrl, model ->
+                ModuleSettings.setComputAiName(name)
+                computAiName = name
+                ModuleSettings.setComputAiBaseUrl(baseUrl)
+                computAiBaseUrl = ModuleSettings.getComputAiBaseUrl()
+                ModuleSettings.setComputAiModel(model)
+                computAiModel = model
+                showProviderDialog = false
             }
         )
     }

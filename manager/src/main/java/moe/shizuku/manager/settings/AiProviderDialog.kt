@@ -81,6 +81,7 @@ fun AiProviderDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.comput_ai_provider_title)) },
         text = {
             Column(modifier = Modifier.fillMaxWidth()) {
                 OutlinedTextField(
@@ -102,6 +103,9 @@ fun AiProviderDialog(
                     placeholder = { Text(stringResource(R.string.comput_ai_base_url_placeholder)) },
                     singleLine = true,
                     isError = baseUrlError,
+                    supportingText = if (baseUrlError) {
+                        { Text(stringResource(R.string.comput_ai_base_url_invalid))) }
+                    } else null,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(Modifier.height(12.dp))
