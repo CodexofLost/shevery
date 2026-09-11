@@ -402,7 +402,7 @@ ass op d\'Zouschneidplack kopéiert ginn.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[De Google AI Studio API-Schlëssel ass eidel! W.e.g. konfiguréiert en an de Shevery-Astellungen (Comput Console-Astellungen).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API-Schlëssel]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Net konfiguréiert (Gemini AI funktionéiert net)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[KI-Modell]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Gemini KI-Modell]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini erkläert]]></string>
     <string name="comput_api_key_label"><![CDATA[API-Schlëssel]]></string>
     <string name="comput_show_api_key"><![CDATA[API-Schlëssel weisen]]></string>

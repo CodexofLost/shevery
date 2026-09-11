@@ -394,7 +394,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Der API-Schlüssel für Google AI Studio ist leer! Bitte konfigurieren Sie ihn in den Shevery-Einstellungen (Einstellungen der Compute-Konsole).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API-Schlüssel]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Nicht konfiguriert (Gemini AI funktioniert nicht)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[KI-Modell]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Gemini-KI-Modell]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini erklären]]></string>
     <string name="comput_api_key_label"><![CDATA[API-Schlüssel]]></string>
     <string name="comput_show_api_key"><![CDATA[API-Schlüssel anzeigen]]></string>

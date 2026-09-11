@@ -412,7 +412,7 @@ Eksportēšanas funkcija izmanto SAF (Storage Access Framework). Ir ziņots, ka 
     <string name="comput_ai_api_key_empty"><![CDATA[„Google AI Studio“ API atslēga ir tukša! Lūdzu, konfigurējiet to „Shevery“ iestatījumos (Comput Console iestatījumi).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[„Google AI Studio“ API atslēga]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Nav konfigurēts (Gemini AI nedarbosies)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI modelis]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[„Gemini“ AI modelis]]></string>
     <string name="comput_gemini_explain"><![CDATA[„Gemini” izskaidrojums]]></string>
     <string name="comput_api_key_label"><![CDATA[API atslēga]]></string>
     <string name="comput_show_api_key"><![CDATA[Rādīt API atslēgu]]></string>

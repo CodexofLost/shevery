@@ -394,7 +394,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[La chiave API di Google AI Studio è vuota! Configurala nelle impostazioni di Shevery (impostazioni della console di calcolo).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Chiave API di Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Non configurato (Gemini AI non funzionerà)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Modello di intelligenza artificiale]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Modello di intelligenza artificiale Gemelli]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini Spiega]]></string>
     <string name="comput_api_key_label"><![CDATA[Chiave API]]></string>
     <string name="comput_show_api_key"><![CDATA[Mostra chiave API]]></string>

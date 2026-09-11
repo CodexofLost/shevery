@@ -409,7 +409,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API விசை காலியாக உள்ளது! தயவுசெய்து அதை Shevery அமைப்புகளில் (Comput கன்சோல் அமைப்புகள்) உள்ளமைக்கவும்.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[கூகிள் ஏஐ ஸ்டுடியோ ஏபிஐ கீ]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[கட்டமைக்கப்படவில்லை (ஜெமினி AI வேலை செய்யாது)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI மாதிரி]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[மிதுன AI மாதிரி]]></string>
     <string name="comput_gemini_explain"><![CDATA[மிதுனம் விளக்கவும்]]></string>
     <string name="comput_api_key_label"><![CDATA[ஏபிஐ கீ]]></string>
     <string name="comput_show_api_key"><![CDATA[API சாவியைக் காட்டு]]></string>

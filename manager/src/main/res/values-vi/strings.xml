@@ -414,7 +414,7 @@ Chức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có 
     <string name="comput_ai_api_key_empty"><![CDATA[Khóa API của Google AI Studio hiện đang trống! Vui lòng cấu hình khóa này trong phần Cài đặt của Shevery (Cài đặt Bảng điều khiển Compute).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Khóa API của Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Chưa được cấu hình (Gemini AI sẽ không hoạt động)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Mô hình AI ]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Mô hình AI Gemini]]></string>
     <string name="comput_gemini_explain"><![CDATA[Giải thích về Song Tử]]></string>
     <string name="comput_api_key_label"><![CDATA[Khóa API]]></string>
     <string name="comput_show_api_key"><![CDATA[Hiển thị khóa API]]></string>

@@ -338,7 +338,7 @@ copiado al portapapeles.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Clave API vacía. Configure en Ajustes de Shevery.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Clave API Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[No configurada]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Modelo de IA ]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Modelo de IA Gemini]]></string>
     <string name="comput_gemini_explain"><![CDATA[Explicación Gemini]]></string>
     <string name="comput_api_key_label"><![CDATA[Clave API]]></string>
     <string name="comput_show_api_key"><![CDATA[Mostrar clave]]></string>

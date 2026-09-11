@@ -376,7 +376,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI ଷ୍ଟୁଡିଓ API କୀ ଖାଲି ଅଛି! ଦୟାକରି ଏହାକୁ Shevery ସେଟିଂରେ କନଫିଗର୍ କରନ୍ତୁ (କମ୍ପୁଟ୍ କନସୋଲ୍ ସେଟିଂସ୍) ।]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI ଷ୍ଟୁଡିଓ API କୀ]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[କନଫିଗର୍ ହୋଇନାହିଁ (Gemini AI କାର୍ଯ୍ୟ କରିବ ନାହିଁ)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI ମଡେଲ୍]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[ମିଥୁନ AI ମଡେଲ୍]]></string>
     <string name="comput_gemini_explain"><![CDATA[ମିଥୁନ ରାଶି ବ୍ୟାଖ୍ୟା କରନ୍ତୁ]]></string>
     <string name="comput_api_key_label"><![CDATA[API କୀ]]></string>
     <string name="comput_show_api_key"><![CDATA[API କୀ ଦେଖାନ୍ତୁ]]></string>

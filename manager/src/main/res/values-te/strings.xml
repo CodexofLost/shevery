@@ -400,7 +400,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[గూగుల్ AI స్టూడియో API కీ ఖాళీగా ఉంది! దయచేసి దానిని షెవరీ సెట్టింగ్స్‌లో (కంప్యూట్ కన్సోల్ సెట్టింగ్స్) కాన్ఫిగర్ చేయండి.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[గూగుల్ AI స్టూడియో API కీ]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[అమర్చబడలేదు (జెమిని AI పనిచేయదు)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI నమూనా]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[మిథున రాశి AI నమూనా]]></string>
     <string name="comput_gemini_explain"><![CDATA[మిథునం వివరించు]]></string>
     <string name="comput_api_key_label"><![CDATA[API కీ]]></string>
     <string name="comput_show_api_key"><![CDATA[API కీని చూపించు]]></string>

@@ -394,7 +394,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Walang laman ang Google AI Studio API Key! Mangyaring i-configure ito sa Shevery Settings (Comput Console Settings).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Susi ng Google AI Studio API]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Hindi naka-configure (Hindi gagana ang Gemini AI)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Modelong AI ng ]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Modelong AI ng Gemini]]></string>
     <string name="comput_gemini_explain"><![CDATA[Ipaliwanag ng Gemini]]></string>
     <string name="comput_api_key_label"><![CDATA[Susi ng API]]></string>
     <string name="comput_show_api_key"><![CDATA[Ipakita ang API key]]></string>

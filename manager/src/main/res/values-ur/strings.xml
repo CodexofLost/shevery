@@ -400,7 +400,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[گوگل AI اسٹوڈیو API کی خالی ہے! براہ کرم اسے Shevery سیٹنگز (Comput کنسول سیٹنگز) میں ترتیب دیں۔]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[گوگل اے آئی اسٹوڈیو اے پی آئی کلید]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[تشکیل نہیں ہوا (جیمینی AI کام نہیں کرے گا)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI ماڈل]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[جڑوائی AI ماڈل]]></string>
     <string name="comput_gemini_explain"><![CDATA[جیمینی وضاحت کریں]]></string>
     <string name="comput_api_key_label"><![CDATA[ای پی آئی کلید]]></string>
     <string name="comput_show_api_key"><![CDATA[API کلید دکھائیں]]></string>

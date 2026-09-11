@@ -414,7 +414,7 @@ a fost copiat în clipboard.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Cheia API pentru Google AI Studio este goală! Te rugăm să o configurezi în setările Shevery (setările consolei de calcul).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Cheia API Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Nu este configurat (Gemini AI nu va funcționa)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[Modelul AI ]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Modelul AI Gemini]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini explică]]></string>
     <string name="comput_api_key_label"><![CDATA[Cheie API]]></string>
     <string name="comput_show_api_key"><![CDATA[Afișează cheia API]]></string>

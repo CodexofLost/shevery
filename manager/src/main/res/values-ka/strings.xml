@@ -402,7 +402,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio-ს API გასაღები ცარიელია! გთხოვთ, დააკონფიგურიროთ ის Shevery-ს პარამეტრებში (Comput Console-ის პარამეტრები).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio-ს API გასაღები]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[არ არის კონფიგურირებული (Gemini AI არ იმუშავებს)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI მოდელი]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[მერწყლის AI მოდელი]]></string>
     <string name="comput_gemini_explain"><![CDATA[ტყუპები ხსნიან]]></string>
     <string name="comput_api_key_label"><![CDATA[API გასაღები]]></string>
     <string name="comput_show_api_key"><![CDATA[API გასაღების ჩვენება]]></string>

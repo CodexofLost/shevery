@@ -401,7 +401,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API բանալին դատարկ է։ Խնդրում ենք կարգավորել այն Shevery կարգավորումներում (Comput Console կարգավորումներ)։]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API բանալի]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Չկարգավորված (Gemini AI չի աշխատի)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI մոդել]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Երկվորյակներ AI մոդել]]></string>
     <string name="comput_gemini_explain"><![CDATA[Երկվորյակներ բացատրեք]]></string>
     <string name="comput_api_key_label"><![CDATA[API բանալին]]></string>
     <string name="comput_show_api_key"><![CDATA[Ցուցադրել API բանալին]]></string>

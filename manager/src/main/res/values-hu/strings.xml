@@ -409,7 +409,7 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="comput_ai_api_key_empty"><![CDATA[A Google AI Studio API-kulcs üres! Kérjük, állítsd be a Shevery beállításaiban (Comput Console beállítások).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API-kulcs]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Nincs beállítva (a Gemini AI nem fog működni)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI-modell]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Gemini AI-modell]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini magyarázata]]></string>
     <string name="comput_api_key_label"><![CDATA[API-kulcs]]></string>
     <string name="comput_show_api_key"><![CDATA[API-kulcs megjelenítése]]></string>

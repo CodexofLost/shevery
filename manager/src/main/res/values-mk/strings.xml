@@ -400,7 +400,7 @@
     <string name="comput_ai_api_key_empty"><![CDATA[API клучот на Google AI Studio е празен! Ве молиме конфигурирајте го во Shevery Settings (Comput Console Settings).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[API клуч за Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Не е конфигурирано (Gemini AI нема да работи)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI модел]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Gemini AI модел]]></string>
     <string name="comput_gemini_explain"><![CDATA[Гемини објасни]]></string>
     <string name="comput_api_key_label"><![CDATA[API клуч]]></string>
     <string name="comput_show_api_key"><![CDATA[Прикажи API клуч]]></string>

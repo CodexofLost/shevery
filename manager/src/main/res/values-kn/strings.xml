@@ -376,7 +376,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI ಸ್ಟುಡಿಯೋ API ಕೀ ಖಾಲಿಯಾಗಿದೆ! ದಯವಿಟ್ಟು ಅದನ್ನು Sheach ಸೆಟ್ಟಿಂಗ್ ಗಳಲ್ಲಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಿ (ಕಂಪುಟ್ ಕನ್ಸೋಲ್ ಸೆಟ್ಟಿಂಗ್ ಗಳು).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI ಸ್ಟುಡಿಯೋ API ಕೀಲಿ]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ (ಜೆಮಿನಿ AI ಕೆಲಸ ಮಾಡುವುದಿಲ್ಲ)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[ಎಐ ಮಾದರಿ]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[ಜೆಮಿನಿ ಎಐ ಮಾದರಿ]]></string>
     <string name="comput_gemini_explain"><![CDATA[ಮಿಥುನ ರಾಶಿ ವಿವರಿಸಿ]]></string>
     <string name="comput_api_key_label"><![CDATA[API ಕೀಲಿ]]></string>
     <string name="comput_show_api_key"><![CDATA[API ಕೀಲಿಯನ್ನು ತೋರಿಸು]]></string>

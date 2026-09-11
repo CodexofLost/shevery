@@ -414,7 +414,7 @@ De exportfunctie maakt gebruik van SAF (Storage Access Framework). Er is gemeld 
     <string name="comput_ai_api_key_empty"><![CDATA[De API-sleutel van Google AI Studio is leeg! Stel deze in via de instellingen van Shevery (instellingen van de Compute Console).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[API-sleutel van Google AI Studio]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Niet geconfigureerd (Gemini AI werkt niet)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI-model]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Gemini AI-model]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini Uitgelegd]]></string>
     <string name="comput_api_key_label"><![CDATA[API-sleutel]]></string>
     <string name="comput_show_api_key"><![CDATA[API-sleutel weergeven]]></string>

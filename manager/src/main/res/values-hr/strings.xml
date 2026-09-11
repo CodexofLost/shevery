@@ -402,7 +402,7 @@ kopiran je u međuspremnik.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API ključ je prazan! Molimo konfigurirajte ga u Shevery postavkama (Postavke računalne konzole).]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API ključ]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Nije konfigurirano (Gemini AI neće raditi)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI model]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Gemini AI model]]></string>
     <string name="comput_gemini_explain"><![CDATA[Objasni mi, Blizancu]]></string>
     <string name="comput_api_key_label"><![CDATA[API ključ]]></string>
     <string name="comput_show_api_key"><![CDATA[Prikaži API ključ]]></string>

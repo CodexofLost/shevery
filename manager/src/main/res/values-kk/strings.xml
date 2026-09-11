@@ -347,7 +347,7 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API кілті бос! Оны Shevery баптауларында баптаңыз.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API Кілті]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[Бапталмаған (Gemini ЖИ жұмыс істемейді)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[ЖИ Моделі]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[Gemini ЖИ Моделі]]></string>
     <string name="comput_gemini_explain"><![CDATA[Gemini Түсіндірмесі]]></string>
     <string name="comput_api_key_label"><![CDATA[API Кілті]]></string>
     <string name="comput_show_api_key"><![CDATA[Кілтті көрсету]]></string>

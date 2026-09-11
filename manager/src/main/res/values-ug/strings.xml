@@ -376,7 +376,7 @@ has been copied to clipboard.]]></string>
     <string name="comput_ai_api_key_empty"><![CDATA[Google AI Studio API ئاچقۇچى قۇرۇق! ئۇنى Shevery Settings (Comput Console Settings) دا تەڭشەڭ.]]></string>
     <string name="comput_ai_api_key_title"><![CDATA[Google AI Studio API ئاچقۇچى]]></string>
     <string name="comput_ai_api_key_not_configured"><![CDATA[سەپلىمىلەنمىگەن (Gemini AI ئىشلىمەيدۇ)]]></string>
-    <string name="comput_gemini_model_title"><![CDATA[AI مودېلى]]></string>
+    <string name="comput_gemini_model_title"><![CDATA[جەمئىي يۇلتۇز تۈركۈمى AI مودېلى]]></string>
     <string name="comput_gemini_explain"><![CDATA[جەمئىي يۇلتۇز تۈركۈمى چۈشەندۈرۈش]]></string>
     <string name="comput_api_key_label"><![CDATA[API ئاچقۇچى]]></string>
     <string name="comput_show_api_key"><![CDATA[API ئاچقۇچىنى كۆرسىتىش]]></string>
