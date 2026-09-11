@@ -1159,6 +1159,7 @@ fun ComputScreen(
                 }
             }
             },
+            confirmButton = {},
             containerColor = MaterialTheme.colorScheme.surface,
             shape = RoundedCornerShape(28.dp)
         )
