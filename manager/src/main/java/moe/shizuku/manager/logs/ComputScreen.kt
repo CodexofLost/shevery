@@ -130,8 +130,12 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.semantics
 import moe.shizuku.manager.R
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.ui.compose.ShizukuScaffold
@@ -197,7 +201,7 @@ fun ComputScreen(
 
     var commandiumPrompt by remember { mutableStateOf("") }
     var isCommandiumGenerating by remember { mutableStateOf(false) }
-    var generatedCommandiumResult by remember { mutableStateOf("") }
+    var commandiumResult by remember { mutableStateOf<Result<String>?>(null) }
 
     var savedMacros by remember {
         mutableStateOf<Map<String, List<String>>>(
@@ -1006,18 +1010,24 @@ fun ComputScreen(
 
     // Modal BottomSheet for Commandium AI Studio
     if (showCommandiumSheet) {
+        var generationJob by remember { mutableStateOf<Job?>(null) }
         val requestCommandium: () -> Unit = {
             if (commandiumPrompt.isNotBlank() && !isCommandiumGenerating) {
                 isCommandiumGenerating = true
-                scope.launch {
+                generationJob = scope.launch {
                     val apiKey = ModuleSettings.getComputApiKey()
-                    generatedCommandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)
+                    commandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)(
                     isCommandiumGenerating = false
                 }
             }
         }
         AlertDialog(
-            onDismissRequest = { showCommandiumSheet = false },
+            onDismissRequest = {
+                showCommandiumSheet = false
+                generationJob?.cancel()
+                isCommandiumGenerating = false
+                commandiumResult = null
+            },
             title = {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
@@ -1111,22 +1121,31 @@ fun ComputScreen(
                     }
                 }
 
-                if (generatedCommandiumResult.isNotBlank()) {
+                val commandiumOutcome = commandiumResult
+                if (commandiumOutcome != null) {
+                    val outcomeText = commandiumOutcome.getOrNull()
+                    val isError = outcomeText == null
+                    val displayText = outcomeText ?: buildString {
+                        append("Error: ")
+                        append(commandiumOutcome.exceptionOrNull()?.message ?: "Unknown error")
+                    }
                     Surface(
-                        modifier = Modifier.fillMaxWidth(),
-                        color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .semantics { liveRegion = LiveRegionMode.Polite },
+                        color = if (isError) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.surfaceContainerHigh,
                         shape = RoundedCornerShape(16.dp)
                     ) {
                         Column(modifier = Modifier.padding(14.dp)) {
                             Text(
                                 text = stringResource(R.string.comput_generated_command),
                                 style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp, fontWeight = FontWeight.Bold),
-                                color = MaterialTheme.colorScheme.primary
+                                color = if (isError) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.primary
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             SelectionContainer {
                                 Text(
-                                    text = generatedCommandiumResult,
+                                    text = displayText,
                                     style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 13.sp)
                                 )
                             }
@@ -1137,8 +1156,10 @@ fun ComputScreen(
                             ) {
                                 Button(
                                     onClick = {
-                                        command = generatedCommandiumResult
-                                        showCommandiumSheet = false
+                                        if (!isError) {
+                                            command = outcomeText!!
+                                            showCommandiumSheet = false
+                                        }
                                     },
                                     modifier = Modifier.weight(1f),
                                     shape = CircleShape
@@ -1147,7 +1168,7 @@ fun ComputScreen(
                                 }
                                 IconButton(
                                     onClick = {
-                                        copyToClipboard("Commandium", generatedCommandiumResult, context.getString(R.string.comput_copied_to_clipboard))
+                                        copyToClipboard("Commandium", displayText, context.getString(R.string.comput_copied_to_clipboard))
                                     }
                                 ) {
                                     Icon(Icons.Rounded.ContentCopy, contentDescription = stringResource(android.R.string.copy))
@@ -1159,6 +1180,12 @@ fun ComputScreen(
             }
             },
             confirmButton = {},
+
+            dismissButton = {
+                TextButton(onClick = { showCommandiumSheet = false }) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            },
             containerColor = MaterialTheme.colorScheme.surface,
             shape = RoundedCornerShape(28.dp)
         )

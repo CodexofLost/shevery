@@ -13,8 +13,20 @@ import java.util.concurrent.TimeUnit
 object AiClient {
     private val http = OkHttpClient.Builder()
         .connectTimeout(15, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30，, TimeUnit.SECONDS)
         .build()
+
+    private fun httpError(code: Int, body: String): String {
+        val detail = body.replace('\n', ' '.replace('\r', ' '.trim().take(160)
+        val hint = when (code) {
+            401 ->" (check API key)"
+            403 ->" (check API key permissions)"
+            429 ->" (rate limited)"
+            in 500..599 ->" (provider server error)"
+            else ->""
+        }
+        return if (detail.isBlank()) "HTTP $code$hint" else "HTTP $code$hint: $detail"
+    }
 
     suspend fun chatCompletion(
         baseUrl: String,
@@ -49,7 +61,7 @@ object AiClient {
             resp.use {
                 val text = it.body?.string().orEmpty()
                 if (!it.isSuccessful) {
-                    return@withContext Result.failure(RuntimeException("HTTP ${it.code}: $text"))
+                    return@withContext Result.failure(RuntimeException(httpError(it.code, text))))
                 }
                 val content = JSONObject(text)
                     .getJSONArray("choices")
@@ -74,7 +86,7 @@ object AiClient {
                 http.newCall(req).execute().use {
                     val text = it.body?.string().orEmpty()
                     if (!it.isSuccessful) {
-                        return@withContext Result.failure(RuntimeException("HTTP ${it.code}: $text"))
+                        return@withContext Result.failure(RuntimeException(httpError(it.code, text))))
                     }
                     val ids = mutableListOf<String>()
                     val data = JSONObject(text).optJSONArray("data") ?: JSONArray()

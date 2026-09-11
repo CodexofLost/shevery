@@ -118,9 +118,9 @@ fun AiProviderDialog(
                         label = { Text(stringResource(R.string.comput_ai_preset_label)) },
                         trailingIcon = {
                             IconButton(onClick = { presetMenuExpanded = !presetMenuExpanded }) {
-                                Icon(
-                                    imageVector = Icons.Default.ArrowDropDown,
-                                    contentDescription = null
+                                                        Icon(
+                                                            imageVector = Icons.Default.ArrowDropDown,
+                                                            contentDescription = stringResource(R.string.comput_ai_preset_label)
                                 )
                             }
                         },
@@ -195,9 +195,9 @@ fun AiProviderDialog(
                         singleLine = true,
                         trailingIcon = {
                             IconButton(onClick = { menuExpanded = !menuExpanded }) {
-                                Icon(
-                                    imageVector = Icons.Default.ArrowDropDown,
-                                    contentDescription = null
+                                                        Icon(
+                                                            imageVector = Icons.Default.ArrowDropDown,
+                                                            contentDescription = stringResource(R.string.comput_ai_model_label)
                                 )
                             }
                         },
