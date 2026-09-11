@@ -30,8 +30,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -130,11 +128,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.compose.ui.semantics.LiveRegionMode
-import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import moe.shizuku.manager.R
 import moe.shizuku.manager.module.ModuleSettings
@@ -1010,184 +1005,23 @@ fun ComputScreen(
 
     // Modal BottomSheet for Commandium AI Studio
     if (showCommandiumSheet) {
-        var generationJob by remember { mutableStateOf<Job?>(null) }
-        val requestCommandium: () -> Unit = {
-            if (commandiumPrompt.isNotBlank() && !isCommandiumGenerating) {
-                isCommandiumGenerating = true
-                generationJob = scope.launch {
-                    val apiKey = ModuleSettings.getComputApiKey()
-                    commandiumResult = AiExplainUtil.generateCommand(commandiumPrompt, apiKey)
-                    isCommandiumGenerating = false
-                }
-            }
-        }
-        AlertDialog(
-            onDismissRequest = {
+        CommandiumSheet(
+            onDismiss = { showCommandiumSheet = false },
+            prompt = commandiumPrompt,
+            onPromptChange = { commandiumPrompt = it },
+            isGenerating = isCommandiumGenerating,
+            onGeneratingChange = { isCommandiumGenerating = it },
+            result = commandiumResult,
+            onResultChange = { commandiumResult = it },
+            scope = scope,
+            onUseCommand = { cmd ->
+                command = cmd
                 showCommandiumSheet = false
-                generationJob?.cancel()
-                isCommandiumGenerating = false
-                commandiumResult = null
             },
-            title = {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Rounded.AutoAwesome,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Text(
-                        text = stringResource(R.string.comput_commandium_assistant),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
-                }
-            },
-            text = {
-                Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp)
-                    .verticalScroll(rememberScrollState())
-                    .imePadding(),
-                verticalArrangement = Arrangement.spacedBy(14.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.comput_commandium_description),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-
-                FlowRow(
-                    horizontalArrangement = Arrangement.spacedBy(6.dp),
-                    verticalArrangement = Arrangement.spacedBy(6.dp)
-                ) {
-                    listOf(
-                        "List user installed apps",
-                        "Check battery temperature & status",
-                        "Find files larger than 50MB",
-                        "Get device Android model & build"
-                    ).forEach { suggestion ->
-                        FilterChip(
-                            selected = commandiumPrompt == suggestion,
-                            onClick = { commandiumPrompt = suggestion },
-                            label = { Text(suggestion, style = MaterialTheme.typography.labelSmall) },
-                            shape = CircleShape
-                        )
-                    }
-                }
-
-                OutlinedTextField(
-                    value = commandiumPrompt,
-                    onValueChange = { commandiumPrompt = it },
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(20.dp),
-                    label = { Text(stringResource(R.string.comput_commandium_label)) },
-                    placeholder = { Text(stringResource(R.string.comput_commandium_placeholder)) },
-                    trailingIcon = {
-                        IconButton(
-                            onClick = { requestCommandium() }
-                        ) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Rounded.Send,
-                                contentDescription = stringResource(R.string.comput_command_send)
-                            )
-                        }
-                    },
-                    keyboardOptions = KeyboardOptions(
-                        imeAction = ImeAction.Send
-                    ),
-                    keyboardActions = KeyboardActions(
-                        onSend = { requestCommandium() }
-                    ),
-                    maxLines = 3
-                )
-
-                Button(
-                    onClick = { requestCommandium() },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp),
-                    shape = CircleShape
-                ) {
-                    if (isCommandiumGenerating) {
-                        LoadingIndicator(Modifier.size(18.dp), MaterialTheme.colorScheme.onPrimary)
-                    } else {
-                        Text(stringResource(R.string.comput_ask_commandium), fontWeight = FontWeight.Bold)
-                    }
-                }
-
-                val commandiumOutcome = commandiumResult
-                if (commandiumOutcome != null) {
-                    val outcomeText = commandiumOutcome.getOrNull()
-                    val isError = outcomeText == null
-                    val displayText = outcomeText ?: buildString {
-                        append("Error: ")
-                        append(commandiumOutcome.exceptionOrNull()?.message ?: "Unknown error")
-                    }
-                    Surface(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .semantics { liveRegion = LiveRegionMode.Polite },
-                        color = if (isError) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.surfaceContainerHigh,
-                        shape = RoundedCornerShape(16.dp)
-                    ) {
-                        Column(modifier = Modifier.padding(14.dp)) {
-                            Text(
-                                text = stringResource(R.string.comput_generated_command),
-                                style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp, fontWeight = FontWeight.Bold),
-                                color = if (isError) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.primary
-                            )
-                            Spacer(modifier = Modifier.height(4.dp))
-                            SelectionContainer {
-                                Text(
-                                    text = displayText,
-                                    style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 13.sp)
-                                )
-                            }
-                            Spacer(modifier = Modifier.height(10.dp))
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                Button(
-                                    onClick = {
-                                        if (!isError) {
-                                            command = outcomeText!!
-                                            showCommandiumSheet = false
-                                        }
-                                    },
-                                    modifier = Modifier.weight(1f),
-                                    shape = CircleShape
-                                ) {
-                                    Text(stringResource(R.string.comput_use_command))
-                                }
-                                IconButton(
-                                    onClick = {
-                                        copyToClipboard("Commandium", displayText, context.getString(R.string.comput_copied_to_clipboard))
-                                    }
-                                ) {
-                                    Icon(Icons.Rounded.ContentCopy, contentDescription = stringResource(android.R.string.copy))
-                                }
-                            }
-                        }
-                    }
-                }
+            onCopy = { text ->
+                copyToClipboard("Commandium", text,
+                    context.getString(R.string.comput_copied_to_clipboard))
             }
-            },
-            confirmButton = {},
-
-            dismissButton = {
-                TextButton(onClick = { showCommandiumSheet = false }) {
-                    Text(stringResource(android.R.string.cancel))
-                }
-            },
-            containerColor = MaterialTheme.colorScheme.surface,
-            shape = RoundedCornerShape(28.dp)
         )
     }
 
