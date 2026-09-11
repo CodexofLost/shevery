@@ -293,6 +293,10 @@ object ModuleSettings {
     private const val KEY_COMPUT_RECOMMAND = "comput_recommand"
     private const val KEY_COMPUT_AI_EXPLAIN = "comput_ai_explain"
     private const val KEY_COMPUT_GEMINI_MODEL = "comput_gemini_model"
+    // Comput AI provider settings (generic OpenAI-compatible endpoint)
+    private const val KEY_COMPUT_AI_NAME = "comput_ai_name"
+    private const val KEY_COMPUT_AI_BASE_URL = "comput_ai_base_url"
+    private const val KEY_COMPUT_AI_MODEL = "comput_ai_model"
 
     private const val PROVIDER = "AndroidKeyStore"
     private const val ALIAS = "SheveryGeminiKey"
@@ -369,12 +373,60 @@ object ModuleSettings {
         ShizukuSettings.getPreferences().edit().putString(KEY_COMPUT_API_KEY, encrypted).apply()
     }
 
-    fun getComputGeminiModel(): String {
-        return ShizukuSettings.getPreferences().getString(KEY_COMPUT_GEMINI_MODEL, "gemini-3.6-flash") ?: "gemini-3.6-flash"
+    fun getComputAiName(): String {
+        migrateComputAiPrefsIfNeeded()
+        return ShizukuSettings.getPreferences().getString(KEY_COMPUT_AI_NAME, "") ?: ""
     }
 
+    fun setComputAiName(value: String) {
+        ShizukuSettings.getPreferences().edit().putString(KEY_COMPUT_AI_NAME, value).apply()
+    }
+
+    fun getComputAiBaseUrl(): String {
+        migrateComputAiPrefsIfNeeded()
+        return ShizukuSettings.getPreferences().getString(KEY_COMPUT_AI_BASE_URL, "https://openrouter.ai/api/v1/") ?: "https://openrouter.ai/api/v1/"
+    }
+
+    fun setComputAiBaseUrl(value: String) {
+        val trimmed = value.trim()
+        require(trimmed.startsWith("http://") || trimmed.startsWith("https://")) { "Base URL must start with http:// or https://" }
+        ShizukuSettings.getPreferences().edit().putString(KEY_COMPUT_AI_BASE_URL, trimmed).apply()
+    }
+
+    fun getComputAiModel(): String {
+        migrateComputAiPrefsIfNeeded()
+        return ShizukuSettings.getPreferences().getString(KEY_COMPUT_AI_MODEL, "") ?: ""
+    }
+
+    fun setComputAiModel(value: String) {
+        ShizukuSettings.getPreferences().edit().putString(KEY_COMPUT_AI_MODEL, value).apply()
+    }
+
+    // One-time migration on first read: a user who had a custom Gemini model
+    // gets it copied onto the new generic provider pref (named "Gemini", pointed at
+    // Google's OpenAI-compatible endpoint), keeping the existing Keystore-encrypted key.
+
+    private fun migrateComputAiPrefsIfNeeded() {
+        val prefs = ShizukuSettings.getPreferences()
+        if (!prefs.contains(KEY_COMPUT_GEMINI_MODEL)) return
+        if (prefs.contains(KEY_COMPUT_AI_MODEL)) return
+        val legacyModel = prefs.getString(KEY_COMPUT_GEMINI_MODEL, "") ?: ""
+        if (legacyModel.isBlank()) return
+        prefs.edit()
+            .putString(KEY_COMPUT_AI_MODEL, legacyModel)
+            .putString(KEY_COMPUT_AI_NAME, "Gemini")
+            .putString(KEY_COMPUT_AI_BASE_URL, "https://generativelanguage.googleapis.com/v1beta/openai/")
+            .apply()
+    }
+
+    @Deprecated("Use getComputAiModel()")
+    fun getComputGeminiModel(): String {
+        return getComputAiModel()
+    }
+
+    @Deprecated("Use setComputAiModel()")
     fun setComputGeminiModel(value: String) {
-        ShizukuSettings.getPreferences().edit().putString(KEY_COMPUT_GEMINI_MODEL, value).apply()
+        setComputAiModel(value)
     }
 
     fun isComputRecommandEnabled(): Boolean {
