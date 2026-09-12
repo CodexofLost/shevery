@@ -1,7 +1,7 @@
 package moe.shizuku.manager.utils
 
 object CommandSanitizer {
-    private fun sanitizeCommand(raw: String): String {
+    fun sanitize(raw: String): String {
         var t = raw.trim()
         t = REGEX_THINKING.replace(t, "")
         return REGEX_FENCE.replace(t) { m -> m.groupValues[1] }.trim()

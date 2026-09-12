@@ -81,7 +81,7 @@ fun CommandiumSheet(
             onGeneratingChange(true)
             generationJob = scope.launch {
                 val apiKey = ModuleSettings.getComputApiKey()
-                onResultChange(AiExplainUtil.generateCommand(prompt, apiKey)))
+                onResultChange(AiExplainUtil.generateCommand(prompt, apiKey))
                 onGeneratingChange(false)
             }
         }
@@ -139,7 +139,7 @@ fun CommandiumSheet(
                 ).forEach { suggestion ->
                     FilterChip(
                         selected = prompt == suggestion,
-                        onClick = { prompt = suggestion },
+                        onClick = { onPromptChange(suggestion) },
                         label = { Text(suggestion, style = MaterialTheme.typography.labelSmall) },
                         shape = CircleShape
                     )
@@ -148,7 +148,7 @@ fun CommandiumSheet(
 
             OutlinedTextField(
                 value = prompt,
-                onValueChange = { prompt = it },
+                onValueChange = { onPromptChange(it) },
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(20.dp),
                 label = { Text(stringResource(R.string.comput_commandium_label)) },
