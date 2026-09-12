@@ -122,7 +122,7 @@ object AiProviderRepository {
 
     fun setCachedModels(id: String, baseUrl: String, models: List<String>) {
         if (models.isEmpty()) return
-        prefs().edit().putString(KEY_MODELS_PREFIX + id, json.encodeToString(CachedModels(baseUrl, models.take(MAX_CACHED_MODELS)).apply()
+        prefs().edit().putString(KEY_MODELS_PREFIX + id, json.encodeToString(CachedModels(baseUrl, models.take(MAX_CACHED_MODELS)))).apply()
     }
 
     fun removeModelCache(id: String) {

@@ -421,7 +421,7 @@ fun ModulesScreen(
                         Button(
                             onClick = {
                                 if (!hasApiKey) {
-                                    Toast.makeText(context, context.getString(R.string.comput_ai_no_active_toast], Toast.LENGTH_SHORT].show()
+            Toast.makeText(context, context.getString(R.string.comput_ai_no_active_toast), Toast.LENGTH_SHORT).show()
                                 } else {
                                     aiLoading = true
                                     scope.launch {
@@ -443,7 +443,7 @@ fun ModulesScreen(
                         }
                         if (!hasApiKey) {
                             Text(
-                                text = stringResource(R.string.comput_ai_no_active_toast),
+            Toast.makeText(context, context.getString(R.string.comput_ai_no_active_toast), Toast.LENGTH_SHORT).show()
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
@@ -507,6 +507,7 @@ fun ModulesScreen(
             }
         )
     }
+}
 
 private fun AdbModule.actionCommandPreview(): String {
     val script = actionScript ?: return "sh action.sh"

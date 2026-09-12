@@ -63,6 +63,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.R
+import moe.shizuku.manager.commandium.AiModelSwitcherSheet
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.utils.AiExplainUtil
 

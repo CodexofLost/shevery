@@ -885,7 +885,6 @@ fun ComputScreen(
                     isExplaining = isExplaining,
                     onToggleGemini = {
                         if (ModuleSettings.getComputApiKey().isBlank()) {
-                        val context = LocalContext.current
                         Toast.makeText(context, context.getString(R.string.comput_ai_no_active_toast), Toast.LENGTH_LONG).show()
                     } else if (!showGeminiSection && aiExplanation.isBlank() && !isExplaining) {
                             triggerGeminiExplanation()
