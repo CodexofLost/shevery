@@ -2,6 +2,7 @@
 
 package moe.shizuku.manager.commandium
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -65,6 +66,7 @@ fun AiModelPickerScreen(
     onDismiss: () -> Unit,
 ) {
     var query by rememberSaveable { mutableStateOf("") }
+    BackHandler(onBackPressed = onDismiss)
     val filtered = remember(modelOptions, query) {
         if (query.isBlank()) modelOptions else modelOptions.filter { it.contains(query.trim(), ignoreCase = true) }
     }
