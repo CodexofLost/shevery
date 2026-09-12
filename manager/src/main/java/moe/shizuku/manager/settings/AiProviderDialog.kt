@@ -41,6 +41,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.R
 import moe.shizuku.manager.commandium.AiModelPickerScreen
@@ -92,7 +93,31 @@ fun AiProviderDialog(
         val url = baseUrl.trim()
         if (url.isEmpty() || apiKey.trim().isEmpty() || providerId == null) return@LaunchedEffect
         val cached = AiProviderRepository.getCachedModels(providerId, url)
-        if (cached.isNotEmpty()) modelOptions = cached
+        if (cached.isNotEmpty()) {
+            modelOptions = cached
+        } else if (model.isBlank()) {
+            // Auto-discover when adding a brand-new provider: debounce 500ms once the
+            // URL+key settle, then fetch models immediately so options show up right away..
+            delay(500)
+            if (loadingModels) return@LaunchedEffect
+            loadingModels = true
+            modelsUnavailable = false
+            AiClient.listModels(url, apiKey.trim())
+                .onSuccess { list ->
+                    if (list.isNotEmpty()) {
+                        modelOptions = list
+                        AiProviderRepository.setCachedModels(providerId, url, list)
+                    } else {
+                        modelsUnavailable = true
+                    }
+                    loadingModels = false
+                }
+                .onFailure {
+                    modelOptions = emptyList()
+                    modelsUnavailable = true
+                    loadingModels = false
+                }
+        }
     }
 
     AlertDialog(

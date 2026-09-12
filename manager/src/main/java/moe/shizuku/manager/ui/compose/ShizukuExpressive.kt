@@ -99,6 +99,9 @@ import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.selected
 import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MotionScheme
@@ -229,6 +232,7 @@ fun ExpressiveFloatingNavigationBar(
                         onCheckedChange = { if (!selected) onItemSelected(index) },
                         modifier = Modifier
                             .height(56.dp)
+                            .semantics { this.selected = selected; role = Role.Tab }
                             .onGloballyPositioned { coords ->
                                 buttonBounds[index] = coords.boundsInParent()
                             }

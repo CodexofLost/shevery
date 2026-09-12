@@ -62,6 +62,7 @@ import androidx.compose.material.icons.rounded.Apps
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.Clear
 import androidx.compose.material.icons.rounded.Close
+import androidx.compose.material.icons.rounded.Tune
 import androidx.compose.material.icons.rounded.ContentCopy
 import androidx.compose.material.icons.rounded.ContentPaste
 import androidx.compose.material.icons.rounded.Delete
@@ -134,6 +135,7 @@ import androidx.compose.ui.semantics.semantics
 import moe.shizuku.manager.R
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.ui.compose.ShizukuScaffold
+import moe.shizuku.manager.settings.AiManagerScreen
 import moe.shizuku.manager.utils.AiExplainUtil
 import moe.shizuku.server.IShizukuService
 import org.json.JSONArray
@@ -186,6 +188,7 @@ fun ComputScreen(
     var cmdHistory by remember { mutableStateOf(listOf<String>()) }
 
     var showCommandiumSheet by remember { mutableStateOf(false) }
+    var showAiManager by remember { mutableStateOf(false) }
     var showMacrosSheet by remember { mutableStateOf(false) }
     var showPresetsSheet by remember { mutableStateOf(false) }
 
@@ -643,6 +646,11 @@ fun ComputScreen(
                         }
                     )
                     ComputUtilityButton(
+                        icon = Icons.Rounded.Tune,
+                        contentDescription = stringResource(R.string.comput_ai_provider_title),
+                        onClick = { showAiManager = true }
+                    )
+                    ComputUtilityButton(
                         icon = Icons.Rounded.AutoAwesome,
                         contentDescription = stringResource(R.string.comput_tab_commandium),
                         onClick = { showCommandiumSheet = true }
@@ -1034,6 +1042,11 @@ fun ComputScreen(
             },
             history = commandiumHistory,
         )
+    }
+
+    // AI Provider manager - opened contextually from the toolbar; onNavigateUp closes it
+    if (showAiManager) {
+        AiManagerScreen(onNavigateUp = { showAiManager = false }, onChanged = {})
     }
 
     // Modal BottomSheet for Macros
