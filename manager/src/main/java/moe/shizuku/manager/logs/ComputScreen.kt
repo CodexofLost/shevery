@@ -1072,6 +1072,10 @@ fun ComputScreen(
                 copyToClipboard("Commandium", text,
                     context.getString(R.string.comput_copied_to_clipboard))
             },
+            onConfigureProvider = {
+                showCommandiumSheet = false
+                showAiManager = true
+            },
             history = commandiumHistory,
         )
     }

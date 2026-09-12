@@ -57,6 +57,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.CoroutineScope
@@ -79,6 +80,7 @@ fun CommandiumSheet(
     onDismiss: () -> Unit,
     onUseCommand: (String) -> Unit,
     onCopy: (String) -> Unit,
+    onConfigureProvider: () -> Unit = {},
     history: List<String> = emptyList()
 ) {
     var generationJob by remember { mutableStateOf<Job?>(null) }
@@ -159,13 +161,46 @@ fun CommandiumSheet(
                 )
             }
             if (activeProvider == null || activeKey.isBlank()) {
-                Text(
-                    text = stringResource(R.string.comput_ai_setup_hint),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+                Surface(
+                    modifier = Modifier.fillMaxWidth(),
+                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                    shape = RoundedCornerShape(16.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.AutoAwesome,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(32.dp)
+                        )
+                        Text(
+                            text = stringResource(R.string.comput_ai_no_provider_title),
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center
+                        )
+                        Text(
+                            text = stringResource(R.string.comput_ai_no_provider_body),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textAlign = TextAlign.Center
+                        )
+                        Button(
+                            onClick = onConfigureProvider,
+                            shape = CircleShape,
+                            modifier = Modifier.height(48.dp)
+                        ) {
+                            Text(stringResource(R.string.comput_ai_configure_provider), fontWeight = FontWeight.Bold)
+                        }
+                    }
+                }
             }
 
+            if (activeProvider != null && activeKey.isNotBlank()) {
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)
@@ -238,6 +273,7 @@ fun CommandiumSheet(
                 } else {
                     Text(stringResource(R.string.comput_ask_commandium), fontWeight = FontWeight.Bold)
                 }
+            }
             }
 
             val outcome = result
