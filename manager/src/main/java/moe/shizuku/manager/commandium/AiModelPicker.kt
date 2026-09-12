@@ -163,6 +163,22 @@ fun AiModelSwitcherSheet(
             models = cached
             loading = false
             failed = false
+            // Stale cache: show the cached list instantly, then refresh in the
+            // background so renamed/added/removed models surface without the user
+            // having to tap anything. A failed refresh silently keeps the cache.
+            if (repo.isModelCacheStale(provider.id, provider.baseUrl)) {
+                val key = repo.getKey(provider.id)
+                if (key.isNotBlank()) {
+                    AiClient.listModels(provider.baseUrl, key)
+                        .onSuccess { fresh ->
+                            if (fresh.isNotEmpty()) {
+                                models = fresh
+                                repo.setCachedModels(provider.id, provider.baseUrl, fresh)
+                            }
+                        }
+                        .onFailure { }
+                }
+            }
             return@LaunchedEffect
         }
         loading = true

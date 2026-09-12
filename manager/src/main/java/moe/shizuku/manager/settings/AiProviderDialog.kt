@@ -56,11 +56,10 @@ import moe.shizuku.manager.utils.AiClient
  * The three-stage chip row above the form is a visual tracker, not a multi-page wizard --
  * everything stays one scrollable form so TalkBack focus is never bounced between pages.
  *
- * Autodiscovery is manual-only: an explicit "Discover models" action, per design (live
- * fetching while typing hammered the network on every keystroke and interrupted the screen
- * reader). Discovered lists open through the full-screen AiModelPickerScreen -- a plain
- * dropdown can't render 400+ items. Results are cached per provider/base-url so re-opening
- * an edited provider stays instant.
+ * Models auto-discover when a key is added (new provider) and refresh silently in the
+ * background for edited providers once the 24h cache expires; the explicit "Discover
+ * models" button remains as a manual force refresh. Discovered lists open through the
+ * full-screen AiModelPickerScreen -- a plain dropdown can't render 400+ items.
  */
 @Composable
 fun AiProviderDialog(
@@ -86,41 +85,59 @@ fun AiProviderDialog(
     var presetMenuExpanded by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
 
-    // Preload the cached model list when editing a known provider (if any); the list only
-    // loads via the explicit Discover button otherwise. Cache is scoped to base URL, so
-    // changing the endpoint naturally yields no stale options..
+    // Preload the cached model list when editing a known provider (if any).
+    // Brand-new providers auto-discover 500ms after the URL+key settle; edited
+    // providers with a stale cache refresh silently in the background while the
+    // cached list stays visible. Cache is scoped to base URL, so changing the
+    // endpoint naturally yields no stale options. The explicit Discover button
+    // remains as an always-available force refresh.
     LaunchedEffect(baseUrl.trim(), apiKey.trim(), providerId) {
         val url = baseUrl.trim()
         if (url.isEmpty() || apiKey.trim().isEmpty()) return@LaunchedEffect
         var cached: List<String> = emptyList()
+        var haveCache = false
         if (providerId != null) {
             cached = AiProviderRepository.getCachedModels(providerId, url)
-            if (cached.isNotEmpty()) modelOptions = cached
+            if (cached.isNotEmpty()) {
+                haveCache = true
+                modelOptions = cached
+            }
         }
-        if (cached.isEmpty() && model.isBlank()) {
-            // Auto-discover when adding a brand-new provider: debounce 500ms once the
-            // URL+key settle, then fetch models immediately so options show up right away..
-            delay(500)
-            if (loadingModels) return@LaunchedEffect
-            loadingModels = true
-            modelsUnavailable = false
+        val stale = haveCache && AiProviderRepository.isModelCacheStale(providerId!!, url)
+        if (haveCache && !stale) return@LaunchedEffect
+        if (stale) {
+            // Show the cached list immediately, refresh silently behind it.
             AiClient.listModels(url, apiKey.trim())
                 .onSuccess { list ->
                     if (list.isNotEmpty()) {
                         modelOptions = list
-                        providerId?.let { AiProviderRepository.setCachedModels(it, url, list) }
-                    } else {
-                        modelsUnavailable = true
+                        AiProviderRepository.setCachedModels(providerId!!, url, list)
                     }
-                    loadingModels = false
                 }
-                .onFailure {
-                    // Keep whatever cached list we had: a failed refresh must not
-                    // clobber previously discovered models.
-                    modelsUnavailable = true
-                    loadingModels = false
-                }
+                .onFailure { }
+            return@LaunchedEffect
         }
+        // No cache at all: debounce 500ms once URL+key settle, then fetch.
+        delay(500)
+        if (loadingModels) return@LaunchedEffect
+        loadingModels = true
+        modelsUnavailable = false
+        AiClient.listModels(url, apiKey.trim())
+            .onSuccess { list ->
+                if (list.isNotEmpty()) {
+                    modelOptions = list
+                    providerId?.let { AiProviderRepository.setCachedModels(it, url, list) }
+                } else {
+                    modelsUnavailable = true
+                }
+                loadingModels = false
+            }
+            .onFailure {
+                // Keep whatever cached list we had: a failed refresh must not
+                // clobber previously discovered models.
+                modelsUnavailable = true
+                loadingModels = false
+            }
     }
 
     if (!showModelPicker) {

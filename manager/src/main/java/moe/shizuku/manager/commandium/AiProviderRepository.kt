@@ -37,6 +37,7 @@ object AiProviderRepository {
     internal const val LEGACY_MODEL = "comput_ai_model"
     private const val KEY_MODELS_PREFIX = "comput_ai_models_"
     private const val MAX_CACHED_MODELS = 5000
+    private const val MODEL_CACHE_TTL_MS = 24L * 60 * 60 * 1000
     internal const val LEGACY_DEFAULT_BASE_URL = "https://openrouter.ai/api/v1/"
 
     private const val PROVIDER = "AndroidKeyStore"
@@ -136,7 +137,19 @@ object AiProviderRepository {
 
     fun setCachedModels(id: String, baseUrl: String, models: List<String>) {
         if (models.isEmpty()) return
-        prefs().edit().putString(KEY_MODELS_PREFIX + id, json.encodeToString(CachedModels(baseUrl, models.take(MAX_CACHED_MODELS)))).apply()
+        prefs().edit().putString(
+            KEY_MODELS_PREFIX + id,
+            json.encodeToString(CachedModels(baseUrl, models.take(MAX_CACHED_MODELS), System.currentTimeMillis()))
+        ).apply()
+    }
+
+    /** True when a cache entry is missing or older than the TTL (or corrupt). */
+    fun isModelCacheStale(id: String, baseUrl: String): Boolean {
+        val raw = prefs().getString(KEY_MODELS_PREFIX + id, null) ?: return true
+        val payload = try { json.decodeFromString<CachedModels>(raw) } catch (e: Throwable) { return true }
+        if (payload.baseUrl != baseUrl) return true
+        val age = System.currentTimeMillis() - payload.fetchedAt
+        return age > MODEL_CACHE_TTL_MS
     }
 
     fun removeModelCache(id: String) {
@@ -147,6 +160,7 @@ object AiProviderRepository {
     private data class CachedModels(
         val baseUrl: String = "",
         val models: List<String> = emptyList(),
+        val fetchedAt: Long = 0L,
     )
 
     // -- per-provider keys (Keystore-encrypted, same scheme as before) ---
