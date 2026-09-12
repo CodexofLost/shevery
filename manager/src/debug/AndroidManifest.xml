@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Lab-only receiver: merged into debug builds only, never release. -->
-    <application>
-        <receiver
-            android:name=".receiver.TestKeysReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="moe.shizuku.manager.TEST_KEYS" />
-            </intent-filter>
-        </receiver>
-        <!-- Debug-only host so test flows can open the real AiManagerScreen.without scrolling Settings. -->
+    <!-- Lab-only receiver: registered DYNAMICALLY by TestHostActivity (see its -->
+        <!-- comment) - a manifest entry hits background-execution limits on API 28+. -->
+        <application>
         <activity
             android:name=".TestHostActivity"
             android:exported="true" />
