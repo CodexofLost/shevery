@@ -125,7 +125,7 @@ fun AiProviderDialog(
                         modifier = Modifier.fillMaxWidth(),
                     )
                     DropdownMenu(expanded = presetMenuExpanded, onDismissRequest = { presetMenuExpanded = false }) {
-                        aiProviderPresets.forEach { preset →
+                        aiProviderPresets.forEach { preset ->
                             val presetLabel = preset.nameRes?.let { stringResource(it) } ?: preset.name
                             DropdownMenuItem(
                                 text = { Text(presetLabel) },
@@ -193,10 +193,10 @@ fun AiProviderDialog(
                             modelsUnavailable = false
                             scope.launch {
                                 AiClient.listModels(url, key)
-                                    .onSuccess { list →
+                                    .onSuccess { list ->
                                         modelOptions = list
                                         loadingModels = false
-                                        providerId?.let { id →
+                                        providerId?.let { id ->
                                             AiProviderRepository.setCachedModels(id, url, list)
                                         }
                                     }
@@ -299,7 +299,7 @@ private fun AiStageIndicator(stage: Int) {
         R.string.comput_ai_stage_3,
     )
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        labels.forEachIndexed { index, res →
+        labels.forEachIndexed { index, res ->
             val n = index + 1
             val active = n == stage
             val filled = n < stage

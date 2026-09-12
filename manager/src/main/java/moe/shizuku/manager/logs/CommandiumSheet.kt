@@ -327,7 +327,7 @@ fun CommandiumSheet(
             if (showModelSwitcher) {
                 AiModelSwitcherSheet(
                     activeProviderId = moe.shizuku.manager.commandium.AiProviderRepository.getActive()?.id,
-                    onSelect = { providerId, model →
+                    onSelect = { providerId, model ->
                         val target = moe.shizuku.manager.commandium.AiProviderRepository.getProviders().firstOrNull { it.id == providerId } ?: return@AiModelSwitcherSheet
 
                         moe.shizuku.manager.commandium.AiProviderRepository.update(target.copy(model = model))

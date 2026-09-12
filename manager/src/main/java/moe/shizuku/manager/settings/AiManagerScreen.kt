@@ -107,7 +107,7 @@ fun AiManagerScreen(
                                 modifier = Modifier.size(48.dp),
                             )
                             Spacer(Modifier.height(16.dp))
-                            Text(stringResource(R.string.comput_ai_empty_title), style = MaterialTheme.typography.titleMedium))
+                            Text(stringResource(R.string.comput_ai_empty_title], style = MaterialTheme.typography.titleMedium)
                             Spacer(Modifier.height(8.dp))
                             Text(
                                 text = stringResource(R.string.comput_ai_empty_body),

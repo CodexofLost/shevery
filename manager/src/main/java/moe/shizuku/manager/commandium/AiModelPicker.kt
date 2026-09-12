@@ -1,3 +1,5 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+
 package moe.shizuku.manager.commandium
 
 import androidx.compose.foundation.horizontalScroll
@@ -44,8 +46,6 @@ import androidx.compose.ui.unit.dp
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import moe.shizuku.manager.utils.AiClient
-
-@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 
 /**
  * Full-screen searchable model picker, used whenever the provider dialog needs to
@@ -104,7 +104,7 @@ fun AiModelPickerScreen(
                 }
             }
         }
-        items(filtered, key = { it }) { model →
+        items(filtered, key = { it }) { model ->
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -174,7 +174,7 @@ fun AiModelSwitcherSheet(
         }
         val result = AiClient.listModels(provider.baseUrl, key)
         loading = false
-        result.onSuccess { list →
+        result.onSuccess { list ->
             if (list.isEmpty()) {
                 failed = true
             } else {
@@ -215,7 +215,7 @@ fun AiModelSwitcherSheet(
                         .padding(horizontal =16.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    providers.forEach { p →
+                    providers.forEach { p ->
                         FilterChip(
                             selected = p.id == selectedId,
                             onClick = { selectedId = p.id },
@@ -273,7 +273,7 @@ fun AiModelSwitcherSheet(
                     }
                 } else {
                     LazyColumn(Modifier.fillMaxWidth().weight(1f)) {
-                        items(filtered, key = { it }) { model →
+                        items(filtered, key = { it }) { model ->
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()

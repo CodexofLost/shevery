@@ -28,7 +28,7 @@ val aiProviderPresets = listOf(
     AiProviderPreset("", "", R.string.comput_ai_preset_custom),
 )
 
-fun urlIsValid(url: String: Boolean =
+fun urlIsValid(url: String): Boolean =
     url.startsWith("http://") || url.startsWith("https://")
 
 fun matchPresetName(currentName: String, currentBaseUrl: String): String =
