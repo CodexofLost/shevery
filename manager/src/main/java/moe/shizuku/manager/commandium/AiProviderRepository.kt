@@ -36,7 +36,7 @@ object AiProviderRepository {
     internal const val LEGACY_BASE_URL = "comput_ai_base_url"
     internal const val LEGACY_MODEL = "comput_ai_model"
     private const val KEY_MODELS_PREFIX = "comput_ai_models_"
-    private const val MAX_CACHED_MODELS = 2000
+    private const val MAX_CACHED_MODELS = 5000
     internal const val LEGACY_DEFAULT_BASE_URL = "https://openrouter.ai/api/v1/"
 
     private const val PROVIDER = "AndroidKeyStore"
@@ -52,11 +52,25 @@ object AiProviderRepository {
     fun getProviders(): List<AiProvider> {
         migrateFromLegacyIfNeeded()
         val raw = prefs().getString(KEY_PROVIDERS, null) ?: return emptyList()
-        return try {
+        val list = try {
             json.decodeFromString<List<AiProvider>>(raw)
         } catch (e: Throwable) {
-            emptyList()
+            return emptyList()
         }
+        // The first migration carried the old Gemini-era model string
+        // ("gemini-3.6-flash" — a flat name that only exists on Google's
+        // endpoint) into the provider JSON. On any OpenAI-style endpoint
+        // (OpenRouter/Groq/...) that slug 404s as "model not found".
+        // Drop flat gemini-only slugs once so requests carry a real model.
+        var changed = false
+        val clean = list.map { p ->
+            if (p.model.startsWith("gemini") && !p.model.contains("/")) {
+                changed = true
+                p.copy(model = "")
+            } else p
+        }
+        if (changed) saveProviders(clean)
+        return clean
     }
 
     private fun saveProviders(providers: List<AiProvider>) {
@@ -184,15 +198,18 @@ object AiProviderRepository {
         val name = prefs.getString(LEGACY_NAME, "") ?: ""
         val baseUrl = prefs.getString(LEGACY_BASE_URL, LEGACY_DEFAULT_BASE_URL)
             ?: LEGACY_DEFAULT_BASE_URL
-        val model = prefs.getString(LEGACY_MODEL, "") ?: ""
+        // Legacy model strings were Gemini-era flat names that 404 on
+        // OpenAI-style endpoints; require an explicit re-pick after upgrade.
         val provider = AiProvider(
             id = UUID.randomUUID().toString(),
             name = name,
             baseUrl = baseUrl,
-            model = model,
+            model = "",
         )
         saveProviders(listOf(provider))
         prefs.edit().putString(KEY_ACTIVE_ID, provider.id).apply()
+        // The old settings pref must not resurrect through ModuleSettings.
+        prefs.edit().remove(LEGACY_MODEL).apply()
         // Carry the existing encrypted key onto the new entry untouched.
         val legacyKey = prefs.getString(LEGACY_API_KEY, "") ?: ""
         if (legacyKey.isNotEmpty()) {

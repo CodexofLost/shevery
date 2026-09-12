@@ -8,13 +8,16 @@ import moe.shizuku.manager.module.ModuleSettings
 object AiExplainUtil {
 
     private const val GOOGLE_OPENAI_BASE = "https://generativelanguage.googleapis.com/v1beta/openai/"
-    private const val DEFAULT_GOOGLE_MODEL = "gemini-3.6-flash"
 
-    private fun resolveModel(baseUrl: String): String {
-        val model = ModuleSettings.getComputAiModel()
-        if (model.isNotBlank()) return model
-        return if (baseUrl.contains("generativelanguage.googleapis.com")) DEFAULT_GOOGLE_MODEL else ""
-    }
+    /**
+     * Model is taken exclusively from the active provider (explicit pick in the
+     * AI switcher / provider dialog). The old single "comput_ai_model" setting
+     * held Gemini-era flat slugs that 404 on OpenAI-style endpoints after the
+     * upgrade (OpenRouter: "Model not found: gemini-3.6-flash"), so it is no
+     * longer consulted — a blank model yields a clear message instead.
+     */
+    private fun resolveModel(baseUrl: String): String =
+        if (baseUrl.startsWith(GOOGLE_OPENAI_BASE)) "gemini-3.6-flash" else ""
 
     suspend fun explainFailure(
         contextStr: String,
@@ -27,7 +30,7 @@ object AiExplainUtil {
             ?: ModuleSettings.getComputAiBaseUrl()
         val model = active?.model?.takeIf { it.isNotBlank() } ?: resolveModel(baseUrl)
         if (model.isBlank()) {
-            return@withContext "AI model is not set. Please configure it in Shevery Settings."
+            return@withContext "No AI model is selected. Open the AI switcher (console → Ask AI) and pick a model."
         }
         val resolvedKey = active?.let { p -> AiProviderRepository.getKey(p.id).takeIf { it.isNotBlank() } }
             ?: apiKey
@@ -63,7 +66,7 @@ object AiExplainUtil {
             ?: ModuleSettings.getComputAiBaseUrl()
         val model = active?.model?.takeIf { it.isNotBlank() } ?: resolveModel(baseUrl)
         if (model.isBlank()) {
-            return@withContext Result.failure(IllegalStateException("AI model is not set. Please configure it in Shevery Settings."))
+            return@withContext Result.failure(IllegalStateException("No AI model is selected. Open the AI switcher (console → Ask AI) and pick a model."))
         }
         val resolvedKey = active?.let { p -> AiProviderRepository.getKey(p.id).takeIf { it.isNotBlank() } }
             ?: apiKey
