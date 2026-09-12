@@ -90,6 +90,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LoadingIndicator
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
@@ -169,6 +173,7 @@ fun ComputScreen(
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     var command by remember { mutableStateOf("pm list packages -3") }
     var outputLog by remember { mutableStateOf(context.getString(R.string.comput_console_initialized)) }
@@ -595,6 +600,10 @@ fun ComputScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
+            SnackbarHost(
+                hostState = snackbarHostState,
+                modifier = Modifier.align(Alignment.BottomCenter)
+            )
             LazyColumn(
                 state = listState,
                 modifier = Modifier
@@ -893,8 +902,18 @@ fun ComputScreen(
                     isExplaining = isExplaining,
                     onToggleGemini = {
                         if (ModuleSettings.getComputApiKey().isBlank()) {
-                        Toast.makeText(context, context.getString(R.string.comput_ai_no_active_toast), Toast.LENGTH_LONG).show()
-                    } else if (!showGeminiSection && aiExplanation.isBlank() && !isExplaining) {
+                            scope.launch {
+                                val action = snackbarHostState.showSnackbar(
+                                    message = context.getString(R.string.comput_ai_no_active_toast),
+                                    actionLabel = "Configure",
+                                    withDismissAction = true,
+                                    duration = SnackbarDuration.Long
+                                )
+                                if (action == SnackbarResult.ActionPerformed) {
+                                    showAiManager = true
+                                }
+                            }
+                        } else if (!showGeminiSection && aiExplanation.isBlank() && !isExplaining) {
                             triggerGeminiExplanation()
                         } else {
                             showGeminiSection = !showGeminiSection

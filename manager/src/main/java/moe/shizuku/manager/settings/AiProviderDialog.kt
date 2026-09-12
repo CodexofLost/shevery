@@ -52,13 +52,13 @@ import moe.shizuku.manager.commandium.urlIsValid
 import moe.shizuku.manager.utils.AiClient
 
 /**
- * Add/edit provider dialog with progressive disclosure: Preset → Credentials → Model.
- * The three-stage chip row above the form is a visual tracker, not a multi-page wizard —
+ * Add/edit provider dialog with progressive disclosure: Preset -> Credentials -> Model.
+ * The three-stage chip row above the form is a visual tracker, not a multi-page wizard --
  * everything stays one scrollable form so TalkBack focus is never bounced between pages.
  *
  * Autodiscovery is manual-only: an explicit "Discover models" action, per design (live
  * fetching while typing hammered the network on every keystroke and interrupted the screen
- * reader). Discovered lists open through the full-screen AiModelPickerScreen — a plain
+ * reader). Discovered lists open through the full-screen AiModelPickerScreen -- a plain
  * dropdown can't render 400+ items. Results are cached per provider/base-url so re-opening
  * an edited provider stays instant.
  */
@@ -86,7 +86,7 @@ fun AiProviderDialog(
     var presetMenuExpanded by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
 
-    // Preload the cached model list when editing a known provider ( if any;the list only
+    // Preload the cached model list when editing a known provider (if any); the list only
     // loads via the explicit Discover button otherwise. Cache is scoped to base URL, so
     // changing the endpoint naturally yields no stale options..
     LaunchedEffect(baseUrl.trim(), apiKey.trim(), providerId) {
@@ -122,6 +122,7 @@ fun AiProviderDialog(
         }
     }
 
+    if (!showModelPicker) {
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.comput_ai_provider_title)) },
@@ -162,6 +163,9 @@ fun AiProviderDialog(
                                     presetName = presetLabel
                                     name = preset.name
                                     baseUrl = preset.baseUrl
+                                    apiKey = ""
+                                    model = ""
+                                    modelOptions = emptyList()
                                     baseUrlError = false
                                 },
                             )
@@ -304,8 +308,7 @@ fun AiProviderDialog(
         containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
         shape = MaterialTheme.shapes.extraLarge,
     )
-
-    if (showModelPicker) {
+    } else {
         AiModelPickerScreen(
             providerName = name,
             modelOptions = modelOptions,
@@ -349,7 +352,7 @@ private fun AiStageIndicator(stage: Int) {
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    text = "$n · " + stringResource(res),
+                    text = "$n - " + stringResource(res),
                     style = MaterialTheme.typography.labelMedium,
                     color = fg,
                     maxLines =1,
