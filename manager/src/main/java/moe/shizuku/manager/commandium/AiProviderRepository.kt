@@ -3,6 +3,8 @@ package moe.shizuku.manager.commandium
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import android.util.Base64
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import moe.shizuku.manager.ShizukuSettings
 import java.security.KeyStore
@@ -39,6 +41,8 @@ object AiProviderRepository {
     private const val TRANSFORMATION = "AES/GCM/NoPadding"
 
     private val json = Json { ignoreUnknownKeys = true }
+
+    private fun prefs() = ShizukuSettings.getPreferences()
 
     // -- provider list ---------------------------------------------------
 
