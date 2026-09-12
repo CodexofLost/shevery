@@ -13,6 +13,7 @@ import android.content.Context
 import android.os.ParcelFileDescriptor
 import android.os.SystemClock
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
@@ -196,6 +197,15 @@ fun ComputScreen(
     var showAiManager by remember { mutableStateOf(false) }
     var showMacrosSheet by remember { mutableStateOf(false) }
     var showPresetsSheet by remember { mutableStateOf(false) }
+
+    // AI Provider manager replaces the whole Comput tab while open: composing
+    // it AFTER the Scaffold stacked a second TopAppBar over this one (dead
+    // touches on its buttons); early-return keeps exactly one top bar on screen.
+    if (showAiManager) {
+        BackHandler(onBack = { showAiManager = false })
+        AiManagerScreen(onNavigateUp = { showAiManager = false }, onChanged = {})
+        return
+    }
 
     var isRecording by remember { mutableStateOf(false) }
     val recordedCommands = remember { mutableStateListOf<String>() }
@@ -1063,10 +1073,8 @@ fun ComputScreen(
         )
     }
 
-    // AI Provider manager - opened contextually from the toolbar; onNavigateUp closes it
-    if (showAiManager) {
-        AiManagerScreen(onNavigateUp = { showAiManager = false }, onChanged = {})
-    }
+    // AI Provider manager - early-returned at the top of this composable; this
+    // placement is unreachable while it is open, kept only for reference.
 
     // Modal BottomSheet for Macros
     if (showMacrosSheet) {
