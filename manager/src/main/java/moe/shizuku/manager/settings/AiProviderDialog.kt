@@ -91,11 +91,13 @@ fun AiProviderDialog(
     // changing the endpoint naturally yields no stale options..
     LaunchedEffect(baseUrl.trim(), apiKey.trim(), providerId) {
         val url = baseUrl.trim()
-        if (url.isEmpty() || apiKey.trim().isEmpty() || providerId == null) return@LaunchedEffect
-        val cached = AiProviderRepository.getCachedModels(providerId, url)
-        if (cached.isNotEmpty()) {
-            modelOptions = cached
-        } else if (model.isBlank()) {
+        if (url.isEmpty() || apiKey.trim().isEmpty()) return@LaunchedEffect
+        var cached: List<String> = emptyList()
+        if (providerId != null) {
+            cached = AiProviderRepository.getCachedModels(providerId, url)
+            if (cached.isNotEmpty()) modelOptions = cached
+        }
+        if (cached.isEmpty() && model.isBlank()) {
             // Auto-discover when adding a brand-new provider: debounce 500ms once the
             // URL+key settle, then fetch models immediately so options show up right away..
             delay(500)
@@ -106,7 +108,7 @@ fun AiProviderDialog(
                 .onSuccess { list ->
                     if (list.isNotEmpty()) {
                         modelOptions = list
-                        AiProviderRepository.setCachedModels(providerId, url, list)
+                        providerId?.let { AiProviderRepository.setCachedModels(it, url, list) }
                     } else {
                         modelsUnavailable = true
                     }
