@@ -7,7 +7,12 @@ import moe.shizuku.manager.module.ModuleSettings
 
 object AiExplainUtil {
 
-    private const val GOOGLE_OPENAI_BASE = "https://generativelanguage.googleapis.com/v1beta/openai/"
+    private const val GOOGLE_OPENAI_BASE = "https://generativelanguage.googleapis.com/v1beta/openai"
+    private const val CURRENT_GOOGLE_MODEL = "gemini-3.6-flash"
+
+    /** True for Google's OpenAI-compatible endpoint regardless of trailing slash. */
+    private fun isGoogleBase(baseUrl: String): Boolean =
+        baseUrl.trimEnd('/').startsWith(GOOGLE_OPENAI_BASE)
 
     /**
      * Model is taken exclusively from the active provider (explicit pick in the
@@ -17,7 +22,17 @@ object AiExplainUtil {
      * longer consulted — a blank model yields a clear message instead.
      */
     private fun resolveModel(baseUrl: String): String =
-        if (baseUrl.startsWith(GOOGLE_OPENAI_BASE)) "gemini-3.6-flash" else ""
+        if (isGoogleBase(baseUrl)) CURRENT_GOOGLE_MODEL else ""
+
+    /** gemini-1.x/2.x flat slugs are inside or past their shutdown window on
+     * Google endpoints (gemini-2.5-flash cut over 2026-10-16 and has been
+     * observed 404ing early) while gemini-3.6-flash is the current GA.
+     * Remap only on Google's own endpoint; other hosts keep the explicit pick. */
+    private fun currentGoogleModel(baseUrl: String, model: String): String {
+        if (!isGoogleBase(baseUrl)) return model
+        val slug = model.removePrefix("models/")
+        return if (slug.startsWith("gemini-1.") || slug.startsWith("gemini-2.")) CURRENT_GOOGLE_MODEL else model
+    }
 
     suspend fun explainFailure(
         contextStr: String,
@@ -28,7 +43,7 @@ object AiExplainUtil {
         val active = AiProviderRepository.getActive()
         val baseUrl = active?.baseUrl?.takeIf { it.isNotBlank() }
             ?: ModuleSettings.getComputAiBaseUrl()
-        val model = active?.model?.takeIf { it.isNotBlank() } ?: resolveModel(baseUrl)
+        val model = active?.model?.takeIf { it.isNotBlank() }?.let { currentGoogleModel(baseUrl, it) } ?: resolveModel(baseUrl)
         if (model.isBlank()) {
             return@withContext "No AI model is selected. Open the AI switcher (console → Ask AI) and pick a model."
         }
@@ -64,7 +79,7 @@ object AiExplainUtil {
         val active = AiProviderRepository.getActive()
         val baseUrl = active?.baseUrl?.takeIf { it.isNotBlank() }
             ?: ModuleSettings.getComputAiBaseUrl()
-        val model = active?.model?.takeIf { it.isNotBlank() } ?: resolveModel(baseUrl)
+        val model = active?.model?.takeIf { it.isNotBlank() }?.let { currentGoogleModel(baseUrl, it) } ?: resolveModel(baseUrl)
         if (model.isBlank()) {
             return@withContext Result.failure(IllegalStateException("No AI model is selected. Open the AI switcher (console → Ask AI) and pick a model."))
         }

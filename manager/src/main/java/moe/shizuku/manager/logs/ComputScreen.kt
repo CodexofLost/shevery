@@ -534,8 +534,12 @@ fun ComputScreen(
             isExplaining = true
             showGeminiSection = true
             val apiKey = ModuleSettings.getComputApiKey()
-            aiExplanation = explainCommandWithGemini(command, outputLog, apiKey, context,
-                emptyApiKeyMessage = context.getString(R.string.comput_ai_api_key_empty))
+            aiExplanation = AiExplainUtil.explainFailure(
+                contextStr = "Shevery Comput Console Shell Command Execution",
+                inputDetail = "Command: $command",
+                outputLog = outputLog,
+                apiKey = apiKey
+            )
             isExplaining = false
         }
     }
@@ -1790,68 +1794,6 @@ private fun highlightQuery(
         if (cursor < text.length) {
             append(text.substring(cursor))
         }
-    }
-}
-
-private suspend fun explainCommandWithGemini(
-    command: String,
-    output: String,
-    apiKey: String,
-    context: Context,
-    emptyApiKeyMessage: String = "Google AI Studio API Key is empty! Please configure it in Shevery Settings (Comput Console Settings)."
-): String = withContext(Dispatchers.IO) {
-    if (apiKey.isBlank()) {
-        return@withContext emptyApiKeyMessage
-    }
-    try {
-        val selectedModel = ModuleSettings.getComputGeminiModel()
-        val url = URL("https://generativelanguage.googleapis.com/v1beta/models/$selectedModel:generateContent?key=$apiKey")
-        val conn = url.openConnection() as HttpURLConnection
-        conn.requestMethod = "POST"
-        conn.connectTimeout = 15000
-        conn.readTimeout = 15000
-        conn.doOutput = true
-        conn.setRequestProperty("Content-Type", "application/json")
-
-        val currentLocale = java.util.Locale.getDefault()
-        val prompt = "CRITICAL: You must write the entire explanation in the following language: ${currentLocale.displayName} (locale code: ${currentLocale.toLanguageTag()}).\n\n" +
-                "Explain the following shell command and its execution output in a clear, concise, and helpful developer-focused way. If there are errors or warnings, explain what caused them and how to resolve them:\n\n" +
-                "Command: $command\n\n" +
-                "Output:\n$output"
-        val requestBody = JSONObject().apply {
-            put("contents", JSONArray().apply {
-                put(JSONObject().apply {
-                    put("parts", JSONArray().apply {
-                        put(JSONObject().apply {
-                            put("text", prompt)
-                        })
-                    })
-                })
-            })
-        }
-
-        conn.outputStream.use { os ->
-            os.write(requestBody.toString().toByteArray(Charsets.UTF_8))
-            os.flush()
-        }
-
-        val responseCode = conn.responseCode
-        if (responseCode == 200) {
-            val responseText = conn.inputStream.bufferedReader().use { it.readText() }
-            val json = JSONObject(responseText)
-            val text = json.getJSONArray("candidates")
-                .getJSONObject(0)
-                .getJSONObject("content")
-                .getJSONArray("parts")
-                .getJSONObject(0)
-                .getString("text")
-            text.trim()
-        } else {
-            val errText = conn.errorStream?.bufferedReader()?.use { it.readText() } ?: context.getString(R.string.comput_gemini_no_details)
-            context.getString(R.string.comput_gemini_api_error, responseCode, errText)
-        }
-    } catch (e: Exception) {
-        context.getString(R.string.comput_gemini_failed, e.message ?: context.getString(R.string.comput_gemini_connection_error))
     }
 }
 

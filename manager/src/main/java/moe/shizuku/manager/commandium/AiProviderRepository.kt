@@ -65,7 +65,12 @@ object AiProviderRepository {
         // Drop flat gemini-only slugs once so requests carry a real model.
         var changed = false
         val clean = list.map { p ->
-            if (p.model.startsWith("gemini") && !p.model.contains("/")) {
+            // A flat gemini slug is only valid on Google's own OpenAI-compatible
+            // endpoint; on any other host (OpenRouter/Groq/...) it 404s as
+            // "model not found". Guard on the provider's own base URL so a real
+            // Google Gemini provider keeps its picked model.
+            val onGoogle = p.baseUrl.contains("generativelanguage.googleapis.com")
+            if (!onGoogle && p.model.startsWith("gemini") && !p.model.contains("/")) {
                 changed = true
                 p.copy(model = "")
             } else p
@@ -139,8 +144,23 @@ object AiProviderRepository {
         if (models.isEmpty()) return
         prefs().edit().putString(
             KEY_MODELS_PREFIX + id,
-            json.encodeToString(CachedModels(baseUrl, models.take(MAX_CACHED_MODELS), System.currentTimeMillis()))
+            json.encodeToString(CachedModels(baseUrl, sortModelsForDisplay(baseUrl, models).take(MAX_CACHED_MODELS), System.currentTimeMillis()))
         ).apply()
+    }
+
+    /** Google models: current GA generation first so users don't keep landing on
+     * the shutting-down gemini-2.* slugs (gemini-2.5-flash cut over Oct 16,
+     * 2026). Stable within rank groups; untouched for every other provider. */
+    private fun sortModelsForDisplay(baseUrl: String, models: List<String>): List<String> {
+        if (!baseUrl.contains("generativelanguage.googleapis.com")) return models
+        fun rank(model: String): Int = when {
+            model == "gemini-3.6-flash" -> 0
+            model.startsWith("gemini-3.") -> 1
+            model.startsWith("gemini-2.") -> 2
+            model.startsWith("gemini-1.") -> 3
+            else -> 4
+        }
+        return models.sortedBy { rank(it) }
     }
 
     /** True when a cache entry is missing or older than the TTL (or corrupt). */
