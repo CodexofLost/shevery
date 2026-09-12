@@ -181,4 +181,37 @@ object AiProviderRepository {
         val spec = KeyGenParameterSpec.Builder(
             ALIAS,
           
-...[truncated]
+            KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
+        )
+            .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
+            .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
+            .build()
+        keyGenerator.init(spec)
+        return keyGenerator.generateKey()
+    }
+
+    private fun encrypt(plainText: String): String {
+        if (plainText.isEmpty()) return ""
+        val cipher = Cipher.getInstance(TRANSFORMATION)
+        cipher.init(Cipher.ENCRYPT_MODE, getSecretKey())
+        val iv = cipher.iv
+        val encryptedBytes = cipher.doFinal(plainText.toByteArray(Charsets.UTF_8))
+        val ivString = Base64.encodeToString(iv, Base64.NO_WRAP)
+        val encryptedString = Base64.encodeToString(encryptedBytes, Base64.NO_WRAP)
+        return "$ivString:$encryptedString"
+    }
+
+    private fun decrypt(cipherText: String): String {
+        if (cipherText.isEmpty()) return ""
+        val parts = cipherText.split(":")
+        if (parts.size != 2) return ""
+        val iv = Base64.decode(parts[0], Base64.NO_WRAP)
+        val encryptedBytes = Base64.decode(parts[1], Base64.NO_WRAP)
+
+        val cipher = Cipher.getInstance(TRANSFORMATION)
+        val spec = GCMParameterSpec(128, iv)
+        cipher.init(Cipher.DECRYPT_MODE, getSecretKey(), spec)
+        val decryptedBytes = cipher.doFinal(encryptedBytes)
+        return String(decryptedBytes, Charsets.UTF_8)
+    }
+}
