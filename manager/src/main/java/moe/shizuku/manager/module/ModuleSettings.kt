@@ -3,14 +3,7 @@ package moe.shizuku.manager.module
 import androidx.annotation.StringRes
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
-import android.security.keystore.KeyGenParameterSpec
-import android.security.keystore.KeyProperties
-import android.util.Base64
-import java.security.KeyStore
-import javax.crypto.Cipher
-import javax.crypto.KeyGenerator
-import javax.crypto.SecretKey
-import javax.crypto.spec.GCMParameterSpec
+import moe.shizuku.manager.commandium.AiProviderRepository
 
 object ModuleSettings {
 
@@ -289,92 +282,76 @@ object ModuleSettings {
     }
 
     // Comput Settings
-    private const val KEY_COMPUT_API_KEY = "comput_api_key"
     private const val KEY_COMPUT_RECOMMAND = "comput_recommand"
     private const val KEY_COMPUT_AI_EXPLAIN = "comput_ai_explain"
     private const val KEY_COMPUT_GEMINI_MODEL = "comput_gemini_model"
-
-    private const val PROVIDER = "AndroidKeyStore"
-    private const val ALIAS = "SheveryGeminiKey"
-    private const val TRANSFORMATION = "AES/GCM/NoPadding"
-
-    private fun getSecretKey(): SecretKey {
-        val keyStore = KeyStore.getInstance(PROVIDER).apply { load(null) }
-        val key = keyStore.getKey(ALIAS, null) as? SecretKey
-        if (key != null) return key
-
-        val keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, PROVIDER)
-        val spec = KeyGenParameterSpec.Builder(
-            ALIAS,
-            KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
-        )
-            .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
-            .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
-            .build()
-        keyGenerator.init(spec)
-        return keyGenerator.generateKey()
-    }
-
-    private fun encrypt(plainText: String): String {
-        if (plainText.isEmpty()) return ""
-        val cipher = Cipher.getInstance(TRANSFORMATION)
-        cipher.init(Cipher.ENCRYPT_MODE, getSecretKey())
-        val iv = cipher.iv
-        val encryptedBytes = cipher.doFinal(plainText.toByteArray(Charsets.UTF_8))
-        val ivString = Base64.encodeToString(iv, Base64.NO_WRAP)
-        val encryptedString = Base64.encodeToString(encryptedBytes, Base64.NO_WRAP)
-        return "$ivString:$encryptedString"
-    }
-
-    private fun decrypt(cipherText: String): String {
-        if (cipherText.isEmpty()) return ""
-        val parts = cipherText.split(":")
-        if (parts.size != 2) return ""
-        val iv = Base64.decode(parts[0], Base64.NO_WRAP)
-        val encryptedBytes = Base64.decode(parts[1], Base64.NO_WRAP)
-
-        val cipher = Cipher.getInstance(TRANSFORMATION)
-        val spec = GCMParameterSpec(128, iv)
-        cipher.init(Cipher.DECRYPT_MODE, getSecretKey(), spec)
-        val decryptedBytes = cipher.doFinal(encryptedBytes)
-        return String(decryptedBytes, Charsets.UTF_8)
-    }
+    // Comput AI provider settings (generic OpenAI-compatible endpoint)
+    private const val KEY_COMPUT_AI_NAME = "comput_ai_name"
+    private const val KEY_COMPUT_AI_BASE_URL = "comput_ai_base_url"
+    private const val KEY_COMPUT_AI_MODEL = "comput_ai_model"
 
     fun getComputApiKey(): String {
-        val raw = ShizukuSettings.getPreferences().getString(KEY_COMPUT_API_KEY, "") ?: ""
-        if (raw.isEmpty()) return ""
-        if (!raw.contains(":")) {
-            // It was plain text before, let's encrypt and save it now
-            try {
-                val encrypted = encrypt(raw)
-                ShizukuSettings.getPreferences().edit().putString(KEY_COMPUT_API_KEY, encrypted).apply()
-                return raw
-            } catch (e: Throwable) {
-                return raw
-            }
-        }
-        return try {
-            decrypt(raw)
-        } catch (e: Throwable) {
-            ""
-        }
+        return AiProviderRepository.getActiveKey()
     }
 
     fun setComputApiKey(value: String) {
-        val encrypted = try {
-            encrypt(value)
-        } catch (e: Throwable) {
-            value
-        }
-        ShizukuSettings.getPreferences().edit().putString(KEY_COMPUT_API_KEY, encrypted).apply()
+        AiProviderRepository.setActiveKey(value)
     }
 
+    fun getComputAiName(): String {
+        migrateComputAiPrefsIfNeeded()
+        return AiProviderRepository.getActive()?.name ?: ""
+    }
+
+    fun setComputAiName(value: String) {
+        AiProviderRepository.getActive()?.let { AiProviderRepository.update(it.copy(name = value)) }
+    }
+
+    fun getComputAiBaseUrl(): String {
+        migrateComputAiPrefsIfNeeded()
+        return AiProviderRepository.getActive()?.baseUrl ?: "https://openrouter.ai/api/v1/"
+    }
+
+    fun setComputAiBaseUrl(value: String) {
+        val trimmed = value.trim()
+        require(trimmed.startsWith("http://") || trimmed.startsWith("https://")) { "Base URL must start with http:// or https://" }
+        AiProviderRepository.getActive()?.let { AiProviderRepository.update(it.copy(baseUrl = trimmed)) }
+    }
+
+    fun getComputAiModel(): String {
+        migrateComputAiPrefsIfNeeded()
+        return AiProviderRepository.getActive()?.model ?: ""
+    }
+
+    fun setComputAiModel(value: String) {
+        AiProviderRepository.getActive()?.let { AiProviderRepository.update(it.copy(model = value)) }
+    }
+
+    // One-time migration on first read: a user who had a custom Gemini model
+    // gets it copied onto the new generic provider pref (named "Gemini", pointed at
+    // Google's OpenAI-compatible endpoint), keeping the existing Keystore-encrypted key.
+
+    private fun migrateComputAiPrefsIfNeeded() {
+        val prefs = ShizukuSettings.getPreferences()
+        if (!prefs.contains(KEY_COMPUT_GEMINI_MODEL)) return
+        if (prefs.contains(KEY_COMPUT_AI_MODEL)) return
+        val legacyModel = prefs.getString(KEY_COMPUT_GEMINI_MODEL, "") ?: ""
+        if (legacyModel.isBlank()) return
+        prefs.edit()
+            .putString(KEY_COMPUT_AI_MODEL, legacyModel)
+            .putString(KEY_COMPUT_AI_NAME, "Gemini")
+            .putString(KEY_COMPUT_AI_BASE_URL, "https://generativelanguage.googleapis.com/v1beta/openai/")
+            .apply()
+    }
+
+    @Deprecated("Use getComputAiModel()")
     fun getComputGeminiModel(): String {
-        return ShizukuSettings.getPreferences().getString(KEY_COMPUT_GEMINI_MODEL, "gemini-3.6-flash") ?: "gemini-3.6-flash"
+        return getComputAiModel()
     }
 
+    @Deprecated("Use setComputAiModel()")
     fun setComputGeminiModel(value: String) {
-        ShizukuSettings.getPreferences().edit().putString(KEY_COMPUT_GEMINI_MODEL, value).apply()
+        setComputAiModel(value)
     }
 
     fun isComputRecommandEnabled(): Boolean {
