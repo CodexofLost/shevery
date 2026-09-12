@@ -212,6 +212,23 @@ fun SettingsScreen(
     var recreateTick by remember { mutableIntStateOf(0) }
     var showUpdateSettings by remember { mutableStateOf(false) }
 
+    // AI Provider manager replaces the whole Settings screen while open:
+    // composing it after the Scaffold stacked a second TopAppBar over this
+    // screen's (dead touches on its buttons); early-return keeps one top bar.
+    if (showAiManager) {
+        BackHandler { showAiManager = false }
+        AiManagerScreen(
+            onNavigateUp = { showAiManager = false },
+            onChanged = {
+                aiProvidersVersion++
+                computAiName = ModuleSettings.getComputAiName()
+                computAiBaseUrl = ModuleSettings.getComputAiBaseUrl()
+                computAiModel = ModuleSettings.getComputAiModel()
+            }
+        )
+        return
+    }
+
     fun tcpModeNeedsRestart(enabled: Boolean): Boolean {
         val currentPort = EnvironmentUtils.getAdbTcpPort()
         return Shizuku.pingBinder() && currentPort > 0 && when {
@@ -857,18 +874,7 @@ fun SettingsScreen(
         )
     }
 
-    if (showAiManager) {
-        BackHandler { showAiManager = false }
-        AiManagerScreen(
-            onNavigateUp = { showAiManager = false },
-            onChanged = {
-                aiProvidersVersion++
-                computAiName = ModuleSettings.getComputAiName()
-                computAiBaseUrl = ModuleSettings.getComputAiBaseUrl()
-                computAiModel = ModuleSettings.getComputAiModel()
-            }
-        )
-    }
+    // AI Provider manager - early-returned at the top of this composable.
 
     if (showMissingPermissionDialog) {
         val serviceRunning = Shizuku.pingBinder()
