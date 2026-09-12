@@ -97,6 +97,7 @@ fun CommandiumSheet(
             }
         }
     }
+    var showModelSwitcher by remember { mutableStateOf(false) }
     AlertDialog(
         onDismissRequest = { dismissAndCancel() },
         title = {
@@ -132,6 +133,28 @@ fun CommandiumSheet(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+            ) {
+                val activeProvider = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
+                val activeKey = activeProvider?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) } ?: ""
+                val activeLabel = when {
+                    activeProvider == null || activeKey.isBlank() ->
+                        stringResource(R.string.comput_ai_chip_active, stringResource(R.string.comput_ai_key_missing))
+                    activeProvider.model.isNullOrBlank() ->
+                        stringResource(R.string.comput_ai_chip_active, activeProvider.name)
+                    else ->
+                        stringResource(R.string.comput_ai_chip_active_model, activeProvider.name, activeProvider.model)
+                }
+                FilterChip(
+                    selected = false,
+                    onClick = { showModelSwitcher = true },
+                    label = { Text(activeLabel, maxLines =1) },
+                )
+            }
 
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
@@ -299,5 +322,22 @@ fun CommandiumSheet(
         },
         containerColor = MaterialTheme.colorScheme.surface,
         shape = RoundedCornerShape(28.dp)
-    )
-}
+            )
+
+            if (showModelSwitcher) {
+                AiModelSwitcherSheet(
+                    activeProviderId = moe.shizuku.manager.commandium.AiProviderRepository.getActive()?.id,
+                    onSelect = { providerId, model →
+                        val target = moe.shizuku.manager.commandium.AiProviderRepository.getProviders().firstOrNull { it.id == providerId } ?: return@AiModelSwitcherSheet
+
+                        moe.shizuku.manager.commandium.AiProviderRepository.update(target.copy(model = model))
+                        if (providerId != moe.shizuku.manager.commandium.AiProviderRepository.getActiveId()) {
+
+                            moe.shizuku.manager.commandium.AiProviderRepository.setActive(providerId)
+                        }
+                        showModelSwitcher = false
+                    },
+                    onDismiss ={ showModelSwitcher = false },
+                )
+            }
+        }

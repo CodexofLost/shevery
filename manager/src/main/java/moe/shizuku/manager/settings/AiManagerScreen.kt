@@ -1,11 +1,17 @@
 package moe.shizuku.manager.settings
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -17,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
@@ -87,22 +94,48 @@ fun AiManagerScreen(
         ) {
             item {
                 SettingsGroup(title = stringResource(R.string.comput_ai_manager_title)) {
-                    providers.forEachIndexed { index, provider ->
+                    if (providers.isEmpty()) {
+                        Column(
+                            modifier = Modifier.fillMaxWidth().padding(32.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                        ) {
+                            Spacer(Modifier.height(16.dp))
+                            Icon(
+                                imageVector = Icons.Rounded.AutoAwesome,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.size(48.dp),
+                            )
+                            Spacer(Modifier.height(16.dp))
+                            Text(stringResource(R.string.comput_ai_empty_title), style = MaterialTheme.typography.titleMedium))
+                            Spacer(Modifier.height(8.dp))
+                            Text(
+                                text = stringResource(R.string.comput_ai_empty_body),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                            Spacer(Modifier.height(16.dp))
+                            Button(onClick = { showAdd = true }) {
+                                Text(stringResource(R.string.comput_ai_add_provider))
+                            }
+                        }
+                    } else {
+                        providers.forEachIndexed { index, provider ->
                         if (index > 0) GroupDivider()
                         val isActive = provider.id == activeId
                         val hasKey = AiProviderRepository.getKey(provider.id).isNotBlank()
                         val summary = buildString {
-                            if (provider.model.isNotBlank()) append(provider.model)
-                            if (provider.model.isNotBlank()) append(" - ")
-                            append(
-                                if (hasKey) "key saved" else "no key"
-                            )
-                        }
+                                                    if (provider.model.isNotBlank()) append(provider.model)
+                                                    if (provider.model.isNotBlank()) append(" - ")
+                                                    append(
+                                                        if (hasKey) stringResource(R.string.comput_ai_key_saved) else stringResource(R.string.comput_ai_key_missing)
+                                                    )
+                                                }
                         SettingsRow(
                             icon = null,
                             title = provider.name.ifBlank { provider.baseUrl },
                             summary = summary,
-                            stateDescription = if (isActive) "active" else null,
+                            stateDescription = if (isActive) stringResource(R.string.comput_ai_active) else null,
                             onClick = {
                                 AiProviderRepository.setActive(provider.id)
                                 refresh()
@@ -159,12 +192,14 @@ fun AiManagerScreen(
                         }
                     }
                 }
+                }
             }
         }
     }
 
     if (showAdd) {
         AiProviderDialog(
+            providerId = null,
             currentName = "",
             currentBaseUrl = "",
             currentModel = "",
@@ -182,6 +217,7 @@ fun AiManagerScreen(
     val target = editing
     if (target != null) {
         AiProviderDialog(
+            providerId = target.id,
             currentName = target.name,
             currentBaseUrl = target.baseUrl,
             currentModel = target.model,
@@ -189,8 +225,9 @@ fun AiManagerScreen(
             onDismiss = { editing = null },
             onSave = { name, baseUrl, model, apiKey ->
                 AiProviderRepository.update(target.copy(name = name, baseUrl = baseUrl, model = model))
-                AiProviderRepository.setKey(target.id, apiKey)
-                editing = null
+                                AiProviderRepository.setKey(target.id, apiKey)
+                                if (apiKey != editingKey) AiProviderRepository.removeModelCache(target.id)
+                                editing = null
                 refresh()
             }
         )

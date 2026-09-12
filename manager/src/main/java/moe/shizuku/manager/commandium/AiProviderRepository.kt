@@ -3,6 +3,7 @@ package moe.shizuku.manager.commandium
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import android.util.Base64
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -34,6 +35,8 @@ object AiProviderRepository {
     internal const val LEGACY_NAME = "comput_ai_name"
     internal const val LEGACY_BASE_URL = "comput_ai_base_url"
     internal const val LEGACY_MODEL = "comput_ai_model"
+    private const val KEY_MODELS_PREFIX = "comput_ai_models_"
+    private const val MAX_CACHED_MODELS = 2000
     internal const val LEGACY_DEFAULT_BASE_URL = "https://openrouter.ai/api/v1/"
 
     private const val PROVIDER = "AndroidKeyStore"
@@ -90,7 +93,10 @@ object AiProviderRepository {
     }
 
     fun update(provider: AiProvider) {
-        saveProviders(getProviders().map { if (it.id == provider.id) provider else it })
+        val current = getProviders()
+        val oldBaseUrl = current.firstOrNull { it.id == provider.id }?.baseUrl
+        saveProviders(current.map { if (it.id == provider.id) provider else it })
+        if (oldBaseUrl != null && oldBaseUrl != provider.baseUrl) removeModelCache(provider.id)
     }
 
     /** Removes a provider. Refuses to remove the last one; returns false then. */
@@ -99,11 +105,35 @@ object AiProviderRepository {
         if (providers.size <= 1) return false
         saveProviders(providers.filterNot { it.id == id })
         prefs().edit().remove(KEY_API_KEY_PREFIX + id).apply()
+        removeModelCache(id)
         if (getActiveId() == id) {
             getProviders().firstOrNull()?.let { setActive(it.id) }
         }
         return true
     }
+
+    // -- per-provider discovered-model cache (bounded, scoped to base URL)) ----
+
+    fun getCachedModels(id: String, baseUrl: String): List<String> {
+        val raw = prefs().getString(KEY_MODELS_PREFIX + id, null) ?: return emptyList()
+        val payload = try { json.decodeFromString<CachedModels>(raw) } catch (e: Throwable) { return emptyList() }
+        return if (payload.baseUrl == baseUrl) payload.models else emptyList()
+    }
+
+    fun setCachedModels(id: String, baseUrl: String, models: List<String>) {
+        if (models.isEmpty()) return
+        prefs().edit().putString(KEY_MODELS_PREFIX + id, json.encodeToString(CachedModels(baseUrl, models.take(MAX_CACHED_MODELS)).apply()
+    }
+
+    fun removeModelCache(id: String) {
+        prefs().edit().remove(KEY_MODELS_PREFIX + id).apply()
+    }
+
+    @Serializable
+    private data class CachedModels(
+        val baseUrl: String = "",
+        val models: List<String> = emptyList(),
+    )
 
     // -- per-provider keys (Keystore-encrypted, same scheme as before) ---
 
