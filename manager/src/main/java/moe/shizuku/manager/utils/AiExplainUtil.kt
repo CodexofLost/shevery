@@ -8,7 +8,7 @@ import moe.shizuku.manager.module.ModuleSettings
 object AiExplainUtil {
 
     private const val GOOGLE_OPENAI_BASE = "https://generativelanguage.googleapis.com/v1beta/openai"
-    private const val CURRENT_GOOGLE_MODEL = "gemini-3.6-flash"
+    private const val CURRENT_GOOGLE_MODEL = "gemini-3.8-flash"
 
     /** True for Google's OpenAI-compatible endpoint regardless of trailing slash. */
     private fun isGoogleBase(baseUrl: String): Boolean =
@@ -26,7 +26,8 @@ object AiExplainUtil {
 
     /** gemini-1.x/2.x flat slugs are inside or past their shutdown window on
      * Google endpoints (gemini-2.5-flash cut over 2026-10-16 and has been
-     * observed 404ing early) while gemini-3.6-flash is the current GA.
+     * observed 404ing early) while gemini-3.8-flash is the current GA
+     * (per Google's OpenAI-compat docs, which call it via chat/completions).
      * Remap only on Google's own endpoint; other hosts keep the explicit pick. */
     private fun currentGoogleModel(baseUrl: String, model: String): String {
         if (!isGoogleBase(baseUrl)) return model

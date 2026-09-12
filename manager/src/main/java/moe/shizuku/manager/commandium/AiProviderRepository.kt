@@ -154,11 +154,10 @@ object AiProviderRepository {
     private fun sortModelsForDisplay(baseUrl: String, models: List<String>): List<String> {
         if (!baseUrl.contains("generativelanguage.googleapis.com")) return models
         fun rank(model: String): Int = when {
-            model == "gemini-3.6-flash" -> 0
-            model.startsWith("gemini-3.") -> 1
-            model.startsWith("gemini-2.") -> 2
-            model.startsWith("gemini-1.") -> 3
-            else -> 4
+            model.startsWith("gemini-3.") -> 0
+            model.startsWith("gemini-2.") -> 1
+            model.startsWith("gemini-1.") -> 2
+            else -> 3
         }
         return models.sortedBy { rank(it) }
     }
