@@ -144,8 +144,13 @@ fun CommandiumSheet(
             val activeLabel = when {
                 activeProvider == null || activeKey.isBlank() ->
                     stringResource(R.string.comput_ai_chip_active, stringResource(R.string.comput_ai_key_missing))
-                activeProvider.model.isNullOrBlank() ->
-                    stringResource(R.string.comput_ai_chip_active, activeProvider.name)
+                activeProvider.model.isNullOrBlank() -> {
+                    val defaultModel = AiExplainUtil.resolveModel(activeProvider.baseUrl)
+                    if (defaultModel.isBlank())
+                        stringResource(R.string.comput_ai_chip_active, activeProvider.name)
+                    else
+                        stringResource(R.string.comput_ai_chip_active_model, activeProvider.name, defaultModel)
+                }
                 else ->
                     stringResource(R.string.comput_ai_chip_active_model, activeProvider.name, activeProvider.model)
             }

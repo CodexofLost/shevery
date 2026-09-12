@@ -50,6 +50,7 @@ import moe.shizuku.manager.commandium.aiProviderPresets
 import moe.shizuku.manager.commandium.matchPresetName
 import moe.shizuku.manager.commandium.urlIsValid
 import moe.shizuku.manager.utils.AiClient
+import moe.shizuku.manager.utils.AiExplainUtil
 
 /**
  * Add/edit provider dialog with progressive disclosure: Preset -> Credentials -> Model.
@@ -110,7 +111,7 @@ fun AiProviderDialog(
             AiClient.listModels(url, apiKey.trim())
                 .onSuccess { list ->
                     if (list.isNotEmpty()) {
-                        modelOptions = list
+                        modelOptions = AiProviderRepository.displayModels(url, list)
                         AiProviderRepository.setCachedModels(providerId!!, url, list)
                     }
                 }
@@ -125,7 +126,7 @@ fun AiProviderDialog(
         AiClient.listModels(url, apiKey.trim())
             .onSuccess { list ->
                 if (list.isNotEmpty()) {
-                    modelOptions = list
+                    modelOptions = AiProviderRepository.displayModels(url, list)
                     providerId?.let { AiProviderRepository.setCachedModels(it, url, list) }
                 } else {
                     modelsUnavailable = true
@@ -148,7 +149,7 @@ fun AiProviderDialog(
             Column(modifier = Modifier.fillMaxWidth()) {
                 AiStageIndicator(
                     stage = when {
-                        model.isNotBlank() -> 3
+                        model.isNotBlank() || AiExplainUtil.resolveModel(baseUrl.trim()).isNotBlank() -> 3
                         urlIsValid(baseUrl.trim()) && baseUrl.isNotBlank() ->2
                         else ->1
                     },
@@ -280,7 +281,7 @@ fun AiProviderDialog(
                     value = model,
                     onValueChange = { model = it },
                     label = { Text(stringResource(R.string.comput_ai_model_label)) },
-                    placeholder = { Text(stringResource(R.string.comput_ai_model_placeholder)) },
+                    placeholder = { Text(stringResource(if (model.isBlank() && AiExplainUtil.resolveModel(baseUrl.trim()).isNotBlank()) R.string.comput_ai_default_model else R.string.comput_ai_model_placeholder)) },
                     singleLine = true,
                     readOnly = modelOptions.isNotEmpty(),
                     trailingIcon = {
@@ -332,6 +333,7 @@ fun AiProviderDialog(
             providerName = name,
             modelOptions = modelOptions,
             currentModel = model,
+            defaultModel = AiExplainUtil.resolveModel(baseUrl.trim()),
             onSelect ={
                 model = it
                 showModelPicker = false
