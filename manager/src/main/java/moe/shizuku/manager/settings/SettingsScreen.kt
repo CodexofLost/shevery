@@ -67,6 +67,7 @@ import moe.shizuku.manager.ktx.setComponentEnabled
 import moe.shizuku.manager.accessibility.AccessibilityManagerActivity
 import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.manager.commandium.AiProviderRepository
 import moe.shizuku.manager.module.update.AppUpdateSettingsGroup
 import moe.shizuku.manager.receiver.BootCompleteReceiver
 import moe.shizuku.manager.adb.AdbStarter
@@ -205,7 +206,8 @@ fun SettingsScreen(
     var computRecommand by remember {
         mutableStateOf(ModuleSettings.isComputRecommandEnabled())
     }
-    var showProviderDialog by remember { mutableStateOf(false) }
+    var showAiManager by remember { mutableStateOf(false) }
+    var aiProvidersVersion by remember { mutableStateOf(0) }
     var showMissingPermissionDialog by remember { mutableStateOf(false) }
     var recreateTick by remember { mutableIntStateOf(0) }
     var showUpdateSettings by remember { mutableStateOf(false) }
@@ -647,8 +649,12 @@ fun SettingsScreen(
                 SettingsRow(
                     icon = R.drawable.ic_code_24dp,
                     title = stringResource(R.string.comput_ai_provider_title),
-                    summary = computProviderSummary(computAiName, computAiModel),
-                    onClick = { showProviderDialog = true }
+                    summary = aiProvidersVersion.let {
+                        AiProviderRepository.getActive()?.let { active ->
+                            computProviderSummary(active.name, active.model)
+                        } ?: computAiBaseUrl
+                    },
+                    onClick = { showAiManager = true }
                 )
                 GroupDivider()
                 SwitchSettingsRow(
@@ -851,20 +857,15 @@ fun SettingsScreen(
         )
     }
 
-    if (showProviderDialog) {
-        AiProviderDialog(
-            currentName = computAiName,
-            currentBaseUrl = computAiBaseUrl,
-            currentModel = computAiModel,
-            onDismiss = { showProviderDialog = false },
-            onSave = { name, baseUrl, model ->
-                ModuleSettings.setComputAiName(name)
-                computAiName = name
-                ModuleSettings.setComputAiBaseUrl(baseUrl)
+    if (showAiManager) {
+        BackHandler { showAiManager = false }
+        AiManagerScreen(
+            onNavigateUp = { showAiManager = false },
+            onChanged = {
+                aiProvidersVersion++
+                computAiName = ModuleSettings.getComputAiName()
                 computAiBaseUrl = ModuleSettings.getComputAiBaseUrl()
-                ModuleSettings.setComputAiModel(model)
-                computAiModel = model
-                showProviderDialog = false
+                computAiModel = ModuleSettings.getComputAiModel()
             }
         )
     }

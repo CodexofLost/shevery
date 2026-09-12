@@ -29,7 +29,6 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import moe.shizuku.manager.R
-import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.commandium.aiProviderPresets
 import moe.shizuku.manager.commandium.matchPresetName
 import moe.shizuku.manager.commandium.urlIsValid
@@ -41,13 +40,14 @@ fun AiProviderDialog(
     currentName: String,
     currentBaseUrl: String,
     currentModel: String,
+    currentApiKey: String = "",
     onDismiss: () -> Unit,
-    onSave: (String, String, String) -> Unit,
+    onSave: (String, String, String, String) -> Unit,
 ) {
     var name by remember { mutableStateOf(currentName) }
     var baseUrl by remember { mutableStateOf(currentBaseUrl) }
     var model by remember { mutableStateOf(currentModel) }
-    var apiKey by remember { mutableStateOf(ModuleSettings.getComputApiKey()) }
+    var apiKey by remember { mutableStateOf(currentApiKey) }
     var keyVisible by remember { mutableStateOf(false) }
     var modelOptions by remember { mutableStateOf<List<String>>(emptyList()) }
     var loadingModels by remember { mutableStateOf(false) }
@@ -217,8 +217,7 @@ fun AiProviderDialog(
                         baseUrlError = true
                     } else {
                         baseUrlError = false
-                        ModuleSettings.setComputApiKey(apiKey.trim())
-                        onSave(name.trim(), baseUrl.trim(), model.trim())
+                        onSave(name.trim(), baseUrl.trim(), model.trim(), apiKey.trim())
                     }
                 }
             ) {
