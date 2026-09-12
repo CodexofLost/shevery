@@ -76,6 +76,12 @@ fun CommandiumSheet(
     onCopy: (String) -> Unit
 ) {
     var generationJob by remember { mutableStateOf<Job?>(null) }
+    val dismissAndCancel: () -> Unit = {
+        generationJob?.cancel()
+        onGeneratingChange(false)
+        onResultChange(null)
+        onDismiss()
+    }
     val requestCommandium: () -> Unit = {
         if (prompt.isNotBlank() && !isGenerating) {
             onGeneratingChange(true)
@@ -87,12 +93,7 @@ fun CommandiumSheet(
         }
     }
     AlertDialog(
-        onDismissRequest = {
-            onDismiss()
-            generationJob?.cancel()
-            onGeneratingChange(false)
-            onResultChange(null)
-        },
+        onDismissRequest = { dismissAndCancel() },
         title = {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -219,17 +220,17 @@ fun CommandiumSheet(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
-                            Button(
-                                onClick = {
-                                    if (!isError) {
+                            if (!isError) {
+                                Button(
+                                    onClick = {
                                         onUseCommand(outcomeText!!)
                                         onDismiss()
-                                    }
-                                },
-                                modifier = Modifier.weight(1f),
-                                shape = CircleShape
-                            ) {
-                                Text(stringResource(R.string.comput_use_command))
+                                    },
+                                    modifier = Modifier.weight(1f),
+                                    shape = CircleShape
+                                ) {
+                                    Text(stringResource(R.string.comput_use_command))
+                                }
                             }
                             IconButton(
                                 onClick = {
@@ -247,7 +248,7 @@ fun CommandiumSheet(
         confirmButton = {},
 
         dismissButton = {
-            TextButton(onClick = { onDismiss() }) {
+            TextButton(onClick = { dismissAndCancel() }) {
                 Text(stringResource(android.R.string.cancel))
             }
         },
