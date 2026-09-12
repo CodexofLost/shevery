@@ -57,12 +57,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.R
+import moe.shizuku.manager.commandium.AiModelSwitcherSheet
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.utils.AiExplainUtil
 
@@ -78,6 +80,7 @@ fun CommandiumSheet(
     onDismiss: () -> Unit,
     onUseCommand: (String) -> Unit,
     onCopy: (String) -> Unit,
+    onConfigureProvider: () -> Unit = {},
     history: List<String> = emptyList()
 ) {
     var generationJob by remember { mutableStateOf<Job?>(null) }
@@ -91,12 +94,15 @@ fun CommandiumSheet(
         if (prompt.isNotBlank() && !isGenerating) {
             onGeneratingChange(true)
             generationJob = scope.launch {
-                val apiKey = ModuleSettings.getComputApiKey()
+                val apiKey = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
+                    ?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) }
+                    ?: ModuleSettings.getComputApiKey()
                 onResultChange(AiExplainUtil.generateCommand(prompt, apiKey))
                 onGeneratingChange(false)
             }
         }
     }
+    var showModelSwitcher by remember { mutableStateOf(false) }
     AlertDialog(
         onDismissRequest = { dismissAndCancel() },
         title = {
@@ -133,6 +139,68 @@ fun CommandiumSheet(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
+            val activeProvider = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
+            val activeKey = activeProvider?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) } ?: ""
+            val activeLabel = when {
+                activeProvider == null || activeKey.isBlank() ->
+                    stringResource(R.string.comput_ai_chip_active, stringResource(R.string.comput_ai_key_missing))
+                activeProvider.model.isNullOrBlank() ->
+                    stringResource(R.string.comput_ai_chip_active, activeProvider.name)
+                else ->
+                    stringResource(R.string.comput_ai_chip_active_model, activeProvider.name, activeProvider.model)
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+            ) {
+                FilterChip(
+                    selected = false,
+                    onClick = { showModelSwitcher = true },
+                    label = { Text(activeLabel, maxLines =1) },
+                )
+            }
+            if (activeProvider == null || activeKey.isBlank()) {
+                Surface(
+                    modifier = Modifier.fillMaxWidth(),
+                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                    shape = RoundedCornerShape(16.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.AutoAwesome,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(32.dp)
+                        )
+                        Text(
+                            text = stringResource(R.string.comput_ai_no_provider_title),
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center
+                        )
+                        Text(
+                            text = stringResource(R.string.comput_ai_no_provider_body),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textAlign = TextAlign.Center
+                        )
+                        Button(
+                            onClick = onConfigureProvider,
+                            shape = CircleShape,
+                            modifier = Modifier.height(48.dp)
+                        ) {
+                            Text(stringResource(R.string.comput_ai_configure_provider), fontWeight = FontWeight.Bold)
+                        }
+                    }
+                }
+            }
+
+            if (activeProvider != null && activeKey.isNotBlank()) {
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)
@@ -205,6 +273,7 @@ fun CommandiumSheet(
                 } else {
                     Text(stringResource(R.string.comput_ask_commandium), fontWeight = FontWeight.Bold)
                 }
+            }
             }
 
             val outcome = result
@@ -299,5 +368,22 @@ fun CommandiumSheet(
         },
         containerColor = MaterialTheme.colorScheme.surface,
         shape = RoundedCornerShape(28.dp)
-    )
-}
+            )
+
+            if (showModelSwitcher) {
+                AiModelSwitcherSheet(
+                    activeProviderId = moe.shizuku.manager.commandium.AiProviderRepository.getActive()?.id,
+                    onSelect = { providerId, model ->
+                        val target = moe.shizuku.manager.commandium.AiProviderRepository.getProviders().firstOrNull { it.id == providerId } ?: return@AiModelSwitcherSheet
+
+                        moe.shizuku.manager.commandium.AiProviderRepository.update(target.copy(model = model))
+                        if (providerId != moe.shizuku.manager.commandium.AiProviderRepository.getActiveId()) {
+
+                            moe.shizuku.manager.commandium.AiProviderRepository.setActive(providerId)
+                        }
+                        showModelSwitcher = false
+                    },
+                    onDismiss ={ showModelSwitcher = false },
+                )
+            }
+        }

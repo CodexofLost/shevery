@@ -396,7 +396,7 @@ fun ModulesScreen(
                     MonospaceLog(text)
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        text = "Gemini AI Explanation",
+                        text = stringResource(R.string.comput_ai_explanation),
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.primary
                     )
@@ -421,7 +421,7 @@ fun ModulesScreen(
                         Button(
                             onClick = {
                                 if (!hasApiKey) {
-                                    Toast.makeText(context, "Please configure your API key in Shevery Settings first.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.comput_ai_no_active_toast), Toast.LENGTH_SHORT).show()
                                 } else {
                                     aiLoading = true
                                     scope.launch {
@@ -439,11 +439,11 @@ fun ModulesScreen(
                             },
                             modifier = Modifier.align(Alignment.End)
                         ) {
-                            Text("Ask Gemini")
+                            Text(stringResource(R.string.comput_ask_gemini))
                         }
                         if (!hasApiKey) {
                             Text(
-                                text = "Please configure your API key in Shevery Settings to use AI explanation.",
+            text = stringResource(R.string.comput_ai_no_active_toast),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )

@@ -13,6 +13,7 @@ import android.content.Context
 import android.os.ParcelFileDescriptor
 import android.os.SystemClock
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
@@ -62,6 +63,7 @@ import androidx.compose.material.icons.rounded.Apps
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.Clear
 import androidx.compose.material.icons.rounded.Close
+import androidx.compose.material.icons.rounded.Tune
 import androidx.compose.material.icons.rounded.ContentCopy
 import androidx.compose.material.icons.rounded.ContentPaste
 import androidx.compose.material.icons.rounded.Delete
@@ -89,6 +91,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LoadingIndicator
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
@@ -134,6 +140,7 @@ import androidx.compose.ui.semantics.semantics
 import moe.shizuku.manager.R
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.ui.compose.ShizukuScaffold
+import moe.shizuku.manager.settings.AiManagerScreen
 import moe.shizuku.manager.utils.AiExplainUtil
 import moe.shizuku.server.IShizukuService
 import org.json.JSONArray
@@ -167,6 +174,7 @@ fun ComputScreen(
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     var command by remember { mutableStateOf("pm list packages -3") }
     var outputLog by remember { mutableStateOf(context.getString(R.string.comput_console_initialized)) }
@@ -186,8 +194,18 @@ fun ComputScreen(
     var cmdHistory by remember { mutableStateOf(listOf<String>()) }
 
     var showCommandiumSheet by remember { mutableStateOf(false) }
+    var showAiManager by remember { mutableStateOf(false) }
     var showMacrosSheet by remember { mutableStateOf(false) }
     var showPresetsSheet by remember { mutableStateOf(false) }
+
+    // AI Provider manager replaces the whole Comput tab while open: composing
+    // it AFTER the Scaffold stacked a second TopAppBar over this one (dead
+    // touches on its buttons); early-return keeps exactly one top bar on screen.
+    if (showAiManager) {
+        BackHandler(onBack = { showAiManager = false })
+        AiManagerScreen(onNavigateUp = { showAiManager = false }, onChanged = {})
+        return
+    }
 
     var isRecording by remember { mutableStateOf(false) }
     val recordedCommands = remember { mutableStateListOf<String>() }
@@ -516,8 +534,12 @@ fun ComputScreen(
             isExplaining = true
             showGeminiSection = true
             val apiKey = ModuleSettings.getComputApiKey()
-            aiExplanation = explainCommandWithGemini(command, outputLog, apiKey, context,
-                emptyApiKeyMessage = context.getString(R.string.comput_ai_api_key_empty))
+            aiExplanation = AiExplainUtil.explainFailure(
+                contextStr = "Shevery Comput Console Shell Command Execution",
+                inputDetail = "Command: $command",
+                outputLog = outputLog,
+                apiKey = apiKey
+            )
             isExplaining = false
         }
     }
@@ -592,6 +614,10 @@ fun ComputScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
+            SnackbarHost(
+                hostState = snackbarHostState,
+                modifier = Modifier.align(Alignment.BottomCenter)
+            )
             LazyColumn(
                 state = listState,
                 modifier = Modifier
@@ -641,6 +667,11 @@ fun ComputScreen(
                                 historyExpanded = true
                             }
                         }
+                    )
+                    ComputUtilityButton(
+                        icon = Icons.Rounded.Tune,
+                        contentDescription = stringResource(R.string.comput_ai_provider_title),
+                        onClick = { showAiManager = true }
                     )
                     ComputUtilityButton(
                         icon = Icons.Rounded.AutoAwesome,
@@ -884,7 +915,22 @@ fun ComputScreen(
                     showGeminiSection = showGeminiSection,
                     isExplaining = isExplaining,
                     onToggleGemini = {
-                        if (!showGeminiSection && aiExplanation.isBlank() && !isExplaining) {
+                        val activeKey = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
+                            ?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) }
+                            ?: ""
+                        if (activeKey.isBlank()) {
+                            scope.launch {
+                                val action = snackbarHostState.showSnackbar(
+                                    message = context.getString(R.string.comput_ai_no_active_toast),
+                                    actionLabel = "Configure",
+                                    withDismissAction = true,
+                                    duration = SnackbarDuration.Long
+                                )
+                                if (action == SnackbarResult.ActionPerformed) {
+                                    showAiManager = true
+                                }
+                            }
+                        } else if (!showGeminiSection && aiExplanation.isBlank() && !isExplaining) {
                             triggerGeminiExplanation()
                         } else {
                             showGeminiSection = !showGeminiSection
@@ -1030,9 +1076,16 @@ fun ComputScreen(
                 copyToClipboard("Commandium", text,
                     context.getString(R.string.comput_copied_to_clipboard))
             },
+            onConfigureProvider = {
+                showCommandiumSheet = false
+                showAiManager = true
+            },
             history = commandiumHistory,
         )
     }
+
+    // AI Provider manager - early-returned at the top of this composable; this
+    // placement is unreachable while it is open, kept only for reference.
 
     // Modal BottomSheet for Macros
     if (showMacrosSheet) {
@@ -1741,68 +1794,6 @@ private fun highlightQuery(
         if (cursor < text.length) {
             append(text.substring(cursor))
         }
-    }
-}
-
-private suspend fun explainCommandWithGemini(
-    command: String,
-    output: String,
-    apiKey: String,
-    context: Context,
-    emptyApiKeyMessage: String = "Google AI Studio API Key is empty! Please configure it in Shevery Settings (Comput Console Settings)."
-): String = withContext(Dispatchers.IO) {
-    if (apiKey.isBlank()) {
-        return@withContext emptyApiKeyMessage
-    }
-    try {
-        val selectedModel = ModuleSettings.getComputGeminiModel()
-        val url = URL("https://generativelanguage.googleapis.com/v1beta/models/$selectedModel:generateContent?key=$apiKey")
-        val conn = url.openConnection() as HttpURLConnection
-        conn.requestMethod = "POST"
-        conn.connectTimeout = 15000
-        conn.readTimeout = 15000
-        conn.doOutput = true
-        conn.setRequestProperty("Content-Type", "application/json")
-
-        val currentLocale = java.util.Locale.getDefault()
-        val prompt = "CRITICAL: You must write the entire explanation in the following language: ${currentLocale.displayName} (locale code: ${currentLocale.toLanguageTag()}).\n\n" +
-                "Explain the following shell command and its execution output in a clear, concise, and helpful developer-focused way. If there are errors or warnings, explain what caused them and how to resolve them:\n\n" +
-                "Command: $command\n\n" +
-                "Output:\n$output"
-        val requestBody = JSONObject().apply {
-            put("contents", JSONArray().apply {
-                put(JSONObject().apply {
-                    put("parts", JSONArray().apply {
-                        put(JSONObject().apply {
-                            put("text", prompt)
-                        })
-                    })
-                })
-            })
-        }
-
-        conn.outputStream.use { os ->
-            os.write(requestBody.toString().toByteArray(Charsets.UTF_8))
-            os.flush()
-        }
-
-        val responseCode = conn.responseCode
-        if (responseCode == 200) {
-            val responseText = conn.inputStream.bufferedReader().use { it.readText() }
-            val json = JSONObject(responseText)
-            val text = json.getJSONArray("candidates")
-                .getJSONObject(0)
-                .getJSONObject("content")
-                .getJSONArray("parts")
-                .getJSONObject(0)
-                .getString("text")
-            text.trim()
-        } else {
-            val errText = conn.errorStream?.bufferedReader()?.use { it.readText() } ?: context.getString(R.string.comput_gemini_no_details)
-            context.getString(R.string.comput_gemini_api_error, responseCode, errText)
-        }
-    } catch (e: Exception) {
-        context.getString(R.string.comput_gemini_failed, e.message ?: context.getString(R.string.comput_gemini_connection_error))
     }
 }
 

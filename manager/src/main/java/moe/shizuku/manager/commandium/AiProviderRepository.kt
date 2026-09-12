@@ -3,6 +3,7 @@ package moe.shizuku.manager.commandium
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import android.util.Base64
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -34,6 +35,9 @@ object AiProviderRepository {
     internal const val LEGACY_NAME = "comput_ai_name"
     internal const val LEGACY_BASE_URL = "comput_ai_base_url"
     internal const val LEGACY_MODEL = "comput_ai_model"
+    private const val KEY_MODELS_PREFIX = "comput_ai_models_"
+    private const val MAX_CACHED_MODELS = 5000
+    private const val MODEL_CACHE_TTL_MS = 24L * 60 * 60 * 1000
     internal const val LEGACY_DEFAULT_BASE_URL = "https://openrouter.ai/api/v1/"
 
     private const val PROVIDER = "AndroidKeyStore"
@@ -49,11 +53,30 @@ object AiProviderRepository {
     fun getProviders(): List<AiProvider> {
         migrateFromLegacyIfNeeded()
         val raw = prefs().getString(KEY_PROVIDERS, null) ?: return emptyList()
-        return try {
+        val list = try {
             json.decodeFromString<List<AiProvider>>(raw)
         } catch (e: Throwable) {
-            emptyList()
+            return emptyList()
         }
+        // The first migration carried the old Gemini-era model string
+        // ("gemini-3.6-flash" — a flat name that only exists on Google's
+        // endpoint) into the provider JSON. On any OpenAI-style endpoint
+        // (OpenRouter/Groq/...) that slug 404s as "model not found".
+        // Drop flat gemini-only slugs once so requests carry a real model.
+        var changed = false
+        val clean = list.map { p ->
+            // A flat gemini slug is only valid on Google's own OpenAI-compatible
+            // endpoint; on any other host (OpenRouter/Groq/...) it 404s as
+            // "model not found". Guard on the provider's own base URL so a real
+            // Google Gemini provider keeps its picked model.
+            val onGoogle = p.baseUrl.contains("generativelanguage.googleapis.com")
+            if (!onGoogle && p.model.startsWith("gemini") && !p.model.contains("/")) {
+                changed = true
+                p.copy(model = "")
+            } else p
+        }
+        if (changed) saveProviders(clean)
+        return clean
     }
 
     private fun saveProviders(providers: List<AiProvider>) {
@@ -90,7 +113,10 @@ object AiProviderRepository {
     }
 
     fun update(provider: AiProvider) {
-        saveProviders(getProviders().map { if (it.id == provider.id) provider else it })
+        val current = getProviders()
+        val oldBaseUrl = current.firstOrNull { it.id == provider.id }?.baseUrl
+        saveProviders(current.map { if (it.id == provider.id) provider else it })
+        if (oldBaseUrl != null && oldBaseUrl != provider.baseUrl) removeModelCache(provider.id)
     }
 
     /** Removes a provider. Refuses to remove the last one; returns false then. */
@@ -99,11 +125,62 @@ object AiProviderRepository {
         if (providers.size <= 1) return false
         saveProviders(providers.filterNot { it.id == id })
         prefs().edit().remove(KEY_API_KEY_PREFIX + id).apply()
+        removeModelCache(id)
         if (getActiveId() == id) {
             getProviders().firstOrNull()?.let { setActive(it.id) }
         }
         return true
     }
+
+    // -- per-provider discovered-model cache (bounded, scoped to base URL)) ----
+
+    fun getCachedModels(id: String, baseUrl: String): List<String> {
+        val raw = prefs().getString(KEY_MODELS_PREFIX + id, null) ?: return emptyList()
+        val payload = try { json.decodeFromString<CachedModels>(raw) } catch (e: Throwable) { return emptyList() }
+        return if (payload.baseUrl == baseUrl) payload.models else emptyList()
+    }
+
+    fun setCachedModels(id: String, baseUrl: String, models: List<String>) {
+        if (models.isEmpty()) return
+        prefs().edit().putString(
+            KEY_MODELS_PREFIX + id,
+            json.encodeToString(CachedModels(baseUrl, sortModelsForDisplay(baseUrl, models).take(MAX_CACHED_MODELS), System.currentTimeMillis()))
+        ).apply()
+    }
+
+    /** Google models: current GA generation first so users don't keep landing on
+     * the shutting-down gemini-2.* slugs (gemini-2.5-flash cut over Oct 16,
+     * 2026). Stable within rank groups; untouched for every other provider. */
+    private fun sortModelsForDisplay(baseUrl: String, models: List<String>): List<String> {
+        if (!baseUrl.contains("generativelanguage.googleapis.com")) return models
+        fun rank(model: String): Int = when {
+            model.startsWith("gemini-3.") -> 0
+            model.startsWith("gemini-2.") -> 1
+            model.startsWith("gemini-1.") -> 2
+            else -> 3
+        }
+        return models.sortedBy { rank(it) }
+    }
+
+    /** True when a cache entry is missing or older than the TTL (or corrupt). */
+    fun isModelCacheStale(id: String, baseUrl: String): Boolean {
+        val raw = prefs().getString(KEY_MODELS_PREFIX + id, null) ?: return true
+        val payload = try { json.decodeFromString<CachedModels>(raw) } catch (e: Throwable) { return true }
+        if (payload.baseUrl != baseUrl) return true
+        val age = System.currentTimeMillis() - payload.fetchedAt
+        return age > MODEL_CACHE_TTL_MS
+    }
+
+    fun removeModelCache(id: String) {
+        prefs().edit().remove(KEY_MODELS_PREFIX + id).apply()
+    }
+
+    @Serializable
+    private data class CachedModels(
+        val baseUrl: String = "",
+        val models: List<String> = emptyList(),
+        val fetchedAt: Long = 0L,
+    )
 
     // -- per-provider keys (Keystore-encrypted, same scheme as before) ---
 
@@ -154,15 +231,18 @@ object AiProviderRepository {
         val name = prefs.getString(LEGACY_NAME, "") ?: ""
         val baseUrl = prefs.getString(LEGACY_BASE_URL, LEGACY_DEFAULT_BASE_URL)
             ?: LEGACY_DEFAULT_BASE_URL
-        val model = prefs.getString(LEGACY_MODEL, "") ?: ""
+        // Legacy model strings were Gemini-era flat names that 404 on
+        // OpenAI-style endpoints; require an explicit re-pick after upgrade.
         val provider = AiProvider(
             id = UUID.randomUUID().toString(),
             name = name,
             baseUrl = baseUrl,
-            model = model,
+            model = "",
         )
         saveProviders(listOf(provider))
         prefs.edit().putString(KEY_ACTIVE_ID, provider.id).apply()
+        // The old settings pref must not resurrect through ModuleSettings.
+        prefs.edit().remove(LEGACY_MODEL).apply()
         // Carry the existing encrypted key onto the new entry untouched.
         val legacyKey = prefs.getString(LEGACY_API_KEY, "") ?: ""
         if (legacyKey.isNotEmpty()) {
