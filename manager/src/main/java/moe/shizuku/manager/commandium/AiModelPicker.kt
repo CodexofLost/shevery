@@ -66,7 +66,7 @@ fun AiModelPickerScreen(
     onDismiss: () -> Unit,
 ) {
     var query by rememberSaveable { mutableStateOf("") }
-    BackHandler(onBackPressed = onDismiss)
+    BackHandler(onBack = onDismiss)
     val filtered = remember(modelOptions, query) {
         if (query.isBlank()) modelOptions else modelOptions.filter { it.contains(query.trim(), ignoreCase = true) }
     }
