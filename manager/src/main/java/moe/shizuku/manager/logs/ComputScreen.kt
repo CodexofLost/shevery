@@ -911,7 +911,10 @@ fun ComputScreen(
                     showGeminiSection = showGeminiSection,
                     isExplaining = isExplaining,
                     onToggleGemini = {
-                        if (ModuleSettings.getComputApiKey().isBlank()) {
+                        val activeKey = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
+                            ?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) }
+                            ?: ""
+                        if (activeKey.isBlank()) {
                             scope.launch {
                                 val action = snackbarHostState.showSnackbar(
                                     message = context.getString(R.string.comput_ai_no_active_toast),
