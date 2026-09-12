@@ -47,6 +47,7 @@ import androidx.compose.ui.unit.dp
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import moe.shizuku.manager.utils.AiClient
+import moe.shizuku.manager.utils.AiExplainUtil
 
 /**
  * Full-screen searchable model picker, used whenever the provider dialog needs to
@@ -64,6 +65,7 @@ fun AiModelPickerScreen(
     currentModel: String,
     onSelect: (String) -> Unit,
     onDismiss: () -> Unit,
+    defaultModel: String = "",
 ) {
     var query by rememberSaveable { mutableStateOf("") }
     BackHandler(onBack = onDismiss)
@@ -85,6 +87,35 @@ fun AiModelPickerScreen(
                 maxLines =1,
                 overflow = TextOverflow.Ellipsis,
             )
+        }
+        if (defaultModel.isNotBlank()) {
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .selectable(selected = currentModel.isBlank(), onClick = { onSelect("") })
+                        .padding(horizontal =16.dp, vertical =12.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            text = stringResource(R.string.comput_ai_default_model),
+                            maxLines =1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        Text(
+                            text = defaultModel,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines =1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
+                    if (currentModel.isBlank()) {
+                        RadioButton(selected = true, onClick = null)
+                    }
+                }
+            }
         }
         item {
             OutlinedTextField(
@@ -153,6 +184,8 @@ fun AiModelSwitcherSheet(
     var failed by remember(selectedId) { mutableStateOf(false) }
     var query by remember { mutableStateOf("") }
     val selModel = providers.firstOrNull { it.id == selectedId }?.model ?: ""
+    val selProviderBase = providers.firstOrNull { it.id == selectedId }?.baseUrl ?: ""
+    val defaultModel = AiExplainUtil.resolveModel(selProviderBase)
 
     LaunchedEffect(selectedId) {
         if (selectedId.isEmpty()) return@LaunchedEffect
@@ -172,7 +205,7 @@ fun AiModelSwitcherSheet(
                     AiClient.listModels(provider.baseUrl, key)
                         .onSuccess { fresh ->
                             if (fresh.isNotEmpty()) {
-                                models = fresh
+                                models = repo.displayModels(provider.baseUrl, fresh)
                                 repo.setCachedModels(provider.id, provider.baseUrl, fresh)
                             }
                         }
@@ -196,7 +229,7 @@ fun AiModelSwitcherSheet(
             if (list.isEmpty()) {
                 failed = true
             } else {
-                models = list
+                models = repo.displayModels(provider.baseUrl, list)
                 repo.setCachedModels(provider.id, provider.baseUrl, list)
             }
         }.onFailure {
@@ -266,6 +299,29 @@ fun AiModelSwitcherSheet(
                     Text(stringResource(R.string.comput_ai_discovering), style = MaterialTheme.typography.bodySmall)
                 }
             } else if (failed) {
+                if (defaultModel.isNotBlank()) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal =16.dp)
+                            .selectable(
+                                selected = selModel.isBlank(),
+                                onClick = { onSelect(selectedId, "") },
+                            )
+                            .padding(vertical =12.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = stringResource(R.string.comput_ai_default_model),
+                            modifier = Modifier.weight(1f),
+                            maxLines =1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        if (selModel.isBlank()) {
+                            RadioButton(selected = true, onClick = null)
+                        }
+                    }
+                }
                 Text(
                     text = stringResource(R.string.comput_ai_switch_fail),
                     style = MaterialTheme.typography.bodySmall,
@@ -282,7 +338,7 @@ fun AiModelSwitcherSheet(
                     modifier = Modifier.fillMaxWidth().padding(horizontal =16.dp),
                 )
                 Spacer(Modifier.height(8.dp))
-                if (filtered.isEmpty()) {
+                if (filtered.isEmpty() && defaultModel.isBlank()) {
                     Box(
                         modifier = Modifier.fillMaxWidth().weight(1f),
                         contentAlignment = Alignment.Center,
@@ -291,6 +347,30 @@ fun AiModelSwitcherSheet(
                     }
                 } else {
                     LazyColumn(Modifier.fillMaxWidth().weight(1f)) {
+                        if (defaultModel.isNotBlank()) {
+                            item(key = "default") {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .selectable(
+                                            selected = selModel.isBlank(),
+                                            onClick = { onSelect(selectedId, "") },
+                                        )
+                                        .padding(horizontal =16.dp, vertical =12.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    Text(
+                                        text = stringResource(R.string.comput_ai_default_model),
+                                        modifier = Modifier.weight(1f),
+                                        maxLines =1,
+                                        overflow = TextOverflow.Ellipsis,
+                                    )
+                                    if (selModel.isBlank()) {
+                                        RadioButton(selected = true, onClick = null)
+                                    }
+                                }
+                            }
+                        }
                         items(filtered, key = { it }) { model ->
                             Row(
                                 modifier = Modifier

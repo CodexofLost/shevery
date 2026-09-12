@@ -101,6 +101,7 @@ import androidx.lifecycle.Lifecycle.State
 import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
 import moe.shizuku.manager.utils.AiClient
+import moe.shizuku.manager.utils.AiExplainUtil
 
 
 @Composable
@@ -668,7 +669,10 @@ fun SettingsScreen(
                     title = stringResource(R.string.comput_ai_provider_title),
                     summary = aiProvidersVersion.let {
                         AiProviderRepository.getActive()?.let { active ->
-                            computProviderSummary(active.name, active.model)
+                            computProviderSummary(
+                                active.name,
+                                active.model.ifBlank { AiExplainUtil.resolveModel(active.baseUrl) },
+                            )
                         } ?: computAiBaseUrl
                     },
                     onClick = { showAiManager = true }

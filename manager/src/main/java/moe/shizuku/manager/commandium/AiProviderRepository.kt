@@ -137,16 +137,42 @@ object AiProviderRepository {
     fun getCachedModels(id: String, baseUrl: String): List<String> {
         val raw = prefs().getString(KEY_MODELS_PREFIX + id, null) ?: return emptyList()
         val payload = try { json.decodeFromString<CachedModels>(raw) } catch (e: Throwable) { return emptyList() }
-        return if (payload.baseUrl == baseUrl) payload.models else emptyList()
+        // Filter on read too: caches written before the text-only filter may
+        // still hold agentic/image/audio models.
+        return if (payload.baseUrl == baseUrl) payload.models.filter { isTextModel(it) } else emptyList()
     }
 
     fun setCachedModels(id: String, baseUrl: String, models: List<String>) {
         if (models.isEmpty()) return
         prefs().edit().putString(
             KEY_MODELS_PREFIX + id,
-            json.encodeToString(CachedModels(baseUrl, sortModelsForDisplay(baseUrl, models).take(MAX_CACHED_MODELS), System.currentTimeMillis()))
+            json.encodeToString(CachedModels(baseUrl, displayModels(baseUrl, models).take(MAX_CACHED_MODELS), System.currentTimeMillis()))
         ).apply()
     }
+
+    /** Text-only model slugs are sorted for display; agentic research, computer
+     * use, image/video/audio generation, embeddings, moderation and realtime/live
+     * models can't answer a plain chat request and are hidden so they can't be
+     * picked in the switcher or provider dialog. "image" also catches Google's
+     * gemini-*-image and OpenAI's gpt-*-image generation models. */
+    fun isTextModel(model: String): Boolean {
+        val slug = model.lowercase()
+        val markers = listOf(
+            "deep-research", "computer-use", "antigravity", "-live", "live-",
+            "imagen", "veo", "nano-banana", "gpt-image", "image", "dall-e",
+            "sora", "midjourney", "stable-diffusion", "sdxl", "pixart", "kolors",
+            "ideogram", "playground", "flux", "embedding", "voyage", "bge",
+            "rerank", "moderation", "whisper", "tts", "speech", "audio",
+            "transcribe", "realtime", "voice",
+        )
+        return markers.none { slug.contains(it) }
+    }
+
+    /** Filtered, display-ordered model list: drop non-text models, then apply
+     * the provider-aware sort (Google GA-first, others untouched). Used both
+     * when caching and whenever a raw discovery list hits the UI. */
+    fun displayModels(baseUrl: String, models: List<String>): List<String> =
+        sortModelsForDisplay(baseUrl, models.filter { isTextModel(it) })
 
     /** Google models: current GA generation first so users don't keep landing on
      * the shutting-down gemini-2.* slugs (gemini-2.5-flash cut over Oct 16,

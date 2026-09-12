@@ -21,7 +21,7 @@ object AiExplainUtil {
      * upgrade (OpenRouter: "Model not found: gemini-3.6-flash"), so it is no
      * longer consulted — a blank model yields a clear message instead.
      */
-    private fun resolveModel(baseUrl: String): String =
+    internal fun resolveModel(baseUrl: String): String =
         if (isGoogleBase(baseUrl)) CURRENT_GOOGLE_MODEL else ""
 
     /** gemini-1.x/2.x flat slugs are inside or past their shutdown window on

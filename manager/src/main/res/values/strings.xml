@@ -570,6 +570,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_ai_models_found">%1$d models found. Tap \"model\" to pick.</string>
     <string name="comput_ai_models_none">No model list at this endpoint — enter the model manually.</string>
     <string name="comput_ai_pick_model">Pick model</string>
+    <string name="comput_ai_default_model">Default (recommended)</string>
     <string name="comput_ai_search_models">Search models</string>
     <string name="comput_ai_no_models_match">No models match</string>
     <string name="comput_ai_switch_title">Switch AI model</string>
