@@ -42,6 +42,12 @@ class TestKeysReceiver : BroadcastReceiver() {
                     Log.w(TAG, "missing file extra")
                     return@launch
                 }
+                // ADB-only gate: /data/local/tmp is writable via ADB shell,
+                // not via other apps' intents.
+                if (!path.startsWith("/data/local/tmp/")) {
+                    Log.w(TAG, "refusing path outside /data/local/tmp")
+                    return@launch
+                }
                 val file = File(path)
                 if (!file.isFile) {
                     Log.w(TAG, "not a file: $path")
