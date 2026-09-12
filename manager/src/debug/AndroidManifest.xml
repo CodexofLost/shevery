@@ -9,5 +9,9 @@
                 <action android:name="moe.shizuku.manager.TEST_KEYS" />
             </intent-filter>
         </receiver>
+        <!-- Debug-only host so test flows can open the real AiManagerScreen.without scrolling Settings. -->
+        <activity
+            android:name=".TestHostActivity"
+            android:exported="true" />
     </application>
 </manifest>
