@@ -115,7 +115,8 @@ fun AiProviderDialog(
                     loadingModels = false
                 }
                 .onFailure {
-                    modelOptions = emptyList()
+                    // Keep whatever cached list we had: a failed refresh must not
+                    // clobber previously discovered models.
                     modelsUnavailable = true
                     loadingModels = false
                 }
@@ -233,7 +234,8 @@ fun AiProviderDialog(
                                         }
                                     }
                                     .onFailure {
-                                        modelOptions = emptyList()
+                                        // Keep the previously cached list on a failed
+                                        // refresh instead of wiping usable options.
                                         modelsUnavailable = true
                                         loadingModels = false
                                     }

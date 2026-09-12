@@ -158,6 +158,13 @@ fun CommandiumSheet(
                     label = { Text(activeLabel, maxLines =1) },
                 )
             }
+            if (activeProvider == null || activeKey.isBlank()) {
+                Text(
+                    text = stringResource(R.string.comput_ai_setup_hint),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
 
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),

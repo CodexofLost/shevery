@@ -547,6 +547,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_output_copied">Output copied to clipboard</string>
     <string name="comput_copy_output">Copy Output</string>
     <string name="comput_ask_gemini">Ask AI</string>
+    <string name="comput_ai_setup_hint">No AI provider configured - tap the chip to set one up</string>
     <string name="comput_executing">Executing: %1$s ...</string>
     <string name="comput_adb_translate">ADB Command Translation Mode Active\nOriginal: %1$s\nExecuting...</string>
     <string name="comput_command_no_output">Command completed with no output.</string>
