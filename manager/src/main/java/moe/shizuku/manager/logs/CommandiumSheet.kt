@@ -27,9 +27,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.ContentCopy
+import androidx.compose.material.icons.rounded.ErrorOutline
+import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LoadingIndicator
@@ -73,7 +76,8 @@ fun CommandiumSheet(
     scope: CoroutineScope,
     onDismiss: () -> Unit,
     onUseCommand: (String) -> Unit,
-    onCopy: (String) -> Unit
+    onCopy: (String) -> Unit,
+    history: List<String> = emptyList()
 ) {
     var generationJob by remember { mutableStateOf<Job?>(null) }
     val dismissAndCancel: () -> Unit = {
@@ -145,6 +149,21 @@ fun CommandiumSheet(
                         shape = CircleShape
                     )
                 }
+                if (history.isNotEmpty()) {
+                    Text(
+                        text = stringResource(R.string.comput_commandium_recent),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    history.take(5).forEach { past ->
+                        FilterChip(
+                            selected = prompt == past,
+                            onClick = { onPromptChange(past) },
+                            label = { Text(past, style = MaterialTheme.typography.labelSmall) },
+                            shape = CircleShape
+                        )
+                    }
+                }
             }
 
             OutlinedTextField(
@@ -203,11 +222,22 @@ fun CommandiumSheet(
                     shape = RoundedCornerShape(16.dp)
                 ) {
                     Column(modifier = Modifier.padding(14.dp)) {
-                        Text(
-                            text = stringResource(R.string.comput_generated_command),
-                            style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp, fontWeight = FontWeight.Bold),
-                            color = if (isError) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.primary
-                        )
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            if (isError) {
+                                Icon(
+                                    imageVector = Icons.Rounded.ErrorOutline,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.onErrorContainer,
+                                    modifier = Modifier.size(16.dp)
+                                )
+                                Spacer(modifier = Modifier.width(6.dp))
+                            }
+                            Text(
+                                text = if (isError) stringResource(R.string.comput_commandium_error) else stringResource(R.string.comput_generated_command),
+                                style = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 11.sp, fontWeight = FontWeight.Bold),
+                                color = if (isError) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.primary
+                            )
+                        }
                         Spacer(modifier = Modifier.height(4.dp))
                         SelectionContainer {
                             Text(
@@ -230,6 +260,20 @@ fun CommandiumSheet(
                                     shape = CircleShape
                                 ) {
                                     Text(stringResource(R.string.comput_use_command))
+                                }
+                            } else {
+                                OutlinedButton(
+                                    onClick = { requestCommandium() },
+                                    modifier = Modifier.weight(1f),
+                                    shape = CircleShape
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Rounded.Refresh,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(18.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(6.dp))
+                                    Text(stringResource(R.string.shevery_update_retry))
                                 }
                             }
                             IconButton(

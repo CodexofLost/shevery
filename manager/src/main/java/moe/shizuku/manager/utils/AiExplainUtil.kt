@@ -31,7 +31,7 @@ object AiExplainUtil {
         }
 
         val currentLocale = java.util.Locale.getDefault()
-        val prompt = "CRITICAL: You must write the entire explanation in the following language: ${currentLocale.displayName} (locale code: ${currentLocale.toLanguageTag()}).\n\n" +
+        val prompt = "CRITICAL: You must write the entire explanation in the following language: ${currentLocale.getDisplayName(java.util.Locale.ENGLISH)} (locale code: ${currentLocale.toLanguageTag()}).\n\n" +
                 "An error or failure occurred in the application context: $contextStr.\n" +
                 "Input / Action details:\n$inputDetail\n\n" +
                 "Output / Error Log:\n$outputLog\n\n" +

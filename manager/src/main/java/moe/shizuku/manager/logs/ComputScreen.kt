@@ -197,6 +197,7 @@ fun ComputScreen(
     var commandiumPrompt by remember { mutableStateOf("") }
     var isCommandiumGenerating by remember { mutableStateOf(false) }
     var commandiumResult by remember { mutableStateOf<Result<String>?>(null) }
+    val commandiumHistory = remember { mutableStateListOf<String>() }
 
     var savedMacros by remember {
         mutableStateOf<Map<String, List<String>>>(
@@ -1012,7 +1013,14 @@ fun ComputScreen(
             isGenerating = isCommandiumGenerating,
             onGeneratingChange = { isCommandiumGenerating = it },
             result = commandiumResult,
-            onResultChange = { commandiumResult = it },
+            onResultChange = { r ->
+                commandiumResult = r
+                if (r != null && r.isSuccess) {
+                    commandiumHistory.remove(commandiumPrompt)
+                    commandiumHistory.add(0, commandiumPrompt)
+                    if (commandiumHistory.size > 8) commandiumHistory.removeAt(8)
+                }
+            },
             scope = scope,
             onUseCommand = { cmd ->
                 command = cmd
@@ -1022,6 +1030,7 @@ fun ComputScreen(
                 copyToClipboard("Commandium", text,
                     context.getString(R.string.comput_copied_to_clipboard))
             }
+            history = commandiumHistory,
         )
     }
 
