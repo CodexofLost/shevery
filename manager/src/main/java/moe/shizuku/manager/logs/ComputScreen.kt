@@ -1029,7 +1029,7 @@ fun ComputScreen(
             onCopy = { text ->
                 copyToClipboard("Commandium", text,
                     context.getString(R.string.comput_copied_to_clipboard))
-            }
+            },
             history = commandiumHistory,
         )
     }
