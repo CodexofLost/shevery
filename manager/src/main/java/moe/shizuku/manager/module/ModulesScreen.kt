@@ -443,7 +443,7 @@ fun ModulesScreen(
                         }
                         if (!hasApiKey) {
                             Text(
-            Toast.makeText(context, context.getString(R.string.comput_ai_no_active_toast), Toast.LENGTH_SHORT).show()
+            text = stringResource(R.string.comput_ai_no_active_toast],
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )

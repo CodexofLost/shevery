@@ -43,6 +43,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import moe.shizuku.manager.R
+import moe.shizuku.manager.commandium.AiModelPickerScreen
 import moe.shizuku.manager.commandium.AiProviderRepository
 import moe.shizuku.manager.commandium.aiProviderPresets
 import moe.shizuku.manager.commandium.matchPresetName
