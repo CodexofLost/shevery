@@ -137,21 +137,21 @@ fun CommandiumSheet(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
+            val activeProvider = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
+            val activeKey = activeProvider?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) } ?: ""
+            val activeLabel = when {
+                activeProvider == null || activeKey.isBlank() ->
+                    stringResource(R.string.comput_ai_chip_active, stringResource(R.string.comput_ai_key_missing))
+                activeProvider.model.isNullOrBlank() ->
+                    stringResource(R.string.comput_ai_chip_active, activeProvider.name)
+                else ->
+                    stringResource(R.string.comput_ai_chip_active_model, activeProvider.name, activeProvider.model)
+            }
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
             ) {
-                val activeProvider = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
-                val activeKey = activeProvider?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) } ?: ""
-                val activeLabel = when {
-                    activeProvider == null || activeKey.isBlank() ->
-                        stringResource(R.string.comput_ai_chip_active, stringResource(R.string.comput_ai_key_missing))
-                    activeProvider.model.isNullOrBlank() ->
-                        stringResource(R.string.comput_ai_chip_active, activeProvider.name)
-                    else ->
-                        stringResource(R.string.comput_ai_chip_active_model, activeProvider.name, activeProvider.model)
-                }
                 FilterChip(
                     selected = false,
                     onClick = { showModelSwitcher = true },
