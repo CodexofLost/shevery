@@ -439,7 +439,7 @@ fun ModulesScreen(
                             },
                             modifier = Modifier.align(Alignment.End)
                         ) {
-                            Text("Ask Gemini")
+                            Text(stringResource(R.string.comput_ask_gemini))
                         }
                         if (!hasApiKey) {
                             Text(

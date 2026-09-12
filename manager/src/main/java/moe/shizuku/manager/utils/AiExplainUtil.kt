@@ -2,6 +2,7 @@ package moe.shizuku.manager.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import moe.shizuku.manager.commandium.AiProviderRepository
 import moe.shizuku.manager.module.ModuleSettings
 
 object AiExplainUtil {
@@ -21,13 +22,17 @@ object AiExplainUtil {
         outputLog: String,
         apiKey: String
     ): String = withContext(Dispatchers.IO) {
-        if (apiKey.isBlank()) {
-            return@withContext "API key is empty! Please configure it in Shevery Settings."
-        }
-        val baseUrl = ModuleSettings.getComputAiBaseUrl()
-        val model = resolveModel(baseUrl)
+        val active = AiProviderRepository.getActive()
+        val baseUrl = active?.baseUrl?.takeIf { it.isNotBlank() }
+            ?: ModuleSettings.getComputAiBaseUrl()
+        val model = active?.model?.takeIf { it.isNotBlank() } ?: resolveModel(baseUrl)
         if (model.isBlank()) {
             return@withContext "AI model is not set. Please configure it in Shevery Settings."
+        }
+        val resolvedKey = active?.let { p -> AiProviderRepository.getKey(p.id).takeIf { it.isNotBlank() } }
+            ?: apiKey
+        if (resolvedKey.isBlank()) {
+            return@withContext "API key is empty! Please configure it in Shevery Settings."
         }
 
         val currentLocale = java.util.Locale.getDefault()
@@ -39,7 +44,7 @@ object AiExplainUtil {
 
         val result = AiClient.chatCompletion(
             baseUrl = baseUrl,
-            apiKey = apiKey,
+            apiKey = resolvedKey,
             model = model,
             systemPrompt = null,
             userPrompt = prompt
@@ -53,22 +58,34 @@ object AiExplainUtil {
         prompt: String,
         apiKey: String,
     ): Result<String> = withContext(Dispatchers.IO) {
-        if (apiKey.isBlank()) {
-            return@withContext Result.failure(IllegalStateException("API key is empty! Please configure it in Shevery Settings."))
-        }
-        val baseUrl = ModuleSettings.getComputAiBaseUrl()
-        val model = resolveModel(baseUrl)
+        val active = AiProviderRepository.getActive()
+        val baseUrl = active?.baseUrl?.takeIf { it.isNotBlank() }
+            ?: ModuleSettings.getComputAiBaseUrl()
+        val model = active?.model?.takeIf { it.isNotBlank() } ?: resolveModel(baseUrl)
         if (model.isBlank()) {
             return@withContext Result.failure(IllegalStateException("AI model is not set. Please configure it in Shevery Settings."))
         }
+        val resolvedKey = active?.let { p -> AiProviderRepository.getKey(p.id).takeIf { it.isNotBlank() } }
+            ?: apiKey
+        if (resolvedKey.isBlank()) {
+            return@withContext Result.failure(IllegalStateException("API key is empty! Please configure it in Shevery Settings."))
+        }
 
-        val requestPrompt = "You are a shell command assistant. Generate a shell command based on the following user prompt.\n" +
-                "CRITICAL: Return ONLY the raw shell command, without any markdown formatting (do not wrap in ``` or `), explanations, or trailing text. The output should be directly executable in a shell.\n\n" +
+        val requestPrompt = "You are a shell command assistant for an Android device.\n" +
+                "This shell is the device's privileged shell served by Shizuku/Shevery; it runs Android's toybox " +
+                "with commands such as pm, am, dumpsys, settings, cmd, service, getprop, toybox, run-as and standard " +
+                "text utilities. Linux-host commands like apt, dpkg, systemctl, journalctl, ifconfig, iptables are " +
+                "NOT available and must never be used.\n" +
+                "Generate a single shell command that fulfills the user's request on this Android device. " +
+                "If the request is about apps, prefer pm/am/dumpsys. If it is about device state, prefer " +
+                "dumpsys/settings/getprop.\n" +
+                "CRITICAL: Return ONLY the raw shell command, without any markdown formatting (do not wrap in ``` or `), " +
+                "explanations, or trailing text. The output should be directly executable in a shell.\n\n" +
                 "Prompt: $prompt"
 
         return@withContext AiClient.chatCompletion(
             baseUrl = baseUrl,
-            apiKey = apiKey,
+            apiKey = resolvedKey,
             model = model,
             systemPrompt = null,
             userPrompt = requestPrompt

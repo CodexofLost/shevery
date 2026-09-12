@@ -92,7 +92,9 @@ fun CommandiumSheet(
         if (prompt.isNotBlank() && !isGenerating) {
             onGeneratingChange(true)
             generationJob = scope.launch {
-                val apiKey = ModuleSettings.getComputApiKey()
+                val apiKey = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
+                    ?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) }
+                    ?: ModuleSettings.getComputApiKey()
                 onResultChange(AiExplainUtil.generateCommand(prompt, apiKey))
                 onGeneratingChange(false)
             }
