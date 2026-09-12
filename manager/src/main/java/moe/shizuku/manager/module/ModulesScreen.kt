@@ -420,27 +420,30 @@ fun ModulesScreen(
                         val hasApiKey = apiKey.isNotBlank()
                         Button(
                             onClick = {
-                                aiLoading = true
-                                scope.launch {
-                                    val moduleInfo = lastRunModule?.let { "Module: ${it.name} (${it.id})" } ?: "Unknown Module"
-                                    val scriptName = lastRunModule?.actionScript?.name ?: "action.sh"
-                                    aiExplanation = AiExplainUtil.explainFailure(
-                                        contextStr = "Shevery Android app, running module action script",
-                                        inputDetail = "$moduleInfo, script = $scriptName",
-                                        outputLog = text,
-                                        apiKey = apiKey
-                                    )
-                                    aiLoading = false
+                                if (!hasApiKey) {
+                                    Toast.makeText(context, "Please configure your API key in Shevery Settings first.", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    aiLoading = true
+                                    scope.launch {
+                                        val moduleInfo = lastRunModule?.let { "Module: ${it.name} (${it.id})" } ?: "Unknown Module"
+                                        val scriptName = lastRunModule?.actionScript?.name ?: "action.sh"
+                                        aiExplanation = AiExplainUtil.explainFailure(
+                                            contextStr = "Shevery Android app, running module action script",
+                                            inputDetail = "$moduleInfo, script = $scriptName",
+                                            outputLog = text,
+                                            apiKey = apiKey
+                                        )
+                                        aiLoading = false
+                                    }
                                 }
                             },
-                            enabled = hasApiKey,
                             modifier = Modifier.align(Alignment.End)
                         ) {
                             Text("Ask Gemini")
                         }
                         if (!hasApiKey) {
                             Text(
-                                text = "Please configure your Google AI Studio API Key in Shevery Settings to use Gemini AI Explanation.",
+                                text = "Please configure your API key in Shevery Settings to use AI explanation.",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
