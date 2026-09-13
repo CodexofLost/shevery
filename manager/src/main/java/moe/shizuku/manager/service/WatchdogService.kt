@@ -15,20 +15,18 @@ import androidx.core.app.NotificationCompat
 import kotlinx.coroutines.*
 import moe.shizuku.manager.MainActivity
 import moe.shizuku.manager.R
+import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.ktx.logd
+import moe.shizuku.manager.ktx.logi
+import moe.shizuku.manager.ktx.logw
 import moe.shizuku.manager.utils.ShizukuStateMachine
+import moe.shizuku.server.IShizukuService
 
 class WatchdogService : Service() {
 
-    private var watchdogJob: Job? = null
-    private val watchdogScope = CoroutineScope(Dispatchers.Default)
-
-    // Watchdog restart backoff: doubles per failure, from 30s up to a 5min cap.
-
-    // The 10s base poll stays for health checks; only RESTART actions back off, so the loop cannot
-    // hammer adbd behind the lockscreen or in a permanently-dead state.
-    private val retryBackoffBaseMs = 30_000L
-    private val retryBackoffMaxMs = 300_000L
+    private var errorProtectJob: Job? = null
+    private val serviceJob = SupervisorJob()
+    private val serviceScope = CoroutineScope(Dispatchers.Default + serviceJob)
 
     private val binderReceivedListener = object : rikka.shizuku.Shizuku.OnBinderReceivedListener {
         override fun onBinderReceived() {
@@ -64,56 +62,137 @@ class WatchdogService : Service() {
     override fun onDestroy() {
         rikka.shizuku.Shizuku.removeBinderReceivedListener(binderReceivedListener)
         rikka.shizuku.Shizuku.removeBinderDeadListener(binderDeadListener)
-        stopWatchdogLoop()
+        stopErrorProtectLoop()
+        serviceJob.cancel()
         super.onDestroy()
+        // If we were killed while protection is still wanted, ask the system
+        // to bring us back (START_STICKY covers most cases, this is a backup).
+        if (WatchdogManager.shouldRunService()) {
+            reconcile(applicationContext)
+        }
     }
 
-    private fun startWatchdogLoop() {
-        watchdogJob?.cancel()
-        if (!moe.shizuku.manager.module.ModuleSettings.isWatchdogEnabled()) return
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        super.onTaskRemoved(rootIntent)
+        // Swipe-away from recents must not kill protection.
+        if (WatchdogManager.shouldRunService()) {
+            reconcile(applicationContext)
+        }
+    }
 
-        watchdogJob = watchdogScope.launch {
+    private data class HealthResult(
+        val healthy: Boolean,
+        val reason: String,
+        val binderAlive: Boolean
+    )
+
+    private fun checkHealth(): HealthResult {
+        try {
+            val binder = rikka.shizuku.Shizuku.getBinder()
+                ?: return HealthResult(false, "binder is null", false)
+            val ping = try {
+                rikka.shizuku.Shizuku.pingBinder() && binder.pingBinder()
+            } catch (e: Throwable) {
+                false
+            }
+            if (!ping) {
+                return HealthResult(false, "pingBinder() failed", false)
+            }
+            // NOTE: rikka.shizuku.Shizuku.getVersion() is CACHED after the first
+            // successful call, so it can NOT detect a zombie binder whose
+            // transactions already fail. Force a real transaction instead.
+            val version = try {
+                IShizukuService.Stub.asInterface(binder).version
+            } catch (e: Throwable) {
+                return HealthResult(false, "binder transaction failed: ${e.javaClass.simpleName}", true)
+            }
+            if (version <= 0) {
+                return HealthResult(false, "bad remote version=$version", true)
+            }
+            return HealthResult(true, "ok version=$version", true)
+        } catch (e: Throwable) {
+            return HealthResult(false, "check threw ${e.javaClass.simpleName}: ${e.message}", rikka.shizuku.Shizuku.pingBinder())
+        }
+    }
+
+    private fun startErrorProtectLoop() {
+        errorProtectJob?.cancel()
+        errorProtectJob = null
+        if (!moe.shizuku.manager.module.ModuleSettings.isErrorProtectEnabled()) return
+
+        errorProtectJob = serviceScope.launch {
             var consecutiveFailures = 0
+            logi("ErrorProtect: monitoring started (10s interval)")
             while (isActive) {
-                delay(10_000)
-                if (!moe.shizuku.manager.module.ModuleSettings.isWatchdogEnabled()) break
+                if (!moe.shizuku.manager.module.ModuleSettings.isErrorProtectEnabled()) break
 
-                var healthy = false
-                try {
-                    if (rikka.shizuku.Shizuku.pingBinder()) {
-                        val version = rikka.shizuku.Shizuku.getVersion()
-                        if (version > 0) {
-                            healthy = true
-                        }
+                val result = checkHealth()
+                if (result.healthy) {
+                    if (consecutiveFailures > 0) {
+                        logi("ErrorProtect: service recovered (${result.reason})")
                     }
-                } catch (e: Throwable) {
-                    logd("Watchdog: Binder check threw exception: ${e.message}")
-                }
-
-                if (!healthy && !WatchdogManager.isExpectingDeathActive() && !WatchdogManager.isUserStopRequested() && WatchdogManager.shouldRunService() && ShizukuStateMachine.get() != ShizukuStateMachine.State.STARTING) {
-
-                    // While the keyguard is up, Android tears down plain-TCP adb and kills
-                    // the server. Restarting behind the lockscreen just re-kicks the same doomed
-                    // transport every 10s (old behavior), which wedges 25-45s. Defer until unlock.
-                    // the keyguard-aware AdbStartWorker waits for USER_PRESENT and re-runs full
-                    // discovery + adbd rebind itself.
-                    val km = getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
-                    if (km?.isKeyguardLocked == true) {
-                        logd("Watchdog: device locked -- deferring restart until unlock")
-                        continue
-                    }
-                    logd("Watchdog: service check failed. Stopping and restarting...")
-                    withContext(Dispatchers.IO) {
-                        moe.shizuku.manager.service.WatchdogManager.stopServer(applicationContext, userInitiated = false)
-                        moe.shizuku.manager.service.WatchdogManager.attemptRestart(applicationContext)
-                    }
-                    consecutiveFailures += 1
-                    val shiftCount = (consecutiveFailures.minus(1)).coerceAtMost(4)
-                    val backoffMs = (retryBackoffBaseMs * (1L shl shiftCount)).coerceAtMost(retryBackoffMaxMs)
-                    logd("Watchdog: restart scheduled; backing off ${backoffMs} ms before next check")
-                    delay(backoffMs)
-                } else if (healthy) {
                     consecutiveFailures = 0
+                } else {
+                    consecutiveFailures++
+                    // Visible without verbose logging: this is the whole point of ErrorProtect.
+                    logw("ErrorProtect: unhealthy [$consecutiveFailures/$FAILURES_TO_RESTART]: ${result.reason}")
+                    if (consecutiveFailures >= FAILURES_TO_RESTART) {
+                        consecutiveFailures = 0
+                        handleUnhealthy(result)
+                        if (!isActive) break
+                    }
+                }
+                delay(10_000)
+            }
+            logi("ErrorProtect: monitoring stopped")
+        }
+    }
+
+    private suspend fun handleUnhealthy(result: HealthResult) {
+        // Never auto-start a server the user never started: UNKNOWN means
+        // no launch ever happened, there is nothing to "restart".
+        if (ShizukuSettings.getLastLaunchMode() == ShizukuSettings.LaunchMethod.UNKNOWN) {
+            logd("ErrorProtect: server never started (UNKNOWN mode), skipping restart")
+            return
+        }
+        // Same guards as the event-driven path: a stop that is already being
+        // handled (expected death), a user-initiated stop, or a disabled
+        // watchdog must not trigger a restart from the polling loop.
+        if (WatchdogManager.expectingDeath) {
+            logd("ErrorProtect: death is expected, skipping restart")
+            return
+        }
+        if (WatchdogManager.isUserStopRequested()) {
+            logi("ErrorProtect: last stop was user-initiated, skipping restart")
+            return
+        }
+        if (!WatchdogManager.shouldRunService()) {
+            logd("ErrorProtect: watchdog disabled, skipping restart")
+            return
+        }
+        withContext(Dispatchers.IO) {
+            // If the binder still answers ping but transactions fail, it is a
+            // zombie: ask for a graceful exit first so the restart is clean.
+            // If ping already fails, the process is gone — restart directly.
+            if (result.binderAlive) {
+                logw("ErrorProtect: zombie binder detected (${result.reason}). Stopping before restart...")
+                WatchdogManager.requestStopServer(applicationContext, userInitiated = false)
+                ShizukuStateMachine.awaitStopped(3_000L)
+            } else {
+                logw("ErrorProtect: binder dead (${result.reason}). Restarting...")
+            }
+            WatchdogManager.attemptRestart(applicationContext)
+            val recovered = WatchdogManager.waitForBinder(15_000L)
+            if (recovered) {
+                logi("ErrorProtect: Shevery service recovered after restart")
+            } else {
+                logw("ErrorProtect: restart attempted but binder is still dead")
+                if (moe.shizuku.manager.module.ModuleSettings.isNotifyOnServiceDeath()) {
+                    WatchdogManager.showDeathNotificationPublic(applicationContext)
+                }
+            }
+        }
+    }
                 }
             }
         }
@@ -180,6 +259,7 @@ class WatchdogService : Service() {
     companion object {
         private const val CHANNEL_ID = "service_watchdog"
         private const val NOTIFICATION_ID = 1004
+        private const val FAILURES_TO_RESTART = 2
         private var channelCreated = false
 
         fun reconcile(context: Context) {

@@ -32,7 +32,15 @@ class BootCompleteReceiver : BroadcastReceiver() {
             return
         }
 
-        if (UserHandleCompat.myUserId() > 0 || Shizuku.pingBinder()) return
+        if (UserHandleCompat.myUserId() > 0 || Shizuku.pingBinder()) {
+            // Server already alive (or secondary user): still ensure ErrorProtect
+            // watchdog keeps running so later deaths are caught.
+            try {
+                moe.shizuku.manager.service.WatchdogManager.init(context.applicationContext)
+                moe.shizuku.manager.service.WatchdogManager.reconcileService(context.applicationContext)
+            } catch (_: Throwable) {}
+            return
+        }
 
         // Schedule app auto-update check (cheap, no-op if already scheduled)
         moe.shizuku.manager.module.update.SheveryAutoUpdateWorker.maybeSchedule(context)
