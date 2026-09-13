@@ -1,3 +1,8 @@
+@file:OptIn(
+    androidx.compose.material3.ExperimentalMaterial3Api::class,
+    androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class
+)
+
 package moe.shizuku.manager.settings
 
 import androidx.compose.foundation.background
@@ -15,11 +20,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -262,7 +267,7 @@ fun AiProviderDialog(
                         enabled = !loadingModels && baseUrl.trim().isNotEmpty() && apiKey.trim().isNotEmpty(),
                     ) {
                         if (loadingModels) {
-                            CircularProgressIndicator(Modifier.size(16.dp), strokeWidth = 2.dp)
+                            LoadingIndicator(Modifier.size(16.dp))
                             Spacer(Modifier.width(8.dp))
                         }
                         Text(stringResource(if (loadingModels) R.string.comput_ai_discovering else R.string.comput_ai_discover_models))

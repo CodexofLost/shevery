@@ -128,7 +128,6 @@ fun CommandiumSheet(
             Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp)
                 .verticalScroll(rememberScrollState())
                 .imePadding(),
             verticalArrangement = Arrangement.spacedBy(14.dp)
@@ -371,8 +370,8 @@ fun CommandiumSheet(
                 Text(stringResource(android.R.string.cancel))
             }
         },
-        containerColor = MaterialTheme.colorScheme.surface,
-        shape = RoundedCornerShape(28.dp)
+        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+        shape = MaterialTheme.shapes.extraLarge
             )
 
             if (showModelSwitcher) {

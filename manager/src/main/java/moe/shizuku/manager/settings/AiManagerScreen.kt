@@ -262,7 +262,9 @@ fun AiManagerScreen(
                 TextButton(onClick = { deleteTarget = null }) {
                     Text(stringResource(android.R.string.cancel))
                 }
-            }
+            },
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            shape = MaterialTheme.shapes.extraLarge
         )
     }
 }

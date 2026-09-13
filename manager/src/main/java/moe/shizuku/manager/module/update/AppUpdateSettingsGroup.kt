@@ -205,7 +205,9 @@ text = {
                     Text(stringResource(R.string.shevery_update_checking))
                 }
             },
-            confirmButton = {}
+            confirmButton = {},
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            shape = MaterialTheme.shapes.extraLarge
         )
     }
 
@@ -528,6 +530,8 @@ AppUpdatePhase.Downloading -> {
 
 
             }
-        }
+        },
+        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+        shape = MaterialTheme.shapes.extraLarge
     )
 }
