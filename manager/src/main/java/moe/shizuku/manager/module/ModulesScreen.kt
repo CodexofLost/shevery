@@ -43,7 +43,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -66,9 +68,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -127,13 +129,17 @@ private val MODULE_MIME_TYPES = arrayOf(
 )
 
 @Composable
-fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
+fun ModulesScreen(
+    onOpenWebUi: (String) -> Unit,
+    listState: LazyListState = rememberLazyListState(),
+    modulesState: MutableState<List<AdbModule>>
+) {
     val context = LocalContext.current
     val view = LocalView.current
     val scope = rememberCoroutineScope()
     var selectedTab by remember { mutableStateOf(0) } // 0: Installed, 1: Catalog
     var showCatalog by remember { mutableStateOf(false) }
-    var modules by remember { mutableStateOf<List<AdbModule>>(emptyList(), neverEqualPolicy()) }
+    var modules by modulesState
     var checkingUpdates by remember { mutableStateOf(false) }
     var updatingModuleId by remember { mutableStateOf<String?>(null) }
     var output by remember { mutableStateOf<Pair<String, String>?>(null) }
@@ -281,6 +287,7 @@ fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
             title = stringResource(R.string.modules_title),
             onNavigateUp = null,
             bottomInset = 112.dp,
+            listState = listState,
             isRefreshing = checkingUpdates,
             onRefresh = if (selectedTab == 0) ({
                 view.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)
@@ -389,7 +396,7 @@ fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
                     MonospaceLog(text)
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        text = "Gemini AI Explanation",
+                        text = stringResource(R.string.comput_ai_explanation),
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.primary
                     )
@@ -413,27 +420,30 @@ fun ModulesScreen(onOpenWebUi: (String) -> Unit) {
                         val hasApiKey = apiKey.isNotBlank()
                         Button(
                             onClick = {
-                                aiLoading = true
-                                scope.launch {
-                                    val moduleInfo = lastRunModule?.let { "Module: ${it.name} (${it.id})" } ?: "Unknown Module"
-                                    val scriptName = lastRunModule?.actionScript?.name ?: "action.sh"
-                                    aiExplanation = AiExplainUtil.explainFailure(
-                                        contextStr = "Shevery Android app, running module action script",
-                                        inputDetail = "$moduleInfo, script = $scriptName",
-                                        outputLog = text,
-                                        apiKey = apiKey
-                                    )
-                                    aiLoading = false
+                                if (!hasApiKey) {
+            Toast.makeText(context, context.getString(R.string.comput_ai_no_active_toast), Toast.LENGTH_SHORT).show()
+                                } else {
+                                    aiLoading = true
+                                    scope.launch {
+                                        val moduleInfo = lastRunModule?.let { "Module: ${it.name} (${it.id})" } ?: "Unknown Module"
+                                        val scriptName = lastRunModule?.actionScript?.name ?: "action.sh"
+                                        aiExplanation = AiExplainUtil.explainFailure(
+                                            contextStr = "Shevery Android app, running module action script",
+                                            inputDetail = "$moduleInfo, script = $scriptName",
+                                            outputLog = text,
+                                            apiKey = apiKey
+                                        )
+                                        aiLoading = false
+                                    }
                                 }
                             },
-                            enabled = hasApiKey,
                             modifier = Modifier.align(Alignment.End)
                         ) {
-                            Text("Ask Gemini")
+                            Text(stringResource(R.string.comput_ask_gemini))
                         }
                         if (!hasApiKey) {
                             Text(
-                                text = "Please configure your Google AI Studio API Key in Shevery Settings to use Gemini AI Explanation.",
+            text = stringResource(R.string.comput_ai_no_active_toast),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )

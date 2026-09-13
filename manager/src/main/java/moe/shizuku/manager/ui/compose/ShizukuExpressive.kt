@@ -22,7 +22,6 @@ import androidx.compose.animation.core.spring
 import androidx.compose.animation.expandHorizontally
 import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -50,6 +49,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -95,6 +96,12 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.selected
 import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MotionScheme
@@ -225,6 +232,7 @@ fun ExpressiveFloatingNavigationBar(
                         onCheckedChange = { if (!selected) onItemSelected(index) },
                         modifier = Modifier
                             .height(56.dp)
+                            .semantics { this.selected = selected; role = Role.Tab }
                             .onGloballyPositioned { coords ->
                                 buttonBounds[index] = coords.boundsInParent()
                             }
@@ -291,7 +299,9 @@ fun ExpressiveFloatingNavigationBar(
 @Composable
 fun ShizukuExpressiveTheme(content: @Composable () -> Unit) {
     val context = LocalContext.current
-    val dark = isSystemInDarkTheme()
+    // Same detector as the activity system bars (ThemeHelper.resolveAppDark):
+    // one source of truth, so bars and content can never disagree after a switch.
+    val dark = remember { ThemeHelper.resolveAppDark(context) }
     val baseScheme = when {
         ThemeHelper.isUsingSystemColor() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && dark ->
             dynamicDarkColorScheme(context)
@@ -393,6 +403,7 @@ fun ShizukuLazyScaffold(
     verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(10.dp),
     isRefreshing: Boolean = false,
     onRefresh: (() -> Unit)? = null,
+    listState: LazyListState = rememberLazyListState(),
     content: LazyListScope.() -> Unit
 ) {
     ShizukuScaffold(
@@ -406,6 +417,7 @@ fun ShizukuLazyScaffold(
         val navigationBarPadding = WindowInsets.navigationBars.asPaddingValues()
         val list = @Composable {
             LazyColumn(
+                state = listState,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding),
@@ -601,6 +613,7 @@ fun SettingsRow(
     title: String,
     modifier: Modifier = Modifier,
     summary: String? = null,
+    stateDescription: String? = null,
     enabled: Boolean = true,
     onClick: (() -> Unit)? = null,
     trailing: @Composable (() -> Unit)? = null
@@ -611,11 +624,12 @@ fun SettingsRow(
         Modifier
     }
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .then(clickableModifier)
-            .alpha(if (enabled) 1f else 0.56f)
-            .padding(horizontal = 16.dp, vertical = 14.dp),
+            modifier = modifier
+                .fillMaxWidth()
+                .then(clickableModifier)
+                .semantics(mergeDescendants = true) { stateDescription?.let { this.stateDescription = it } } // AFTER clickable, so the merged node wraps the click action too
+                .alpha(if (enabled) 1f else  0.56f)
+                .padding(horizontal = 16.dp, vertical = 14.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -664,14 +678,17 @@ fun SwitchSettingsRow(
         title = title,
         modifier = modifier,
         summary = summary,
+        stateDescription = if (checked) "On" else "Off",
         enabled = enabled,
         onClick = { if (enabled) onCheckedChange(!checked) },
         trailing = {
-            ExpressiveSwitch(
-                checked = checked,
-                enabled = enabled,
-                onCheckedChange = onCheckedChange
-            )
+            Box(modifier = Modifier.clearAndSetSemantics {}) {
+                ExpressiveSwitch(
+                    checked = checked,
+                    enabled = enabled,
+                    onCheckedChange = null // Row's clickable handles the toggle; hide the switch's own node so it doesn't fight the merged row
+                )
+            }
         }
     )
 }

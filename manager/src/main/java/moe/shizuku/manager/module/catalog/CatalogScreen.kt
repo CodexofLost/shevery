@@ -22,12 +22,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -269,7 +272,9 @@ fun CatalogScreen(onNavigateUp: () -> Unit) {
             AlertDialog(
                 onDismissRequest = { installSuccess = false },
                 title = { Text(stringResource(R.string.modules_install_success, "")) },
-                confirmButton = { TextButton(onClick = { installSuccess = false; onNavigateUp() }) { Text(stringResource(android.R.string.ok)) } }
+                confirmButton = { TextButton(onClick = { installSuccess = false; onNavigateUp() }) { Text(stringResource(android.R.string.ok)) } },
+                shape = MaterialTheme.shapes.extraLarge,
+                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
             )
         }
 
@@ -301,7 +306,9 @@ fun CatalogScreen(onNavigateUp: () -> Unit) {
                 },
                 dismissButton = {
                     TextButton(onClick = { showDangerDialog = false; pendingDangerModule = null }) { Text("Go back") }
-                }
+                },
+                shape = MaterialTheme.shapes.extraLarge,
+                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
             )
         }
     }
@@ -353,7 +360,7 @@ private fun CatalogListScreen(
         onNavigateUp = onNavigateUp,
         bottomInset = 112.dp,
         actions = {
-            FilledTonalButton(modifier = Modifier.height(40.dp), onClick = onRefresh) {
+            FilledTonalButton(modifier = Modifier.height(48.dp), onClick = onRefresh) {
                 ShizukuIcon(R.drawable.ic_server_restart, modifier = Modifier.padding(end = 6.dp).size(16.dp))
                 Text(stringResource(R.string.home_refresh), style = MaterialTheme.typography.labelLarge)
             }
@@ -375,7 +382,7 @@ private fun CatalogListScreen(
 
         if (!isLoading && error != null) {
             item {
-                Surface(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.errorContainer) {
+                Surface(modifier = Modifier.fillMaxWidth(), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.errorContainer) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(error ?: "Error", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onErrorContainer)
                     }
@@ -385,7 +392,7 @@ private fun CatalogListScreen(
 
         if (!isLoading && modules.isEmpty() && error == null) {
             item {
-                Surface(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surfaceContainerLow, tonalElevation = 1.dp) {
+                Surface(modifier = Modifier.fillMaxWidth(), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surfaceContainerLow, tonalElevation = 1.dp) {
                     Column(modifier = Modifier.padding(20.dp)) {
                         Text(stringResource(R.string.modules_catalog_empty), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Medium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
@@ -400,8 +407,7 @@ private fun CatalogListScreen(
                 installing = installing == module.moduleId,
                 onCardClick = { onCardClick(module) },
                 onInstall = { onInstall(module) },
-                onViewOnGitHub = { onViewOnGitHub(module) },
-                modifier = Modifier.padding(horizontal = 16.dp)
+                onViewOnGitHub = { onViewOnGitHub(module) }
             )
         }
     }
@@ -492,14 +498,20 @@ private fun ModuleDetailScreen(
             }
         },
         bottomBar = {
-            Surface(tonalElevation = 3.dp) {
+            Surface(
+                color = MaterialTheme.colorScheme.surfaceContainer,
+                tonalElevation = 3.dp
+            ) {
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .windowInsetsPadding(WindowInsets.navigationBars)
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     if (installed) {
                         FilledTonalButton(
-                            modifier = Modifier.weight(1f).height(44.dp),
+                            modifier = Modifier.weight(1f).height(48.dp),
                             onClick = { onInstall() }
                         ) {
                             Icon(Icons.Rounded.Update, null, modifier = Modifier.size(18.dp).padding(end = 6.dp))
@@ -507,7 +519,7 @@ private fun ModuleDetailScreen(
                         }
                     } else {
                         FilledTonalButton(
-                            modifier = Modifier.weight(1f).height(44.dp),
+                            modifier = Modifier.weight(1f).height(48.dp),
                             enabled = !installing,
                             onClick = onInstall
                         ) {
@@ -516,7 +528,7 @@ private fun ModuleDetailScreen(
                         }
                     }
                     OutlinedButton(
-                        modifier = Modifier.height(44.dp),
+                        modifier = Modifier.height(48.dp),
                         onClick = onViewOnGitHub
                     ) {
                         ShizukuIcon(R.drawable.ic_outline_open_in_new_24, modifier = Modifier.size(18.dp).padding(end = 6.dp))
@@ -707,7 +719,9 @@ private fun TokenInputDialog(onDismiss: () -> Unit, onTokenSet: (String) -> Unit
             }
         },
         confirmButton = { TextButton(onClick = { onTokenSet(tokenInput) }, enabled = tokenInput.isNotBlank()) { Text(stringResource(android.R.string.ok)) } },
-        dismissButton = { TextButton(onClick = onDismiss) { Text(stringResource(android.R.string.cancel)) } }
+        dismissButton = { TextButton(onClick = onDismiss) { Text(stringResource(android.R.string.cancel)) } },
+        shape = MaterialTheme.shapes.extraLarge,
+        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
     )
 }
 
@@ -730,14 +744,14 @@ private fun InstallModeDialog(module: DiscoveredModule, onDismiss: () -> Unit, o
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 FilledTonalButton(
-                    modifier = Modifier.fillMaxWidth().height(44.dp),
+                    modifier = Modifier.fillMaxWidth().height(48.dp),
                     onClick = { onInstall(ModuleSettings.InstallMode.SOURCES) }
                 ) {
                     ShizukuIcon(R.drawable.ic_code_24dp, modifier = Modifier.size(18.dp).padding(end = 8.dp))
                     Text(stringResource(R.string.modules_catalog_install_sources), style = MaterialTheme.typography.labelLarge)
                 }
                 OutlinedButton(
-                    modifier = Modifier.fillMaxWidth().height(44.dp),
+                    modifier = Modifier.fillMaxWidth().height(48.dp),
                     onClick = { onInstall(ModuleSettings.InstallMode.RELEASE) }
                 ) {
                     ShizukuIcon(R.drawable.ic_outline_arrow_upward_24, modifier = Modifier.size(18.dp).padding(end = 8.dp))
@@ -749,7 +763,9 @@ private fun InstallModeDialog(module: DiscoveredModule, onDismiss: () -> Unit, o
             TextButton(onClick = onDismiss, modifier = Modifier.fillMaxWidth()) {
                 Text(stringResource(android.R.string.cancel))
             }
-        }
+        },
+        shape = MaterialTheme.shapes.extraLarge,
+        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
     )
 }
 

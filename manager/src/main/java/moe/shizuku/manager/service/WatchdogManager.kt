@@ -9,33 +9,25 @@ import android.os.Build
 import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import com.topjohnwu.superuser.Shell
-import kotlinx.coroutines.CompletableDeferred
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runInterruptible
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeoutOrNull
 import moe.shizuku.manager.MainActivity
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.ShizukuSettings.LaunchMethod
-import moe.shizuku.manager.adb.AdbClient
-import moe.shizuku.manager.adb.AdbStarter
-import moe.shizuku.manager.adb.AdbKey
-import moe.shizuku.manager.adb.AdbMdns
-import moe.shizuku.manager.adb.PreferenceAdbKeyStore
 import moe.shizuku.manager.ktx.logd
 import moe.shizuku.manager.ktx.logi
 import moe.shizuku.manager.ktx.logw
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.starter.Starter
-import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
+import moe.shizuku.manager.worker.AdbStartWorker
 import rikka.shizuku.Shizuku
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
 object WatchdogManager {
@@ -48,9 +40,9 @@ object WatchdogManager {
     )
 
     private const val CHANNEL_ID = "service_watchdog"
+    private const val DEATH_CHANNEL_ID = "service_watchdog_death"
     private const val NOTIFICATION_ID = 1001
-    private const val EXPECTED_DEATH_WINDOW_MS = 10_000L
-    private const val WIRELESS_ADB_DISCOVERY_TIMEOUT_SECONDS = 5L
+    private const val EXPECTED_DEATH_WINDOW_MS = 30_000L
     private const val DHIZUKU_BIND_TIMEOUT_MS = 10_000L
     private const val MIN_RESTART_INTERVAL_MS = 15_000L
     private const val KEY_USER_STOP_REQUESTED = "watchdog_user_stop_requested"
@@ -85,6 +77,9 @@ object WatchdogManager {
 
     fun init(context: Context) {
         val appContext = context.applicationContext
+        // One-time migration for the watchdog toggle consolidation: run before the
+        // guarded section so it applies even when the service never starts.
+        ModuleSettings.migrateLegacyWatchdogPrefs()
         if (initialized) return
         initialized = true
 
@@ -94,6 +89,7 @@ object WatchdogManager {
 
         Shizuku.addBinderReceivedListenerSticky {
             expectingDeath = false
+            clearUserStopRequest(appContext)
         }
 
         Shizuku.addBinderDeadListener {
@@ -102,7 +98,19 @@ object WatchdogManager {
     }
 
     fun isEnabled(): Boolean {
-        return ModuleSettings.isAutoRestartOnCrash() || ModuleSettings.isKeepAlive() || ModuleSettings.isErrorProtectEnabled()
+        return ModuleSettings.isWatchdogEnabled()
+    }
+
+    /**
+     * True while the expected-death suppression window is still open or starter is active.
+     * A stale flag must not block the watchdog poll loop forever when no binder transition fires.
+     */
+    fun isExpectingDeathActive(): Boolean {
+        if (isStarterActive) return true
+        if (!expectingDeath) return false
+        val deadline = expectedDeathDeadlineMillis
+        if (deadline == 0L) return true
+        return SystemClock.elapsedRealtime() <= deadline
     }
 
     fun shouldRunService(): Boolean {
@@ -131,7 +139,7 @@ object WatchdogManager {
             return
         }
 
-        if (ModuleSettings.isNotifyOnServiceDeath()) {
+        if (ModuleSettings.isNotifyOnServiceDeath() || isEnabled()) {
             showDeathNotification(context)
         }
 
@@ -169,8 +177,8 @@ object WatchdogManager {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                CHANNEL_ID,
-                context.getString(R.string.notification_channel_watchdog),
+                DEATH_CHANNEL_ID,
+                context.getString(R.string.notification_channel_watchdog_death),
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             notificationManager.createNotificationChannel(channel)
@@ -182,7 +190,7 @@ object WatchdogManager {
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
 
-        val notification = NotificationCompat.Builder(context, CHANNEL_ID)
+        val notification = NotificationCompat.Builder(context, DEATH_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_server_error_24dp)
             .setContentTitle(context.getString(R.string.notification_watchdog_title))
             .setContentText(context.getString(R.string.notification_watchdog_text))
@@ -327,7 +335,7 @@ object WatchdogManager {
         return ShizukuStateMachine.awaitStopped(timeoutMs)
     }
 
-    private fun forceStopServerProcess(): String? {
+    private suspend fun forceStopServerProcess(): String? {
         return try {
             if (!Shizuku.pingBinder()) return null
             val binder = Shizuku.getBinder() ?: return "binder was null"
@@ -337,7 +345,12 @@ object WatchdogManager {
                 null,
                 null
             )
-            val exitCode = process.waitFor()
+            val exitCode = withTimeoutOrNull(3_000L) {
+                runInterruptible { process.waitFor() }
+            } ?: run {
+                process.destroy()
+                -1
+            }
             if (exitCode == 0) null else "fallback kill exit code $exitCode"
         } catch (e: Throwable) {
             logd("Failed to force-stop Shevery service process: ${e.message}")
@@ -358,80 +371,12 @@ object WatchdogManager {
         }
     }
 
-    private suspend fun restartAdb(context: Context) {
-        if (ShizukuSettings.isTcpMode() && restartTcp(context)) {
-            return
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            restartWirelessAdb(context)
-        }
-    }
+    private fun restartAdb(context: Context) {
+        // Route restarts through the keyguard-aware worker: it waits for
+        // USER_PRESENT before starting,and re-runs full discovery + adbd rebind,
+        // instead of directly re-kicking a doomed transport behind the lockscreen.
 
-    private suspend fun restartTcp(context: Context): Boolean {
-        val livePort = EnvironmentUtils.getLiveAdbTcpPort()
-        val configuredPort = EnvironmentUtils.getAdbTcpPort()
-        val candidatePorts = sequenceOf(livePort, configuredPort, 5555)
-            .filter { it > 0 }
-            .distinct()
-            .toList()
-
-        if (candidatePorts.isEmpty()) {
-            logd("Restart via TCP skipped: no candidate ADB TCP ports")
-            return false
-        }
-
-        val key = AdbKey(PreferenceAdbKeyStore(ShizukuSettings.getPreferences()), "shizuku")
-        for (port in candidatePorts) {
-            try {
-                AdbClient("127.0.0.1", port, key).use { client ->
-                    client.connect()
-                    client.shellCommand(Starter.internalCommand) { _ -> }
-                }
-                if (waitForShizukuBinder()) {
-                    logi("Restart via TCP verified on port $port")
-                    return true
-                }
-                logd("Restart via TCP command completed on port $port, but binder did not become available")
-            } catch (e: Exception) {
-                logd("Restart via TCP failed on port $port: ${e.message}")
-            }
-        }
-        return false
-    }
-
-    private suspend fun restartWirelessAdb(context: Context): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return false
-
-        val appContext = context.applicationContext
-        val startAttempted = AtomicBoolean(false)
-        val result = CompletableDeferred<Boolean>()
-        val adbMdns = AdbMdns(appContext, AdbMdns.TLS_CONNECT) { port ->
-            if (port <= 0 || result.isCompleted || !startAttempted.compareAndSet(false, true)) return@AdbMdns
-            CoroutineScope(Dispatchers.IO).launch {
-                try {
-                    AdbStarter.start(port = port, context = appContext, listener = { _ -> })
-                    if (waitForShizukuBinder()) {
-                        logi("Restart via Wireless ADB successful from discovered port $port")
-                        result.complete(true)
-                    } else {
-                        logd("Restart via Wireless ADB command completed on port $port, but binder did not become available")
-                        startAttempted.set(false)
-                    }
-                } catch (e: Exception) {
-                    logd("Restart via Wireless ADB failed on port $port: ${e.message}")
-                    startAttempted.set(false)
-                }
-            }
-        }
-
-        return try {
-            adbMdns.start()
-            withTimeoutOrNull(WIRELESS_ADB_DISCOVERY_TIMEOUT_SECONDS * 1000L + 20_000L) {
-                result.await()
-            } ?: false
-        } finally {
-            adbMdns.stop()
-        }
+        AdbStartWorker.enqueueIfIdle(context.applicationContext)
     }
 
     private suspend fun waitForShizukuBinder(timeoutMs: Long = 10_000L): Boolean {
@@ -481,7 +426,7 @@ object WatchdogManager {
                     logi("Watchdog verified Shevery binder after Dhizuku restart")
                 } else {
                     logd("Watchdog Dhizuku starter command completed, but binder did not become available")
-                    if (ModuleSettings.isNotifyOnServiceDeath()) {
+                    if (ModuleSettings.isNotifyOnServiceDeath() || isEnabled()) {
                         showDeathNotification(context)
                     }
                 }

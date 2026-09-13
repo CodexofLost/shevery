@@ -1,5 +1,6 @@
 package moe.shizuku.manager.service
 
+import android.app.KeyguardManager
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -24,8 +25,15 @@ import moe.shizuku.server.IShizukuService
 class WatchdogService : Service() {
 
     private var errorProtectJob: Job? = null
+    private var heartbeatJob: Job? = null
     private val serviceJob = SupervisorJob()
     private val serviceScope = CoroutineScope(Dispatchers.Default + serviceJob)
+
+    // Second death detector: explicit heartbeat signal every 20s.
+    // The 10s poll above checks binder presence/version; heartbeat validates
+    // a full transaction round-trip (getVersion + getUid) with strict shape.
+    private val heartbeatIntervalMs = 20_000L
+    private val heartbeatTimeoutMs = 5_000L
 
     private val binderReceivedListener = object : rikka.shizuku.Shizuku.OnBinderReceivedListener {
         override fun onBinderReceived() {
@@ -51,6 +59,9 @@ class WatchdogService : Service() {
 
         startAsForeground()
         startErrorProtectLoop()
+        startHeartbeatLoop()
+        rikka.shizuku.Shizuku.removeBinderReceivedListener(binderReceivedListener)
+        rikka.shizuku.Shizuku.removeBinderDeadListener(binderDeadListener)
         rikka.shizuku.Shizuku.addBinderReceivedListenerSticky(binderReceivedListener)
         rikka.shizuku.Shizuku.addBinderDeadListener(binderDeadListener)
         return START_STICKY
@@ -115,13 +126,13 @@ class WatchdogService : Service() {
     private fun startErrorProtectLoop() {
         errorProtectJob?.cancel()
         errorProtectJob = null
-        if (!moe.shizuku.manager.module.ModuleSettings.isErrorProtectEnabled()) return
+        if (!moe.shizuku.manager.module.ModuleSettings.isWatchdogEnabled()) return
 
         errorProtectJob = serviceScope.launch {
             var consecutiveFailures = 0
             logi("ErrorProtect: monitoring started (10s interval)")
             while (isActive) {
-                if (!moe.shizuku.manager.module.ModuleSettings.isErrorProtectEnabled()) break
+                if (!moe.shizuku.manager.module.ModuleSettings.isWatchdogEnabled()) break
 
                 val result = checkHealth()
                 if (result.healthy) {
@@ -190,14 +201,135 @@ class WatchdogService : Service() {
             }
         }
     }
-                }
-            }
-        }
-    }
-
     private fun stopErrorProtectLoop() {
         errorProtectJob?.cancel()
         errorProtectJob = null
+        heartbeatJob?.cancel()
+        heartbeatJob = null
+    }
+
+    private sealed interface HeartbeatResult {
+        data class Healthy(val version: Int, val uid: Int) : HeartbeatResult
+        data class NoResponse(val detail: String) : HeartbeatResult
+        data class Error(val detail: String) : HeartbeatResult
+        data class NonStandard(val detail: String) : HeartbeatResult
+    }
+
+    private fun startHeartbeatLoop() {
+        heartbeatJob?.cancel()
+        heartbeatJob = null
+        if (!moe.shizuku.manager.module.ModuleSettings.isWatchdogEnabled()) return
+
+        heartbeatJob = serviceScope.launch {
+            var consecutiveFailures = 0
+            logi("ErrorProtect: heartbeat started (20s interval)")
+            while (isActive) {
+                delay(heartbeatIntervalMs)
+                if (!moe.shizuku.manager.module.ModuleSettings.isWatchdogEnabled()) break
+
+                val result = heartbeatCheck()
+                if (result is HeartbeatResult.Healthy) {
+                    if (consecutiveFailures > 0) {
+                        logi("ErrorProtect: heartbeat recovered (version=${result.version} uid=${result.uid})")
+                    }
+                    consecutiveFailures = 0
+                    continue
+                }
+
+                consecutiveFailures++
+                val detail = when (result) {
+                    is HeartbeatResult.NoResponse -> "no-response: ${result.detail}"
+                    is HeartbeatResult.Error -> "error: ${result.detail}"
+                    is HeartbeatResult.NonStandard -> "non-standard: ${result.detail}"
+                    is HeartbeatResult.Healthy -> "ok"
+                }
+                logw("ErrorProtect: heartbeat failed [$consecutiveFailures]: $detail")
+                handleHeartbeatFailure(detail)
+                if (!isActive) break
+            }
+            logi("ErrorProtect: heartbeat stopped")
+        }
+    }
+
+    private suspend fun heartbeatCheck(): HeartbeatResult = withContext(Dispatchers.IO) {
+        try {
+            if (!rikka.shizuku.Shizuku.pingBinder()) {
+                return@withContext HeartbeatResult.NoResponse("pingBinder=false")
+            }
+            val binder = rikka.shizuku.Shizuku.getBinder()
+                ?: return@withContext HeartbeatResult.NoResponse("binder=null")
+            val service = IShizukuService.Stub.asInterface(binder)
+            val version = withTimeoutOrNull(heartbeatTimeoutMs) {
+                runInterruptible { service.getVersion() }
+            } ?: return@withContext HeartbeatResult.NoResponse("getVersion timeout ${heartbeatTimeoutMs}ms")
+            if (version <= 0) {
+                return@withContext HeartbeatResult.NonStandard("version=$version, expected>0")
+            }
+            val uid = withTimeoutOrNull(heartbeatTimeoutMs) {
+                runInterruptible { service.getUid() }
+            } ?: return@withContext HeartbeatResult.NoResponse("getUid timeout ${heartbeatTimeoutMs}ms")
+            if (uid < 0) {
+                return@withContext HeartbeatResult.NonStandard("uid=$uid, expected>=0")
+            }
+            HeartbeatResult.Healthy(version, uid)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Throwable) {
+            HeartbeatResult.Error("${e.javaClass.simpleName}: ${e.message}")
+        }
+    }
+
+    private suspend fun handleHeartbeatFailure(reason: String) {
+        if (ShizukuSettings.getLastLaunchMode() == ShizukuSettings.LaunchMethod.UNKNOWN) {
+            logd("ErrorProtect: heartbeat failed but server never started (UNKNOWN mode), skipping restart")
+            return
+        }
+        if (WatchdogManager.expectingDeath) {
+            logd("ErrorProtect: heartbeat failed but death is expected, skipping restart")
+            return
+        }
+        if (WatchdogManager.isUserStopRequested()) {
+            logi("ErrorProtect: heartbeat failed but last stop was user-initiated, skipping restart")
+            return
+        }
+        if (!WatchdogManager.shouldRunService()) {
+            logd("ErrorProtect: heartbeat failed but watchdog disabled, skipping restart")
+            return
+        }
+        // Same lockscreen discipline as the 10s poll: plain-TCP adb is torn
+        // down behind the keyguard, the keyguard-aware AdbStartWorker re-runs
+        // full discovery + adbd rebind after USER_PRESENT itself.
+        val km = getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
+        if (km?.isKeyguardLocked == true) {
+            logd("ErrorProtect: heartbeat failed but device locked -- deferring restart until unlock")
+            return
+        }
+        withContext(Dispatchers.IO) {
+            val alive = try {
+                rikka.shizuku.Shizuku.pingBinder()
+            } catch (e: Throwable) {
+                false
+            }
+            if (alive) {
+                logw("ErrorProtect: heartbeat zombie ($reason). Stopping before restart...")
+                WatchdogManager.requestStopServer(applicationContext, userInitiated = false)
+                ShizukuStateMachine.awaitStopped(3_000L)
+            } else {
+                logw("ErrorProtect: heartbeat dead ($reason). Restarting...")
+            }
+            // attemptRestart routes ROOT / ADB (incl. TCP 5555 rebind) /
+            // Dhizuku from getLastLaunchMode -- no transport hardcoded here.
+            WatchdogManager.attemptRestart(applicationContext)
+            val recovered = WatchdogManager.waitForBinder(15_000L)
+            if (recovered) {
+                logi("ErrorProtect: Shevery service recovered after heartbeat restart")
+            } else {
+                logw("ErrorProtect: heartbeat restart attempted but binder is still dead")
+                if (moe.shizuku.manager.module.ModuleSettings.isNotifyOnServiceDeath()) {
+                    WatchdogManager.showDeathNotificationPublic(applicationContext)
+                }
+            }
+        }
     }
 
     override fun onBind(intent: Intent?): IBinder? = null

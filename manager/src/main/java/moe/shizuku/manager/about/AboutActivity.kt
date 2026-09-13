@@ -140,7 +140,9 @@ class AboutActivity : AppActivity() {
                                 Text(stringResource(R.string.shevery_update_checking))
                             }
                         },
-                        confirmButton = {}
+                        confirmButton = {},
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        shape = MaterialTheme.shapes.extraLarge
                     )
                 }
 
@@ -168,7 +170,7 @@ class AboutActivity : AppActivity() {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp)
+                .padding(vertical = 8.dp)
                 .clip(RoundedCornerShape(28.dp))
                 .background(MaterialTheme.colorScheme.primaryContainer)
                 .padding(vertical = 32.dp, horizontal = 16.dp),
@@ -217,13 +219,11 @@ class AboutActivity : AppActivity() {
     @Composable
     private fun AboutDescriptionCard() {
         Card(
-            shape = RoundedCornerShape(24.dp),
+            shape = MaterialTheme.shapes.extraLarge,
             colors = CardDefaults.cardColors(
                 containerColor = MaterialTheme.colorScheme.surfaceContainerLow
             ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+            modifier = Modifier.fillMaxWidth()
         ) {
             Column(modifier = Modifier.padding(24.dp)) {
                 Text(
