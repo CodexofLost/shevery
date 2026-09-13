@@ -884,7 +884,6 @@ private fun HomeScreen(
         contentWindowInsets = WindowInsets(0.dp),
         topBar = {
             TopAppBar(
-                modifier = Modifier.clip(RoundedCornerShape(bottomStart = 28.dp, bottomEnd = 28.dp)),
                 title = {
                     Text(
                         text = stringResource(R.string.app_name),

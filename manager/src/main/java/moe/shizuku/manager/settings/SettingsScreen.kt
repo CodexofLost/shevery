@@ -75,6 +75,7 @@ import moe.shizuku.manager.service.WatchdogManager
 import moe.shizuku.manager.starter.StarterActivity
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.ui.compose.GroupDivider
+import moe.shizuku.manager.ui.compose.MonospaceLog
 import moe.shizuku.manager.ui.compose.SettingsGroup
 import moe.shizuku.manager.ui.compose.SettingsRow
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
@@ -893,19 +894,7 @@ fun SettingsScreen(
                     } else {
                         Text(stringResource(R.string.settings_start_on_boot_adb_grant_failed))
                         Spacer(Modifier.height(12.dp))
-                        Surface(
-                            color = MaterialTheme.colorScheme.surfaceVariant,
-                            shape = RoundedCornerShape(8.dp)
-                        ) {
-                            Text(
-                                text = grantCommand,
-                                fontFamily = FontFamily.Monospace,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .horizontalScroll(rememberScrollState())
-                                    .padding(12.dp)
-                            )
-                        }
+                        MonospaceLog(text = grantCommand)
                         Spacer(Modifier.height(8.dp))
                         Text(
                             text = stringResource(R.string.settings_start_on_boot_adb_missing_permission_instruction),
