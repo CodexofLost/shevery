@@ -18,7 +18,7 @@ import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -90,7 +90,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
-import androidx.core.text.HtmlCompat
 import moe.shizuku.manager.BuildConfig
 import moe.shizuku.manager.Helps
 import moe.shizuku.manager.R
@@ -107,6 +106,7 @@ import moe.shizuku.manager.shell.ShellTutorialActivity
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.starter.StarterActivity
 import moe.shizuku.manager.worker.WifiDebugReassert
+import moe.shizuku.manager.ui.compose.HtmlText
 import moe.shizuku.manager.ui.compose.ShizukuIcon
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import androidx.compose.animation.fadeIn
@@ -1334,8 +1334,8 @@ private fun AdbCommandCard(
 ) {
     HomeCard(
         icon = R.drawable.ic_adb_24dp,
-        title = htmlStringResource(R.string.home_adb_title),
-        body = htmlStringResource(R.string.home_adb_description, Helps.ADB.get())
+        title = HtmlText(R.string.home_adb_title),
+        body = HtmlText(R.string.home_adb_description, Helps.ADB.get())
     ) {
         HomeButtons(
             listOf(
@@ -1539,15 +1539,6 @@ private fun ButtonIcon(@DrawableRes icon: Int) {
 }
 
 @Composable
-private fun htmlStringResource(@StringRes id: Int, vararg formatArgs: Any): String {
-    val raw = stringResource(id, *formatArgs)
-    return remember(raw) { htmlToPlainText(raw) }
-}
-
-private fun htmlToPlainText(value: String): String {
-    return HtmlCompat.fromHtml(value, HtmlCompat.FROM_HTML_MODE_LEGACY).toString().trim()
-}
-
 private fun buildServiceSummary(context: android.content.Context, status: ServiceStatus): String {
     if (!status.isRunning) return ""
 
@@ -1601,8 +1592,8 @@ private fun buildDiagnostics(
 private fun RootCard(onStartRoot: () -> Unit) {
     HomeCard(
         icon = R.drawable.ic_server_start_24dp,
-        title = htmlStringResource(R.string.home_root_title),
-        body = htmlStringResource(R.string.home_root_description, Helps.SUI.get())
+        title = HtmlText(R.string.home_root_title),
+        body = HtmlText(R.string.home_root_description, Helps.SUI.get())
     ) {
         HomeButtons(
             listOf(
@@ -1621,8 +1612,8 @@ private fun RootCard(onStartRoot: () -> Unit) {
 private fun DhizukuCard(onStartDhizuku: () -> Unit) {
     HomeCard(
         icon = R.drawable.ic_system_icon,
-        title = htmlStringResource(R.string.home_dhizuku_title),
-        body = htmlStringResource(R.string.home_dhizuku_description)
+        title = HtmlText(R.string.home_dhizuku_title),
+        body = HtmlText(R.string.home_dhizuku_description)
     ) {
         HomeButtons(
             listOf(
