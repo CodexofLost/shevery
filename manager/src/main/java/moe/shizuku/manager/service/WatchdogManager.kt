@@ -276,10 +276,6 @@ object WatchdogManager {
         }
     }
 
-    fun stopServer(context: Context? = null, userInitiated: Boolean = true) {
-        requestStopServer(context, userInitiated)
-    }
-
     fun requestStopServer(context: Context? = null, userInitiated: Boolean = true): Throwable? {
         if (userInitiated) {
             setUserStopRequested(true)

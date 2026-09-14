@@ -294,17 +294,9 @@ object ModuleSettings {
         return AiProviderRepository.getActiveKey()
     }
 
-    fun setComputApiKey(value: String) {
-        AiProviderRepository.setActiveKey(value)
-    }
-
     fun getComputAiName(): String {
         migrateComputAiPrefsIfNeeded()
         return AiProviderRepository.getActive()?.name ?: ""
-    }
-
-    fun setComputAiName(value: String) {
-        AiProviderRepository.getActive()?.let { AiProviderRepository.update(it.copy(name = value)) }
     }
 
     fun getComputAiBaseUrl(): String {
@@ -312,19 +304,9 @@ object ModuleSettings {
         return AiProviderRepository.getActive()?.baseUrl ?: "https://openrouter.ai/api/v1/"
     }
 
-    fun setComputAiBaseUrl(value: String) {
-        val trimmed = value.trim()
-        require(trimmed.startsWith("http://") || trimmed.startsWith("https://")) { "Base URL must start with http:// or https://" }
-        AiProviderRepository.getActive()?.let { AiProviderRepository.update(it.copy(baseUrl = trimmed)) }
-    }
-
     fun getComputAiModel(): String {
         migrateComputAiPrefsIfNeeded()
         return AiProviderRepository.getActive()?.model ?: ""
-    }
-
-    fun setComputAiModel(value: String) {
-        AiProviderRepository.getActive()?.let { AiProviderRepository.update(it.copy(model = value)) }
     }
 
     // One-time migration on first read: a user who had a custom Gemini model
@@ -342,16 +324,6 @@ object ModuleSettings {
             .putString(KEY_COMPUT_AI_NAME, "Gemini")
             .putString(KEY_COMPUT_AI_BASE_URL, "https://generativelanguage.googleapis.com/v1beta/openai/")
             .apply()
-    }
-
-    @Deprecated("Use getComputAiModel()")
-    fun getComputGeminiModel(): String {
-        return getComputAiModel()
-    }
-
-    @Deprecated("Use setComputAiModel()")
-    fun setComputGeminiModel(value: String) {
-        setComputAiModel(value)
     }
 
     fun isComputRecommandEnabled(): Boolean {

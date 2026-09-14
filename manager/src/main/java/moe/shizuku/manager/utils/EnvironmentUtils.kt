@@ -13,19 +13,12 @@ import android.util.Log
 import com.topjohnwu.superuser.Shell
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.application
-import java.io.File
 import java.net.InetSocketAddress
 import java.net.Socket
 
 object EnvironmentUtils {
 
     private const val TAG = "EnvironmentUtils"
-
-    @JvmStatic
-    fun isWatch(context: Context): Boolean {
-        return (context.getSystemService(UiModeManager::class.java).currentModeType
-                == Configuration.UI_MODE_TYPE_WATCH)
-    }
 
     @JvmStatic
     fun isTV(context: Context): Boolean {

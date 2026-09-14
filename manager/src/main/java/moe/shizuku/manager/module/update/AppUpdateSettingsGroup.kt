@@ -39,7 +39,6 @@ import kotlinx.coroutines.launch
 import android.content.Intent
 import androidx.compose.material3.Icon
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.material3.Surface
 import moe.shizuku.manager.BuildConfig

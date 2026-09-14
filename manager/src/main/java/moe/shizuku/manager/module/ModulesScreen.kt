@@ -7,9 +7,8 @@
 
 package moe.shizuku.manager.module
 
-import android.content.Intent
+
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -42,7 +41,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -61,7 +59,6 @@ import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -137,7 +134,6 @@ fun ModulesScreen(
     val context = LocalContext.current
     val view = LocalView.current
     val scope = rememberCoroutineScope()
-    var selectedTab by remember { mutableStateOf(0) } // 0: Installed, 1: Catalog
     var showCatalog by remember { mutableStateOf(false) }
     var modules by modulesState
     var checkingUpdates by remember { mutableStateOf(false) }
@@ -289,14 +285,12 @@ fun ModulesScreen(
             bottomInset = 112.dp,
             listState = listState,
             isRefreshing = checkingUpdates,
-            onRefresh = if (selectedTab == 0) ({
+            onRefresh = {
                 view.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)
                 checkAllUpdates()
-            }) else null,
+            },
             actions = {
                 ModuleTabsSwitcher(
-                    selectedTab = selectedTab,
-                    onInstalled = { selectedTab = 0 },
                     onCatalog = { showCatalog = true }
                 )
                 Spacer(modifier = Modifier.size(8.dp))
@@ -317,65 +311,63 @@ fun ModulesScreen(
                 }
         }
     ) {
-        if (selectedTab == 0) {
-            item {
-                AnimatedContent(targetState = modules.isEmpty(), label = "module-empty-state") { empty ->
-                    if (empty) {
-                        EmptyModulesCard(onInstall = { zipLauncher.launch(MODULE_MIME_TYPES) })
-                    }
-                }
-            }
-            items(modules, key = { it.id }) { module ->
-                ModuleCard(
-                    module = module,
-                    busy = runningModuleId == module.id,
-                    updating = updatingModuleId == module.id,
-                    trusted = ModuleSettings.isModuleTrusted(module.id),
-                    modifier = Modifier.animateItem(),
-                    onToggle = {
-                        scope.launch {
-                            AdbModuleManager.setEnabled(module, !module.enabled)
-                            reload()
-                        }
-                    },
-                    onRunAction = {
-                        if (ModuleSettings.recommandForAction()) {
-                            pendingCommand = ModuleCommandRequest(
-                                module = module,
-                                source = ModuleCommandSource.ACTION,
-                                command = module.actionCommandPreview()
-                            )
-                        } else {
-                            runModuleAction(module)
-                        }
-                    },
-                    onRunService = {
-                        scope.launch {
-                            runningModuleId = module.id
-                            output = runCatching {
-                                val result = AdbModuleManager.runService(module)
-                                context.getString(R.string.modules_service_result, result.exitCode) to result.combinedOutput
-                            }.getOrElse {
-                                context.getString(R.string.modules_service_failed) to (it.message ?: it.javaClass.simpleName)
-                            }
-                            runningModuleId = null
-                        }
-                    },
-                    onOpenWebUi = {
-                        onOpenWebUi(module.id)
-                    },
-                    onDelete = { deleteTarget = module },
-                    onTrustChange = { trusted ->
-                        scope.launch {
-                            ModuleSettings.setModuleTrusted(module.id, trusted)
-                            AdbModuleManager.setEnabled(module, trusted)
-                            reload()
-                        }
-                    },
-                    onUpdateModule = { updateModule(module) }
-                )
-            }
+item {
+    AnimatedContent(targetState = modules.isEmpty(), label = "module-empty-state") { empty ->
+        if (empty) {
+            EmptyModulesCard(onInstall = { zipLauncher.launch(MODULE_MIME_TYPES) })
         }
+    }
+}
+items(modules, key = { it.id }) { module ->
+    ModuleCard(
+        module = module,
+        busy = runningModuleId == module.id,
+        updating = updatingModuleId == module.id,
+        trusted = ModuleSettings.isModuleTrusted(module.id),
+        modifier = Modifier.animateItem(),
+        onToggle = {
+            scope.launch {
+                AdbModuleManager.setEnabled(module, !module.enabled)
+                reload()
+            }
+        },
+        onRunAction = {
+            if (ModuleSettings.recommandForAction()) {
+                pendingCommand = ModuleCommandRequest(
+                    module = module,
+                    source = ModuleCommandSource.ACTION,
+                    command = module.actionCommandPreview()
+                )
+            } else {
+                runModuleAction(module)
+            }
+        },
+        onRunService = {
+            scope.launch {
+                runningModuleId = module.id
+                output = runCatching {
+                    val result = AdbModuleManager.runService(module)
+                    context.getString(R.string.modules_service_result, result.exitCode) to result.combinedOutput
+                }.getOrElse {
+                    context.getString(R.string.modules_service_failed) to (it.message ?: it.javaClass.simpleName)
+                }
+                runningModuleId = null
+            }
+        },
+        onOpenWebUi = {
+            onOpenWebUi(module.id)
+        },
+        onDelete = { deleteTarget = module },
+        onTrustChange = { trusted ->
+            scope.launch {
+                ModuleSettings.setModuleTrusted(module.id, trusted)
+                AdbModuleManager.setEnabled(module, trusted)
+                reload()
+            }
+        },
+        onUpdateModule = { updateModule(module) }
+    )
+}
     }
 }
 
@@ -869,8 +861,6 @@ private fun ModuleButton(
 
 @Composable
 private fun ModuleTabsSwitcher(
-    selectedTab: Int,
-    onInstalled: () -> Unit,
     onCatalog: () -> Unit
 ) {
     Surface(
@@ -881,10 +871,10 @@ private fun ModuleTabsSwitcher(
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             ModuleTabSegment(
-                selected = selectedTab == 0,
+                selected = true,
                 icon = Icons.Rounded.CheckCircle,
                 contentDescription = stringResource(R.string.modules_tab_installed),
-                onClick = onInstalled
+                onClick = {}
             )
             ModuleTabSegment(
                 selected = false,

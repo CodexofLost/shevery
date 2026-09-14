@@ -254,7 +254,7 @@ class ModuleInstaller private constructor() {
         }
     }
 
-    fun getRateLimit(): RateLimitTracker = rateLimit
+
 
     companion object {
         private const val TAG = "ModuleInstaller"

@@ -32,11 +32,9 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -59,7 +57,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -74,7 +71,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.neverEqualPolicy
@@ -98,7 +94,6 @@ import androidx.core.text.HtmlCompat
 import moe.shizuku.manager.BuildConfig
 import moe.shizuku.manager.Helps
 import moe.shizuku.manager.R
-import moe.shizuku.manager.about.AboutActivity
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.app.AppActivity
@@ -106,10 +101,8 @@ import moe.shizuku.manager.management.ApplicationManagementActivity
 import moe.shizuku.manager.module.AdbModuleManager
 import moe.shizuku.manager.module.update.SheveryAppUpdateDialog
 import moe.shizuku.manager.module.update.SheveryAppUpdateResult
-
 import moe.shizuku.manager.management.appsViewModel
 import moe.shizuku.manager.model.ServiceStatus
-
 import moe.shizuku.manager.shell.ShellTutorialActivity
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.starter.StarterActivity
@@ -123,12 +116,9 @@ import androidx.compose.animation.core.tween
 import moe.shizuku.manager.utils.CustomTabsHelper
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.UserHandleCompat
-import moe.shizuku.manager.ui.compose.ExpressiveCard
 import moe.shizuku.manager.ui.compose.ExpressiveFloatingNavigationBar
-import moe.shizuku.manager.ui.compose.HtmlText
 import moe.shizuku.manager.ui.compose.MonospaceLog
 import moe.shizuku.manager.ui.compose.NavItem
-import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import rikka.core.util.ClipboardUtils
 import rikka.lifecycle.Resource
 import rikka.lifecycle.Status
@@ -677,10 +667,6 @@ abstract class HomeActivity : AppActivity() {
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         menu.clear()
         return false
-    }
-
-    private fun showAboutDialog() {
-        startActivity(Intent(this, AboutActivity::class.java))
     }
 
     private fun startRoot() {
