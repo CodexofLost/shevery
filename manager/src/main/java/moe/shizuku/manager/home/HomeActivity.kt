@@ -365,10 +365,8 @@ abstract class HomeActivity : AppActivity() {
                             showTcpPromptDialog = false
                         },
                         title = {
-                            Text(
-                                text = stringResource(R.string.tcp_prompt_dialog_title),
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold
+                            DialogTitleText(
+                                text = stringResource(R.string.tcp_prompt_dialog_title)
                             )
                         },
                         text = {
@@ -461,10 +459,8 @@ abstract class HomeActivity : AppActivity() {
                     AlertDialog(
                         onDismissRequest = { showStopDialog = false },
                         title = {
-                            Text(
-                                text = stringResource(R.string.action_stop),
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold
+                            DialogTitleText(
+                                text = stringResource(R.string.action_stop)
                             )
                         },
                         text = {
@@ -517,10 +513,8 @@ abstract class HomeActivity : AppActivity() {
                     AlertDialog(
                         onDismissRequest = { showAdbCommandDialog = false },
                         title = {
-                            Text(
-                                text = stringResource(R.string.home_adb_button_view_command),
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold
+                            DialogTitleText(
+                                text = stringResource(R.string.home_adb_button_view_command)
                             )
                         },
                         text = {
@@ -1641,4 +1635,13 @@ private fun DhizukuCard(onStartDhizuku: () -> Unit) {
             )
         )
     }
+}
+
+@Composable
+private fun DialogTitleText(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.headlineSmall,
+        fontWeight = FontWeight.Bold
+    )
 }

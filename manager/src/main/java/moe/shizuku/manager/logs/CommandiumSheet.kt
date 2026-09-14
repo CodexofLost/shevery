@@ -139,7 +139,7 @@ fun CommandiumSheet(
             )
 
             val activeProvider = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
-            val activeKey = activeProvider?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) } ?: ""
+            val activeKey = moe.shizuku.manager.commandium.AiProviderRepository.getActiveKey()
             val activeLabel = when {
                 activeProvider == null || activeKey.isBlank() ->
                     stringResource(R.string.comput_ai_chip_active, stringResource(R.string.comput_ai_key_missing))
