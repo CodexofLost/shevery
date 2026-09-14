@@ -32,7 +32,7 @@ object AdbModuleManager {
     private val idRegex = Regex("[A-Za-z][A-Za-z0-9._-]{1,63}")
     private val installMutexes = ConcurrentHashMap<String, Mutex>()
 
-    private fun cleanupStagingDirs(context: Context) {
+    internal fun cleanupStagingDirs(context: Context) {
         modulesRoot(context).listFiles { file ->
             file.isDirectory && file.name.startsWith(".") && file.name.endsWith(".installing")
         }?.forEach { it.deleteRecursively() }
