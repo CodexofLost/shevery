@@ -1540,7 +1540,6 @@ private fun ButtonIcon(@DrawableRes icon: Int) {
     )
 }
 
-@Composable
 private fun buildServiceSummary(context: android.content.Context, status: ServiceStatus): String {
     if (!status.isRunning) return ""
 
