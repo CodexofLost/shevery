@@ -230,19 +230,6 @@ class ModuleInstaller private constructor() {
         }
     }
 
-    internal fun buildGitHubRequest(url: String, githubPat: String?): Request {
-        val builder = Request.Builder()
-            .url(url)
-            .header("Accept", "application/vnd.github+json")
-            .header("X-GitHub-Api-Version", "2022-11-28")
-
-        if (!githubPat.isNullOrBlank()) {
-            builder.header("Authorization", "Bearer $githubPat")
-        }
-
-        return builder.build()
-    }
-
     private fun cleanupOldZips(context: Context) {
         val cacheDir = File(context.cacheDir, "module_zips")
         if (!cacheDir.isDirectory) return
@@ -270,4 +257,17 @@ class ModuleInstaller private constructor() {
             }
         }
     }
+}
+
+internal fun buildGitHubRequest(url: String, githubPat: String?): Request {
+    val builder = Request.Builder()
+        .url(url)
+        .header("Accept", "application/vnd.github+json")
+        .header("X-GitHub-Api-Version", "2022-11-28")
+
+    if (!githubPat.isNullOrBlank()) {
+        builder.header("Authorization", "Bearer $githubPat")
+    }
+
+    return builder.build()
 }
