@@ -158,5 +158,5 @@ Follow this steps:
 ## Attention!
 
 **!!!** *Warning* **!!!**
-I see many shevery clones with renaming like "Shizako+". It's not Shizuku+ (not from thejaustin), it's just renaming of old shevery version. Don't download this for safety.
+I see many shevery clones with renaming like "Shizako+". It's not Shizuku+ (not from thejaustin), it's just renaming of old shevery version. Don't download this for safety, Shevery is free for download.
 
