@@ -250,7 +250,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                         }
                     }
 
-                    fun handleAuth() {
+                    private fun handleAuth() {
                         val km = applicationContext.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
                         timeoutJob?.cancel()
                         timeoutJob = null

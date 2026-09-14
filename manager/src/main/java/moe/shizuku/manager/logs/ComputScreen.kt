@@ -240,7 +240,7 @@ fun ComputScreen(
         ModuleSettings.setComputMacros(json.toString())
     }
 
-    fun saveMacro(name: String) {
+    private fun saveMacro(name: String) {
         val updated = savedMacros.toMutableMap()
         updated[name] = recordedCommands.toList()
         savedMacros = updated.toMap()
@@ -248,7 +248,7 @@ fun ComputScreen(
         recordedCommands.clear()
     }
 
-    fun deleteMacro(name: String) {
+    private fun deleteMacro(name: String) {
         val updated = savedMacros.toMutableMap()
         updated.remove(name)
         savedMacros = updated.toMap()
@@ -470,7 +470,7 @@ fun ComputScreen(
         }
     }
 
-    fun runMacro(macroName: String, commands: List<String>) {
+    private fun runMacro(macroName: String, commands: List<String>) {
         scope.launch {
             cancelRequested.set(false)
             historyExpanded = false
