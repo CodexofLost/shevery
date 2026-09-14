@@ -143,8 +143,6 @@ import moe.shizuku.server.IShizukuService
 import org.json.JSONArray
 import org.json.JSONObject
 import rikka.shizuku.Shizuku
-import java.net.HttpURLConnection
-import java.net.URL
 import java.util.concurrent.atomic.AtomicBoolean
 
 private data class PresetCommand(
@@ -234,6 +232,14 @@ fun ComputScreen(
         )
     }
 
+    fun persistMacros() {
+        val json = JSONObject()
+        savedMacros.forEach { (k, v) ->
+            json.put(k, JSONArray(v))
+        }
+        ModuleSettings.setComputMacros(json.toString())
+    }
+
     fun saveMacro(name: String) {
         val updated = savedMacros.toMutableMap()
         updated[name] = recordedCommands.toList()
@@ -247,14 +253,6 @@ fun ComputScreen(
         updated.remove(name)
         savedMacros = updated.toMap()
         persistMacros()
-    }
-
-    fun persistMacros() {
-        val json = JSONObject()
-        savedMacros.forEach { (k, v) ->
-            json.put(k, JSONArray(v))
-        }
-        ModuleSettings.setComputMacros(json.toString())
     }
 
     fun clearConsole() {
