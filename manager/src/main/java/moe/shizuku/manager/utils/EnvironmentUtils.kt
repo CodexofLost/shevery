@@ -21,6 +21,12 @@ object EnvironmentUtils {
     private const val TAG = "EnvironmentUtils"
 
     @JvmStatic
+    fun isWatch(context: Context): Boolean {
+        return (context.getSystemService(UiModeManager::class.java).currentModeType
+                == Configuration.UI_MODE_TYPE_WATCH)
+    }
+
+    @JvmStatic
     fun isTV(context: Context): Boolean {
         val uiModeManager = context.getSystemService(UiModeManager::class.java)
         val isLeanback = context.packageManager.hasSystemFeature("android.hardware.leanback")
