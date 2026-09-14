@@ -136,7 +136,7 @@ fun UpdateSettingsScreen(
 }
 
 @Composable
-private fun UpdateFrequencyDropdown(
+internal fun UpdateFrequencyDropdown(
     selected: ModuleSettings.UpdateFrequency,
     onSelect: (ModuleSettings.UpdateFrequency) -> Unit
 ) {

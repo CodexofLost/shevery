@@ -180,7 +180,7 @@ fun AppUpdateSettingsGroup() {
         )
         if (appAutoCheck) {
             GroupDivider()
-            UpdateFrequencyDropdownForApp(
+            UpdateFrequencyDropdown(
                 selected = appUpdateFrequency,
                 onSelect = {
                     appUpdateFrequency = it
@@ -254,61 +254,6 @@ private fun AppUpdateChannelDropdown(
                     }
                 )
             }
-        }
-    }
-}
-
-@Composable
-private fun UpdateFrequencyDropdownForApp(
-    selected: ModuleSettings.UpdateFrequency,
-    onSelect: (ModuleSettings.UpdateFrequency) -> Unit
-) {
-    var expanded by remember { mutableStateOf(false) }
-
-    ExposedDropdownMenuBox(
-        expanded = expanded,
-        onExpandedChange = { expanded = !expanded }
-    ) {
-        SettingsRow(
-            modifier = Modifier.menuAnchor(),
-            icon = R.drawable.ic_outline_notifications_active_24,
-            title = stringResource(R.string.update_settings_frequency_label),
-            summary = stringResource(when (selected) {
-                ModuleSettings.UpdateFrequency.MANUAL -> R.string.update_settings_frequency_manual
-                ModuleSettings.UpdateFrequency.DAILY -> R.string.update_settings_frequency_daily
-                ModuleSettings.UpdateFrequency.WEEKLY -> R.string.update_settings_frequency_weekly
-            }),
-            onClick = { expanded = true },
-            trailing = {
-                ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
-            }
-        )
-
-        ExposedDropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
-        ) {
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.update_settings_frequency_manual)) },
-                onClick = {
-                    onSelect(ModuleSettings.UpdateFrequency.MANUAL)
-                    expanded = false
-                }
-            )
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.update_settings_frequency_daily)) },
-                onClick = {
-                    onSelect(ModuleSettings.UpdateFrequency.DAILY)
-                    expanded = false
-                }
-            )
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.update_settings_frequency_weekly)) },
-                onClick = {
-                    onSelect(ModuleSettings.UpdateFrequency.WEEKLY)
-                    expanded = false
-                }
-            )
         }
     }
 }

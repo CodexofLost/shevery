@@ -9,8 +9,6 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.padding
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.viewinterop.AndroidView
 import moe.shizuku.manager.app.AppActivity
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
