@@ -224,7 +224,7 @@ fun SettingsScreen(
         return
     }
 
-    internal fun tcpModeNeedsRestart(enabled: Boolean): Boolean {
+    fun tcpModeNeedsRestart(enabled: Boolean): Boolean {
         val currentPort = EnvironmentUtils.getActiveAdbPort()
         return Shizuku.pingBinder() && currentPort > 0 && when {
             enabled -> currentPort != AdbStarter.TCP_MODE_PORT
@@ -232,7 +232,7 @@ fun SettingsScreen(
         }
     }
 
-    internal fun restartAdbForTcpMode() {
+    fun restartAdbForTcpMode() {
         val port = EnvironmentUtils.getActiveAdbPort().takeIf { it > 0 } ?: return
         WatchdogManager.clearUserStopRequest(context)
         activity?.startActivity(

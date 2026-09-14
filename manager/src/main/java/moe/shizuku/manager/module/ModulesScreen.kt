@@ -149,7 +149,7 @@ fun ModulesScreen(
         }
     }
 
-    internal fun checkAllUpdates() {
+    fun checkAllUpdates() {
         scope.launch {
             checkingUpdates = true
             Toast.makeText(context, context.getString(R.string.modules_checking_updates), Toast.LENGTH_SHORT).show()
@@ -185,7 +185,7 @@ fun ModulesScreen(
         }
     }
 
-    internal fun updateModule(module: AdbModule) {
+    fun updateModule(module: AdbModule) {
         val info = module.updateInfo ?: return
         scope.launch {
             updatingModuleId = module.id

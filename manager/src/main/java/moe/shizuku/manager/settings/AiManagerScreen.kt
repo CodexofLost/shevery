@@ -66,7 +66,7 @@ fun AiManagerScreen(
         onChanged()
     }
 
-    internal fun runTest(provider: AiProvider) {
+    fun runTest(provider: AiProvider) {
         scope.launch {
             testingId = provider.id
             testStatus = testStatus - provider.id
