@@ -11,6 +11,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.runtime.DisposableEffect
 import moe.shizuku.manager.ui.compose.LocalFloatingNavBarVisible
 import androidx.compose.foundation.BorderStroke
@@ -65,8 +66,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -218,6 +222,7 @@ fun CatalogScreen(onNavigateUp: () -> Unit) {
                     onViewOnGitHub = {
                         context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.repoUrl)))
                     },
+                    onEditToken = { showTokenDialog = true },
                     onNavigateUp = onNavigateUp
                 )
             }
@@ -343,6 +348,7 @@ private fun CatalogListScreen(
     onCardClick: (DiscoveredModule) -> Unit,
     onInstall: (DiscoveredModule) -> Unit,
     onViewOnGitHub: (DiscoveredModule) -> Unit,
+    onEditToken: () -> Unit,
     onNavigateUp: () -> Unit
 ) {
     ShizukuLazyScaffold(
@@ -385,6 +391,15 @@ private fun CatalogListScreen(
                 Surface(modifier = Modifier.fillMaxWidth(), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surfaceContainerLow, tonalElevation = 1.dp) {
                     Column(modifier = Modifier.padding(20.dp)) {
                         Text(stringResource(R.string.modules_catalog_empty), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Medium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            FilledTonalButton(onClick = onRefresh) {
+                                Text(stringResource(R.string.modules_catalog_empty_retry), style = MaterialTheme.typography.labelLarge)
+                            }
+                            OutlinedButton(onClick = onEditToken) {
+                                Text(stringResource(R.string.modules_catalog_empty_token), style = MaterialTheme.typography.labelLarge)
+                            }
+                        }
                     }
                 }
             }
@@ -698,12 +713,23 @@ private fun CatalogAvatar(ownerAvatar: String, moduleName: String, modifier: Mod
 private fun TokenInputDialog(onDismiss: () -> Unit, onTokenSet: (String) -> Unit) {
     var tokenInput by remember { mutableStateOf("") }
     val showWarning = tokenInput.isNotBlank() && !TokenStore.isValidTokenFormat(tokenInput)
+    val uriHandler = LocalUriHandler.current
+    val tokenUrl = "https://github.com/settings/tokens"
+    val descriptionWithLink = buildAnnotatedString {
+        append(stringResource(R.string.modules_catalog_token_description))
+        append("\n")
+        withLink(LinkAnnotation.Url(tokenUrl, TextLinkStyles(style = SpanStyle(color = MaterialTheme.colorScheme.primary, textDecoration = TextDecoration.Underline)))) {
+            append(tokenUrl)
+        }
+    }
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.modules_catalog_token_required)) },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(stringResource(R.string.modules_catalog_token_description), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                ClickableText(text = descriptionWithLink, style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onSurfaceVariant), onClick = { offset ->
+                    descriptionWithLink.getLinkAnnotations(offset, offset + 1, LinkAnnotation.Url::class).firstOrNull()?.let { uriHandler.openUri(it.url) }
+                })
                 OutlinedTextField(value = tokenInput, onValueChange = { tokenInput = it }, label = { Text(stringResource(R.string.modules_catalog_token_hint)) }, singleLine = true, modifier = Modifier.fillMaxWidth())
                 if (showWarning) Text(stringResource(R.string.modules_catalog_token_format_warning), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error)
             }
