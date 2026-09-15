@@ -871,7 +871,8 @@ private fun ModuleTabsSwitcher(
                 selected = true,
                 icon = Icons.Rounded.CheckCircle,
                 contentDescription = stringResource(R.string.modules_tab_installed),
-                onClick = {}
+                onClick = {},
+                enabled = false
             )
             ModuleTabSegment(
                 selected = false,
@@ -888,7 +889,8 @@ private fun ModuleTabSegment(
     selected: Boolean,
     icon: ImageVector,
     contentDescription: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    enabled: Boolean = true
 ) {
     Surface(
         shape = RoundedCornerShape(50),
@@ -899,7 +901,8 @@ private fun ModuleTabSegment(
             MaterialTheme.colorScheme.onSurfaceVariant
         },
         modifier = Modifier.height(36.dp),
-        onClick = onClick
+        onClick = onClick,
+        enabled = enabled
     ) {
         Box(
             contentAlignment = Alignment.Center,

@@ -70,7 +70,7 @@ class AdbClient(private val host: String, private val port: Int, private val key
 
             message = read()
         } else if (message.command == A_AUTH) {
-            if (message.arg0 != ADB_AUTH_TOKEN) error("not A_AUTH ADB_AUTH_TOKEN")
+            if (message.arg0 != ADB_AUTH_TOKEN && message.arg0 != ADB_AUTH_SIGNATURE && message.arg0 != ADB_AUTH_RSAPUBLICKEY) error("not A_AUTH ADB_AUTH_TOKEN")
             write(A_AUTH, ADB_AUTH_SIGNATURE, 0, key.sign(message.data))
 
             message = read()
