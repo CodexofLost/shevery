@@ -68,9 +68,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -718,9 +716,11 @@ private fun TokenInputDialog(onDismiss: () -> Unit, onTokenSet: (String) -> Unit
     val descriptionWithLink = buildAnnotatedString {
         append(stringResource(R.string.modules_catalog_token_description))
         append("\n")
-        withLink(LinkAnnotation.Url(tokenUrl, TextLinkStyles(style = SpanStyle(color = MaterialTheme.colorScheme.primary, textDecoration = TextDecoration.Underline)))) {
+        pushStringAnnotation(tag = "URL", annotation = tokenUrl)
+        withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary, textDecoration = TextDecoration.Underline)) {
             append(tokenUrl)
         }
+        pop()
     }
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -728,7 +728,7 @@ private fun TokenInputDialog(onDismiss: () -> Unit, onTokenSet: (String) -> Unit
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 ClickableText(text = descriptionWithLink, style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onSurfaceVariant), onClick = { offset ->
-                    descriptionWithLink.getLinkAnnotations(offset, offset + 1, LinkAnnotation.Url::class).firstOrNull()?.let { uriHandler.openUri(it.url) }
+                    descriptionWithLink.getStringAnnotations(tag = "URL", start = offset, end = offset).firstOrNull()?.let { uriHandler.openUri(it.item) }
                 })
                 OutlinedTextField(value = tokenInput, onValueChange = { tokenInput = it }, label = { Text(stringResource(R.string.modules_catalog_token_hint)) }, singleLine = true, modifier = Modifier.fillMaxWidth())
                 if (showWarning) Text(stringResource(R.string.modules_catalog_token_format_warning), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error)
