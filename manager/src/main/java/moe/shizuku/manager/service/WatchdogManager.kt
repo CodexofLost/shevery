@@ -39,7 +39,6 @@ object WatchdogManager {
         val error: String? = null
     )
 
-    private const val CHANNEL_ID = "service_watchdog"
     private const val DEATH_CHANNEL_ID = "service_watchdog_death"
     private const val NOTIFICATION_ID = 1001
     private const val EXPECTED_DEATH_WINDOW_MS = 30_000L
@@ -274,10 +273,6 @@ object WatchdogManager {
                 restartInProgress.set(false)
             }
         }
-    }
-
-    fun stopServer(context: Context? = null, userInitiated: Boolean = true) {
-        requestStopServer(context, userInitiated)
     }
 
     fun requestStopServer(context: Context? = null, userInitiated: Boolean = true): Throwable? {

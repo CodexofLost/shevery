@@ -13,7 +13,6 @@ import android.util.Log
 import com.topjohnwu.superuser.Shell
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.application
-import java.io.File
 import java.net.InetSocketAddress
 import java.net.Socket
 

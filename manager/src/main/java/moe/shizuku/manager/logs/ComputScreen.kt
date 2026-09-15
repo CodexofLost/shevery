@@ -39,7 +39,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -55,7 +54,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.SelectionContainer
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material.icons.rounded.Apps
@@ -136,7 +134,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.compose.ui.semantics.semantics
 import moe.shizuku.manager.R
 import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.ui.compose.ShizukuScaffold
@@ -146,8 +143,6 @@ import moe.shizuku.server.IShizukuService
 import org.json.JSONArray
 import org.json.JSONObject
 import rikka.shizuku.Shizuku
-import java.net.HttpURLConnection
-import java.net.URL
 import java.util.concurrent.atomic.AtomicBoolean
 
 private data class PresetCommand(
@@ -237,15 +232,19 @@ fun ComputScreen(
         )
     }
 
-    fun saveMacro(name: String) {
-        val updated = savedMacros.toMutableMap()
-        updated[name] = recordedCommands.toList()
-        savedMacros = updated.toMap()
+    fun persistMacros() {
         val json = JSONObject()
         savedMacros.forEach { (k, v) ->
             json.put(k, JSONArray(v))
         }
         ModuleSettings.setComputMacros(json.toString())
+    }
+
+    fun saveMacro(name: String) {
+        val updated = savedMacros.toMutableMap()
+        updated[name] = recordedCommands.toList()
+        savedMacros = updated.toMap()
+        persistMacros()
         recordedCommands.clear()
     }
 
@@ -253,11 +252,7 @@ fun ComputScreen(
         val updated = savedMacros.toMutableMap()
         updated.remove(name)
         savedMacros = updated.toMap()
-        val json = JSONObject()
-        savedMacros.forEach { (k, v) ->
-            json.put(k, JSONArray(v))
-        }
-        ModuleSettings.setComputMacros(json.toString())
+        persistMacros()
     }
 
     fun clearConsole() {
@@ -912,9 +907,7 @@ fun ComputScreen(
                     showGeminiSection = showGeminiSection,
                     isExplaining = isExplaining,
                     onToggleGemini = {
-                        val activeKey = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
-                            ?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) }
-                            ?: ""
+                        val activeKey = moe.shizuku.manager.commandium.AiProviderRepository.getActiveKey()
                         if (activeKey.isBlank()) {
                             scope.launch {
                                 val action = snackbarHostState.showSnackbar(

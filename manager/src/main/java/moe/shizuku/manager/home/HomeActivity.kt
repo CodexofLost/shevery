@@ -32,11 +32,9 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -59,7 +57,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -74,7 +71,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.neverEqualPolicy
@@ -94,11 +90,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
-import androidx.core.text.HtmlCompat
 import moe.shizuku.manager.BuildConfig
 import moe.shizuku.manager.Helps
 import moe.shizuku.manager.R
-import moe.shizuku.manager.about.AboutActivity
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.app.AppActivity
@@ -106,14 +100,14 @@ import moe.shizuku.manager.management.ApplicationManagementActivity
 import moe.shizuku.manager.module.AdbModuleManager
 import moe.shizuku.manager.module.update.SheveryAppUpdateDialog
 import moe.shizuku.manager.module.update.SheveryAppUpdateResult
-
 import moe.shizuku.manager.management.appsViewModel
 import moe.shizuku.manager.model.ServiceStatus
-
 import moe.shizuku.manager.shell.ShellTutorialActivity
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.starter.StarterActivity
 import moe.shizuku.manager.worker.WifiDebugReassert
+import moe.shizuku.manager.ui.compose.HtmlText
+import moe.shizuku.manager.ui.compose.htmlToPlainText
 import moe.shizuku.manager.ui.compose.ShizukuIcon
 import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import androidx.compose.animation.fadeIn
@@ -123,12 +117,9 @@ import androidx.compose.animation.core.tween
 import moe.shizuku.manager.utils.CustomTabsHelper
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.UserHandleCompat
-import moe.shizuku.manager.ui.compose.ExpressiveCard
 import moe.shizuku.manager.ui.compose.ExpressiveFloatingNavigationBar
-import moe.shizuku.manager.ui.compose.HtmlText
 import moe.shizuku.manager.ui.compose.MonospaceLog
 import moe.shizuku.manager.ui.compose.NavItem
-import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import rikka.core.util.ClipboardUtils
 import rikka.lifecycle.Resource
 import rikka.lifecycle.Status
@@ -375,10 +366,8 @@ abstract class HomeActivity : AppActivity() {
                             showTcpPromptDialog = false
                         },
                         title = {
-                            Text(
-                                text = stringResource(R.string.tcp_prompt_dialog_title),
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold
+                            DialogTitleText(
+                                text = stringResource(R.string.tcp_prompt_dialog_title)
                             )
                         },
                         text = {
@@ -471,10 +460,8 @@ abstract class HomeActivity : AppActivity() {
                     AlertDialog(
                         onDismissRequest = { showStopDialog = false },
                         title = {
-                            Text(
-                                text = stringResource(R.string.action_stop),
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold
+                            DialogTitleText(
+                                text = stringResource(R.string.action_stop)
                             )
                         },
                         text = {
@@ -527,10 +514,8 @@ abstract class HomeActivity : AppActivity() {
                     AlertDialog(
                         onDismissRequest = { showAdbCommandDialog = false },
                         title = {
-                            Text(
-                                text = stringResource(R.string.home_adb_button_view_command),
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold
+                            DialogTitleText(
+                                text = stringResource(R.string.home_adb_button_view_command)
                             )
                         },
                         text = {
@@ -677,10 +662,6 @@ abstract class HomeActivity : AppActivity() {
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         menu.clear()
         return false
-    }
-
-    private fun showAboutDialog() {
-        startActivity(Intent(this, AboutActivity::class.java))
     }
 
     private fun startRoot() {
@@ -1354,8 +1335,8 @@ private fun AdbCommandCard(
 ) {
     HomeCard(
         icon = R.drawable.ic_adb_24dp,
-        title = htmlStringResource(R.string.home_adb_title),
-        body = htmlStringResource(R.string.home_adb_description, Helps.ADB.get())
+        title = HtmlText(R.string.home_adb_title),
+        body = HtmlText(R.string.home_adb_description, Helps.ADB.get())
     ) {
         HomeButtons(
             listOf(
@@ -1558,16 +1539,6 @@ private fun ButtonIcon(@DrawableRes icon: Int) {
     )
 }
 
-@Composable
-private fun htmlStringResource(@StringRes id: Int, vararg formatArgs: Any): String {
-    val raw = stringResource(id, *formatArgs)
-    return remember(raw) { htmlToPlainText(raw) }
-}
-
-private fun htmlToPlainText(value: String): String {
-    return HtmlCompat.fromHtml(value, HtmlCompat.FROM_HTML_MODE_LEGACY).toString().trim()
-}
-
 private fun buildServiceSummary(context: android.content.Context, status: ServiceStatus): String {
     if (!status.isRunning) return ""
 
@@ -1621,8 +1592,8 @@ private fun buildDiagnostics(
 private fun RootCard(onStartRoot: () -> Unit) {
     HomeCard(
         icon = R.drawable.ic_server_start_24dp,
-        title = htmlStringResource(R.string.home_root_title),
-        body = htmlStringResource(R.string.home_root_description, Helps.SUI.get())
+        title = HtmlText(R.string.home_root_title),
+        body = HtmlText(R.string.home_root_description, Helps.SUI.get())
     ) {
         HomeButtons(
             listOf(
@@ -1641,8 +1612,8 @@ private fun RootCard(onStartRoot: () -> Unit) {
 private fun DhizukuCard(onStartDhizuku: () -> Unit) {
     HomeCard(
         icon = R.drawable.ic_system_icon,
-        title = htmlStringResource(R.string.home_dhizuku_title),
-        body = htmlStringResource(R.string.home_dhizuku_description)
+        title = HtmlText(R.string.home_dhizuku_title),
+        body = HtmlText(R.string.home_dhizuku_description)
     ) {
         HomeButtons(
             listOf(
@@ -1655,4 +1626,13 @@ private fun DhizukuCard(onStartDhizuku: () -> Unit) {
             )
         )
     }
+}
+
+@Composable
+private fun DialogTitleText(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.headlineSmall,
+        fontWeight = FontWeight.Bold
+    )
 }

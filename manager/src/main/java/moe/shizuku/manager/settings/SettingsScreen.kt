@@ -19,7 +19,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.horizontalScroll
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,14 +29,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -52,8 +49,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import moe.shizuku.manager.R
@@ -76,6 +71,7 @@ import moe.shizuku.manager.starter.StarterActivity
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.ui.compose.GroupDivider
 import moe.shizuku.manager.ui.compose.MonospaceLog
+import moe.shizuku.manager.ui.compose.SectionHeader
 import moe.shizuku.manager.ui.compose.SettingsGroup
 import moe.shizuku.manager.ui.compose.SettingsRow
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
@@ -88,8 +84,6 @@ import rikka.material.app.LocaleDelegate
 import rikka.shizuku.Shizuku
 import rikka.shizuku.manager.ShizukuLocales
 import java.util.Locale
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -101,7 +95,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Lifecycle.State
 import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
-import moe.shizuku.manager.utils.AiClient
 import moe.shizuku.manager.utils.AiExplainUtil
 
 
@@ -934,17 +927,6 @@ fun SettingsScreen(
             shape = MaterialTheme.shapes.extraLarge
         )
     }
-}
-
-@Composable
-private fun SectionHeader(title: String) {
-    Text(
-        text = title,
-        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 14.dp, bottom = 4.dp),
-        style = MaterialTheme.typography.labelLarge,
-        color = MaterialTheme.colorScheme.primary,
-        fontWeight = FontWeight.SemiBold
-    )
 }
 
 private data class LocaleOption(
