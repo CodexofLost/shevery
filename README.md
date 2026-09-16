@@ -158,5 +158,5 @@ Follow this steps:
 > [!CAUTION]
 > **Free App Notice**
 > 
-> * **English:** Shevery is a **completely free app**. Do not pay any third-party file managers or cloud services to download this application.
+>  Shevery is a **completely free app**. Do not pay any third-party file managers or cloud services to download this application.
 
