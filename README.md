@@ -156,8 +156,9 @@ Follow this steps:
 - Add sources and Release with module.
 
 > [!CAUTION]
-> **Free App Notice / 官方免费应用声明**
-> 
-> * **English:** Shevery is a **completely free app**. Do not pay any third-party file managers or cloud services to download this application.
-> * **中文:** Shevery 是一款**完全免费的应用 (App)**。请勿在任何第三方网盘或付费文件管理器中购买或付费下载本应用，切勿上当受骗！
+> **Free App Notice**
+>
+> * Shevery is a **completely free app**. Do not pay any third-party file managers or cloud services to download this application.
+>
+> **A note on unofficial builds:** we only support builds released from this repository — anything else is used at your own risk.
 
