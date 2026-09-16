@@ -167,6 +167,7 @@ abstract class HomeActivity : AppActivity() {
         val action = pendingLocalNetworkAction
         pendingLocalNetworkAction = null
         if (buildLocalNetworkPermissionState().granted) {
+            EnvironmentUtils.requestIgnoreBatteryOptimizations(this@HomeActivity)
             action?.invoke()
         } else {
             Toast.makeText(this, R.string.home_local_network_permission_denied, Toast.LENGTH_LONG).show()
@@ -733,6 +734,7 @@ abstract class HomeActivity : AppActivity() {
     private fun runWithLocalNetworkAccess(action: () -> Unit) {
         val state = buildLocalNetworkPermissionState()
         if (!state.required || state.granted) {
+            EnvironmentUtils.requestIgnoreBatteryOptimizations(this@HomeActivity)
             action()
             return
         }
