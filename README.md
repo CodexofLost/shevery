@@ -155,8 +155,9 @@ Follow this steps:
 - Add topic "shevery-modules"
 - Add sources and Release with module.
 
-## Attention!
-
-**!!!** *Warning* **!!!**
-I see many shevery clones with renaming like "Shizako+". It's not Shizuku+ (not from thejaustin), it's just renaming of old shevery version. Don't download this for safety, Shevery is free for download.
+> [!CAUTION]
+> **Free App Notice / 官方免费应用声明**
+> 
+> * **English:** Shevery is a **completely free app**. Do not pay any third-party file managers or cloud services to download this application.
+> * **中文:** Shevery 是一款**完全免费的应用 (App)**。请勿在任何第三方网盘或付费文件管理器中购买或付费下载本应用，切勿上当受骗！
 
