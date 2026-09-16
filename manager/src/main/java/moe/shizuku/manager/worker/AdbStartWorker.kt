@@ -1,7 +1,6 @@
 package moe.shizuku.manager.worker
 
 import android.app.KeyguardManager
-import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
@@ -10,7 +9,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.database.ContentObserver
-import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 import android.util.Log
@@ -28,10 +26,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runInterruptible
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
-import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.withTimeoutOrNull
 import moe.shizuku.manager.R
-import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbMdns
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.module.ModuleSettings
@@ -106,14 +102,11 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
         }
 
         /** Banner state matching what will actually happen next: while Wi-Fi is
-         *  the blocker show AWAITING_WIFI; otherwise RUNNING — or, for the
-         *  backing-off worker, AWAITING_RETRY. */
-        fun bannerStateFor(context: Context, retrying: Boolean = false): ShizukuReceiverStarter.WorkerState =
+         *  the blocker show AWAITING_WIFI; otherwise RUNNING. */
+        fun bannerStateFor(context: Context): ShizukuReceiverStarter.WorkerState =
             // Matches the enqueue constraint: parked while no unmetered LAN exists.
             if (!isUnmeteredNetworkAvailable(context)) {
                 ShizukuReceiverStarter.WorkerState.AWAITING_WIFI
-            } else if (retrying) {
-                ShizukuReceiverStarter.WorkerState.AWAITING_RETRY
             } else {
                 ShizukuReceiverStarter.WorkerState.RUNNING
             }

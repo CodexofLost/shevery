@@ -94,40 +94,18 @@ fun AiModelPickerScreen(
         }
         if (defaultModel.isNotBlank()) {
             item {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .selectable(selected = currentModel.isBlank(), onClick = { onSelect("") })
-                        .padding(horizontal =16.dp, vertical =12.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(Modifier.weight(1f)) {
-                        Text(
-                            text = stringResource(R.string.comput_ai_default_model),
-                            maxLines =1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                        Text(
-                            text = defaultModel,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            maxLines =1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                    }
-                    if (currentModel.isBlank()) {
-                        RadioButton(selected = true, onClick = null)
-                    }
-                }
+                ModelRow(
+                    title = stringResource(R.string.comput_ai_default_model),
+                    subtitle = defaultModel,
+                    selected = currentModel.isBlank(),
+                    onClick = { onSelect("") },
+                )
             }
         }
         item {
-            OutlinedTextField(
-                value = query,
-                onValueChange = { query = it },
-                label = { Text(stringResource(R.string.comput_ai_search_models)) },
-                singleLine = true,
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+            ModelSearchField(
+                query = query,
+                onQueryChange = { query = it },
                 modifier = Modifier.fillMaxWidth().padding(horizontal =16.dp, vertical =4.dp),
             )
         }
@@ -142,23 +120,13 @@ fun AiModelPickerScreen(
             }
         }
         items(filtered, key = { it }) { model ->
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .selectable(selected = model == currentModel, onClick = { onSelect(model) })
-                    .padding(horizontal =16.dp, vertical =12.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = model,
-                    modifier = Modifier.weight(1f),
-                    maxLines =2,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                if (model == currentModel) {
-                    RadioButton(selected = true, onClick = null)
-                }
-            }
+            ModelRow(
+                title = model,
+                subtitle = null,
+                selected = model == currentModel,
+                onClick = { onSelect(model) },
+                titleMaxLines =2,
+            )
         }
     }
 }
@@ -333,12 +301,9 @@ fun AiModelSwitcherSheet(
                     modifier = Modifier.padding(horizontal =16.dp),
                 )
             } else {
-                OutlinedTextField(
-                    value = query,
-                    onValueChange = { query = it },
-                    label = { Text(stringResource(R.string.comput_ai_search_models)) },
-                    singleLine = true,
-                    leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+                ModelSearchField(
+                    query = query,
+                    onQueryChange = { query = it },
                     modifier = Modifier.fillMaxWidth().padding(horizontal =16.dp),
                 )
                 Spacer(Modifier.height(8.dp))
@@ -353,53 +318,81 @@ fun AiModelSwitcherSheet(
                     LazyColumn(Modifier.fillMaxWidth().weight(1f)) {
                         if (defaultModel.isNotBlank()) {
                             item(key = "default") {
-                                Row(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .selectable(
-                                            selected = selModel.isBlank(),
-                                            onClick = { onSelect(selectedId, "") },
-                                        )
-                                        .padding(horizontal =16.dp, vertical =12.dp),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                ) {
-                                    Text(
-                                        text = stringResource(R.string.comput_ai_default_model),
-                                        modifier = Modifier.weight(1f),
-                                        maxLines =1,
-                                        overflow = TextOverflow.Ellipsis,
-                                    )
-                                    if (selModel.isBlank()) {
-                                        RadioButton(selected = true, onClick = null)
-                                    }
-                                }
+                                ModelRow(
+                                    title = stringResource(R.string.comput_ai_default_model),
+                                    subtitle = null,
+                                    selected = selModel.isBlank(),
+                                    onClick = { onSelect(selectedId, "") },
+                                    titleMaxLines =1,
+                                )
                             }
                         }
                         items(filtered, key = { it }) { model ->
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .selectable(
-                                        selected = model == selModel,
-                                        onClick = { onSelect(selectedId, model) },
-                                    )
-                                    .padding(horizontal =16.dp, vertical =12.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                            ) {
-                                Text(
-                                    text = model,
-                                    modifier = Modifier.weight(1f),
-                                    maxLines =2,
-                                    overflow = TextOverflow.Ellipsis,
-                                )
-                                if (model == selModel) {
-                                    RadioButton(selected = true, onClick = null)
-                                }
-                            }
+                            ModelRow(
+                                title = model,
+                                subtitle = null,
+                                selected = model == selModel,
+                                onClick = { onSelect(selectedId, model) },
+                                titleMaxLines =2,
+                            )
                         }
+
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun ModelSearchField(
+    query: String,
+    onQueryChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChange,
+        label = { Text(stringResource(R.string.comput_ai_search_models)) },
+        singleLine = true,
+        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+        modifier = modifier,
+    )
+}
+
+@Composable
+private fun ModelRow(
+    title: String,
+    subtitle: String?,
+    selected: Boolean,
+    onClick: () -> Unit,
+    titleMaxLines: Int = 1,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .selectable(selected = selected, onClick = onClick)
+            .padding(horizontal =16.dp, vertical =12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(Modifier.weight(1f)) {
+            Text(
+                text = title,
+                maxLines = titleMaxLines,
+                overflow = TextOverflow.Ellipsis,
+            )
+            if (subtitle != null) {
+                Text(
+                    text = subtitle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines =1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+        }
+        if (selected) {
+            RadioButton(selected = true, onClick = null)
         }
     }
 }

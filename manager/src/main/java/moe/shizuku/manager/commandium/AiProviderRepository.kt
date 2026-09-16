@@ -155,7 +155,7 @@ object AiProviderRepository {
      * models can't answer a plain chat request and are hidden so they can't be
      * picked in the switcher or provider dialog. "image" also catches Google's
      * gemini-*-image and OpenAI's gpt-*-image generation models. */
-    fun isTextModel(model: String): Boolean {
+    private fun isTextModel(model: String): Boolean {
         val slug = model.lowercase()
         val markers = listOf(
             "deep-research", "computer-use", "antigravity", "-live", "live-",
