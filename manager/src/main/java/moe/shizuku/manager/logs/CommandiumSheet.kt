@@ -25,7 +25,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.ContentCopy
 import androidx.compose.material.icons.rounded.ErrorOutline
@@ -141,7 +140,7 @@ fun CommandiumSheet(
             )
 
             val activeProvider = moe.shizuku.manager.commandium.AiProviderRepository.getActive()
-            val activeKey = activeProvider?.let { moe.shizuku.manager.commandium.AiProviderRepository.getKey(it.id) } ?: ""
+            val activeKey = moe.shizuku.manager.commandium.AiProviderRepository.getActiveKey()
             val activeLabel = when {
                 activeProvider == null || activeKey.isBlank() ->
                     stringResource(R.string.comput_ai_chip_active, stringResource(R.string.comput_ai_key_missing))
@@ -248,16 +247,6 @@ fun CommandiumSheet(
                 shape = RoundedCornerShape(20.dp),
                 label = { Text(stringResource(R.string.comput_commandium_label)) },
                 placeholder = { Text(stringResource(R.string.comput_commandium_placeholder)) },
-                trailingIcon = {
-                    IconButton(
-                        onClick = { requestCommandium() }
-                    ) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Rounded.Send,
-                            contentDescription = stringResource(R.string.comput_command_send)
-                        )
-                    }
-                },
                 keyboardOptions = KeyboardOptions(
                     imeAction = ImeAction.Send
                 ),

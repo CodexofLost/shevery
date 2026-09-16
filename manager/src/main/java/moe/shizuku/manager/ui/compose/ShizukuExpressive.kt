@@ -26,11 +26,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
+
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.asPaddingValues
@@ -43,9 +42,7 @@ import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
@@ -67,14 +64,12 @@ import androidx.compose.material.icons.rounded.Code
 import androidx.compose.material.icons.rounded.ContentCopy
 import androidx.compose.material.icons.rounded.DarkMode
 import androidx.compose.material.icons.rounded.DeveloperMode
-import androidx.compose.material.icons.rounded.HelpOutline
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.LooksOne
 import androidx.compose.material.icons.rounded.Link
 import androidx.compose.material.icons.rounded.LightMode
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material.icons.rounded.NotificationsActive
-import androidx.compose.material.icons.rounded.OpenInNew
 import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material.icons.rounded.School
@@ -83,12 +78,11 @@ import androidx.compose.material.icons.rounded.Terminal
 import androidx.compose.material.icons.rounded.Translate
 import androidx.compose.material.icons.rounded.Warning
 import androidx.compose.material.icons.rounded.Wifi
-import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.FilledTonalButton
+
 import androidx.compose.material3.FloatingToolbarDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.HorizontalFloatingToolbar
@@ -105,7 +99,7 @@ import androidx.compose.ui.semantics.selected
 import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MotionScheme
-import androidx.compose.material3.OutlinedButton
+
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
@@ -151,14 +145,6 @@ import androidx.compose.ui.unit.dp
 import androidx.core.text.HtmlCompat
 import moe.shizuku.manager.R
 import moe.shizuku.manager.app.ThemeHelper
-
-data class ExpressiveButtonSpec(
-    @param:StringRes val label: Int,
-    @param:DrawableRes val icon: Int,
-    val primary: Boolean = false,
-    val enabled: Boolean = true,
-    val onClick: () -> Unit
-)
 
 val LocalFloatingNavBarVisible = compositionLocalOf<MutableState<Boolean>> {
     mutableStateOf(true)
@@ -533,47 +519,6 @@ fun ExpressiveCard(
 }
 
 @Composable
-fun ExpressiveButtons(buttons: List<ExpressiveButtonSpec>) {
-    if (buttons.isEmpty()) return
-
-    Spacer(Modifier.height(8.dp))
-    FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-        buttons.forEach { button ->
-            if (button.primary) {
-                Button(
-                    enabled = button.enabled,
-                    onClick = button.onClick,
-                    contentPadding = PaddingValues(horizontal = 14.dp, vertical = 10.dp)
-                ) {
-                    ButtonIcon(button.icon)
-                    Text(stringResource(button.label))
-                }
-            } else if (button.enabled) {
-                FilledTonalButton(
-                    onClick = button.onClick,
-                    contentPadding = PaddingValues(horizontal = 14.dp, vertical = 10.dp)
-                ) {
-                    ButtonIcon(button.icon)
-                    Text(stringResource(button.label))
-                }
-            } else {
-                OutlinedButton(
-                    enabled = false,
-                    onClick = button.onClick,
-                    contentPadding = PaddingValues(horizontal = 14.dp, vertical = 10.dp)
-                ) {
-                    ButtonIcon(button.icon)
-                    Text(stringResource(button.label))
-                }
-            }
-        }
-    }
-}
-
-@Composable
 fun SettingsGroup(
     title: String,
     content: @Composable () -> Unit
@@ -775,17 +720,6 @@ fun HtmlText(@StringRes id: Int, vararg formatArgs: Any): String {
 
 fun htmlToPlainText(value: String): String {
     return HtmlCompat.fromHtml(value, HtmlCompat.FROM_HTML_MODE_LEGACY).toString().trim()
-}
-
-@Composable
-private fun ButtonIcon(@DrawableRes icon: Int) {
-    ShizukuIcon(
-        icon = icon,
-        contentDescription = null,
-        modifier = Modifier
-            .padding(end = 8.dp)
-            .size(18.dp)
-    )
 }
 
 @Composable

@@ -3,7 +3,6 @@ package moe.shizuku.manager.worker
 import android.content.Context
 import android.provider.Settings
 import android.util.Log
-import moe.shizuku.manager.AppConstants
 import moe.shizuku.manager.module.ModuleSettings
 
 // Gated wireless-debugging flag re-arm for ROMs that clear adb_wifi_enabled

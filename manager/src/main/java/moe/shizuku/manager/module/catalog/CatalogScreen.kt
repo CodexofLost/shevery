@@ -11,6 +11,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.runtime.DisposableEffect
 import moe.shizuku.manager.ui.compose.LocalFloatingNavBarVisible
 import androidx.compose.foundation.BorderStroke
@@ -33,13 +34,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.ArrowBack
-import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material.icons.rounded.Update
 import androidx.compose.material3.AlertDialog
@@ -54,14 +50,9 @@ import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SegmentedButton
-import androidx.compose.material3.SegmentedButtonDefaults
-import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -75,6 +66,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -228,6 +220,7 @@ fun CatalogScreen(onNavigateUp: () -> Unit) {
                     onViewOnGitHub = {
                         context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.repoUrl)))
                     },
+                    onEditToken = { showTokenDialog = true },
                     onNavigateUp = onNavigateUp
                 )
             }
@@ -353,6 +346,7 @@ private fun CatalogListScreen(
     onCardClick: (DiscoveredModule) -> Unit,
     onInstall: (DiscoveredModule) -> Unit,
     onViewOnGitHub: (DiscoveredModule) -> Unit,
+    onEditToken: () -> Unit,
     onNavigateUp: () -> Unit
 ) {
     ShizukuLazyScaffold(
@@ -395,6 +389,15 @@ private fun CatalogListScreen(
                 Surface(modifier = Modifier.fillMaxWidth(), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surfaceContainerLow, tonalElevation = 1.dp) {
                     Column(modifier = Modifier.padding(20.dp)) {
                         Text(stringResource(R.string.modules_catalog_empty), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Medium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            FilledTonalButton(onClick = onRefresh) {
+                                Text(stringResource(R.string.modules_catalog_empty_retry), style = MaterialTheme.typography.labelLarge)
+                            }
+                            OutlinedButton(onClick = onEditToken) {
+                                Text(stringResource(R.string.modules_catalog_empty_token), style = MaterialTheme.typography.labelLarge)
+                            }
+                        }
                     }
                 }
             }
@@ -708,12 +711,25 @@ private fun CatalogAvatar(ownerAvatar: String, moduleName: String, modifier: Mod
 private fun TokenInputDialog(onDismiss: () -> Unit, onTokenSet: (String) -> Unit) {
     var tokenInput by remember { mutableStateOf("") }
     val showWarning = tokenInput.isNotBlank() && !TokenStore.isValidTokenFormat(tokenInput)
+    val uriHandler = LocalUriHandler.current
+    val tokenUrl = "https://github.com/settings/tokens"
+    val descriptionWithLink = buildAnnotatedString {
+        append(stringResource(R.string.modules_catalog_token_description))
+        append("\n")
+        pushStringAnnotation(tag = "URL", annotation = tokenUrl)
+        withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary, textDecoration = TextDecoration.Underline)) {
+            append(tokenUrl)
+        }
+        pop()
+    }
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.modules_catalog_token_required)) },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(stringResource(R.string.modules_catalog_token_description), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                ClickableText(text = descriptionWithLink, style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onSurfaceVariant), onClick = { offset ->
+                    descriptionWithLink.getStringAnnotations(tag = "URL", start = offset, end = offset).firstOrNull()?.let { uriHandler.openUri(it.item) }
+                })
                 OutlinedTextField(value = tokenInput, onValueChange = { tokenInput = it }, label = { Text(stringResource(R.string.modules_catalog_token_hint)) }, singleLine = true, modifier = Modifier.fillMaxWidth())
                 if (showWarning) Text(stringResource(R.string.modules_catalog_token_format_warning), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error)
             }

@@ -48,7 +48,7 @@ class SheveryUpdateChecker private constructor() {
 
         try {
             val url = "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases"
-            val request = buildRequest(url, githubPat)
+            val request = buildGitHubRequest(url, githubPat)
             val response = client.newCall(request).execute()
 
             response.use { resp ->
@@ -172,19 +172,6 @@ class SheveryUpdateChecker private constructor() {
     private fun extractRevisionNumber(versionString: String): Int? {
         val rMatch = Regex("(?i)r(\\d+)").find(versionString)
         return rMatch?.groupValues?.get(1)?.toIntOrNull()
-    }
-
-    private fun buildRequest(url: String, githubPat: String?): Request {
-        val builder = Request.Builder()
-            .url(url)
-            .header("Accept", "application/vnd.github+json")
-            .header("X-GitHub-Api-Version", "2022-11-28")
-
-        if (!githubPat.isNullOrBlank()) {
-            builder.header("Authorization", "Bearer $githubPat")
-        }
-
-        return builder.build()
     }
 
     companion object {

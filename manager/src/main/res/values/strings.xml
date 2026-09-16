@@ -442,7 +442,9 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <!-- Module Catalog -->
     <string name="modules_catalog">Catalog</string>
     <string name="modules_catalog_title">Module Catalog</string>
-    <string name="modules_catalog_empty">No modules found</string>
+    <string name="modules_catalog_empty">No modules found — check your token and internet connection, then try again</string>
+    <string name="modules_catalog_empty_retry">Try again</string>
+    <string name="modules_catalog_empty_token">Edit token</string>
     <string name="modules_catalog_sort_newest">Newest</string>
     <string name="modules_catalog_sort_oldest">Oldest</string>
     <string name="modules_catalog_sort_stars">Stars</string>
