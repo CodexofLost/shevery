@@ -24,6 +24,8 @@ object ModuleSettings {
     private const val KEY_DHIZUKU_ENABLED = "shizuku_dhizuku_enabled"
     private const val KEY_VERBOSE_LOGGING = "shizuku_verbose_logging"
     private const val KEY_NOTIFY_DEATH = "shizuku_notify_service_death"
+    private const val KEY_NOTIFY_RECOVERY = "shizuku_notify_recovery"
+    private const val KEY_AUTO_REFRESH_RESUME = "shizuku_auto_refresh_resume"
     private const val KEY_ERROR_PROTECT = "shizuku_error_protect"
     // Legacy watchdog prefs from before the toggle consolidation (PR #186).
     private const val KEY_LEGACY_KEEP_ALIVE = "shizuku_keep_alive"
@@ -236,6 +238,22 @@ object ModuleSettings {
 
     fun setNotifyOnServiceDeath(value: Boolean) {
         ShizukuSettings.getPreferences().edit().putBoolean(KEY_NOTIFY_DEATH, value).apply()
+    }
+
+    fun isNotifyOnRecovery(): Boolean {
+        return ShizukuSettings.getPreferences().getBoolean(KEY_NOTIFY_RECOVERY, false)
+    }
+
+    fun setNotifyOnRecovery(value: Boolean) {
+        ShizukuSettings.getPreferences().edit().putBoolean(KEY_NOTIFY_RECOVERY, value).apply()
+    }
+
+    fun isAutoRefreshOnResume(): Boolean {
+        return ShizukuSettings.getPreferences().getBoolean(KEY_AUTO_REFRESH_RESUME, true)
+    }
+
+    fun setAutoRefreshOnResume(value: Boolean) {
+        ShizukuSettings.getPreferences().edit().putBoolean(KEY_AUTO_REFRESH_RESUME, value).apply()
     }
 
     fun isWatchdogEnabled(): Boolean {

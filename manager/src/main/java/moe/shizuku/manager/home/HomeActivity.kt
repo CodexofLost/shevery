@@ -321,7 +321,6 @@ abstract class HomeActivity : AppActivity() {
                                     onShowAdbCommand = { showAdbCommandDialog = true },
                                     onOpenAdbHelp = { CustomTabsHelper.launchUrlOrCopy(this@HomeActivity, Helps.ADB.get()) },
                                     onOpenAdbPermissionHelp = { CustomTabsHelper.launchUrlOrCopy(this@HomeActivity, Helps.ADB_PERMISSION.get()) },
-                                    onLearnMore = { CustomTabsHelper.launchUrlOrCopy(this@HomeActivity, Helps.HOME.get()) },
                                     onCopyDiagnostics = { copyDiagnostics(it) },
                                     onRequestLocalNetworkPermission = {
                                         requestLocalNetworkPermission { permissionRefreshTick.intValue++ }
@@ -646,7 +645,9 @@ abstract class HomeActivity : AppActivity() {
 
     override fun onResume() {
         super.onResume()
-        checkServerStatus()
+        if (ModuleSettings.isAutoRefreshOnResume()) {
+            checkServerStatus()
+        }
         permissionRefreshTick.intValue++
     }
 
@@ -831,7 +832,6 @@ private fun HomeScreen(
     onShowAdbCommand: () -> Unit,
     onOpenAdbHelp: () -> Unit,
     onOpenAdbPermissionHelp: () -> Unit,
-    onLearnMore: () -> Unit,
     onCopyDiagnostics: (String) -> Unit,
     onRequestLocalNetworkPermission: () -> Unit,
     onStartDhizuku: () -> Unit,
@@ -856,8 +856,11 @@ private fun HomeScreen(
             }
         }
     }
-    val diagnostics = remember(status, grantedCount, localNetworkPermissionState) {
-        buildDiagnostics(context, status, grantedCount, localNetworkPermissionState)
+    val watchdogEnabled = ModuleSettings.isWatchdogEnabled()
+    val tcpMode = ShizukuSettings.isTcpMode()
+    val launchMode = ShizukuSettings.getLastLaunchMode()
+    val diagnostics = remember(status, grantedCount, localNetworkPermissionState, isRooted, watchdogEnabled, dhizukuEnabled, tcpMode, launchMode) {
+        buildDiagnostics(context, status, grantedCount, localNetworkPermissionState, isRooted, watchdogEnabled, dhizukuEnabled, tcpMode, launchMode)
     }
     val scope = rememberCoroutineScope()
     var isRefreshing by remember { mutableStateOf(false) }
@@ -1046,15 +1049,6 @@ private fun HomeScreen(
                 DiagnosticsCard(
                     diagnostics = diagnostics,
                     onCopyDiagnostics = onCopyDiagnostics
-                )
-            }
-
-            item {
-                SimpleActionCard(
-                    icon = R.drawable.ic_learn_more_24dp,
-                    title = stringResource(R.string.home_learn_more_title),
-                    body = stringResource(R.string.home_learn_more_description),
-                    onClick = onLearnMore
                 )
             }
         }
@@ -1566,7 +1560,12 @@ private fun buildDiagnostics(
     context: android.content.Context,
     status: ServiceStatus,
     grantedCount: Int,
-    localNetworkPermissionState: LocalNetworkPermissionState
+    localNetworkPermissionState: LocalNetworkPermissionState,
+    isRooted: Boolean,
+    watchdogEnabled: Boolean,
+    dhizukuEnabled: Boolean,
+    tcpMode: Boolean,
+    launchMode: ShizukuSettings.LaunchMethod
 ): String {
     val versionName = context.packageManager.getPackageInfo(context.packageName, 0).versionName
     val localNetwork = if (localNetworkPermissionState.required) {
@@ -1575,10 +1574,21 @@ private fun buildDiagnostics(
     } else {
         context.getString(R.string.diagnostics_not_required)
     }
+    fun onOff(enabled: Boolean) = if (enabled) {
+        context.getString(R.string.diagnostics_enabled)
+    } else {
+        context.getString(R.string.diagnostics_disabled)
+    }
+    val lastLaunch = if (launchMode == ShizukuSettings.LaunchMethod.UNKNOWN) {
+        context.getString(R.string.diagnostics_unknown)
+    } else {
+        launchMode.name.lowercase()
+    }
 
     return buildString {
         appendLine("${context.getString(R.string.diagnostics_app)}: ${context.getString(R.string.app_name)} $versionName (${BuildConfig.VERSION_CODE})")
         appendLine("${context.getString(R.string.diagnostics_android)}: ${Build.VERSION.RELEASE} / SDK ${Build.VERSION.SDK_INT} / ${Build.VERSION.CODENAME}")
+        appendLine("${context.getString(R.string.diagnostics_device)}: ${Build.MANUFACTURER} ${Build.MODEL}")
         appendLine("${context.getString(R.string.diagnostics_service)}: ${if (status.isRunning) context.getString(R.string.diagnostics_running) else context.getString(R.string.diagnostics_stopped)}")
         appendLine("${context.getString(R.string.diagnostics_server_uid)}: ${status.uid}")
         appendLine("${context.getString(R.string.diagnostics_server_api)}: ${status.apiVersion}.${status.patchVersion}")
@@ -1586,6 +1596,11 @@ private fun buildDiagnostics(
         appendLine("${context.getString(R.string.diagnostics_adb_permission)}: ${if (status.permission) context.getString(R.string.diagnostics_full) else context.getString(R.string.diagnostics_limited)}")
         appendLine("${context.getString(R.string.diagnostics_authorized_apps)}: $grantedCount")
         appendLine("${context.getString(R.string.diagnostics_local_network)}: $localNetwork")
+        appendLine("${context.getString(R.string.diagnostics_error_protect)}: ${onOff(watchdogEnabled)}")
+        appendLine("${context.getString(R.string.diagnostics_dhizuku_mode)}: ${onOff(dhizukuEnabled)}")
+        appendLine("${context.getString(R.string.diagnostics_tcp_mode)}: ${onOff(tcpMode)}")
+        appendLine("${context.getString(R.string.diagnostics_launch_mode)}: $lastLaunch")
+        appendLine("${context.getString(R.string.diagnostics_root)}: ${if (isRooted) context.getString(R.string.diagnostics_available) else context.getString(R.string.diagnostics_unavailable)}")
     }.trim()
 }
 

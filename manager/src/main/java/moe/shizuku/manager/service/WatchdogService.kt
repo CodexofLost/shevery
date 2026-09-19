@@ -193,6 +193,7 @@ class WatchdogService : Service() {
             val recovered = WatchdogManager.waitForBinder(15_000L)
             if (recovered) {
                 logi("ErrorProtect: Shevery service recovered after restart")
+                WatchdogManager.showRecoveryNotificationIfEnabled(applicationContext)
             } else {
                 logw("ErrorProtect: restart attempted but binder is still dead")
                 if (moe.shizuku.manager.module.ModuleSettings.isNotifyOnServiceDeath()) {
@@ -323,6 +324,7 @@ class WatchdogService : Service() {
             val recovered = WatchdogManager.waitForBinder(15_000L)
             if (recovered) {
                 logi("ErrorProtect: Shevery service recovered after heartbeat restart")
+                WatchdogManager.showRecoveryNotificationIfEnabled(applicationContext)
             } else {
                 logw("ErrorProtect: heartbeat restart attempted but binder is still dead")
                 if (moe.shizuku.manager.module.ModuleSettings.isNotifyOnServiceDeath()) {
