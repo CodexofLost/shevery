@@ -1565,7 +1565,7 @@ private fun buildDiagnostics(
     watchdogEnabled: Boolean,
     dhizukuEnabled: Boolean,
     tcpMode: Boolean,
-    launchMode: ShizukuSettings.LaunchMethod
+    launchMode: Int
 ): String {
     val versionName = context.packageManager.getPackageInfo(context.packageName, 0).versionName
     val localNetwork = if (localNetworkPermissionState.required) {
@@ -1579,10 +1579,11 @@ private fun buildDiagnostics(
     } else {
         context.getString(R.string.diagnostics_disabled)
     }
-    val lastLaunch = if (launchMode == ShizukuSettings.LaunchMethod.UNKNOWN) {
-        context.getString(R.string.diagnostics_unknown)
-    } else {
-        launchMode.name.lowercase()
+    val lastLaunch = when (launchMode) {
+        ShizukuSettings.LaunchMethod.ROOT -> "root"
+        ShizukuSettings.LaunchMethod.ADB -> "adb"
+        ShizukuSettings.LaunchMethod.DHIZUKU -> "dhizuku"
+        else -> context.getString(R.string.diagnostics_unknown)
     }
 
     return buildString {
