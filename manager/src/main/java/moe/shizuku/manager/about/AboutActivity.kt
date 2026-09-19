@@ -114,7 +114,7 @@ class AboutActivity : AppActivity() {
                     item {
                         Spacer(modifier = Modifier.height(24.dp))
                         Text(
-                            text = "© 2026 RikkaApps & Community. Open Source Project.",
+                            text = "Open Source Project",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
                             textAlign = TextAlign.Center,
@@ -250,24 +250,15 @@ class AboutActivity : AppActivity() {
                 summary = "github.com/HmnDev-Tech/shevery",
                 onClick = {
                     CustomTabsHelper.launchUrlOrCopy(context, "https://github.com/HmnDev-Tech/shevery")
-                }
-            )
-            GroupDivider()
-            SettingsRow(
-                icon = R.drawable.ic_baseline_link_24,
-                title = "Website",
-                summary = "shizuku.rikka.app",
-                onClick = {
-                    CustomTabsHelper.launchUrlOrCopy(context, "https://shizuku.rikka.app")
-                }
+               }
             )
             GroupDivider()
             SettingsRow(
                 icon = R.drawable.ic_outline_info_24,
-                title = "Support & Channel",
-                summary = "Join the community support",
+                title = "Channel",
+                summary = "Join the community channel",
                 onClick = {
-                    CustomTabsHelper.launchUrlOrCopy(context, "https://t.me/rikkacommunity")
+                    CustomTabsHelper.launchUrlOrCopy(context, "https://t.me/hmndevtech")
                 }
             )
         }
