@@ -27,11 +27,10 @@ class LabFeaturesActivity : AppActivity() {
 
         setContent {
             var connectorEnabled by remember { mutableStateOf(ModuleSettings.isConnectorEnabled()) }
-            var dhizukuEnabled by remember { mutableStateOf(ModuleSettings.isDhizukuEnabled()) }
             var verboseLogging by remember { mutableStateOf(ModuleSettings.isVerboseLogging()) }
-            var notifyDeath by remember { mutableStateOf(ModuleSettings.isNotifyOnServiceDeath()) }
+            var notifyRecovery by remember { mutableStateOf(ModuleSettings.isNotifyOnRecovery()) }
+            var autoRefresh by remember { mutableStateOf(ModuleSettings.isAutoRefreshOnResume()) }
             var showUnsafeDialog by remember { mutableStateOf(false) }
-            var showDhizukuDialog by remember { mutableStateOf(false) }
 
             ShizukuExpressiveTheme {
                 ShizukuLazyScaffold(
@@ -54,21 +53,6 @@ class LabFeaturesActivity : AppActivity() {
                                     }
                                 }
                             )
-                            GroupDivider()
-                            SwitchSettingsRow(
-                                icon = R.drawable.ic_outline_info_24,
-                                title = stringResource(R.string.dhizuku_mode_title),
-                                summary = stringResource(R.string.dhizuku_mode_summary),
-                                checked = dhizukuEnabled,
-                                onCheckedChange = { enabled ->
-                                    if (enabled) {
-                                        showDhizukuDialog = true
-                                    } else {
-                                        dhizukuEnabled = false
-                                        ModuleSettings.setDhizukuEnabled(false)
-                                    }
-                                }
-                            )
                         }
                     }
 
@@ -76,12 +60,23 @@ class LabFeaturesActivity : AppActivity() {
                         SettingsGroup(title = stringResource(R.string.lab_service_behavior_title)) {
                             SwitchSettingsRow(
                                 icon = R.drawable.ic_outline_notifications_active_24,
-                                title = stringResource(R.string.lab_notify_death_title),
-                                summary = stringResource(R.string.lab_notify_death_summary),
-                                checked = notifyDeath,
+                                title = stringResource(R.string.lab_notify_recovery_title),
+                                summary = stringResource(R.string.lab_notify_recovery_summary),
+                                checked = notifyRecovery,
                                 onCheckedChange = { value ->
-                                    notifyDeath = value
-                                    ModuleSettings.setNotifyOnServiceDeath(value)
+                                    notifyRecovery = value
+                                    ModuleSettings.setNotifyOnRecovery(value)
+                                }
+                            )
+                            GroupDivider()
+                            SwitchSettingsRow(
+                                icon = R.drawable.ic_server_restart,
+                                title = stringResource(R.string.lab_auto_refresh_title),
+                                summary = stringResource(R.string.lab_auto_refresh_summary),
+                                checked = autoRefresh,
+                                onCheckedChange = { value ->
+                                    autoRefresh = value
+                                    ModuleSettings.setAutoRefreshOnResume(value)
                                 }
                             )
                         }
@@ -112,19 +107,6 @@ class LabFeaturesActivity : AppActivity() {
                             showUnsafeDialog = false
                             connectorEnabled = true
                             ModuleSettings.setConnectorEnabled(true)
-                        }
-                    )
-                }
-
-                if (showDhizukuDialog) {
-                    LabWarningDialog(
-                        onDismiss = { showDhizukuDialog = false },
-                        titleRes = R.string.dhizuku_warning_title,
-                        messageRes = R.string.dhizuku_warning_message,
-                        onConfirm = {
-                            showDhizukuDialog = false
-                            dhizukuEnabled = true
-                            ModuleSettings.setDhizukuEnabled(true)
                         }
                     )
                 }

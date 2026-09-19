@@ -222,6 +222,38 @@ object WatchdogManager {
     /** Public so [WatchdogService] can notify when a restart did not recover. */
     fun showDeathNotificationPublic(context: Context) = showDeathNotification(context)
 
+    /** Notify when ErrorProtect recovered the service (gated by the Lab toggle). */
+    fun showRecoveryNotificationIfEnabled(context: Context) {
+        if (!ModuleSettings.isNotifyOnRecovery()) return
+        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                DEATH_CHANNEL_ID,
+                context.getString(R.string.notification_channel_watchdog_death),
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        val intent = Intent(context, MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(
+            context, 0x7F050002, intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val notification = NotificationCompat.Builder(context, DEATH_CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_server_ok_24dp)
+            .setContentTitle(context.getString(R.string.notification_recovery_title))
+            .setContentText(context.getString(R.string.notification_recovery_text))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+            .build()
+
+        notificationManager.notify(NOTIFICATION_ID + 1, notification)
+    }
+
     /** Public so [WatchdogService] can verify recovery after [attemptRestart]. */
     suspend fun waitForBinder(timeoutMs: Long = 10_000L): Boolean = waitForShizukuBinder(timeoutMs)
 

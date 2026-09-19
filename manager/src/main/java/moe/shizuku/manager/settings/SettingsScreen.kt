@@ -77,7 +77,6 @@ import moe.shizuku.manager.ui.compose.SettingsRow
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import moe.shizuku.manager.ui.compose.SwitchSettingsRow
 import moe.shizuku.manager.ui.compose.htmlToPlainText
-import moe.shizuku.manager.utils.CustomTabsHelper
 import rikka.core.util.ResourceUtils
 import rikka.core.util.ClipboardUtils
 import rikka.material.app.LocaleDelegate
@@ -144,6 +143,13 @@ fun SettingsScreen(
     var watchdog by remember {
         mutableStateOf(ModuleSettings.isWatchdogEnabled())
     }
+    var dhizukuEnabled by remember {
+        mutableStateOf(ModuleSettings.isDhizukuEnabled())
+    }
+    var notifyDeath by remember {
+        mutableStateOf(ModuleSettings.isNotifyOnServiceDeath())
+    }
+    var showDhizukuDialog by remember { mutableStateOf(false) }
     var wifiReassert by remember {
         mutableStateOf(ModuleSettings.isWifiReassertEnabled())
     }
@@ -288,6 +294,8 @@ fun SettingsScreen(
                 startOnBoot = ShizukuSettings.getStartOnBoot()
                 adbStartOnBoot = ShizukuSettings.getStartOnBootAdb()
                 watchdog = ModuleSettings.isWatchdogEnabled()
+                dhizukuEnabled = ModuleSettings.isDhizukuEnabled()
+                notifyDeath = ModuleSettings.isNotifyOnServiceDeath()
                 languageTag = prefs.getString(LANGUAGE, "SYSTEM") ?: "SYSTEM"
                 nightMode = ShizukuSettings.getNightMode()
                 blackNightTheme = ThemeHelper.isBlackNightTheme(context)
@@ -327,8 +335,6 @@ fun SettingsScreen(
             stringResource(rikka.core.R.string.follow_system)
         }
     }
-    val contributors = htmlToPlainText(context.getString(R.string.translation_contributors))
-
     LaunchedEffect(recreateTick) {
         if (recreateTick > 0) {
             delay(260)
@@ -447,6 +453,32 @@ fun SettingsScreen(
                 )
                 GroupDivider()
                 SwitchSettingsRow(
+                    icon = R.drawable.ic_outline_info_24,
+                    title = stringResource(R.string.dhizuku_mode_title),
+                    summary = stringResource(R.string.dhizuku_mode_summary),
+                    checked = dhizukuEnabled,
+                    onCheckedChange = { enabled ->
+                        if (enabled) {
+                            showDhizukuDialog = true
+                        } else {
+                            ModuleSettings.setDhizukuEnabled(false)
+                            dhizukuEnabled = false
+                        }
+                    }
+                )
+                GroupDivider()
+                SwitchSettingsRow(
+                    icon = R.drawable.ic_outline_notifications_active_24,
+                    title = stringResource(R.string.lab_notify_death_title),
+                    summary = stringResource(R.string.lab_notify_death_summary),
+                    checked = notifyDeath,
+                    onCheckedChange = { enabled ->
+                        ModuleSettings.setNotifyOnServiceDeath(enabled)
+                        notifyDeath = ModuleSettings.isNotifyOnServiceDeath()
+                    }
+                )
+                GroupDivider()
+                SwitchSettingsRow(
                     icon = R.drawable.ic_adb_24dp,
                     title = stringResource(R.string.settings_wifi_reassert_title),
                     summary = stringResource(R.string.settings_wifi_reassert_summary),
@@ -523,27 +555,6 @@ fun SettingsScreen(
                     title = stringResource(R.string.settings_language),
                     summary = languageSummary,
                     onClick = { showLanguageDialog = true }
-                )
-                GroupDivider()
-                if (contributors.isNotBlank()) {
-                    SettingsRow(
-                        icon = R.drawable.ic_outline_info_24,
-                        title = stringResource(R.string.settings_translation_contributors),
-                        summary = contributors,
-                        onClick = null
-                    )
-                    GroupDivider()
-                }
-                SettingsRow(
-                    icon = R.drawable.ic_baseline_link_24,
-                    title = stringResource(R.string.settings_translation),
-                    summary = stringResource(
-                        R.string.settings_translation_summary,
-                        stringResource(R.string.app_name)
-                    ),
-                    onClick = {
-                        CustomTabsHelper.launchUrlOrCopy(context, context.getString(R.string.translation_url))
-                    }
                 )
             }
         }
@@ -826,6 +837,32 @@ fun SettingsScreen(
             },
             dismissButton = {
                 TextButton(onClick = { pendingTcpModeChange = null }) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            },
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            shape = MaterialTheme.shapes.extraLarge
+        )
+    }
+
+    if (showDhizukuDialog) {
+        AlertDialog(
+            onDismissRequest = { showDhizukuDialog = false },
+            title = { Text(stringResource(R.string.dhizuku_warning_title)) },
+            text = { Text(stringResource(R.string.dhizuku_warning_message)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        ModuleSettings.setDhizukuEnabled(true)
+                        dhizukuEnabled = true
+                        showDhizukuDialog = false
+                    }
+                ) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDhizukuDialog = false }) {
                     Text(stringResource(android.R.string.cancel))
                 }
             },

@@ -337,12 +337,18 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="lab_auto_restart_title">Auto-Restart on Crash</string>
     <string name="lab_auto_restart_summary">Automatically attempt to restart the Shevery service if it crashes unexpectedly</string>
     <string name="lab_notify_death_title">Notify on Service Stop</string>
-    <string name="lab_notify_death_summary">Show a notification when the Shevery service stops unexpectedly (always shown while Watchdog is on).</string>
+    <string name="lab_notify_death_summary">Show a notification when the Shevery service stops unexpectedly (always shown while ErrorProtect(Watchdog) is on).</string>
 
     <!-- Lab Features - Debugging -->
     <string name="lab_debugging_title">Debugging</string>
     <string name="lab_verbose_logging_title">Verbose Logging</string>
     <string name="lab_verbose_logging_summary">Write detailed debug logs to Logcat. Disable in production to save battery</string>
+    <string name="lab_notify_recovery_title">Notify on Auto-Recovery</string>
+    <string name="lab_notify_recovery_summary">Show a notification when ErrorProtect(Watchdog) successfully restarts the service</string>
+    <string name="lab_auto_refresh_title">Refresh Status on Resume</string>
+    <string name="lab_auto_refresh_summary">Re-check the service status every time the home screen is opened</string>
+    <string name="notification_recovery_title">Shevery Service Recovered</string>
+    <string name="notification_recovery_text">ErrorProtect restarted the Shevery service successfully.</string>
     <string name="notification_channel_watchdog">Service Watchdog</string>
     <string name="notification_channel_watchdog_death">Watchdog alert</string>
     <string name="notification_watchdog_title">Shevery Service Stopped</string>
@@ -655,9 +661,19 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="diagnostics_full">full</string>
     <string name="diagnostics_limited">limited</string>
     <string name="diagnostics_unknown">unknown</string>
+    <string name="diagnostics_device">Device</string>
+    <string name="diagnostics_error_protect">ErrorProtect</string>
+    <string name="diagnostics_dhizuku_mode">Dhizuku mode</string>
+    <string name="diagnostics_tcp_mode">TCP mode</string>
+    <string name="diagnostics_launch_mode">Last launch</string>
+    <string name="diagnostics_root">Root</string>
+    <string name="diagnostics_enabled">enabled</string>
+    <string name="diagnostics_disabled">disabled</string>
+    <string name="diagnostics_available">available</string>
+    <string name="diagnostics_unavailable">unavailable</string>
 
     <!-- ErrorProtect &amp; TCP 5555 -->
-    <string name="error_protect_title">Watchdog</string>
+    <string name="error_protect_title">ErrorProtect(Watchdog)</string>
     <string name="error_protect_summary">Check process health and transactional errors every 10 seconds. Automatically stops and restarts Shevery if issues are found.</string>
     <string name="settings_wifi_reassert_title">Re-assert wireless debugging</string>
     <string name="settings_wifi_reassert_summary">Off by default. Restores the wireless debugging flag if the ROM cleared it (at ADB start and Wi-Fi reconnect). Never turns it off.</string>
