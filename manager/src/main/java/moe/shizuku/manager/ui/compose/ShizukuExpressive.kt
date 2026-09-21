@@ -21,11 +21,13 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.expandHorizontally
 import androidx.compose.animation.shrinkHorizontally
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.Spacer
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -84,7 +86,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 
 import androidx.compose.material3.FloatingToolbarDefaults
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.HorizontalFloatingToolbar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -384,9 +385,9 @@ fun ShizukuLazyScaffold(
     navigationIcon: Int = R.drawable.ic_arrow_back_24,
     @StringRes navigationContentDescription: Int = R.string.accessibility_navigate_up,
     actions: @Composable RowScope.() -> Unit = {},
-    contentPadding: PaddingValues = PaddingValues(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 16.dp),
+    contentPadding: PaddingValues = PaddingValues(start = 16.dp, top = 12.dp, end = 16.dp, bottom = 16.dp),
     bottomInset: Dp = 0.dp,
-    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(10.dp),
+    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(12.dp),
     isRefreshing: Boolean = false,
     onRefresh: (() -> Unit)? = null,
     listState: LazyListState = rememberLazyListState(),
@@ -527,15 +528,14 @@ fun SettingsGroup(
         Text(
             text = title,
             modifier = Modifier.padding(horizontal = 4.dp),
-            style = MaterialTheme.typography.labelLarge,
+            style = MaterialTheme.typography.titleSmall,
             color = MaterialTheme.colorScheme.primary,
             fontWeight = FontWeight.SemiBold
         )
         Surface(
             modifier = Modifier.fillMaxWidth(),
             shape = MaterialTheme.shapes.extraLarge,
-            color = MaterialTheme.colorScheme.surfaceContainer,
-            tonalElevation = 1.dp
+            color = MaterialTheme.colorScheme.surfaceContainerHigh
         ) {
             Column {
                 content()
@@ -549,7 +549,7 @@ fun SectionHeader(title: String) {
     Text(
         text = title,
         modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 14.dp, bottom = 4.dp),
-        style = MaterialTheme.typography.labelLarge,
+        style = MaterialTheme.typography.titleSmall,
         color = MaterialTheme.colorScheme.primary,
         fontWeight = FontWeight.SemiBold
     )
@@ -582,12 +582,22 @@ fun SettingsRow(
         verticalAlignment = Alignment.CenterVertically
     ) {
         if (icon != null) {
-            ShizukuIcon(
-                icon = icon,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.size(24.dp)
-            )
+            Box(
+                modifier = Modifier
+                    .size(40.dp)
+                    .background(
+                        MaterialTheme.colorScheme.primaryContainer,
+                        CircleShape
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                ShizukuIcon(
+                    icon = icon,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.size(22.dp)
+                )
+            }
         }
         Column(
             modifier = Modifier.weight(1f),
@@ -643,9 +653,11 @@ fun SwitchSettingsRow(
 
 @Composable
 fun GroupDivider() {
-    HorizontalDivider(
-        modifier = Modifier.padding(start = 56.dp),
-        color = MaterialTheme.colorScheme.outlineVariant
+    Spacer(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(2.dp)
+            .background(MaterialTheme.colorScheme.surface)
     )
 }
 
