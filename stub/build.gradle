@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "moe.shizuku.privileged.api"
         versionCode 2000000000
-        versionName "13.9.0"
+        versionName "14.0.0"
     }
     buildFeatures {
         buildConfig false

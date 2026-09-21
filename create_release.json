@@ -1,8 +1,8 @@
 {
-  "tag_name": "v13.9.0",
+  "tag_name": "v14.0.0",
   "target_commitish": "main",
-  "name": "Shevery v13.9.0",
-  "body": "# Shevery v13.9.0\n\n## What's New\n\n### Full Internationalization & Localization Expansion\n- Added full complete translations for Chinese (Simplified & Traditional), Portuguese, Uzbek, Kyrgyz, Turkish, Arabic, Korean, Farsi, and Hebrew.\n- Updated system `locales_config.xml` for Android 13+ per-app language settings.\n\n### Core System Updates\n- Version bump to 13.9.0.\n- Enhanced privileged service stability and ErrorProtect monitoring.\n\n## Binary Builds\n- `shevery-v13.9.0-release.apk`\n",
+  "name": "Shevery v14.0.0",
+  "body": "# Shevery v14.0.0\n\n## What's New\n\n### Full Internationalization & Localization Expansion\n- Added full complete translations for Chinese (Simplified & Traditional), Portuguese, Uzbek, Kyrgyz, Turkish, Arabic, Korean, Farsi, and Hebrew.\n- Updated system `locales_config.xml` for Android 13+ per-app language settings.\n\n### Core System Updates\n- Version bump to 14.0.0.\n- Enhanced privileged service stability and ErrorProtect monitoring.\n\n## Binary Builds\n- `shevery-v14.0.0-release.apk`\n",
   "draft": false,
   "prerelease": false
 }
