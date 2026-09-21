@@ -575,4 +575,96 @@
     <string name="tcp_prompt_dialog_enable"><![CDATA[启用]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[现在不行]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[不要再提醒我]]></string>
+
+    <!-- AI Providers -->
+    <string name="comput_ai_active"><![CDATA[活跃]]></string>
+    <string name="comput_ai_add_provider"><![CDATA[添加提供商]]></string>
+    <string name="comput_ai_base_url_invalid"><![CDATA[Base URL 必须以 http:// 或 https:// 开头]]></string>
+    <string name="comput_ai_base_url_label"><![CDATA[Base URL]]></string>
+    <string name="comput_ai_base_url_placeholder"><![CDATA[https://openrouter.ai/api/v1/]]></string>
+    <string name="comput_ai_chip_active"><![CDATA[AI：%1$s]]></string>
+    <string name="comput_ai_chip_active_model"><![CDATA[AI：%1$s · %2$s]]></string>
+    <string name="comput_ai_configure_provider"><![CDATA[配置提供商]]></string>
+    <string name="comput_ai_default_model"><![CDATA[默认（推荐）]]></string>
+    <string name="comput_ai_delete_confirm_text"><![CDATA[要移除 %1$s 吗？其保存的 API 密钥也将一并删除。]]></string>
+    <string name="comput_ai_delete_confirm_title"><![CDATA[删除提供商？]]></string>
+    <string name="comput_ai_delete_provider"><![CDATA[删除提供商]]></string>
+    <string name="comput_ai_discover_models"><![CDATA[获取模型]]></string>
+    <string name="comput_ai_discovering"><![CDATA[正在获取模型…]]></string>
+    <string name="comput_ai_edit_provider"><![CDATA[编辑提供商]]></string>
+    <string name="comput_ai_empty_body"><![CDATA[添加一个带 API 密钥的提供商，即可在 Comput 控制台中使用 AI。可从预设开始，或输入自定义端点。]]></string>
+    <string name="comput_ai_empty_title"><![CDATA[尚无 AI 提供商]]></string>
+    <string name="comput_ai_error_hint"><![CDATA[请在设置中检查当前提供商和模型。]]></string>
+    <string name="comput_ai_key_missing"><![CDATA[无 API 密钥]]></string>
+    <string name="comput_ai_key_saved"><![CDATA[API 密钥已保存]]></string>
+    <string name="comput_ai_manager_title"><![CDATA[AI 提供商]]></string>
+    <string name="comput_ai_model_label"><![CDATA[模型]]></string>
+    <string name="comput_ai_model_loading"><![CDATA[正在加载模型…]]></string>
+    <string name="comput_ai_model_placeholder"><![CDATA[输入模型名称]]></string>
+    <string name="comput_ai_model_unavailable"><![CDATA[此服务器未提供模型列表，请手动输入模型名称。]]></string>
+    <string name="comput_ai_models_found"><![CDATA[找到 %1$d 个模型。点击“模型”进行选择。]]></string>
+    <string name="comput_ai_models_none"><![CDATA[此端点没有模型列表，请手动输入模型。]]></string>
+    <string name="comput_ai_name_label"><![CDATA[提供商名称]]></string>
+    <string name="comput_ai_name_placeholder"><![CDATA[例如 OpenRouter、Gemini、自定义]]></string>
+    <string name="comput_ai_no_active_toast"><![CDATA[未配置当前 AI 提供商。请在 设置 → Comput 控制台 → AI 提供商 中添加。]]></string>
+    <string name="comput_ai_no_models_match"><![CDATA[没有匹配的模型]]></string>
+    <string name="comput_ai_no_provider_body"><![CDATA[添加提供商及其 API 密钥即可开始生成命令。]]></string>
+    <string name="comput_ai_no_provider_title"><![CDATA[未配置 AI 提供商]]></string>
+    <string name="comput_ai_pick_model"><![CDATA[选择模型]]></string>
+    <string name="comput_ai_preset_custom"><![CDATA[自定义]]></string>
+    <string name="comput_ai_preset_label"><![CDATA[预设]]></string>
+    <string name="comput_ai_provider_not_configured"><![CDATA[未配置]]></string>
+    <string name="comput_ai_provider_title"><![CDATA[AI 提供商]]></string>
+    <string name="comput_ai_search_models"><![CDATA[搜索模型]]></string>
+    <string name="comput_ai_set_active"><![CDATA[将 %1$s 设为当前提供商]]></string>
+    <string name="comput_ai_setup_hint"><![CDATA[未配置 AI 提供商，点击标签进行设置]]></string>
+    <string name="comput_ai_stage_1"><![CDATA[预设]]></string>
+    <string name="comput_ai_stage_2"><![CDATA[凭据]]></string>
+    <string name="comput_ai_stage_3"><![CDATA[模型]]></string>
+    <string name="comput_ai_switch_fail"><![CDATA[无法加载模型，请检查提供商连接。]]></string>
+    <string name="comput_ai_switch_title"><![CDATA[切换 AI 模型]]></string>
+    <string name="comput_ai_test_connection"><![CDATA[测试连接]]></string>
+    <string name="comput_ai_test_fail"><![CDATA[失败：%1$s]]></string>
+    <string name="comput_ai_test_no_key"><![CDATA[测试前请输入 API 密钥。]]></string>
+    <string name="comput_ai_test_ok"><![CDATA[已连接（%1$d 个模型）]]></string>
+    <string name="comput_ai_test_testing"><![CDATA[正在测试…]]></string>
+
+    <!-- Comput / Commandium -->
+    <string name="comput_command_send"><![CDATA[发送]]></string>
+    <string name="comput_commandium_error"><![CDATA[错误]]></string>
+    <string name="comput_commandium_failed"><![CDATA[生成失败]]></string>
+    <string name="comput_commandium_generating"><![CDATA[正在生成命令…]]></string>
+    <string name="comput_commandium_ready"><![CDATA[命令已生成]]></string>
+    <string name="comput_commandium_recent"><![CDATA[最近的提示]]></string>
+
+    <!-- Diagnostics -->
+    <string name="diagnostics_available"><![CDATA[可用]]></string>
+    <string name="diagnostics_device"><![CDATA[设备]]></string>
+    <string name="diagnostics_dhizuku_mode"><![CDATA[Dhizuku 模式]]></string>
+    <string name="diagnostics_disabled"><![CDATA[已禁用]]></string>
+    <string name="diagnostics_enabled"><![CDATA[已启用]]></string>
+    <string name="diagnostics_error_protect"><![CDATA[ErrorProtect]]></string>
+    <string name="diagnostics_launch_mode"><![CDATA[上次启动]]></string>
+    <string name="diagnostics_root"><![CDATA[Root]]></string>
+    <string name="diagnostics_tcp_mode"><![CDATA[TCP 模式]]></string>
+    <string name="diagnostics_unavailable"><![CDATA[不可用]]></string>
+
+    <!-- Lab Features -->
+    <string name="lab_auto_refresh_summary"><![CDATA[每次打开主界面时重新检查服务状态]]></string>
+    <string name="lab_auto_refresh_title"><![CDATA[恢复时刷新状态]]></string>
+    <string name="lab_notify_recovery_summary"><![CDATA[当 ErrorProtect（看门狗）成功重启服务时显示通知]]></string>
+    <string name="lab_notify_recovery_title"><![CDATA[自动恢复时通知]]></string>
+
+    <!-- Module Catalog -->
+    <string name="modules_catalog_empty_retry"><![CDATA[重试]]></string>
+    <string name="modules_catalog_empty_token"><![CDATA[编辑令牌]]></string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_watchdog_death"><![CDATA[看门狗警报]]></string>
+    <string name="notification_recovery_text"><![CDATA[ErrorProtect 已成功重启 Shevery 服务。]]></string>
+    <string name="notification_recovery_title"><![CDATA[Shevery 服务已恢复]]></string>
+
+    <!-- Wi-Fi -->
+    <string name="settings_wifi_reassert_summary"><![CDATA[默认关闭。当系统清除了无线调试标志时将其恢复（在 ADB 启动和 Wi-Fi 重连时）。不会将其关闭。]]></string>
+    <string name="settings_wifi_reassert_title"><![CDATA[重新设置无线调试]]></string>
 </resources>
