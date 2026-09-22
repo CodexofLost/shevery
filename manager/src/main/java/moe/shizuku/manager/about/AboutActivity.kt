@@ -6,11 +6,13 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -38,6 +40,9 @@ import moe.shizuku.manager.ui.compose.SettingsGroup
 import moe.shizuku.manager.ui.compose.SettingsRow
 import moe.shizuku.manager.ui.compose.GroupDivider
 import moe.shizuku.manager.utils.CustomTabsHelper
+
+private const val ABOUT_ICON_TAP_THRESHOLD = 7
+private const val ABOUT_ICON_TAP_URL = "https://www.youtube.com/watch?v=dQw4w9W9Wqg"
 
 class AboutActivity : AppActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -156,6 +161,7 @@ class AboutActivity : AppActivity() {
     @Composable
     private fun AboutHeader(versionName: String) {
         val context = androidx.compose.ui.platform.LocalContext.current
+        var iconTaps by remember { mutableIntStateOf(0) }
         val appIcon = remember(context) {
             runCatching {
                 val drawable = context.packageManager.getApplicationIcon(context.packageName)
@@ -181,6 +187,13 @@ class AboutActivity : AppActivity() {
                         modifier = Modifier
                             .size(96.dp)
                             .clip(RoundedCornerShape(24.dp))
+                            .clickable {
+                                iconTaps++
+                                if (iconTaps >= ABOUT_ICON_TAP_THRESHOLD) {
+                                    iconTaps = 0
+                                    CustomTabsHelper.launchUrlOrCopy(context, ABOUT_ICON_TAP_URL)
+                                }
+                            }
                     )
                 }
 

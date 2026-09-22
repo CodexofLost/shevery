@@ -347,6 +347,31 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="lab_notify_recovery_summary">Show a notification when ErrorProtect(Watchdog) successfully restarts the service</string>
     <string name="lab_auto_refresh_title">Refresh Status on Resume</string>
     <string name="lab_auto_refresh_summary">Re-check the service status every time the home screen is opened</string>
+
+    <!-- Lab Features - Assistant -->
+    <string name="lab_ai_title">Assistant</string>
+    <string name="lab_ai_explain_title">AI Failure Explanations</string>
+    <string name="lab_ai_explain_summary">When an AI request fails, ask the AI to explain what went wrong in plain language</string>
+
+    <!-- Lab Features - Maintenance -->
+    <string name="lab_maintenance_title">Maintenance</string>
+    <string name="lab_restart_service_title">Restart Service Now</string>
+    <string name="lab_restart_service_summary">Restart the Shevery service using the last launch method</string>
+    <string name="lab_clear_update_title">Dismiss Update Banner</string>
+    <string name="lab_clear_update_summary">Clear a stuck update banner from the home screen</string>
+    <string name="lab_revoke_trusted_title">Revoke Trusted Modules</string>
+    <string name="lab_revoke_trusted_summary">Remove all per-module trust grants; modules fall back to the access mode rules</string>
+    <string name="lab_revoke_trusted_warning_title">Revoke trusted modules?</string>
+    <string name="lab_revoke_trusted_warning_message">All modules will lose their trusted status and will be evaluated against the access mode rules again. Continue?</string>
+
+    <!-- Settings section summaries -->
+    <string name="settings_section_startup_summary">Boot start, watchdog, connection</string>
+    <string name="settings_section_lab_summary">Lab features, backup and restore</string>
+    <string name="settings_section_appearance_summary">Language, dark theme and colors</string>
+    <string name="settings_section_modules_summary">Access mode, background actions, ReCommand</string>
+    <string name="settings_section_updates_summary">Module catalog and app update channel</string>
+    <string name="settings_section_ai_summary">AI provider and recommendations</string>
+    <string name="settings_section_about_summary">Version, licenses and links</string>
     <string name="notification_recovery_title">Shevery Service Recovered</string>
     <string name="notification_recovery_text">ErrorProtect restarted the Shevery service successfully.</string>
     <string name="notification_channel_watchdog">Service Watchdog</string>

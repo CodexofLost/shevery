@@ -8,6 +8,12 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.ChevronRight
+import androidx.compose.material3.Icon
 import moe.shizuku.manager.about.AboutActivity
 import android.os.Build
 import android.text.TextUtils
@@ -95,6 +101,54 @@ import androidx.lifecycle.Lifecycle.State
 import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
 import moe.shizuku.manager.utils.AiExplainUtil
+
+private enum class SettingsSection(
+    @param:StringRes val titleRes: Int,
+    @param:StringRes val summaryRes: Int,
+    @param:DrawableRes val iconRes: Int,
+) {
+    APPLICATION(
+        R.string.settings_application,
+        R.string.settings_section_startup_summary,
+        R.drawable.ic_settings_outline_24dp
+    ),
+    APPEARANCE(
+        R.string.settings_appearance,
+        R.string.settings_section_appearance_summary,
+        R.drawable.ic_outline_dark_mode_24
+    ),
+    MODULES(
+        R.string.modules_settings_title,
+        R.string.settings_section_modules_summary,
+        R.drawable.ic_adb_24dp
+    ),
+    UPDATES(
+        R.string.settings_update_group_title,
+        R.string.settings_section_updates_summary,
+        R.drawable.ic_outline_arrow_upward_24
+    ),
+    AI(
+        R.string.comput_settings,
+        R.string.settings_section_ai_summary,
+        R.drawable.ic_code_24dp
+    ),
+    TOOLS(
+        R.string.settings_sections_title,
+        R.string.settings_section_lab_summary,
+        R.drawable.ic_system_icon
+    ),
+    ABOUT(
+        R.string.action_about,
+        R.string.settings_section_about_summary,
+        R.drawable.ic_outline_info_24
+    ),
+}
+
+private sealed interface SettingsNav {
+    data object Hub : SettingsNav
+    data class Section(val section: SettingsSection) : SettingsNav
+    data object UpdateSettings : SettingsNav
+}
 
 
 @Composable
@@ -211,7 +265,7 @@ fun SettingsScreen(
     var aiProvidersVersion by remember { mutableStateOf(0) }
     var showMissingPermissionDialog by remember { mutableStateOf(false) }
     var recreateTick by remember { mutableIntStateOf(0) }
-    var showUpdateSettings by remember { mutableStateOf(false) }
+    var nav by remember { mutableStateOf<SettingsNav>(SettingsNav.Hub) }
 
     // AI Provider manager replaces the whole Settings screen while open:
     // composing it after the Scaffold stacked a second TopAppBar over this
@@ -343,9 +397,16 @@ fun SettingsScreen(
     }
 
     AnimatedContent(
-        targetState = showUpdateSettings,
+        targetState = nav,
         transitionSpec = {
-            if (targetState) {
+            val forward = when {
+                targetState is SettingsNav.Hub -> false
+                currentState is SettingsNav.Hub -> true
+                targetState is SettingsNav.UpdateSettings -> true
+                currentState is SettingsNav.UpdateSettings -> false
+                else -> true
+            }
+            if (forward) {
                 (slideInHorizontally(animationSpec = tween(300)) { fullWidth -> fullWidth } +
                     fadeIn(animationSpec = tween(300)))
                     .togetherWith(
@@ -361,400 +422,244 @@ fun SettingsScreen(
                     )
             }
         },
-        label = "update-settings"
-    ) { showUpdateSettingsScreen ->
-        if (showUpdateSettingsScreen) {
-            BackHandler { showUpdateSettings = false }
-            moe.shizuku.manager.module.update.UpdateSettingsScreen(
-                onNavigateUp = { showUpdateSettings = false }
-            )
-        } else {
-        ShizukuLazyScaffold(
-            title = stringResource(R.string.settings_title),
-            onNavigateUp = null,
-            bottomInset = 112.dp,
-            listState = listState
-        ) {
-        item {
-            SettingsGroup(title = stringResource(R.string.settings_application)) {
-                SectionHeader(stringResource(R.string.settings_startup))
-                if (rooted) {
-                    SwitchSettingsRow(
-                        icon = R.drawable.ic_server_restart,
-                        title = stringResource(R.string.settings_start_on_boot),
-                        summary = stringResource(R.string.settings_start_on_boot_summary),
-                        checked = startOnBoot,
-                        onCheckedChange = { enabled ->
-                            ShizukuSettings.setStartOnBoot(enabled)
-                            startOnBoot = ShizukuSettings.getStartOnBoot()
-                            packageManager.setComponentEnabled(
-                                componentName,
-                                ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
-                            )
-                            if (enabled) {
-                                EnvironmentUtils.requestIgnoreBatteryOptimizations(context)
-                            }
-                        }
-                    )
-                }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                    SwitchSettingsRow(
-                        icon = R.drawable.ic_wadb_24,
-                        title = stringResource(R.string.settings_start_on_boot_adb),
-                        summary = stringResource(
-                            if (tcpMode) R.string.settings_start_on_boot_adb_summary
-                            else R.string.settings_start_on_boot_adb_summary_no_tcp
-                        ),
-                        checked = adbStartOnBoot,
-                        onCheckedChange = { enabled ->
-                            if (enabled) {
-                                val hasPermission = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
-                                        PackageManager.PERMISSION_GRANTED
-                                if (hasPermission) {
-                                    ShizukuSettings.setStartOnBootAdb(true)
-                                    adbStartOnBoot = true
-                                    packageManager.setComponentEnabled(
-                                        componentName,
-                                        ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
-                                    )
-                                    if (!tcpMode) {
-                                        Toast.makeText(
-                                            context,
-                                            R.string.settings_start_on_boot_adb_warning_no_tcp,
-                                            Toast.LENGTH_LONG
-                                        ).show()
-                                    }
-                                } else {
-                                    showMissingPermissionDialog = true
-                                }
-                            } else {
-                                ShizukuSettings.setStartOnBootAdb(false)
-                                adbStartOnBoot = false
+        label = "settings-nav"
+    ) { current ->
+        when (current) {
+            SettingsNav.UpdateSettings -> {
+                BackHandler { nav = SettingsNav.Section(SettingsSection.UPDATES) }
+                moe.shizuku.manager.module.update.UpdateSettingsScreen(
+                    onNavigateUp = { nav = SettingsNav.Section(SettingsSection.UPDATES) }
+                )
+            }
+            is SettingsNav.Section -> {
+                BackHandler { nav = SettingsNav.Hub }
+                val sectionListState = remember(current.section) { LazyListState() }
+                ShizukuLazyScaffold(
+                    title = stringResource(current.section.titleRes),
+                    onNavigateUp = { nav = SettingsNav.Hub },
+                    bottomInset = 112.dp,
+                    listState = sectionListState
+                ) {
+                    when (current.section) {
+                        SettingsSection.APPLICATION -> applicationSectionContent(
+                            rooted = rooted,
+                            startOnBoot = startOnBoot,
+                            adbStartOnBoot = adbStartOnBoot,
+                            tcpMode = tcpMode,
+                            watchdog = watchdog,
+                            dhizukuEnabled = dhizukuEnabled,
+                            notifyDeath = notifyDeath,
+                            wifiReassert = wifiReassert,
+                            compatStub = compatStub,
+                            autoDisableUsbDebugging = autoDisableUsbDebugging,
+                            onStartOnBootChange = { enabled ->
+                                ShizukuSettings.setStartOnBoot(enabled)
+                                startOnBoot = ShizukuSettings.getStartOnBoot()
                                 packageManager.setComponentEnabled(
                                     componentName,
                                     ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
                                 )
-                            }
-                        }
-                    )
-                }
-                GroupDivider()
-                SectionHeader(stringResource(R.string.settings_service_group))
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_server_restart,
-                    title = stringResource(R.string.error_protect_title),
-                    summary = stringResource(R.string.error_protect_summary),
-                    checked = watchdog,
-                    onCheckedChange = { enabled ->
-                        ModuleSettings.setWatchdogEnabled(enabled)
-                        watchdog = ModuleSettings.isWatchdogEnabled()
-                        moe.shizuku.manager.service.WatchdogManager.reconcileService(context)
-                    }
-                )
-                GroupDivider()
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_outline_info_24,
-                    title = stringResource(R.string.dhizuku_mode_title),
-                    summary = stringResource(R.string.dhizuku_mode_summary),
-                    checked = dhizukuEnabled,
-                    onCheckedChange = { enabled ->
-                        if (enabled) {
-                            showDhizukuDialog = true
-                        } else {
-                            ModuleSettings.setDhizukuEnabled(false)
-                            dhizukuEnabled = false
-                        }
-                    }
-                )
-                GroupDivider()
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_outline_notifications_active_24,
-                    title = stringResource(R.string.lab_notify_death_title),
-                    summary = stringResource(R.string.lab_notify_death_summary),
-                    checked = notifyDeath,
-                    onCheckedChange = { enabled ->
-                        ModuleSettings.setNotifyOnServiceDeath(enabled)
-                        notifyDeath = ModuleSettings.isNotifyOnServiceDeath()
-                    }
-                )
-                GroupDivider()
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_adb_24dp,
-                    title = stringResource(R.string.settings_wifi_reassert_title),
-                    summary = stringResource(R.string.settings_wifi_reassert_summary),
-                    checked = wifiReassert,
-                    onCheckedChange = { enabled ->
-                        ModuleSettings.setWifiReassertEnabled(enabled)
-                        wifiReassert = ModuleSettings.isWifiReassertEnabled()
-                    }
-                )
-                GroupDivider()
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_server_restart,
-                    title = stringResource(R.string.settings_compat_stub),
-                    summary = stringResource(R.string.settings_compat_stub_summary),
-                    checked = compatStub,
-                    onCheckedChange = { enabled ->
-                        scope.launch {
-                            val result = if (enabled) {
-                                StubManager.install(context)
-                            } else {
-                                StubManager.uninstall(context)
-                            }
-                            compatStub = StubManager.isInstalled(context)
-                            if (result.ok) {
-                                ModuleSettings.setCompatibilityStubEnabled(enabled)
-                                val message = if (enabled) {
-                                    context.getString(R.string.settings_compat_stub_installed, result.channel)
-                                } else {
-                                    context.getString(R.string.settings_compat_stub_uninstalled)
+                                if (enabled) {
+                                    EnvironmentUtils.requestIgnoreBatteryOptimizations(context)
                                 }
-                                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-                            } else {
-                                val action = if (enabled) "install" else "uninstall"
-                                val message = if (result.error == "no channel available") {
-                                    context.getString(R.string.settings_compat_stub_none)
+                            },
+                            onAdbStartOnBootChange = { enabled ->
+                                if (enabled) {
+                                    val hasPermission = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
+                                            PackageManager.PERMISSION_GRANTED
+                                    if (hasPermission) {
+                                        ShizukuSettings.setStartOnBootAdb(true)
+                                        adbStartOnBoot = true
+                                        packageManager.setComponentEnabled(
+                                            componentName,
+                                            ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                                        )
+                                        if (!tcpMode) {
+                                            Toast.makeText(
+                                                context,
+                                                R.string.settings_start_on_boot_adb_warning_no_tcp,
+                                                Toast.LENGTH_LONG
+                                            ).show()
+                                        }
+                                    } else {
+                                        showMissingPermissionDialog = true
+                                    }
                                 } else {
-                                    context.getString(R.string.settings_compat_stub_failed, action, result.channel, result.error ?: "unknown")
+                                    ShizukuSettings.setStartOnBootAdb(false)
+                                    adbStartOnBoot = false
+                                    packageManager.setComponentEnabled(
+                                        componentName,
+                                        ShizukuSettings.getStartOnBoot() || ShizukuSettings.getStartOnBootAdb()
+                                    )
                                 }
-                                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                            },
+                            onWatchdogChange = { enabled ->
+                                ModuleSettings.setWatchdogEnabled(enabled)
+                                watchdog = ModuleSettings.isWatchdogEnabled()
+                                moe.shizuku.manager.service.WatchdogManager.reconcileService(context)
+                            },
+                            onDhizukuToggle = { enabled ->
+                                if (enabled) {
+                                    showDhizukuDialog = true
+                                } else {
+                                    ModuleSettings.setDhizukuEnabled(false)
+                                    dhizukuEnabled = false
+                                }
+                            },
+                            onNotifyDeathChange = { enabled ->
+                                ModuleSettings.setNotifyOnServiceDeath(enabled)
+                                notifyDeath = ModuleSettings.isNotifyOnServiceDeath()
+                            },
+                            onWifiReassertChange = { enabled ->
+                                ModuleSettings.setWifiReassertEnabled(enabled)
+                                wifiReassert = ModuleSettings.isWifiReassertEnabled()
+                            },
+                            onCompatStubChange = { enabled ->
+                                scope.launch {
+                                    val result = if (enabled) {
+                                        StubManager.install(context)
+                                    } else {
+                                        StubManager.uninstall(context)
+                                    }
+                                    compatStub = StubManager.isInstalled(context)
+                                    if (result.ok) {
+                                        ModuleSettings.setCompatibilityStubEnabled(enabled)
+                                        val message = if (enabled) {
+                                            context.getString(R.string.settings_compat_stub_installed, result.channel)
+                                        } else {
+                                            context.getString(R.string.settings_compat_stub_uninstalled)
+                                        }
+                                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                                    } else {
+                                        val action = if (enabled) "install" else "uninstall"
+                                        val message = if (result.error == "no channel available") {
+                                            context.getString(R.string.settings_compat_stub_none)
+                                        } else {
+                                            context.getString(R.string.settings_compat_stub_failed, action, result.channel, result.error ?: "unknown")
+                                        }
+                                        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                                    }
+                                }
+                            },
+                            onAutoDisableUsbDebuggingChange = { enabled ->
+                                ShizukuSettings.setAutoDisableUsbDebugging(enabled)
+                                autoDisableUsbDebugging = ShizukuSettings.getAutoDisableUsbDebugging()
+                            },
+                            onTcpModeChange = { enabled ->
+                                if (tcpModeNeedsRestart(enabled)) {
+                                    pendingTcpModeChange = enabled
+                                } else {
+                                    applyTcpMode(enabled)
+                                }
                             }
-                        }
-                    }
-                )
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_adb_24dp,
-                    title = stringResource(R.string.settings_auto_disable_usb_debugging),
-                    summary = stringResource(R.string.settings_auto_disable_usb_debugging_summary),
-                    checked = autoDisableUsbDebugging,
-                    onCheckedChange = { enabled ->
-                        ShizukuSettings.setAutoDisableUsbDebugging(enabled)
-                        autoDisableUsbDebugging = ShizukuSettings.getAutoDisableUsbDebugging()
-                    }
-                )
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_baseline_link_24,
-                    title = stringResource(R.string.settings_tcp_mode),
-                    summary = stringResource(R.string.settings_tcp_mode_summary),
-                    checked = tcpMode,
-                    onCheckedChange = { enabled ->
-                        if (tcpModeNeedsRestart(enabled)) {
-                            pendingTcpModeChange = enabled
-                        } else {
-                            applyTcpMode(enabled)
-                        }
-                    }
-                )
-            }
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.settings_language)) {
-                SettingsRow(
-                    icon = R.drawable.ic_outline_translate_24,
-                    title = stringResource(R.string.settings_language),
-                    summary = languageSummary,
-                    onClick = { showLanguageDialog = true }
-                )
-            }
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.settings_appearance)) {
-                SettingsRow(
-                    icon = R.drawable.ic_outline_dark_mode_24,
-                    title = stringResource(rikka.core.R.string.dark_theme),
-                    summary = nightSummary,
-                    onClick = { showNightDialog = true }
-                )
-                if (nightMode != AppCompatDelegate.MODE_NIGHT_NO) {
-                    GroupDivider()
-                    SwitchSettingsRow(
-                        icon = R.drawable.ic_outline_dark_mode_24,
-                        title = stringResource(R.string.settings_black_night_theme),
-                        summary = stringResource(R.string.settings_black_night_theme_summary),
-                        checked = blackNightTheme,
-                        onCheckedChange = { enabled ->
-                            prefs.edit().putBoolean(KEY_BLACK_NIGHT_THEME, enabled).apply()
-                            blackNightTheme = enabled
-                            if (ResourceUtils.isNightMode(context.resources.configuration)) {
+                        )
+                        SettingsSection.APPEARANCE -> appearanceSectionContent(
+                            languageSummary = languageSummary,
+                            nightSummary = nightSummary,
+                            nightMode = nightMode,
+                            blackNightTheme = blackNightTheme,
+                            useSystemColor = useSystemColor,
+                            onLanguageClick = { showLanguageDialog = true },
+                            onNightClick = { showNightDialog = true },
+                            onBlackNightChange = { enabled ->
+                                prefs.edit().putBoolean(KEY_BLACK_NIGHT_THEME, enabled).apply()
+                                blackNightTheme = enabled
+                                if (ResourceUtils.isNightMode(context.resources.configuration)) {
+                                    recreateTick++
+                                }
+                            },
+                            onUseSystemColorChange = { enabled ->
+                                prefs.edit().putBoolean(KEY_USE_SYSTEM_COLOR, enabled).apply()
+                                useSystemColor = enabled
                                 recreateTick++
                             }
+                        )
+                        SettingsSection.MODULES -> modulesSectionContent(
+                            moduleAccessMode = moduleAccessMode,
+                            moduleBackground = moduleBackground,
+                            recommandWebUi = recommandWebUi,
+                            recommandAction = recommandAction,
+                            onAccessModeClick = { showModuleModeDialog = true },
+                            onCustomPermissionsClick = { showCustomPermissionsDialog = true },
+                            onBackgroundChange = { enabled ->
+                                ModuleSettings.setAllowBackgroundActions(enabled)
+                                moduleBackground = enabled
+                            },
+                            onRecommandWebUiChange = { enabled ->
+                                ModuleSettings.setRecommandForWebUi(enabled)
+                                recommandWebUi = enabled
+                            },
+                            onRecommandActionChange = { enabled ->
+                                ModuleSettings.setRecommandForAction(enabled)
+                                recommandAction = enabled
+                            }
+                        )
+                        SettingsSection.UPDATES -> updatesSectionContent(
+                            onUpdateSettingsClick = { nav = SettingsNav.UpdateSettings }
+                        )
+                        SettingsSection.AI -> aiSectionContent(
+                            aiProvidersVersion = aiProvidersVersion,
+                            computAiBaseUrl = computAiBaseUrl,
+                            computRecommand = computRecommand,
+                            onOpenAiManager = { showAiManager = true },
+                            onComputRecommandChange = { enabled ->
+                                ModuleSettings.setComputRecommandEnabled(enabled)
+                                computRecommand = enabled
+                            }
+                        )
+                        SettingsSection.TOOLS -> toolsSectionContent(
+                            onOpenAccessibility = {
+                                context.startActivity(Intent(context, AccessibilityManagerActivity::class.java))
+                            },
+                            onOpenLab = {
+                                context.startActivity(Intent(context, LabFeaturesActivity::class.java))
+                            },
+                            onBackup = {
+                                backupLauncher.launch("shevery_backup_${System.currentTimeMillis()}.zip")
+                            },
+                            onRestore = {
+                                restoreLauncher.launch(arrayOf("application/zip", "application/octet-stream"))
+                            }
+                        )
+                        SettingsSection.ABOUT -> aboutSectionContent(
+                            onOpenAbout = {
+                                context.startActivity(Intent(context, AboutActivity::class.java))
+                            }
+                        )
+                    }
+                }
+            }
+            SettingsNav.Hub -> {
+                ShizukuLazyScaffold(
+                    title = stringResource(R.string.settings_title),
+                    onNavigateUp = null,
+                    bottomInset = 112.dp,
+                    listState = listState
+                ) {
+                    item {
+                        SettingsGroup(title = "") {
+                            SettingsSection.entries.forEachIndexed { index, section ->
+                                if (index > 0) GroupDivider()
+                                SettingsRow(
+                                    icon = section.iconRes,
+                                    title = stringResource(section.titleRes),
+                                    summary = stringResource(section.summaryRes),
+                                    onClick = { nav = SettingsNav.Section(section) },
+                                    trailing = {
+                                        Icon(
+                                            imageVector = Icons.Rounded.ChevronRight,
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                    }
+                                )
+                            }
                         }
-                    )
+                    }
                 }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                    GroupDivider()
-                    SwitchSettingsRow(
-                        icon = R.drawable.ic_settings_outline_24dp,
-                        title = stringResource(R.string.settings_use_system_color),
-                        checked = useSystemColor,
-                        onCheckedChange = { enabled ->
-                            prefs.edit().putBoolean(KEY_USE_SYSTEM_COLOR, enabled).apply()
-                            useSystemColor = enabled
-                            recreateTick++
-                        }
-                    )
-                }
-            }
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.modules_settings_title)) {
-                SettingsRow(
-                    icon = R.drawable.ic_settings_outline_24dp,
-                    title = stringResource(R.string.modules_access_mode),
-                    summary = stringResource(moduleAccessMode.labelRes),
-                    onClick = { showModuleModeDialog = true }
-                )
-                if (moduleAccessMode == ModuleSettings.AccessMode.CUSTOM) {
-                    GroupDivider()
-                    SettingsRow(
-                        icon = R.drawable.ic_add_24,
-                        title = stringResource(R.string.modules_custom_permissions),
-                        summary = stringResource(R.string.modules_custom_permissions_summary),
-                        onClick = { showCustomPermissionsDialog = true }
-                    )
-                }
-                GroupDivider()
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_outline_play_arrow_24,
-                    title = stringResource(R.string.modules_background_actions),
-                    summary = stringResource(R.string.modules_background_actions_summary),
-                    checked = moduleBackground,
-                    onCheckedChange = { enabled ->
-                        ModuleSettings.setAllowBackgroundActions(enabled)
-                        moduleBackground = enabled
-                    }
-                )
-                GroupDivider()
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_warning_24,
-                    title = stringResource(R.string.modules_recommand_webui),
-                    summary = stringResource(R.string.modules_recommand_webui_summary),
-                    checked = recommandWebUi,
-                    onCheckedChange = { enabled ->
-                        ModuleSettings.setRecommandForWebUi(enabled)
-                        recommandWebUi = enabled
-                    }
-                )
-                GroupDivider()
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_warning_24,
-                    title = stringResource(R.string.modules_recommand_action),
-                    summary = stringResource(R.string.modules_recommand_action_summary),
-                    checked = recommandAction,
-                    onCheckedChange = { enabled ->
-                        ModuleSettings.setRecommandForAction(enabled)
-                        recommandAction = enabled
-                    }
-                )
-            }
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.settings_update_group_title)) {
-                SettingsRow(
-                    icon = R.drawable.ic_settings_outline_24dp,
-                    title = stringResource(R.string.update_settings_title),
-                    summary = stringResource(R.string.update_settings_catalog_enabled_summary),
-                    onClick = { showUpdateSettings = true }
-                )
-            }
-        }
-
-        item {
-            AppUpdateSettingsGroup()
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.comput_settings)) {
-                SettingsRow(
-                    icon = R.drawable.ic_code_24dp,
-                    title = stringResource(R.string.comput_ai_provider_title),
-                    summary = aiProvidersVersion.let {
-                        AiProviderRepository.getActive()?.let { active ->
-                            computProviderSummary(
-                                active.name,
-                                active.model.ifBlank { AiExplainUtil.resolveModel(active.baseUrl) },
-                            )
-                        } ?: computAiBaseUrl
-                    },
-                    onClick = { showAiManager = true }
-                )
-                GroupDivider()
-                SwitchSettingsRow(
-                    icon = R.drawable.ic_warning_24,
-                    title = stringResource(R.string.comput_recommand_title),
-                    summary = stringResource(R.string.comput_recommand_summary),
-                    checked = computRecommand,
-                    onCheckedChange = { enabled ->
-                        ModuleSettings.setComputRecommandEnabled(enabled)
-                        computRecommand = enabled
-                    }
-                )
-            }
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.settings_sections_title)) {
-                SectionHeader(stringResource(R.string.accessibility_manager_lab_group))
-                SettingsRow(
-                    icon = R.drawable.ic_system_icon,
-                    title = stringResource(R.string.accessibility_manager_lab_title),
-                    summary = stringResource(R.string.accessibility_manager_lab_summary),
-                    onClick = { context.startActivity(Intent(context, AccessibilityManagerActivity::class.java)) }
-                )
-                GroupDivider()
-                SectionHeader(stringResource(R.string.lab_features_title))
-                SettingsRow(
-                    icon = R.drawable.ic_settings_outline_24dp,
-                    title = stringResource(R.string.lab_features_title),
-                    summary = stringResource(R.string.lab_features_summary),
-                    onClick = { context.startActivity(Intent(context, LabFeaturesActivity::class.java)) }
-                )
-                GroupDivider()
-                SectionHeader(stringResource(R.string.backup_section_title))
-                SettingsRow(
-                    icon = R.drawable.ic_outline_arrow_upward_24,
-                    title = stringResource(R.string.backup_title),
-                    summary = stringResource(R.string.backup_summary),
-                    onClick = {
-                        backupLauncher.launch("shevery_backup_${System.currentTimeMillis()}.zip")
-                    }
-                )
-                GroupDivider()
-                SettingsRow(
-                    icon = R.drawable.ic_server_restart,
-                    title = stringResource(R.string.restore_title),
-                    summary = stringResource(R.string.restore_summary),
-                    onClick = {
-                        restoreLauncher.launch(arrayOf("application/zip", "application/octet-stream"))
-                    }
-                )
-            }
-        }
-
-        item {
-            SettingsGroup(title = stringResource(R.string.action_about)) {
-                val versionName = remember {
-                    try {
-                        context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: ""
-                    } catch (e: Exception) { "" }
-                }
-                SettingsRow(
-                    icon = R.drawable.ic_outline_info_24,
-                    title = stringResource(R.string.app_name),
-                    summary = if (versionName.isNotBlank()) "v$versionName" else null,
-                    onClick = {
-                        context.startActivity(Intent(context, AboutActivity::class.java))
-                    }
-                )
             }
         }
     }
-    }
-}
 
     if (showLanguageDialog) {
         ChoiceDialog(
@@ -963,6 +868,333 @@ fun SettingsScreen(
             containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
             shape = MaterialTheme.shapes.extraLarge
         )
+    }
+}
+
+private fun LazyListScope.applicationSectionContent(
+    rooted: Boolean,
+    startOnBoot: Boolean,
+    adbStartOnBoot: Boolean,
+    tcpMode: Boolean,
+    watchdog: Boolean,
+    dhizukuEnabled: Boolean,
+    notifyDeath: Boolean,
+    wifiReassert: Boolean,
+    compatStub: Boolean,
+    autoDisableUsbDebugging: Boolean,
+    onStartOnBootChange: (Boolean) -> Unit,
+    onAdbStartOnBootChange: (Boolean) -> Unit,
+    onWatchdogChange: (Boolean) -> Unit,
+    onDhizukuToggle: (Boolean) -> Unit,
+    onNotifyDeathChange: (Boolean) -> Unit,
+    onWifiReassertChange: (Boolean) -> Unit,
+    onCompatStubChange: (Boolean) -> Unit,
+    onAutoDisableUsbDebuggingChange: (Boolean) -> Unit,
+    onTcpModeChange: (Boolean) -> Unit
+) {
+    item {
+        SettingsGroup(title = stringResource(R.string.settings_application)) {
+            SectionHeader(stringResource(R.string.settings_startup))
+            if (rooted) {
+                SwitchSettingsRow(
+                    icon = R.drawable.ic_server_restart,
+                    title = stringResource(R.string.settings_start_on_boot),
+                    summary = stringResource(R.string.settings_start_on_boot_summary),
+                    checked = startOnBoot,
+                    onCheckedChange = onStartOnBootChange
+                )
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                SwitchSettingsRow(
+                    icon = R.drawable.ic_wadb_24,
+                    title = stringResource(R.string.settings_start_on_boot_adb),
+                    summary = stringResource(
+                        if (tcpMode) R.string.settings_start_on_boot_adb_summary
+                        else R.string.settings_start_on_boot_adb_summary_no_tcp
+                    ),
+                    checked = adbStartOnBoot,
+                    onCheckedChange = onAdbStartOnBootChange
+                )
+            }
+            GroupDivider()
+            SectionHeader(stringResource(R.string.settings_service_group))
+            SwitchSettingsRow(
+                icon = R.drawable.ic_server_restart,
+                title = stringResource(R.string.error_protect_title),
+                summary = stringResource(R.string.error_protect_summary),
+                checked = watchdog,
+                onCheckedChange = onWatchdogChange
+            )
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_outline_info_24,
+                title = stringResource(R.string.dhizuku_mode_title),
+                summary = stringResource(R.string.dhizuku_mode_summary),
+                checked = dhizukuEnabled,
+                onCheckedChange = onDhizukuToggle
+            )
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_outline_notifications_active_24,
+                title = stringResource(R.string.lab_notify_death_title),
+                summary = stringResource(R.string.lab_notify_death_summary),
+                checked = notifyDeath,
+                onCheckedChange = onNotifyDeathChange
+            )
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_adb_24dp,
+                title = stringResource(R.string.settings_wifi_reassert_title),
+                summary = stringResource(R.string.settings_wifi_reassert_summary),
+                checked = wifiReassert,
+                onCheckedChange = onWifiReassertChange
+            )
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_server_restart,
+                title = stringResource(R.string.settings_compat_stub),
+                summary = stringResource(R.string.settings_compat_stub_summary),
+                checked = compatStub,
+                onCheckedChange = onCompatStubChange
+            )
+            SwitchSettingsRow(
+                icon = R.drawable.ic_adb_24dp,
+                title = stringResource(R.string.settings_auto_disable_usb_debugging),
+                summary = stringResource(R.string.settings_auto_disable_usb_debugging_summary),
+                checked = autoDisableUsbDebugging,
+                onCheckedChange = onAutoDisableUsbDebuggingChange
+            )
+            SwitchSettingsRow(
+                icon = R.drawable.ic_baseline_link_24,
+                title = stringResource(R.string.settings_tcp_mode),
+                summary = stringResource(R.string.settings_tcp_mode_summary),
+                checked = tcpMode,
+                onCheckedChange = onTcpModeChange
+            )
+        }
+    }
+}
+
+private fun LazyListScope.appearanceSectionContent(
+    languageSummary: String,
+    nightSummary: String,
+    nightMode: Int,
+    blackNightTheme: Boolean,
+    useSystemColor: Boolean,
+    onLanguageClick: () -> Unit,
+    onNightClick: () -> Unit,
+    onBlackNightChange: (Boolean) -> Unit,
+    onUseSystemColorChange: (Boolean) -> Unit
+) {
+    item {
+        SettingsGroup(title = stringResource(R.string.settings_language)) {
+            SettingsRow(
+                icon = R.drawable.ic_outline_translate_24,
+                title = stringResource(R.string.settings_language),
+                summary = languageSummary,
+                onClick = onLanguageClick
+            )
+        }
+    }
+    item {
+        SettingsGroup(title = stringResource(R.string.settings_appearance)) {
+            SettingsRow(
+                icon = R.drawable.ic_outline_dark_mode_24,
+                title = stringResource(rikka.core.R.string.dark_theme),
+                summary = nightSummary,
+                onClick = onNightClick
+            )
+            if (nightMode != AppCompatDelegate.MODE_NIGHT_NO) {
+                GroupDivider()
+                SwitchSettingsRow(
+                    icon = R.drawable.ic_outline_dark_mode_24,
+                    title = stringResource(R.string.settings_black_night_theme),
+                    summary = stringResource(R.string.settings_black_night_theme_summary),
+                    checked = blackNightTheme,
+                    onCheckedChange = onBlackNightChange
+                )
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                GroupDivider()
+                SwitchSettingsRow(
+                    icon = R.drawable.ic_settings_outline_24dp,
+                    title = stringResource(R.string.settings_use_system_color),
+                    checked = useSystemColor,
+                    onCheckedChange = onUseSystemColorChange
+                )
+            }
+        }
+    }
+}
+
+private fun LazyListScope.modulesSectionContent(
+    moduleAccessMode: ModuleSettings.AccessMode,
+    moduleBackground: Boolean,
+    recommandWebUi: Boolean,
+    recommandAction: Boolean,
+    onAccessModeClick: () -> Unit,
+    onCustomPermissionsClick: () -> Unit,
+    onBackgroundChange: (Boolean) -> Unit,
+    onRecommandWebUiChange: (Boolean) -> Unit,
+    onRecommandActionChange: (Boolean) -> Unit
+) {
+    item {
+        SettingsGroup(title = stringResource(R.string.modules_settings_title)) {
+            SettingsRow(
+                icon = R.drawable.ic_settings_outline_24dp,
+                title = stringResource(R.string.modules_access_mode),
+                summary = stringResource(moduleAccessMode.labelRes),
+                onClick = onAccessModeClick
+            )
+            if (moduleAccessMode == ModuleSettings.AccessMode.CUSTOM) {
+                GroupDivider()
+                SettingsRow(
+                    icon = R.drawable.ic_add_24,
+                    title = stringResource(R.string.modules_custom_permissions),
+                    summary = stringResource(R.string.modules_custom_permissions_summary),
+                    onClick = onCustomPermissionsClick
+                )
+            }
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_outline_play_arrow_24,
+                title = stringResource(R.string.modules_background_actions),
+                summary = stringResource(R.string.modules_background_actions_summary),
+                checked = moduleBackground,
+                onCheckedChange = onBackgroundChange
+            )
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_warning_24,
+                title = stringResource(R.string.modules_recommand_webui),
+                summary = stringResource(R.string.modules_recommand_webui_summary),
+                checked = recommandWebUi,
+                onCheckedChange = onRecommandWebUiChange
+            )
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_warning_24,
+                title = stringResource(R.string.modules_recommand_action),
+                summary = stringResource(R.string.modules_recommand_action_summary),
+                checked = recommandAction,
+                onCheckedChange = onRecommandActionChange
+            )
+        }
+    }
+}
+
+private fun LazyListScope.updatesSectionContent(
+    onUpdateSettingsClick: () -> Unit
+) {
+    item {
+        SettingsGroup(title = stringResource(R.string.settings_update_group_title)) {
+            SettingsRow(
+                icon = R.drawable.ic_settings_outline_24dp,
+                title = stringResource(R.string.update_settings_title),
+                summary = stringResource(R.string.update_settings_catalog_enabled_summary),
+                onClick = onUpdateSettingsClick
+            )
+        }
+    }
+    item {
+        AppUpdateSettingsGroup()
+    }
+}
+
+private fun LazyListScope.aiSectionContent(
+    aiProvidersVersion: Int,
+    computAiBaseUrl: String?,
+    computRecommand: Boolean,
+    onOpenAiManager: () -> Unit,
+    onComputRecommandChange: (Boolean) -> Unit
+) {
+    item {
+        SettingsGroup(title = stringResource(R.string.comput_settings)) {
+            SettingsRow(
+                icon = R.drawable.ic_code_24dp,
+                title = stringResource(R.string.comput_ai_provider_title),
+                summary = aiProvidersVersion.let {
+                    AiProviderRepository.getActive()?.let { active ->
+                        computProviderSummary(
+                            active.name,
+                            active.model.ifBlank { AiExplainUtil.resolveModel(active.baseUrl) },
+                        )
+                    } ?: computAiBaseUrl
+                },
+                onClick = onOpenAiManager
+            )
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_warning_24,
+                title = stringResource(R.string.comput_recommand_title),
+                summary = stringResource(R.string.comput_recommand_summary),
+                checked = computRecommand,
+                onCheckedChange = onComputRecommandChange
+            )
+        }
+    }
+}
+
+private fun LazyListScope.toolsSectionContent(
+    onOpenAccessibility: () -> Unit,
+    onOpenLab: () -> Unit,
+    onBackup: () -> Unit,
+    onRestore: () -> Unit
+) {
+    item {
+        SettingsGroup(title = stringResource(R.string.settings_sections_title)) {
+            SectionHeader(stringResource(R.string.accessibility_manager_lab_group))
+            SettingsRow(
+                icon = R.drawable.ic_system_icon,
+                title = stringResource(R.string.accessibility_manager_lab_title),
+                summary = stringResource(R.string.accessibility_manager_lab_summary),
+                onClick = onOpenAccessibility
+            )
+            GroupDivider()
+            SectionHeader(stringResource(R.string.lab_features_title))
+            SettingsRow(
+                icon = R.drawable.ic_settings_outline_24dp,
+                title = stringResource(R.string.lab_features_title),
+                summary = stringResource(R.string.lab_features_summary),
+                onClick = onOpenLab
+            )
+            GroupDivider()
+            SectionHeader(stringResource(R.string.backup_section_title))
+            SettingsRow(
+                icon = R.drawable.ic_outline_arrow_upward_24,
+                title = stringResource(R.string.backup_title),
+                summary = stringResource(R.string.backup_summary),
+                onClick = onBackup
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_server_restart,
+                title = stringResource(R.string.restore_title),
+                summary = stringResource(R.string.restore_summary),
+                onClick = onRestore
+            )
+        }
+    }
+}
+
+private fun LazyListScope.aboutSectionContent(
+    onOpenAbout: () -> Unit
+) {
+    item {
+        SettingsGroup(title = stringResource(R.string.action_about)) {
+            val context = LocalContext.current
+            val versionName = remember(context) {
+                try {
+                    context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: ""
+                } catch (e: Exception) { "" }
+            }
+            SettingsRow(
+                icon = R.drawable.ic_outline_info_24,
+                title = stringResource(R.string.app_name),
+                summary = if (versionName.isNotBlank()) "v$versionName" else null,
+                onClick = onOpenAbout
+            )
+        }
     }
 }
 

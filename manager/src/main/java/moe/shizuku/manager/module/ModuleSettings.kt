@@ -191,6 +191,10 @@ object ModuleSettings {
         prefs.edit().putStringSet(KEY_TRUSTED_MODULES, current).apply()
     }
 
+    fun clearTrustedModules() {
+        ShizukuSettings.getPreferences().edit().remove(KEY_TRUSTED_MODULES).apply()
+    }
+
     fun recommandForWebUi(): Boolean {
         return ShizukuSettings.getPreferences().getBoolean(KEY_RECOMMAND_WEBUI, true)
     }
