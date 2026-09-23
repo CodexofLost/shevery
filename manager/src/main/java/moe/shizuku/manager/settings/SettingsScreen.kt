@@ -401,9 +401,9 @@ fun SettingsScreen(
         transitionSpec = {
             val forward = when {
                 targetState is SettingsNav.Hub -> false
-                currentState is SettingsNav.Hub -> true
+                initialState is SettingsNav.Hub -> true
                 targetState is SettingsNav.UpdateSettings -> true
-                currentState is SettingsNav.UpdateSettings -> false
+                initialState is SettingsNav.UpdateSettings -> false
                 else -> true
             }
             if (forward) {
