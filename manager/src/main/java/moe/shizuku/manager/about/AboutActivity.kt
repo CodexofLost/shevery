@@ -42,7 +42,7 @@ import moe.shizuku.manager.ui.compose.GroupDivider
 import moe.shizuku.manager.utils.CustomTabsHelper
 
 private const val ABOUT_ICON_TAP_THRESHOLD = 7
-private const val ABOUT_ICON_TAP_URL = "https://www.youtube.com/watch?v=dQw4w9W9Wqg"
+private const val ABOUT_ICON_TAP_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
 class AboutActivity : AppActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,6 +106,22 @@ class AboutActivity : AppActivity() {
                                 }
                             )
                         }
+                    }
+
+                    item {
+                        Spacer(modifier = Modifier.height(24.dp))
+                    }
+
+                    item {
+                        AboutVersioningCard()
+                    }
+
+                    item {
+                        Spacer(modifier = Modifier.height(24.dp))
+                    }
+
+                    item {
+                        AboutContributorsGroup()
                     }
 
                     item {
@@ -248,6 +264,99 @@ class AboutActivity : AppActivity() {
                     style = MaterialTheme.typography.bodyMedium,
                     lineHeight = 20.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+    }
+
+    @Composable
+    private fun AboutVersioningCard() {
+        Card(
+            shape = MaterialTheme.shapes.extraLarge,
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+            ),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(modifier = Modifier.padding(24.dp)) {
+                Text(
+                    text = "Versioning",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(bottom = 8.dp)
+                )
+                Text(
+                    text = "Starting with 14.0, Shevery no longer uses the old \"14.0 rXX\" revision scheme. Releases advance as 14.0, 14.1, … up to 14.9, then continue at 15.0–15.9, and so on. The internal git commit count used for versionCode is unchanged.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    lineHeight = 20.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+    }
+
+    private data class Contributor(
+        val name: String,
+        val role: String
+    )
+
+    private val contributors = listOf(
+        Contributor(
+            "HmnDev-Tech",
+            "Project lead — releases, CI, settings hub, watchdog, self-update, docs and project direction"
+        ),
+        Contributor(
+            "Landon Moran",
+            "Core developer — AI providers and Commandium, Material 3 Expressive, ADB hardening, Compose migrations, i18n, code cleanup"
+        ),
+        Contributor(
+            "kerneldroid",
+            "Comput console redesign, module catalog UI, Tasker plugin, legacy API stub, CI signing and module install fixes"
+        ),
+        Contributor(
+            "OptionString",
+            "Expressive floating navigation, Comput M3 redesign, launcher icons, settings layout and release workflow"
+        ),
+        Contributor(
+            "CodexofLost",
+            "Material 3 tokens, wireless ADB and starter reliability, permission auth, watchdog and server startup fixes"
+        ),
+        Contributor(
+            "Codex",
+            "Service reliability: ADB lifecycle, TCP mode, watchdog keep-alive, notification controls, dialog migration"
+        ),
+        Contributor(
+            "arysm4a",
+            "Wireless-debugging boot autostart, battery-optimization exemption, boot receiver fixes, zh-CN docs"
+        ),
+        Contributor(
+            "Jursin",
+            "About screen, zh-CN translations, README wording"
+        ),
+        Contributor(
+            "Fancy Fonts",
+            "Asset and resource updates, translation strings, workflow cleanup"
+        ),
+        Contributor(
+            "tura-ai-agent",
+            "README localization (Japanese, Chinese) and language links"
+        ),
+        Contributor(
+            "Rikka",
+            "Original Shizuku project — the foundation Shevery is built on"
+        )
+    )
+
+    @Composable
+    private fun AboutContributorsGroup() {
+        SettingsGroup(title = "Contributors & developers") {
+            contributors.forEachIndexed { index, contributor ->
+                if (index > 0) GroupDivider()
+                SettingsRow(
+                    icon = null,
+                    title = contributor.name,
+                    summary = contributor.role
                 )
             }
         }
