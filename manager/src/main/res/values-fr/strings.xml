@@ -574,4 +574,12 @@ Prêt pour les commandes.]]></string>
     <string name="automation_action_toggle"><![CDATA[Basculer le serveur]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Plugin Tasker / Locale]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Plugin intégré d\'actions et de conditions d\'état dans Tasker et MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Sauvegardes]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Sauvegarde et restauration des paramètres]]></string>
+    <string name="settings_extras_title"><![CDATA[Extras]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Accessibilité, diagnostics et fonctionnalités expérimentales]]></string>
+    <string name="settings_classic_nav"><![CDATA[Barre de navigation classique]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Utiliser une barre inférieure fixe au lieu de la pilule flottante]]></string>
 </resources>

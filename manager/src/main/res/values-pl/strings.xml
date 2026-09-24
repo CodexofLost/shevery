@@ -574,4 +574,12 @@ Gotowość do przyjmowania poleceń.]]></string>
     <string name="automation_action_toggle"><![CDATA[Przełącz serwer]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Wtyczka Tasker / Locale]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Zintegrowana wtyczka akcji i warunków stanu w Tasker i MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Kopie zapasowe]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Kopia zapasowa i przywracanie ustawień]]></string>
+    <string name="settings_extras_title"><![CDATA[Dodatkowe]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Ułatwienia dostępu, diagnostyka i eksperymenty]]></string>
+    <string name="settings_classic_nav"><![CDATA[Klasyczny pasek nawigacyjny]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Używaj stałego paska na dole zamiast pływającej pigułki]]></string>
 </resources>

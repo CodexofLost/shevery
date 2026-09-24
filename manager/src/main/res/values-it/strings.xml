@@ -579,4 +579,12 @@ La funzione di esportazione utilizza SAF (Storage Access Framework). È stato se
     <string name="automation_action_toggle"><![CDATA[Alterna server]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Plug-in Tasker / Locale]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Plug-in integrato di azioni e condizioni di stato in Tasker e MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Backup]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Backup e ripristino delle impostazioni]]></string>
+    <string name="settings_extras_title"><![CDATA[Extra]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Accessibilità, diagnostica ed esperimenti]]></string>
+    <string name="settings_classic_nav"><![CDATA[Barra di navigazione classica]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Usa una barra inferiore fissa invece della pillola mobile]]></string>
 </resources>

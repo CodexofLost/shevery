@@ -135,14 +135,19 @@ private enum class SettingsSection(
         R.string.settings_section_ai_summary,
         R.drawable.ic_code_24dp
     ),
+    BACKUPS(
+        R.string.settings_backups_title,
+        R.string.settings_section_backups_summary,
+        R.drawable.ic_outline_arrow_upward_24
+    ),
     AUTOMATION(
         R.string.automation_settings_title,
         R.string.automation_section_summary,
         R.drawable.ic_outline_play_arrow_24
     ),
-    TOOLS(
-        R.string.settings_sections_title,
-        R.string.settings_section_lab_summary,
+    EXTRAS(
+        R.string.settings_extras_title,
+        R.string.settings_section_extras_summary,
         R.drawable.ic_system_icon
     ),
     ABOUT(
@@ -236,6 +241,9 @@ fun SettingsScreen(
     var useSystemColor by remember {
         mutableStateOf(ThemeHelper.isUsingSystemColor())
     }
+    var classicNav by remember {
+        mutableStateOf(ShizukuSettings.isClassicNav())
+    }
     var showLanguageDialog by remember { mutableStateOf(false) }
     var showNightDialog by remember { mutableStateOf(false) }
     var showModuleModeDialog by remember { mutableStateOf(false) }
@@ -272,6 +280,13 @@ fun SettingsScreen(
     var showAiManager by remember { mutableStateOf(false) }
     var aiProvidersVersion by remember { mutableStateOf(0) }
     var showMissingPermissionDialog by remember { mutableStateOf(false) }
+    var connectorEnabled by remember { mutableStateOf(ModuleSettings.isConnectorEnabled()) }
+    var verboseLogging by remember { mutableStateOf(ModuleSettings.isVerboseLogging()) }
+    var notifyRecovery by remember { mutableStateOf(ModuleSettings.isNotifyOnRecovery()) }
+    var autoRefresh by remember { mutableStateOf(ModuleSettings.isAutoRefreshOnResume()) }
+    var aiExplain by remember { mutableStateOf(ModuleSettings.isComputAiExplainEnabled()) }
+    var showUnsafeDialog by remember { mutableStateOf(false) }
+    var showRevokeDialog by remember { mutableStateOf(false) }
     var recreateTick by remember { mutableIntStateOf(0) }
     var nav by remember { mutableStateOf<SettingsNav>(SettingsNav.Hub) }
 
@@ -371,6 +386,12 @@ fun SettingsScreen(
                 computAiBaseUrl = ModuleSettings.getComputAiBaseUrl()
                 computAiModel = ModuleSettings.getComputAiModel()
                 computRecommand = ModuleSettings.isComputRecommandEnabled()
+                classicNav = ShizukuSettings.isClassicNav()
+                connectorEnabled = ModuleSettings.isConnectorEnabled()
+                verboseLogging = ModuleSettings.isVerboseLogging()
+                notifyRecovery = ModuleSettings.isNotifyOnRecovery()
+                autoRefresh = ModuleSettings.isAutoRefreshOnResume()
+                aiExplain = ModuleSettings.isComputAiExplainEnabled()
                 recreateTick++
             }.onFailure {
                 Toast.makeText(context, "Restore failed: ${it.message}", Toast.LENGTH_LONG).show()
@@ -567,6 +588,7 @@ fun SettingsScreen(
                             nightMode = nightMode,
                             blackNightTheme = blackNightTheme,
                             useSystemColor = useSystemColor,
+                            classicNav = classicNav,
                             onLanguageClick = { showLanguageDialog = true },
                             onNightClick = { showNightDialog = true },
                             onBlackNightChange = { enabled ->
@@ -580,6 +602,10 @@ fun SettingsScreen(
                                 prefs.edit().putBoolean(KEY_USE_SYSTEM_COLOR, enabled).apply()
                                 useSystemColor = enabled
                                 recreateTick++
+                            },
+                            onClassicNavChange = { enabled ->
+                                ShizukuSettings.setClassicNav(enabled)
+                                classicNav = enabled
                             }
                         )
                         SettingsSection.MODULES -> modulesSectionContent(
@@ -615,29 +641,64 @@ fun SettingsScreen(
                                 computRecommand = enabled
                             }
                         )
-                        SettingsSection.AUTOMATION -> automationSectionContent(
-                            context = context,
-                            onCopy = { text ->
-                                ClipboardUtils.put(context, text)
-                                Toast.makeText(context, R.string.automation_copied_to_clipboard, Toast.LENGTH_SHORT).show()
-                            }
-                        )
-                        SettingsSection.TOOLS -> toolsSectionContent(
-                            onOpenAccessibility = {
-                                context.startActivity(Intent(context, AccessibilityManagerActivity::class.java))
-                            },
-                            onOpenLab = {
-                                context.startActivity(Intent(context, LabFeaturesActivity::class.java))
-                            },
-                            onOpenAutomation = {
-                                nav = SettingsNav.Section(SettingsSection.AUTOMATION)
-                            },
+                        SettingsSection.BACKUPS -> backupsSectionContent(
                             onBackup = {
                                 backupLauncher.launch("shevery_backup_${System.currentTimeMillis()}.zip")
                             },
                             onRestore = {
                                 restoreLauncher.launch(arrayOf("application/zip", "application/octet-stream"))
                             }
+                        )
+                        SettingsSection.AUTOMATION -> automationSectionContent(
+                            context = context,
+                            connectorEnabled = connectorEnabled,
+                            onConnectorToggle = { enabled ->
+                                if (enabled) {
+                                    showUnsafeDialog = true
+                                } else {
+                                    connectorEnabled = false
+                                    ModuleSettings.setConnectorEnabled(false)
+                                }
+                            },
+                            onCopy = { text ->
+                                ClipboardUtils.put(context, text)
+                                Toast.makeText(context, R.string.automation_copied_to_clipboard, Toast.LENGTH_SHORT).show()
+                            }
+                        )
+                        SettingsSection.EXTRAS -> extrasSectionContent(
+                            context = context,
+                            notifyRecovery = notifyRecovery,
+                            autoRefresh = autoRefresh,
+                            verboseLogging = verboseLogging,
+                            aiExplain = aiExplain,
+                            onNotifyRecoveryChange = { value ->
+                                notifyRecovery = value
+                                ModuleSettings.setNotifyOnRecovery(value)
+                            },
+                            onAutoRefreshChange = { value ->
+                                autoRefresh = value
+                                ModuleSettings.setAutoRefreshOnResume(value)
+                            },
+                            onVerboseLoggingChange = { value ->
+                                verboseLogging = value
+                                ModuleSettings.setVerboseLogging(value)
+                            },
+                            onAiExplainChange = { value ->
+                                aiExplain = value
+                                ModuleSettings.setComputAiExplainEnabled(value)
+                            },
+                            onOpenAccessibility = {
+                                context.startActivity(Intent(context, AccessibilityManagerActivity::class.java))
+                            },
+                            onRestartService = {
+                                WatchdogManager.attemptRestart(context)
+                                Toast.makeText(context, "Restart requested", Toast.LENGTH_SHORT).show()
+                            },
+                            onClearUpdateBanner = {
+                                ModuleSettings.clearPendingUpdate()
+                                Toast.makeText(context, "Update banner dismissed", Toast.LENGTH_SHORT).show()
+                            },
+                            onRevokeTrusted = { showRevokeDialog = true }
                         )
                         SettingsSection.ABOUT -> aboutSectionContent(
                             onOpenAbout = {
@@ -884,6 +945,57 @@ fun SettingsScreen(
                 }
             },
             containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+        )
+    }
+
+    if (showUnsafeDialog) {
+        AlertDialog(
+            onDismissRequest = { showUnsafeDialog = false },
+            title = { Text(stringResource(R.string.unsafe_warning_title)) },
+            text = { Text(stringResource(R.string.unsafe_warning_message)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showUnsafeDialog = false
+                        connectorEnabled = true
+                        ModuleSettings.setConnectorEnabled(true)
+                    }
+                ) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showUnsafeDialog = false }) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            },
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            shape = MaterialTheme.shapes.extraLarge
+        )
+    }
+
+    if (showRevokeDialog) {
+        AlertDialog(
+            onDismissRequest = { showRevokeDialog = false },
+            title = { Text(stringResource(R.string.lab_revoke_trusted_warning_title)) },
+            text = { Text(stringResource(R.string.lab_revoke_trusted_warning_message)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showRevokeDialog = false
+                        ModuleSettings.clearTrustedModules()
+                        Toast.makeText(context, "Trusted modules revoked", Toast.LENGTH_SHORT).show()
+                    }
+                ) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showRevokeDialog = false }) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            },
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
             shape = MaterialTheme.shapes.extraLarge
         )
     }
@@ -999,10 +1111,12 @@ private fun LazyListScope.appearanceSectionContent(
     nightMode: Int,
     blackNightTheme: Boolean,
     useSystemColor: Boolean,
+    classicNav: Boolean,
     onLanguageClick: () -> Unit,
     onNightClick: () -> Unit,
     onBlackNightChange: (Boolean) -> Unit,
-    onUseSystemColorChange: (Boolean) -> Unit
+    onUseSystemColorChange: (Boolean) -> Unit,
+    onClassicNavChange: (Boolean) -> Unit
 ) {
     item {
         SettingsGroup(title = stringResource(R.string.settings_language)) {
@@ -1041,6 +1155,14 @@ private fun LazyListScope.appearanceSectionContent(
                     onCheckedChange = onUseSystemColorChange
                 )
             }
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_system_icon,
+                title = stringResource(R.string.settings_classic_nav),
+                summary = stringResource(R.string.settings_classic_nav_summary),
+                checked = classicNav,
+                onCheckedChange = onClassicNavChange
+            )
         }
     }
 }
@@ -1153,10 +1275,46 @@ private fun LazyListScope.aiSectionContent(
     }
 }
 
+private fun LazyListScope.backupsSectionContent(
+    onBackup: () -> Unit,
+    onRestore: () -> Unit
+) {
+    item {
+        SettingsGroup(title = stringResource(R.string.backup_section_title)) {
+            SettingsRow(
+                icon = R.drawable.ic_outline_arrow_upward_24,
+                title = stringResource(R.string.backup_title),
+                summary = stringResource(R.string.backup_summary),
+                onClick = onBackup
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_server_restart,
+                title = stringResource(R.string.restore_title),
+                summary = stringResource(R.string.restore_summary),
+                onClick = onRestore
+            )
+        }
+    }
+}
+
 private fun LazyListScope.automationSectionContent(
     context: Context,
+    connectorEnabled: Boolean,
+    onConnectorToggle: (Boolean) -> Unit,
     onCopy: (String) -> Unit
 ) {
+    item {
+        SettingsGroup(title = stringResource(R.string.shizuku_connectors_title)) {
+            SwitchSettingsRow(
+                icon = R.drawable.ic_baseline_link_24,
+                title = stringResource(R.string.shizuku_connectors_title),
+                summary = stringResource(R.string.shizuku_connectors_summary),
+                checked = connectorEnabled,
+                onCheckedChange = onConnectorToggle
+            )
+        }
+    }
     item {
         SettingsGroup(title = stringResource(R.string.automation_tasker_macrodroid_title)) {
             Text(
@@ -1198,52 +1356,97 @@ private fun LazyListScope.automationSectionContent(
     }
 }
 
-private fun LazyListScope.toolsSectionContent(
+private fun LazyListScope.extrasSectionContent(
+    context: Context,
+    notifyRecovery: Boolean,
+    autoRefresh: Boolean,
+    verboseLogging: Boolean,
+    aiExplain: Boolean,
+    onNotifyRecoveryChange: (Boolean) -> Unit,
+    onAutoRefreshChange: (Boolean) -> Unit,
+    onVerboseLoggingChange: (Boolean) -> Unit,
+    onAiExplainChange: (Boolean) -> Unit,
     onOpenAccessibility: () -> Unit,
-    onOpenLab: () -> Unit,
-    onOpenAutomation: () -> Unit,
-    onBackup: () -> Unit,
-    onRestore: () -> Unit
+    onRestartService: () -> Unit,
+    onClearUpdateBanner: () -> Unit,
+    onRevokeTrusted: () -> Unit
 ) {
     item {
-        SettingsGroup(title = stringResource(R.string.settings_sections_title)) {
-            SectionHeader(stringResource(R.string.accessibility_manager_lab_group))
+        SettingsGroup(title = stringResource(R.string.accessibility_manager_lab_group)) {
             SettingsRow(
                 icon = R.drawable.ic_system_icon,
                 title = stringResource(R.string.accessibility_manager_lab_title),
                 summary = stringResource(R.string.accessibility_manager_lab_summary),
                 onClick = onOpenAccessibility
             )
-            GroupDivider()
-            SectionHeader(stringResource(R.string.automation_settings_title))
-            SettingsRow(
-                icon = R.drawable.ic_outline_play_arrow_24,
-                title = stringResource(R.string.automation_tasker_macrodroid_title),
-                summary = stringResource(R.string.automation_section_summary),
-                onClick = onOpenAutomation
+        }
+    }
+
+    item {
+        SettingsGroup(title = stringResource(R.string.lab_service_behavior_title)) {
+            SwitchSettingsRow(
+                icon = R.drawable.ic_outline_notifications_active_24,
+                title = stringResource(R.string.lab_notify_recovery_title),
+                summary = stringResource(R.string.lab_notify_recovery_summary),
+                checked = notifyRecovery,
+                onCheckedChange = onNotifyRecoveryChange
             )
             GroupDivider()
-            SectionHeader(stringResource(R.string.lab_features_title))
-            SettingsRow(
-                icon = R.drawable.ic_settings_outline_24dp,
-                title = stringResource(R.string.lab_features_title),
-                summary = stringResource(R.string.lab_features_summary),
-                onClick = onOpenLab
+            SwitchSettingsRow(
+                icon = R.drawable.ic_server_restart,
+                title = stringResource(R.string.lab_auto_refresh_title),
+                summary = stringResource(R.string.lab_auto_refresh_summary),
+                checked = autoRefresh,
+                onCheckedChange = onAutoRefreshChange
             )
-            GroupDivider()
-            SectionHeader(stringResource(R.string.backup_section_title))
-            SettingsRow(
-                icon = R.drawable.ic_outline_arrow_upward_24,
-                title = stringResource(R.string.backup_title),
-                summary = stringResource(R.string.backup_summary),
-                onClick = onBackup
+        }
+    }
+
+    item {
+        SettingsGroup(title = stringResource(R.string.lab_debugging_title)) {
+            SwitchSettingsRow(
+                icon = R.drawable.ic_adb_24dp,
+                title = stringResource(R.string.lab_verbose_logging_title),
+                summary = stringResource(R.string.lab_verbose_logging_summary),
+                checked = verboseLogging,
+                onCheckedChange = onVerboseLoggingChange
             )
-            GroupDivider()
+        }
+    }
+
+    item {
+        SettingsGroup(title = stringResource(R.string.lab_ai_title)) {
+            SwitchSettingsRow(
+                icon = R.drawable.ic_code_24dp,
+                title = stringResource(R.string.lab_ai_explain_title),
+                summary = stringResource(R.string.lab_ai_explain_summary),
+                checked = aiExplain,
+                onCheckedChange = onAiExplainChange
+            )
+        }
+    }
+
+    item {
+        SettingsGroup(title = stringResource(R.string.lab_maintenance_title)) {
             SettingsRow(
                 icon = R.drawable.ic_server_restart,
-                title = stringResource(R.string.restore_title),
-                summary = stringResource(R.string.restore_summary),
-                onClick = onRestore
+                title = stringResource(R.string.lab_restart_service_title),
+                summary = stringResource(R.string.lab_restart_service_summary),
+                onClick = onRestartService
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_outline_notifications_active_24,
+                title = stringResource(R.string.lab_clear_update_title),
+                summary = stringResource(R.string.lab_clear_update_summary),
+                onClick = onClearUpdateBanner
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_warning_24,
+                title = stringResource(R.string.lab_revoke_trusted_title),
+                summary = stringResource(R.string.lab_revoke_trusted_summary),
+                onClick = onRevokeTrusted
             )
         }
     }

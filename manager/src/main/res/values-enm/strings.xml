@@ -573,4 +573,12 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="automation_action_toggle"><![CDATA[Toggle server]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale Plugin]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Integrated action & state condition plugin in Tasker and MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Backups]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Backup and restore settings]]></string>
+    <string name="settings_extras_title"><![CDATA[Extras]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Accessibility, diagnostics, and experiments]]></string>
+    <string name="settings_classic_nav"><![CDATA[Classic navigation bar]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Use a fixed bottom bar instead of the floating pill]]></string>
 </resources>

@@ -579,4 +579,12 @@ Komutlara hazır.]]></string>
     <string name="automation_action_toggle"><![CDATA[Sunucu durumunu değiştir]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale Eklentisi]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Tasker ve MacroDroid için entegre eylem ve durum koşulu eklentisi]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Yedekler]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Ayarları yedekle ve geri yükle]]></string>
+    <string name="settings_extras_title"><![CDATA[Ekstralar]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Erişilebilirlik, tanılama ve deneysel özellikler]]></string>
+    <string name="settings_classic_nav"><![CDATA[Klasik gezinme çubuğu]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Kayan kapsül yerine sabit alt çubuğu kullan]]></string>
 </resources>

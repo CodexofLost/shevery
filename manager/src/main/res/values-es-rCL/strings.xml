@@ -565,4 +565,12 @@ Listo.]]></string>
     <string name="automation_action_toggle"><![CDATA[Alternar servidor]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Complemento Tasker / Locale]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Complemento integrado de acciones y condiciones de estado en Tasker y MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Copias de seguridad]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Copia de seguridad y restauración de ajustes]]></string>
+    <string name="settings_extras_title"><![CDATA[Extras]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Accesibilidad, diagnósticos y experimentos]]></string>
+    <string name="settings_classic_nav"><![CDATA[Barra de navegación clásica]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Usar una barra inferior fija en lugar de la píldora flotante]]></string>
 </resources>

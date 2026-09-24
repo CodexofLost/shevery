@@ -574,4 +574,12 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="automation_action_toggle"><![CDATA[サーバーを切り替え]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale プラグイン]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[TaskerおよびMacroDroidのアクション・状態条件統合プラグイン]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[バックアップ]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[設定のバックアップと復元]]></string>
+    <string name="settings_extras_title"><![CDATA[追加機能]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[ユーザー補助、診断、実験的機能]]></string>
+    <string name="settings_classic_nav"><![CDATA[クラシック ナビゲーションバー]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[フローティングピルの代わりに固定ボトムバーを使用]]></string>
 </resources>

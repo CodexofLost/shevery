@@ -683,4 +683,12 @@
     <string name="automation_action_toggle"><![CDATA[切换服务状态]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale 插件]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Tasker 和 MacroDroid 中的集成操作与状态条件插件]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[备份]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[备份与恢复设置]]></string>
+    <string name="settings_extras_title"><![CDATA[附加功能]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[无障碍、诊断与实验性功能]]></string>
+    <string name="settings_classic_nav"><![CDATA[传统底栏导航]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[使用传统固定底栏替代悬浮胶囊]]></string>
 </resources>

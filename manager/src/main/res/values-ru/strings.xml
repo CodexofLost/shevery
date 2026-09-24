@@ -574,4 +574,12 @@
     <string name="automation_action_toggle"><![CDATA[Переключение сервера]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Плагин Tasker / Locale]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Встроенный плагин действий и условий состояния для Tasker и MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Бэкапы]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Резервное копирование и восстановление настроек]]></string>
+    <string name="settings_extras_title"><![CDATA[Дополнительно]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Специальные возможности, диагностика и эксперименты]]></string>
+    <string name="settings_classic_nav"><![CDATA[Классическая панель навигации]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Использовать фиксированную нижнюю панель вместо плавающей капсулы]]></string>
 </resources>

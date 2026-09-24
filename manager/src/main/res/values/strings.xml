@@ -517,6 +517,12 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="restore_summary">Import configuration and modules from a ZIP file</string>
     <string name="settings_sections_title">Backups and other</string>
     <string name="backup_section_title">Backups</string>
+    <string name="settings_backups_title">Backups</string>
+    <string name="settings_section_backups_summary">Backup and restore settings</string>
+    <string name="settings_extras_title">Extras</string>
+    <string name="settings_section_extras_summary">Accessibility, diagnostics, and experiments</string>
+    <string name="settings_classic_nav">Classic navigation bar</string>
+    <string name="settings_classic_nav_summary">Use a fixed bottom bar instead of the floating pill</string>
 
     <!-- Comput Console -->
     <string name="comput_title">Comput</string>

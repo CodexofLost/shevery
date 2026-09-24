@@ -574,4 +574,12 @@
     <string name="automation_action_toggle"><![CDATA[서버 전환]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale 플러그인]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Tasker 및 MacroDroid의 통합 작업 및 상태 조건 플러그인]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[백업]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[설정 백업 및 복원]]></string>
+    <string name="settings_extras_title"><![CDATA[기타]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[접근성, 진단 및 실험 기능]]></string>
+    <string name="settings_classic_nav"><![CDATA[클래식 내비게이션 바]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[플로팅 알약 대신 고정 하단 바 사용]]></string>
 </resources>

@@ -574,4 +574,12 @@ wurde in die Zwischenablage kopiert.]]></string>
     <string name="automation_action_toggle"><![CDATA[Server umschalten]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale Plugin]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Integriertes Aktions- und Zustandsbedingungs-Plugin in Tasker und MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Sicherungen]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Einstellungen sichern und wiederherstellen]]></string>
+    <string name="settings_extras_title"><![CDATA[Erweitert]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Barrierefreiheit, Diagnose und Experimente]]></string>
+    <string name="settings_classic_nav"><![CDATA[Klassische Navigationsleiste]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Feste Navigationsleiste statt schwebender Pille verwenden]]></string>
 </resources>

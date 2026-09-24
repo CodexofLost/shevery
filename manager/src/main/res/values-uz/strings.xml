@@ -558,4 +558,12 @@ Ijro etilmoqda...]]></string>
     <string name="automation_action_toggle"><![CDATA[Serverni almashtirish]]></string>
     <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale plagini]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Tasker va MacroDroid-da integratsiyalashgan harakat va holat sharti plagini]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Backups]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Backup and restore settings]]></string>
+    <string name="settings_extras_title"><![CDATA[Extras]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Accessibility, diagnostics, and experiments]]></string>
+    <string name="settings_classic_nav"><![CDATA[Classic navigation bar]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Use a fixed bottom bar instead of the floating pill]]></string>
 </resources>
