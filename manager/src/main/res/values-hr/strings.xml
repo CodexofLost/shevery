@@ -547,4 +547,20 @@ Za detaljne upute o korištenju %1$s-a, dodirnite da biste vidjeli dokument.]]><
     <string name="tcp_prompt_dialog_enable"><![CDATA[Omogućiti]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Ne sada]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Nemoj me ponovno podsjećati]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automatizacija]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid i broadcast intente]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker i MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Upravljajte Sheveryjem pomoću aplikacija Tasker ili MacroDroid putem ugrađenog dodatka ili slanjem broadcast namjera. Dodirnite za kopiranje.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Broadcast radnje]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Ciljni paket]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Kopirano u međuspremnik]]></string>
+    <string name="automation_package_label"><![CDATA[Paket]]></string>
+    <string name="automation_action_start"><![CDATA[Pokreni poslužitelj]]></string>
+    <string name="automation_action_stop"><![CDATA[Zaustavi poslužitelj]]></string>
+    <string name="automation_action_restart"><![CDATA[Ponovno pokreni poslužitelj]]></string>
+    <string name="automation_action_toggle"><![CDATA[Prebaci stanje poslužitelja]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale dodatak]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Integrirani dodatak radnji i uvjeta stanja u aplikacijama Tasker i MacroDroid]]></string>
 </resources>

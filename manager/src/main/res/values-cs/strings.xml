@@ -559,4 +559,20 @@ bylo zkopírováno do schránky.]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[Umožnit]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Teď ne]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Už mi to nepřipomínej]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automatizace]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid a broadcast intenty]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker a MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Ovládejte Shevery pomocí Taskeru nebo MacroDroidu prostřednictvím vestavěného pluginu nebo odesíláním broadcast intentů. Klepnutím zkopírujte.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Akce vysílání (Broadcast)]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Cílový balíček]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Zkopírováno do schránky]]></string>
+    <string name="automation_package_label"><![CDATA[Balíček]]></string>
+    <string name="automation_action_start"><![CDATA[Spustit server]]></string>
+    <string name="automation_action_stop"><![CDATA[Zastavit server]]></string>
+    <string name="automation_action_restart"><![CDATA[Restartovat server]]></string>
+    <string name="automation_action_toggle"><![CDATA[Přepnout server]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Plugin Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Integrovaný plugin akcí a stavových podmínek pro Tasker a MacroDroid]]></string>
 </resources>

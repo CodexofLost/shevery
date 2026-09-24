@@ -558,4 +558,20 @@ Gata să primească comenzi.]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[Permite]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Nu acum]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Nu-mi mai aduce aminte]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automatizare]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid și intenții de difuzare]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker & MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Controlați Shevery cu Tasker sau MacroDroid prin pluginul integrat sau trimițând intenții de difuzare explicite. Atingeți pentru a copia.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Acțiuni de difuzare]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Pachet țintă]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Copiat în clipboard]]></string>
+    <string name="automation_package_label"><![CDATA[Pachet]]></string>
+    <string name="automation_action_start"><![CDATA[Porniți serverul]]></string>
+    <string name="automation_action_stop"><![CDATA[Opriți serverul]]></string>
+    <string name="automation_action_restart"><![CDATA[Reporniți serverul]]></string>
+    <string name="automation_action_toggle"><![CDATA[Comutați serverul]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Plugin Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Plugin integrat de acțiuni și condiții de stare în Tasker și MacroDroid]]></string>
 </resources>

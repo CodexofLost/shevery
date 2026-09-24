@@ -558,4 +558,20 @@ Redo för kommandon.]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[Aktivera]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Inte nu]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Påminn mig inte igen]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automatisering]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid och sändningsintenter]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker & MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Styr Shevery med Tasker eller MacroDroid via det inbyggda insticksprogrammet eller genom att skicka explicita sändningsintenter. Tryck för att kopiera.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Sändningsåtgärder]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Målpaket]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Kopierat till urklipp]]></string>
+    <string name="automation_package_label"><![CDATA[Paket]]></string>
+    <string name="automation_action_start"><![CDATA[Starta server]]></string>
+    <string name="automation_action_stop"><![CDATA[Stoppa server]]></string>
+    <string name="automation_action_restart"><![CDATA[Starta om server]]></string>
+    <string name="automation_action_toggle"><![CDATA[Växla server]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale insticksprogram]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Integrerat insticksprogram för åtgärder och tillståndsvillkor i Tasker och MacroDroid]]></string>
 </resources>

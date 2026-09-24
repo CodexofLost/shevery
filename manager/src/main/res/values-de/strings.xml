@@ -558,4 +558,20 @@ wurde in die Zwischenablage kopiert.]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[Aktivieren]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Nicht jetzt]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Erinnere mich nicht noch einmal daran]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automatisierung]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid und Broadcast-Intents]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker & MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Steuern Sie Shevery mit Tasker oder MacroDroid über das integrierte Plugin oder durch Senden expliziter Broadcast-Intents. Tippen Sie zum Kopieren.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Broadcast-Aktionen]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Zielpaket]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[In die Zwischenablage kopiert]]></string>
+    <string name="automation_package_label"><![CDATA[Paket]]></string>
+    <string name="automation_action_start"><![CDATA[Server starten]]></string>
+    <string name="automation_action_stop"><![CDATA[Server stoppen]]></string>
+    <string name="automation_action_restart"><![CDATA[Server neu starten]]></string>
+    <string name="automation_action_toggle"><![CDATA[Server umschalten]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale Plugin]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Integriertes Aktions- und Zustandsbedingungs-Plugin in Tasker und MacroDroid]]></string>
 </resources>

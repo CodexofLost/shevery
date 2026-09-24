@@ -558,4 +558,20 @@
     <string name="tcp_prompt_dialog_enable"><![CDATA[يُمكَِن]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[ليس الآن]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[لا تذكرني مرة أخرى]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[الأتمتة]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker و MacroDroid ونوايا البث]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker و MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[تحكم في Shevery باستخدام Tasker أو MacroDroid عبر الإضافة المدمجة أو بإرسال مقاصد البث المباشرة. اضغط للنسخ.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[إجراءات البث]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[الحزمة المستهدفة]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[تم النسخ إلى الحافظة]]></string>
+    <string name="automation_package_label"><![CDATA[الحزمة]]></string>
+    <string name="automation_action_start"><![CDATA[بدء الخادم]]></string>
+    <string name="automation_action_stop"><![CDATA[إيقاف الخادم]]></string>
+    <string name="automation_action_restart"><![CDATA[إعادة تشغيل الخادم]]></string>
+    <string name="automation_action_toggle"><![CDATA[تبديل حالة الخادم]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[إضافة Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[إضافة مدمجة للإجراءات وشروط الحالة في Tasker و MacroDroid]]></string>
 </resources>

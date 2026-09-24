@@ -547,4 +547,20 @@
     <string name="tcp_prompt_dialog_enable"><![CDATA[সক্ষম করুন]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[এখন না]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[আমাকে আবার মনে করিয়ে দিও না]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automation]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid, and broadcast intents]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker & MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Control Shevery with Tasker or MacroDroid via the built-in plugin or by sending explicit broadcast intents. Tap an item to copy.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Broadcast Actions]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Target Package]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Copied to clipboard]]></string>
+    <string name="automation_package_label"><![CDATA[Package]]></string>
+    <string name="automation_action_start"><![CDATA[Start server]]></string>
+    <string name="automation_action_stop"><![CDATA[Stop server]]></string>
+    <string name="automation_action_restart"><![CDATA[Restart server]]></string>
+    <string name="automation_action_toggle"><![CDATA[Toggle server]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale Plugin]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Integrated action & state condition plugin in Tasker and MacroDroid]]></string>
 </resources>

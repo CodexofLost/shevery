@@ -558,4 +558,20 @@
     <string name="tcp_prompt_dialog_enable"><![CDATA[Увімкнути]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Не зараз]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Не нагадуй мені знову]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Автоматизація]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid та broadcast-інтенди]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker і MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Керуйте Shevery за допомогою Tasker або MacroDroid через вбудований плагін або надсилання broadcast-інтендів. Натисніть, щоб скопіювати.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Broadcast-дії]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Цільовий пакет]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Скопійовано в буфер обміну]]></string>
+    <string name="automation_package_label"><![CDATA[Пакет]]></string>
+    <string name="automation_action_start"><![CDATA[Запуск сервера]]></string>
+    <string name="automation_action_stop"><![CDATA[Зупинка сервера]]></string>
+    <string name="automation_action_restart"><![CDATA[Перезапуск сервера]]></string>
+    <string name="automation_action_toggle"><![CDATA[Перемикання сервера]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Плагін Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Вбудований плагін дій та умов стану для Tasker і MacroDroid]]></string>
 </resources>

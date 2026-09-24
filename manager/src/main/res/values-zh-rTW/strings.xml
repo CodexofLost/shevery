@@ -563,4 +563,20 @@
     <string name="tcp_prompt_dialog_enable"><![CDATA[使能夠]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[現在不要]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[不要再提醒我]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[自動化]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker、MacroDroid 與廣播 Intent]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker 與 MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[透過內建外掛程式或明確廣播 Intent 使用 Tasker 或 MacroDroid 控制 Shevery。輕觸以複製。]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[廣播動作]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[目標套件名稱]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[已複製到剪貼簿]]></string>
+    <string name="automation_package_label"><![CDATA[套件名稱]]></string>
+    <string name="automation_action_start"><![CDATA[啟動伺服器]]></string>
+    <string name="automation_action_stop"><![CDATA[停止伺服器]]></string>
+    <string name="automation_action_restart"><![CDATA[重新啟動伺服器]]></string>
+    <string name="automation_action_toggle"><![CDATA[切換伺服器狀態]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale 外掛程式]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Tasker 與 MacroDroid 中的整合動作與狀態條件外掛程式]]></string>
 </resources>

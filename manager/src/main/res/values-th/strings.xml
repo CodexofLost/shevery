@@ -558,4 +558,20 @@
     <string name="tcp_prompt_dialog_enable"><![CDATA[เปิดใช้งาน]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[ไม่ใช่ตอนนี้]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[อย่าเตือนฉันอีก]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[ระบบอัตโนมัติ]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid และ Broadcast Intent]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker และ MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[ควบคุม Shevery ด้วย Tasker หรือ MacroDroid ผ่านปลั๊กอินในตัวหรือส่ง Broadcast Intent แตะรายการเพื่อคัดลอก]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[การดำเนินการออกอากาศ]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[แพ็กเกจเป้าหมาย]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[คัดลอกไปยังคลิปบอร์ดแล้ว]]></string>
+    <string name="automation_package_label"><![CDATA[แพ็กเกจ]]></string>
+    <string name="automation_action_start"><![CDATA[เริ่มเซิร์ฟเวอร์]]></string>
+    <string name="automation_action_stop"><![CDATA[หยุดเซิร์ฟเวอร์]]></string>
+    <string name="automation_action_restart"><![CDATA[รีสตาร์ทเซิร์ฟเวอร์]]></string>
+    <string name="automation_action_toggle"><![CDATA[สลับเซิร์ฟเวอร์]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[ปลั๊กอิน Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[ปลั๊กอินการดำเนินการและเงื่อนไขสถานะในตัวสำหรับ Tasker และ MacroDroid]]></string>
 </resources>

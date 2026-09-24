@@ -558,4 +558,20 @@ Valmis ottamaan komentoja vastaan.]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[Ota käyttöön]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Ei nyt]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Älä muistuta minua uudelleen]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automaatio]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid ja lähetys-intentit]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker & MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Ohjaa Sheveryä Taskerilla tai MacroDroidilla sisäänrakennetun lisäosan avulla tai lähettämällä suoria lähetys-intenttejä. Kopioi napauttamalla.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Lähetystoiminnot]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Kohdepaketti]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Kopioitu leikepöydälle]]></string>
+    <string name="automation_package_label"><![CDATA[Paketti]]></string>
+    <string name="automation_action_start"><![CDATA[Käynnistä palvelin]]></string>
+    <string name="automation_action_stop"><![CDATA[Pysäytä palvelin]]></string>
+    <string name="automation_action_restart"><![CDATA[Käynnistä palvelin uudelleen]]></string>
+    <string name="automation_action_toggle"><![CDATA[Vaihda palvelimen tilaa]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale -lisäosa]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Integroitu toiminto- ja tilapohjainen lisäosa Taskeriin ja MacroDroidiin]]></string>
 </resources>

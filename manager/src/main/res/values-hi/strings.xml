@@ -553,4 +553,20 @@
     <string name="tcp_prompt_dialog_enable"><![CDATA[सक्षम]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[अभी नहीं]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[मुझे दोबारा याद मत दिलाना]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[स्वचालन]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid और प्रसारण इंटेंट]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker और MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[इन-बिल्ट प्लगइन के माध्यम से या प्रसारण इंटेंट भेजकर Tasker या MacroDroid के साथ Shevery को नियंत्रित करें। कॉपी करने के लिए टैप करें।]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[प्रसारण क्रियाएं]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[लक्षित पैकेज]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[क्लिपबोर्ड पर कॉपी किया गया]]></string>
+    <string name="automation_package_label"><![CDATA[पैकेज]]></string>
+    <string name="automation_action_start"><![CDATA[सर्वर प्रारंभ करें]]></string>
+    <string name="automation_action_stop"><![CDATA[सर्वर बंद करें]]></string>
+    <string name="automation_action_restart"><![CDATA[सर्वर पुनरारंभ करें]]></string>
+    <string name="automation_action_toggle"><![CDATA[सर्वर टॉगल करें]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale प्लगइन]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Tasker और MacroDroid में एकीकृत क्रिया और स्थिति स्थिति प्लगइन]]></string>
 </resources>

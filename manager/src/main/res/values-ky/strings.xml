@@ -544,4 +544,20 @@
     <string name="tcp_prompt_dialog_enable"><![CDATA[Иштетүү]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Азыр эмес]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Мага кайра эскертпе]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Автоматтандыру]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid және тарату ниеттері]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker және MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Shevery-ді Tasker немесе MacroDroid арқылы кірістірілген плагин немесе тарату ниеттерін жіберу арқылы басқарыңыз. Көшіру үшін түртіңіз.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Тарату әрекеттері]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Мақсатты бума]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Алмасу буферіне көшірілді]]></string>
+    <string name="automation_package_label"><![CDATA[Бума]]></string>
+    <string name="automation_action_start"><![CDATA[Серверді іске қосу]]></string>
+    <string name="automation_action_stop"><![CDATA[Серверді тоқтату]]></string>
+    <string name="automation_action_restart"><![CDATA[Серверді қайта іске қосу]]></string>
+    <string name="automation_action_toggle"><![CDATA[Серверді ауыстырып қосу]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale плагині]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Tasker және MacroDroid-тегі интеграцияланған әрекет пен күй шарты плагині]]></string>
 </resources>

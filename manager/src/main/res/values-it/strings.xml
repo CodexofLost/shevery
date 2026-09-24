@@ -563,4 +563,20 @@ La funzione di esportazione utilizza SAF (Storage Access Framework). È stato se
     <string name="tcp_prompt_dialog_enable"><![CDATA[Abilitare]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Non adesso]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Non ricordarmelo più]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automazione]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid e intent broadcast]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker e MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Controlla Shevery con Tasker o MacroDroid tramite il plug-in integrato o inviando intent broadcast. Tocca per copiare.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Azioni broadcast]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Pacchetto di destinazione]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Copiato negli appunti]]></string>
+    <string name="automation_package_label"><![CDATA[Pacchetto]]></string>
+    <string name="automation_action_start"><![CDATA[Avvia server]]></string>
+    <string name="automation_action_stop"><![CDATA[Arresta server]]></string>
+    <string name="automation_action_restart"><![CDATA[Riavvia server]]></string>
+    <string name="automation_action_toggle"><![CDATA[Alterna server]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Plug-in Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Plug-in integrato di azioni e condizioni di stato in Tasker e MacroDroid]]></string>
 </resources>

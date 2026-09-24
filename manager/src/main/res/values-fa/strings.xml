@@ -549,4 +549,20 @@
     <string name="tcp_prompt_dialog_enable"><![CDATA[فعال کردن]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[نه در حال حاضر]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[دیگه یادم نینداز]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[اتوماسیون]]></string>
+    <string name="automation_section_summary"><![CDATA[تاسکر، ماکرو دروید و مقاصد پخش]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker و MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[برنامه Shevery را با استفاده از افزونه داخلی یا ارسال مستقیم مقاصد پخش با Tasker یا MacroDroid کنترل کنید. برای کپی ضربه بزنید.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[اقدامات پخش]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[بسته هدف]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[در کلیپ بورد کپی شد]]></string>
+    <string name="automation_package_label"><![CDATA[بسته]]></string>
+    <string name="automation_action_start"><![CDATA[شروع سرور]]></string>
+    <string name="automation_action_stop"><![CDATA[توقف سرور]]></string>
+    <string name="automation_action_restart"><![CDATA[راه‌اندازی مجدد سرور]]></string>
+    <string name="automation_action_toggle"><![CDATA[تغییر وضعیت سرور]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[افزونه Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[افزونه یکپارچه اقدام و شرط وضعیت در Tasker و MacroDroid]]></string>
 </resources>

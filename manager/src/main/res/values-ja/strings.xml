@@ -558,4 +558,20 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[有効にする]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[今じゃない]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[二度と思い出さないでください]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[自動化]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker、MacroDroid、ブロードキャストインテント]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker & MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[内蔵プラグインまたは明示的ブロードキャストインテントを送信して、TaskerやMacroDroidでSheveryを制御します。タップしてコピーします。]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[ブロードキャストアクション]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[対象パッケージ]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[クリップボードにコピーしました]]></string>
+    <string name="automation_package_label"><![CDATA[パッケージ]]></string>
+    <string name="automation_action_start"><![CDATA[サーバーを起動]]></string>
+    <string name="automation_action_stop"><![CDATA[サーバーを停止]]></string>
+    <string name="automation_action_restart"><![CDATA[サーバーを再起動]]></string>
+    <string name="automation_action_toggle"><![CDATA[サーバーを切り替え]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale プラグイン]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[TaskerおよびMacroDroidのアクション・状態条件統合プラグイン]]></string>
 </resources>
