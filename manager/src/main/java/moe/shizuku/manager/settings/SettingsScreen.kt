@@ -135,6 +135,11 @@ private enum class SettingsSection(
         R.string.settings_section_ai_summary,
         R.drawable.ic_code_24dp
     ),
+    AUTOMATION(
+        R.string.automation_settings_title,
+        R.string.automation_section_summary,
+        R.drawable.ic_outline_play_arrow_24
+    ),
     TOOLS(
         R.string.settings_sections_title,
         R.string.settings_section_lab_summary,
@@ -610,12 +615,22 @@ fun SettingsScreen(
                                 computRecommand = enabled
                             }
                         )
+                        SettingsSection.AUTOMATION -> automationSectionContent(
+                            context = context,
+                            onCopy = { text ->
+                                ClipboardUtils.put(context, text)
+                                Toast.makeText(context, R.string.automation_copied_to_clipboard, Toast.LENGTH_SHORT).show()
+                            }
+                        )
                         SettingsSection.TOOLS -> toolsSectionContent(
                             onOpenAccessibility = {
                                 context.startActivity(Intent(context, AccessibilityManagerActivity::class.java))
                             },
                             onOpenLab = {
                                 context.startActivity(Intent(context, LabFeaturesActivity::class.java))
+                            },
+                            onOpenAutomation = {
+                                nav = SettingsNav.Section(SettingsSection.AUTOMATION)
                             },
                             onBackup = {
                                 backupLauncher.launch("shevery_backup_${System.currentTimeMillis()}.zip")
@@ -1138,9 +1153,55 @@ private fun LazyListScope.aiSectionContent(
     }
 }
 
+private fun LazyListScope.automationSectionContent(
+    context: Context,
+    onCopy: (String) -> Unit
+) {
+    item {
+        SettingsGroup(title = stringResource(R.string.automation_tasker_macrodroid_title)) {
+            Text(
+                text = stringResource(R.string.automation_dialog_description),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_outline_info_24,
+                title = stringResource(R.string.automation_plugin_method_title),
+                summary = stringResource(R.string.automation_plugin_method_summary)
+            )
+            GroupDivider()
+            SectionHeader(stringResource(R.string.automation_dialog_actions_header))
+            listOf(
+                "com.hamondev.shevery.action.START_SERVER" to stringResource(R.string.automation_action_start),
+                "com.hamondev.shevery.action.STOP_SERVER" to stringResource(R.string.automation_action_stop),
+                "com.hamondev.shevery.action.RESTART_SERVER" to stringResource(R.string.automation_action_restart),
+                "com.hamondev.shevery.action.TOGGLE_SERVER" to stringResource(R.string.automation_action_toggle),
+            ).forEach { (action, label) ->
+                SettingsRow(
+                    icon = R.drawable.ic_outline_play_arrow_24,
+                    title = label,
+                    summary = action,
+                    onClick = { onCopy(action) }
+                )
+                GroupDivider()
+            }
+            SectionHeader(stringResource(R.string.automation_dialog_target_header))
+            SettingsRow(
+                icon = R.drawable.ic_baseline_link_24,
+                title = stringResource(R.string.automation_package_label),
+                summary = context.packageName,
+                onClick = { onCopy(context.packageName) }
+            )
+        }
+    }
+}
+
 private fun LazyListScope.toolsSectionContent(
     onOpenAccessibility: () -> Unit,
     onOpenLab: () -> Unit,
+    onOpenAutomation: () -> Unit,
     onBackup: () -> Unit,
     onRestore: () -> Unit
 ) {
@@ -1152,6 +1213,14 @@ private fun LazyListScope.toolsSectionContent(
                 title = stringResource(R.string.accessibility_manager_lab_title),
                 summary = stringResource(R.string.accessibility_manager_lab_summary),
                 onClick = onOpenAccessibility
+            )
+            GroupDivider()
+            SectionHeader(stringResource(R.string.automation_settings_title))
+            SettingsRow(
+                icon = R.drawable.ic_outline_play_arrow_24,
+                title = stringResource(R.string.automation_tasker_macrodroid_title),
+                summary = stringResource(R.string.automation_section_summary),
+                onClick = onOpenAutomation
             )
             GroupDivider()
             SectionHeader(stringResource(R.string.lab_features_title))
