@@ -8,13 +8,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.OpenInNew
-import androidx.compose.material.icons.rounded.AdminPanelSettings
-import androidx.compose.material.icons.rounded.Code
-import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,7 +21,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -81,14 +74,6 @@ class AboutActivity : AppActivity() {
 
                     item {
                         Spacer(modifier = Modifier.height(8.dp))
-                    }
-
-                    item {
-                        AboutAlsoTryCard()
-                    }
-
-                    item {
-                        Spacer(modifier = Modifier.height(24.dp))
                     }
 
                     item {
@@ -281,150 +266,6 @@ class AboutActivity : AppActivity() {
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
-        }
-    }
-
-    @Composable
-    private fun AboutAlsoTryCard() {
-        val dayStamp = remember { AlsoTry.dayStamp() }
-        val githubPicks = remember { AlsoTry.dailyPick(AlsoTry.githubDaily) }
-        val shizukuPicks = remember { AlsoTry.dailyPick(AlsoTry.shizukuDaily) }
-
-        Card(
-            shape = MaterialTheme.shapes.extraLarge,
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow
-            ),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Column(modifier = Modifier.padding(24.dp)) {
-                Text(
-                    text = "Also Try...",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.padding(bottom = 8.dp)
-                )
-                Text(
-                    text = "Hand-picked open source Android apps that pair well with Shevery. The two lists below refresh every day.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    lineHeight = 20.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-
-                AlsoTrySection(
-                    title = "Featured",
-                    dayStamp = null,
-                    icon = Icons.Rounded.Star,
-                    apps = AlsoTry.featured
-                )
-                AlsoTrySection(
-                    title = "Kotlin apps on GitHub",
-                    dayStamp = dayStamp,
-                    icon = Icons.Rounded.Code,
-                    apps = githubPicks
-                )
-                AlsoTrySection(
-                    title = "Apps that need Shizuku",
-                    dayStamp = dayStamp,
-                    icon = Icons.Rounded.AdminPanelSettings,
-                    apps = shizukuPicks
-                )
-            }
-        }
-    }
-
-    @Composable
-    private fun AlsoTrySection(
-        title: String,
-        dayStamp: String?,
-        icon: ImageVector,
-        apps: List<AlsoTryApp>
-    ) {
-        val context = this@AboutActivity
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 20.dp, bottom = 4.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.weight(1f)
-            )
-            if (dayStamp != null) {
-                Text(
-                    text = dayStamp,
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-        }
-
-        apps.forEachIndexed { index, app ->
-            if (index > 0) GroupDivider()
-            AlsoTryRow(app = app, icon = icon) {
-                CustomTabsHelper.launchUrlOrCopy(context, app.url)
-            }
-        }
-    }
-
-    @Composable
-    private fun AlsoTryRow(
-        app: AlsoTryApp,
-        icon: ImageVector,
-        onClick: () -> Unit
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable(onClick = onClick)
-                .padding(vertical = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(14.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(40.dp)
-                    .background(
-                        MaterialTheme.colorScheme.primaryContainer,
-                        CircleShape
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = icon,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                    modifier = Modifier.size(22.dp)
-                )
-            }
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(3.dp)
-            ) {
-                Text(
-                    text = app.name,
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    fontWeight = FontWeight.Medium
-                )
-                Text(
-                    text = app.summary,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-            Icon(
-                imageVector = Icons.AutoMirrored.Rounded.OpenInNew,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.size(18.dp)
-            )
         }
     }
 

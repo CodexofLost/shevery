@@ -15,6 +15,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ChevronRight
 import androidx.compose.material3.Icon
 import moe.shizuku.manager.about.AboutActivity
+import moe.shizuku.manager.about.AlsoTry
+import moe.shizuku.manager.about.AlsoTryApp
 import android.os.Build
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatDelegate
@@ -74,6 +76,7 @@ import moe.shizuku.manager.receiver.BootCompleteReceiver
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.service.WatchdogManager
 import moe.shizuku.manager.starter.StarterActivity
+import moe.shizuku.manager.utils.CustomTabsHelper
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.ui.compose.GroupDivider
 import moe.shizuku.manager.ui.compose.MonospaceLog
@@ -1195,6 +1198,54 @@ private fun LazyListScope.aboutSectionContent(
                 onClick = onOpenAbout
             )
         }
+    }
+
+    item {
+        AlsoTryGroup()
+    }
+}
+
+@Composable
+private fun AlsoTryGroup() {
+    val context = LocalContext.current
+    val dayStamp = remember { AlsoTry.dayStamp() }
+    val githubPicks = remember { AlsoTry.dailyPick(AlsoTry.githubDaily) }
+    val shizukuPicks = remember { AlsoTry.dailyPick(AlsoTry.shizukuDaily) }
+
+    SettingsGroup(title = "Also Try...") {
+        Text(
+            text = "Hand-picked open source Android apps that pair well with Shevery. The two lists below refresh every day.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+        )
+
+        SectionHeader("Featured")
+        AlsoTryRows(apps = AlsoTry.featured, context = context)
+
+        GroupDivider()
+        SectionHeader("Kotlin apps on GitHub · $dayStamp")
+        AlsoTryRows(apps = githubPicks, context = context)
+
+        GroupDivider()
+        SectionHeader("Apps that need Shizuku · $dayStamp")
+        AlsoTryRows(apps = shizukuPicks, context = context)
+    }
+}
+
+@Composable
+private fun AlsoTryRows(
+    apps: List<AlsoTryApp>,
+    context: Context
+) {
+    apps.forEachIndexed { index, app ->
+        if (index > 0) GroupDivider()
+        SettingsRow(
+            icon = null,
+            title = app.name,
+            summary = app.summary,
+            onClick = { CustomTabsHelper.launchUrlOrCopy(context, app.url) }
+        )
     }
 }
 
