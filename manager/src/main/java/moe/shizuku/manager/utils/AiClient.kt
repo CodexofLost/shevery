@@ -52,8 +52,8 @@ object AiClient {
             val reqBuilder = Request.Builder().url(url).post(body)
                 .header("Content-Type", "application/json")
                 .header("Authorization", "Bearer $apiKey")
-            // OpenRouter attribution (optional, harmless elsewhere)
-            if (baseUrl.contains("openrouter.ai")) {
+            // OpenRouter / Requesty attribution (optional, harmless elsewhere)
+            if (baseUrl.contains("openrouter.ai") || baseUrl.contains("requesty.ai")) {
                 reqBuilder.header("HTTP-Referer", "https://github.com/HmnDev-Tech/shevery")
                     .header("X-Title", "Shevery")
             }
