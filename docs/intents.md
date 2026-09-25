@@ -45,6 +45,8 @@ Example shell usage:
 adb shell am broadcast -a com.hamondev.shevery.action.START_SERVER -p com.hamondev.shevery
 ```
 
+> **Requirement**: Third-party automation broadcasts and the Tasker plugin require **Shevery Connectors** to be enabled in **Settings → Automation** (`shizuku_connector_enabled`). If disabled, broadcast actions are rejected with `RESULT_CANCELED`.
+
 Detailed guide: [Tasker & MacroDroid Automation Guide](tasker-plugin.md).
 
 ## App update status (internal)

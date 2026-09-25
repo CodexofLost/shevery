@@ -19,6 +19,7 @@ object PluginContract {
 
     const val KEY_COMMAND = "command"
     const val KEY_CONDITION = "condition"
+    const val KEY_CONNECTOR_ENABLED = "shizuku_connector_enabled"
     const val VALUE_CONDITION_RUNNING = "running"
 
     const val MANAGER_PACKAGE = "com.hamondev.shevery"
