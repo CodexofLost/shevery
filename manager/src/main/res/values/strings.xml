@@ -517,6 +517,12 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="restore_summary">Import configuration and modules from a ZIP file</string>
     <string name="settings_sections_title">Backups and other</string>
     <string name="backup_section_title">Backups</string>
+    <string name="settings_backups_title">Backups</string>
+    <string name="settings_section_backups_summary">Backup and restore settings</string>
+    <string name="settings_extras_title">Extras</string>
+    <string name="settings_section_extras_summary">Accessibility, diagnostics, and experiments</string>
+    <string name="settings_classic_nav">Classic navigation bar</string>
+    <string name="settings_classic_nav_summary">Use a fixed bottom bar instead of the floating pill</string>
 
     <!-- Comput Console -->
     <string name="comput_title">Comput</string>
@@ -744,4 +750,20 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="tcp_prompt_dialog_enable">Enable</string>
     <string name="tcp_prompt_dialog_later">Not Now</string>
     <string name="tcp_prompt_dialog_do_not_remind">Don\'t remind me again</string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title">Automation</string>
+    <string name="automation_section_summary">Tasker, MacroDroid, and broadcast intents</string>
+    <string name="automation_tasker_macrodroid_title">Tasker &amp; MacroDroid</string>
+    <string name="automation_dialog_description">Control Shevery with Tasker or MacroDroid via the built-in plugin or by sending explicit broadcast intents. Tap an item to copy.</string>
+    <string name="automation_dialog_actions_header">Broadcast Actions</string>
+    <string name="automation_dialog_target_header">Target Package</string>
+    <string name="automation_copied_to_clipboard">Copied to clipboard</string>
+    <string name="automation_package_label">Package</string>
+    <string name="automation_action_start">Start server</string>
+    <string name="automation_action_stop">Stop server</string>
+    <string name="automation_action_restart">Restart server</string>
+    <string name="automation_action_toggle">Toggle server</string>
+    <string name="automation_plugin_method_title">Tasker / Locale Plugin</string>
+    <string name="automation_plugin_method_summary">Integrated action &amp; state condition plugin in Tasker and MacroDroid</string>
 </resources>

@@ -547,4 +547,28 @@ Mengenai penggunaan terperinci %1$s, ketik untuk melihat dokumen.]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[Dayakan]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[bukan sekarang]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Jangan ingatkan saya lagi]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automasi]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid dan niat siaran]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker & MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Kawal Shevery dengan Tasker atau MacroDroid melalui pemalam terbina atau dengan menghantar niat siaran. Ketik untuk menyalin.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Tindakan Siaran]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Pakej Sasaran]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Disalin ke papan keratan]]></string>
+    <string name="automation_package_label"><![CDATA[Pakej]]></string>
+    <string name="automation_action_start"><![CDATA[Mulakan pelayan]]></string>
+    <string name="automation_action_stop"><![CDATA[Hentikan pelayan]]></string>
+    <string name="automation_action_restart"><![CDATA[Mulakan semula pelayan]]></string>
+    <string name="automation_action_toggle"><![CDATA[Togol pelayan]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Pemalam Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Pemalam tindakan & syarat keadaan bersepadu dalam Tasker dan MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Backups]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Backup and restore settings]]></string>
+    <string name="settings_extras_title"><![CDATA[Extras]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Accessibility, diagnostics, and experiments]]></string>
+    <string name="settings_classic_nav"><![CDATA[Classic navigation bar]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Use a fixed bottom bar instead of the floating pill]]></string>
 </resources>

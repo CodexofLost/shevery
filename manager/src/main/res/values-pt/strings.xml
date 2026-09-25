@@ -558,4 +558,28 @@ Pronto para receber comandos.]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[Habilitar]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Agora não]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Não me lembre de novo]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Automação]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid e intents de transmissão]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker e MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Controle o Shevery com Tasker ou MacroDroid usando o plugin integrado ou enviando intents de transmissão. Toque para copiar.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Ações de transmissão]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Pacote de destino]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Copiado para a área de transferência]]></string>
+    <string name="automation_package_label"><![CDATA[Pacote]]></string>
+    <string name="automation_action_start"><![CDATA[Iniciar servidor]]></string>
+    <string name="automation_action_stop"><![CDATA[Parar servidor]]></string>
+    <string name="automation_action_restart"><![CDATA[Reiniciar servidor]]></string>
+    <string name="automation_action_toggle"><![CDATA[Alternar servidor]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Plugin Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Plugin integrado de ação e condição de estado no Tasker e MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Cópias de segurança]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Fazer cópia e restaurar configurações]]></string>
+    <string name="settings_extras_title"><![CDATA[Extras]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Acessibilidade, diagnósticos e experimentos]]></string>
+    <string name="settings_classic_nav"><![CDATA[Barra de navegação clássica]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Usar barra inferior fixa em vez da pílula flutuante]]></string>
 </resources>

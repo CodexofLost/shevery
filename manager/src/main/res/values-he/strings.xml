@@ -558,4 +558,28 @@ has been copied to clipboard.]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[לְאַפשֵׁר]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[לא עכשיו]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[אל תזכיר לי שוב]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[אוטומציה]]></string>
+    <string name="automation_section_summary"><![CDATA[טאסקר, מקרו דרואיד וכוונות שידור]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker ו-MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[שלוט ב-Shevery עם Tasker או MacroDroid באמצעות התוסף המובנה או שליחת כוונות שידור מפורשות. הקש כדי להעתיק.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[פעולות שידור]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[חבילת יעד]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[הועתק ללוח]]></string>
+    <string name="automation_package_label"><![CDATA[חבילה]]></string>
+    <string name="automation_action_start"><![CDATA[הפעל שרת]]></string>
+    <string name="automation_action_stop"><![CDATA[עצור שרת]]></string>
+    <string name="automation_action_restart"><![CDATA[הפעל מחדש את השרת]]></string>
+    <string name="automation_action_toggle"><![CDATA[החלף מצב שרת]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[תוסף Tasker / Locale]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[תוסף פעולה ותנאי מצב משולב ב-Tasker וב-MacroDroid]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Backups]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Backup and restore settings]]></string>
+    <string name="settings_extras_title"><![CDATA[Extras]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Accessibility, diagnostics, and experiments]]></string>
+    <string name="settings_classic_nav"><![CDATA[Classic navigation bar]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Use a fixed bottom bar instead of the floating pill]]></string>
 </resources>

@@ -67,6 +67,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -118,6 +119,7 @@ import moe.shizuku.manager.utils.CustomTabsHelper
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.UserHandleCompat
 import moe.shizuku.manager.ui.compose.ExpressiveFloatingNavigationBar
+import moe.shizuku.manager.ui.compose.RefreshedNavigationBar
 import moe.shizuku.manager.ui.compose.MonospaceLog
 import moe.shizuku.manager.ui.compose.NavItem
 import rikka.core.util.ClipboardUtils
@@ -264,6 +266,19 @@ abstract class HomeActivity : AppActivity() {
             val homeListState = rememberSaveable(saver = LazyListState.Saver) {
                 LazyListState()
             }
+            var useClassicNav by remember { mutableStateOf(ShizukuSettings.isClassicNav()) }
+            DisposableEffect(Unit) {
+                val prefs = ShizukuSettings.getPreferences()
+                val listener = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+                    if (key == ShizukuSettings.USE_CLASSIC_NAV) {
+                        useClassicNav = ShizukuSettings.isClassicNav()
+                    }
+                }
+                prefs.registerOnSharedPreferenceChangeListener(listener)
+                onDispose {
+                    prefs.unregisterOnSharedPreferenceChangeListener(listener)
+                }
+            }
 
             ShizukuExpressiveTheme {
                 Box(Modifier.fillMaxSize()) {
@@ -344,17 +359,28 @@ abstract class HomeActivity : AppActivity() {
                         }
                     }
                 }
-                ExpressiveFloatingNavigationBar(
-                    items = listOf(
-                        NavItem(stringResource(R.string.app_name), Icons.Rounded.Home),
-                        NavItem(stringResource(R.string.modules_title), Icons.Rounded.Apps),
-                        NavItem(stringResource(R.string.comput_title), Icons.Rounded.Terminal),
-                        NavItem(stringResource(R.string.settings_title), Icons.Rounded.Settings)
-                    ),
-                    selectedIndex = selectedTab,
-                    onItemSelected = { selectedTab = it },
-                    modifier = Modifier.align(Alignment.BottomCenter)
+                val navItems = listOf(
+                    NavItem(stringResource(R.string.app_name), Icons.Rounded.Home),
+                    NavItem(stringResource(R.string.modules_title), Icons.Rounded.Apps),
+                    NavItem(stringResource(R.string.comput_title), Icons.Rounded.Terminal),
+                    NavItem(stringResource(R.string.settings_title), Icons.Rounded.Settings)
                 )
+
+                if (useClassicNav) {
+                    RefreshedNavigationBar(
+                        items = navItems,
+                        selectedIndex = selectedTab,
+                        onItemSelected = { selectedTab = it },
+                        modifier = Modifier.align(Alignment.BottomCenter)
+                    )
+                } else {
+                    ExpressiveFloatingNavigationBar(
+                        items = navItems,
+                        selectedIndex = selectedTab,
+                        onItemSelected = { selectedTab = it },
+                        modifier = Modifier.align(Alignment.BottomCenter)
+                    )
+                }
 
                 if (showTcpPromptDialog && !ShizukuSettings.isTcpMode()) {
                     AlertDialog(

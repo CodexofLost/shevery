@@ -667,4 +667,28 @@
     <!-- Wi-Fi -->
     <string name="settings_wifi_reassert_summary"><![CDATA[默认关闭。当系统清除了无线调试标志时将其恢复（在 ADB 启动和 Wi-Fi 重连时）。不会将其关闭。]]></string>
     <string name="settings_wifi_reassert_title"><![CDATA[重新设置无线调试]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[自动化]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker、MacroDroid 和广播 Intent]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker 与 MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[通过内置插件或显式广播 Intent 使用 Tasker 或 MacroDroid 控制 Shevery。点击项目以复制。]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[广播动作]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[目标包名]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[已复制到剪贴板]]></string>
+    <string name="automation_package_label"><![CDATA[包名]]></string>
+    <string name="automation_action_start"><![CDATA[启动服务]]></string>
+    <string name="automation_action_stop"><![CDATA[停止服务]]></string>
+    <string name="automation_action_restart"><![CDATA[重启服务]]></string>
+    <string name="automation_action_toggle"><![CDATA[切换服务状态]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale 插件]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Tasker 和 MacroDroid 中的集成操作与状态条件插件]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[备份]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[备份与恢复设置]]></string>
+    <string name="settings_extras_title"><![CDATA[附加功能]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[无障碍、诊断与实验性功能]]></string>
+    <string name="settings_classic_nav"><![CDATA[传统底栏导航]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[使用传统固定底栏替代悬浮胶囊]]></string>
 </resources>

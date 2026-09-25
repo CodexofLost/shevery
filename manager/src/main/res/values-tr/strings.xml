@@ -563,4 +563,28 @@ Komutlara hazır.]]></string>
     <string name="tcp_prompt_dialog_enable"><![CDATA[Etkinleştir]]></string>
     <string name="tcp_prompt_dialog_later"><![CDATA[Şimdi değil]]></string>
     <string name="tcp_prompt_dialog_do_not_remind"><![CDATA[Bana bir daha hatırlatma]]></string>
+
+    <!-- Automation (Tasker / MacroDroid) -->
+    <string name="automation_settings_title"><![CDATA[Otomasyon]]></string>
+    <string name="automation_section_summary"><![CDATA[Tasker, MacroDroid ve yayın amaçları]]></string>
+    <string name="automation_tasker_macrodroid_title"><![CDATA[Tasker ve MacroDroid]]></string>
+    <string name="automation_dialog_description"><![CDATA[Yerleşik eklentiyi kullanarak veya yayın amaçları göndererek Shevery\'yi Tasker veya MacroDroid ile kontrol edin. Kopyalamak için dokunun.]]></string>
+    <string name="automation_dialog_actions_header"><![CDATA[Yayın Eylemleri]]></string>
+    <string name="automation_dialog_target_header"><![CDATA[Hedef Paket]]></string>
+    <string name="automation_copied_to_clipboard"><![CDATA[Panoya kopyalandı]]></string>
+    <string name="automation_package_label"><![CDATA[Paket]]></string>
+    <string name="automation_action_start"><![CDATA[Sunucuyu başlat]]></string>
+    <string name="automation_action_stop"><![CDATA[Sunucuyu durdur]]></string>
+    <string name="automation_action_restart"><![CDATA[Sunucuyu yeniden başlat]]></string>
+    <string name="automation_action_toggle"><![CDATA[Sunucu durumunu değiştir]]></string>
+    <string name="automation_plugin_method_title"><![CDATA[Tasker / Locale Eklentisi]]></string>
+    <string name="automation_plugin_method_summary"><![CDATA[Tasker ve MacroDroid için entegre eylem ve durum koşulu eklentisi]]></string>
+
+    <!-- Backups, Extras & Classic Nav -->
+    <string name="settings_backups_title"><![CDATA[Yedekler]]></string>
+    <string name="settings_section_backups_summary"><![CDATA[Ayarları yedekle ve geri yükle]]></string>
+    <string name="settings_extras_title"><![CDATA[Ekstralar]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Erişilebilirlik, tanılama ve deneysel özellikler]]></string>
+    <string name="settings_classic_nav"><![CDATA[Klasik gezinme çubuğu]]></string>
+    <string name="settings_classic_nav_summary"><![CDATA[Kayan kapsül yerine sabit alt çubuğu kullan]]></string>
 </resources>

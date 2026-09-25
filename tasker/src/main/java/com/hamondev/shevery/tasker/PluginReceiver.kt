@@ -5,9 +5,11 @@ import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import java.util.concurrent.atomic.AtomicBoolean
 import org.json.JSONObject
 import rikka.shizuku.Shizuku
@@ -20,15 +22,51 @@ class PluginReceiver : BroadcastReceiver() {
     )
 
     override fun onReceive(context: Context, intent: Intent) {
+        if (!isConnectorEnabled(context)) {
+            Log.w(TAG, "Shevery connectors are disabled in settings; ignoring ${intent.action}")
+            resultCode = if (intent.action == PluginContract.ACTION_QUERY_CONDITION) {
+                PluginContract.RESULT_CONDITION_UNKNOWN
+            } else {
+                Activity.RESULT_CANCELED
+            }
+            return
+        }
+
         when (intent.action) {
             PluginContract.ACTION_FIRE_SETTING -> handleFire(context, intent)
             PluginContract.ACTION_QUERY_CONDITION -> handleQuery(intent)
+            PluginContract.ACTION_DIRECT_START -> handleDirect(context, Command.START)
+            PluginContract.ACTION_DIRECT_STOP -> handleDirect(context, Command.STOP)
+            PluginContract.ACTION_DIRECT_RESTART -> handleDirect(context, Command.RESTART)
+            PluginContract.ACTION_DIRECT_TOGGLE -> handleDirect(context, Command.TOGGLE)
         }
+    }
+
+    private fun isConnectorEnabled(context: Context): Boolean {
+        return runCatching {
+            val storageContext = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                context.createDeviceProtectedStorageContext()
+            } else {
+                context
+            }
+            storageContext.getSharedPreferences("settings", Context.MODE_PRIVATE)
+                .getBoolean(PluginContract.KEY_CONNECTOR_ENABLED, false)
+        }.getOrDefault(false)
+    }
+
+    private fun handleDirect(context: Context, command: Command) {
+        executeCommand(context, command)
+        resultCode = Activity.RESULT_OK
     }
 
     private fun handleFire(context: Context, intent: Intent) {
         if (!isExplicit(intent)) return
         val command = parseCommand(intent.getBundleExtra(PluginContract.EXTRA_BUNDLE)) ?: return
+        executeCommand(context, command)
+        resultCode = Activity.RESULT_OK
+    }
+
+    private fun executeCommand(context: Context, command: Command) {
         when (command) {
             Command.START -> sendControl(context, PluginContract.ACTION_START_SERVER)
             Command.STOP -> sendControl(context, PluginContract.ACTION_STOP_SERVER)
@@ -39,7 +77,6 @@ class PluginReceiver : BroadcastReceiver() {
                 sendControl(context, PluginContract.ACTION_START_SERVER)
             }
         }
-        resultCode = Activity.RESULT_OK
     }
 
     private fun handleQuery(intent: Intent) {
@@ -116,6 +153,7 @@ class PluginReceiver : BroadcastReceiver() {
     }
 
     companion object {
+        private const val TAG = "SheveryPluginReceiver"
         private const val RESTART_WAIT_MS = 10_000L
     }
 }

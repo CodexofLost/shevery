@@ -30,6 +30,7 @@ public class ShizukuSettings {
     public static final String LAST_ADB_PORT = "last_adb_port";
     public static final String AUTO_DISABLE_USB_DEBUGGING = "auto_disable_usb_debugging";
     public static final String START_ON_BOOT_ADB = "start_on_boot_adb";
+    public static final String USE_CLASSIC_NAV = "use_classic_nav";
 
 
     private static SharedPreferences sPreferences;
@@ -158,6 +159,14 @@ public class ShizukuSettings {
 
     public static void setLastAdbPort(int port) {
         getPreferences().edit().putInt(LAST_ADB_PORT, port).apply();
+    }
+
+    public static boolean isClassicNav() {
+        return getPreferences().getBoolean(USE_CLASSIC_NAV, false);
+    }
+
+    public static void setClassicNav(boolean enabled) {
+        getPreferences().edit().putBoolean(USE_CLASSIC_NAV, enabled).apply();
     }
 
 }

@@ -100,6 +100,9 @@ import androidx.compose.ui.semantics.selected
 import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MotionScheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -281,6 +284,59 @@ fun ExpressiveFloatingNavigationBar(
         }
     }
 }
+}
+
+@Composable
+fun RefreshedNavigationBar(
+    items: List<NavItem>,
+    selectedIndex: Int,
+    onItemSelected: (Int) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val navBarState = LocalFloatingNavBarVisible.current
+    val isKeyboardVisible = WindowInsets.ime.asPaddingValues().calculateBottomPadding() > 0.dp
+    AnimatedVisibility(
+        visible = !isKeyboardVisible && navBarState.value,
+        modifier = modifier,
+        enter = fadeIn(),
+        exit = fadeOut()
+    ) {
+        NavigationBar(
+            modifier = Modifier.fillMaxWidth(),
+            containerColor = MaterialTheme.colorScheme.surfaceContainer,
+            tonalElevation = 3.dp,
+            windowInsets = WindowInsets.navigationBars
+        ) {
+            items.forEachIndexed { index, item ->
+                val selected = index == selectedIndex
+                NavigationBarItem(
+                    selected = selected,
+                    onClick = { if (!selected) onItemSelected(index) },
+                    icon = {
+                        Icon(
+                            imageVector = item.icon,
+                            contentDescription = item.title
+                        )
+                    },
+                    label = {
+                        Text(
+                            text = item.title,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal
+                        )
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        indicatorColor = MaterialTheme.colorScheme.primaryContainer,
+                        selectedIconColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                        selectedTextColor = MaterialTheme.colorScheme.primary,
+                        unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                )
+            }
+        }
+    }
 }
 
 @Composable
