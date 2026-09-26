@@ -773,6 +773,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="home_automation_button_view_intents">View intents</string>
     <string name="home_automation_bottom_sheet_intents">Automation Intents</string>
     <string name="home_automation_bottom_sheet_description">Configure intents in Tasker or MacroDroid, or run the command directly from Termux / ADB. Tap any field to copy.</string>
+    <string name="home_automation_connectors_disabled_warning">Connectors are currently disabled. Enable them in Settings → Automation to allow incoming broadcast intents.</string>
     <string name="home_automation_device_restriction">To use the start intent on older Android versions without root, you first need to enable ADB over TCP by running %1$s from a PC.</string>
     <string name="home_automation_label_action">Action</string>
     <string name="home_automation_label_package">Package</string>
