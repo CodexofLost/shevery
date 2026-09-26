@@ -766,4 +766,19 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="automation_action_toggle">Toggle server</string>
     <string name="automation_plugin_method_title">Tasker / Locale Plugin</string>
     <string name="automation_plugin_method_summary">Integrated action &amp; state condition plugin in Tasker and MacroDroid</string>
+
+    <!-- Home - Automation -->
+    <string name="home_automation_title">Control Shevery with automation apps</string>
+    <string name="home_automation_description">Apps like Tasker and MacroDroid can send intents to start, stop, restart, or toggle Shevery automatically.</string>
+    <string name="home_automation_button_view_intents">View intents</string>
+    <string name="home_automation_bottom_sheet_intents">Automation Intents</string>
+    <string name="home_automation_bottom_sheet_description">Configure intents in Tasker or MacroDroid, or run the command directly from Termux / ADB. Tap any field to copy.</string>
+    <string name="home_automation_device_restriction">To use the start intent on older Android versions without root, you first need to enable ADB over TCP by running %1$s from a PC.</string>
+    <string name="home_automation_label_action">Action</string>
+    <string name="home_automation_label_package">Package</string>
+    <string name="home_automation_label_target">Target</string>
+    <string name="home_automation_label_extras">Extras (Auth Token)</string>
+    <string name="home_automation_label_shell">Shell / Termux command</string>
+    <string name="home_automation_regenerate_token">Regenerate token</string>
+    <string name="home_automation_regenerate_token_confirm">Are you sure you want to regenerate the token? Any configured Tasker or MacroDroid intents will need to be updated with the new token.</string>
 </resources>
