@@ -782,4 +782,8 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="home_automation_label_shell">Shell / Termux command</string>
     <string name="home_automation_regenerate_token">Regenerate token</string>
     <string name="home_automation_regenerate_token_confirm">Are you sure you want to regenerate the token? Any configured Tasker or MacroDroid intents will need to be updated with the new token.</string>
+    <string name="automation_security_group_title">Authentication &amp; Security</string>
+    <string name="automation_security_description">Direct broadcast intents require this secret authentication token passed as the \'auth\' extra (-e auth &lt;token&gt;). This protects Shevery from unauthorized apps.</string>
+    <string name="automation_regenerate_token_summary">Generate a new secret token and invalidate the existing one</string>
+    <string name="automation_target_component_label">Receiver Component</string>
 </resources>

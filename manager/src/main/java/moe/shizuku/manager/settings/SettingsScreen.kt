@@ -281,6 +281,8 @@ fun SettingsScreen(
     var aiProvidersVersion by remember { mutableStateOf(0) }
     var showMissingPermissionDialog by remember { mutableStateOf(false) }
     var connectorEnabled by remember { mutableStateOf(ModuleSettings.isConnectorEnabled()) }
+    var authToken by remember { mutableStateOf(ShizukuSettings.getAuthToken()) }
+    var showRegenerateTokenDialog by remember { mutableStateOf(false) }
     var verboseLogging by remember { mutableStateOf(ModuleSettings.isVerboseLogging()) }
     var notifyRecovery by remember { mutableStateOf(ModuleSettings.isNotifyOnRecovery()) }
     var autoRefresh by remember { mutableStateOf(ModuleSettings.isAutoRefreshOnResume()) }
@@ -652,6 +654,7 @@ fun SettingsScreen(
                         SettingsSection.AUTOMATION -> automationSectionContent(
                             context = context,
                             connectorEnabled = connectorEnabled,
+                            authToken = authToken,
                             onConnectorToggle = { enabled ->
                                 if (enabled) {
                                     showUnsafeDialog = true
@@ -660,6 +663,7 @@ fun SettingsScreen(
                                     ModuleSettings.setConnectorEnabled(false)
                                 }
                             },
+                            onRegenerateTokenClick = { showRegenerateTokenDialog = true },
                             onCopy = { text ->
                                 ClipboardUtils.put(context, text)
                                 Toast.makeText(context, R.string.automation_copied_to_clipboard, Toast.LENGTH_SHORT).show()
@@ -847,6 +851,32 @@ fun SettingsScreen(
             },
             dismissButton = {
                 TextButton(onClick = { showDhizukuDialog = false }) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            },
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            shape = MaterialTheme.shapes.extraLarge
+        )
+    }
+
+    if (showRegenerateTokenDialog) {
+        AlertDialog(
+            onDismissRequest = { showRegenerateTokenDialog = false },
+            title = { Text(stringResource(R.string.home_automation_regenerate_token)) },
+            text = { Text(stringResource(R.string.home_automation_regenerate_token_confirm)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        val newToken = ShizukuSettings.generateAuthToken()
+                        authToken = newToken
+                        showRegenerateTokenDialog = false
+                    }
+                ) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showRegenerateTokenDialog = false }) {
                     Text(stringResource(android.R.string.cancel))
                 }
             },
@@ -1301,9 +1331,14 @@ private fun LazyListScope.backupsSectionContent(
 private fun LazyListScope.automationSectionContent(
     context: Context,
     connectorEnabled: Boolean,
+    authToken: String,
     onConnectorToggle: (Boolean) -> Unit,
+    onRegenerateTokenClick: () -> Unit,
     onCopy: (String) -> Unit
 ) {
+    val targetComponent = "${context.packageName}/com.hamondev.shevery.tasker.PluginReceiver"
+    val shellCommand = "am broadcast -a com.hamondev.shevery.action.START_SERVER -p ${context.packageName} -e auth $authToken"
+
     item {
         SettingsGroup(title = stringResource(R.string.shizuku_connectors_title)) {
             SwitchSettingsRow(
@@ -1312,6 +1347,30 @@ private fun LazyListScope.automationSectionContent(
                 summary = stringResource(R.string.shizuku_connectors_summary),
                 checked = connectorEnabled,
                 onCheckedChange = onConnectorToggle
+            )
+        }
+    }
+    item {
+        SettingsGroup(title = stringResource(R.string.automation_security_group_title)) {
+            Text(
+                text = stringResource(R.string.automation_security_description),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_code_24dp,
+                title = stringResource(R.string.home_automation_label_extras),
+                summary = authToken,
+                onClick = { onCopy(authToken) }
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_server_restart,
+                title = stringResource(R.string.home_automation_regenerate_token),
+                summary = stringResource(R.string.automation_regenerate_token_summary),
+                onClick = onRegenerateTokenClick
             )
         }
     }
@@ -1351,6 +1410,20 @@ private fun LazyListScope.automationSectionContent(
                 title = stringResource(R.string.automation_package_label),
                 summary = context.packageName,
                 onClick = { onCopy(context.packageName) }
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_baseline_link_24,
+                title = stringResource(R.string.automation_target_component_label),
+                summary = targetComponent,
+                onClick = { onCopy(targetComponent) }
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_terminal_24,
+                title = stringResource(R.string.home_automation_label_shell),
+                summary = shellCommand,
+                onClick = { onCopy(shellCommand) }
             )
         }
     }
