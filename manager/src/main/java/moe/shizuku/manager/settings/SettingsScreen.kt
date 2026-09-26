@@ -291,6 +291,7 @@ fun SettingsScreen(
     var aiExplain by remember { mutableStateOf(ModuleSettings.isComputAiExplainEnabled()) }
     var showUnsafeDialog by remember { mutableStateOf(false) }
     var showRevokeDialog by remember { mutableStateOf(false) }
+    var recreateTick by remember { mutableIntStateOf(0) }
     var nav by remember {
         mutableStateOf<SettingsNav>(
             if (targetSection != null) SettingsNav.Section(targetSection) else SettingsNav.Hub
