@@ -582,4 +582,28 @@ Gata să primească comenzi.]]></string>
     <string name="settings_section_extras_summary"><![CDATA[Accessibility, diagnostics, and experiments]]></string>
     <string name="settings_classic_nav"><![CDATA[Classic navigation bar]]></string>
     <string name="settings_classic_nav_summary"><![CDATA[Use a fixed bottom bar instead of the floating pill]]></string>
+
+    <!-- Home - Automation -->
+    <string name="home_automation_title"><![CDATA[Controlează Shevery cu aplicații de automatizare]]></string>
+    <string name="home_automation_description"><![CDATA[Aplicații precum Tasker și MacroDroid pot trimite intenții pentru a porni, opri, reporni sau comuta Shevery automat.]]></string>
+    <string name="home_automation_button_view_intents"><![CDATA[Vizualizare intenții]]></string>
+    <string name="home_automation_bottom_sheet_intents"><![CDATA[Intenții de automatizare]]></string>
+    <string name="home_automation_bottom_sheet_description"><![CDATA[Configurați intențiile în Tasker sau MacroDroid, sau rulați comanda direct din Termux / ADB. Atingeți pentru a copia.]]></string>
+    <string name="home_automation_connectors_disabled_warning"><![CDATA[Conectorii sunt dezactivați în prezent. Activați-i în Setări → Automatizare pentru a permite intențiile de difuzare primite.]]></string>
+    <string name="home_automation_device_restriction"><![CDATA[Pentru a utiliza intenția de pornire pe versiuni mai vechi de Android fără root, trebuie mai întâi să activați ADB prin TCP rulând %1$s de pe un PC.]]></string>
+    <string name="home_automation_label_action"><![CDATA[Acțiune]]></string>
+    <string name="home_automation_label_package"><![CDATA[Pachet]]></string>
+    <string name="home_automation_label_target"><![CDATA[Țintă]]></string>
+    <string name="home_automation_label_extras"><![CDATA[Extra (Token de autentificare)]]></string>
+    <string name="home_automation_label_shell"><![CDATA[Comandă Shell / Termux]]></string>
+    <string name="home_automation_regenerate_token"><![CDATA[Regenerează token]]></string>
+    <string name="home_automation_regenerate_token_confirm"><![CDATA[Sigur doriți să regenerați tokenul? Toate intențiile configurate vor trebui actualizate cu noul token.]]></string>
+    <string name="automation_security_group_title"><![CDATA[Autentificare și securitate]]></string>
+    <string name="automation_security_description"><![CDATA[Intențiile de difuzare directă necesită acest token secret de autentificare transmis ca extra 'auth' (-e auth <token>). Aceasta protejează Shevery de aplicațiile neautorizate.]]></string>
+    <string name="automation_regenerate_token_summary"><![CDATA[Generați un nou token secret și invalidați-l pe cel existent]]></string>
+    <string name="automation_target_component_label"><![CDATA[Componentă receptor]]></string>
+    <string name="home_automation_connectors_disabled_status"><![CDATA[Conectori dezactivați (Intenții inactive)]]></string>
+    <string name="home_automation_connectors_active"><![CDATA[Conectori activi]]></string>
+    <string name="home_automation_connectors_active_desc"><![CDATA[Intențiile de difuzare primite vor fi acceptate.]]></string>
+    <string name="home_automation_open_settings"><![CDATA[Deschide setările de automatizare]]></string>
 </resources>

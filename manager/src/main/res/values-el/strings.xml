@@ -582,4 +582,28 @@
     <string name="settings_section_extras_summary"><![CDATA[Accessibility, diagnostics, and experiments]]></string>
     <string name="settings_classic_nav"><![CDATA[Classic navigation bar]]></string>
     <string name="settings_classic_nav_summary"><![CDATA[Use a fixed bottom bar instead of the floating pill]]></string>
+
+    <!-- Home - Automation -->
+    <string name="home_automation_title"><![CDATA[Έλεγχος του Shevery με εφαρμογές αυτοματισμού]]></string>
+    <string name="home_automation_description"><![CDATA[Εφαρμογές όπως το Tasker και το MacroDroid μπορούν να στείλουν intents για αυτόματη εκκίνηση, διακοπή, επανεκκίνηση ή εναλλαγή του Shevery.]]></string>
+    <string name="home_automation_button_view_intents"><![CDATA[Προβολή intents]]></string>
+    <string name="home_automation_bottom_sheet_intents"><![CDATA[Intents αυτοματισμού]]></string>
+    <string name="home_automation_bottom_sheet_description"><![CDATA[Ρυθμίστε intents στο Tasker ή το MacroDroid ή εκτελέστε την εντολή απευθείας από το Termux / ADB. Πατήστε για αντιγραφή.]]></string>
+    <string name="home_automation_connectors_disabled_warning"><![CDATA[Οι σύνδεσμοι είναι απενεργοποιημένοι. Ενεργοποιήστε τους στις Ρυθμίσεις → Αυτοματισμός για να επιτρέπονται εισερχόμενα intents.]]></string>
+    <string name="home_automation_device_restriction"><![CDATA[Για να χρησιμοποιήσετε το intent εκκίνησης σε παλαιότερες εκδόσεις Android χωρίς root, πρέπει πρώτα να ενεργοποιήσετε το ADB μέσω TCP εκτελώντας %1$s από υπολογιστή.]]></string>
+    <string name="home_automation_label_action"><![CDATA[Ενέργεια]]></string>
+    <string name="home_automation_label_package"><![CDATA[Πακέτο]]></string>
+    <string name="home_automation_label_target"><![CDATA[Στόχος]]></string>
+    <string name="home_automation_label_extras"><![CDATA[Πρόσθετα (Διακριτικό ελέγχου ταυτότητας)]]></string>
+    <string name="home_automation_label_shell"><![CDATA[Εντολή Shell / Termux]]></string>
+    <string name="home_automation_regenerate_token"><![CDATA[Αναγέννηση διακριτικού]]></string>
+    <string name="home_automation_regenerate_token_confirm"><![CDATA[Είστε βέβαιοι ότι θέλετε να αναγεννήσετε το διακριτικό; Τυχόν διαμορφωμένα intents θα πρέπει να ενημερωθούν με το νέο διακριτικό.]]></string>
+    <string name="automation_security_group_title"><![CDATA[Έλεγχος ταυτότητας και ασφάλεια]]></string>
+    <string name="automation_security_description"><![CDATA[Τα άμεσα intents μετάδοσης απαιτούν αυτό το μυστικό διακριτικό ως πρόσθετο 'auth' (-e auth <token>). Αυτό προστατεύει το Shevery από μη εξουσιοδοτημένες εφαρμογές.]]></string>
+    <string name="automation_regenerate_token_summary"><![CDATA[Δημιουργία νέου μυστικού διακριτικού και ακύρωση του υπάρχοντος]]></string>
+    <string name="automation_target_component_label"><![CDATA[Στοιχείο δέκτη]]></string>
+    <string name="home_automation_connectors_disabled_status"><![CDATA[Σύνδεσμοι απενεργοποιημένοι (Ανενεργά intents)]]></string>
+    <string name="home_automation_connectors_active"><![CDATA[Σύνδεσμοι ενεργοί]]></string>
+    <string name="home_automation_connectors_active_desc"><![CDATA[Τα εισερχόμενα intents μετάδοσης θα γίνονται δεκτά.]]></string>
+    <string name="home_automation_open_settings"><![CDATA[Άνοιγμα ρυθμίσεων αυτοματισμού]]></string>
 </resources>
