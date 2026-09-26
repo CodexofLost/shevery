@@ -105,7 +105,7 @@ import android.widget.Toast
 import moe.shizuku.manager.utils.BackupRestoreUtil
 import moe.shizuku.manager.utils.AiExplainUtil
 
-private enum class SettingsSection(
+enum class SettingsSection(
     @param:StringRes val titleRes: Int,
     @param:StringRes val summaryRes: Int,
     @param:DrawableRes val iconRes: Int,
@@ -166,7 +166,9 @@ private sealed interface SettingsNav {
 
 @Composable
 fun SettingsScreen(
-    listState: LazyListState = rememberLazyListState()
+    listState: LazyListState = rememberLazyListState(),
+    targetSection: SettingsSection? = null,
+    onTargetSectionConsumed: (() -> Unit)? = null
 ) {
     val context = LocalContext.current
     val activity = context as? Activity
@@ -289,8 +291,18 @@ fun SettingsScreen(
     var aiExplain by remember { mutableStateOf(ModuleSettings.isComputAiExplainEnabled()) }
     var showUnsafeDialog by remember { mutableStateOf(false) }
     var showRevokeDialog by remember { mutableStateOf(false) }
-    var recreateTick by remember { mutableIntStateOf(0) }
-    var nav by remember { mutableStateOf<SettingsNav>(SettingsNav.Hub) }
+    var nav by remember {
+        mutableStateOf<SettingsNav>(
+            if (targetSection != null) SettingsNav.Section(targetSection) else SettingsNav.Hub
+        )
+    }
+
+    LaunchedEffect(targetSection) {
+        if (targetSection != null) {
+            nav = SettingsNav.Section(targetSection)
+            onTargetSectionConsumed?.invoke()
+        }
+    }
 
     // AI Provider manager replaces the whole Settings screen while open:
     // composing it after the Scaffold stacked a second TopAppBar over this
