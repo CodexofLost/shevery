@@ -1,9 +1,6 @@
 package moe.shizuku.manager.adb
 
-import android.Manifest
 import android.content.Context
-import android.content.pm.PackageManager
-import android.provider.Settings
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.delay
 import moe.shizuku.manager.ShizukuSettings
@@ -101,11 +98,8 @@ object AdbStarter {
 
     private fun disableWirelessDebugging(context: Context?) {
         val appContext = context?.applicationContext ?: return
-        if (appContext.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) != PackageManager.PERMISSION_GRANTED) {
-            return
-        }
-        runCatching {
-            Settings.Global.putInt(appContext.contentResolver, "adb_wifi_enabled", 0)
-        }
+        // WRITE_SECURE_SETTINGS and Device Owner may both write 0 to the
+        // allowlisted key — AdbArm picks whichever this install has.
+        AdbArm.disarmWifiEnabled(appContext)
     }
 }

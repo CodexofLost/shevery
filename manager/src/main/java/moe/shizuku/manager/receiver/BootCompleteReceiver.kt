@@ -1,7 +1,6 @@
 package moe.shizuku.manager.receiver
 
 import android.Manifest.permission.NEARBY_WIFI_DEVICES
-import android.Manifest.permission.WRITE_SECURE_SETTINGS
 import android.app.KeyguardManager
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -16,6 +15,7 @@ import androidx.core.content.ContextCompat
 import moe.shizuku.manager.AppConstants
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.ShizukuSettings.LaunchMethod
+import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.UserHandleCompat
 import rikka.shizuku.Shizuku
@@ -55,7 +55,12 @@ class BootCompleteReceiver : BroadcastReceiver() {
 
         if (isAdbCandidate) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) != PackageManager.PERMISSION_GRANTED) {
+                // Either WRITE_SECURE_SETTINGS (pm grant / granted back by the server
+                // after the first start) or Device Owner is enough to arm adbd —
+                // see AdbArm. Previously only the permission was accepted, so
+                // Device-Owner-only installs bailed out with "no permission" and
+                // never reached the start path.
+                if (!AdbArm.canArm(context)) {
                     moe.shizuku.manager.service.StartupNotificationManager.showFailed(
                         context,
                         context.getString(moe.shizuku.manager.R.string.notification_startup_no_permission)
@@ -87,6 +92,11 @@ class BootCompleteReceiver : BroadcastReceiver() {
                     return
                 }
             }
+            // Flip the adb switches now — via WRITE_SECURE_SETTINGS or, when that is
+            // missing, via Device Owner setGlobalSetting (AdbArm picks whichever the
+            // install has) — so the discovery below finds a live wireless session.
+            AdbArm.arm(context)
+
             val tcpPort = EnvironmentUtils.getAdbTcpPort()
             if (tcpPort > 0 && (EnvironmentUtils.isTV(context) || ShizukuSettings.isTcpMode())) {
                 ShizukuReceiverStarter.start(context)

@@ -1,13 +1,11 @@
 package moe.shizuku.manager.receiver
 
-import android.Manifest.permission.WRITE_SECURE_SETTINGS
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.util.Log
@@ -17,6 +15,7 @@ import moe.shizuku.manager.R
 import moe.shizuku.manager.AppConstants
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.ShizukuSettings.LaunchMethod
+import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.ShizukuStateMachine
@@ -52,7 +51,7 @@ object ShizukuReceiverStarter {
                 rootStart(context)
             } else if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.R || EnvironmentUtils.isTelevision() || EnvironmentUtils.getAdbTcpPort() > 0)
                 && ShizukuSettings.getLastLaunchMode() == LaunchMethod.ADB) {
-                    if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
+                    if (AdbArm.canArm(context)) {
                         AdbStartWorker.enqueue(context)
                         // Cancel the startup notification (id 1005) since the worker
                         // notification (id 1447) is now the source of truth.

@@ -7,7 +7,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.pm.PackageManager
 import android.database.ContentObserver
 import android.os.Build
 import android.provider.Settings
@@ -28,6 +27,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import moe.shizuku.manager.R
+import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.adb.AdbMdns
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.module.ModuleSettings
@@ -195,16 +195,11 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
             val cr = applicationContext.contentResolver
 
-            // Check WRITE_SECURE_SETTINGS before modifying secure settings
-            val hasSecureSettingsPermission = applicationContext.checkSelfPermission(
-                android.Manifest.permission.WRITE_SECURE_SETTINGS
-            ) == PackageManager.PERMISSION_GRANTED
-            if (hasSecureSettingsPermission) {
-                Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
-                Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
-            } else {
-                Log.d(AppConstants.TAG, "WRITE_SECURE_SETTINGS not granted, skipping ADB secure settings")
-            }
+            // Arm adbd through whichever path this install has: WRITE_SECURE_SETTINGS
+            // writes everything (including adb_allowed_connection_time = 0, which keeps
+            // pairing keys from expiring), Device Owner writes only the two keys AOSP
+            // allowlists (ADB_ENABLED + adb_wifi_enabled). See AdbArm.
+            AdbArm.arm(applicationContext)
 
             val tcpPort = EnvironmentUtils.getAdbTcpPort()
             val liveTcpPort = EnvironmentUtils.getLiveAdbTcpPort()
@@ -265,7 +260,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                                         if (intent.action == Intent.ACTION_USER_PRESENT) {
                                             context.unregisterReceiver(this)
                                             unlockReceiver = null
-                                            Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
+                                            AdbArm.armWifiEnabled(context)
                                         }
                                     }
                                 }
@@ -316,9 +311,7 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                         }
                     }
 
-                    if (hasSecureSettingsPermission) {
-                        Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
-                    }
+                    AdbArm.armWifiEnabled(applicationContext)
                     val uri = Settings.Global.getUriFor("adb_wifi_enabled")
                     if (uri != null) {
                         cr.registerContentObserver(uri, false, observer)

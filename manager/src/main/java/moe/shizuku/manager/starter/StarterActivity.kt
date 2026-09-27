@@ -37,10 +37,10 @@ import kotlinx.coroutines.launch
 import moe.shizuku.manager.AppConstants.EXTRA
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
+import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.adb.AdbKeyException
 import moe.shizuku.manager.app.AppActivity
-import moe.shizuku.manager.deviceowner.DeviceOwnerManager
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import moe.shizuku.manager.ui.compose.ExpressiveCard
 import moe.shizuku.manager.ui.compose.HtmlText
@@ -78,9 +78,8 @@ class StarterActivity : AppActivity() {
         super.onCreate(savedInstanceState)
         moe.shizuku.manager.service.WatchdogManager.isStarterActive = true
 
-        if (DeviceOwnerManager.isDeviceOwner(this)) {
-            DeviceOwnerManager.enableAdbViaDpm(this)
-        }
+        // Arm adbd before the start flow: WRITE_SECURE_SETTINGS or Device Owner.
+        AdbArm.arm(this)
 
         viewModel.output.observe(this) {
             val output = it.data.orEmpty().trim()
