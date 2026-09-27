@@ -8,6 +8,7 @@ package moe.shizuku.manager.home
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Build
+import android.provider.Settings
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
