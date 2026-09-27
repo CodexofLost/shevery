@@ -260,8 +260,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery xizmati kutilmaganda to\'xtatildi.]]></string>
     <string name="watchdog_service_title"><![CDATA[Kuzatuvchi faol]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery xizmati kuzatilmoqda]]></string>
-    <string name="watchdog_action_turn_off"><![CDATA[O'chirish]]></string>
-    <string name="watchdog_action_channel_settings"><![CDATA[Ogohlantirishlarni o'chirish]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[O\'chirish]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Ogohlantirishlarni o\'chirish]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery boshqaruvi]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery ishlamoqda]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery to\'xtatilgan]]></string>
