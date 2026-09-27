@@ -111,6 +111,7 @@ import moe.shizuku.manager.Helps
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.settings.SettingsSection
+import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.app.AppActivity
 import moe.shizuku.manager.deviceowner.DeviceOwnerManager
@@ -219,9 +220,9 @@ abstract class HomeActivity : AppActivity() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                if (DeviceOwnerManager.isDeviceOwner(applicationContext)) {
-                    DeviceOwnerManager.enableAdbViaDpm(applicationContext)
-                }
+                // Arm adbd on launch: WRITE_SECURE_SETTINGS when granted, otherwise
+                // Device Owner setGlobalSetting (AdbArm decides between them).
+                AdbArm.arm(applicationContext)
             } catch (_: Throwable) {
             }
         }

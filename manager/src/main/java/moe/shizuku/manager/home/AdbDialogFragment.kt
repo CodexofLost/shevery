@@ -5,10 +5,8 @@
 
 package moe.shizuku.manager.home
 
-import android.Manifest.permission.WRITE_SECURE_SETTINGS
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.Settings
 import androidx.annotation.RequiresApi
@@ -42,6 +40,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import moe.shizuku.manager.R
 import moe.shizuku.manager.ShizukuSettings
+import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.adb.AdbMdns
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.utils.EnvironmentUtils
@@ -62,18 +61,9 @@ fun AdbDiscoveryDialog(
     }
 
     LaunchedEffect(Unit) {
-        if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
-            val cr = context.contentResolver
-            if (Settings.Global.getInt(cr, "adb_wifi_enabled", 0) != 1) {
-                Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
-            }
-            if (Settings.Global.getInt(cr, Settings.Global.ADB_ENABLED, 0) != 1) {
-                Settings.Global.putInt(cr, Settings.Global.ADB_ENABLED, 1)
-            }
-            if (Settings.Global.getLong(cr, "adb_allowed_connection_time", -1L) != 0L) {
-                Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
-            }
-        }
+        // Arm adbd via WRITE_SECURE_SETTINGS or Device Owner setGlobalSetting —
+        // AdbArm picks whichever this install has; no-op when neither exists.
+        AdbArm.arm(context)
 
         withContext(Dispatchers.IO) {
             val livePort = EnvironmentUtils.getLiveAdbTcpPort()

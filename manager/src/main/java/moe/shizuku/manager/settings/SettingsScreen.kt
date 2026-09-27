@@ -77,6 +77,7 @@ import moe.shizuku.manager.module.ModuleSettings
 import moe.shizuku.manager.commandium.AiProviderRepository
 import moe.shizuku.manager.module.update.AppUpdateSettingsGroup
 import moe.shizuku.manager.receiver.BootCompleteReceiver
+import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.adb.AdbStarter
 import moe.shizuku.manager.service.WatchdogManager
 import moe.shizuku.manager.starter.StarterActivity
@@ -547,8 +548,7 @@ fun SettingsScreen(
                             },
                             onAdbStartOnBootChange = { enabled ->
                                 if (enabled) {
-                                    val hasPermission = context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) ==
-                                            PackageManager.PERMISSION_GRANTED
+                                    val hasPermission = AdbArm.canArm(context)
                                     if (hasPermission) {
                                         ShizukuSettings.setStartOnBootAdb(true)
                                         adbStartOnBoot = true

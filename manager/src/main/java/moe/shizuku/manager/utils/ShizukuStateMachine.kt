@@ -1,8 +1,5 @@
 package moe.shizuku.manager.utils
 
-import android.Manifest.permission.WRITE_SECURE_SETTINGS
-import android.content.pm.PackageManager
-import android.provider.Settings
 import android.util.Log
 import java.util.concurrent.CopyOnWriteArrayList
 import java.util.concurrent.atomic.AtomicReference
@@ -13,6 +10,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withTimeoutOrNull
 import moe.shizuku.manager.AppConstants
 import moe.shizuku.manager.ShizukuSettings
+import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.application
 import rikka.shizuku.Shizuku
 
@@ -88,15 +86,9 @@ object ShizukuStateMachine {
             State.STOPPING -> {
                 try {
                     val appContext = application.applicationContext
-                    val permissionGranted = appContext
-                        .checkSelfPermission(WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
-                    val shouldDisableUsbDebugging = permissionGranted &&
-                        ShizukuSettings.getAutoDisableUsbDebugging()
-                    if (shouldDisableUsbDebugging) {
-                        Settings.Global.putInt(
-                            appContext.contentResolver,
-                            Settings.Global.ADB_ENABLED, 0
-                        )
+                    if (ShizukuSettings.getAutoDisableUsbDebugging()) {
+                        // WRITE_SECURE_SETTINGS or Device Owner — AdbArm picks the path.
+                        AdbArm.disarmUsbDebugging(appContext)
                     }
                 } catch (e: Exception) {
                     Log.w(TAG, "Failed to auto-disable USB debugging on stop", e)

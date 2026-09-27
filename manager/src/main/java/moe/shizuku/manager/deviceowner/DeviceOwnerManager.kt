@@ -91,21 +91,33 @@ object DeviceOwnerManager {
         return "dpm set-device-owner $cn"
     }
 
-    fun enableAdbViaDpm(context: Context): Boolean {
+    /**
+     * Write a single Global setting through DevicePolicyManager.setGlobalSetting.
+     *
+     * AOSP allows `ADB_ENABLED` and `adb_wifi_enabled` (both "0" and "1");
+     * anything else (notably `adb_allowed_connection_time`) throws
+     * SecurityException and is reported as a failure instead of crashing.
+     */
+    fun setGlobalSetting(context: Context, setting: String, value: String): Boolean {
         return try {
             val dpm = getDpm(context)
             val admin = getAdminComponent(context)
-            dpm.setGlobalSetting(admin, Settings.Global.ADB_ENABLED, "1")
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                try {
-                    dpm.setGlobalSetting(admin, "adb_wifi_enabled", "1")
-                } catch (_: Exception) {}
-            }
+            dpm.setGlobalSetting(admin, setting, value)
             true
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to enable ADB via DPM", e)
+            Log.e(TAG, "Failed to set $setting=$value via DPM", e)
             false
         }
+    }
+
+    fun enableAdbViaDpm(context: Context): Boolean {
+        // Same contract as before: the result reflects the ADB_ENABLED write;
+        // the wireless-debugging write is best effort (swallowed per key).
+        val ok = setGlobalSetting(context, Settings.Global.ADB_ENABLED, "1")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            setGlobalSetting(context, "adb_wifi_enabled", "1")
+        }
+        return ok
     }
 
     fun getDelegatedScopes(context: Context, packageName: String): List<String> {
