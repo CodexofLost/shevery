@@ -284,6 +284,8 @@
     <string name="notification_watchdog_text"><![CDATA[El servei Shevery s\'ha aturat inesperadament.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery vigilància activa]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoratge del servei Shevery per a la recuperació de la vigència]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Desactiva]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Desactiva les alertes]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name">Shevery startup</string>
     <string name="notification_startup_title"><![CDATA[Començant Shevery]]></string>

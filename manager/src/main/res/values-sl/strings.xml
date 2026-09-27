@@ -301,6 +301,8 @@ je bil kopiran v odložišče.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Storitev Shevery se je nepričakovano ustavila.]]></string>
     <string name="watchdog_service_title"><![CDATA[Nadzorni sistem Shevery je aktiven]]></string>
     <string name="watchdog_service_text"><![CDATA[Spremljanje storitve Shevery za obnovo povezave »keep-alive«]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Izklopi]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Izklopi opozorila]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Začetek Shevery]]></string>

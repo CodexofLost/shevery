@@ -298,6 +298,8 @@
     <string name="notification_watchdog_text"><![CDATA[Η υπηρεσία Shevery σταμάτησε να λειτουργεί απροσδόκητα.]]></string>
     <string name="watchdog_service_title"><![CDATA[Το Shevery Watchdog είναι ενεργό]]></string>
     <string name="watchdog_service_text"><![CDATA[Παρακολούθηση της υπηρεσίας Shevery για ανάκτηση μέσω keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Απενεργοποίηση]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Απενεργοποίηση ειδοποιήσεων]]></string>
     <string name="notification_control_channel_name">Έλεγχος Shevery</string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery: μια νεοφυής επιχείρηση]]></string>
     <string name="notification_startup_title"><![CDATA[Έναρξη του Shevery]]></string>

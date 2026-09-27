@@ -298,6 +298,8 @@ Eksportēšanas funkcija izmanto SAF (Storage Access Framework). Ir ziņots, ka 
     <string name="notification_watchdog_text"><![CDATA[Pakalpojums „Shevery“ negaidīti ir pārtraukts.]]></string>
     <string name="watchdog_service_title"><![CDATA[„Shevery“ uzraudzības sistēma darbojas]]></string>
     <string name="watchdog_service_text"><![CDATA[„Shevery“ pakalpojuma uzraudzība, lai nodrošinātu atjaunošanu pēc savienojuma pārtraukuma]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Izslēgt]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Izslēgt brīdinājumus]]></string>
     <string name="notification_control_channel_name"><![CDATA[„Shevery“ vadības sistēma]]></string>
     <string name="notification_startup_channel_name"><![CDATA[„Shevery“ start-up uzņēmums]]></string>
     <string name="notification_startup_title"><![CDATA[„Shevery” sākums]]></string>

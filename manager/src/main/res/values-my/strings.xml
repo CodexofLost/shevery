@@ -262,6 +262,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Shevery ဝန်ဆောင်မှုသည် မမျှော်လင့်ဘဲ ရပ်တန့်သွားသည်။]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery စောင့်ကြည့်ရေးခွေးသည် တက်ကြွနေသည်။]]></string>
     <string name="watchdog_service_text"><![CDATA[ဆက်လက်ရှင်သန်ခြင်းအတွက် Shevery ဝန်ဆောင်မှုကို စောင့်ကြည့်ခြင်း။]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[ပိတ်ရန်]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[သတိပေးချက်များ ပိတ်ရန်]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery ထိန်းချုပ်မှု]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery စတင်သည်။]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery စတင်ခြင်း။]]></string>

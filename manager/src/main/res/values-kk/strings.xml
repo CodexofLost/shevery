@@ -270,6 +270,8 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="notification_watchdog_text"><![CDATA[Shevery қызметі күтпеген жерден тоқтады.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery бақылаушысы белсенді]]></string>
     <string name="watchdog_service_text"><![CDATA[Қалпына келтіру үшін Shevery қызметін бақылау]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Өшіру]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Ескертулерді өшіру]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery Басқару]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery жұмыс істеп тұр]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery тоқтатылды]]></string>

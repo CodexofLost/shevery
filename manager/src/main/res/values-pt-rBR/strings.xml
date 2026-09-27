@@ -254,6 +254,8 @@
     <string name="notification_watchdog_text"><![CDATA[O serviço Shevery parou inesperadamente.]]></string>
     <string name="watchdog_service_title"><![CDATA[Watchdog Shevery ativo]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitorando o serviço Shevery para recuperação]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Desativar]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Desativar alertas]]></string>
     <string name="notification_control_channel_name"><![CDATA[Controle Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery está em execução]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery está parado]]></string>

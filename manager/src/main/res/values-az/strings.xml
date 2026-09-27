@@ -281,6 +281,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery xidməti gözlənilmədən dayanıb.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery gözətçi iti aktivdir]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery xidmətinin keep-alive bərpası üçün monitorinqi]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Söndür]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Xəbərdarlıqları söndür]]></string>
     <string name="notification_control_channel_name"><![CDATA[Şevri Nəzarət]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Hər şey startap]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery-nin başlaması]]></string>

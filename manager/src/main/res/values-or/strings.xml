@@ -262,6 +262,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[ଅପ୍ରତ୍ୟାଶିତ ଭାବେ ସେବା ବନ୍ଦ ହୋଇଯାଇଛି।]]></string>
     <string name="watchdog_service_title"><![CDATA[ପ୍ରତ୍ୟେକ ଜଗୁଆଳି ସକ୍ରିୟ ଅଛି]]></string>
     <string name="watchdog_service_text"><![CDATA[ଆରୋଗ୍ୟକୁ ବଞ୍ଚାଇ ରଖିବା ପାଇଁ ପ୍ରତ୍ୟେକ ସେବାର ନିରୀକ୍ଷଣ]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[ବନ୍ଦ କରନ୍ତୁ]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[ସତର୍କତା ବନ୍ଦ କରନ୍ତୁ]]></string>
     <string name="notification_control_channel_name"><![CDATA[ସିଭେରି କଣ୍ଟ୍ରୋଲ୍]]></string>
     <string name="notification_startup_channel_name"><![CDATA[ପ୍ରତ୍ୟେକ ଷ୍ଟାର୍ଟଅପ୍]]></string>
     <string name="notification_startup_title"><![CDATA[ଆରମ୍ଭ କରିବା]]></string>

@@ -284,6 +284,8 @@ kopiita al la tondujo.]]></string>
     <string name="notification_watchdog_text"><![CDATA[La servo Shevery ĉesis neatendite.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery gvat-hundo estas aktiva]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitorado de la servo Shevery por reakiro per vivtenado]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Malŝalti]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Malŝalti avertojn]]></string>
     <string name="notification_control_channel_name"><![CDATA[Ŝevri Kontrolo]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Ŝevri startupo]]></string>
     <string name="notification_startup_title"><![CDATA[Komencanta Shevery]]></string>

@@ -298,6 +298,8 @@ on kopeeritud lõikelauale.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Shevery teenus on ootamatult peatunud.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery järelevalvesüsteem on aktiivne]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery teenuse jälgimine ühenduse säilitamise taastamiseks]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Lülita välja]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Lülita märguanded välja]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery kontroll]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery – idufirma]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery algus]]></string>

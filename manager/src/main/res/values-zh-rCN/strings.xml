@@ -299,6 +299,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery 服务意外停止。]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery 看门狗已激活]]></string>
     <string name="watchdog_service_text"><![CDATA[正在监视 Shevery 服务以实现保活恢复]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[关闭]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[关闭提醒]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery 控制]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery 正在运行]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery 已停止]]></string>

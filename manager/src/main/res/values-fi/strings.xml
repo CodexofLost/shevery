@@ -298,6 +298,8 @@ on kopioitu leikepöydälle.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Shevery-palvelu on keskeytynyt odottamattomasti.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery-valvontaohjelma on käynnissä]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery-palvelun seuranta keep-alive-toiminnon palautumisen varmistamiseksi]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Poista käytöstä]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Poista hälytykset käytöstä]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery-ohjaus]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery-startup]]></string>
     <string name="notification_startup_title"><![CDATA[Sheveryn aloitus]]></string>

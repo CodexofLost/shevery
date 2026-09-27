@@ -279,6 +279,8 @@
     <string name="notification_watchdog_text"><![CDATA[Služba Shevery se neočekávaně zastavila.]]></string>
     <string name="watchdog_service_title"><![CDATA[Dohledový systém Shevery je aktivní]]></string>
     <string name="watchdog_service_text"><![CDATA[Sledování služby Shevery za účelem obnovy spojení pomocí keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Vypnout]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Vypnout upozornění]]></string>
     <string name="notification_control_channel_name"><![CDATA[Řízení Shevery]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Začátek Shevery]]></string>

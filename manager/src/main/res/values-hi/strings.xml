@@ -294,6 +294,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery सेवा अप्रत्याशित रूप से बंद हो गई है।]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery वॉचडॉग सक्रिय है]]></string>
     <string name="watchdog_service_text"><![CDATA[कीप-अलिव रिकवरी के लिए शेवरी सेवा की निगरानी]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[बंद करें]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[अलर्ट बंद करें]]></string>
     <string name="notification_control_channel_name"><![CDATA[शेवरी कंट्रोल]]></string>
     <string name="notification_startup_channel_name"><![CDATA[हर स्टार्टअप]]></string>
     <string name="notification_startup_title"><![CDATA[शुरुआती शेवरी]]></string>

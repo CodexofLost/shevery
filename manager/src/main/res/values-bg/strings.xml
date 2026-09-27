@@ -298,6 +298,8 @@
     <string name="notification_watchdog_text"><![CDATA[Услугата „Shevery“ неочаквано престана да работи.]]></string>
     <string name="watchdog_service_title"><![CDATA[Наблюдателната система „Shevery“ е активна]]></string>
     <string name="watchdog_service_text"><![CDATA[Наблюдение на услугата „Shevery“ с цел възстановяване чрез keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Изключване]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Изключване на сигналите]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Стартъпът „Shevery“]]></string>
     <string name="notification_startup_title"><![CDATA[Начало на „Шевери“]]></string>

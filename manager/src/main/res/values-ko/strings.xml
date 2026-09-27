@@ -254,6 +254,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery 서비스가 예기치 않게 중지되었습니다.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery 감시자 활성]]></string>
     <string name="watchdog_service_text"><![CDATA[복구를 위해 Shevery 서비스 모니터링 중]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[끄기]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[알림 끄기]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery 제어]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery 실행 중]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery 중지됨]]></string>

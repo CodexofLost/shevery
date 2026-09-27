@@ -286,6 +286,8 @@
     <string name="notification_watchdog_text"><![CDATA[షెవరి సేవ అకస్మాత్తుగా ఆగిపోయింది.]]></string>
     <string name="watchdog_service_title"><![CDATA[షెవరీ వాచ్‌డాగ్ చురుకుగా ఉంది]]></string>
     <string name="watchdog_service_text"><![CDATA[కీప్-అలైవ్ రికవరీ కోసం షెవరి సర్వీస్‌ను పర్యవేక్షించడం]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[ఆపివేయి]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[హెచ్చరికలను ఆపివేయి]]></string>
     <string name="notification_control_channel_name"><![CDATA[షివరి నియంత్రణ]]></string>
     <string name="notification_startup_channel_name"><![CDATA[షేవరీ స్టార్టప్]]></string>
     <string name="notification_startup_title"><![CDATA[షెవరి ప్రారంభం]]></string>

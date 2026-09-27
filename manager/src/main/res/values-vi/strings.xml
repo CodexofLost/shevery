@@ -300,6 +300,8 @@ Chức năng xuất dữ liệu sử dụng SAF (Storage Access Framework). Có 
     <string name="notification_watchdog_text"><![CDATA[Dịch vụ Shevery đã ngừng hoạt động đột ngột.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery Watchdog đang hoạt động]]></string>
     <string name="watchdog_service_text"><![CDATA[Giám sát dịch vụ Shevery để phục hồi kết nối keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Tắt]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Tắt cảnh báo]]></string>
     <string name="notification_control_channel_name"><![CDATA[Hệ thống điều khiển Shevery]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Công ty khởi nghiệp Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Bắt đầu với Shevery]]></string>

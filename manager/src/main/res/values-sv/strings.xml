@@ -300,6 +300,8 @@ har kopierats till urklipp.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Tjänsten Shevery har avbrutits oväntat.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery-övervakningsprogrammet är aktivt]]></string>
     <string name="watchdog_service_text"><![CDATA[Övervakning av Shevery-tjänsten för återställning vid keep-alive-avbrott]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Stäng av]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Inaktivera varningar]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery – ett nystartat företag]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery startar]]></string>

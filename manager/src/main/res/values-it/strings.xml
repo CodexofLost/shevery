@@ -280,6 +280,8 @@
     <string name="notification_watchdog_text"><![CDATA[Il servizio Shevery si è interrotto in modo imprevisto.]]></string>
     <string name="watchdog_service_title"><![CDATA[Il sistema di monitoraggio Shevery è attivo]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoraggio del servizio Shevery per il ripristino tramite keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Spegni]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Disattiva gli avvisi]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery Controllo]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery in campo]]></string>

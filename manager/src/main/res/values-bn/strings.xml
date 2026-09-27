@@ -288,6 +288,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery পরিষেবা অপ্রত্যাশিতভাবে বন্ধ হয়ে গেছে।]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery ওয়াচডগ সক্রিয়]]></string>
     <string name="watchdog_service_text"><![CDATA[কীপ-অ্যালাইভ পুনরুদ্ধারের জন্য Shevery সার্ভিস মনিটর করা]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[বন্ধ করুন]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[সতর্কতা বন্ধ করুন]]></string>
     <string name="notification_control_channel_name"><![CDATA[সেভরি কন্ট্রোল]]></string>
     <string name="notification_startup_channel_name"><![CDATA[সেভরি স্টার্টআপ]]></string>
     <string name="notification_startup_title"><![CDATA[স্টার্টিং শেভারি]]></string>

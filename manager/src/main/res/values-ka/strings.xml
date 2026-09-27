@@ -288,6 +288,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery-ს სერვისი მოულოდნელად შეწყდა.]]></string>
     <string name="watchdog_service_title"><![CDATA[შევერის მეთვალყურე ძაღლი აქტიურია]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery სერვისის მონიტორინგი keep-alive აღდგენისთვის]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[გამორთვა]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[გაფრთხილებების გამორთვა]]></string>
     <string name="notification_control_channel_name"><![CDATA[შევერი კონტროლი]]></string>
     <string name="notification_startup_channel_name"><![CDATA[შევერი სტარტაპი]]></string>
     <string name="notification_startup_title"><![CDATA[დაწყებული შევერი]]></string>

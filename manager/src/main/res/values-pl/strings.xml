@@ -300,6 +300,8 @@ zostało skopiowane do schowka.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Usługa Shevery została nieoczekiwanie przerwana.]]></string>
     <string name="watchdog_service_title"><![CDATA[Program Shevery Watchdog jest aktywny]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitorowanie usługi Shevery pod kątem przywracania połączenia za pomocą protokołu keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Wyłącz]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Wyłącz alerty]]></string>
     <string name="notification_control_channel_name"><![CDATA[Kontrola Shevera]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Początki Shevery]]></string>

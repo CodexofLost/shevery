@@ -295,6 +295,8 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="notification_watchdog_text"><![CDATA[A Shevery szolgáltatás váratlanul leállt.]]></string>
     <string name="watchdog_service_title"><![CDATA[A Shevery felügyelő rendszer aktív]]></string>
     <string name="watchdog_service_text"><![CDATA[A Shevery szolgáltatás figyelése a keep-alive-helyreállítás érdekében]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Kikapcsolás]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Értesítések kikapcsolása]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery vezérlés]]></string>
     <string name="notification_startup_channel_name">Shevery startup</string>
     <string name="notification_startup_title"><![CDATA[Shevery kezdése]]></string>

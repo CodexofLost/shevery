@@ -264,6 +264,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[لقد توقفت خدمة Shevery بشكل غير متوقع.]]></string>
     <string name="watchdog_service_title"><![CDATA[مراقبة Shevery نشطة]]></string>
     <string name="watchdog_service_text"><![CDATA[مراقبة خدمة Shevery لضمان استمرارية التعافي]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[إيقاف التشغيل]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[إيقاف التنبيهات]]></string>
     <string name="notification_control_channel_name"><![CDATA[التحكم شيفيري]]></string>
     <string name="notification_startup_channel_name"><![CDATA[بدء تشغيل شيفيري]]></string>
     <string name="notification_startup_title"><![CDATA[بدء شيفيري]]></string>

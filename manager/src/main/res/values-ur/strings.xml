@@ -286,6 +286,8 @@
     <string name="notification_watchdog_text"><![CDATA[شیوری سروس غیر متوقع طور پر رک گئی ہے۔]]></string>
     <string name="watchdog_service_title"><![CDATA[شیوری واچ ڈاگ فعال ہے۔]]></string>
     <string name="watchdog_service_text"><![CDATA[کیپ-ایلایو بحالی کے لیے شیوری سروس کی نگرانی]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[بند کریں]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[انتباہات بند کریں]]></string>
     <string name="notification_control_channel_name"><![CDATA[شیوری کنٹرول]]></string>
     <string name="notification_startup_channel_name"><![CDATA[شیوری اسٹارٹ اپ]]></string>
     <string name="notification_startup_title"><![CDATA[شروعات شیوری]]></string>

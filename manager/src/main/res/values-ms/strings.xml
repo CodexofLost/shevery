@@ -288,6 +288,8 @@ Selepas proses penjodohan bermula, anda akan dapat memasukkan kod penjodohan.]]>
     <string name="notification_watchdog_text"><![CDATA[Perkhidmatan Shevery telah terhenti secara tiba-tiba.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery pengawas aktif]]></string>
     <string name="watchdog_service_text"><![CDATA[Memantau perkhidmatan Shevery untuk pemulihan keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Matikan]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Matikan Makluman]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery Kawalan]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery permulaan]]></string>
     <string name="notification_startup_title"><![CDATA[Memulakan Shevery]]></string>

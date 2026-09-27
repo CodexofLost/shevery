@@ -286,6 +286,8 @@
     <string name="notification_watchdog_text"><![CDATA[Услугата Shevery ненадејно престана.]]></string>
     <string name="watchdog_service_title"><![CDATA[Севери надзорник е активен]]></string>
     <string name="watchdog_service_text"><![CDATA[Мониторирање на услугата Shevery за опоравување со keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Исклучи]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Исклучи известувања]]></string>
     <string name="notification_control_channel_name"><![CDATA[Шевери Контрол]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Шевери стартап]]></string>
     <string name="notification_startup_title"><![CDATA[Почеток Шевери]]></string>

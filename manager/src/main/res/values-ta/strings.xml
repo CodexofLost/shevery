@@ -295,6 +295,8 @@
     <string name="notification_watchdog_text"><![CDATA[ஷெவரி சேவை எதிர்பாராதவிதமாக நிறுத்தப்பட்டுள்ளது.]]></string>
     <string name="watchdog_service_title"><![CDATA[ஷெவரி வாட்ச்டாக் செயலில் உள்ளது]]></string>
     <string name="watchdog_service_text"><![CDATA[keep-alive மீட்சிக்கான ஷெவரி சேவையைக் கண்காணித்தல்]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[முடக்கு]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[எச்சரிக்கைகளை முடக்கு]]></string>
     <string name="notification_control_channel_name"><![CDATA[ஷெவரி கண்ட்ரோல்]]></string>
     <string name="notification_startup_channel_name"><![CDATA[ஷெவரி ஸ்டார்ட்அப்]]></string>
     <string name="notification_startup_title"><![CDATA[ஷெவரி தொடக்கம்]]></string>

@@ -208,7 +208,7 @@ object WatchdogManager {
             .setAutoCancel(true)
             .addAction(
                 R.drawable.ic_server_ok_24dp,
-                context.getString(R.string.watchdog_action_restart),
+                context.getString(R.string.home_root_button_restart),
                 restartPendingIntent
             )
 

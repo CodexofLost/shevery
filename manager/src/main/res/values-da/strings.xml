@@ -298,6 +298,8 @@ h er blevet kopieret til udklipsholderen.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Shevery-tjenesten er uventet gået ned.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery-overvågningsprogrammet er aktivt]]></string>
     <string name="watchdog_service_text"><![CDATA[Overvågning af Shevery-tjenesten med henblik på genopretning af keep-alive-forbindelsen]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Sluk]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Slå advarsler fra]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery-styring]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery-startup]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery starter]]></string>

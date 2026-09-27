@@ -300,6 +300,8 @@
     <string name="notification_watchdog_text"><![CDATA[บริการ Shevery ได้หยุดทำงานอย่างกะทันหัน]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery watchdog กำลังทำงานอยู่]]></string>
     <string name="watchdog_service_text"><![CDATA[การติดตามบริการ Shevery เพื่อการกู้คืนระบบ keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[ปิด]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[ปิดการแจ้งเตือน]]></string>
     <string name="notification_control_channel_name"><![CDATA[ระบบควบคุม Shevery]]></string>
     <string name="notification_startup_channel_name"><![CDATA[การเริ่มต้น Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[เริ่มต้น Shevery]]></string>

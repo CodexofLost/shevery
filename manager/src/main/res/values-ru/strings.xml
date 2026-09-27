@@ -384,6 +384,8 @@
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Требуются root-права, Dhizuku или запущенная Shevery.]]></string>
     <string name="watchdog_service_title"><![CDATA[Сторож Shevery активен]]></string>
     <string name="watchdog_service_text"><![CDATA[Наблюдение за службой Shevery для восстановления keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Отключить]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Отключить оповещения]]></string>
     <string name="diagnostics_app"><![CDATA[Приложение]]></string>
     <string name="diagnostics_android"><![CDATA[Андроид]]></string>
     <string name="diagnostics_service"><![CDATA[Служба]]></string>

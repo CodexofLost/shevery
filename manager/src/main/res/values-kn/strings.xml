@@ -262,6 +262,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[ಅನಿರೀಕ್ಷಿತವಾಗಿ ಸೇವೆ ಸ್ಥಗಿತಗೊಂಡಿದೆ.]]></string>
     <string name="watchdog_service_title"><![CDATA[ಶಿವೆರಿ ವಾಚ್ ಡಾಗ್ ಸಕ್ರಿಯವಾಗಿದೆ]]></string>
     <string name="watchdog_service_text"><![CDATA[ಜೀವಂತವಾಗಿ ಚೇತರಿಕೆಗಾಗಿ ಅಶ್ಲೀಲ ಸೇವೆಯ ಮೇಲ್ವಿಚಾರಣೆ]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[ಆಫ್ ಮಾಡಿ]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[ಎಚ್ಚರಿಕೆಗಳನ್ನು ಆಫ್ ಮಾಡಿ]]></string>
     <string name="notification_control_channel_name"><![CDATA[ಶೆವೆರಿ ಕಂಟ್ರೋಲ್]]></string>
     <string name="notification_startup_channel_name"><![CDATA[ಅನಿರೀಕ್ಷಿತ ಸ್ಟಾರ್ಟ್ ಅಪ್]]></string>
     <string name="notification_startup_title"><![CDATA[ಸ್ಟಾರ್ಟಿಂಗ್ ಶೆವ್]]></string>

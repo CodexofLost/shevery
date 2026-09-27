@@ -300,6 +300,8 @@ bol skopírovaný do schránky.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Služba Shevery sa neočakávane zastavila.]]></string>
     <string name="watchdog_service_title"><![CDATA[Dohľadový systém Shevery je aktívny]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitorovanie služby Shevery na účely obnovy spojenia typu „keep-alive“]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Vypnúť]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Vypnúť upozornenia]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Začiatok Shevery]]></string>

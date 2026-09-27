@@ -284,6 +284,8 @@
     <string name="notification_watchdog_text"><![CDATA[ഷെവറി സേവനം അപ്രതീക്ഷിതമായി നിർത്തിവച്ചിരിക്കുന്നു.]]></string>
     <string name="watchdog_service_title"><![CDATA[ഷെവെറി വാച്ച്ഡോഗ് സജീവമാണ്]]></string>
     <string name="watchdog_service_text"><![CDATA[കീപ്പ്-അലൈവ് റിക്കവറിക്ക് വേണ്ടിയുള്ള ഷെവറി സേവനത്തിന്റെ നിരീക്ഷണം]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[ഓഫ് ചെയ്യുക]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[അലേർട്ടുകൾ ഓഫാക്കുക]]></string>
     <string name="notification_control_channel_name"><![CDATA[ഷെവെറി കൺട്രോൾ]]></string>
     <string name="notification_startup_channel_name"><![CDATA[ഷെവറി സ്റ്റാർട്ടപ്പ്]]></string>
     <string name="notification_startup_title"><![CDATA[ഷെവറി ആരംഭിക്കുന്നു]]></string>

@@ -262,6 +262,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Shevery مۇلازىمىتى تۇيۇقسىز توختاپ قالدى.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery Watchdog ئاكتىپ]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery مۇلازىمىتىنى نازارەت قىلىپ ئەسلىگە كەلتۈرۈش]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[تاقاش]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[ئاگاھلاندۇرۇشنى تاقاش]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery ئىگىلىك تىكلەش]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery نى باشلاش]]></string>

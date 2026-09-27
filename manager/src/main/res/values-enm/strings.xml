@@ -264,6 +264,8 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="notification_watchdog_text"><![CDATA[The Shevery service has stopped unexpectedly.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery watchdog is active]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoring the Shevery service for keep-alive recovery]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Turn off]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Configure alerts]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery Control]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery startup]]></string>
     <string name="notification_startup_title"><![CDATA[Starting Shevery]]></string>

@@ -300,6 +300,8 @@ a fost copiat în clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Serviciul Shevery s-a oprit în mod neașteptat.]]></string>
     <string name="watchdog_service_title"><![CDATA[Funcția de monitorizare Shevery este activă]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitorizarea serviciului Shevery pentru recuperarea prin keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Oprire]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Dezactivează alertele]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[O companie start-up din Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Începutul lui Shevery]]></string>

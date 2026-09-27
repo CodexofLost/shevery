@@ -262,6 +262,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[خزمەتگوزاری شیڤێری بەشێوەیەکی چاوەڕوان نەکراو وەستاوە.]]></string>
     <string name="watchdog_service_title"><![CDATA[شێڤێری پاسەوانی چالاکە]]></string>
     <string name="watchdog_service_text"><![CDATA[چاودێریکردنی خزمەتگوزاری شیڤێری بۆ زیندوو ڕاگرتنی]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[کوژاندنەوە]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[ناچالاککردنی ئاگادارکردنەوەکان]]></string>
     <string name="notification_control_channel_name"><![CDATA[کۆنتڕۆڵی شێڤێری]]></string>
     <string name="notification_startup_channel_name"><![CDATA[دەستپێکی شێڤێری]]></string>
     <string name="notification_startup_title"><![CDATA[دەستپێکردنی شێڤێری]]></string>

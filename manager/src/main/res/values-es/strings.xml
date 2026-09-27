@@ -270,6 +270,8 @@ se ha copiado al portapapeles.]]></string>
     <string name="notification_watchdog_text"><![CDATA[El servicio de Shevery se ha detenido inesperadamente.]]></string>
     <string name="watchdog_service_title"><![CDATA[Monitor Shevery activo]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoreando el servicio Shevery para recuperación activa]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Apagar]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Desactivar alertas]]></string>
     <string name="notification_control_channel_name"><![CDATA[Control de Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery está en ejecución]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery está detenido]]></string>

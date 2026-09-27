@@ -300,6 +300,8 @@ De exportfunctie maakt gebruik van SAF (Storage Access Framework). Er is gemeld 
     <string name="notification_watchdog_text"><![CDATA[De Shevery-dienst is onverwacht gestopt.]]></string>
     <string name="watchdog_service_title"><![CDATA[De Shevery-waakhond is actief]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoring van de Shevery-service voor herstel via keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Uitschakelen]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Meldingen uitschakelen]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery-regeling]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery-startup]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery opstellen]]></string>

@@ -266,6 +266,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[שירות Shevery נעצר באופן בלתי צפוי.]]></string>
     <string name="watchdog_service_title"><![CDATA[שומר Shevery פעיל]]></string>
     <string name="watchdog_service_text"><![CDATA[מנטר את שירות Shevery לשחזור]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[כיבוי]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[כיבוי התראות]]></string>
     <string name="notification_control_channel_name"><![CDATA[שליטת Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery פועל]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery נעצר]]></string>

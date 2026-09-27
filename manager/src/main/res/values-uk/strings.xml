@@ -270,6 +270,8 @@
     <string name="notification_watchdog_text"><![CDATA[Служба Shevery раптово зупинилася.]]></string>
     <string name="watchdog_service_title"><![CDATA[Моніторинг Shevery активний]]></string>
     <string name="watchdog_service_text"><![CDATA[Відстеження служби Shevery для фонового відновлення]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Вимкнути]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Вимкнути сповіщення]]></string>
     <string name="notification_control_channel_name"><![CDATA[Управління Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery працює]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery зупинено]]></string>
