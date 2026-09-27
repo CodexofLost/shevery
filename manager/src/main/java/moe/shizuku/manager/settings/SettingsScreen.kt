@@ -199,6 +199,9 @@ fun SettingsScreen(
         mutableStateOf(ShizukuSettings.getStartOnBoot())
     }
     var rooted by remember { mutableStateOf(false) }
+    var watchdog by remember {
+        mutableStateOf(ModuleSettings.isWatchdogEnabled())
+    }
     val lifecycleOwner = LocalLifecycleOwner.current
 
     // Root check + one-time stale-pref cleanup on first composition
@@ -227,9 +230,6 @@ fun SettingsScreen(
     }
     var adbStartOnBoot by remember {
         mutableStateOf(ShizukuSettings.getStartOnBootAdb())
-    }
-    var watchdog by remember {
-        mutableStateOf(ModuleSettings.isWatchdogEnabled())
     }
     var dhizukuEnabled by remember {
         mutableStateOf(ModuleSettings.isDhizukuEnabled())
