@@ -331,6 +331,17 @@ object WatchdogManager {
                     LaunchMethod.DHIZUKU -> restartDhizuku(appContext)
                     else -> logd("Skipping watchdog restart: unknown last mode $lastMode")
                 }
+
+                val recovered = waitForShizukuBinder(15_000L)
+                if (recovered) {
+                    logi("WatchdogManager: Shevery service recovered after restart")
+                    showRecoveryNotificationIfEnabled(appContext)
+                } else {
+                    logw("WatchdogManager: restart attempted but binder is still dead")
+                    if (ModuleSettings.isNotifyOnServiceDeath()) {
+                        showDeathNotification(appContext)
+                    }
+                }
             } finally {
                 restartInProgress.set(false)
             }
@@ -421,6 +432,7 @@ object WatchdogManager {
                 Shell.getCachedShell()?.close()
             }
             if (Shell.getShell().isRoot) {
+                ShizukuStateMachine.set(ShizukuStateMachine.State.STARTING)
                 Shell.cmd(Starter.internalCommand).exec()
             }
         } catch (e: Exception) {
@@ -436,7 +448,7 @@ object WatchdogManager {
         AdbStartWorker.enqueueIfIdle(context.applicationContext)
     }
 
-    private suspend fun waitForShizukuBinder(timeoutMs: Long = 10_000L): Boolean {
+    private suspend fun waitForShizukuBinder(timeoutMs: Long = 15_000L): Boolean {
         return ShizukuStateMachine.awaitRunning(timeoutMs)
     }
 
@@ -478,15 +490,8 @@ object WatchdogManager {
                 }
                 val dhizukuService = moe.shizuku.manager.dhizuku.IDhizukuService.Stub.asInterface(serviceResult)
                 logi("Watchdog executing Shevery starter directly via Dhizuku Device Owner...")
+                ShizukuStateMachine.set(ShizukuStateMachine.State.STARTING)
                 dhizukuService.runCommand(Starter.internalCommand)
-                if (waitForShizukuBinder()) {
-                    logi("Watchdog verified Shevery binder after Dhizuku restart")
-                } else {
-                    logd("Watchdog Dhizuku starter command completed, but binder did not become available")
-                    if (ModuleSettings.isNotifyOnServiceDeath() || isEnabled()) {
-                        showDeathNotification(context)
-                    }
-                }
             } finally {
                 connection?.let { conn ->
                     try {

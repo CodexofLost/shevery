@@ -216,9 +216,10 @@ fun SettingsScreen(
         }
     }
 
-    // Re-check root whenever the activity is in the foreground
+    // Re-check root and watchdog state whenever the activity is in the foreground
     LaunchedEffect(lifecycleOwner) {
         lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            watchdog = ModuleSettings.isWatchdogEnabled()
             withContext(Dispatchers.IO) {
                 rooted = EnvironmentUtils.isRooted()
             }

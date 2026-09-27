@@ -1,6 +1,5 @@
 package moe.shizuku.manager.service
 
-import android.app.KeyguardManager
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -122,25 +121,9 @@ class WatchdogService : Service() {
             return
         }
 
-        val km = getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
-        if (km?.isKeyguardLocked == true) {
-            logd("WatchdogService: crash detected but device locked -- deferring restart until unlock")
-            return
-        }
-
         withContext(Dispatchers.IO) {
             logw("WatchdogService: reactive restart triggered following daemon crash")
             WatchdogManager.attemptRestart(applicationContext)
-            val recovered = WatchdogManager.waitForBinder(15_000L)
-            if (recovered) {
-                logi("WatchdogService: Shevery service recovered after crash restart")
-                WatchdogManager.showRecoveryNotificationIfEnabled(applicationContext)
-            } else {
-                logw("WatchdogService: crash restart attempted but binder is still dead")
-                if (ModuleSettings.isNotifyOnServiceDeath()) {
-                    WatchdogManager.showDeathNotificationPublic(applicationContext)
-                }
-            }
         }
     }
 
@@ -228,12 +211,6 @@ class WatchdogService : Service() {
             return
         }
 
-        val km = getSystemService(Context.KEYGUARD_SERVICE) as? KeyguardManager
-        if (km?.isKeyguardLocked == true) {
-            logd("WatchdogService: unhealthy detected but device locked -- deferring restart until unlock")
-            return
-        }
-
         withContext(Dispatchers.IO) {
             if (result.binderAlive) {
                 logw("WatchdogService: zombie binder detected (${result.reason}). Stopping before restart...")
@@ -243,16 +220,6 @@ class WatchdogService : Service() {
                 logw("WatchdogService: binder dead (${result.reason}). Restarting...")
             }
             WatchdogManager.attemptRestart(applicationContext)
-            val recovered = WatchdogManager.waitForBinder(15_000L)
-            if (recovered) {
-                logi("WatchdogService: Shevery service recovered after restart")
-                WatchdogManager.showRecoveryNotificationIfEnabled(applicationContext)
-            } else {
-                logw("WatchdogService: restart attempted but binder is still dead")
-                if (ModuleSettings.isNotifyOnServiceDeath()) {
-                    WatchdogManager.showDeathNotificationPublic(applicationContext)
-                }
-            }
         }
     }
 
