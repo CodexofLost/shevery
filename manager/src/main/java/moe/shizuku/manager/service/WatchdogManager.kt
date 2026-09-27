@@ -23,6 +23,8 @@ import moe.shizuku.manager.ktx.logd
 import moe.shizuku.manager.ktx.logi
 import moe.shizuku.manager.ktx.logw
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.manager.receiver.SheveryControlReceiver
+import android.provider.Settings
 import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.ShizukuStateMachine
@@ -183,22 +185,50 @@ object WatchdogManager {
             notificationManager.createNotificationChannel(channel)
         }
 
-        val intent = Intent(context, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(
-            context, 0x7F050001, intent,
+        val launchIntent = Intent(context, MainActivity::class.java)
+        val launchPendingIntent = PendingIntent.getActivity(
+            context, 0x7F050001, launchIntent,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
 
-        val notification = NotificationCompat.Builder(context, DEATH_CHANNEL_ID)
+        val restartIntent = Intent(context, SheveryControlReceiver::class.java).apply {
+            action = SheveryControlReceiver.ACTION_START_SERVER
+        }
+        val restartPendingIntent = PendingIntent.getBroadcast(
+            context, 0x7F050003, restartIntent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val nb = NotificationCompat.Builder(context, DEATH_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_server_error_24dp)
             .setContentTitle(context.getString(R.string.notification_watchdog_title))
             .setContentText(context.getString(R.string.notification_watchdog_text))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent)
+            .setContentIntent(launchPendingIntent)
             .setAutoCancel(true)
-            .build()
+            .addAction(
+                R.drawable.ic_server_ok_24dp,
+                context.getString(R.string.watchdog_action_restart),
+                restartPendingIntent
+            )
 
-        notificationManager.notify(NOTIFICATION_ID, notification)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channelSettingsIntent = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS).apply {
+                putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+                putExtra(Settings.EXTRA_CHANNEL_ID, DEATH_CHANNEL_ID)
+            }
+            val channelSettingsPendingIntent = PendingIntent.getActivity(
+                context, 0x7F050004, channelSettingsIntent,
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            )
+            nb.addAction(
+                0,
+                context.getString(R.string.watchdog_action_channel_settings),
+                channelSettingsPendingIntent
+            )
+        }
+
+        notificationManager.notify(NOTIFICATION_ID, nb.build())
     }
 
     fun clearUserStopRequest(context: Context? = null) {
