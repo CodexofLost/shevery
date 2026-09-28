@@ -520,7 +520,7 @@ Gata să primească comenzi.]]></string>
     <string name="diagnostics_limited"><![CDATA[limitat]]></string>
     <string name="diagnostics_unknown"><![CDATA[necunoscut]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Verifică starea procesului și erorile tranzacționale la fiecare 10 secunde. Oprește și repornește automat Shevery dacă se detectează probleme.]]></string>
+    <string name="error_protect_summary"><![CDATA[Monitorizează starea serviciului în mod reactiv. Repornește automat Shevery dacă sunt detectate probleme sau blocări.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Legare TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Configurează serverul ADB local pe portul 5555 pentru ca acesta să funcționeze în continuare fără a fi necesare actualizări ale portului de depanare wireless.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Conectează-te la 5555]]></string>

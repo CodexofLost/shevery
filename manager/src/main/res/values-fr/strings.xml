@@ -426,7 +426,7 @@ Prêt pour les commandes.]]></string>
     <string name="diagnostics_limited"><![CDATA[limité]]></string>
     <string name="diagnostics_unknown"><![CDATA[inconnu]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Vérifie la santé du processus et les erreurs de transaction toutes les 10 secondes. Arrête et redémarre automatiquement Shevery si des problèmes sont détectés.]]></string>
+    <string name="error_protect_summary"><![CDATA[Surveille l\'état du service de manière réactive. Redémarre automatiquement Shevery en cas de problème ou de plantage.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Lier TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Lier le serveur ADB local au port 5555 pour maintenir le fonctionnement sans changement de port de débogage sans fil.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Lier au 5555]]></string>

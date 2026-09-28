@@ -419,7 +419,7 @@
     <string name="diagnostics_limited"><![CDATA[limitado]]></string>
     <string name="diagnostics_unknown"><![CDATA[desconhecido]]></string>
     <string name="error_protect_title"><![CDATA[ErroProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Verificar a saúde do processo e erros transacionais a cada 10 segundos. Para e reinicia o Shevery automaticamente se problemas forem encontrados.]]></string>
+    <string name="error_protect_summary"><![CDATA[Monitora o estado do serviço de forma reativa. Reinicia o Shevery automaticamente se forem detetados problemas ou falhas.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Vinculação TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Vincular o servidor ADB local à porta 5555 para mantê-lo funcionando sem atualizações de porta de Depuração Sem Fio.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Vincular à 5555]]></string>

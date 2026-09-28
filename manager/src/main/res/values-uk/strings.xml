@@ -426,7 +426,7 @@
     <string name="diagnostics_limited"><![CDATA[обмежений]]></string>
     <string name="diagnostics_unknown"><![CDATA[невідомо]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Перевіряє стан процесів та транзакцій кожні 10 секунд. Автоматично перезапускає Shevery у разі збоїв.]]></string>
+    <string name="error_protect_summary"><![CDATA[Реактивно відстежує стан служби. Автоматично перезапускає Shevery у разі виявлення проблем або збоїв.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Прив’язка TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Прив’язати локальний ADB сервер до порту 5555 для роботи без постійних оновлень порту бездротового налагодження.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Прив’язати до 5555]]></string>

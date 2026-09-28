@@ -518,7 +518,7 @@
     <string name="diagnostics_limited"><![CDATA[περιορισμένη]]></string>
     <string name="diagnostics_unknown"><![CDATA[άγνωστο]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Ελέγχει την κατάσταση λειτουργίας της διαδικασίας και τα σφάλματα συναλλαγών κάθε 10 δευτερόλεπτα. Σταματά και επανεκκινεί αυτόματα το Shevery σε περίπτωση που εντοπιστούν προβλήματα.]]></string>
+    <string name="error_protect_summary"><![CDATA[Αντιδραστική παρακολούθηση της κατάστασης της υπηρεσίας. Επανεκκινεί αυτόματα το Shevery εάν εντοπιστούν προβλήματα ή καταρρεύσεις.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Σύνδεση TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Συνδέστε τον τοπικό διακομιστή ADB στη θύρα 5555, ώστε να συνεχίσει να λειτουργεί χωρίς να απαιτούνται ενημερώσεις της θύρας ασύρματου εντοπισμού σφαλμάτων.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Σύνδεση με το 5555]]></string>

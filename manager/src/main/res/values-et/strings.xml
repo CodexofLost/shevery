@@ -518,7 +518,7 @@ Valmis käskude vastuvõtmiseks.]]></string>
     <string name="diagnostics_limited"><![CDATA[piiratud]]></string>
     <string name="diagnostics_unknown"><![CDATA[teadmata]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Kontrolli protsessi seisundit ja tehinguvigu iga 10 sekundi järel. Kui leitakse probleeme, peatatakse ja taaskäivitatakse Shevery automaatselt.]]></string>
+    <string name="error_protect_summary"><![CDATA[Jälgib teenuse olekut reaktiivselt. Taaskäivitab probleemi või krahhi tuvastamisel automaatselt Shevery.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-port 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Seo kohalik ADB-server pordiga 5555, et see toimiks ka ilma traadita silumise pordi uuendusteta.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Ühenda numbriga 5555]]></string>

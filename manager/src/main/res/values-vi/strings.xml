@@ -520,7 +520,7 @@ Sẵn sàng nhận lệnh.]]></string>
     <string name="diagnostics_limited"><![CDATA[hạn chế]]></string>
     <string name="diagnostics_unknown"><![CDATA[không rõ]]></string>
     <string name="error_protect_title"><![CDATA[Bảo vệ lỗi]]></string>
-    <string name="error_protect_summary"><![CDATA[Kiểm tra tình trạng hoạt động của quy trình và các lỗi giao dịch cứ sau 10 giây. Tự động dừng và khởi động lại Shevery nếu phát hiện có sự cố.]]></string>
+    <string name="error_protect_summary"><![CDATA[Theo dõi trạng thái dịch vụ một cách phản ứng. Tự động khởi động lại Shevery nếu phát hiện sự cố hoặc lỗi dừng đột ngột.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Kết nối TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Gán máy chủ ADB cục bộ vào cổng 5555 để đảm bảo máy chủ này vẫn hoạt động mà không cần cập nhật cổng Gỡ lỗi không dây.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Gắn vào 5555]]></string>

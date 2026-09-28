@@ -503,7 +503,7 @@ S\'està executant...]]></string>
     <string name="diagnostics_limited"><![CDATA[limitat]]></string>
     <string name="diagnostics_unknown"><![CDATA[desconegut]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Comprova l\'estat del procés i els errors transaccionals cada 10 segons. Atura i reinicia automàticament Shevery si es detecten problemes.]]></string>
+    <string name="error_protect_summary"><![CDATA[Supervisa l\'estat del servei de forma reactiva. Reinicia automàticament Shevery si es detecten problemes o fallades.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Port TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Enllaça el servidor ADB local al port 5555 per mantenir-lo en funcionament sense actualitzacions del port de depuració sense fil.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Enllaça a 5555]]></string>

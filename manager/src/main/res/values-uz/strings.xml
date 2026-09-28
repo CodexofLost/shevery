@@ -426,7 +426,7 @@
     <string name="diagnostics_limited"><![CDATA[cheklangan]]></string>
     <string name="diagnostics_unknown"><![CDATA[noma\'lum]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Jarayon salomatligini tekshirish va xatolik yuz berganda avtomatik qayta yoqish.]]></string>
+    <string name="error_protect_summary"><![CDATA[Xizmat holatini reaktiv kuzatish. Muammolar yoki nosozliklar aniqlanganda Shevery-ni avtomatik ravishda qayta ishga tushiradi.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP ulanishi 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ADB ni 5555 portiga biriktirish.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555 ga biriktirish]]></string>

@@ -404,7 +404,7 @@
     <string name="diagnostics_limited"><![CDATA[ограничено]]></string>
     <string name="diagnostics_unknown"><![CDATA[неизвестно]]></string>
     <string name="error_protect_title"><![CDATA[Защита от ошибок]]></string>
-    <string name="error_protect_summary"><![CDATA[Проверять работоспособность процессов и транзакционные ошибки каждые 10 секунд. Автоматически останавливает и перезапускает Shevery при обнаружении проблем.]]></string>
+    <string name="error_protect_summary"><![CDATA[Реактивно отслеживает состояние службы. Автоматически перезапускает Shevery при обнаружении проблем или сбоев.]]></string>
     <string name="backup_restore_title"><![CDATA[Резервное копирование и восстановление]]></string>
     <string name="backup_title"><![CDATA[Резервная копия настроек и модулей]]></string>
     <string name="backup_summary"><![CDATA[Экспортировать конфигурацию и модули в ZIP-файл]]></string>

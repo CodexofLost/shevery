@@ -418,7 +418,7 @@
     <string name="diagnostics_limited"><![CDATA[محدود]]></string>
     <string name="diagnostics_unknown"><![CDATA[غير معروف]]></string>
     <string name="error_protect_title"><![CDATA[خطأ حماية]]></string>
-    <string name="error_protect_summary"><![CDATA[فحص صحة العملية والأخطاء كل 10 ثوانٍ. إيقاف Shevery وإعادة تشغيله تلقائيًا إذا وُجدت مشكلات.]]></string>
+    <string name="error_protect_summary"><![CDATA[مراقبة تفاعلية لصحة الخدمة. إعادة تشغيل Shevery تلقائيًا في حال اكتشاف مشكلات أو انهيار.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[ربط TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ربط خادم ADB المحلي بالمنفذ 5555 للحفاظ على تشغيله بدون تحديثات منفذ التصحيح اللاسلكي.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[الربط بـ 5555]]></string>

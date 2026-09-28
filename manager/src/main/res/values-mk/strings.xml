@@ -505,7 +505,7 @@
     <string name="diagnostics_limited"><![CDATA[ограничен]]></string>
     <string name="diagnostics_unknown"><![CDATA[непознато]]></string>
     <string name="error_protect_title"><![CDATA[Заштита од грешки]]></string>
-    <string name="error_protect_summary"><![CDATA[Проверувајте го здравјето на процесот и трансакциските грешки на секои 10 секунди. Автоматски го запира и повторно го стартува Shevery ако се откријат проблеми.]]></string>
+    <string name="error_protect_summary"><![CDATA[Реактивно го следи здравјето на услугата. Автоматски го рестартира Shevery доколку се откријат проблеми или падови.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP порт 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Поврзете го локалниот ADB-сервер со порт 5555 за да продолжи да работи без ажурирања на портот за безжично отстранување грешки.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Поврзете на 5555]]></string>

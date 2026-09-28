@@ -500,7 +500,7 @@ Pronto per i comandi.]]></string>
     <string name="diagnostics_limited"><![CDATA[limitato]]></string>
     <string name="diagnostics_unknown"><![CDATA[sconosciuto]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Verifica lo stato di salute del processo e gli errori transazionali ogni 10 secondi. Se vengono rilevati dei problemi, arresta e riavvia automaticamente Shevery.]]></string>
+    <string name="error_protect_summary"><![CDATA[Monitora lo stato del servizio in modo reattivo. Riavvia automaticamente Shevery se vengono rilevati problemi o arresti anomali.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Binding TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Associa il server ADB locale alla porta 5555 per garantirne il funzionamento senza dover aggiornare la porta di debug wireless.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Collegare a 5555]]></string>

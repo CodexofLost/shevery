@@ -482,7 +482,7 @@ Ready for commands.]]></string>
     <string name="diagnostics_limited"><![CDATA[ସୀମିତ]]></string>
     <string name="diagnostics_unknown"><![CDATA[ଅଜ୍ଞାତ]]></string>
     <string name="error_protect_title"><![CDATA[ତ୍ରୁଟି ସୁରକ୍ଷା]]></string>
-    <string name="error_protect_summary"><![CDATA[ପ୍ରତି 10 ସେକେଣ୍ଡରେ ପ୍ରକ୍ରିୟା ସ୍ୱାସ୍ଥ୍ୟ ଏବଂ ଟ୍ରାଞ୍ଜାକସନ୍ ତ୍ରୁଟି ଯାଞ୍ଚ କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ମିଳେ ତେବେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ବନ୍ଦ ଏବଂ ପୁନଃଆରମ୍ଭ କରନ୍ତୁ।]]></string>
+    <string name="error_protect_summary"><![CDATA[ସେବାର ସ୍ୱାସ୍ଥ୍ୟକୁ ପ୍ରତିକ୍ରିୟାଶୀଳ ଭାବେ ନିରୀକ୍ଷଣ କରେ। କୌଣସି ସମସ୍ୟା କିମ୍ବା କ୍ରାସ୍ ଚିହ୍ନଟ ହେଲେ Shevery କୁ ସ୍ୱତଃ ପୁନଃଆରମ୍ଭ କରେ।]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[ଟିସିପି ବାଇଣ୍ଡିଂ 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ୱେୟାରଲେସ୍ ଡିବଗିଂ ପୋର୍ଟ ଅପଡେଟସ୍ ବ୍ୟତୀତ ଏହା କାର୍ଯ୍ୟ କରିବାକୁ ସ୍ଥାନୀୟ ADB ସର୍ଭରକୁ ପୋର୍ଟ 5555 ସହିତ ବାନ୍ଧନ୍ତୁ।]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555 କୁ ବାନ୍ଧନ୍ତୁ]]></string>

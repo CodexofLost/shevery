@@ -431,7 +431,7 @@
     <string name="diagnostics_limited"><![CDATA[محدود]]></string>
     <string name="diagnostics_unknown"><![CDATA[ناشناخته]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[هر ۱۰ ثانیه یکبار سلامت فرآیند و خطاهای تراکنش را بررسی می‌کند. اگر مشکلی یافت شود، Shevery را به‌صورت خودکار متوقف کرده و مجدداً راه‌اندازی می‌کند.]]></string>
+    <string name="error_protect_summary"><![CDATA[نظارت واکنشی بر سلامت سرویس. در صورت تشخیص مشکل یا توقف غیرمنتظره، Shevery را به‌طور خودکار بازنشانی می‌کند.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[اتصال TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[اتصال سرور ADB محلی به پورت ۵۵۵۵ برای ادامه کار بدون به‌روزرسانی پورت اشکال‌زدایی بی‌سیم.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[اتصال به ۵۵۵۵]]></string>

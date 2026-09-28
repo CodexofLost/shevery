@@ -484,7 +484,7 @@ Ready for commands.]]></string>
     <string name="diagnostics_limited"><![CDATA[limited]]></string>
     <string name="diagnostics_unknown"><![CDATA[unknown]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Check process health and transactional errors every 10 seconds. Automatically stops and restarts Shevery if issues are found.]]></string>
+    <string name="error_protect_summary"><![CDATA[Reactively monitor service health. Automatically restarts Shevery if issues or crashes are detected.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP Binding 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Bind local ADB server to port 5555 to keep it working without Wireless Debugging port updates.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Bind to 5555]]></string>

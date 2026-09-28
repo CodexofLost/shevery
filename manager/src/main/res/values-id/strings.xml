@@ -500,7 +500,7 @@ Siap menerima perintah.]]></string>
     <string name="diagnostics_limited"><![CDATA[terbatas]]></string>
     <string name="diagnostics_unknown"><![CDATA[tidak diketahui]]></string>
     <string name="error_protect_title"><![CDATA[Perlindungan Kesalahan]]></string>
-    <string name="error_protect_summary"><![CDATA[Periksa status proses dan kesalahan transaksi setiap 10 detik. Shevery akan secara otomatis dihentikan dan dijalankan kembali jika ditemukan masalah.]]></string>
+    <string name="error_protect_summary"><![CDATA[Memantau kondisi layanan secara reaktif. Otomatis memulai ulang Shevery jika terdeteksi masalah atau crash.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Pengikatan TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Hubungkan server ADB lokal ke port 5555 agar tetap berfungsi tanpa perlu memperbarui port Debugging Nirkabel.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Hubungkan ke 5555]]></string>

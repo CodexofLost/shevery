@@ -505,7 +505,7 @@
     <string name="diagnostics_limited"><![CDATA[పరిమితమైన]]></string>
     <string name="diagnostics_unknown"><![CDATA[తెలియని]]></string>
     <string name="error_protect_title"><![CDATA[లోపరక్షణ]]></string>
-    <string name="error_protect_summary"><![CDATA[ప్రతి 10 సెకన్లకు ఒకసారి ప్రాసెస్ ఆరోగ్యాన్ని మరియు లావాదేవీల లోపాలను తనిఖీ చేస్తుంది. సమస్యలు కనుగొనబడితే, షెవరిని స్వయంచాలకంగా ఆపి, తిరిగి ప్రారంభిస్తుంది.]]></string>
+    <string name="error_protect_summary"><![CDATA[సేవ ఆరోగ్యాన్ని రియాక్టివ్‌గా పర్యవేక్షిస్తుంది. సమస్యలు లేదా క్రాష్‌లు కనుగొనబడితే Sheveryని స్వయంచాలకంగా పునఃప్రారంభిస్తుంది.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[టిసిపి పోర్ట్ 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[వైర్‌లెస్ డీబగ్గింగ్ పోర్ట్ అప్‌డేట్‌లు లేకుండా స్థానిక ADB సర్వర్‌ను పనిచేసేలా చేయడానికి, దానిని పోర్ట్ 5555కి బైండ్ చేయండి.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555కి బంధించండి]]></string>

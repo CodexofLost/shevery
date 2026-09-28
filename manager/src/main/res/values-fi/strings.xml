@@ -518,7 +518,7 @@ Valmis ottamaan komentoja vastaan.]]></string>
     <string name="diagnostics_limited"><![CDATA[rajoitettu]]></string>
     <string name="diagnostics_unknown"><![CDATA[tuntematon]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Tarkista prosessin tila ja transaktiovirheet 10 sekunnin välein. Pysäyttää ja käynnistää Sheveryn automaattisesti uudelleen, jos ongelmia havaitaan.]]></string>
+    <string name="error_protect_summary"><![CDATA[Valvoo palvelun tilaa reaktiivisesti. Käynnistää Sheveryn automaattisesti uudelleen, jos havaitaan ongelmia tai kaatumisia.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-liitäntä 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Määritä paikallinen ADB-palvelin käyttämään porttia 5555, jotta se toimii ilman langattoman virheenkorjausportin päivityksiä.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Yhdistä numeroon 5555]]></string>

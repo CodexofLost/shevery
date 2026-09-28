@@ -507,7 +507,7 @@
     <string name="diagnostics_limited"><![CDATA[সীমিত]]></string>
     <string name="diagnostics_unknown"><![CDATA[অজানা]]></string>
     <string name="error_protect_title"><![CDATA[ত্রুটি সুরক্ষা]]></string>
-    <string name="error_protect_summary"><![CDATA[প্রতি ১০ সেকেন্ডে প্রক্রিয়ার অবস্থা এবং লেনদেনগত ত্রুটি পরীক্ষা করুন। কোনো সমস্যা পাওয়া গেলে স্বয়ংক্রিয়ভাবে Shevery থামিয়ে পুনরায় চালু করুন।]]></string>
+    <string name="error_protect_summary"><![CDATA[প্রতিক্রিয়াশীলভাবে পরিষেবার স্বাস্থ্য পর্যবেক্ষণ করে। কোনো সমস্যা বা ক্র্যাশ শনাক্ত হলে Shevery স্বয়ংক্রিয়ভাবে পুনরায় চালু করে।]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[টিসিপি পোর্ট ৫৫৫৫]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ওয়্যারলেস ডিবাগিং পোর্ট আপডেট ছাড়াই ADB সার্ভারকে চালু রাখতে স্থানীয় ADB সার্ভারকে পোর্ট 5555-এ বাইন্ড করুন।]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[৫৫৫৫-এ সংযুক্ত করুন]]></string>

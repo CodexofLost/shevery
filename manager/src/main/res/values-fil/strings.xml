@@ -499,7 +499,7 @@ Isinasagawa...]]></string>
     <string name="diagnostics_limited"><![CDATA[limitado]]></string>
     <string name="diagnostics_unknown"><![CDATA[hindi kilala]]></string>
     <string name="error_protect_title"><![CDATA[Proteksyon sa Error]]></string>
-    <string name="error_protect_summary"><![CDATA[Suriin ang kalusugan ng proseso at mga error sa transaksyon tuwing 10 segundo. Awtomatikong pinapatigil at muling sinisimulan ang Shevery kung may matuklasang mga isyu.]]></string>
+    <string name="error_protect_summary"><![CDATA[Reaktibong sinusubaybayan ang kalagayan ng serbisyo. Awtomatikong muling sinisimulan ang Shevery kung may nakitang mga isyu o crash.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP Port 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[I-bind ang lokal na ADB server sa port 5555 upang patuloy itong gumana nang hindi na kailangang i-update ang port para sa Wireless Debugging.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[I-bind sa 5555]]></string>

@@ -482,7 +482,7 @@ Ready for commands.]]></string>
     <string name="diagnostics_limited"><![CDATA[ಸೀಮಿತ]]></string>
     <string name="diagnostics_unknown"><![CDATA[ಅಜ್ಞಾತ]]></string>
     <string name="error_protect_title"><![CDATA[ದೋಷ ರಕ್ಷಣೆ]]></string>
-    <string name="error_protect_summary"><![CDATA[ಪ್ರತಿ 10 ಸೆಕೆಂಡುಗಳಿಗೊಮ್ಮೆ ಪ್ರಕ್ರಿಯೆಯ ಆರೋಗ್ಯ ಮತ್ತು ವಹಿವಾಟಿನ ದೋಷಗಳನ್ನು ಪರಿಶೀಲಿಸಿ. ಸಮಸ್ಯೆಗಳು ಕಂಡುಬಂದರೆ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನಿಲ್ಲುತ್ತದೆ ಮತ್ತು ಮರುಪ್ರಾರಂಭಿಸುತ್ತದೆ.]]></string>
+    <string name="error_protect_summary"><![CDATA[ಸೇವೆಯ ಆರೋಗ್ಯವನ್ನು ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕವಾಗಿ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ. ಸಮಸ್ಯೆಗಳು ಅಥವಾ ಕ್ರ್ಯಾಶ್ ಕಂಡುಬಂದಲ್ಲಿ Shevery ಅನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಮರುಪ್ರಾರಂಭಿಸುತ್ತದೆ.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[ಟಿಸಿಪಿ ಬೈಂಡಿಂಗ್ 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ವೈರ್ ಲೆಸ್ ಡೀಬಗ್ಗಿಂಗ್ ಪೋರ್ಟ್ ನವೀಕರಣಗಳಿಲ್ಲದೆ ಕೆಲಸ ಮಾಡುವಂತೆ ಮಾಡಲು ಸ್ಥಳೀಯ ADB ಸರ್ವರ್ ಅನ್ನು ಪೋರ್ಟ್ 5555 ಗೆ ಬಂಧಿಸಿ.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555 ಗೆ ಬೈಂಡ್ ಮಾಡಿ]]></string>

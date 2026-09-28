@@ -428,7 +428,7 @@
     <string name="diagnostics_limited"><![CDATA[чектелген]]></string>
     <string name="diagnostics_unknown"><![CDATA[белгисиз]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Процесстин абалын текшерүү жана ката чыкса автоматтык кайра иштетүү.]]></string>
+    <string name="error_protect_summary"><![CDATA[Кызматтын абалын реактивдүү көзөмөлдөйт. Мүчүлүштүктөр же каталар аныкталса, Shevery кызматын автоматтык түрдө кайра иштетет.]]></string>
     <string name="settings_tcp_5555_title">TCP Binding 5555</string>
     <string name="settings_tcp_5555_summary"><![CDATA[ADBди 5555 портуна туташтыруу.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555ке туташтыруу]]></string>

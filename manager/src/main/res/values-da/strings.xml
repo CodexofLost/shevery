@@ -518,7 +518,7 @@ Klar til kommandoer.]]></string>
     <string name="diagnostics_limited"><![CDATA[begrænset]]></string>
     <string name="diagnostics_unknown"><![CDATA[ukendt]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Kontrollerer systemets tilstand og transaktionsfejl hvert 10. sekund. Stopper og genstarter automatisk Shevery, hvis der opdages problemer.]]></string>
+    <string name="error_protect_summary"><![CDATA[Overvåger tjenestetilstanden reaktivt. Genstarter automatisk Shevery, hvis der registreres problemer eller nedbrud.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-port 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Tilknyt den lokale ADB-server til port 5555, så den fortsat fungerer, selvom porten til trådløs fejlfinding ændres.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Forbind til 5555]]></string>

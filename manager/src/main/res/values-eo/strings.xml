@@ -503,7 +503,7 @@ Ekzekutante...]]></string>
     <string name="diagnostics_limited"><![CDATA[limigita]]></string>
     <string name="diagnostics_unknown"><![CDATA[nekonata]]></string>
     <string name="error_protect_title"><![CDATA[Erarprotekto]]></string>
-    <string name="error_protect_summary"><![CDATA[Kontrolu la sanon de la procezo kaj transakciajn erarojn ĉiujn dek sekundojn. Aŭtomate haltigas kaj rekomencas Shevery se oni trovas problemojn.]]></string>
+    <string name="error_protect_summary"><![CDATA[Reaktive monitoras servan staton. Aŭtomate restarigas Shevery se problemoj aŭ kraŝoj estas detektitaj.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-pordo 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Konektu la lokan ADB-servilon al pordo 5555 por ke ĝi funkciu sen ĝisdatigoj de la pordo por sendrata depanado.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Konektiĝu al 5555]]></string>

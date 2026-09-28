@@ -431,7 +431,7 @@ has been copied to clipboard.]]></string>
     <string name="diagnostics_limited"><![CDATA[מוגבל]]></string>
     <string name="diagnostics_unknown"><![CDATA[לא ידוע]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[בודק תקינות תהליך ושגיאות עסקאות כל 10 שניות. עוצר ומפעיל מחדש את Shevery אוטומטית אם מתגלות בעיות.]]></string>
+    <string name="error_protect_summary"><![CDATA[מנטר באופן תגובתי את תקינות השירות. מפעيل מחדש את Shevery באופן אוטומטי אם מזוהות תקלות או קריסות.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[כריכת TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[כרוך את שרת ADB המקומי ליציאה 5555 כדי להמשיך לפעול ללא עדכוני יציאת ניפוי בבאגים אלחוטי.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[כרוך ל-5555]]></string>

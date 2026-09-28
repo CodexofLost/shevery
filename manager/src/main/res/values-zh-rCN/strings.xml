@@ -504,7 +504,7 @@
     <string name="diagnostics_limited"><![CDATA[受限]]></string>
     <string name="diagnostics_unknown"><![CDATA[未知]]></string>
     <string name="error_protect_title"><![CDATA[错误保护]]></string>
-    <string name="error_protect_summary"><![CDATA[每 10 秒检查进程健康状态与事务错误。若发现异常自动停止并重启 Shevery]]></string>
+    <string name="error_protect_summary"><![CDATA[响应式监测服务健康状态。若发现异常或崩溃自动重启 Shevery。]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[绑定 TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[将本地 ADB 服务绑定至 5555 端口，无需无线调试端口变动即可保持连接。]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[绑定至 5555]]></string>

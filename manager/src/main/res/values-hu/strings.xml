@@ -515,7 +515,7 @@ Készen áll a parancsok fogadására.]]></string>
     <string name="diagnostics_limited"><![CDATA[korlátozott]]></string>
     <string name="diagnostics_unknown"><![CDATA[ismeretlen]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[10 másodpercenként ellenőrizze a folyamat állapotát és a tranzakciós hibákat. Ha problémát észlel, a rendszer automatikusan leállítja és újraindítja a Shevery-t.]]></string>
+    <string name="error_protect_summary"><![CDATA[Reaktívan figyeli a szolgáltatás állapotát. Probléma vagy összeomlás észlelésekor automatikusan újraindítja a Shevery-t.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-kapcsolódás 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Kössük az ADB-kiszolgálót az 5555-ös porthoz, hogy a vezeték nélküli hibakeresési port frissítései nélkül is működőképes maradjon.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Kapcsolódás az 5555-ös számhoz]]></string>

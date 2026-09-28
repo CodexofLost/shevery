@@ -514,7 +514,7 @@
     <string name="diagnostics_limited"><![CDATA[வரையறுக்கப்பட்ட]]></string>
     <string name="diagnostics_unknown"><![CDATA[தெரியாதது]]></string>
     <string name="error_protect_title"><![CDATA[பிழைப் பாதுகாப்பு]]></string>
-    <string name="error_protect_summary"><![CDATA[ஒவ்வொரு 10 வினாடிகளுக்கும் செயல்முறை ஆரோக்கியம் மற்றும் பரிவர்த்தனைப் பிழைகளைச் சரிபார்க்கிறது. சிக்கல்கள் கண்டறியப்பட்டால், ஷெவரி தானாகவே நிறுத்தப்பட்டு மீண்டும் தொடங்கப்படும்.]]></string>
+    <string name="error_protect_summary"><![CDATA[சேவையின் நிலையை எதிர்வினை முறையில் கண்காணிக்கிறது. சிக்கல்கள் அல்லது செயலிழப்புகள் கண்டறியப்பட்டால் Shevery-ஐ தானாகவே மறுதொடக்கம் செய்யும்.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[டிசிபி போர்ட் 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[வயர்லெஸ் டீபக்கிங் போர்ட் புதுப்பிப்புகள் இல்லாமல் உள்ளூர் ADB சேவையகத்தை தொடர்ந்து இயக்க, அதை போர்ட் 5555 உடன் பிணைக்கவும்.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555 உடன் பிணைக்கவும்]]></string>

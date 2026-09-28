@@ -482,7 +482,7 @@ Ready for commands.]]></string>
     <string name="diagnostics_limited"><![CDATA[چەكلىك]]></string>
     <string name="diagnostics_unknown"><![CDATA[نامەلۇم]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[ھەر 10 سېكۇنتتا بىر جەرياننىڭ ساغلاملىقى ۋە سودا خاتالىقىنى تەكشۈرىدۇ. مەسىلە بايقالسا Shevery نى ئاپتوماتىك توختىتىپ قايتا قوزغىتىدۇ.]]></string>
+    <string name="error_protect_summary"><![CDATA[مۇلازىمەت ھالىتىنى كۆزىتىدۇ. كاشىلا ياكى چۈشۈپ كېتىش بايقالسا Shevery نى ئاپتوماتىك قايتا قوزغىتىدۇ.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP باغلاش 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[يەرلىك ADB مۇلازىمېتىرىنى 5555 ئېغىزقا باغلاپ سىمسىز خاتالىق تۈزىتىش ئېغىزى يېڭىلانمىغان ئەھۋالدا خىزمەت قىلغىلى بولىدۇ.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555-يىلىغا باغلاش]]></string>
