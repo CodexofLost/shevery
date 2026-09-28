@@ -300,6 +300,8 @@ har kopierats till urklipp.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Tjänsten Shevery har avbrutits oväntat.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery-övervakningsprogrammet är aktivt]]></string>
     <string name="watchdog_service_text"><![CDATA[Övervakning av Shevery-tjänsten för återställning vid keep-alive-avbrott]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Stäng av]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Inaktivera varningar]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery – ett nystartat företag]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery startar]]></string>
@@ -518,7 +520,7 @@ Redo för kommandon.]]></string>
     <string name="diagnostics_limited"><![CDATA[begränsad]]></string>
     <string name="diagnostics_unknown"><![CDATA[okänt]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Kontrollerar processens status och transaktionsfel var 10:e sekund. Stänger automatiskt av och startar om Shevery om problem upptäcks.]]></string>
+    <string name="error_protect_summary"><![CDATA[Övervakar tjänstens status reaktivt. Startar automatiskt om Shevery om problem eller krascher upptäcks.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-port 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Koppla den lokala ADB-servern till port 5555 så att den fortsätter att fungera utan uppdateringar av porten för trådlös felsökning.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Anslut till 5555]]></string>

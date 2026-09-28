@@ -288,6 +288,8 @@ kopiran je u međuspremnik.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Usluga Shevery je neočekivano prestala s radom.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery nadzornik je aktivan]]></string>
     <string name="watchdog_service_text"><![CDATA[Praćenje usluge Shevery za oporavak uz održavanje veze]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Isključi]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Isključi upozorenja]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery Kontrola]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Snažan startup]]></string>
     <string name="notification_startup_title"><![CDATA[Početni Shevery]]></string>
@@ -505,7 +507,7 @@ Izvršavanje...]]></string>
     <string name="diagnostics_limited"><![CDATA[ograničeno]]></string>
     <string name="diagnostics_unknown"><![CDATA[nepoznato]]></string>
     <string name="error_protect_title"><![CDATA[Zaštita od pogrešaka]]></string>
-    <string name="error_protect_summary"><![CDATA[Provjeravajte zdravlje procesa i transakcijske pogreške svakih 10 sekundi. Automatski zaustavlja i ponovno pokreće Shevery ako se otkriju problemi.]]></string>
+    <string name="error_protect_summary"><![CDATA[Reaktivno prati stanje usluge. Automatski ponovno pokreće Shevery ako se otkriju problemi ili rušenja.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP priključak 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Povežite lokalni ADB poslužitelj na port 5555 kako bi radio bez ažuriranja porta za bežično otklanjanje pogrešaka.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Poveži na 5555]]></string>

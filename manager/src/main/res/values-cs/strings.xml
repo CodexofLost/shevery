@@ -279,6 +279,8 @@
     <string name="notification_watchdog_text"><![CDATA[Služba Shevery se neočekávaně zastavila.]]></string>
     <string name="watchdog_service_title"><![CDATA[Dohledový systém Shevery je aktivní]]></string>
     <string name="watchdog_service_text"><![CDATA[Sledování služby Shevery za účelem obnovy spojení pomocí keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Vypnout]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Vypnout upozornění]]></string>
     <string name="notification_control_channel_name"><![CDATA[Řízení Shevery]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Začátek Shevery]]></string>
@@ -497,7 +499,7 @@ Připraveno k přijímání příkazů.]]></string>
     <string name="diagnostics_limited"><![CDATA[omezený]]></string>
     <string name="diagnostics_unknown"><![CDATA[neznámé]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Každých 10 sekund kontroluje stav procesu a transakční chyby. V případě zjištění problémů automaticky zastaví a znovu spustí Shevery.]]></string>
+    <string name="error_protect_summary"><![CDATA[Reaktivně monitoruje stav služby. V případě zjištění problémů nebo selhání automaticky restartuje Shevery.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP port 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Připojte místní server ADB k portu 5555, aby fungoval i bez aktualizací portu pro bezdrátové ladění.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Připojit na 5555]]></string>

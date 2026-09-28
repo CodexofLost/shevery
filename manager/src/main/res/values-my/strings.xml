@@ -262,6 +262,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Shevery ဝန်ဆောင်မှုသည် မမျှော်လင့်ဘဲ ရပ်တန့်သွားသည်။]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery စောင့်ကြည့်ရေးခွေးသည် တက်ကြွနေသည်။]]></string>
     <string name="watchdog_service_text"><![CDATA[ဆက်လက်ရှင်သန်ခြင်းအတွက် Shevery ဝန်ဆောင်မှုကို စောင့်ကြည့်ခြင်း။]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[ပိတ်ရန်]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[သတိပေးချက်များ ပိတ်ရန်]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery ထိန်းချုပ်မှု]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery စတင်သည်။]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery စတင်ခြင်း။]]></string>
@@ -480,7 +482,7 @@ Ready for commands.]]></string>
     <string name="diagnostics_limited"><![CDATA[limited]]></string>
     <string name="diagnostics_unknown"><![CDATA[unknown]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary">လုပ်ငန်းစဉ်ကျန်းမာရေးနှင့် အရောင်းအ၀ယ်အမှားများကို 10 စက္ကန့်တိုင်း စစ်ဆေးပါ။ ပြဿနာများတွေ့ရှိပါက အလိုအလျောက်ရပ်တန့်ပြီး Shevery ကို ပြန်လည်စတင်သည်။</string>
+    <string name="error_protect_summary">ဝန်ဆောင်မှုအခြေအနေကို စောင့်ကြည့်သည်။ ပြဿနာများ သို့မဟုတ် ပျက်စီးမှုများ တွေ့ရှိပါက Shevery ကို အလိုအလျောက် ပြန်လည်စတင်သည်။</string>
     <string name="settings_tcp_5555_title">TCP ချိတ်ဆက်မှု 5555</string>
     <string name="settings_tcp_5555_summary">Wireless Debugging Port အပ်ဒိတ်များမပါဘဲ ၎င်းကို ဆက်လက်လုပ်ဆောင်ရန် ဒေသတွင်း ADB ဆာဗာကို 5555 ဆိပ်ကမ်းတွင် ချိတ်ပါ။</string>
     <string name="settings_tcp_5555_button">5555 သို့ ချည်နှောင်ပါ။</string>

@@ -254,6 +254,8 @@
     <string name="notification_watchdog_text"><![CDATA[O serviço Shevery parou inesperadamente.]]></string>
     <string name="watchdog_service_title"><![CDATA[Watchdog Shevery ativo]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitorando o serviço Shevery para recuperação]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Desativar]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Desativar alertas]]></string>
     <string name="notification_control_channel_name"><![CDATA[Controle Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery está em execução]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery está parado]]></string>
@@ -417,7 +419,7 @@
     <string name="diagnostics_limited"><![CDATA[limitado]]></string>
     <string name="diagnostics_unknown"><![CDATA[desconhecido]]></string>
     <string name="error_protect_title"><![CDATA[ErroProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Verificar a saúde do processo e erros transacionais a cada 10 segundos. Para e reinicia o Shevery automaticamente se problemas forem encontrados.]]></string>
+    <string name="error_protect_summary"><![CDATA[Monitora a saúde do serviço de forma reativa. Reinicia o Shevery automaticamente se problemas ou falhas forem detectados.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Vinculação TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Vincular o servidor ADB local à porta 5555 para mantê-lo funcionando sem atualizações de porta de Depuração Sem Fio.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Vincular à 5555]]></string>

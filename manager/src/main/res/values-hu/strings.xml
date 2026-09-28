@@ -295,6 +295,8 @@ Az export funkció SAF-et használ (Storage Access Framework). A jelentések sze
     <string name="notification_watchdog_text"><![CDATA[A Shevery szolgáltatás váratlanul leállt.]]></string>
     <string name="watchdog_service_title"><![CDATA[A Shevery felügyelő rendszer aktív]]></string>
     <string name="watchdog_service_text"><![CDATA[A Shevery szolgáltatás figyelése a keep-alive-helyreállítás érdekében]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Kikapcsolás]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Értesítések kikapcsolása]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery vezérlés]]></string>
     <string name="notification_startup_channel_name">Shevery startup</string>
     <string name="notification_startup_title"><![CDATA[Shevery kezdése]]></string>
@@ -513,7 +515,7 @@ Készen áll a parancsok fogadására.]]></string>
     <string name="diagnostics_limited"><![CDATA[korlátozott]]></string>
     <string name="diagnostics_unknown"><![CDATA[ismeretlen]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[10 másodpercenként ellenőrizze a folyamat állapotát és a tranzakciós hibákat. Ha problémát észlel, a rendszer automatikusan leállítja és újraindítja a Shevery-t.]]></string>
+    <string name="error_protect_summary"><![CDATA[Reaktívan figyeli a szolgáltatás állapotát. Probléma vagy összeomlás észlelésekor automatikusan újraindítja a Shevery-t.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-kapcsolódás 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Kössük az ADB-kiszolgálót az 5555-ös porthoz, hogy a vezeték nélküli hibakeresési port frissítései nélkül is működőképes maradjon.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Kapcsolódás az 5555-ös számhoz]]></string>

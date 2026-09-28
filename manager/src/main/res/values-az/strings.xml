@@ -281,6 +281,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery xidməti gözlənilmədən dayanıb.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery gözətçi iti aktivdir]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery xidmətinin keep-alive bərpası üçün monitorinqi]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Söndür]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Xəbərdarlıqları söndür]]></string>
     <string name="notification_control_channel_name"><![CDATA[Şevri Nəzarət]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Hər şey startap]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery-nin başlaması]]></string>
@@ -498,7 +500,7 @@ Orijinal: %1$s
     <string name="diagnostics_limited"><![CDATA[məhdud]]></string>
     <string name="diagnostics_unknown"><![CDATA[Naməlum]]></string>
     <string name="error_protect_title"><![CDATA[Səhvdən qoruma]]></string>
-    <string name="error_protect_summary"><![CDATA[Prosesin sağlamlığını və transaksiya xətalarını hər 10 saniyədə yoxlayın. Problemlər aşkar edildikdə Shevery-ni avtomatik olaraq dayandırır və yenidən işə salır.]]></string>
+    <string name="error_protect_summary"><![CDATA[Xidmətin vəziyyətinə reaktiv nəzarət. Problemlər və ya qəzalar aşkar edildikdə Shevery-ni avtomatik yenidən işə salır.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP portu 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Yerli ADB serverini 5555-ci porta bağlayın ki, simsiz səhvə düzeltmə portunun yenilənmələrinə ehtiyac qalmadan işləməyə davam etsin.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555-ə bağlayın]]></string>

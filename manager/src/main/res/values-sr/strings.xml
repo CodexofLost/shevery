@@ -288,6 +288,8 @@
     <string name="notification_watchdog_text"><![CDATA[Сервис Shevery се неочекивано зауставио.]]></string>
     <string name="watchdog_service_title"><![CDATA[Сваки надзорни пас је активан]]></string>
     <string name="watchdog_service_text"><![CDATA[Праћење сервиса Shevery за опоравак уз keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Искључи]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Искључи упозорења]]></string>
     <string name="notification_control_channel_name"><![CDATA[Шевери Контрол]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Шевери стартап]]></string>
     <string name="notification_startup_title"><![CDATA[Почетак Шевери]]></string>
@@ -505,7 +507,7 @@
     <string name="diagnostics_limited"><![CDATA[ограничено]]></string>
     <string name="diagnostics_unknown"><![CDATA[непознато]]></string>
     <string name="error_protect_title"><![CDATA[Заштита од грешака]]></string>
-    <string name="error_protect_summary"><![CDATA[Проверавајте здравље процеса и трансакцијске грешке на сваких 10 секунди. Аутоматски зауставља и поново покреће Shevery ако се открију проблеми.]]></string>
+    <string name="error_protect_summary"><![CDATA[Реактивно надгледа стање услуге. Аутоматски поново покреће Shevery ако се открију проблеми или падови.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP порт 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Повежите локални ADB сервер на порт 5555 како би радио без ажурирања порта за бежично отклањање грешака.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Повежи на 5555]]></string>

@@ -262,6 +262,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Shevery مۇلازىمىتى تۇيۇقسىز توختاپ قالدى.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery Watchdog ئاكتىپ]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery مۇلازىمىتىنى نازارەت قىلىپ ئەسلىگە كەلتۈرۈش]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[تاقاش]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[ئاگاھلاندۇرۇشنى تاقاش]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery ئىگىلىك تىكلەش]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery نى باشلاش]]></string>
@@ -480,7 +482,7 @@ Ready for commands.]]></string>
     <string name="diagnostics_limited"><![CDATA[چەكلىك]]></string>
     <string name="diagnostics_unknown"><![CDATA[نامەلۇم]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[ھەر 10 سېكۇنتتا بىر جەرياننىڭ ساغلاملىقى ۋە سودا خاتالىقىنى تەكشۈرىدۇ. مەسىلە بايقالسا Shevery نى ئاپتوماتىك توختىتىپ قايتا قوزغىتىدۇ.]]></string>
+    <string name="error_protect_summary"><![CDATA[مۇلازىمەت ھالىتىنى كۆزىتىدۇ. كاشىلا ياكى چۈشۈپ كېتىش بايقالسا Shevery نى ئاپتوماتىك قايتا قوزغىتىدۇ.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP باغلاش 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[يەرلىك ADB مۇلازىمېتىرىنى 5555 ئېغىزقا باغلاپ سىمسىز خاتالىق تۈزىتىش ئېغىزى يېڭىلانمىغان ئەھۋالدا خىزمەت قىلغىلى بولىدۇ.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555-يىلىغا باغلاش]]></string>

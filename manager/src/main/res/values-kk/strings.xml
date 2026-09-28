@@ -270,6 +270,8 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="notification_watchdog_text"><![CDATA[Shevery қызметі күтпеген жерден тоқтады.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery бақылаушысы белсенді]]></string>
     <string name="watchdog_service_text"><![CDATA[Қалпына келтіру үшін Shevery қызметін бақылау]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Өшіру]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Ескертулерді өшіру]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery Басқару]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery жұмыс істеп тұр]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery тоқтатылды]]></string>
@@ -424,7 +426,7 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="diagnostics_limited"><![CDATA[шектеулі]]></string>
     <string name="diagnostics_unknown"><![CDATA[белгісіз]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Әр 10 секунд сайын процесс пен қателерді тексереді. Мәселе табылса Shevery-ді автоматты тоқтатып, қайта іске қосады.]]></string>
+    <string name="error_protect_summary"><![CDATA[Қызмет күйін реактивті түрде бақылайды. Ақаулар немесе істен шығулар анықталса, Shevery қызметін автоматты түрде қайта қосады.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP 5555-ке байлау]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Жергілікті ADB серверін 5555 портына байлау.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555-ке байлау]]></string>

@@ -284,6 +284,8 @@
     <string name="notification_watchdog_text"><![CDATA[ഷെവറി സേവനം അപ്രതീക്ഷിതമായി നിർത്തിവച്ചിരിക്കുന്നു.]]></string>
     <string name="watchdog_service_title"><![CDATA[ഷെവെറി വാച്ച്ഡോഗ് സജീവമാണ്]]></string>
     <string name="watchdog_service_text"><![CDATA[കീപ്പ്-അലൈവ് റിക്കവറിക്ക് വേണ്ടിയുള്ള ഷെവറി സേവനത്തിന്റെ നിരീക്ഷണം]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[ഓഫ് ചെയ്യുക]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[അലേർട്ടുകൾ ഓഫാക്കുക]]></string>
     <string name="notification_control_channel_name"><![CDATA[ഷെവെറി കൺട്രോൾ]]></string>
     <string name="notification_startup_channel_name"><![CDATA[ഷെവറി സ്റ്റാർട്ടപ്പ്]]></string>
     <string name="notification_startup_title"><![CDATA[ഷെവറി ആരംഭിക്കുന്നു]]></string>
@@ -501,7 +503,7 @@
     <string name="diagnostics_limited"><![CDATA[പരിമിതമായ]]></string>
     <string name="diagnostics_unknown"><![CDATA[അജ്ഞാതം]]></string>
     <string name="error_protect_title"><![CDATA[പിശക് സംരക്ഷണം]]></string>
-    <string name="error_protect_summary"><![CDATA[ഓരോ 10 സെക്കൻഡിലും പ്രോസസ്സിന്റെ ആരോഗ്യവും ഇടപാട് പിശകുകളും പരിശോധിക്കുക. പ്രശ്നങ്ങൾ കണ്ടെത്തിയാൽ ഷെവറിയെ സ്വയമേവ നിർത്തി വീണ്ടും ആരംഭിക്കുക.]]></string>
+    <string name="error_protect_summary"><![CDATA[സേവന നില നിരീക്ഷിക്കുന്നു. എന്തെങ്കിലും പ്രശ്നങ്ങളോ ക്രാഷോ ഉണ്ടായാൽ Shevery സ്വയമേവ പുനരാരംഭിക്കും.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[ടിസിപി പോർട്ട് 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[വയർലെസ് ഡീബഗ്ഗിംഗ് പോർട്ട് അപ്ഡേറ്റുകൾ ഇല്ലാതെ പ്രാദേശിക ADB സെർവർ പ്രവർത്തിപ്പിക്കുന്നതിനായി, അതിനെ പോർട്ട് 5555-മായി ബന്ധിപ്പിക്കുക.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555-മായി ബന്ധിപ്പിക്കുക]]></string>

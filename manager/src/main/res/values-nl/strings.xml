@@ -300,6 +300,8 @@ De exportfunctie maakt gebruik van SAF (Storage Access Framework). Er is gemeld 
     <string name="notification_watchdog_text"><![CDATA[De Shevery-dienst is onverwacht gestopt.]]></string>
     <string name="watchdog_service_title"><![CDATA[De Shevery-waakhond is actief]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoring van de Shevery-service voor herstel via keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Uitschakelen]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Meldingen uitschakelen]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery-regeling]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery-startup]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery opstellen]]></string>
@@ -518,7 +520,7 @@ Klaar voor opdrachten.]]></string>
     <string name="diagnostics_limited"><![CDATA[beperkt]]></string>
     <string name="diagnostics_unknown"><![CDATA[onbekend]]></string>
     <string name="error_protect_title"><![CDATA[Foutbescherming]]></string>
-    <string name="error_protect_summary"><![CDATA[Controleer elke 10 seconden de status van het proces en of er transactiefouten zijn. Shevery wordt automatisch gestopt en opnieuw gestart als er problemen worden vastgesteld.]]></string>
+    <string name="error_protect_summary"><![CDATA[Bewaakt de servicestatus op reactieve wijze. Start Shevery automatisch opnieuw op als er problemen of crashes worden gedetecteerd.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-binding 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Koppel de lokale ADB-server aan poort 5555, zodat deze blijft werken zonder dat de poort voor draadloos debuggen hoeft te worden bijgewerkt.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Verbinden met 5555]]></string>

@@ -298,6 +298,8 @@ Eksportēšanas funkcija izmanto SAF (Storage Access Framework). Ir ziņots, ka 
     <string name="notification_watchdog_text"><![CDATA[Pakalpojums „Shevery“ negaidīti ir pārtraukts.]]></string>
     <string name="watchdog_service_title"><![CDATA[„Shevery“ uzraudzības sistēma darbojas]]></string>
     <string name="watchdog_service_text"><![CDATA[„Shevery“ pakalpojuma uzraudzība, lai nodrošinātu atjaunošanu pēc savienojuma pārtraukuma]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Izslēgt]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Izslēgt brīdinājumus]]></string>
     <string name="notification_control_channel_name"><![CDATA[„Shevery“ vadības sistēma]]></string>
     <string name="notification_startup_channel_name"><![CDATA[„Shevery“ start-up uzņēmums]]></string>
     <string name="notification_startup_title"><![CDATA[„Shevery” sākums]]></string>
@@ -516,7 +518,7 @@ Gatava komandu pieņemšanai.]]></string>
     <string name="diagnostics_limited"><![CDATA[ierobežots]]></string>
     <string name="diagnostics_unknown"><![CDATA[nav zināms]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Ik pēc 10 sekundēm pārbaudiet procesa darbības stāvokli un darījumu kļūdas. Ja tiek konstatētas problēmas, Shevery tiek automātiski apturēts un atkārtoti palaists.]]></string>
+    <string name="error_protect_summary"><![CDATA[Reaktīvi pārrauga pakalpojuma stāvokli. Automātiski restartē Shevery, ja tiek atklātas problēmas vai avārijas.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP piesaiste 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Piesaistiet vietējo ADB serveri 5555. portam, lai tas turpinātu darboties bez bezvadu atkļūdošanas porta atjauninājumiem.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Piesaistīt pie 5555]]></string>

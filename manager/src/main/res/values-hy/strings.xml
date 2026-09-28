@@ -287,6 +287,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery ծառայությունը անսպասելիորեն դադարել է։]]></string>
     <string name="watchdog_service_title"><![CDATA[Շեվերի հսկիչը ակտիվ է]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery ծառայության մոնիտորինգը կենդանի պահելու վերականգնման համար]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Անջատել]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Անջատել ծանուցումները]]></string>
     <string name="notification_control_channel_name"><![CDATA[Շեվերի Կոնտրոլ]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Շեվերի ստարտափ]]></string>
     <string name="notification_startup_title"><![CDATA[Սկսելով Շեվերի]]></string>
@@ -504,7 +506,7 @@
     <string name="diagnostics_limited"><![CDATA[սահմանափակ]]></string>
     <string name="diagnostics_unknown"><![CDATA[չճանաչված]]></string>
     <string name="error_protect_title"><![CDATA[Սխալից պաշտպանություն]]></string>
-    <string name="error_protect_summary"><![CDATA[Ստուգեք գործընթացի վիճակը և գործարքային սխալները յուրաքանչյուր 10 վայրկյանում։ Եթե խնդիրներ հայտնաբերվեն, ավտոմատ կերպով կանգնեցնում և կրկին սկսում է Shevery-ն։]]></string>
+    <string name="error_protect_summary"><![CDATA[Ռեակտիվ կերպով վերահսկում է ծառայության վիճակը: Խնդիրներ կամ խափանումներ հայտնաբերելիս ավտոմատ կերպով վերագործարկում է Shevery-ն:]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP պորտ 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Կապեք տեղական ADB սերվերը 5555 պորտին, որպեսզի այն աշխատի առանց անլար դեբագավորման պորտի թարմացումների։]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Կապել 5555-ին]]></string>

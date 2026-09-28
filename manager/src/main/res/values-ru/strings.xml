@@ -384,6 +384,8 @@
     <string name="settings_tcp_5555_bind_failed_generic"><![CDATA[Требуются root-права, Dhizuku или запущенная Shevery.]]></string>
     <string name="watchdog_service_title"><![CDATA[Сторож Shevery активен]]></string>
     <string name="watchdog_service_text"><![CDATA[Наблюдение за службой Shevery для восстановления keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Отключить]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Отключить оповещения]]></string>
     <string name="diagnostics_app"><![CDATA[Приложение]]></string>
     <string name="diagnostics_android"><![CDATA[Андроид]]></string>
     <string name="diagnostics_service"><![CDATA[Служба]]></string>
@@ -402,7 +404,7 @@
     <string name="diagnostics_limited"><![CDATA[ограничено]]></string>
     <string name="diagnostics_unknown"><![CDATA[неизвестно]]></string>
     <string name="error_protect_title"><![CDATA[Защита от ошибок]]></string>
-    <string name="error_protect_summary"><![CDATA[Проверять работоспособность процессов и транзакционные ошибки каждые 10 секунд. Автоматически останавливает и перезапускает Shevery при обнаружении проблем.]]></string>
+    <string name="error_protect_summary"><![CDATA[Реактивно отслеживает состояние службы. Автоматически перезапускает Shevery при обнаружении проблем или сбоев.]]></string>
     <string name="backup_restore_title"><![CDATA[Резервное копирование и восстановление]]></string>
     <string name="backup_title"><![CDATA[Резервная копия настроек и модулей]]></string>
     <string name="backup_summary"><![CDATA[Экспортировать конфигурацию и модули в ZIP-файл]]></string>

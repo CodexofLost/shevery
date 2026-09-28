@@ -301,6 +301,8 @@ je bil kopiran v odložišče.]]></string>
     <string name="notification_watchdog_text"><![CDATA[Storitev Shevery se je nepričakovano ustavila.]]></string>
     <string name="watchdog_service_title"><![CDATA[Nadzorni sistem Shevery je aktiven]]></string>
     <string name="watchdog_service_text"><![CDATA[Spremljanje storitve Shevery za obnovo povezave »keep-alive«]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Izklopi]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Izklopi opozorila]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name"><![CDATA[Startup Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[Začetek Shevery]]></string>
@@ -519,7 +521,7 @@ Pripravljena za ukaze.]]></string>
     <string name="diagnostics_limited"><![CDATA[omejeno]]></string>
     <string name="diagnostics_unknown"><![CDATA[neznano]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Vsake 10 sekund preverja stanje procesa in napake pri transakcijah. V primeru odkritih težav samodejno ustavi in ponovno zažene program Shevery.]]></string>
+    <string name="error_protect_summary"><![CDATA[Reaktivno spremlja stanje storitve. Samodejno znova zažene Shevery, če so zaznane težave ali sesutja.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-vezava 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Povežite lokalni ADB-strežnik s vratom 5555, da bo deloval tudi brez posodobitev vrat za brezžično odpravljanje napak.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Poveži s 5555]]></string>

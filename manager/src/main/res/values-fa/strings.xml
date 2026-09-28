@@ -266,6 +266,8 @@
     <string name="notification_watchdog_text"><![CDATA[سرویس Shevery به‌طور غیرمنتظره متوقف شد.]]></string>
     <string name="watchdog_service_title"><![CDATA[نگهبان Shevery فعال است]]></string>
     <string name="watchdog_service_text"><![CDATA[در حال نظارت بر سرویس Shevery برای بازیابی]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[خاموش کردن]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[غیرفعال کردن هشدارها]]></string>
     <string name="notification_control_channel_name"><![CDATA[کنترل Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery در حال اجراست]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery متوقف شده]]></string>
@@ -429,7 +431,7 @@
     <string name="diagnostics_limited"><![CDATA[محدود]]></string>
     <string name="diagnostics_unknown"><![CDATA[ناشناخته]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[هر ۱۰ ثانیه یکبار سلامت فرآیند و خطاهای تراکنش را بررسی می‌کند. اگر مشکلی یافت شود، Shevery را به‌صورت خودکار متوقف کرده و مجدداً راه‌اندازی می‌کند.]]></string>
+    <string name="error_protect_summary"><![CDATA[نظارت واکنشی بر سلامت سرویس. در صورت تشخیص مشکل یا توقف غیرمنتظره، Shevery را به‌طور خودکار بازنشانی می‌کند.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[اتصال TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[اتصال سرور ADB محلی به پورت ۵۵۵۵ برای ادامه کار بدون به‌روزرسانی پورت اشکال‌زدایی بی‌سیم.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[اتصال به ۵۵۵۵]]></string>

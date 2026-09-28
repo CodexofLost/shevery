@@ -288,6 +288,8 @@ ass op d\'Zouschneidplack kopéiert ginn.]]></string>
     <string name="notification_watchdog_text"><![CDATA[De Shevery-Service huet onerwaart opgehalen.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery Iwwerwaachungshond ass aktiv]]></string>
     <string name="watchdog_service_text"><![CDATA[Iwwerwaachung vum Shevery-Service fir Keep-Alive-Erhuelung]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Ausschalten]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Alarmen ausschalten]]></string>
     <string name="notification_control_channel_name"><![CDATA[Si-hver Kontroll]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Siwery Startup]]></string>
     <string name="notification_startup_title"><![CDATA[Ufänken Shevery]]></string>
@@ -505,7 +507,7 @@ Ausféierung...]]></string>
     <string name="diagnostics_limited"><![CDATA[begrenzt]]></string>
     <string name="diagnostics_unknown"><![CDATA[onbekannt]]></string>
     <string name="error_protect_title"><![CDATA[Feelerprotekt]]></string>
-    <string name="error_protect_summary"><![CDATA[Préift all 10 Sekonnen de Prozesszoustand an Transaktiounsfeeler. Hält Shevery automatesch un a start se nees un, wann Problemer fonnt ginn.]]></string>
+    <string name="error_protect_summary"><![CDATA[Iwwerwaacht de Status vum Service reaktiv. Start Shevery automatesch nei, wann Problemer oder Ofstierz erkannt ginn.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-Port 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Bind de lokale ADB-Server un Port 5555, fir datt en weider funktionéiert ouni Updates vum Wireless-Debugging-Port.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Binde un 5555]]></string>

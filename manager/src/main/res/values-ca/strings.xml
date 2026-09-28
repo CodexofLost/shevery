@@ -284,6 +284,8 @@
     <string name="notification_watchdog_text"><![CDATA[El servei Shevery s\'ha aturat inesperadament.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery vigilància activa]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoratge del servei Shevery per a la recuperació de la vigència]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Desactiva]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Desactiva les alertes]]></string>
     <string name="notification_control_channel_name">Shevery Control</string>
     <string name="notification_startup_channel_name">Shevery startup</string>
     <string name="notification_startup_title"><![CDATA[Començant Shevery]]></string>
@@ -501,7 +503,7 @@ S\'està executant...]]></string>
     <string name="diagnostics_limited"><![CDATA[limitat]]></string>
     <string name="diagnostics_unknown"><![CDATA[desconegut]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Comprova l\'estat del procés i els errors transaccionals cada 10 segons. Atura i reinicia automàticament Shevery si es detecten problemes.]]></string>
+    <string name="error_protect_summary"><![CDATA[Supervisa l\'estat del servei de forma reactiva. Reinicia automàticament Shevery si es detecten problemes o fallades.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Port TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Enllaça el servidor ADB local al port 5555 per mantenir-lo en funcionament sense actualitzacions del port de depuració sense fil.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Enllaça a 5555]]></string>

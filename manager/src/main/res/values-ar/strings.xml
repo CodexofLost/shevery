@@ -253,6 +253,8 @@
     <string name="notification_watchdog_text"><![CDATA[توقفت خدمة Shevery بشكل غير متوقع.]]></string>
     <string name="watchdog_service_title"><![CDATA[مراقب Shevery نشط]]></string>
     <string name="watchdog_service_text"><![CDATA[جاري مراقبة خدمة Shevery للتعافي]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[إيقاف التشغيل]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[إيقاف التنبيهات]]></string>
     <string name="notification_control_channel_name"><![CDATA[التحكم في Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery قيد التشغيل]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery متوقف]]></string>
@@ -416,7 +418,7 @@
     <string name="diagnostics_limited"><![CDATA[محدود]]></string>
     <string name="diagnostics_unknown"><![CDATA[غير معروف]]></string>
     <string name="error_protect_title"><![CDATA[خطأ حماية]]></string>
-    <string name="error_protect_summary"><![CDATA[فحص صحة العملية والأخطاء كل 10 ثوانٍ. إيقاف Shevery وإعادة تشغيله تلقائيًا إذا وُجدت مشكلات.]]></string>
+    <string name="error_protect_summary"><![CDATA[مراقبة تفاعلية لصحة الخدمة. إعادة تشغيل Shevery تلقائيًا في حال اكتشاف مشكلات أو انهيار.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[ربط TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ربط خادم ADB المحلي بالمنفذ 5555 للحفاظ على تشغيله بدون تحديثات منفذ التصحيح اللاسلكي.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[الربط بـ 5555]]></string>

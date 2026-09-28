@@ -266,6 +266,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[שירות Shevery נעצר באופן בלתי צפוי.]]></string>
     <string name="watchdog_service_title"><![CDATA[שומר Shevery פעיל]]></string>
     <string name="watchdog_service_text"><![CDATA[מנטר את שירות Shevery לשחזור]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[כיבוי]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[כיבוי התראות]]></string>
     <string name="notification_control_channel_name"><![CDATA[שליטת Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery פועל]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery נעצר]]></string>
@@ -429,7 +431,7 @@ has been copied to clipboard.]]></string>
     <string name="diagnostics_limited"><![CDATA[מוגבל]]></string>
     <string name="diagnostics_unknown"><![CDATA[לא ידוע]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[בודק תקינות תהליך ושגיאות עסקאות כל 10 שניות. עוצר ומפעיל מחדש את Shevery אוטומטית אם מתגלות בעיות.]]></string>
+    <string name="error_protect_summary"><![CDATA[מנטר באופן תגובתי את תקינות השירות. מפעيل מחדש את Shevery באופן אוטומטי אם מזוהות תקלות או קריסות.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[כריכת TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[כרוך את שרת ADB המקומי ליציאה 5555 כדי להמשיך לפעול ללא עדכוני יציאת ניפוי בבאגים אלחוטי.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[כרוך ל-5555]]></string>

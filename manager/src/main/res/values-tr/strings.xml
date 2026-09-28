@@ -254,6 +254,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery hizmeti beklenmedik şekilde durdu.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery izleyici etkin]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery hizmeti izleniyor]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Devre Dışı Bırak]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Uyarıları Kapat]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery Kontrolü]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery çalışıyor]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery durdu]]></string>
@@ -417,7 +419,7 @@
     <string name="diagnostics_limited"><![CDATA[kısıtlı]]></string>
     <string name="diagnostics_unknown"><![CDATA[bilinmiyor]]></string>
     <string name="error_protect_title"><![CDATA[Hata Koruması]]></string>
-    <string name="error_protect_summary"><![CDATA[Her 10 saniyede bir işlem sağlığını ve işlem hatalarını kontrol et. Sorun bulunursa Shevery\'yi otomatik olarak durdur ve yeniden başlat.]]></string>
+    <string name="error_protect_summary"><![CDATA[Hizmet sağlığını reaktif olarak izler. Sorun veya çökme algılanırsa Shevery\'yi otomatik olarak yeniden başlatır.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP Bağlantısı 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Kablosuz Hata Ayıklama bağlantı noktası güncellemeleri olmadan çalışmaya devam etmesi için yerel ADB sunucusunu 5555 bağlantı noktasına bağla.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555\'e Bağla]]></string>

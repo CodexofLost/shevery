@@ -294,6 +294,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery सेवा अप्रत्याशित रूप से बंद हो गई है।]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery वॉचडॉग सक्रिय है]]></string>
     <string name="watchdog_service_text"><![CDATA[कीप-अलिव रिकवरी के लिए शेवरी सेवा की निगरानी]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[बंद करें]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[अलर्ट बंद करें]]></string>
     <string name="notification_control_channel_name"><![CDATA[शेवरी कंट्रोल]]></string>
     <string name="notification_startup_channel_name"><![CDATA[हर स्टार्टअप]]></string>
     <string name="notification_startup_title"><![CDATA[शुरुआती शेवरी]]></string>
@@ -511,7 +513,7 @@
     <string name="diagnostics_limited"><![CDATA[सीमित]]></string>
     <string name="diagnostics_unknown"><![CDATA[अज्ञात]]></string>
     <string name="error_protect_title"><![CDATA[त्रुटि-संरक्षण]]></string>
-    <string name="error_protect_summary"><![CDATA[प्रत्येक 10 सेकंड में प्रक्रिया की स्वास्थ्य स्थिति और लेनदेन संबंधी त्रुटियों की जाँच करें। यदि कोई समस्या पाई जाती है तो स्वचालित रूप से Shevery को रोकें और पुनः आरंभ करें।]]></string>
+    <string name="error_protect_summary"><![CDATA[सेवा की स्थिति की प्रतिक्रियाशील निगरानी करता है। समस्याएं या क्रैश मिलने पर Shevery को स्वचालित रूप से पुनरारंभ करता है।]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[टीसीपी पोर्ट 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[वायरलेस डिबगिंग पोर्ट अपडेट्स के बिना स्थानीय ADB सर्वर को पोर्ट 5555 से बाँधें ताकि यह काम करता रहे।]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555 से बाँधें]]></string>

@@ -275,6 +275,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery 服務意外停止。]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery 看門狗已啟用]]></string>
     <string name="watchdog_service_text"><![CDATA[正在監視 Shevery 服務以實現保活恢復]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[關閉]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[關閉警報]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery 控制]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery 正在執行]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery 已停止]]></string>
@@ -443,7 +445,7 @@
     <string name="diagnostics_limited"><![CDATA[受限]]></string>
     <string name="diagnostics_unknown"><![CDATA[未知]]></string>
     <string name="error_protect_title"><![CDATA[錯誤保護]]></string>
-    <string name="error_protect_summary"><![CDATA[每 10 秒檢查處理程序健康狀態與事務錯誤。若發現異常自動停止並重啟 Shevery。]]></string>
+    <string name="error_protect_summary"><![CDATA[響應式監測服務健康狀態。若發現異常或崩潰自動重啟 Shevery。]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[繫結 TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[將本地 ADB 服務繫結至 5555 連接埠，無需無線偵錯連接埠變動即可保持連接。]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[繫結至 5555]]></string>

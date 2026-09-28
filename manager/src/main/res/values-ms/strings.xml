@@ -288,6 +288,8 @@ Selepas proses penjodohan bermula, anda akan dapat memasukkan kod penjodohan.]]>
     <string name="notification_watchdog_text"><![CDATA[Perkhidmatan Shevery telah terhenti secara tiba-tiba.]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery pengawas aktif]]></string>
     <string name="watchdog_service_text"><![CDATA[Memantau perkhidmatan Shevery untuk pemulihan keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Matikan]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Matikan Makluman]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery Kawalan]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Shevery permulaan]]></string>
     <string name="notification_startup_title"><![CDATA[Memulakan Shevery]]></string>
@@ -505,7 +507,7 @@ Dalam pelaksanaan...]]></string>
     <string name="diagnostics_limited"><![CDATA[terhad]]></string>
     <string name="diagnostics_unknown"><![CDATA[tidak diketahui]]></string>
     <string name="error_protect_title"><![CDATA[Pelindung Ralat]]></string>
-    <string name="error_protect_summary"><![CDATA[Semak kesihatan proses dan ralat transaksi setiap 10 saat. Secara automatik menghentikan dan memulakan semula Shevery jika terdapat masalah.]]></string>
+    <string name="error_protect_summary"><![CDATA[Memantau kesihatan perkhidmatan secara reaktif. Memulakan semula Shevery secara automatik jika masalah atau kerosakan dikesan.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Ports TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Ikatan pelayan ADB tempatan ke port 5555 untuk memastikan ia terus berfungsi tanpa kemas kini port Penyahpepijat Tanpa Wayar.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Ikatan ke 5555]]></string>

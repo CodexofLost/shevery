@@ -288,6 +288,8 @@
     <string name="notification_watchdog_text"><![CDATA[Shevery-ს სერვისი მოულოდნელად შეწყდა.]]></string>
     <string name="watchdog_service_title"><![CDATA[შევერის მეთვალყურე ძაღლი აქტიურია]]></string>
     <string name="watchdog_service_text"><![CDATA[Shevery სერვისის მონიტორინგი keep-alive აღდგენისთვის]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[გამორთვა]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[გაფრთხილებების გამორთვა]]></string>
     <string name="notification_control_channel_name"><![CDATA[შევერი კონტროლი]]></string>
     <string name="notification_startup_channel_name"><![CDATA[შევერი სტარტაპი]]></string>
     <string name="notification_startup_title"><![CDATA[დაწყებული შევერი]]></string>
@@ -505,7 +507,7 @@
     <string name="diagnostics_limited"><![CDATA[შეზღუდული]]></string>
     <string name="diagnostics_unknown"><![CDATA[უცნობი]]></string>
     <string name="error_protect_title"><![CDATA[შეცდომისგან დაცვა]]></string>
-    <string name="error_protect_summary"><![CDATA[ყოველ 10 წამში შეამოწმეთ პროცესის მდგომარეობა და ტრანზაქციული შეცდომები. პრობლემების აღმოჩენის შემთხვევაში ავტომატურად აჩერებს და ხელახლა აშვებს Shevery-ს.]]></string>
+    <string name="error_protect_summary"><![CDATA[რეაქტიულად აკონტროლებს სერვისის მდგომარეობას. პრობლემების ან შეფერხებების აღმოჩენისას ავტომატურად გადატვირთავს Shevery-ს.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP პორტი 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[დააკავშირეთ ლოკალური ADB სერვერი პორტ 5555-თან, რათა ის მუშაობდეს უსადენო გამართვის პორტის განახლებების გარეშე.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[დაუკავშირდეს 5555-ს]]></string>

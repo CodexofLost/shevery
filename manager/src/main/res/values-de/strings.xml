@@ -280,6 +280,8 @@
     <string name="notification_watchdog_text"><![CDATA[Der Shevery-Dienst wurde unerwartet beendet.]]></string>
     <string name="watchdog_service_title"><![CDATA[Die Shevery-Überwachungsfunktion ist aktiv]]></string>
     <string name="watchdog_service_text"><![CDATA[Überwachung des Shevery-Dienstes zur Wiederherstellung der Keep-Alive-Verbindung]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Ausschalten]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Benachrichtigungen deaktivieren]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery-Steuerung]]></string>
     <string name="notification_startup_channel_name"><![CDATA[Das Start-up „Shevery“]]></string>
     <string name="notification_startup_title"><![CDATA[Shevery starten]]></string>
@@ -498,7 +500,7 @@ Bereit für Befehle.]]></string>
     <string name="diagnostics_limited"><![CDATA[begrenzt]]></string>
     <string name="diagnostics_unknown"><![CDATA[unbekannt]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Überprüft alle 10 Sekunden den Betriebszustand des Prozesses und transaktionsbezogene Fehler. Stoppt und startet Shevery automatisch neu, wenn Probleme festgestellt werden.]]></string>
+    <string name="error_protect_summary"><![CDATA[Überwacht den Dienststatus reaktiv. Startet Shevery bei Problemen oder Abstürzen automatisch neu.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP-Port 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Binde den lokalen ADB-Server an Port 5555, damit er auch ohne Aktualisierungen des Wireless-Debugging-Ports weiterhin funktioniert.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[An 5555 binden]]></string>

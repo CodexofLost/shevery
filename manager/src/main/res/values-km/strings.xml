@@ -262,6 +262,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[សេវាកម្ម Shevery បានបញ្ឈប់ដោយមិនរំពឹងទុក។]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery watchdog សកម្ម]]></string>
     <string name="watchdog_service_text"><![CDATA[ការត្រួតពិនិត្យសេវាកម្ម Shevery សម្រាប់ការស្ដារឡើងវិញដែលរស់រានមានជីវិត]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[បិទ]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[បិទការជូនដំណឹង]]></string>
     <string name="notification_control_channel_name"><![CDATA[ការគ្រប់គ្រង Shevery]]></string>
     <string name="notification_startup_channel_name"><![CDATA[ស្តាតអាប់ Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[ចាប់ផ្តើម Shevery]]></string>
@@ -480,7 +482,7 @@ Ready for commands.]]></string>
     <string name="diagnostics_limited"><![CDATA[មានកំណត់]]></string>
     <string name="diagnostics_unknown"><![CDATA[មិនស្គាល់]]></string>
     <string name="error_protect_title"><![CDATA[ការពារកំហុស]]></string>
-    <string name="error_protect_summary"><![CDATA[ពិនិត្យសុខភាពដំណើរការ និងកំហុសប្រតិបត្តិការរៀងរាល់ ១០ វិនាទី។បញ្ឈប់ និងចាប់ផ្តើមឡើងវិញដោយស្វ័យប្រវត្តិ Shevery ប្រសិនបើមានបញ្ហា។]]></string>
+    <string name="error_protect_summary"><![CDATA[តាមដានស្ថានភាពសេវាកម្មដោយឆ្លើយតប។ ចាប់ផ្ដើម Shevery ឡើងវិញដោយស្វ័យប្រវត្តិ ប្រសិនបើរករឃើញបញ្ហា ឬការគាំង។]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[ការចង TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ភ្ជាប់ម៉ាស៊ីនបម្រើ ADB ក្នុងតំបន់ទៅច្រក 5555 ដើម្បីរក្សាឲ្យវាដំណើរការដោយមិនចាំបាច់ធ្វើបច្ចុប្បន្នភាពច្រក Wireless Debuging។]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[ភ្ជាប់ទៅ 5555]]></string>

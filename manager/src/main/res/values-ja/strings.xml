@@ -270,6 +270,8 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="notification_watchdog_text"><![CDATA[Sheveryサービスが予期せず停止しました。]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery監視機能がアクティブです]]></string>
     <string name="watchdog_service_text"><![CDATA[常時有効化のためSheveryサービスを監視中]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[無効にする]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[アラートをオフにする]]></string>
     <string name="notification_control_channel_name"><![CDATA[Shevery コントロール]]></string>
     <string name="notification_control_title_running"><![CDATA[Sheveryは実行中です]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Sheveryは停止しています]]></string>
@@ -424,7 +426,7 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="diagnostics_limited"><![CDATA[制限付き]]></string>
     <string name="diagnostics_unknown"><![CDATA[不明]]></string>
     <string name="error_protect_title"><![CDATA[エラープロテクト]]></string>
-    <string name="error_protect_summary"><![CDATA[プロセスの健全性とエラーを10秒ごとに監視。問題を検知するとSheveryを自動再起動します。]]></string>
+    <string name="error_protect_summary"><![CDATA[サービスの健全性をリアクティブに監視します。問題やクラッシュが検出された場合、Shevery を自動的に再起動します。]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[TCP 5555 バインド]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ローカルADBサーバーをポート5555にバインドし、ワイヤレスデバッグのポート変動なしで接続維持。]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[5555にバインド]]></string>

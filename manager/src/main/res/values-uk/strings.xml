@@ -270,6 +270,8 @@
     <string name="notification_watchdog_text"><![CDATA[Служба Shevery раптово зупинилася.]]></string>
     <string name="watchdog_service_title"><![CDATA[Моніторинг Shevery активний]]></string>
     <string name="watchdog_service_text"><![CDATA[Відстеження служби Shevery для фонового відновлення]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Вимкнути]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Вимкнути сповіщення]]></string>
     <string name="notification_control_channel_name"><![CDATA[Управління Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery працює]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery зупинено]]></string>
@@ -424,7 +426,7 @@
     <string name="diagnostics_limited"><![CDATA[обмежений]]></string>
     <string name="diagnostics_unknown"><![CDATA[невідомо]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Перевіряє стан процесів та транзакцій кожні 10 секунд. Автоматично перезапускає Shevery у разі збоїв.]]></string>
+    <string name="error_protect_summary"><![CDATA[Реактивно відстежує стан служби. Автоматично перезапускає Shevery у разі виявлення проблем або збоїв.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Прив’язка TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Прив’язати локальний ADB сервер до порту 5555 для роботи без постійних оновлень порту бездротового налагодження.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Прив’язати до 5555]]></string>

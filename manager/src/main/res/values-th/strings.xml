@@ -300,6 +300,8 @@
     <string name="notification_watchdog_text"><![CDATA[บริการ Shevery ได้หยุดทำงานอย่างกะทันหัน]]></string>
     <string name="watchdog_service_title"><![CDATA[Shevery watchdog กำลังทำงานอยู่]]></string>
     <string name="watchdog_service_text"><![CDATA[การติดตามบริการ Shevery เพื่อการกู้คืนระบบ keep-alive]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[ปิด]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[ปิดการแจ้งเตือน]]></string>
     <string name="notification_control_channel_name"><![CDATA[ระบบควบคุม Shevery]]></string>
     <string name="notification_startup_channel_name"><![CDATA[การเริ่มต้น Shevery]]></string>
     <string name="notification_startup_title"><![CDATA[เริ่มต้น Shevery]]></string>
@@ -518,7 +520,7 @@
     <string name="diagnostics_limited"><![CDATA[จำกัด]]></string>
     <string name="diagnostics_unknown"><![CDATA[ไม่ทราบ]]></string>
     <string name="error_protect_title"><![CDATA[ข้อผิดพลาดป้องกัน]]></string>
-    <string name="error_protect_summary"><![CDATA[ตรวจสอบสภาพการทำงานของระบบและข้อผิดพลาดในการทำธุรกรรมทุก 10 วินาที หากพบปัญหา ระบบจะหยุดและเริ่มต้น Shevery ใหม่โดยอัตโนมัติ]]></string>
+    <string name="error_protect_summary"><![CDATA[ตรวจสอบสถานะการทำงานของบริการแบบตอบสนอง หากพบปัญหาหรือข้อขัดข้อง ระบบจะเริ่มต้น Shevery ใหม่อัตโนมัติ]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[พอร์ต TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ผูกเซิร์ฟเวอร์ ADB ท้องถิ่นกับพอร์ต 5555 เพื่อให้มันทำงานได้ต่อไปโดยไม่ต้องอัปเดตพอร์ต Wireless Debugging]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[ตั้งค่าให้เชื่อมต่อกับ 5555]]></string>

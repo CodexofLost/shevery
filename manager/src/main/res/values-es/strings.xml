@@ -270,6 +270,8 @@ se ha copiado al portapapeles.]]></string>
     <string name="notification_watchdog_text"><![CDATA[El servicio de Shevery se ha detenido inesperadamente.]]></string>
     <string name="watchdog_service_title"><![CDATA[Monitor Shevery activo]]></string>
     <string name="watchdog_service_text"><![CDATA[Monitoreando el servicio Shevery para recuperación activa]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[Apagar]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[Desactivar alertas]]></string>
     <string name="notification_control_channel_name"><![CDATA[Control de Shevery]]></string>
     <string name="notification_control_title_running"><![CDATA[Shevery está en ejecución]]></string>
     <string name="notification_control_title_stopped"><![CDATA[Shevery está detenido]]></string>
@@ -424,7 +426,7 @@ Listo para comandos.]]></string>
     <string name="diagnostics_limited"><![CDATA[limitado]]></string>
     <string name="diagnostics_unknown"><![CDATA[desconocido]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[Supervisa la salud del proceso y errores cada 10 segundos. Detiene y reinicia Shevery si detecta problemas.]]></string>
+    <string name="error_protect_summary"><![CDATA[Supervisa el estado del servicio de forma reactiva. Reinicia automáticamente Shevery si se detectan problemas o fallos.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[Vincular TCP 5555]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[Vincular el servidor ADB local al puerto 5555 para mantener la conexión sin depender de cambios de puerto.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[Vincular a 5555]]></string>

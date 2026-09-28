@@ -262,6 +262,8 @@ has been copied to clipboard.]]></string>
     <string name="notification_watchdog_text"><![CDATA[خزمەتگوزاری شیڤێری بەشێوەیەکی چاوەڕوان نەکراو وەستاوە.]]></string>
     <string name="watchdog_service_title"><![CDATA[شێڤێری پاسەوانی چالاکە]]></string>
     <string name="watchdog_service_text"><![CDATA[چاودێریکردنی خزمەتگوزاری شیڤێری بۆ زیندوو ڕاگرتنی]]></string>
+    <string name="watchdog_action_turn_off"><![CDATA[کوژاندنەوە]]></string>
+    <string name="watchdog_action_channel_settings"><![CDATA[ناچالاککردنی ئاگادارکردنەوەکان]]></string>
     <string name="notification_control_channel_name"><![CDATA[کۆنتڕۆڵی شێڤێری]]></string>
     <string name="notification_startup_channel_name"><![CDATA[دەستپێکی شێڤێری]]></string>
     <string name="notification_startup_title"><![CDATA[دەستپێکردنی شێڤێری]]></string>
@@ -480,7 +482,7 @@ Ready for commands.]]></string>
     <string name="diagnostics_limited"><![CDATA[سنووردار]]></string>
     <string name="diagnostics_unknown"><![CDATA[نەناسراو]]></string>
     <string name="error_protect_title"><![CDATA[ErrorProtect]]></string>
-    <string name="error_protect_summary"><![CDATA[هەموو 10 چرکە جارێک تەندروستی پرۆسەکە و هەڵەکانی مامەڵە بپشکنە. ئەگەر کێشە دۆزرایەوە بە شێوەیەکی ئۆتۆماتیکی Shevery دەوەستێنێت و دەستپێدەکاتەوە.]]></string>
+    <string name="error_protect_summary"><![CDATA[بە شێوەیەکی کاردانەوەیی چاودێری تەندروستی خزمەتگوزاری دەکات. ئەگەر کێشە یان تێکچوون بدۆزرێتەوە، خۆکارانە Shevery دەستپێدەکاتەوە.]]></string>
     <string name="settings_tcp_5555_title"><![CDATA[بەستنەوەی تی سی پی ٥٥٥٥]]></string>
     <string name="settings_tcp_5555_summary"><![CDATA[ڕاژەکاری ناوخۆیی ADB ببەستەوە بە دەرگای 5555 بۆ ئەوەی بەردەوام بێت لە کارکردن بەبێ نوێکردنەوەی دەروازەی ڕاستکردنەوەی بێتەل.]]></string>
     <string name="settings_tcp_5555_button"><![CDATA[بەستنەوە بە 5555]]></string>

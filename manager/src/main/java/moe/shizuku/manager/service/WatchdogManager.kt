@@ -23,6 +23,8 @@ import moe.shizuku.manager.ktx.logd
 import moe.shizuku.manager.ktx.logi
 import moe.shizuku.manager.ktx.logw
 import moe.shizuku.manager.module.ModuleSettings
+import moe.shizuku.manager.receiver.SheveryControlReceiver
+import android.provider.Settings
 import moe.shizuku.server.IShizukuService
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.ShizukuStateMachine
@@ -183,22 +185,50 @@ object WatchdogManager {
             notificationManager.createNotificationChannel(channel)
         }
 
-        val intent = Intent(context, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(
-            context, 0x7F050001, intent,
+        val launchIntent = Intent(context, MainActivity::class.java)
+        val launchPendingIntent = PendingIntent.getActivity(
+            context, 0x7F050001, launchIntent,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
 
-        val notification = NotificationCompat.Builder(context, DEATH_CHANNEL_ID)
+        val restartIntent = Intent(context, SheveryControlReceiver::class.java).apply {
+            action = SheveryControlReceiver.ACTION_START_SERVER
+        }
+        val restartPendingIntent = PendingIntent.getBroadcast(
+            context, 0x7F050003, restartIntent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val nb = NotificationCompat.Builder(context, DEATH_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_server_error_24dp)
             .setContentTitle(context.getString(R.string.notification_watchdog_title))
             .setContentText(context.getString(R.string.notification_watchdog_text))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent)
+            .setContentIntent(launchPendingIntent)
             .setAutoCancel(true)
-            .build()
+            .addAction(
+                R.drawable.ic_server_ok_24dp,
+                context.getString(R.string.home_root_button_restart),
+                restartPendingIntent
+            )
 
-        notificationManager.notify(NOTIFICATION_ID, notification)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channelSettingsIntent = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS).apply {
+                putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+                putExtra(Settings.EXTRA_CHANNEL_ID, DEATH_CHANNEL_ID)
+            }
+            val channelSettingsPendingIntent = PendingIntent.getActivity(
+                context, 0x7F050004, channelSettingsIntent,
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            )
+            nb.addAction(
+                0,
+                context.getString(R.string.watchdog_action_channel_settings),
+                channelSettingsPendingIntent
+            )
+        }
+
+        notificationManager.notify(NOTIFICATION_ID, nb.build())
     }
 
     fun clearUserStopRequest(context: Context? = null) {
@@ -301,6 +331,17 @@ object WatchdogManager {
                     LaunchMethod.DHIZUKU -> restartDhizuku(appContext)
                     else -> logd("Skipping watchdog restart: unknown last mode $lastMode")
                 }
+
+                val recovered = waitForShizukuBinder(15_000L)
+                if (recovered) {
+                    logi("WatchdogManager: Shevery service recovered after restart")
+                    showRecoveryNotificationIfEnabled(appContext)
+                } else {
+                    logw("WatchdogManager: restart attempted but binder is still dead")
+                    if (ModuleSettings.isNotifyOnServiceDeath()) {
+                        showDeathNotification(appContext)
+                    }
+                }
             } finally {
                 restartInProgress.set(false)
             }
@@ -391,6 +432,7 @@ object WatchdogManager {
                 Shell.getCachedShell()?.close()
             }
             if (Shell.getShell().isRoot) {
+                ShizukuStateMachine.set(ShizukuStateMachine.State.STARTING)
                 Shell.cmd(Starter.internalCommand).exec()
             }
         } catch (e: Exception) {
@@ -406,7 +448,7 @@ object WatchdogManager {
         AdbStartWorker.enqueueIfIdle(context.applicationContext)
     }
 
-    private suspend fun waitForShizukuBinder(timeoutMs: Long = 10_000L): Boolean {
+    private suspend fun waitForShizukuBinder(timeoutMs: Long = 15_000L): Boolean {
         return ShizukuStateMachine.awaitRunning(timeoutMs)
     }
 
@@ -448,15 +490,8 @@ object WatchdogManager {
                 }
                 val dhizukuService = moe.shizuku.manager.dhizuku.IDhizukuService.Stub.asInterface(serviceResult)
                 logi("Watchdog executing Shevery starter directly via Dhizuku Device Owner...")
+                ShizukuStateMachine.set(ShizukuStateMachine.State.STARTING)
                 dhizukuService.runCommand(Starter.internalCommand)
-                if (waitForShizukuBinder()) {
-                    logi("Watchdog verified Shevery binder after Dhizuku restart")
-                } else {
-                    logd("Watchdog Dhizuku starter command completed, but binder did not become available")
-                    if (ModuleSettings.isNotifyOnServiceDeath() || isEnabled()) {
-                        showDeathNotification(context)
-                    }
-                }
             } finally {
                 connection?.let { conn ->
                     try {
