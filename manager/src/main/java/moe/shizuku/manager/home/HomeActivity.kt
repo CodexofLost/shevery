@@ -15,6 +15,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.DrawableRes
@@ -276,7 +277,7 @@ abstract class HomeActivity : AppActivity() {
                 }
             }
 
-            var selectedTab by remember { mutableIntStateOf(0) }
+            var selectedTab by rememberSaveable { mutableIntStateOf(0) }
             var settingsTargetSection by remember { mutableStateOf<SettingsSection?>(null) }
 
             // Hoisted above the AnimatedContent tab switch: tab screens leave
@@ -358,6 +359,9 @@ abstract class HomeActivity : AppActivity() {
                             }
                         )
                     } else {
+                        BackHandler(enabled = selectedTab != 0) {
+                            selectedTab = 0
+                        }
                         Box(Modifier.fillMaxSize()) {
                         Scaffold(
                         contentWindowInsets = WindowInsets(0.dp)
