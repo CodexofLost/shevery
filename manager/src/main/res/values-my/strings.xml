@@ -606,7 +606,7 @@ Ready for commands.]]></string>
     <!-- Automation Alert Notifications -->
     <string name="notification_channel_automation_alerts">Automation Alerts</string>
     <string name="notification_auth_missing_title">Auth token required</string>
-    <string name="notification_auth_missing_message">Add the 'auth' extra to your intent. You can find your token under ဆက်တင်များ → Automation.</string>
+    <string name="notification_auth_missing_message">Add the “auth” extra to your intent. You can find your token under ဆက်တင်များ → Automation.</string>
     <string name="notification_auth_invalid_title">Invalid auth token</string>
     <string name="notification_auth_invalid_message">Make sure the token in your intent matches the one in Shevery ဆက်တင်များ.</string>
     <string name="notification_connectors_disabled_title">Automation connectors disabled</string>

@@ -610,7 +610,7 @@ Gata să primească comenzi.]]></string>
     <!-- Automation Alert Notifications -->
     <string name="notification_channel_automation_alerts">Alerte de automatizare</string>
     <string name="notification_auth_missing_title">Token de autentificare necesar</string>
-    <string name="notification_auth_missing_message">Adăugați extra 'auth' la intent. Puteți găsi tokenul în Setări → Automatizare.</string>
+    <string name="notification_auth_missing_message">Adăugați extra “auth” la intent. Puteți găsi tokenul în Setări → Automatizare.</string>
     <string name="notification_auth_invalid_title">Token de autentificare nevalid</string>
     <string name="notification_auth_invalid_message">Asigurați-vă că tokenul din intent coincide cu cel din Setările Shevery.</string>
     <string name="notification_connectors_disabled_title">Conectori de automatizare dezactivați</string>

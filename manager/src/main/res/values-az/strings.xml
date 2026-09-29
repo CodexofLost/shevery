@@ -597,7 +597,7 @@ kopyalanıb kəsim lövhəsinə.]]></string>
     <!-- Automation Alert Notifications -->
     <string name="notification_channel_automation_alerts">Avtomatlaşdırma Alerts</string>
     <string name="notification_auth_missing_title">Auth token required</string>
-    <string name="notification_auth_missing_message">Add the 'auth' extra to your intent. You can find your token under Parametrlər → Avtomatlaşdırma.</string>
+    <string name="notification_auth_missing_message">Add the “auth” extra to your intent. You can find your token under Parametrlər → Avtomatlaşdırma.</string>
     <string name="notification_auth_invalid_title">Invalid auth token</string>
     <string name="notification_auth_invalid_message">Make sure the token in your intent matches the one in Shevery Parametrlər.</string>
     <string name="notification_connectors_disabled_title">Avtomatlaşdırma connectors disabled</string>

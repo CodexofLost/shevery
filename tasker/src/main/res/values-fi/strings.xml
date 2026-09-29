@@ -17,7 +17,7 @@
     <!-- Automation Alert Notifications -->
     <string name="notification_channel_automation_alerts">Automaatiohälytykset</string>
     <string name="notification_auth_missing_title">Todennustunnus vaaditaan</string>
-    <string name="notification_auth_missing_message">Lisää 'auth'-extra intentiisi. Löydät tunnuksesi kohdasta Asetukset → Automaatio.</string>
+    <string name="notification_auth_missing_message">Lisää “auth”-extra intentiisi. Löydät tunnuksesi kohdasta Asetukset → Automaatio.</string>
     <string name="notification_auth_invalid_title">Virheellinen toennustunnus</string>
     <string name="notification_auth_invalid_message">Varmista, että intentissä oleva tunnus vastaa Shevery-asetuksissa olevaa.</string>
     <string name="notification_connectors_disabled_title">Automaatioliittimet poistettu käytöstä</string>

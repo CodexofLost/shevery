@@ -610,7 +610,7 @@ Gotowość do przyjmowania poleceń.]]></string>
     <!-- Automation Alert Notifications -->
     <string name="notification_channel_automation_alerts">Alerty automatyzacji</string>
     <string name="notification_auth_missing_title">Wymagany token uwierzytelniania</string>
-    <string name="notification_auth_missing_message">Dodaj parametr 'auth' do intencji. Swój token znajdziesz w Ustawienia → Automatyzacja.</string>
+    <string name="notification_auth_missing_message">Dodaj parametr “auth” do intencji. Swój token znajdziesz w Ustawienia → Automatyzacja.</string>
     <string name="notification_auth_invalid_title">Nieprawidłowy token uwierzytelniania</string>
     <string name="notification_auth_invalid_message">Upewnij się, że token w intencji zgadza się z tokenem w Ustawieniach Shevery.</string>
     <string name="notification_connectors_disabled_title">Konektory automatyzacji wyłączone</string>

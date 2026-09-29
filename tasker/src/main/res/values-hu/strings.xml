@@ -17,7 +17,7 @@
     <!-- Automation Alert Notifications -->
     <string name="notification_channel_automation_alerts">Automatizálási figyelmeztetések</string>
     <string name="notification_auth_missing_title">Hitelesítési token szükséges</string>
-    <string name="notification_auth_missing_message">Adja hozzá az 'auth' extrát az intenthez. A tokent a Beállítások → Automatizálás menüpontban találja.</string>
+    <string name="notification_auth_missing_message">Adja hozzá az “auth” extrát az intenthez. A tokent a Beállítások → Automatizálás menüpontban találja.</string>
     <string name="notification_auth_invalid_title">Érvénytelen hitelesítési token</string>
     <string name="notification_auth_invalid_message">Győződjön meg arról, hogy az intentben lévő token megegyezik a Shevery beállításaiban szereplővel.</string>
     <string name="notification_connectors_disabled_title">Automatizálási összekötők letiltva</string>

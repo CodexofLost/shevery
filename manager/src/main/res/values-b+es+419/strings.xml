@@ -601,7 +601,7 @@ Listo.]]></string>
     <!-- Automation Alert Notifications -->
     <string name="notification_channel_automation_alerts">Alertas de automatización</string>
     <string name="notification_auth_missing_title">Token de autenticación requerido</string>
-    <string name="notification_auth_missing_message">Añade el extra 'auth' a tu intent. Puedes encontrar tu token en Ajustes → Automatización.</string>
+    <string name="notification_auth_missing_message">Añade el extra “auth” a tu intent. Puedes encontrar tu token en Ajustes → Automatización.</string>
     <string name="notification_auth_invalid_title">Token de autenticación no válido</string>
     <string name="notification_auth_invalid_message">Asegúrate de que el token de tu intent coincida con el de los Ajustes de Shevery.</string>
     <string name="notification_connectors_disabled_title">Conectores de automatización desactivados</string>

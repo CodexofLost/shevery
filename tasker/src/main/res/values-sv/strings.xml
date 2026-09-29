@@ -17,7 +17,7 @@
     <!-- Automation Alert Notifications -->
     <string name="notification_channel_automation_alerts">Automationsvarningar</string>
     <string name="notification_auth_missing_title">Autentiseringstoken krävs</string>
-    <string name="notification_auth_missing_message">Lägg till extra 'auth' till din intent. Du hittar din token under Inställningar → Automation.</string>
+    <string name="notification_auth_missing_message">Lägg till extra “auth” till din intent. Du hittar din token under Inställningar → Automation.</string>
     <string name="notification_auth_invalid_title">Ogiltig autentiseringstoken</string>
     <string name="notification_auth_invalid_message">Se till att token i din intent matchar den i Shevery-inställningarna.</string>
     <string name="notification_connectors_disabled_title">Automationsanslutningar inaktiverade</string>
