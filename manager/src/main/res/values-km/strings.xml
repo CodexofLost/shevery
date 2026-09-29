@@ -606,4 +606,13 @@ You may need to restart Shevery for the operation to take effect.]]></string>
     <string name="home_automation_connectors_active">Connectors Active</string>
     <string name="home_automation_connectors_active_desc">Incoming broadcast intents will be accepted.</string>
     <string name="home_automation_open_settings">Open Automation Settings</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">Automation Alerts</string>
+    <string name="notification_auth_missing_title">Auth token required</string>
+    <string name="notification_auth_missing_message">Add the 'auth' extra to your intent. You can find your token under ការកំណត់ → Automation.</string>
+    <string name="notification_auth_invalid_title">Invalid auth token</string>
+    <string name="notification_auth_invalid_message">Make sure the token in your intent matches the one in Shevery ការកំណត់.</string>
+    <string name="notification_connectors_disabled_title">Automation connectors disabled</string>
+    <string name="notification_connectors_disabled_message">An automation intent was blocked because Shevery connectors are disabled in ការកំណត់. Tap to enable.</string>
 </resources>

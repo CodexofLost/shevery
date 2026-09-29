@@ -606,4 +606,13 @@ Klaar voor opdrachten.]]></string>
     <string name="home_automation_connectors_active">Connectors actief</string>
     <string name="home_automation_connectors_active_desc">Inkomende broadcast-intents worden geaccepteerd.</string>
     <string name="home_automation_open_settings">Automatisatie-instellingen openen</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">Automatiseringswaarschuwingen</string>
+    <string name="notification_auth_missing_title">Authenticatietoken vereist</string>
+    <string name="notification_auth_missing_message">Voeg de 'auth' extra toe aan uw intent. U vindt uw token onder Instellingen → Automatisering.</string>
+    <string name="notification_auth_invalid_title">Ongeldige authenticatietoken</string>
+    <string name="notification_auth_invalid_message">Zorg ervoor dat het token in uw intent overeenkomt met dat in Shevery Instellingen.</string>
+    <string name="notification_connectors_disabled_title">Automatiseringsconnectors uitgeschakeld</string>
+    <string name="notification_connectors_disabled_message">Een automatiseringsintent is geblokkeerd omdat Shevery-connectors zijn uitgeschakeld in Instellingen. Tik om in te schakelen.</string>
 </resources>

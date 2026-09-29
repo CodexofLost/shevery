@@ -606,4 +606,13 @@ Prêt pour les commandes.]]></string>
     <string name="home_automation_connectors_active">Connecteurs actifs</string>
     <string name="home_automation_connectors_active_desc">Les intents de diffusion entrants seront acceptés.</string>
     <string name="home_automation_open_settings">Ouvrir les paramètres d\'automatisation</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">Alertes d\'automatisation</string>
+    <string name="notification_auth_missing_title">Jeton d\'authentification requis</string>
+    <string name="notification_auth_missing_message">Ajoutez l\'extra « auth » à votre intent. Vous trouverez votre jeton dans Paramètres → Automatisation.</string>
+    <string name="notification_auth_invalid_title">Jeton d\'authentification invalide</string>
+    <string name="notification_auth_invalid_message">Assurez-vous que le jeton de votre intent correspond à celui des paramètres Shevery.</string>
+    <string name="notification_connectors_disabled_title">Connecteurs d\'automatisation désactivés</string>
+    <string name="notification_connectors_disabled_message">Un intent d\'automatisation a été bloqué car les connecteurs Shevery sont désactivés dans les paramètres. Appuyez pour activer.</string>
 </resources>

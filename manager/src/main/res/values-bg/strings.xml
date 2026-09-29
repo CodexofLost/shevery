@@ -606,4 +606,13 @@
     <string name="home_automation_connectors_active">Connectors Active</string>
     <string name="home_automation_connectors_active_desc">Incoming broadcast intents will be accepted.</string>
     <string name="home_automation_open_settings">Open Automation Settings</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">Сигнали за автоматизация</string>
+    <string name="notification_auth_missing_title">Изисква се токен за удостоверяване</string>
+    <string name="notification_auth_missing_message">Добавете екстра 'auth' към вашия intent. Можете да намерите вашия токен в Настройки → Автоматизация.</string>
+    <string name="notification_auth_invalid_title">Невалиден токен за удостоверяване</string>
+    <string name="notification_auth_invalid_message">Уверете се, че токенът във вашия intent съвпада с този в Настройки на Shevery.</string>
+    <string name="notification_connectors_disabled_title">Конекторите за автоматизация са изключени</string>
+    <string name="notification_connectors_disabled_message">Интент за автоматизация беше блокиран, защото конекторите на Shevery са изключени в Настройки. Докоснете за активиране.</string>
 </resources>

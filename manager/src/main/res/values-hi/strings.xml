@@ -601,4 +601,13 @@
     <string name="home_automation_connectors_active">कनेक्टर्स सक्रिय हैं</string>
     <string name="home_automation_connectors_active_desc">आने वाले ब्रॉडकास्ट इंटेंट स्वीकार किए जाएंगे।</string>
     <string name="home_automation_open_settings">स्वचालन सेटिंग्स खोलें</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">स्वचालन अलर्ट</string>
+    <string name="notification_auth_missing_title">प्रमाणीकरण टोकन आवश्यक है</string>
+    <string name="notification_auth_missing_message">अपने इंटेंट में 'auth' अतिरिक्त जोड़ें। आप सेटिंग्स → स्वचालन के तहत अपना टोकन पा सकते हैं।</string>
+    <string name="notification_auth_invalid_title">अमान्य प्रमाणीकरण टोकन</string>
+    <string name="notification_auth_invalid_message">सुनिश्चित करें कि आपके इंटेंट का टोकन Shevery सेटिंग्स के टोकन से मेल खाता है।</string>
+    <string name="notification_connectors_disabled_title">स्वचालन कनेक्टर्स अक्षम हैं</string>
+    <string name="notification_connectors_disabled_message">एक स्वचालन इंटेंट को ब्लॉक कर दिया गया क्योंकि सेटिंग्स में Shevery कनेक्टर्स अक्षम हैं। सक्षम करने के लिए टैप करें।</string>
 </resources>
