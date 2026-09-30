@@ -12,7 +12,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Warning
 import androidx.fragment.app.FragmentActivity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import moe.shizuku.manager.R
 import moe.shizuku.manager.deviceowner.DeviceOwnerManager
 import moe.shizuku.manager.security.AuthManager
@@ -119,9 +122,9 @@ fun DeviceOwnerContent(
                         FilledTonalButton(
                             onClick = {
                                 isActivating = true
-                                scope.launch(kotlinx.coroutines.Dispatchers.IO) {
+                                scope.launch(Dispatchers.IO) {
                                     val (ok, msg) = DeviceOwnerManager.activateOwnerViaShizuku(context, asProfileOwner = (selectedTab == 1))
-                                    kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
+                                    withContext(Dispatchers.Main) {
                                         isActivating = false
                                         if (ok) {
                                             isOwner = DeviceOwnerManager.isOwner(context)
