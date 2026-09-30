@@ -13,4 +13,13 @@
     <string name="tasker_blurb_condition">Shevery: server is running</string>
     <string name="tasker_save">Save</string>
     <string name="tasker_cancel">Cancel</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">Сигнали за автоматизация</string>
+    <string name="notification_auth_missing_title">Изисква се токен за удостоверяване</string>
+    <string name="notification_auth_missing_message">Добавете екстра “auth” към вашия intent. Можете да намерите вашия токен в Настройки → Автоматизация.</string>
+    <string name="notification_auth_invalid_title">Невалиден токен за удостоверяване</string>
+    <string name="notification_auth_invalid_message">Уверете се, че токенът във вашия intent съвпада с този в Настройки на Shevery.</string>
+    <string name="notification_connectors_disabled_title">Конекторите за автоматизация са изключени</string>
+    <string name="notification_connectors_disabled_message">Интент за автоматизация беше блокиран, защото конекторите на Shevery са изключени в Настройки. Докоснете за активиране.</string>
 </resources>

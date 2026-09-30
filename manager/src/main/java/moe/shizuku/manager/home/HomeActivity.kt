@@ -201,6 +201,18 @@ abstract class HomeActivity : AppActivity() {
         appsModel.load(onlyCount = true)
     }
 
+    private var onNavigateAutomationSettings: (() -> Unit)? = null
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        if (intent.getStringExtra(PluginContract.EXTRA_TARGET_SECTION) ==
+            PluginContract.TARGET_SECTION_AUTOMATION
+        ) {
+            onNavigateAutomationSettings?.invoke()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -277,8 +289,24 @@ abstract class HomeActivity : AppActivity() {
                 }
             }
 
-            var selectedTab by rememberSaveable { mutableIntStateOf(0) }
-            var settingsTargetSection by remember { mutableStateOf<SettingsSection?>(null) }
+            val isTargetAutomation = remember(intent) {
+                intent?.getStringExtra(PluginContract.EXTRA_TARGET_SECTION) ==
+                    PluginContract.TARGET_SECTION_AUTOMATION
+            }
+            var selectedTab by rememberSaveable { mutableIntStateOf(if (isTargetAutomation) 3 else 0) }
+            var settingsTargetSection by remember {
+                mutableStateOf(if (isTargetAutomation) SettingsSection.AUTOMATION else null)
+            }
+
+            DisposableEffect(Unit) {
+                onNavigateAutomationSettings = {
+                    settingsTargetSection = SettingsSection.AUTOMATION
+                    selectedTab = 3
+                }
+                onDispose {
+                    onNavigateAutomationSettings = null
+                }
+            }
 
             // Hoisted above the AnimatedContent tab switch: tab screens leave
             // composition on change, so state kept here survives; saveable

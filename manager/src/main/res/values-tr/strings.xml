@@ -613,4 +613,13 @@ Komutlara hazır.]]></string>
     <string name="home_automation_connectors_active">Bağlayıcılar Etkin</string>
     <string name="home_automation_connectors_active_desc">Gelen yayın intent\'leri kabul edilecektir.</string>
     <string name="home_automation_open_settings">Otomasyon Ayarlarını Aç</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">Otomasyon Uyarıları</string>
+    <string name="notification_auth_missing_title">Kimlik doğrulama belirteci gerekli</string>
+    <string name="notification_auth_missing_message">Intent\'inize “auth” ekstrasını ekleyin. Belirtecinizi Ayarlar → Otomasyon altında bulabilirsiniz.</string>
+    <string name="notification_auth_invalid_title">Geçersiz kimlik doğrulama belirteci</string>
+    <string name="notification_auth_invalid_message">Intent\'inizdeki belirtecin Shevery Ayarları\'ndakiyle eşleştiğinden emin olun.</string>
+    <string name="notification_connectors_disabled_title">Otomasyon bağlayıcıları devre dışı</string>
+    <string name="notification_connectors_disabled_message">Shevery bağlayıcıları Ayarlar\'da devre dışı bırakıldığı için bir otomasyon intent\'i engellendi. Etkinleştirmek için dokunun.</string>
 </resources>

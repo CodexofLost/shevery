@@ -608,4 +608,13 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="home_automation_connectors_active">コネクタが有効です</string>
     <string name="home_automation_connectors_active_desc">受信ブロードキャスト インテントを受け入れます。</string>
     <string name="home_automation_open_settings">自動化設定を開く</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">自動化アラート</string>
+    <string name="notification_auth_missing_title">認証トークンが必要です</string>
+    <string name="notification_auth_missing_message">インテントに「auth」Extra を追加してください。トークンは「設定 → 自動化」で確認できます。</string>
+    <string name="notification_auth_invalid_title">無効な認証トークン</string>
+    <string name="notification_auth_invalid_message">インテント内のトークンが Shevery の設定と一致していることを確認してください。</string>
+    <string name="notification_connectors_disabled_title">自動化コネクタが無効です</string>
+    <string name="notification_connectors_disabled_message">Shevery の設定でコネクタが無効化されているため、自動化インテントがブロックされました。タップして有効化してください。</string>
 </resources>

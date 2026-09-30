@@ -608,4 +608,13 @@
     <string name="home_automation_connectors_active">ตัวเชื่อมต่อเปิดใช้งานอยู่</string>
     <string name="home_automation_connectors_active_desc">จะยอมรับ Intent การแพร่ภาพขาเข้า</string>
     <string name="home_automation_open_settings">เปิดการตั้งค่าระบบอัตโนมัติ</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">การแจ้งเตือนอัตโนมัติ</string>
+    <string name="notification_auth_missing_title">ต้องใช้โทเค็นการยืนยันตัวตน</string>
+    <string name="notification_auth_missing_message">เพิ่ม “auth” พิเศษใน Intent ของคุณ คุณสามารถค้นหาโทเค็นได้ที่ การตั้งค่า → อัตโนมัติ</string>
+    <string name="notification_auth_invalid_title">โทเค็นการยืนยันตัวตนไม่ถูกต้อง</string>
+    <string name="notification_auth_invalid_message">ตรวจสอบให้แน่ใจว่าโทเค็นใน Intent ของคุณตรงกับโทเค็นในการตั้งค่า Shevery</string>
+    <string name="notification_connectors_disabled_title">ตัวเชื่อมต่ออัตโนมัติถูกปิดใช้งาน</string>
+    <string name="notification_connectors_disabled_message">Intent อัตโนมัติถูกบล็อกเนื่องจากตัวเชื่อมต่อ Shevery ถูกปิดใช้งานในการตั้งค่า แตะเพื่อเปิดใช้งาน</string>
 </resources>

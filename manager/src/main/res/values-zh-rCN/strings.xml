@@ -717,4 +717,13 @@
     <string name="home_automation_connectors_active">连接器已激活</string>
     <string name="home_automation_connectors_active_desc">将正常接收传入的广播 Intent。</string>
     <string name="home_automation_open_settings">打开自动化设置</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">自动化提醒</string>
+    <string name="notification_auth_missing_title">需要身份验证令牌</string>
+    <string name="notification_auth_missing_message">请在 Intent 中添加“auth”额外数据。您可以在“设置 → 自动化”中找到您的令牌。</string>
+    <string name="notification_auth_invalid_title">身份验证令牌无效</string>
+    <string name="notification_auth_invalid_message">请确保 Intent 中的令牌与 Shevery 设置中的令牌一致。</string>
+    <string name="notification_connectors_disabled_title">自动化连接器已禁用</string>
+    <string name="notification_connectors_disabled_message">自动化 Intent 已被拦截，因为 Shevery 连接器在设置中已禁用。点击以启用。</string>
 </resources>

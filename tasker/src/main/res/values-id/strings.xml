@@ -13,4 +13,13 @@
     <string name="tasker_blurb_condition">Shevery: server sedang berjalan</string>
     <string name="tasker_save">Simpan</string>
     <string name="tasker_cancel">Batal</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">Peringatan Otomasi</string>
+    <string name="notification_auth_missing_title">Token autentikasi diperlukan</string>
+    <string name="notification_auth_missing_message">Tambahkan ekstra “auth” ke intent Anda. Anda dapat menemukan token di Pengaturan → Otomasi.</string>
+    <string name="notification_auth_invalid_title">Token autentikasi tidak valid</string>
+    <string name="notification_auth_invalid_message">Pastikan token di intent Anda cocok dengan yang ada di Pengaturan Shevery.</string>
+    <string name="notification_connectors_disabled_title">Konektor otomasi dinonaktifkan</string>
+    <string name="notification_connectors_disabled_message">Intent otomasi diblokir karena konektor Shevery dinonaktifkan di Pengaturan. Ketuk untuk mengaktifkan.</string>
 </resources>

@@ -608,4 +608,13 @@ has been copied to clipboard.]]></string>
     <string name="home_automation_connectors_active">מחברים פעילים</string>
     <string name="home_automation_connectors_active_desc">כוונות שידור נכנסות יתקבלו.</string>
     <string name="home_automation_open_settings">פתח הגדרות אוטומציה</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">התראות אוטומציה</string>
+    <string name="notification_auth_missing_title">נדרש אסימון אימות</string>
+    <string name="notification_auth_missing_message">הוסף את תוספת ה-“auth” ל-intent שלך. תוכל למצוא את האסימון בהגדרות ← אוטומציה.</string>
+    <string name="notification_auth_invalid_title">אסימון אימות לא תקין</string>
+    <string name="notification_auth_invalid_message">ודא שהאסימון ב-intent תואם לאסימון בהגדרות Shevery.</string>
+    <string name="notification_connectors_disabled_title">מחברי האוטומציה מושבתים</string>
+    <string name="notification_connectors_disabled_message">Intent של אוטומציה נחסם מכיוון שמחברי Shevery מושבתים בהגדרות. הקש להפעלה.</string>
 </resources>

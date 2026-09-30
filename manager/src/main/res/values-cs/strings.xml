@@ -609,4 +609,13 @@ bylo zkopírováno do schránky.]]></string>
     <string name="home_automation_connectors_active">Konektory aktivní</string>
     <string name="home_automation_connectors_active_desc">Příchozí vysílané intenty budou přijímány.</string>
     <string name="home_automation_open_settings">Otevřít nastavení automatizace</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">Upozornění automatizace</string>
+    <string name="notification_auth_missing_title">Vyžadován ověřovací token</string>
+    <string name="notification_auth_missing_message">Přidejte extra “auth” do svého záměru. Token naleznete v Nastavení → Automatizace.</string>
+    <string name="notification_auth_invalid_title">Neplatný ověřovací token</string>
+    <string name="notification_auth_invalid_message">Ujistěte se, že token ve vašem záměru odpovídá tokenu v Nastavení Shevery.</string>
+    <string name="notification_connectors_disabled_title">Konektory automatizace zakázány</string>
+    <string name="notification_connectors_disabled_message">Záměr automatizace byl zablokován, protože konektory Shevery jsou v Nastavení zakázány. Klepnutím povolte.</string>
 </resources>

@@ -613,4 +613,13 @@
     <string name="home_automation_connectors_active">連接器已啟用</string>
     <string name="home_automation_connectors_active_desc">將正常接收傳入的廣播 Intent。</string>
     <string name="home_automation_open_settings">開啟自動化設定</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">自動化提醒</string>
+    <string name="notification_auth_missing_title">需要驗證權杖</string>
+    <string name="notification_auth_missing_message">請在 Intent 中新增「auth」Extra。您可以在「設定 → 自動化」中找到您的權杖。</string>
+    <string name="notification_auth_invalid_title">驗證權杖無效</string>
+    <string name="notification_auth_invalid_message">請確認 Intent 中的權杖與 Shevery 設定中的權杖相符。</string>
+    <string name="notification_connectors_disabled_title">自動化連接器已停用</string>
+    <string name="notification_connectors_disabled_message">自動化 Intent 已被封鎖，因為 Shevery 連接器在設定中已停用。輕觸以啟用。</string>
 </resources>

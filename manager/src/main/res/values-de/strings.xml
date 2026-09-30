@@ -608,4 +608,13 @@ wurde in die Zwischenablage kopiert.]]></string>
     <string name="home_automation_connectors_active">Connectors aktiv</string>
     <string name="home_automation_connectors_active_desc">Eingehende Broadcast-Intents werden akzeptiert.</string>
     <string name="home_automation_open_settings">Automatisierungs-Einstellungen öffnen</string>
+
+    <!-- Automation Alert Notifications -->
+    <string name="notification_channel_automation_alerts">Automatisierungs-Warnungen</string>
+    <string name="notification_auth_missing_title">Authentifizierungs-Token erforderlich</string>
+    <string name="notification_auth_missing_message">Fügen Sie das Extra „auth“ zu Ihrem Intent hinzu. Sie finden Ihr Token unter Einstellungen → Automatisierung.</string>
+    <string name="notification_auth_invalid_title">Ungültiges Authentifizierungs-Token</string>
+    <string name="notification_auth_invalid_message">Stellen Sie sicher, dass das Token in Ihrem Intent mit dem in den Shevery-Einstellungen übereinstimmt.</string>
+    <string name="notification_connectors_disabled_title">Automatisierungs-Connectors deaktiviert</string>
+    <string name="notification_connectors_disabled_message">Ein Automatisierungs-Intent wurde blockiert, da die Shevery-Connectors in den Einstellungen deaktiviert sind. Zum Aktivieren tippen.</string>
 </resources>
