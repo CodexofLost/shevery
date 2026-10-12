@@ -189,7 +189,13 @@ object WatchdogManager {
         }
 
         val overdue = beat > 0 && SystemClock.elapsedRealtime() - beat > HEARTBEAT_TIMEOUT_MS
-        if (!overdue && Shizuku.pingBinder()) return
+        // A stale heartbeat does not imply a dead server: the heartbeat producer may simply
+        // not refresh while the binder is alive. Always consult the binder before acting on
+        // "overdue", otherwise a healthy server is restarted on a fixed schedule.
+        if (Shizuku.pingBinder()) {
+            if (overdue) beat()
+            return
+        }
 
         if (overdue) {
             logw("Watchdog: heartbeat overdue, restart command")
