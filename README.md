@@ -163,3 +163,4 @@ Follow this steps:
 > 
 >  Shevery is a **completely free app**. Do not pay any third-party file managers or cloud services to download this application.
 
+### For fresh builds/CI of Shevery, go to [Actions](https://github.com/HmnDev-Tech/shevery/actions/workflows/apk-build.yml)
