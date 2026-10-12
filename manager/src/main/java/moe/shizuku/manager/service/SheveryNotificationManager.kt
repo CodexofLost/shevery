@@ -69,7 +69,7 @@ object SheveryNotificationManager {
         )
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(if (isRunning) R.drawable.ic_server_ok_24dp else R.drawable.ic_server_error_24dp)
+            .setSmallIcon(R.drawable.ic_shield_24dp)
             .setContentTitle(title)
             .setContentText(text)
             .setStyle(NotificationCompat.BigTextStyle().bigText(text))
