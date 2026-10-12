@@ -163,4 +163,4 @@ Follow this steps:
 > 
 >  Shevery is a **completely free app**. Do not pay any third-party file managers or cloud services to download this application.
 
-### For fresh builds/CI of Shevery, go to [Actions](https://github.com/HmnDev-Tech/shevery/actions/workflows/apk-build.yml) But this APKs is unstable and can contain some bugs. If you found bugs on latest CI, you can report about it in Issues.
+### For fresh builds/CI of Shevery, go to [Actions](https://github.com/HmnDev-Tech/shevery/actions/workflows/apk-build.yml) . But this APKs are unstable and can contain some bugs. If you found bugs on latest CI, you can report about it in Issues.
