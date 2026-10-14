@@ -1,392 +1,282 @@
-export type Locale = "ru" | "en"
-
-export interface ModuleItem {
+export interface FeatureItem {
   id: string
-  name: string
-  bannerTitle: string
-  bannerAccent: string
-  version: string
-  author: string
-  size: string
-  trust: string
-  hasWebUi: boolean
-  hasAction: boolean
-  hasService: boolean
-  enabledByDefault: boolean
-  description: {
-    ru: string
-    en: string
-  }
-}
-
-export interface GuideSection {
-  id: string
+  category: "core" | "ai" | "stealth" | "enterprise" | "automation" | "lab"
   badge: string
-  title: { ru: string; en: string }
-  subtitle: { ru: string; en: string }
-  highlights: { ru: string[]; en: string[] }
+  title: string
+  description: string
+  technicalDetail: string
+  accent: "primary" | "secondary" | "tertiary" | "error"
+  iconName: string
+  span?: "wide" | "tall" | "normal"
+}
+
+export interface GuideDocItem {
+  id: string
+  category: string
+  title: string
+  summary: string
+  badge: string
   codeTitle: string
-  code: string
-  secondaryCodeTitle?: string
-  secondaryCode?: string
+  codeSnippet: string
+  steps: string[]
 }
 
-export interface ContributorItem {
-  name: string
-  handle: string
-  url: string
-  role: { ru: string; en: string }
-}
-
-export const SHEVERY_MODULES: ModuleItem[] = [
-  {
-    id: "findcve",
-    name: "FindCVE",
-    bannerTitle: "FindCVE [BETA]",
-    bannerAccent: "from-[#0c211f] via-[#11171a] to-[#0d1117] text-[#9ef0e0]",
-    version: "2.1.0",
-    author: "kerneldroid",
-    size: "167.9 KB",
-    trust: "Full Trust",
-    hasWebUi: true,
-    hasAction: true,
-    hasService: false,
-    enabledByDefault: true,
-    description: {
-      ru: "Сканер CVE-уязвимостей Android. Проверяет патч безопасности, версию ядра и статус Bluetooth по базе известных уязвимостей. Включает интерактивную WebUI-панель.",
-      en: "Android CVE scanner. Checks security patch level, kernel version, and Bluetooth status against known vulnerabilities. Includes WebUI dashboard.",
-    },
-  },
-  {
-    id: "shizuconfigs",
-    name: "ShizuConfigs",
-    bannerTitle: "ShizuConfig",
-    bannerAccent: "from-[#21152b] via-[#171222] to-[#0f1117] text-[#decff8]",
-    version: "1.4.2",
-    author: "HmnDev-Tech",
-    size: "242.0 KB",
-    trust: "Full Trust",
-    hasWebUi: true,
-    hasAction: true,
-    hasService: true,
-    enabledByDefault: true,
-    description: {
-      ru: "Системный твикер с WebUI. Управление пакетами, системными таблицами Settings (System/Secure/Global), частотой экрана, производительностью, сетью и кастомными скриптами.",
-      en: "System tweaker with WebUI. Manage packages, settings tables, display refresh rate, performance profiles, network, and custom commands.",
-    },
-  },
-  {
-    id: " phantom-guard",
-    name: "PhantomProcessKiller-Off",
-    bannerTitle: "PhantomFree",
-    bannerAccent: "from-[#142238] via-[#121926] to-[#0e1117] text-[#b8ccf0]",
-    version: "1.1.0",
-    author: "CodexofLost",
-    size: "48.4 KB",
-    trust: "Verified",
-    hasWebUi: false,
-    hasAction: true,
-    hasService: true,
-    enabledByDefault: false,
-    description: {
-      ru: "Автоматически снимает лимит max_phantom_processes (Android 12–17) при каждом запуске сервера, предотвращая закрытие фоновых сессий Termux и контейнеров.",
-      en: "Automatically disables max_phantom_processes limits on Android 12–17 at boot, preventing background kills of Termux and Linux containers.",
-    },
-  },
+export const SHEVERY_STATS = [
+  { value: "Android 11–17", label: "Target SDK 36 & Ready" },
+  { value: "< 1.2 ms", label: "Direct Binder IPC Latency" },
+  { value: "44 Tools", label: "Comput Autonomous Agent" },
+  { value: "3 Stubs", label: "Sui · Dhizuku · Launchers" },
 ]
 
-export const SHEVERY_GUIDES: GuideSection[] = [
+export const SHEVERY_FEATURES: FeatureItem[] = [
   {
-    id: "quickstart",
-    badge: "ADB / Wireless / Root",
-    title: {
-      ru: "Запуск и автостарт при загрузке",
-      en: "Startup & Wireless Boot Autostart",
-    },
-    subtitle: {
-      ru: "Три способа запуска привилегированного сервера + автоматическое восстановление после перезагрузки и защита от сбоев.",
-      en: "Three ways to launch the privileged server plus automatic boot recovery and self-healing Watchdog.",
-    },
-    highlights: {
-      ru: [
-        "Беспроводная отладка (Android 11+): сопряжение по 6-значному коду прямо из шторки уведомлений без ПК.",
-        "Автозапуск при загрузке (Start on boot via Wireless debugging): временно поднимает TCP-порт 5555 и запускает сервер без Root.",
-        "Watchdog (каждые 10 сек): проверяет здоровье процесса и транзакционные сбои (DeadSystemException), автоматически перезапуская Shevery.",
-        "Re-assert wireless debugging: защищает флаг беспроводной отладки, если прошивка (OEM ROM) сбрасывает его при переподключении Wi-Fi.",
-      ],
-      en: [
-        "Wireless Debugging (Android 11+): pair with a 6-digit code straight from the notification shade—no PC required.",
-        "Start on boot via Wireless debugging: briefly enables TCP port 5555 on boot and starts Shevery without root.",
-        "Watchdog (every 10s): monitors server process health and DeadSystemException errors, restarting automatically.",
-        "Re-assert wireless debugging: restores the wireless debugging flag if the OEM ROM clears it on Wi-Fi reconnect.",
-      ],
-    },
-    codeTitle: "ADB Start Command (Non-Root)",
-    code: `adb shell sh /sdcard/Android/data/com.hamondev.shevery/files/start.sh
-
-# Для Stealth-сборки со случайным именем пакета:
-adb shell sh /sdcard/Android/data/<stealth_package>/files/start.sh`,
-    secondaryCodeTitle: "Write Secure Settings (для автостарта по Wi-Fi без Root)",
-    secondaryCode: `adb shell pm grant com.hamondev.shevery android.permission.WRITE_SECURE_SETTINGS`,
-  },
-  {
-    id: "comput-ai",
-    badge: "Comput & AI Agent",
-    title: {
-      ru: "Консоль Comput и автономный ИИ-агент",
-      en: "Comput Console & Autonomous AI Agent",
-    },
-    subtitle: {
-      ru: "Встроенный терминал с режимами sh, adb, root и автономным ИИ-агентом, способным диагностировать систему в цикле до 5 шагов.",
-      en: "Built-in terminal supporting sh, adb, and root modes with a multi-step AI agent loop and 10 provider presets.",
-    },
-    highlights: {
-      ru: [
-        "Режимы выполнения: sh (локальная оболочка), adb (через привилегированный Shizuku user service) и root (su).",
-        "Поддержка 10 провайдеров: OpenAI, Anthropic Claude, Google Gemini, Groq, OpenRouter, Together AI, Mistral, DeepSeek, SiliconFlow и Custom URL.",
-        "Режим ИИ-агента (до 5 итераций): модель генерирует команду в теге <cmd>...</cmd>, получает stdout/stderr и продолжает анализ до финального ответа.",
-        "Режим Safe Confirm: перед исполнением каждой предложенной агентом команды выводится карточка подтверждения с кнопками Run / Cancel.",
-      ],
-      en: [
-        "Execution modes: sh (local shell), adb (via privileged Shizuku user service), and root (su).",
-        "10 built-in provider presets: OpenAI, Anthropic Claude, Google Gemini, Groq, OpenRouter, Together AI, Mistral, DeepSeek, SiliconFlow, and Custom Endpoint.",
-        "Autonomous 5-step Agent loop: emits <cmd>...</cmd>, inspects live stdout/stderr, and iterates until the task is solved.",
-        "Safe Confirm toggle: review every proposed command with interactive Run / Cancel controls before execution.",
-      ],
-    },
-    codeTitle: "Comput Agent Tool Protocol",
-    code: `# Запрос пользователя в Comput Agent:
-"Проверь уровень патча безопасности, статус SELinux и топ-3 процесса по RAM"
-
-# Шаг 1 — Агент генерирует команду:
-<cmd>getprop ro.build.version.security_patch && getenforce && ps -A --sort=-rss | head -n 4</cmd>
-
-# Шаг 2 — Comput исполняет команду в выбранном режиме (sh / adb / root)
-# и возвращает stdout обратно в контекст модели для итогового отчёта.`,
+    id: "comput-agent",
+    category: "ai",
+    badge: "AI AGENT · 44 TOOLS",
+    title: "Comput Autonomous Agent & Shell",
+    description:
+      "Multi-step ReAct agent right inside the privilege manager. Inspects UI trees, captures screen via MediaProjection, taps, swipes, manages packages, and runs privileged shell commands.",
+    technicalDetail:
+      "Supports OpenAI, Anthropic, Google Gemini (API & OAuth), Groq, OpenRouter, DeepSeek, Cerebras, plus custom OpenAI-compatible endpoints with native tool-calling.",
+    accent: "primary",
+    iconName: "Bot",
+    span: "wide",
   },
   {
     id: "adb-modules",
-    badge: "ADB Modules & WebUI",
-    title: {
-      ru: "ADB-модули, каталог GitHub и WebUI API",
-      en: "ADB Modules, GitHub Catalog & WebUI API",
-    },
-    subtitle: {
-      ru: "Модульная система в стиле Magisk/KernelSU, работающая поверх ADB и Root с поддержкой HTML/JS панелей управления.",
-      en: "Magisk/KernelSU-inspired module runtime working over ADB and Root with a JavaScript WebUI bridge.",
-    },
-    highlights: {
-      ru: [
-        "Жизненный цикл скриптов: post-fs-data.sh (синхронный старт), service.sh (фоновый демон), boot-completed.sh, action.sh (кнопка Action) и uninstall.sh.",
-        "Встроенный WebView-мост window.shizuku: exec(), execAsync(), getProp(), setProp(), readFile(), writeFile(), listPackages(), toast().",
-        "Хранилище модулей: /data/local/tmp/shizuku_modules/<id> с поддержкой изолированного KV-хранилища и логов.",
-        "Каталог модулей с проверкой уровня доверия (Full Trust / Verified), SHA-256 хешей и подписи ZIP-архивов.",
-      ],
-      en: [
-        "Lifecycle scripts: post-fs-data.sh (sync pre-start), service.sh (background daemon), boot-completed.sh, action.sh (Action button), and uninstall.sh.",
-        "Built-in WebView bridge window.shizuku: exec(), execAsync(), getProp(), setProp(), readFile(), writeFile(), listPackages(), toast().",
-        "Runtime directory: /data/local/tmp/shizuku_modules/<id> with isolated module KV storage and live logs.",
-        "GitHub Module Catalog with trust badges (Full Trust / Verified), SHA-256 verification, and automatic updates.",
-      ],
-    },
-    codeTitle: "WebUI JavaScript Bridge (webroot/index.html)",
-    code: `// Выполнение привилегированной команды из WebUI модуля
-const patch = window.shizuku.getProp("ro.build.version.security_patch");
-window.shizuku.execAsync("cmd package list packages -3", "onPackagesLoaded");
-
-window.onPackagesLoaded = function(resultJson) {
-  const res = JSON.parse(resultJson); // { code, stdout, stderr }
-  if (res.code === 0) {
-    window.shizuku.toast("Найдено пакетов: " + res.stdout.split("\\n").length);
-  }
-};`,
-    secondaryCodeTitle: "Структура ZIP-пакета модуля",
-    secondaryCode: `my-module.zip
-├── module.prop          # id, name, version, versionCode, author, description
-├── post-fs-data.sh      # Синхронная инициализация
-├── service.sh           # Фоновый сервис модуля
-├── action.sh            # Запускается кнопкой "Action" в карточке
-└── webroot/
-    └── index.html       # Открывается кнопкой "WebUI"`,
+    category: "core",
+    badge: "MAGISK-LIKE · ROOTLESS",
+    title: "ADB Modules & GitHub Catalog",
+    description:
+      "Install declarative ZIP modules without root. Automatic rollback if a boot crash is detected, plus a built-in GitHub repository store with verified badges.",
+    technicalDetail:
+      "Includes 15+ helper APIs in api.sh: set_prop, apply_settings, pkg_disable, cmd_appops, and WebUI bridge window.shizuku.exec().",
+    accent: "tertiary",
+    iconName: "PackageCheck",
+    span: "normal",
+  },
+  {
+    id: "stealth-edition",
+    category: "stealth",
+    badge: "ANTI-DETECTION",
+    title: "Stealth Edition & On-Device APK Morphing",
+    description:
+      "Evade aggressive banking and anti-cheat package scanners by generating a randomized package name and custom label directly on the device.",
+    technicalDetail:
+      "Patches binary AndroidManifest.xml string pools in UTF-8/UTF-16LE, resigns with an auto-generated V1/V2/V3 certificate, and migrates your config.",
+    accent: "secondary",
+    iconName: "ShieldAlert",
+    span: "normal",
+  },
+  {
+    id: "usb-debugging-hide",
+    category: "stealth",
+    badge: "SPOOFING GUARD",
+    title: "USB Debugging & Dev Options Spoofing",
+    description:
+      "Automatically sets adb_enabled=0 and development_settings_enabled=0 in Settings.Global the instant a banking or game app enters the foreground.",
+    technicalDetail:
+      "Monitors foreground top-package every 1.5s without killing your active wireless ADB daemon or interrupting running Shizuku binders.",
+    accent: "primary",
+    iconName: "EyeOff",
+    span: "normal",
   },
   {
     id: "device-owner",
-    badge: "Dhizuku & DPM",
-    title: {
-      ru: "Device Owner, Profile Owner и совместимость с Dhizuku",
-      en: "Device Owner, Profile Owner & Dhizuku Compatibility",
-    },
-    subtitle: {
-      ru: "Полная поддержка привилегий администратора устройства и бесшовная работа с приложениями экосистемы Dhizuku.",
-      en: "Native DevicePolicyManager control and built-in DhizukuBinderWrapper for existing Dhizuku client apps.",
-    },
-    highlights: {
-      ru: [
-        "Встроенный провайдер Dhizuku: клиенты (Hail, OwnDroid, Amarok, App Ops) подключаются к Shevery напрямую.",
-        "Активация в 1 клик через Shizuku/Root или классической командой adb shell dpm set-device-owner.",
-        "Редактор делегированных прав (Delegated Scopes): выдача DELEGATION_PACKAGE_ACCESS, BLOCK_UNINSTALL, PERMISSION_GRANT, NETWORK_LOGGING и др.",
-        "Передача прав администратора (Transfer Ownership) другому приложению через API Android 9+ без сброса к заводским настройкам.",
-      ],
-      en: [
-        "Built-in Dhizuku provider: client apps (Hail, OwnDroid, Amarok, App Ops) bind to Shevery out of the box.",
-        "One-tap activation via active Shizuku/Root or via standard adb shell dpm set-device-owner.",
-        "Delegated Scopes editor: grant DELEGATION_PACKAGE_ACCESS, BLOCK_UNINSTALL, PERMISSION_GRANT, NETWORK_LOGGING, and more per app.",
-        "Zero-reset Ownership Transfer (Android 9+) to migrate Device Owner or Profile Owner to another admin receiver.",
-      ],
-    },
-    codeTitle: "Device Owner & Profile Owner Commands",
-    code: `# Назначение Device Owner:
-adb shell dpm set-device-owner com.hamondev.shevery/moe.shizuku.manager.deviceowner.ShizukuDeviceAdminReceiver
-
-# Назначение Profile Owner (для основного или рабочего профиля):
-adb shell dpm set-profile-owner --user 0 com.hamondev.shevery/moe.shizuku.manager.deviceowner.ShizukuDeviceAdminReceiver`,
+    category: "enterprise",
+    badge: "DPM · DHIZUKU BRIDGE",
+    title: "Device Owner & Dhizuku Compatibility",
+    description:
+      "Activate Device Owner or Profile Owner in one tap via Shizuku, delegate DPM scopes to apps, transfer ownership, or act as a drop-in Dhizuku provider.",
+    technicalDetail:
+      "Implements DhizukuBinderWrapper, remote transact, and delegated scopes (CERT_INSTALL, PERMISSION_GRANT, APP_RESTRICTIONS, BLOCK_UNINSTALL).",
+    accent: "tertiary",
+    iconName: "KeyRound",
+    span: "wide",
   },
   {
-    id: "stealth-stubs",
-    badge: "Stealth & Stubs",
-    title: {
-      ru: "Stealth-режим, скрытие отладки и заглушки совместимости",
-      en: "Stealth Mode, USB Hide & Compatibility Stubs",
-    },
-    subtitle: {
-      ru: "Обход жёстких проверок банковских и защищённых приложений без потери совместимости со старыми клиентами Shizuku и Dhizuku.",
-      en: "Bypass aggressive app detections while preserving 100% compatibility with apps that hard-check original package names.",
-    },
-    highlights: {
-      ru: [
-        "On-demand генератор Stealth APK: прямо на устройстве перепаковывает AndroidManifest.xml и resources.arsc со случайным именем пакета com.[4].[5] и вашим названием.",
-        "Заглушки совместимости (Compat Stubs): лёгкие APK с оригинальными пакетами moe.shizuku.privileged.api (v13.6.0) и com.rosan.dhizuku (v2.9.1) для приложений с жёсткой проверкой isPackageInstalled.",
-        "Скрытие отладки по USB и Для разработчиков: автоматически выключает adb_enabled и development_settings_enabled при запуске выбранных банковских приложений и возвращает обратно при выходе из них.",
-        "Сетевой брандмауэр (Android 13+): блокировка доступа в интернет для выбранных приложений на уровне системы через cmd connectivity set-package-networking-enabled.",
-      ],
-      en: [
-        "On-device Stealth APK generator: rewrites binary AndroidManifest.xml & resources.arsc with a randomized com.[4].[5] package name and custom label.",
-        "Compatibility Stubs: lightweight placeholder APKs for moe.shizuku.privileged.api (v13.6.0) and com.rosan.dhizuku (v2.9.1) to satisfy hardcoded package checks.",
-        "USB Debugging & Developer Options Hide: automatically disables adb_enabled when selected apps enter the foreground and restores it once they close.",
-        "System Network Firewall (Android 13+): per-app internet cut-off via cmd connectivity set-package-networking-enabled.",
-      ],
-    },
-    codeTitle: "Compatibility Architecture",
-    code: `# Приложения, проверяющие наличие оригинального пакета Shizuku / Dhizuku:
-[Client App] ---> PackageManager.getPackageInfo("moe.shizuku.privileged.api")
-                       └── Находит установленный Shizuku Compat Stub (v13.6.0, code 1086)
-[Client App] ---> ContentResolver.call("moe.shizuku.privileged.api.binder")
-                       └── Напрямую связывается с привилегированным сервером Shevery!`,
+    id: "network-firewall",
+    category: "lab",
+    badge: "CONNECTIVITY CHAIN",
+    title: "Zero-VPN UID Network Firewall",
+    description:
+      "Block internet access for selected user or system apps at the kernel/framework level without occupying the Android VPN slot.",
+    technicalDetail:
+      "Uses cmd connectivity set-package-networking-enabled false <pkg> with automatic fallback to iptables -A OUTPUT -m owner --uid-owner.",
+    accent: "error",
+    iconName: "Flame",
+    span: "normal",
   },
   {
-    id: "automation",
-    badge: "Tasker & Connectors",
-    title: {
-      ru: "Автоматизация Tasker / MacroDroid и Shizuku Connectors",
-      en: "Tasker / MacroDroid Automation & Shizuku Connectors",
-    },
-    subtitle: {
-      ru: "Нативный плагин действия Tasker, защищённые токеном широковещательные Intent-команды и ContentProvider для внешних активаторов.",
-      en: "Native Tasker Action plugin, token-authenticated broadcast intents, and ContentProvider for external LPE activators.",
-    },
-    highlights: {
-      ru: [
-        "Нативный плагин Tasker / MacroDroid: действия START, STOP, RESTART, EXEC_SH, EXEC_ADB и EXEC_ROOT с возвратом %err и %errmsg.",
-        "Защита токеном: прямые широковещательные вызовы требуют секретный токен -e auth <token> и включённый тумблер Shevery Connectors.",
-        "Уведомления безопасности: при отклонённом вызове Shevery показывает кликабельное уведомление с переходом в Settings → Automation.",
-        "Shizuku Connectors API: URI content://moe.shizuku.privileged.api.connector (методы get_Start_Command и notify_Started) для внешних эксплойт-активаторов.",
-      ],
-      en: [
-        "Native Tasker / MacroDroid plugin: START, STOP, RESTART, EXEC_SH, EXEC_ADB, and EXEC_ROOT actions returning %err and %errmsg.",
-        "Token authentication: direct broadcasts require -e auth <token> and Shevery Connectors enabled in Settings → Automation.",
-        "Security alerts: unauthorized broadcast attempts trigger a tap-to-configure notification linking to Settings → Automation.",
-        "Shizuku Connectors API: content://moe.shizuku.privileged.api.connector (get_Start_Command & notify_Started) for external LPE activators.",
-      ],
-    },
-    codeTitle: "ADB / Termux Broadcast Automation",
-    code: `# Перезапуск сервера Shevery:
-adb shell am broadcast \\
-  -a com.hamondev.shevery.action.CONTROL \\
-  -n com.hamondev.shevery/com.hamondev.shevery.tasker.PluginReceiver \\
-  -e command RESTART \\
-  -e auth "<ВАШ_ТОКЕН_АВТОМАТИЗАЦИИ>"
-
-# Выполнение привилегированной ADB-команды с возвратом stdout:
-adb shell am broadcast \\
-  -a com.hamondev.shevery.action.CONTROL \\
-  -n com.hamondev.shevery/com.hamondev.shevery.tasker.PluginReceiver \\
-  -e command EXEC_ADB \\
-  -e script "cmd package compile -m speed-profile -a" \\
-  -e auth "<ВАШ_ТОКЕН_АВТОМАТИЗАЦИИ>"`,
+    id: "compat-stubs",
+    category: "stealth",
+    badge: "BRIDGES & STUBS",
+    title: "Compatibility Stubs (Shizuku · Sui · Dhizuku)",
+    description:
+      "Generate lightweight stub APKs when running under a hidden Stealth package name so legacy apps still discover Shizuku, Sui, or Dhizuku providers.",
+    technicalDetail:
+      "Also creates Shortcut Launcher APKs for hidden system activities without cluttering your launcher.",
+    accent: "secondary",
+    iconName: "Layers",
+    span: "normal",
+  },
+  {
+    id: "watchdog-boot",
+    category: "automation",
+    badge: "RESILIENCE · 5S WATCHDOG",
+    title: "Server Watchdog, Boot Start & Tasker Plugin",
+    description:
+      "Dual-layer process & native daemon watchdog polls server health every 5 seconds, keeps the Shizuku server alive, and notifies on crashes. Automate via Tasker, MacroDroid, or ADB intents.",
+    technicalDetail:
+      "5-second health check interval with Wireless ADB auto-start on boot, Wakelock keep-alive, and token-authenticated broadcast actions.",
+    accent: "primary",
+    iconName: "Activity",
+    span: "normal",
   },
 ]
 
-export const CONTRIBUTORS: ContributorItem[] = [
+export const GUIDE_DOCS: GuideDocItem[] = [
   {
-    name: "HmnDev-Tech",
-    handle: "@HmnDev-Tech",
-    url: "https://github.com/HmnDev-Tech",
-    role: {
-      ru: "Руководитель проекта — релизы, CI/CD, центр настроек, Watchdog, автообновление, документация и архитектура",
-      en: "Project lead — releases, CI, settings hub, watchdog, self-update, docs and project direction",
-    },
+    id: "wireless-adb",
+    category: "Quick Start",
+    title: "Wireless ADB & Auto-Start on Boot",
+    summary:
+      "Start Shevery on Android 11–17 without a computer using split-screen Wireless Debugging pairing and keep it active across reboots.",
+    badge: "Android 11+ · No PC",
+    codeTitle: "Manual ADB Start Fallback",
+    codeSnippet: `# Start Shevery server via ADB from PC or local terminal
+adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/starter.sh
+
+# Verify server status & UID
+adb shell sh -c "dumpsys activity provider moe.shizuku.privileged.api"`,
+    steps: [
+      "Enable Developer Options and toggle on Wireless Debugging.",
+      "Open Shevery → click Pairing → open Developer Options in Split-Screen or Notification mode.",
+      "Tap 'Pair device with pairing code' and enter the 6-digit code in Shevery's notification.",
+      "Enable 'Start on boot (Wireless ADB)' and 'Watchdog Service' in Settings so Shevery automatically reconnects whenever Wi-Fi is ready.",
+    ],
   },
   {
-    name: "Landon Moran",
-    handle: "@LandonMoran",
-    url: "https://github.com/LandonMoran",
-    role: {
-      ru: "Core-разработчик — ИИ-провайдеры и Commandium, Material 3 Expressive, защита ADB, миграция на Compose, i18n",
-      en: "Core developer — AI providers and Commandium, Material 3 Expressive, ADB hardening, Compose migrations, i18n",
-    },
+    id: "comput-ai",
+    category: "Comput AI",
+    title: "Comput AI Agent & Autonomous Screen Control",
+    summary:
+      "Configure LLM providers (Gemini OAuth, OpenAI, Claude, Groq, OpenRouter, DeepSeek) and run autonomous multi-step device workflows.",
+    badge: "44 Built-in Tools",
+    codeTitle: "Comput Agent Tool Capabilities",
+    codeSnippet: `# UI & Vision Tools
+get_screen_elements(filter="interactive")
+tap_element(index=4) / swipe(x1, y1, x2, y2, durationMs=300)
+take_screenshot() # MediaProjection hardware frame or screencap
+
+# System & Package Tools
+run_shell("cmd package compile -m speed-profile -a")
+manage_app_permission(pkg="com.example.app", perm="android.permission.CAMERA", grant=true)
+modify_system_setting(namespace="global", key="animator_duration_scale", value="0.5")`,
+    steps: [
+      "Open the Comput tab in Shevery and tap the AI Provider icon in the top bar.",
+      "Select a preset (Google Gemini with 1-click OAuth or API Key, OpenAI, Anthropic, Groq, OpenRouter, or Custom Endpoint).",
+      "Switch between Terminal Shell mode (natural language to shell command) or Agent mode (autonomous multi-step GUI + system execution).",
+      "Review real-time tool execution cards or approve sensitive commands before they run.",
+    ],
   },
   {
-    name: "kerneldroid",
-    handle: "@kerneldroid",
-    url: "https://github.com/kerneldroid",
-    role: {
-      ru: "Редизайн консоли Comput, UI каталога модулей, плагин Tasker, Legacy API Stub, подпись и установка модулей",
-      en: "Comput console redesign, module catalog UI, Tasker plugin, legacy API stub, CI signing and module install fixes",
-    },
+    id: "adb-modules-dev",
+    category: "ADB Modules",
+    title: "Building & Installing Rootless ADB Modules",
+    summary:
+      "Create Magisk-style ZIP modules that run with ADB/Root permissions via Shevery's declarative api.sh helper functions and WebUI bridge.",
+    badge: "api.sh + WebUI",
+    codeTitle: "module.prop & service.sh Example",
+    codeSnippet: `# module.prop
+id=fps_unlocker_adb
+name=High Refresh & Animation Tuner
+version=v2.1.0
+versionCode=21
+author=HmnDev
+description=Unlocks peak refresh rate and tunes window manager via ADB
+
+# service.sh (api.sh is auto-sourced by Shevery)
+ui_print "- Applying display & animation optimizations..."
+apply_settings global window_animation_scale 0.5
+apply_settings system peak_refresh_rate 120.0
+cmd_appops set com.example.heavyapp RUN_IN_BACKGROUND ignore`,
+    steps: [
+      "Package module.prop, service.sh, post-fs-data.sh, and uninstall.sh at the root of a standard ZIP archive.",
+      "Use built-in api.sh helpers (apply_settings, set_prop, pkg_disable, cmd_compile) so Shevery automatically tracks and reverts changes on uninstall.",
+      "Optional: bundle a webroot/index.html to provide an interactive Material 3 WebUI powered by window.shizuku.exec().",
+      "Publish on GitHub with topic 'adb-module' or 'shizuku-module' to appear automatically in Shevery's built-in Module Catalog.",
+    ],
   },
   {
-    name: "OptionString",
-    handle: "@superman32432432",
-    url: "https://github.com/superman32432432",
-    role: {
-      ru: "Плавающая навигация Material 3 Expressive, редизайн Comput, иконки, архитектура настроек и релизный пайплайн",
-      en: "Expressive floating navigation, Comput M3 redesign, launcher icons, settings layout and release workflow",
-    },
+    id: "stealth-usb-hide",
+    category: "Stealth & Anti-Detection",
+    title: "Stealth Morphing, Stubs & USB Debugging Hide",
+    summary:
+      "Prevent banking apps, enterprise MDM, and games from detecting Shizuku, Developer Options, or active ADB debugging.",
+    badge: "Zero Detection",
+    codeTitle: "How USB Debugging Spoofing Works",
+    codeSnippet: `# When a monitored banking/game package enters foreground:
+settings put global adb_enabled 0
+settings put global development_settings_enabled 0
+
+# Your active Wireless ADB / Shizuku server binder remains ALIVE!
+# When you leave the protected app, Shevery restores:
+settings put global adb_enabled 1
+settings put global development_settings_enabled 1`,
+    steps: [
+      "Go to Settings → Stealth Installation to generate a morphed APK with a random package name (e.g. com.sys.helper.a9f2) and custom app label.",
+      "Open Settings → Compatibility Stubs to install lightweight Shizuku / Sui / Dhizuku bridge stubs if legacy apps check hardcoded package names.",
+      "Open Settings → Lab Features → Hide USB Debugging and select the apps that check for Developer Options or USB Debugging.",
+      "Enable the background guard service — Shevery spoofs the flags in real time only while those apps are in the foreground.",
+    ],
   },
   {
-    name: "CodexofLost",
-    handle: "@CodexofLost",
-    url: "https://github.com/CodexofLost",
-    role: {
-      ru: "Токены Material 3, надёжность беспроводного ADB и стартера, авторизация привилегий и исправления Watchdog",
-      en: "Material 3 tokens, wireless ADB and starter reliability, permission auth, watchdog and server startup fixes",
-    },
+    id: "device-owner-dhizuku",
+    category: "Device Owner & DPM",
+    title: "Device Owner, Delegated Scopes & Dhizuku Mode",
+    summary:
+      "Elevate Shevery to Device Owner or Profile Owner to unlock enterprise DevicePolicyManager controls and Dhizuku client support.",
+    badge: "Enterprise DPM",
+    codeTitle: "ADB Activation & Delegated Scopes",
+    codeSnippet: `# Activate Shevery as Device Owner via ADB (or 1-tap inside Shevery)
+dpm set-device-owner moe.shizuku.privileged.api/moe.shizuku.manager.deviceowner.ShizukuDeviceAdminReceiver
+
+# Available DPM Delegated Scopes for client apps:
+- delegation-cert-install
+- delegation-permission-grant
+- delegation-package-access
+- delegation-block-uninstall
+- delegation-network-logging`,
+    steps: [
+      "Navigate to Settings → Device Owner and tap 'Activate via Shizuku' (or run the dpm command over ADB).",
+      "Toggle 'Dhizuku Mode' to allow Dhizuku-compatible apps (Hail, OwnDroid, AppOps) to bind directly to Shevery.",
+      "Use 'Delegate Scopes' to grant fine-grained DPM capabilities to trusted apps without giving them full Device Owner.",
+      "Need to switch managers? Use 'Transfer Ownership' to hand off Device Owner to another receiver without factory resetting.",
+    ],
   },
   {
-    name: "arysm4a",
-    handle: "@tim1540",
-    url: "https://github.com/tim1540",
-    role: {
-      ru: "Автозапуск по беспроводной отладке при загрузке, заглушки Dhizuku, биометрическая защита и Jetpack Compose UI",
-      en: "Wireless-debugging boot autostart, Dhizuku compatibility stubs, biometric auth & session security, Compose UI/UX",
-    },
-  },
-  {
-    name: "Rikka",
-    handle: "@RikkaApps",
-    url: "https://github.com/RikkaApps",
-    role: {
-      ru: "Создатель оригинального проекта Shizuku — фундамента, на котором построен Shevery",
-      en: "Original Shizuku project — the foundation Shevery is built on",
-    },
-  },
-  {
-    name: "iamr0s",
-    handle: "@iamr0s",
-    url: "https://github.com/iamr0s",
-    role: {
-      ru: "Создатель проекта Dhizuku — архитектура Device Owner и совместного использования DPM API",
-      en: "Dhizuku project — Device Owner architecture, API sharing and management integrated into Shevery",
-    },
+    id: "tasker-intents",
+    category: "Automation & Intents",
+    title: "Tasker, MacroDroid & Authenticated Broadcasts",
+    summary:
+      "Control the Shizuku server lifecycle or execute privileged actions from Tasker, MacroDroid, or scripts using token-verified intents.",
+    badge: "Token Secured",
+    codeTitle: "Broadcast Automation Commands",
+    codeSnippet: `# Start Shevery server with your secret token
+adb shell am broadcast \\
+  -a com.hamondev.shevery.intent.action.START_SERVER \\
+  -n moe.shizuku.privileged.api/com.hamondev.shevery.tasker.PluginReceiver \\
+  -e auth "YOUR_SECRET_TOKEN"
+
+# Stop or Restart server
+-a com.hamondev.shevery.intent.action.STOP_SERVER
+-a com.hamondev.shevery.intent.action.RESTART_SERVER`,
+    steps: [
+      "Enable 'Shevery Connectors' in Settings → Automation (Allow plugins to activate Shevery).",
+      "Copy your secret authentication token from Settings → Automation or the Home screen 'View Intents' bottom sheet.",
+      "In Tasker or MacroDroid, add an Action → Plugin → Shevery (Start, Stop, or Restart Server) or send a direct broadcast intent.",
+      "Unauthorized broadcasts without a valid token are automatically blocked with a deep-link security alert notification.",
+    ],
   },
 ]

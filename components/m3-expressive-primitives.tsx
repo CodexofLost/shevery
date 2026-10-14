@@ -53,63 +53,48 @@ export function ExpressiveSwitch({
   )
 }
 
-export interface FloatingNavTab {
-  id: string
-  label: string
-  icon: React.ReactNode
+interface ExpressiveMorphBadgeProps {
+  children: React.ReactNode
+  variant?: "primary" | "secondary" | "tertiary"
 }
 
-interface ExpressiveFloatingToolbarProps {
-  tabs: FloatingNavTab[]
-  activeTab: string
-  onSelect: (id: string) => void
-  className?: string
+export function ExpressiveMorphBadge({
+  children,
+  variant = "primary",
+}: ExpressiveMorphBadgeProps) {
+  const styles = {
+    primary: "bg-[#354496]/50 border-[#BAC3FF]/35 text-[#DEE1FF]",
+    secondary: "bg-[#71295E]/50 border-[#FFADE1]/35 text-[#FFD7EE]",
+    tertiary: "bg-[#00513B]/50 border-[#66DFB2]/35 text-[#85F8C9]",
+  }
+
+  return (
+    <span
+      className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1 text-xs font-semibold backdrop-blur-md transition-transform duration-300 hover:scale-[1.03] ${styles[variant]}`}
+    >
+      {children}
+    </span>
+  )
 }
 
-export function ExpressiveFloatingToolbar({
-  tabs,
-  activeTab,
-  onSelect,
-  className = "",
-}: ExpressiveFloatingToolbarProps) {
+interface ExpressiveStatusBlobProps {
+  active?: boolean
+  children: React.ReactNode
+}
+
+export function ExpressiveStatusBlob({
+  active = true,
+  children,
+}: ExpressiveStatusBlobProps) {
   return (
     <div
-      role="tablist"
-      aria-label="Material 3 Expressive Navigation"
-      className={`inline-flex items-center gap-1 rounded-full bg-[#38465E]/95 p-1.5 shadow-[0_12px_32px_rgba(0,0,0,0.55)] backdrop-blur-md border border-[#4E607E]/40 ${className}`}
+      className={`m3-blob flex h-12 w-12 shrink-0 items-center justify-center transition-colors duration-500 ${
+        active
+          ? "bg-[#00513B]/90 border border-[#66DFB2]/40 shadow-[0_0_25px_rgba(102,223,178,0.25)]"
+          : "bg-[#93000A]/80 border border-[#FFB4AB]/40"
+      }`}
     >
-      {tabs.map((tab) => {
-        const isSelected = tab.id === activeTab
-        return (
-          <button
-            key={tab.id}
-            type="button"
-            role="tab"
-            aria-selected={isSelected}
-            onClick={() => onSelect(tab.id)}
-            className={`group relative flex h-11 items-center justify-center rounded-full px-3.5 text-sm font-bold m3-spring cursor-pointer select-none ${
-              isSelected
-                ? "bg-[#B8CCF0] text-[#132238] px-4 shadow-sm scale-[1.02]"
-                : "bg-transparent text-[#DCE7FF]/85 hover:bg-[#495A78]/50 hover:text-white"
-            }`}
-          >
-            <span className="flex items-center gap-2">
-              <span className="shrink-0 transition-transform duration-300 group-active:scale-90">
-                {tab.icon}
-              </span>
-              <span
-                className={`overflow-hidden whitespace-nowrap transition-all duration-300 ${
-                  isSelected
-                    ? "max-w-[140px] opacity-100 ml-0.5"
-                    : "max-w-0 opacity-0"
-                }`}
-              >
-                {tab.label}
-              </span>
-            </span>
-          </button>
-        )
-      })}
+      {children}
     </div>
   )
 }

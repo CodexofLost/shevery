@@ -2,209 +2,170 @@
 
 import React, { useState } from "react"
 import {
-  Check,
-  Copy,
+  BookOpen,
   Terminal,
-  Sparkles,
-  Boxes,
-  Shield,
-  EyeOff,
-  Workflow,
+  Copy,
+  Check,
   ChevronRight,
+  Sparkles,
+  ExternalLink,
+  Code2,
+  CheckCircle2,
 } from "lucide-react"
-import { Locale, SHEVERY_GUIDES } from "@/lib/shevery-data"
+import { GUIDE_DOCS } from "@/lib/shevery-data"
 
-interface GuidesAndDocsHubProps {
-  locale: Locale
-}
-
-export function GuidesAndDocsHub({ locale }: GuidesAndDocsHubProps) {
-  const [selectedGuideId, setSelectedGuideId] = useState(SHEVERY_GUIDES[0].id)
-  const [copiedKey, setCopiedKey] = useState<string | null>(null)
+export function GuidesAndDocsHub() {
+  const [activeGuideId, setActiveGuideId] = useState<string>(GUIDE_DOCS[0].id)
+  const [copied, setCopied] = useState(false)
 
   const currentGuide =
-    SHEVERY_GUIDES.find((g) => g.id === selectedGuideId) ?? SHEVERY_GUIDES[0]
+    GUIDE_DOCS.find((g) => g.id === activeGuideId) || GUIDE_DOCS[0]
 
-  const copyCode = (text: string, key: string) => {
-    navigator.clipboard?.writeText(text)
-    setCopiedKey(key)
-    setTimeout(() => setCopiedKey(null), 2000)
-  }
-
-  const guideIcons: Record<string, React.ReactNode> = {
-    quickstart: <Terminal className="h-4 w-4" />,
-    "comput-ai": <Sparkles className="h-4 w-4" />,
-    "adb-modules": <Boxes className="h-4 w-4" />,
-    "device-owner": <Shield className="h-4 w-4" />,
-    "stealth-stubs": <EyeOff className="h-4 w-4" />,
-    automation: <Workflow className="h-4 w-4" />,
+  const handleCopyCode = () => {
+    navigator.clipboard.writeText(currentGuide.codeSnippet)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1800)
   }
 
   return (
-    <section id="guides" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+    <section id="guides" className="scroll-mt-24 space-y-8">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-[#293447] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#B8CCF0]">
-            {locale === "ru"
-              ? "База знаний и документация"
-              : "Knowledge Base & Guides"}
-          </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-            {locale === "ru"
-              ? "Полное руководство по экосистеме Shevery"
-              : "Complete Shevery Ecosystem Guides"}
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#00513B]/60 border border-[#66DFB2]/30 px-3.5 py-1 text-xs font-semibold text-[#85F8C9]">
+            <BookOpen className="h-3.5 w-3.5 text-[#66DFB2]" />
+            Interactive Documentation & Guides
+          </div>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-[#E3E1E9]">
+            Complete Shevery Knowledge Base
           </h2>
+          <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#C5C5D6]">
+            Step-by-step setup guides, ADB module API references, Device Owner commands, and Tasker broadcast specifications synced directly with the repository.
+          </p>
         </div>
-        <p className="max-w-md text-sm text-[#9BA7BE] leading-relaxed">
-          {locale === "ru"
-            ? "Актуальная техническая документация по всем подсистемам репозитория: от автозапуска по Wireless ADB до разработки WebUI-модулей и интеграции с Tasker."
-            : "Up-to-date technical guides covering every subsystem in the repository: from Wireless ADB boot autostart to WebUI modules and Tasker automation."}
-        </p>
+
+        <a
+          href="https://github.com/HmnDev-Tech/shevery/tree/main/docs"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 self-start rounded-full border border-[#444654] bg-[#1F2026] px-4 py-2 text-xs font-semibold text-[#E3E1E9] hover:border-[#BAC3FF] hover:text-[#BAC3FF] transition-colors"
+        >
+          Browse /docs on GitHub
+          <ExternalLink className="h-3.5 w-3.5" />
+        </a>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Left Navigation Pills */}
-        <div className="lg:col-span-4 flex flex-col gap-2.5 rounded-[32px] bg-[#141923] p-3.5 border border-[#242D3E]">
-          {SHEVERY_GUIDES.map((guide) => {
-            const active = guide.id === selectedGuideId
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Left Navigation Column */}
+        <div className="lg:col-span-4 space-y-2">
+          {GUIDE_DOCS.map((guide) => {
+            const isSelected = guide.id === activeGuideId
             return (
               <button
                 key={guide.id}
                 type="button"
-                onClick={() => setSelectedGuideId(guide.id)}
-                className={`group flex items-center justify-between gap-3 rounded-[22px] p-4 text-left m3-spring cursor-pointer ${
-                  active
-                    ? "bg-[#B8CCF0] text-[#132238] shadow-md scale-[1.01]"
-                    : "bg-[#1A212E]/70 text-[#DCE7FF] hover:bg-[#232C3D]"
+                onClick={() => setActiveGuideId(guide.id)}
+                className={`w-full text-left rounded-[24px] p-4 transition-all duration-300 border ${
+                  isSelected
+                    ? "bg-[#354496] border-[#BAC3FF]/60 text-[#DEE1FF] shadow-md scale-[1.01]"
+                    : "bg-[#1B1C22]/90 border-[#444654]/50 text-[#C5C5D6] hover:bg-[#282932] hover:text-white"
                 }`}
               >
-                <div className="flex items-center gap-3.5 min-w-0">
-                  <div
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl m3-spring ${
-                      active
-                        ? "bg-[#132238] text-[#B8CCF0]"
-                        : "bg-[#293447] text-[#B8CCF0]"
+                <div className="flex items-center justify-between">
+                  <span
+                    className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                      isSelected
+                        ? "bg-black/25 text-[#66DFB2]"
+                        : "bg-[#282932] text-[#BAC3FF]"
                     }`}
                   >
-                    {guideIcons[guide.id]}
-                  </div>
-                  <div className="min-w-0">
-                    <div
-                      className={`text-[11px] font-bold uppercase tracking-wider ${
-                        active ? "text-[#132238]/75" : "text-[#9BA7BE]"
-                      }`}
-                    >
-                      {guide.badge}
-                    </div>
-                    <div className="text-sm font-bold truncate mt-0.5">
-                      {guide.title[locale]}
-                    </div>
-                  </div>
+                    {guide.category}
+                  </span>
+                  <span className="text-[11px] font-mono opacity-80">{guide.badge}</span>
                 </div>
-                <ChevronRight
-                  className={`h-4 w-4 shrink-0 transition-transform ${
-                    active
-                      ? "translate-x-0.5 text-[#132238]"
-                      : "text-[#9BA7BE] group-hover:translate-x-0.5"
-                  }`}
-                />
+                <div className="mt-2 flex items-center justify-between gap-2">
+                  <span className="font-display text-sm font-bold">{guide.title}</span>
+                  <ChevronRight
+                    className={`h-4 w-4 shrink-0 transition-transform ${
+                      isSelected ? "translate-x-0.5 text-white" : "text-[#8F909F]"
+                    }`}
+                  />
+                </div>
               </button>
             )
           })}
         </div>
 
-        {/* Right Guide Content Panel */}
-        <div className="lg:col-span-8 rounded-[36px] bg-[#151A24] border border-[#263042] p-6 sm:p-8 space-y-6 shadow-xl">
-          <div className="space-y-2">
-            <span className="inline-flex items-center rounded-full bg-[#38465E] px-3.5 py-1 text-xs font-bold text-[#DCE7FF]">
-              {currentGuide.badge}
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-              {currentGuide.title[locale]}
-            </h3>
-            <p className="text-sm sm:text-base text-[#9BA7BE] leading-relaxed">
-              {currentGuide.subtitle[locale]}
-            </p>
-          </div>
-
-          {/* Highlights List */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            {currentGuide.highlights[locale].map((point, idx) => (
-              <div
-                key={idx}
-                className="flex items-start gap-3 rounded-[22px] bg-[#1B2230] p-4 border border-[#2A3447]"
-              >
-                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#B8CCF0] text-[#132238] text-xs font-extrabold mt-0.5">
-                  {idx + 1}
-                </div>
-                <p className="text-xs sm:text-sm text-[#DCE7FF]/90 leading-relaxed">
-                  {point}
-                </p>
+        {/* Right Guide Detail & Code Panel */}
+        <div className="lg:col-span-8 rounded-[32px] border border-[#444654]/70 bg-[#1B1C22] p-6 sm:p-8 flex flex-col justify-between space-y-6">
+          <div className="space-y-6">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#444654]/50 pb-4">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#66DFB2]">
+                  {currentGuide.category}
+                </span>
+                <h3 className="mt-1 font-display text-2xl font-extrabold text-white">
+                  {currentGuide.title}
+                </h3>
               </div>
-            ))}
+              <span className="rounded-full bg-[#354496]/60 border border-[#BAC3FF]/30 px-3.5 py-1 text-xs font-semibold text-[#DEE1FF]">
+                {currentGuide.badge}
+              </span>
+            </div>
+
+            <p className="text-sm sm:text-base leading-relaxed text-[#C5C5D6]">
+              {currentGuide.summary}
+            </p>
+
+            {/* Step-by-step checklist */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#BAC3FF]">
+                Step-by-Step Workflow
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {currentGuide.steps.map((step, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 rounded-2xl bg-[#121318]/80 border border-[#444654]/40 p-3.5"
+                  >
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#354496] font-display text-xs font-bold text-[#DEE1FF]">
+                      {index + 1}
+                    </span>
+                    <span className="text-xs leading-relaxed text-[#E3E1E9]">{step}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Primary Code Block */}
-          <div className="rounded-[24px] bg-[#0B0E14] border border-[#252F42] overflow-hidden">
-            <div className="flex items-center justify-between px-4 py-3 bg-[#121722] border-b border-[#222B3C]">
-              <span className="font-mono text-xs font-semibold text-[#B8CCF0]">
-                {currentGuide.codeTitle}
-              </span>
+          {/* Code / Command Block */}
+          <div className="rounded-[24px] border border-[#444654]/70 bg-[#0E0F14] overflow-hidden">
+            <div className="flex items-center justify-between border-b border-[#444654]/40 bg-[#171820] px-4 py-2.5">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#BAC3FF]">
+                <Terminal className="h-3.5 w-3.5 text-[#66DFB2]" />
+                <span>{currentGuide.codeTitle}</span>
+              </div>
               <button
                 type="button"
-                onClick={() => copyCode(currentGuide.code, "primary")}
-                className="inline-flex items-center gap-1.5 rounded-full bg-[#263042] px-3 py-1 text-xs font-semibold text-[#DCE7FF] hover:bg-[#38465E] cursor-pointer"
+                onClick={handleCopyCode}
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#282932] px-3 py-1 text-[11px] font-semibold text-[#E3E1E9] hover:bg-[#354496] transition-colors"
               >
-                {copiedKey === "primary" ? (
+                {copied ? (
                   <>
-                    <Check className="h-3.5 w-3.5 text-emerald-400" />
-                    {locale === "ru" ? "Скопировано" : "Copied"}
+                    <Check className="h-3.5 w-3.5 text-[#66DFB2]" />
+                    Copied
                   </>
                 ) : (
                   <>
                     <Copy className="h-3.5 w-3.5" />
-                    {locale === "ru" ? "Копировать" : "Copy"}
+                    Copy Snippet
                   </>
                 )}
               </button>
             </div>
-            <pre className="p-4 font-mono text-xs sm:text-sm text-[#E5EAF5] overflow-x-auto leading-relaxed">
-              <code>{currentGuide.code}</code>
+            <pre className="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-[#E3E1E9]">
+              <code>{currentGuide.codeSnippet}</code>
             </pre>
           </div>
-
-          {/* Optional Secondary Code Block */}
-          {currentGuide.secondaryCode && (
-            <div className="rounded-[24px] bg-[#0B0E14] border border-[#252F42] overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-3 bg-[#121722] border-b border-[#222B3C]">
-                <span className="font-mono text-xs font-semibold text-[#DECFF8]">
-                  {currentGuide.secondaryCodeTitle}
-                </span>
-                <button
-                  type="button"
-                  onClick={() =>
-                    copyCode(currentGuide.secondaryCode!, "secondary")
-                  }
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#263042] px-3 py-1 text-xs font-semibold text-[#DCE7FF] hover:bg-[#38465E] cursor-pointer"
-                >
-                  {copiedKey === "secondary" ? (
-                    <>
-                      <Check className="h-3.5 w-3.5 text-emerald-400" />
-                      {locale === "ru" ? "Скопировано" : "Copied"}
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="h-3.5 w-3.5" />
-                      {locale === "ru" ? "Копировать" : "Copy"}
-                    </>
-                  )}
-                </button>
-              </div>
-              <pre className="p-4 font-mono text-xs sm:text-sm text-[#E5EAF5] overflow-x-auto leading-relaxed">
-                <code>{currentGuide.secondaryCode}</code>
-              </pre>
-            </div>
-          )}
         </div>
       </div>
     </section>
