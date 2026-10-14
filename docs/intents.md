@@ -47,7 +47,7 @@ adb shell am broadcast -a com.hamondev.shevery.action.START_SERVER -p com.hamond
 
 > **Requirement**: Third-party automation broadcasts and the Tasker plugin require **Shevery Connectors** to be enabled in **Settings → Automation** (`shizuku_connector_enabled`).
 > 
-> **Authentication Token**: Direct broadcasts require the secret auth token (`-e auth <token>`) configured in Shevery (accessible via the Home screen **View intents** sheet). If missing or invalid, broadcasts are rejected with `RESULT_CANCELED`.
+> **Authentication Token**: Direct broadcasts require the secret auth token (`-e auth <token>`) configured in Shevery (accessible via **Settings → Automation** or the Home screen **View intents** sheet). If Connectors are disabled or the token is missing/invalid, broadcasts are rejected with `RESULT_CANCELED` and Shevery posts a high-importance alert notification that deep-links to **Settings → Automation**.
 
 Detailed guide: [Tasker & MacroDroid Automation Guide](tasker-plugin.md).
 
