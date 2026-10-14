@@ -59,11 +59,11 @@ export const SHEVERY_FEATURES: FeatureItem[] = [
     id: "stealth-edition",
     category: "stealth",
     badge: "ANTI-DETECTION",
-    title: "Stealth Edition & On-Device APK Morphing",
+    title: "Stealth Installation & Package Disguise",
     description:
-      "Evade aggressive banking and anti-cheat package scanners by generating a randomized package name and custom label directly on the device.",
+      "Evade aggressive banking and anti-cheat package scanners by installing Shevery under a randomized package name and custom label directly on the device.",
     technicalDetail:
-      "Patches binary AndroidManifest.xml string pools in UTF-8/UTF-16LE, resigns with an auto-generated V1/V2/V3 certificate, and migrates your config.",
+      "Rewrites binary AndroidManifest.xml string pools in UTF-8/UTF-16LE, resigns with an auto-generated V1/V2/V3 certificate, and migrates your config.",
     accent: "secondary",
     iconName: "ShieldAlert",
     span: "normal",
@@ -211,7 +211,7 @@ cmd_appops set com.example.heavyapp RUN_IN_BACKGROUND ignore`,
   {
     id: "stealth-usb-hide",
     category: "Stealth & Anti-Detection",
-    title: "Stealth Morphing, Stubs & USB Debugging Hide",
+    title: "Stealth Disguise, Stubs & USB Debugging Hide",
     summary:
       "Prevent banking apps, enterprise MDM, and games from detecting Shizuku, Developer Options, or active ADB debugging.",
     badge: "Zero Detection",
@@ -225,7 +225,7 @@ settings put global development_settings_enabled 0
 settings put global adb_enabled 1
 settings put global development_settings_enabled 1`,
     steps: [
-      "Go to Settings → Stealth Installation to generate a morphed APK with a random package name (e.g. com.sys.helper.a9f2) and custom app label.",
+      "Go to Settings → Stealth Installation to build a custom APK with a random package name (e.g. com.sys.helper.a9f2) and custom app label.",
       "Open Settings → Compatibility Stubs to install lightweight Shizuku / Sui / Dhizuku bridge stubs if legacy apps check hardcoded package names.",
       "Open Settings → Lab Features → Hide USB Debugging and select the apps that check for Developer Options or USB Debugging.",
       "Enable the background guard service — Shevery spoofs the flags in real time only while those apps are in the foreground.",

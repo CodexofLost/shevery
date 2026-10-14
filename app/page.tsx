@@ -1,21 +1,16 @@
 import React from "react"
-import Image from "next/image"
 import {
   Sparkles,
   Download,
   GitBranch,
   ShieldCheck,
-  Terminal,
   Bot,
   PackageCheck,
   ArrowUpRight,
   Cpu,
-  Layers,
   KeyRound,
   EyeOff,
-  Activity,
   BookOpen,
-  Flame,
   Zap,
 } from "lucide-react"
 import { FeaturesBento } from "@/components/features-bento"
@@ -36,18 +31,10 @@ export default function SheveryHomePage() {
         <div className="m3-blob absolute -bottom-32 left-10 h-[380px] w-[380px] bg-[#00513B]/20 blur-[130px]" />
       </div>
 
-      {/* Sticky Material 3 Expressive Navigation Bar */}
+      {/* Sticky Material 3 Expressive Navigation Bar (No Logo) */}
       <header className="sticky top-0 z-50 border-b border-[#444654]/40 bg-[#121318]/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="relative h-9 w-9 overflow-hidden rounded-2xl border border-[#BAC3FF]/40 bg-[#354496]/50 shadow-sm transition-transform group-hover:scale-105">
-              <Image
-                src="/icon.webp"
-                alt="Shevery Logo"
-                fill
-                className="object-cover"
-              />
-            </div>
+          <a href="#" className="flex items-center gap-2.5 group">
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-display text-lg font-extrabold tracking-tight text-white">
@@ -66,7 +53,6 @@ export default function SheveryHomePage() {
           <nav className="hidden md:flex items-center gap-1 rounded-full border border-[#444654]/60 bg-[#1B1C22]/90 p-1">
             {[
               { href: "#features", label: "Capabilities" },
-              { href: "#editions", label: "Editions & Stealth" },
               { href: "#architecture", label: "Architecture" },
               { href: "#guides", label: "Guides & API" },
             ].map((link) => (
@@ -131,8 +117,8 @@ export default function SheveryHomePage() {
                 <strong className="text-white font-semibold">Shevery</strong> is a deeply engineered evolution of Shizuku built with Material 3 Expressive design. It pairs direct Android binder IPC with the{" "}
                 <span className="text-[#FFADE1] font-medium">Comput 44-tool AI Agent</span>,{" "}
                 <span className="text-[#66DFB2] font-medium">rootless Magisk-like ADB Modules</span>,{" "}
-                <span className="text-[#BAC3FF] font-medium">Device Owner & Dhizuku bridging</span>, and on-device{" "}
-                <span className="text-white font-medium">Stealth APK morphing</span>.
+                <span className="text-[#BAC3FF] font-medium">Device Owner & Dhizuku bridging</span>, and{" "}
+                <span className="text-white font-medium">anti-detection package disguise</span>.
               </p>
 
               {/* Primary CTAs */}
@@ -159,9 +145,9 @@ export default function SheveryHomePage() {
                   rel="noopener noreferrer"
                   className="m3-spring inline-flex items-center gap-2 rounded-full border border-[#444654]/70 bg-[#121318] px-5 py-3.5 text-sm font-semibold text-[#C5C5D6] hover:text-white"
                 >
-                <GitBranch className="h-4 w-4" />
-                Source Code
-                <ArrowUpRight className="h-4 w-4" />
+                  <GitBranch className="h-4 w-4" />
+                  Source Code
+                  <ArrowUpRight className="h-4 w-4" />
                 </a>
               </div>
 
@@ -181,7 +167,7 @@ export default function SheveryHomePage() {
               </div>
             </div>
 
-            {/* Right Column: Material 3 Expressive System Overview Cards (No Phone Mockup / No Screenshots) */}
+            {/* Right Column: Material 3 Expressive System Overview Cards */}
             <div className="lg:col-span-5 space-y-3.5">
               {/* Expressive Active Binder Card */}
               <div className="m3-spring rounded-[28px] bg-gradient-to-br from-[#354496] via-[#2B377B] to-[#1E2759] p-5 text-[#DEE1FF] shadow-lg border border-[#BAC3FF]/30">
@@ -252,7 +238,7 @@ export default function SheveryHomePage() {
                     Stealth & USB Spoofing
                   </div>
                   <p className="text-xs text-[#8F909F] leading-relaxed">
-                    On-device APK package morphing and real-time foreground USB debugging hiding.
+                    Custom package disguise and real-time foreground USB debugging hiding.
                   </p>
                 </div>
 
@@ -277,7 +263,7 @@ export default function SheveryHomePage() {
           </div>
         </section>
 
-        {/* BENTO FEATURES & EDITIONS SECTION */}
+        {/* BENTO FEATURES SECTION */}
         <section id="features" className="scroll-mt-24">
           <FeaturesBento />
         </section>
@@ -352,20 +338,15 @@ export default function SheveryHomePage() {
         <GuidesAndDocsHub />
       </main>
 
-      {/* Footer */}
+      {/* Footer (No Logo) */}
       <footer className="border-t border-[#444654]/40 bg-[#0E0F14] py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="relative h-8 w-8 overflow-hidden rounded-xl border border-[#BAC3FF]/30">
-              <Image src="/icon.webp" alt="Shevery" fill className="object-cover" />
+          <div>
+            <div className="font-display text-sm font-bold text-white">
+              Shevery · Material 3 Expressive Privilege Manager
             </div>
-            <div>
-              <div className="font-display text-sm font-bold text-white">
-                Shevery · Material 3 Expressive Privilege Manager
-              </div>
-              <div className="text-xs text-[#8F909F]">
-                Maintained by HmnDev-Tech · Open Source under Apache-2.0
-              </div>
+            <div className="text-xs text-[#8F909F]">
+              Maintained by HmnDev-Tech · Open Source under Apache-2.0
             </div>
           </div>
 
@@ -385,14 +366,6 @@ export default function SheveryHomePage() {
               className="hover:text-white transition-colors"
             >
               Releases & APKs
-            </a>
-            <a
-              href="https://github.com/HmnDev-Tech/shevery/tree/main/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Documentation
             </a>
             <a
               href="https://github.com/HmnDev-Tech/shevery/issues"
