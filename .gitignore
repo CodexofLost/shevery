@@ -20,3 +20,8 @@ signing.properties
 **/build/
 *.jks
 .agents/
+node_modules/
+.next/
+next-env.d.ts
+/tmp/
+

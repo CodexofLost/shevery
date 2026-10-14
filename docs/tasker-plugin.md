@@ -4,7 +4,7 @@ Shevery provides native automation integration for **Tasker**, **MacroDroid**, *
 
 Wiki mirror: https://github.com/HmnDev-Tech/shevery/wiki/Tasker-Plugin
 
-> **Important**: To allow Tasker, MacroDroid, or external broadcasts to control Shevery, ensure **Shevery Connectors** is enabled under **Settings → Automation** (`Allow plugins to activate Shevery`). If disabled, control actions will be safely rejected.
+> **Important**: To allow Tasker, MacroDroid, or external broadcasts to control Shevery, ensure **Shevery Connectors** is enabled under **Settings → Automation** (`Allow plugins to activate Shevery`). If disabled (or if a direct broadcast has a missing/mismatched `auth` token), control actions are rejected with `RESULT_CANCELED` and Shevery posts a high-importance alert notification that opens **Settings → Automation** when tapped.
 
 ---
 

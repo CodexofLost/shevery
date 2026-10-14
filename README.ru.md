@@ -30,11 +30,18 @@
 
 ## Документация
 
+- [Shevery Wiki](https://github.com/HmnDev-Tech/shevery/wiki)
+- [Руководство по ИИ-агенту Comput](docs/comput-agent.md)
+- [Руководство по Device Owner и Profile Owner](docs/device-owner.md)
+- [Stealth-версия и заглушки совместимости (Stubs)](docs/stealth-and-stubs.md)
+- [Менеджер спец. возможностей, скрытие отладки по USB и сетевой экран](docs/lab-and-extras.md)
+- [Автоматизация через Tasker и MacroDroid](docs/tasker-plugin.md)
+- [Справочник по Intent-действиям](docs/intents.md)
 - [Руководство по ADB-модулям](docs/adb-modules-guide.md)
 - [Справочник API ADB-модулей](docs/adb-modules-api.md)
+- [Руководство по публикации ADB-модулей](docs/github-catalog.md)
 - [API коннекторов Shizuku](docs/shizuku-connectors.md)
 - [Совместимость с Android 17](docs/android-17-compatibility.md)
-- [Руководство по публикации ADB-модулей](docs/github-catalog.md)
 
 ## Предыстория
 
