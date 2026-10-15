@@ -1,59 +1,86 @@
-# Android 17 (API 37) Compatibility Comparison
+# Android 15+ Hidden API Changes and the Android17Compat Layer
 
-This document provides a technical comparison between the original Shizuku release (v13.6.0) and our modernized fork (v13.6.0.r33) when running on Android 17 (Cinnamon Bun / API 37) Canary.
+This document records what actually changed in the platform's hidden package and
+permission APIs, how that was established, and what `Android17Compat` does about
+it. Every signature below was read out of the platform, not recalled.
 
-## The Core Issue
+## How this was established
 
-In the May 12, 2026 update for Android 17, Google introduced significant changes to hidden APIs to support Virtual Devices and improve security. Specifically, the method signatures within `IPackageManager` and `IPermissionManager` were heavily modified:
+- The compiled Android 17 framework,
+  `org.robolectric:android-all:17-robolectric-15733970`, which is built from AOSP
+  and contains the hidden `android.permission.IPermissionManager$Stub` and
+  `android.content.pm.IPackageManager$Stub` that the SDK's public `android.jar`
+  does not ship. `javap` on those two interfaces gives the exact descriptors.
+- The AIDL sources on the `android15-release`, `android16-release` and
+  `android17-release` branches of `platform/frameworks/base`.
+- `dev.rikka.hidden:compat:4.4.0` itself, to see which signatures the helper
+  library was compiled against.
 
-- `IPermissionManager.grantRuntimePermission` and `revokeRuntimePermission` now require an additional `int deviceId` parameter to handle cross-device handoffs.
-- `IPackageManager.getInstalledPackages` also received signature modifications.
+## What changed
 
-Because Shizuku relies on these hidden APIs to operate (listing packages and granting/revoking permissions via ADB/Root), these signature changes caused the legacy implementation to fail.
+`IPermissionManager`, identically on 15, 16 and 17:
 
-## Original Shizuku (v13.6.0)
-
-When running the original Shizuku on Android 17, the server process attempts to start but encounters critical failures when executing permission-related tasks.
-
-### Behavior
-- The `shizuku_server` process initializes and binds to the system.
-- When a client app requests Shizuku permissions, the server attempts to call `PermissionManagerApis.grantRuntimePermission(packageName, permissionName, userId)`.
-- Because the underlying Android 17 API now expects a `deviceId`, the Dalvik/ART JVM throws a fatal `NoSuchMethodError`.
-- As a result, permission grants are silently dropped or the server crashes, breaking core Shizuku functionality for third-party apps.
-
-### Logcat Evidence
-```text
-05-15 00:29:45.734 10167 10167 D Shizuku : start_server
-05-15 00:29:45.848 10172 10172 I shizuku_server: Core platform API enforcement enabled from the hiddenapi_platform_enforcement flag and the device API level
-05-15 00:29:46.085 10172 10172 D AndroidRuntime: Calling main entry rikka.shizuku.server.ShizukuService
-05-15 00:29:46.160   671   704 I ActivityManager: Start proc 10183:moe.shizuku.privileged.api/u0a230 for content provider
-05-15 00:29:46.262 10172 10181 I Service : send binder to user app moe.shizuku.privileged.api in user 0
-...
-# Subsequent permission requests trigger:
-java.lang.NoSuchMethodError: No virtual method grantRuntimePermission(Ljava/lang/String;Ljava/lang/String;I)V in class Landroid/permission/IPermissionManager;
+```
+int  checkPermission(String packageName, String permissionName, String persistentDeviceId, int userId)
+void grantRuntimePermission(String packageName, String permissionName, String persistentDeviceId, int userId)
+void revokeRuntimePermission(String packageName, String permissionName, String persistentDeviceId, int userId, String reason)
+int  checkUidPermission(int uid, String permissionName, int deviceId)
 ```
 
-## Modernized Fork (v13.6.0.r33)
+Two details matter, and both are easy to get wrong:
 
-Our fork implements a robust, dynamic reflection fallback mechanism (`Android17Compat.java` and `ShizukuSystemApis.kt`) designed specifically to intercept these API 37 changes.
+1. **The package name comes first, the permission second.** Passing them the other
+   way round does not fail loudly: both parameters are `String`, so the call
+   succeeds and answers `PERMISSION_DENIED`. A permission that is held is then
+   reported as denied, which reads as a permission problem rather than a
+   programming one.
+2. **The device id is a `String` here, and the value for the local device is
+   `"default:0"`** — that is what `android.permission.PermissionManager`
+   `getPersistentDeviceId(0)` returns. It is not `"default"`. At the same time
+   other methods in the *same* interface — `shouldShowRequestPermissionRationale`,
+   `isPermissionRevokedByPolicy`, `getPermissionRequestState` — still take an
+   `int deviceId`, so no single hardcoded shape can be correct for the whole
+   interface.
 
-### Behavior
-- When the `NoSuchMethodError` is caught, the system gracefully degrades to a manual `ServiceManager.getService("permissionmgr")` call.
-- It dynamically scans the available methods on the Binder interface at runtime.
-- If it detects the new Android 17 signature requiring a `deviceId`, it automatically injects `Context.DEVICE_ID_DEFAULT` (0) alongside the `userId`.
-- Permission grants and package queries succeed transparently, avoiding any server-side panics.
+`IPackageManager`:
 
-### Logcat Evidence
-```text
-05-15 00:28:38.137  9830  9830 D Shizuku : start_server
-05-15 00:28:38.889  9835  9835 I shizuku_server: Core platform API enforcement enabled from the hiddenapi_platform_enforcement flag and the device API level
-05-15 00:28:39.217  9835  9835 D AndroidRuntime: Calling main entry rikka.shizuku.server.ShizukuService
-05-15 00:28:39.341  9835  9835 I Service : send binder to user app moe.shizuku.privileged.api in user 0
-...
-# Fallback successfully intercepts API mismatch:
-# Method IPermissionManager.grantRuntimePermission(String, String, int deviceId, int userId) invoked successfully via Android17Compat reflection fallback.
+```
+PackageInfo     getPackageInfo(String, long, int)         unchanged
+ApplicationInfo getApplicationInfo(String, long, int)     unchanged
+                getInstalledPackages(long, int)           ParceledListSlice -> PackageInfoList on 17
+                getInstalledApplications(long, int)       unchanged
 ```
 
-## Conclusion
+`getInstalledPackages` changed by **return type**. A JVM method descriptor
+includes the return type, so the old descriptor no longer resolves and the call
+fails with `NoSuchMethodError`. Note that `getPackageInfo` and
+`getApplicationInfo` did *not* change.
 
-The legacy Shizuku implementation is inherently incompatible with the new Virtual Device API signatures introduced in Android 17. By creating `Android17Compat`, our fork guarantees stability, prevents server crashes on permission evaluation, and restores full functionality for all ADB/Root clients running on API 37+ environments.
+The change is not specific to Android 17: `android15-release` already carries the
+four-argument permission signatures.
+
+## What Android17Compat does
+
+- Resolves the hidden interfaces through `ServiceManager` and `Class.forName`, and
+  tries candidate argument shapes against the methods the platform actually
+  exposes.
+- Requires an **exact** parameter-type match, and never tries a candidate whose
+  parameter shape duplicates one already tried. Two argument lists that bind to
+  the same parameter types are not alternatives — reflection cannot tell them
+  apart, so treating them as alternatives is how a wrong order gets silently
+  accepted.
+- Reads `IllegalArgumentException` as "this shape is not for this method" and
+  tries the next, and `InvocationTargetException` as the platform answering, which
+  is not retried as a wrong guess.
+- Caches the resolved method together with the shape that won, so the guessing
+  happens once, and reports through the server log when no candidate matched
+  instead of returning a denial that looks like an answer.
+- `grantRuntimePermission` and `revokeRuntimePermission` return whether the
+  platform was reached, so a grant cannot be lost without a word.
+
+## Known limits
+
+- The 15/16/17 shapes are covered. Pre-15 shapes are kept as legacy candidates
+  where they are distinguishable by arity, but they are not the target.
+- This layer is compile-verified against the Android 17 SDK and reviewed against
+  the platform sources. It has not been exercised on a device.

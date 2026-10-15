@@ -6,16 +6,19 @@ import android.content.pm.PackageManager
 import android.os.IBinder
 import android.os.RemoteException
 import android.os.ServiceManager
+import moe.shizuku.common.util.InstalledPackagesCompat
 import rikka.hidden.compat.PackageManagerApis
 import rikka.hidden.compat.PermissionManagerApis
 import rikka.hidden.compat.UserManagerApis
 import rikka.hidden.compat.util.SystemServiceBinder
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuBinderWrapper
-import moe.shizuku.common.util.InstalledPackagesCompat
 import java.lang.reflect.Method
 
 object ShizukuSystemApis {
+
+    private const val PERSISTENT_DEVICE_ID = "default:0"
+    private const val REVOKE_REASON = "shizuku"
 
     @Volatile
     private var sPackageManager: Any? = null
@@ -25,8 +28,6 @@ object ShizukuSystemApis {
     private var getPackageInfoMethod: Method? = null
     @Volatile
     private var getApplicationInfoMethod: Method? = null
-    @Volatile
-    private var getListMethod: Method? = null
 
     @Volatile
     private var sPermissionManager: Any? = null
@@ -134,15 +135,15 @@ object ShizukuSystemApis {
         val paramTypes = method.parameterTypes
         val finalArgs = arrayOfNulls<Any>(paramTypes.size)
 
-        if (paramTypes.size == args.size + 1) {
+        if (paramTypes.size >= args.size + 1) {
             val lastIdx = args.size - 1
             System.arraycopy(args, 0, finalArgs, 0, lastIdx)
-            finalArgs[lastIdx] = 0
+            finalArgs[lastIdx] = if (paramTypes[lastIdx] == String::class.java) PERSISTENT_DEVICE_ID else 0
             finalArgs[lastIdx + 1] = args[lastIdx]
 
             for (i in (lastIdx + 2) until paramTypes.size) {
                 if (paramTypes[i] == Int::class.javaPrimitiveType) finalArgs[i] = 0
-                else if (paramTypes[i] == String::class.java) finalArgs[i] = null
+                else if (paramTypes[i] == String::class.java) finalArgs[i] = REVOKE_REASON
             }
         } else {
             System.arraycopy(args, 0, finalArgs, 0, Math.min(args.size, paramTypes.size))
@@ -236,7 +237,14 @@ object ShizukuSystemApis {
         } catch (e: NoSuchMethodError) {
             try {
                 val pm = getPermissionManager()
-                return invokeCompat(checkPermissionMethod, pm, permName, pkgName, userId) as? Int ?: PackageManager.PERMISSION_DENIED
+                val method = checkPermissionMethod
+                return if (method != null && method.parameterTypes.size >= 4) {
+                    invokeCompat(method, pm, pkgName, permName, userId) as? Int
+                        ?: PackageManager.PERMISSION_DENIED
+                } else {
+                    invokeCompat(method, pm, permName, pkgName, userId) as? Int
+                        ?: PackageManager.PERMISSION_DENIED
+                }
             } catch (t: Throwable) {}
             return PackageManager.PERMISSION_DENIED
         } catch (tr: RemoteException) {
@@ -270,12 +278,7 @@ object ShizukuSystemApis {
         } catch (e: NoSuchMethodError) {
             try {
                 val pm = getPermissionManager()
-                val method = revokeRuntimePermissionMethod
-                if (method != null && method.parameterTypes.size == 5 && method.parameterTypes[4] == String::class.java) {
-                    method.invoke(pm, packageName, permissionName, 0, userId, "shizuku")
-                } else {
-                    invokeCompat(method, pm, packageName, permissionName, userId)
-                }
+                invokeCompat(revokeRuntimePermissionMethod, pm, packageName, permissionName, userId)
             } catch (ex: Throwable) {
             }
         } catch (tr: RemoteException) {
