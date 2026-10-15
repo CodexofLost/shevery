@@ -103,21 +103,22 @@ object ShizukuStateMachine {
     }
 
     /**
-     * Called when the binder dies. If the server was RUNNING, it crashed unless
-     * an expected restart/starter death is active ([WatchdogManager.isExpectingDeathActive]).
-     * If it was STOPPING (explicit stop), optionally auto-disable USB debugging
-     * and transition to STOPPED.
+     * Pre-stop lifecycle coordinator.
+     * Transitions state to [State.STOPPING] when a user or system stop is requested.
+     */
+    fun onStopRequested() {
+        set(State.STOPPING)
+    }
+
+    /**
+     * Called when the binder dies. If a stop was requested (explicit STOPPING or
+     * userStopRequested), disarm USB debugging if configured and transition to STOPPED.
+     * If the server was RUNNING without a stop request, it crashed unless an expected
+     * restart death is active ([WatchdogManager.isExpectingDeathActive]).
      */
     internal fun setDead() = transitionAtomic {
-        when (it) {
-            State.RUNNING -> {
-                if (WatchdogManager.isExpectingDeathActive()) {
-                    State.STARTING
-                } else {
-                    State.CRASHED
-                }
-            }
-            State.STOPPING -> {
+        when {
+            it == State.STOPPING || WatchdogManager.isUserStopRequested() -> {
                 try {
                     val appContext = application.applicationContext
                     if (ShizukuSettings.getAutoDisableUsbDebugging()) {
@@ -129,6 +130,14 @@ object ShizukuStateMachine {
                 }
                 State.STOPPED
             }
+            it == State.RUNNING -> {
+                if (WatchdogManager.isExpectingDeathActive()) {
+                    State.STARTING
+                } else {
+                    State.CRASHED
+                }
+            }
+            it == State.STARTING -> State.STARTING
             else -> it
         }
     }

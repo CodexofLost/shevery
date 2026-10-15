@@ -218,12 +218,14 @@ object WatchdogManager {
             setUserStopRequested(true)
         }
         expectingDeath = true
+        ShizukuStateMachine.onStopRequested()
         return try {
             Shizuku.exit()
             null
         } catch (e: Throwable) {
             logd("Watchdog stop failed: ${e.message}")
             expectingDeath = false
+            ShizukuStateMachine.update()
             e
         }
     }
