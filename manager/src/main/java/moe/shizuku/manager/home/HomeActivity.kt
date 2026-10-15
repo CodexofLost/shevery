@@ -101,6 +101,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.blur
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import moe.shizuku.manager.ui.compose.scrollMotionBlur
@@ -574,7 +575,20 @@ abstract class HomeActivity : AppActivity() {
                                         strength = motionBlurStrength
                                     )
                             ) { page ->
-                                tabContent(page)
+                                val pageOffset = pagerState.currentPage - page +
+                                    pagerState.currentPageOffsetFraction
+                                val horizontalBlur = pagerOffsetBlur(
+                                    enabled = motionBlurEnabled && swipeBetweenTabs,
+                                    offsetFraction = pageOffset,
+                                    intensity = motionBlurIntensity,
+                                    strength = motionBlurStrength
+                                )
+                                Box(
+                                    modifier = Modifier.fillMaxSize()
+                                        .then(if (horizontalBlur > 0.dp) Modifier.blur(horizontalBlur) else Modifier)
+                                ) {
+                                    tabContent(page)
+                                }
                             }
                         } else {
                             androidx.compose.animation.AnimatedContent(
@@ -1066,6 +1080,21 @@ private data class LocalNetworkPermissionState(
         get() = permissions.takeIf { it.isNotEmpty() }
             ?.joinToString { it.substringAfterLast('.') }
             ?: "none"
+}
+
+private fun pagerOffsetBlur(
+    enabled: Boolean,
+    offsetFraction: Float,
+    intensity: Int,
+    strength: Int
+): androidx.compose.ui.unit.Dp {
+    if (!enabled) return 0.dp
+    val offset = kotlin.math.abs(offsetFraction).coerceIn(0f, 1f)
+    if (offset <= 0.001f) return 0.dp
+    val maxRadius = (intensity.coerceIn(0, 100) / 100f) * 24f
+    if (maxRadius <= 0.01f) return 0.dp
+    val sensitivity = 0.5f + (strength.coerceIn(0, 100) / 100f)
+    return (offset * maxRadius * sensitivity).dp
 }
 
 private data class HomeButtonSpec(
