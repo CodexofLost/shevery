@@ -8,7 +8,6 @@
     <string name="update_settings_frequency_label">Kontrolli sagedust</string>
     <string name="home_update_available_title">Saadaval on Shevery värskendus: %s</string>
     <string name="home_update_available_body">Uuem versioon on valmis. Puudutage allalaadimiseks.</string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Liigu ülespoole]]></string>
     <string name="accessibility_close"><![CDATA[Sulge]]></string>

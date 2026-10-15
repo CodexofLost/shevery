@@ -21,7 +21,6 @@
     <string name="update_settings_frequency_label"><![CDATA[Kontrolu frekvencon]]></string>
     <string name="home_update_available_title"><![CDATA[Havebla ĝisdatigo de Shevery: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Pli nova versio estas preta. Frapu por elŝuti.]]></string>
-    <string name="app_name"><![CDATA[Ŝeŭeri]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Navigu supren]]></string>
     <string name="accessibility_close"><![CDATA[Fermu]]></string>
     <string name="accessibility_more_options"><![CDATA[Pli da opcioj]]></string>

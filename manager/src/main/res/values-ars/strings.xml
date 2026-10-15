@@ -516,7 +516,6 @@ Ready for commands.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[تمت إزالة كعب الروتين القديم]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[فشل %1$s في كعب الروتين القديم عبر %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[لا توجد قناة متاحة (ابدأ Shevery أولاً)]]></string>
-    <string name="app_name"><![CDATA[شيفري]]></string>
     <string name="home_status_service_version_update"><![CDATA[الإصدار %2$s، %1$s<br/>ابدأ من جديد للتحديث إلى الإصدار %3$s]]></string>
     <string name="home_adb_title"><![CDATA[ابدأ بالاتصال بجهاز كمبيوتر]]></string>
     <string name="home_adb_description"><![CDATA[بالنسبة للأجهزة التي لم يتم عمل روت لها، يتعين عليك استخدام adb لتشغيل Shevery (يتطلب اتصالاً بالكمبيوتر). يجب تكرار هذه العملية في كل مرة يتم فيها إعادة تشغيل الجهاز. يرجى <b><a href="%1$s">قراءة دليل المساعدة</a></b>.]]></string>

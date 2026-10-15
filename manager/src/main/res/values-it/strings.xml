@@ -114,7 +114,6 @@
     <string name="update_settings_frequency_label"><![CDATA[Frequenza controllo]]></string>
     <string name="home_update_available_title"><![CDATA[Aggiornamento Shevery disponibile: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Una versione più recente è pronta. Tocca per scaricare.]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Torna indietro]]></string>
     <string name="accessibility_close"><![CDATA[Chiudi]]></string>
     <string name="accessibility_more_options"><![CDATA[Altre opzioni]]></string>

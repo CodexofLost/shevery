@@ -14,7 +14,6 @@
     <string name="update_settings_frequency_label"><![CDATA[შეამოწმეთ სიხშირე]]></string>
     <string name="home_update_available_title"><![CDATA[Shevery განახლება ხელმისაწვდომია: %s]]></string>
     <string name="home_update_available_body"><![CDATA[უფრო ახალი ვერსია მზად არის. შეეხეთ ჩამოსატვირთად.]]></string>
-    <string name="app_name"><![CDATA[შევერი]]></string>
     <string name="accessibility_navigate_up"><![CDATA[ზევით დაბრუნება]]></string>
     <string name="accessibility_close"><![CDATA[დახურვა]]></string>
     <string name="accessibility_more_options"><![CDATA[მეტი პარამეტრი]]></string>

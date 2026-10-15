@@ -437,7 +437,6 @@ Android 11未満ではパソコン接続が必要です。]]></string>
     <string name="shevery_update_auto_check_summary"><![CDATA[アプリが閉じているときも新しいバージョンを探す]]></string>
     <string name="home_update_available_title"><![CDATA[Sheveryの更新が利用可能: %s]]></string>
     <string name="home_update_available_body"><![CDATA[新しいバージョンの準備ができました。タップしてダウンロード。]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="settings_start_on_boot_adb_missing_permission_copy"><![CDATA[Kopieren des Befehls]]></string>
     <string name="shevery_update_check_title"><![CDATA[Sheveryのアップデートを確認]]></string>
     <string name="comput_hero_title"><![CDATA[Sheveryコンソール]]></string>

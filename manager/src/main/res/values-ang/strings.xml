@@ -516,7 +516,6 @@ Ready for commands.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[Legacy stub removed]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Failed to %1$s the legacy stub via %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[No channel available (start Shevery first)]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Start again to update to version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[Start by connecting to a computer]]></string>
     <string name="home_adb_description"><![CDATA[For devices without root, you need to use adb to start Shevery (requires computer connection). This process needs to be repeated every time the device is restarted. Please <b><a href="%1$s">read the help</a></b>.]]></string>

@@ -441,7 +441,6 @@
     <string name="wadb_notification_channel"><![CDATA[ADB-Autostartdienst]]></string>
     <string name="comput_stop_desc"><![CDATA[Stop-Befehl]]></string>
     <string name="accessibility_manager_service_no_description"><![CDATA[Keine Beschreibung vom Dienst bereitgestellt.]]></string>
-    <string name="app_name"><![CDATA[Uchuvchi]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Boshqa ba\'zi jihatlar ham mavjud, iltimos, avvalo yordamni o\'qiganingizga ishonch hosil qiling.]]></string>
     <string name="dialog_adb_discovery_message"><![CDATA[Iltimos, "Rivojlantiruvchi sozlamalar"da "Simsiz xatoliklarni tuzatish"ni yoqing. Tarmoq o\'zgarganda "Simsiz xatoliklarni tuzatish" avtomatik ravishda o\'chiriladi. Eslatma: "Rivojlantiruvchi sozlamalar" yoki "USB xatoliklarni tuzatish"ni o\'chirib qo\'ymang, aks holda Shevery to\'xtab qoladi.]]></string>
     <string name="dialog_adb_pairing_message"><![CDATA[Iltimos, quyidagi bosqichlar bo\'yicha juftlashni boshlang: "Rivojlantiruvchi sozlamalari" - "Simsiz xatolikni tuzatish" - "Juftlash kodidan foydalanib qurilmani juftlash". Juftlash jarayoni boshlangandan so\'ng, juftlash kodini kiritishingiz mumkin bo\'ladi.]]></string>

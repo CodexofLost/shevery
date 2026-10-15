@@ -519,7 +519,6 @@
     <string name="settings_compat_stub_uninstalled"><![CDATA[تمت إزالة الرابط القديم]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[فشل في %1$s الكود المقتضب القديم عبر %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[لا توجد قناة متاحة (ابدأ بـ «شيفي» أولاً)]]></string>
-    <string name="app_name"><![CDATA[شيفري]]></string>
     <string name="dialog_adb_discovery_message"><![CDATA[يرجى تمكين "التصحيح اللاسلكي" في "خيارات المطور". يتم تعطيل "التصحيح اللاسلكي" تلقائيًا عند حدوث تغييرات في الشبكة.
 
 ملاحظة: لا تقم بتعطيل "خيارات المطور" أو "التصحيح عبر USB"، وإلا سيتوقف تطبيق Shevery عن العمل.]]></string>

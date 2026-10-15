@@ -5,7 +5,6 @@
     <string name="update_settings_frequency_label"><![CDATA[Проверете честотата]]></string>
     <string name="home_update_available_title">Налична актуализация на Shevery: %s</string>
     <string name="home_update_available_body">Готова е по-нова версия. Докоснете за изтегляне.</string>
-    <string name="app_name"><![CDATA[Шевери]]></string>
     <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Нагоре]]></string>
     <string name="accessibility_close"><![CDATA[Затвори]]></string>

@@ -14,7 +14,6 @@
     <string name="update_settings_frequency_label"><![CDATA[ফ্রিকোয়েন্সি পরীক্ষা করুন]]></string>
     <string name="home_update_available_title"><![CDATA[Shevery আপডেট উপলব্ধ: %s]]></string>
     <string name="home_update_available_body"><![CDATA[একটি নতুন সংস্করণ প্রস্তুত। ডাউনলোড করতে আলতো চাপুন।]]></string>
-    <string name="app_name"><![CDATA[সেভরি]]></string>
     <string name="accessibility_navigate_up"><![CDATA[উপর নেভিগেট করুন]]></string>
     <string name="accessibility_close"><![CDATA[বন্ধ করুন]]></string>
     <string name="accessibility_more_options"><![CDATA[আরও বিকল্প]]></string>

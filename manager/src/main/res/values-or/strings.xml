@@ -514,7 +514,6 @@ Ready for commands.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[ଲିଗାସି ଷ୍ଟବ୍ ଅପସାରଣ କରାଯାଇଛି]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[%2$s ମାଧ୍ୟମରେ ଲିଗାସି ଷ୍ଟବ୍ %1$s କରିବାକୁ ବିଫଳ ହୋଇଛି: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[କୌଣସି ଚ୍ୟାନେଲ୍ ଉପଲବ୍ଧ ନାହିଁ (ପ୍ରଥମେ ସିଭର୍ ଆରମ୍ଭ କରନ୍ତୁ)]]></string>
-    <string name="app_name"><![CDATA[ଶେଭ]]></string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Start again to update to version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[ଏକ କମ୍ପ୍ୟୁଟରକୁ ସଂଯୋଗ କରି ଆରମ୍ଭ କରନ୍ତୁ]]></string>
     <string name="home_adb_description"><![CDATA[ରୁଟ୍ ନଥିବା ଡିଭାଇସଗୁଡିକ ପାଇଁ, ଆପଣଙ୍କୁ Shevery ଆରମ୍ଭ କରିବାକୁ adb ବ୍ୟବହାର କରିବାକୁ ପଡିବ (କମ୍ପ୍ୟୁଟର ସଂଯୋଗ ଆବଶ୍ୟକ କରେ)। ପ୍ରତ୍ୟେକ ଥର ଡିଭାଇସ୍ ପୁନଃଆରମ୍ଭ ହେବା ସମୟରେ ଏହି ପ୍ରକ୍ରିୟା ପୁନରାବୃତ୍ତି ହେବା ଆବଶ୍ୟକ। ଦୟାକରି <<b>a href="%1$s">ସହାୟତା ପଢନ୍ତୁ</a></b>।]]></string>

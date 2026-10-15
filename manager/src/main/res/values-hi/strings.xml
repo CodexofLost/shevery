@@ -5,7 +5,6 @@
     <string name="update_settings_frequency_label"><![CDATA[आवृत्ति की जाँच करें]]></string>
     <string name="home_update_available_title"><![CDATA[हर अपडेट उपलब्ध: %s]]></string>
     <string name="home_update_available_body"><![CDATA[एक नया संस्करण तैयार है. डाउनलोड करने के लिए टैप करें.]]></string>
-    <string name="app_name"><![CDATA[शेवरी]]></string>
     <string name="translation_contributors"><![CDATA[सर्मार्ट1234, रवलैड]]></string>
     <string name="accessibility_navigate_up"><![CDATA[ऊपर जाएँ]]></string>
     <string name="accessibility_close"><![CDATA[बंद करें]]></string>

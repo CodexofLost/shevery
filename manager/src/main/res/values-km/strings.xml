@@ -514,7 +514,6 @@ Ready for commands.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[ស្ទុបចាស់ដែលបានដកចេញ]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[បរាជ័យក្នុងការ %1$s សម្រាប់ stub ចាស់តាមរយៈ %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[មិនមានឆានែលទេ (ចាប់ផ្តើម Shevery ជាមុន)]]></string>
-    <string name="app_name"><![CDATA[សេវេរី]]></string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Start again to update to version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[ចាប់ផ្តើមដោយភ្ជាប់ទៅកុំព្យូទ័រ]]></string>
     <string name="home_adb_description"><![CDATA[សម្រាប់ឧបករណ៍ដែលមិនមាន root អ្នកត្រូវប្រើ adb ដើម្បីចាប់ផ្តើម Shevery (ត្រូវការការតភ្ជាប់កុំព្យូទ័រ)។ដំណើរការនេះត្រូវធ្វើម្តងទៀតរាល់ពេលឧបករណ៍ត្រូវបានចាប់ផ្តើមឡើងវិញ។សូម <b><a href="%1$s">អានជំនួយ</a></b>។]]></string>

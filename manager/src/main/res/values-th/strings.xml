@@ -114,7 +114,6 @@
     <string name="update_settings_frequency_label"><![CDATA[ตรวจสอบความถี่]]></string>
     <string name="home_update_available_title"><![CDATA[มีการอัปเดตมากมาย: %s]]></string>
     <string name="home_update_available_body"><![CDATA[เวอร์ชันใหม่พร้อมแล้ว แตะเพื่อดาวน์โหลด]]></string>
-    <string name="app_name"><![CDATA[เชเวรี่]]></string>
     <string name="accessibility_navigate_up"><![CDATA[กลับขึ้นด้านบน]]></string>
     <string name="accessibility_close"><![CDATA[ปิด]]></string>
     <string name="accessibility_more_options"><![CDATA[ตัวเลือกเพิ่มเติม]]></string>

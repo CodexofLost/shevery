@@ -547,7 +547,6 @@ Készen áll a parancsok fogadására.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[A régi hivatkozás eltávolítva]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[Nem sikerült %1$s-t végrehajtani a régi stubon %2$s segítségével: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[Nincs elérhető csatorna (először indítsd el a Shevery-t)]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="rish_description"><![CDATA[A %1$s segítségével bármely terminálalkalmazásból csatlakozhat a Shevery által futtatott parancssorhoz, és ott műveleteket hajthat végre.
 <p>A %1$s részletes használatáról: érintse meg a dokumentum megtekintéséhez.]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>

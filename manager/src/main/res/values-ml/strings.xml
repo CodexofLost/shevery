@@ -5,7 +5,6 @@
     <string name="update_settings_frequency_label"><![CDATA[ആവൃത്തി പരിശോധിക്കുക]]></string>
     <string name="home_update_available_title"><![CDATA[ഷെവറി അപ്‌ഡേറ്റ് ലഭ്യമാണ്: %s]]></string>
     <string name="home_update_available_body"><![CDATA[ഒരു പുതിയ പതിപ്പ് തയ്യാറാണ്. ഡൗൺലോഡ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക.]]></string>
-    <string name="app_name"><![CDATA[ഷെവറി]]></string>
     <string name="translation_contributors"><![CDATA[സെർമാർട്ട്1234, റുവ്ലാഡ്]]></string>
     <string name="accessibility_navigate_up"><![CDATA[മുകളിലേക്ക് പോകുക]]></string>
     <string name="accessibility_close"><![CDATA[അടയ്ക്കുക]]></string>

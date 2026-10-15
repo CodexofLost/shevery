@@ -8,7 +8,6 @@
     <string name="update_settings_frequency_label"><![CDATA[Controleer frequentie]]></string>
     <string name="home_update_available_title"><![CDATA[Shevery-update beschikbaar: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Een nieuwere versie is klaar. Tik om te downloaden.]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Een niveau omhoog gaan]]></string>
     <string name="accessibility_close"><![CDATA[Sluiten]]></string>

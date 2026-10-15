@@ -111,7 +111,6 @@
     <string name="update_settings_frequency_label"><![CDATA[Tezliyi yoxlayın]]></string>
     <string name="home_update_available_title"><![CDATA[Shever yeniləməsi mövcuddur: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Daha yeni versiya hazırdır. Endirmək üçün toxunun.]]></string>
-    <string name="app_name"><![CDATA[Şevri]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Yuxarıya keç]]></string>
     <string name="accessibility_close"><![CDATA[Bağla]]></string>
     <string name="accessibility_more_options"><![CDATA[Daha çox seçimlər]]></string>

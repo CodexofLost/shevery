@@ -13,7 +13,6 @@
     <string name="update_settings_frequency_label"><![CDATA[அதிர்வெண்ணைச் சரிபார்க்கவும்]]></string>
     <string name="home_update_available_title"><![CDATA[ஷெவரி புதுப்பிப்பு உள்ளது: %s]]></string>
     <string name="home_update_available_body"><![CDATA[புதிய பதிப்பு தயாராக உள்ளது. பதிவிறக்க, தட்டவும்.]]></string>
-    <string name="app_name"><![CDATA[ஷெவரி]]></string>
     <string name="translation_contributors"><![CDATA[செர்மார்ட்1234, ரூவ்லாட்]]></string>
     <string name="accessibility_navigate_up"><![CDATA[மேலே செல்லவும்]]></string>
     <string name="accessibility_close"><![CDATA[மூடுக]]></string>

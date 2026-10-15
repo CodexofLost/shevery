@@ -437,7 +437,6 @@ Listo para comandos.]]></string>
     <string name="shevery_update_auto_check_summary"><![CDATA[Buscar actualizaciones de la aplicación en segundo plano]]></string>
     <string name="home_update_available_title"><![CDATA[Actualización disponible: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Hay una nueva versión de Shevery disponible. Toque para ver.]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="shevery_update_check_title"><![CDATA[Comprobar actualizaciones de Shevery Manager]]></string>
     <string name="comput_hero_title"><![CDATA[Consola Shevery]]></string>
     <string name="comput_search_desc"><![CDATA[Buscar en la salida]]></string>
