@@ -617,7 +617,7 @@ fun SettingsScreen(
                             notifyDeath = notifyDeath,
                             wifiReassert = wifiReassert,
                             autoDisableUsbDebugging = autoDisableUsbDebugging,
-                            showStealthRow = BuildConfig.FLAVOR == "standard",
+                            showStealthRow = true,
                             stealthSummary = context.getString(R.string.settings_stealth_version_summary),
                             onOpenCompatStubs = { nav = SettingsNav.CompatStubs },
                             onOpenStealthDialog = {
@@ -1911,6 +1911,28 @@ private fun LazyListScope.extrasSectionContent(
                 summary = stringResource(R.string.lab_verbose_logging_summary),
                 checked = verboseLogging,
                 onCheckedChange = onVerboseLoggingChange
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_adb_24dp,
+                title = stringResource(R.string.usb_debugging_hide_title),
+                summary = stringResource(R.string.usb_debugging_hide_open_summary),
+                onClick = {
+                    context.startActivity(Intent(context, UsbDebuggingHideActivity::class.java))
+                }
+            )
+        }
+    }
+
+    item {
+        SettingsGroup(title = stringResource(R.string.network_firewall_title)) {
+            SettingsRow(
+                icon = R.drawable.ic_security_24dp,
+                title = stringResource(R.string.network_firewall_title),
+                summary = stringResource(R.string.network_firewall_open_summary),
+                onClick = {
+                    context.startActivity(Intent(context, NetworkFirewallActivity::class.java))
+                }
             )
         }
     }
