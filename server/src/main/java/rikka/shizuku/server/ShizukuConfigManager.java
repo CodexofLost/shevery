@@ -252,4 +252,17 @@ public class ShizukuConfigManager extends ConfigManager {
             removeLocked(uid);
         }
     }
+
+    public synchronized boolean getNightDogEnabled() {
+        return config.nightDogEnabled;
+    }
+
+    public synchronized void setNightDogEnabled(boolean enabled) {
+        if (config.nightDogEnabled == enabled) {
+            return;
+        }
+        config.nightDogEnabled = enabled;
+        HandlerKt.getWorkerHandler().removeCallbacks(mWriteRunner);
+        HandlerKt.getWorkerHandler().post(mWriteRunner);
+    }
 }

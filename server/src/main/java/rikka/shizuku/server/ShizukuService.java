@@ -43,6 +43,7 @@ import java.util.Objects;
 import kotlin.collections.ArraysKt;
 import moe.shizuku.api.BinderContainer;
 import moe.shizuku.common.util.BuildUtils;
+import moe.shizuku.common.util.InstalledPackagesCompat;
 import moe.shizuku.common.util.OsUtils;
 import moe.shizuku.server.IShizukuApplication;
 import rikka.hidden.compat.ActivityManagerApis;
@@ -52,15 +53,16 @@ import rikka.hidden.compat.UserManagerApis;
 import rikka.parcelablelist.ParcelableListSlice;
 import rikka.rish.RishConfig;
 import rikka.shizuku.ShizukuApiConstants;
+import rikka.shizuku.nightdog.NightDog;
 import rikka.shizuku.server.api.IContentProviderUtils;
 import rikka.shizuku.server.util.Android17Compat;
 import rikka.shizuku.server.util.HandlerUtil;
 import rikka.shizuku.server.util.UserHandleCompat;
-import moe.shizuku.common.util.InstalledPackagesCompat;
 
 public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuClientManager, ShizukuConfigManager> {
 
     private static final String TAG = "Shizuku";
+    private static final long HEARTBEAT_INTERVAL_MS = 5_000L;
 
     public static void main(String[] args) {
         try {
@@ -97,6 +99,7 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
     private final ShizukuClientManager clientManager;
     private final ShizukuConfigManager configManager;
     private final int managerAppId;
+    private Runnable heartbeatRunnable;
 
     public ShizukuService() {
         super();
@@ -131,14 +134,72 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
 
         BinderSender.register(this);
 
-        // Server-process watchdog (NightDog principle): main-thread heartbeat
-        // every 5s, self-kill on 60s hang; restart is issued from the manager.
-        Watchdog.start(mainHandler);
+        if (configManager.getNightDogEnabled()) {
+            applyNightDogState(true);
+        }
 
         mainHandler.post(() -> {
             sendBinderToManager();
             sendBinderToClient();
         });
+    }
+
+    private void applyNightDogState(boolean enabled) {
+        if (heartbeatRunnable != null) {
+            mainHandler.removeCallbacks(heartbeatRunnable);
+            heartbeatRunnable = null;
+        }
+
+        if (enabled) {
+            if (!NightDog.isStarted()) {
+                LOGGER.i("Starting NightDog watchdog...");
+                NightDog.start(
+                        NightDog.DEFAULT_TIMEOUT_MS,
+                        NightDog.DEFAULT_POLL_INTERVAL_MS,
+                        new NightDog.Listener() {
+                            @Override
+                            public void onServiceRecovered(@NonNull String name) {
+                                LOGGER.i("NightDog: system service '%s' recovered, refreshing bindings", name);
+                                Android17Compat.invalidate(name);
+                                mainHandler.post(() -> {
+                                    if (Context.ACTIVITY_SERVICE.equals(name)) {
+                                        BinderSender.register(ShizukuService.this);
+                                    }
+                                    if (Context.ACTIVITY_SERVICE.equals(name)
+                                            || "package".equals(name)
+                                            || Context.USER_SERVICE.equals(name)) {
+                                        sendBinderToManager();
+                                        sendBinderToClient();
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onFatalFault(@NonNull String reason) {
+                                LOGGER.e("NightDog detected fatal fault (%s), terminating server for recovery", reason);
+                            }
+                        }
+                );
+                LOGGER.i("NightDog watchdog started");
+            }
+
+            Runnable heartbeat = new Runnable() {
+                @Override
+                public void run() {
+                    if (!NightDog.isStarted()) return;
+                    NightDog.beat();
+                    mainHandler.postDelayed(this, HEARTBEAT_INTERVAL_MS);
+                }
+            };
+            heartbeatRunnable = heartbeat;
+            NightDog.beat();
+            mainHandler.postDelayed(heartbeat, HEARTBEAT_INTERVAL_MS);
+        } else {
+            if (NightDog.isStarted()) {
+                NightDog.stop();
+                LOGGER.i("NightDog watchdog stopped");
+            }
+        }
     }
 
     @Override
@@ -187,6 +248,11 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
     public void exit() {
         enforceManagerPermission("exit");
         LOGGER.i("exit");
+        if (heartbeatRunnable != null) {
+            mainHandler.removeCallbacks(heartbeatRunnable);
+            heartbeatRunnable = null;
+        }
+        NightDog.stop();
         System.exit(0);
     }
 
@@ -250,7 +316,7 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
             try {
                 Android17Compat.grantRuntimePermission(MANAGER_APPLICATION_ID,
                         WRITE_SECURE_SETTINGS, UserHandleCompat.getUserId(callingUid));
-            } catch (RemoteException e) {
+            } catch (Throwable e) {
                 LOGGER.w(e, "grant WRITE_SECURE_SETTINGS");
             }
         }
@@ -390,7 +456,6 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
 
         if ((mask & ConfigManager.MASK_PERMISSION) != 0) {
             boolean allowed = (value & ConfigManager.FLAG_ALLOWED) != 0;
-            boolean denied = (value & ConfigManager.FLAG_DENIED) != 0;
 
             List<ClientRecord> records = clientManager.findClients(uid);
             for (ClientRecord record : records) {
@@ -417,7 +482,7 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
             }
         }
 
-        configManager.update(uid, null, mask, value);
+        configManager.update(uid, PackageManagerApis.getPackagesForUidNoThrow(uid), mask, value);
     }
 
     private void onPermissionRevoked(String packageName) {
@@ -463,11 +528,37 @@ public class ShizukuService extends Service<ShizukuUserServiceManager, ShizukuCl
     @Override
     public boolean onTransact(int code, Parcel data, Parcel reply, int flags) throws RemoteException {
         if (code == ServerConstants.BINDER_TRANSACTION_getApplications) {
+            if (UserHandleCompat.getAppId(Binder.getCallingUid()) != managerAppId
+                    && checkCallingPermission() != PackageManager.PERMISSION_GRANTED) {
+                reply.writeException(new SecurityException("Permission denied"));
+                return true;
+            }
             data.enforceInterface(ShizukuApiConstants.BINDER_DESCRIPTOR);
             int userId = data.readInt();
             ParcelableListSlice<PackageInfo> result = getApplications(userId);
             reply.writeNoException();
             result.writeToParcel(reply, android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE);
+            return true;
+        } else if (code == ServerConstants.BINDER_TRANSACTION_setNightDogEnabled) {
+            if (UserHandleCompat.getAppId(Binder.getCallingUid()) != managerAppId) {
+                reply.writeException(new SecurityException("Permission denied"));
+                return true;
+            }
+            data.enforceInterface(ShizukuApiConstants.BINDER_DESCRIPTOR);
+            boolean enabled = data.readInt() != 0;
+            LOGGER.i("setNightDogEnabled: %s", Boolean.toString(enabled));
+            configManager.setNightDogEnabled(enabled);
+            applyNightDogState(enabled);
+            reply.writeNoException();
+            return true;
+        } else if (code == ServerConstants.BINDER_TRANSACTION_getNightDogEnabled) {
+            if (UserHandleCompat.getAppId(Binder.getCallingUid()) != managerAppId) {
+                reply.writeException(new SecurityException("Permission denied"));
+                return true;
+            }
+            data.enforceInterface(ShizukuApiConstants.BINDER_DESCRIPTOR);
+            reply.writeNoException();
+            reply.writeInt(configManager.getNightDogEnabled() ? 1 : 0);
             return true;
         }
         return super.onTransact(code, data, reply, flags);

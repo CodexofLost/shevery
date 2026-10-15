@@ -47,6 +47,7 @@ include ':server', ':starter', ':shell'
 include ':stub'
 include ':manager'
 include ':common'
+include ':nightdog'
 include ':tasker'
 
 def root = "api"
