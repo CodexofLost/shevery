@@ -101,9 +101,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.blur
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import moe.shizuku.manager.ui.compose.scrollMotionBlur
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -440,25 +440,22 @@ abstract class HomeActivity : AppActivity() {
                                 selectedTab = pagerState.currentPage
                             }
                         }
-                        val tabContent: @Composable (Int, androidx.compose.ui.unit.Dp) -> Unit =
-                            { targetTab, horizontalBlur ->
-                                val verticalScrolling = when (targetTab) {
-                                    0 -> homeListState.isScrollInProgress
-                                    1 -> modulesListState.isScrollInProgress
-                                    2 -> computListState.isScrollInProgress
-                                    else -> settingsListState.isScrollInProgress
-                                }
-                                val verticalBlur = motionBlurRadius(
-                                    enabled = motionBlurEnabled,
-                                    offsetFraction = if (verticalScrolling) 0.7f else 0f,
-                                    intensity = motionBlurIntensity,
-                                    strength = motionBlurStrength
-                                )
-                                val combinedBlur = maxOf(horizontalBlur, verticalBlur)
-                                Box(
-                                    modifier = Modifier.fillMaxSize()
-                                        .then(if (combinedBlur > 0.dp) Modifier.blur(combinedBlur) else Modifier)
-                                ) {
+                        val tabContent: @Composable (Int) -> Unit = { targetTab ->
+                            val verticalListState = when (targetTab) {
+                                0 -> homeListState
+                                1 -> modulesListState
+                                2 -> computListState
+                                else -> settingsListState
+                            }
+                            Box(
+                                modifier = Modifier.fillMaxSize()
+                                    .scrollMotionBlur(
+                                        listState = verticalListState,
+                                        enabled = motionBlurEnabled,
+                                        intensity = motionBlurIntensity,
+                                        strength = motionBlurStrength
+                                    )
+                            ) {
                             when (targetTab) {
                                 0 -> HomeScreen(
                                     serviceResource = serviceResource,
@@ -570,16 +567,14 @@ abstract class HomeActivity : AppActivity() {
                                 userScrollEnabled = true,
                                 beyondViewportPageCount = 1,
                                 modifier = Modifier.fillMaxSize()
+                                    .scrollMotionBlur(
+                                        pagerState = pagerState,
+                                        enabled = motionBlurEnabled && swipeBetweenTabs,
+                                        intensity = motionBlurIntensity,
+                                        strength = motionBlurStrength
+                                    )
                             ) { page ->
-                                val pageOffset = pagerState.currentPage - page +
-                                    pagerState.currentPageOffsetFraction
-                                val horizontalBlur = motionBlurRadius(
-                                    enabled = motionBlurEnabled && swipeBetweenTabs,
-                                    offsetFraction = pageOffset,
-                                    intensity = motionBlurIntensity,
-                                    strength = motionBlurStrength
-                                )
-                                tabContent(page, horizontalBlur)
+                                tabContent(page)
                             }
                         } else {
                             androidx.compose.animation.AnimatedContent(
@@ -589,7 +584,7 @@ abstract class HomeActivity : AppActivity() {
                                 },
                                 label = "tab_transition"
                             ) { targetTab ->
-                                tabContent(targetTab, 0.dp)
+                                tabContent(targetTab)
                             }
                         }
                     }
@@ -1071,21 +1066,6 @@ private data class LocalNetworkPermissionState(
         get() = permissions.takeIf { it.isNotEmpty() }
             ?.joinToString { it.substringAfterLast('.') }
             ?: "none"
-}
-
-private fun motionBlurRadius(
-    enabled: Boolean,
-    offsetFraction: Float,
-    intensity: Int,
-    strength: Int
-): androidx.compose.ui.unit.Dp {
-    if (!enabled) return 0.dp
-    val offset = kotlin.math.abs(offsetFraction).coerceIn(0f, 1f)
-    if (offset <= 0.001f) return 0.dp
-    val maxRadius = (intensity.coerceIn(0, 100) / 100f) * 24f
-    if (maxRadius <= 0.01f) return 0.dp
-    val sensitivity = 0.5f + (strength.coerceIn(0, 100) / 100f)
-    return (offset * maxRadius * sensitivity).dp
 }
 
 private data class HomeButtonSpec(

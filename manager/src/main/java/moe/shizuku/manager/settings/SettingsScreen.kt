@@ -62,7 +62,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
 import moe.shizuku.manager.ui.compose.LocalFloatingNavBarVisible
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
+import moe.shizuku.manager.ui.compose.scrollMotionBlur
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringArrayResource
@@ -594,15 +594,14 @@ fun SettingsScreen(
             is SettingsNav.Section -> {
                 BackHandler { nav = SettingsNav.Hub }
                 val sectionListState = remember(current.section) { LazyListState() }
-                val sectionBlurRadius = if (motionBlur && sectionListState.isScrollInProgress) {
-                    ((motionBlurIntensity.coerceIn(0, 100) / 100f) * 24f *
-                        (0.5f + motionBlurStrength.coerceIn(0, 100) / 100f) * 0.7f).dp
-                } else {
-                    0.dp
-                }
                 ShizukuLazyScaffold(
                     title = stringResource(current.section.titleRes),
-                    modifier = if (sectionBlurRadius > 0.dp) Modifier.blur(sectionBlurRadius) else Modifier,
+                    modifier = Modifier.scrollMotionBlur(
+                        listState = sectionListState,
+                        enabled = motionBlur,
+                        intensity = motionBlurIntensity,
+                        strength = motionBlurStrength
+                    ),
                     onNavigateUp = { nav = SettingsNav.Hub },
                     bottomInset = 112.dp,
                     listState = sectionListState
