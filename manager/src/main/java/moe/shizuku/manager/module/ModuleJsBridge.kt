@@ -221,7 +221,6 @@ class ModuleJsBridge(
         mode: ModuleSettings.AccessMode,
         extraEnv: Map<String, String>
     ): Array<String> {
-        val binDir = AdbModuleManager.ensureSuShim(moe.shizuku.manager.application)
         val env = linkedMapOf(
             "MODDIR" to module.directory.absolutePath,
             "ASH_STANDALONE" to "1",
@@ -233,7 +232,7 @@ class ModuleJsBridge(
             "AXERONVER" to "1.0.0",
             "MODPATH" to module.directory.absolutePath,
             "ARCH" to (android.os.Build.SUPPORTED_ABIS.firstOrNull() ?: "arm64-v8a"),
-            "PATH" to "${binDir.absolutePath}:/product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin:/sbin:/data/adb/apatch:/data/adb/ksu/bin"
+            "PATH" to "/product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin:/sbin:/data/adb/apatch:/data/adb/ksu/bin"
         )
         extraEnv.forEach { (key, value) -> env[key] = value }
         return env.map { (key, value) -> "$key=$value" }.toTypedArray()
