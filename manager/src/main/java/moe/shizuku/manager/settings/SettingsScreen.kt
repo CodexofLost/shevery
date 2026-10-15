@@ -62,7 +62,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
 import moe.shizuku.manager.ui.compose.LocalFloatingNavBarVisible
 import androidx.compose.ui.Modifier
-import moe.shizuku.manager.ui.compose.scrollMotionBlur
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringArrayResource
@@ -596,12 +595,6 @@ fun SettingsScreen(
                 val sectionListState = remember(current.section) { LazyListState() }
                 ShizukuLazyScaffold(
                     title = stringResource(current.section.titleRes),
-                    modifier = Modifier.scrollMotionBlur(
-                        listState = sectionListState,
-                        enabled = motionBlur,
-                        intensity = motionBlurIntensity,
-                        strength = motionBlurStrength
-                    ),
                     onNavigateUp = { nav = SettingsNav.Hub },
                     bottomInset = 112.dp,
                     listState = sectionListState

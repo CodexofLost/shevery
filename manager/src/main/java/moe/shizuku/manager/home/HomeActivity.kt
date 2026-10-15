@@ -442,19 +442,29 @@ abstract class HomeActivity : AppActivity() {
                             }
                         }
                         val tabContent: @Composable (Int) -> Unit = { targetTab ->
+                            // Pages 1 (Modules) and 3 (Settings hub) scroll inside
+                            // ShizukuLazyScaffold, which applies directional motion blur
+                            // internally; pages 0 (Home) and 2 (Comput) use raw
+                            // LazyColumns, so the blur is applied here instead.
+                            // This keeps exactly one blur layer per page.
+                            val needsOuterBlur = targetTab == 0 || targetTab == 2
                             val verticalListState = when (targetTab) {
                                 0 -> homeListState
-                                1 -> modulesListState
-                                2 -> computListState
-                                else -> settingsListState
+                                else -> computListState
                             }
                             Box(
                                 modifier = Modifier.fillMaxSize()
-                                    .scrollMotionBlur(
-                                        listState = verticalListState,
-                                        enabled = motionBlurEnabled,
-                                        intensity = motionBlurIntensity,
-                                        strength = motionBlurStrength
+                                    .then(
+                                        if (needsOuterBlur) {
+                                            Modifier.scrollMotionBlur(
+                                                listState = verticalListState,
+                                                enabled = motionBlurEnabled,
+                                                intensity = motionBlurIntensity,
+                                                strength = motionBlurStrength
+                                            )
+                                        } else {
+                                            Modifier
+                                        }
                                     )
                             ) {
                             when (targetTab) {
