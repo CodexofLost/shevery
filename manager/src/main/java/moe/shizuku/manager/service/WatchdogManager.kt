@@ -205,6 +205,7 @@ object WatchdogManager {
                     logi("Watchdog: recovered after restart command")
                 } else {
                     logw("Watchdog: restart command did not recover binder")
+                    ShizukuStateMachine.onStartFailed()
                 }
             } finally {
                 restartInProgress.set(false)
@@ -250,11 +251,12 @@ object WatchdogManager {
                 Shell.getCachedShell()?.close()
             }
             if (Shell.getShell().isRoot) {
-                ShizukuStateMachine.set(ShizukuStateMachine.State.STARTING)
+                ShizukuStateMachine.onStartRequested()
                 Shell.cmd(Starter.internalCommand).exec()
             }
         } catch (e: Exception) {
             logd("Watchdog root restart failed: ${e.message}")
+            ShizukuStateMachine.onStartFailed()
         }
     }
 
@@ -292,7 +294,7 @@ object WatchdogManager {
                     }
                 } ?: return
                 val service = moe.shizuku.manager.dhizuku.IDhizukuService.Stub.asInterface(binder)
-                ShizukuStateMachine.set(ShizukuStateMachine.State.STARTING)
+                ShizukuStateMachine.onStartRequested()
                 service.runCommand(Starter.internalCommand)
             } finally {
                 connection?.let {

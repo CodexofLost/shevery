@@ -12,6 +12,7 @@ import moe.shizuku.manager.AppConstants
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.application
+import moe.shizuku.manager.service.WatchdogManager
 import rikka.shizuku.Shizuku
 
 /**
@@ -76,13 +77,46 @@ object ShizukuStateMachine {
     fun set(newState: State) = transitionAtomic { newState }
 
     /**
-     * Called when the binder dies. If the server was RUNNING, it crashed.
+     * Pre-start lifecycle coordinator.
+     * If the server is currently RUNNING or pingBinder() is true, this is an intentional restart:
+     * sets [WatchdogManager.expectingDeath] to true to swallow the upcoming SIGKILL binder death,
+     * and sets state to [State.STARTING].
+     * If the server was STOPPED, moves to [State.STARTING] with expectingDeath = false.
+     */
+    fun onStartRequested() {
+        if (isRunning() || Shizuku.pingBinder()) {
+            WatchdogManager.expectingDeath = true
+        }
+        set(State.STARTING)
+    }
+
+    /**
+     * Fallback when a starter fails or times out.
+     * Reconciles state to STOPPED (if pingBinder is false) or RUNNING (if binder arrived).
+     */
+    fun onStartFailed() {
+        if (Shizuku.pingBinder()) {
+            set(State.RUNNING)
+        } else {
+            set(State.STOPPED)
+        }
+    }
+
+    /**
+     * Called when the binder dies. If the server was RUNNING, it crashed unless
+     * an expected restart/starter death is active ([WatchdogManager.isExpectingDeathActive]).
      * If it was STOPPING (explicit stop), optionally auto-disable USB debugging
      * and transition to STOPPED.
      */
     internal fun setDead() = transitionAtomic {
         when (it) {
-            State.RUNNING -> State.CRASHED
+            State.RUNNING -> {
+                if (WatchdogManager.isExpectingDeathActive()) {
+                    State.STARTING
+                } else {
+                    State.CRASHED
+                }
+            }
             State.STOPPING -> {
                 try {
                     val appContext = application.applicationContext
