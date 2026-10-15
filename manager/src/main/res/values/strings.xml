@@ -548,6 +548,14 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="settings_section_extras_summary">Accessibility, diagnostics, and experiments</string>
     <string name="settings_classic_nav">Classic navigation bar</string>
     <string name="settings_classic_nav_summary">Use a fixed bottom bar instead of the floating pill</string>
+    <string name="settings_swipe_between_tabs">Swipe between tabs</string>
+    <string name="settings_swipe_between_tabs_summary">Swipe left or right on the main screen to switch Home, Modules, Comput, Settings</string>
+    <string name="settings_motion_blur">Motion blur</string>
+    <string name="settings_motion_blur_summary">Blur content while swiping between tabs</string>
+    <string name="settings_motion_blur_intensity">Motion blur intensity</string>
+    <string name="settings_motion_blur_intensity_summary">Max blur radius while swiping: %1$d%%</string>
+    <string name="settings_motion_blur_strength">Motion blur strength</string>
+    <string name="settings_motion_blur_strength_summary">How fast blur ramps up with swipe speed: %1$d%%</string>
 
     <!-- Comput Console -->
     <string name="comput_title">Comput</string>

@@ -169,6 +169,43 @@ public class ShizukuSettings {
         getPreferences().edit().putBoolean(USE_CLASSIC_NAV, enabled).apply();
     }
 
+    public static final String SWIPE_BETWEEN_TABS = "swipe_between_tabs";
+    public static final String MOTION_BLUR_ENABLED = "motion_blur_enabled";
+    public static final String MOTION_BLUR_INTENSITY = "motion_blur_intensity";
+    public static final String MOTION_BLUR_STRENGTH = "motion_blur_strength";
+
+    public static boolean isSwipeBetweenTabs() {
+        return getPreferences().getBoolean(SWIPE_BETWEEN_TABS, true);
+    }
+
+    public static void setSwipeBetweenTabs(boolean enabled) {
+        getPreferences().edit().putBoolean(SWIPE_BETWEEN_TABS, enabled).apply();
+    }
+
+    public static boolean isMotionBlurEnabled() {
+        return getPreferences().getBoolean(MOTION_BLUR_ENABLED, false);
+    }
+
+    public static void setMotionBlurEnabled(boolean enabled) {
+        getPreferences().edit().putBoolean(MOTION_BLUR_ENABLED, enabled).apply();
+    }
+
+    public static int getMotionBlurIntensity() {
+        return getPreferences().getInt(MOTION_BLUR_INTENSITY, 60);
+    }
+
+    public static void setMotionBlurIntensity(int value) {
+        getPreferences().edit().putInt(MOTION_BLUR_INTENSITY, Math.max(0, Math.min(100, value))).apply();
+    }
+
+    public static int getMotionBlurStrength() {
+        return getPreferences().getInt(MOTION_BLUR_STRENGTH, 40);
+    }
+
+    public static void setMotionBlurStrength(int value) {
+        getPreferences().edit().putInt(MOTION_BLUR_STRENGTH, Math.max(0, Math.min(100, value))).apply();
+    }
+
     public static final String SHIZUKU_WHITELIST_MODE = "shizuku_whitelist_mode";
     public static final String DEVICE_OWNER_WHITELIST_MODE = "device_owner_whitelist_mode";
 
