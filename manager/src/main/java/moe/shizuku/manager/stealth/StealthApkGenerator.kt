@@ -46,7 +46,7 @@ import java.util.zip.ZipFile
  * 2. Rewrites the 20-char package ID (`com.hamondev.shevery` or the current
  *    stealth package ID) to a fresh 20-char `com.<8chars>.<7chars>` ID across
  *    `AndroidManifest.xml`, `resources.arsc`, `classes*.dex`,
- *    `assets/rish_shizuku.dex`, and `lib/*/libshizuku.so` while preserving
+ *    `assets/rish_shizuku.dex`, and `lib/<abi>/libshizuku.so` while preserving
  *    `.tasker` class descriptors (`com.hamondev.shevery.tasker.*`).
  * 3. Updates the launcher label in `AndroidManifest.xml` in-place via the
  *    dedicated 32-char AXML StringPool placeholder (`STEALTH_LABEL_PLACEHOLDER`)
