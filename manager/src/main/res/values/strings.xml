@@ -551,7 +551,7 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="settings_swipe_between_tabs">Swipe between tabs</string>
     <string name="settings_swipe_between_tabs_summary">Swipe left or right on the main screen to switch Home, Modules, Comput, Settings</string>
     <string name="settings_motion_blur">Motion blur</string>
-    <string name="settings_motion_blur_summary">Blur content while swiping between tabs</string>
+    <string name="settings_motion_blur_summary">Blur content while swiping between tabs and scrolling lists up or down</string>
     <string name="settings_motion_blur_intensity">Motion blur intensity</string>
     <string name="settings_motion_blur_intensity_summary">Max blur radius while swiping: %1$d%%</string>
     <string name="settings_motion_blur_strength">Motion blur strength</string>

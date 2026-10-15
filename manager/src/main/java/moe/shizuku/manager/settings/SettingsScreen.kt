@@ -62,6 +62,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
 import moe.shizuku.manager.ui.compose.LocalFloatingNavBarVisible
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringArrayResource
@@ -593,8 +594,15 @@ fun SettingsScreen(
             is SettingsNav.Section -> {
                 BackHandler { nav = SettingsNav.Hub }
                 val sectionListState = remember(current.section) { LazyListState() }
+                val sectionBlurRadius = if (motionBlur && sectionListState.isScrollInProgress) {
+                    ((motionBlurIntensity.coerceIn(0, 100) / 100f) * 24f *
+                        (0.5f + motionBlurStrength.coerceIn(0, 100) / 100f) * 0.7f).dp
+                } else {
+                    0.dp
+                }
                 ShizukuLazyScaffold(
                     title = stringResource(current.section.titleRes),
+                    modifier = if (sectionBlurRadius > 0.dp) Modifier.blur(sectionBlurRadius) else Modifier,
                     onNavigateUp = { nav = SettingsNav.Hub },
                     bottomInset = 112.dp,
                     listState = sectionListState
@@ -1511,10 +1519,9 @@ private fun LazyListScope.appearanceSectionContent(
                 title = stringResource(R.string.settings_motion_blur),
                 summary = stringResource(R.string.settings_motion_blur_summary),
                 checked = motionBlur,
-                enabled = swipeBetweenTabs,
                 onCheckedChange = onMotionBlurChange
             )
-            if (motionBlur && swipeBetweenTabs) {
+            if (motionBlur) {
                 GroupDivider()
                 MotionBlurSliderRow(
                     icon = R.drawable.ic_code_24dp,
