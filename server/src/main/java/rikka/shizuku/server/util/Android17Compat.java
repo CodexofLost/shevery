@@ -239,35 +239,47 @@ public class Android17Compat {
     private static Object invokeDynamic(Object target, Method method, Object... args) throws Exception {
         Class<?>[] paramTypes = method.getParameterTypes();
         Object[] invokeArgs = new Object[paramTypes.length];
+        String methodName = method.getName();
 
-        if (paramTypes.length == args.length) {
-            for (int i = 0; i < paramTypes.length; i++) {
-                invokeArgs[i] = coerce(args[i], paramTypes[i]);
-            }
-        } else if (paramTypes.length == args.length + 1) {
-            int lastArgIdx = args.length - 1;
-            for (int i = 0; i < lastArgIdx; i++) {
-                invokeArgs[i] = coerce(args[i], paramTypes[i]);
-            }
-            if (paramTypes[lastArgIdx] == String.class) {
-                invokeArgs[lastArgIdx] = "default";
-            } else {
-                invokeArgs[lastArgIdx] = coerce(0, paramTypes[lastArgIdx]);
-            }
-            invokeArgs[lastArgIdx + 1] = coerce(args[lastArgIdx], paramTypes[lastArgIdx + 1]);
-        } else if (paramTypes.length > args.length + 1) {
-            int lastArgIdx = args.length - 1;
-            for (int i = 0; i < lastArgIdx; i++) {
-                invokeArgs[i] = coerce(args[i], paramTypes[i]);
-            }
-            invokeArgs[lastArgIdx] = (paramTypes[lastArgIdx] == String.class) ? "default" : coerce(0, paramTypes[lastArgIdx]);
-            invokeArgs[lastArgIdx + 1] = coerce(args[lastArgIdx], paramTypes[lastArgIdx + 1]);
-            for (int i = lastArgIdx + 2; i < paramTypes.length; i++) {
-                if (paramTypes[i] == String.class) {
-                    invokeArgs[i] = "shizuku";
-                } else {
+        if ("checkUidPermission".equals(methodName)) {
+            if (paramTypes.length >= 2 && args.length >= 2) {
+                invokeArgs[0] = coerce(args[0], paramTypes[0]);
+                invokeArgs[1] = coerce(args[1], paramTypes[1]);
+                for (int i = 2; i < paramTypes.length; i++) {
                     invokeArgs[i] = coerce(0, paramTypes[i]);
                 }
+            } else {
+                for (int i = 0; i < paramTypes.length; i++) {
+                    invokeArgs[i] = (i < args.length) ? coerce(args[i], paramTypes[i]) : coerce(null, paramTypes[i]);
+                }
+            }
+        } else if ("checkPermission".equals(methodName) && args.length == 3 && paramTypes.length >= 4) {
+            invokeArgs[0] = coerce(args[0], paramTypes[0]);
+            invokeArgs[1] = coerce(args[1], paramTypes[1]);
+            invokeArgs[2] = (paramTypes[2] == String.class) ? "default" : coerce(0, paramTypes[2]);
+            invokeArgs[3] = coerce(args[2], paramTypes[3]);
+            for (int i = 4; i < paramTypes.length; i++) {
+                invokeArgs[i] = (paramTypes[i] == String.class) ? "default" : coerce(0, paramTypes[i]);
+            }
+        } else if ("grantRuntimePermission".equals(methodName) && args.length == 3 && paramTypes.length >= 4) {
+            invokeArgs[0] = coerce(args[0], paramTypes[0]);
+            invokeArgs[1] = coerce(args[1], paramTypes[1]);
+            invokeArgs[2] = coerce(0, paramTypes[2]);
+            invokeArgs[3] = coerce(args[2], paramTypes[3]);
+            for (int i = 4; i < paramTypes.length; i++) {
+                invokeArgs[i] = coerce(0, paramTypes[i]);
+            }
+        } else if ("revokeRuntimePermission".equals(methodName) && args.length == 3 && paramTypes.length >= 4) {
+            invokeArgs[0] = coerce(args[0], paramTypes[0]);
+            invokeArgs[1] = coerce(args[1], paramTypes[1]);
+            invokeArgs[2] = coerce(0, paramTypes[2]);
+            invokeArgs[3] = coerce(args[2], paramTypes[3]);
+            for (int i = 4; i < paramTypes.length; i++) {
+                invokeArgs[i] = (paramTypes[i] == String.class) ? "shizuku" : coerce(0, paramTypes[i]);
+            }
+        } else if (paramTypes.length == args.length) {
+            for (int i = 0; i < paramTypes.length; i++) {
+                invokeArgs[i] = coerce(args[i], paramTypes[i]);
             }
         } else {
             for (int i = 0; i < paramTypes.length; i++) {
@@ -286,11 +298,19 @@ public class Android17Compat {
         }
         if (targetType == int.class || targetType == Integer.class) {
             if (value instanceof Number) return ((Number) value).intValue();
-            return Integer.parseInt(value.toString());
+            try {
+                return Integer.parseInt(value.toString());
+            } catch (NumberFormatException e) {
+                return 0;
+            }
         }
         if (targetType == long.class || targetType == Long.class) {
             if (value instanceof Number) return ((Number) value).longValue();
-            return Long.parseLong(value.toString());
+            try {
+                return Long.parseLong(value.toString());
+            } catch (NumberFormatException e) {
+                return 0L;
+            }
         }
         if (targetType == boolean.class || targetType == Boolean.class) {
             if (value instanceof Boolean) return value;

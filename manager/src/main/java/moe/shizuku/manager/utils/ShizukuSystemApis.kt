@@ -137,7 +137,7 @@ object ShizukuSystemApis {
         if (paramTypes.size == args.size + 1) {
             val lastIdx = args.size - 1
             System.arraycopy(args, 0, finalArgs, 0, lastIdx)
-            finalArgs[lastIdx] = 0
+            finalArgs[lastIdx] = if (paramTypes[lastIdx] == String::class.java) "default" else 0
             finalArgs[lastIdx + 1] = args[lastIdx]
 
             for (i in (lastIdx + 2) until paramTypes.size) {
