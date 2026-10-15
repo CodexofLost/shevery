@@ -346,7 +346,7 @@ object AdbModuleManager {
 
         val name = props["name"]?.trim().takeUnless { it.isNullOrEmpty() } ?: id
         val version = props["version"]?.trim().takeUnless { it.isNullOrEmpty() } ?: "1.0"
-        val versionCode = props["versionCode"]?.trim()?.toIntOrNull() ?: 1
+        val versionCode = props["versionCode"]?.trim()?.toLongOrNull() ?: 1L
 
         return AdbModule(
             id = id,
