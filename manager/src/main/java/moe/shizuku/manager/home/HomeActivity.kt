@@ -552,7 +552,8 @@ abstract class HomeActivity : AppActivity() {
                                 beyondViewportPageCount = 1,
                                 modifier = Modifier.fillMaxSize()
                             ) { page ->
-                                val pageOffset = pagerState.getOffsetFractionForPage(page)
+                                val pageOffset = pagerState.currentPage - page +
+                                    pagerState.currentPageOffsetFraction
                                 val blurRadius = motionBlurRadius(
                                     enabled = motionBlurEnabled && swipeBetweenTabs,
                                     offsetFraction = pageOffset,
