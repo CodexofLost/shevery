@@ -151,6 +151,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.text.HtmlCompat
 import moe.shizuku.manager.R
+import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.app.ThemeHelper
 
 val LocalFloatingNavBarVisible = compositionLocalOf<MutableState<Boolean>> {
@@ -450,6 +451,9 @@ fun ShizukuLazyScaffold(
     isRefreshing: Boolean = false,
     onRefresh: (() -> Unit)? = null,
     listState: LazyListState = rememberLazyListState(),
+    motionBlurEnabled: Boolean = ShizukuSettings.isMotionBlurEnabled(),
+    motionBlurIntensity: Int = ShizukuSettings.getMotionBlurIntensity(),
+    motionBlurStrength: Int = ShizukuSettings.getMotionBlurStrength(),
     content: LazyListScope.() -> Unit
 ) {
     ShizukuScaffold(
@@ -466,7 +470,13 @@ fun ShizukuLazyScaffold(
                 state = listState,
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(innerPadding),
+                    .padding(innerPadding)
+                    .scrollMotionBlur(
+                        listState = listState,
+                        enabled = motionBlurEnabled,
+                        intensity = motionBlurIntensity,
+                        strength = motionBlurStrength
+                    ),
                 contentPadding = PaddingValues(
                     start = contentPadding.calculateStartPadding(LayoutDirection.Ltr),
                     top = contentPadding.calculateTopPadding(),

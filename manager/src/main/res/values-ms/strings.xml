@@ -10,7 +10,6 @@
     <string name="update_settings_frequency_label"><![CDATA[Semak kekerapan]]></string>
     <string name="home_update_available_title"><![CDATA[Kemas kini Shevery tersedia: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Versi yang lebih baharu sudah sedia. Ketik untuk memuat turun.]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="translation_contributors">sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Navigasi ke atas]]></string>
     <string name="accessibility_close"><![CDATA[Tutup]]></string>

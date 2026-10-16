@@ -514,7 +514,6 @@ Ready for commands.]]></string>
     <string name="settings_compat_stub_uninstalled">အမွေအနှစ်စာတိုကို ဖယ်ရှားခဲ့သည်။</string>
     <string name="settings_compat_stub_failed"><![CDATA[%2$s: %3$s မှတစ်ဆင့် အမွေဆက်ခံ ပင်တိုင် %1$s ကို မအောင်မြင်ပါ။]]></string>
     <string name="settings_compat_stub_none">ချန်နယ်မရနိုင်ပါ (Shevery ဦးစွာစတင်ပါ)</string>
-    <string name="app_name"><![CDATA[ရှီဗရီ]]></string>
     <string name="home_status_service_version_update"><![CDATA[ဗားရှင်း %2$s, %1$s ဗားရှင်း %3$s သို့ အပ်ဒိတ်လုပ်ရန် ပြန်စပါ။]]></string>
     <string name="home_adb_title"><![CDATA[ကွန်ပျူတာနှင့် ချိတ်ဆက်ခြင်းဖြင့် စတင်ပါ။]]></string>
     <string name="home_adb_description"><![CDATA[root မပြုထားသေးသော စက်များအတွက် adb ကို အသုံးပြုပြီး Shevery ကို စတင်ဖွင့်ရန် လိုအပ်ပါသည် (ကွန်ပျူတာနှင့် ချိတ်ဆက်ထားရမည်)။ စက်ကို ပြန်စတင်တိုင်း ဤလုပ်ငန်းစဉ်ကို ထပ်မံ ဆောင်ရွက်ရမည်။ ကျေးဇူးပြု၍ <b><a href="%1$s">အကူအညီကို ဖတ်ရှုပါ</b>။]]></string>

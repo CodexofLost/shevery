@@ -433,7 +433,6 @@
     <string name="wadb_notification_channel"><![CDATA[ADB-Autostartdienst]]></string>
     <string name="accessibility_manager_services_group"><![CDATA[Accessibility Services (%1$d)]]></string>
     <string name="accessibility_manager_service_no_description"><![CDATA[Keine Beschreibung vom Dienst bereitgestellt.]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Há algumas outras considerações; por favor, confirme se leu a seção de ajuda primeiro.]]></string>
     <string name="dialog_adb_discovery_message"><![CDATA[Ative a opção “Depuração sem fio” em “Opções do desenvolvedor”. A “Depuração sem fio” é desativada automaticamente quando ocorrem alterações na rede.
 

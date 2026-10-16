@@ -112,7 +112,6 @@
     <string name="update_settings_frequency_label">Zkontrolujte frekvenci</string>
     <string name="home_update_available_title">Dostupná aktualizace Shevery: %s</string>
     <string name="home_update_available_body">Novější verze je připravena. Klepnutím stáhnete.</string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Přejít nahoru]]></string>
     <string name="accessibility_close"><![CDATA[Zavřít]]></string>
     <string name="accessibility_more_options"><![CDATA[Další možnosti]]></string>

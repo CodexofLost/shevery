@@ -23,16 +23,17 @@ object AdbModuleManager {
 
     private const val MODULES_DIR = "adb_modules"
     private const val DISABLE_FILE = "disable"
-    private const val MAX_ENTRY_COUNT = 2048
-    private const val MAX_EXTRACTED_BYTES = 200L * 1024L * 1024L
-    private const val MAX_SCRIPT_SECONDS = 120L
-    private const val MAX_OUTPUT_CHARS = 64 * 1024
-    private const val MAX_SCRIPT_BYTES = 256 * 1024
-    @Volatile private var servicesStartedForBinder = false
+    private const val MAX_OUTPUT_CHARS = 32 * 1024
+    private const val MAX_EXTRACTED_BYTES = 16L * 1024L * 1024L
+    private const val MAX_ENTRY_COUNT = 512
+    private const val SCRIPT_TIMEOUT_SECONDS = 30L
+    @Volatile
+    private var servicesStartedForBinder = false
+
     private val idRegex = Regex("[A-Za-z][A-Za-z0-9._-]{1,63}")
     private val installMutexes = ConcurrentHashMap<String, Mutex>()
 
-    internal fun cleanupStagingDirs(context: Context) {
+    fun cleanupStagingDirs(context: Context) {
         modulesRoot(context).listFiles { file ->
             file.isDirectory && file.name.startsWith(".") && file.name.endsWith(".installing")
         }?.forEach { it.deleteRecursively() }
@@ -50,12 +51,26 @@ object AdbModuleManager {
     )
 
     fun modulesRoot(context: Context): File {
-        return File(context.filesDir, MODULES_DIR).apply { mkdirs() }
+        val filesDir = context.filesDir
+        filesDir.parentFile?.apply {
+            setReadable(true, false)
+            setExecutable(true, false)
+        }
+        filesDir.apply {
+            mkdirs()
+            setReadable(true, false)
+            setExecutable(true, false)
+        }
+        return File(filesDir, MODULES_DIR).apply {
+            mkdirs()
+            setReadable(true, false)
+            setExecutable(true, false)
+        }
     }
 
     suspend fun listModules(context: Context): List<AdbModule> = withContext(Dispatchers.IO) {
         modulesRoot(context)
-            .listFiles { file -> file.isDirectory }
+            .listFiles { file -> file.isDirectory && !file.name.startsWith(".") }
             ?.mapNotNull(::readModule)
             ?.sortedWith(compareBy<AdbModule> { !it.enabled }.thenBy { it.name.lowercase(Locale.ROOT) })
             .orEmpty()
@@ -63,33 +78,55 @@ object AdbModuleManager {
 
     suspend fun install(context: Context, uri: Uri): AdbModule = withContext(Dispatchers.IO) {
         cleanupStagingDirs(context)
-        val temp = File.createTempFile("module-", ".zip", context.cacheDir)
+        val temp = File.createTempFile("adb_module_", ".zip", context.cacheDir)
         try {
-            context.contentResolver.openInputStream(uri).use { input ->
-                requireNotNull(input) { "Unable to open module ZIP." }
+            context.contentResolver.openInputStream(uri)?.use { input ->
                 temp.outputStream().use { output -> input.copyTo(output) }
-            }
+            } ?: error("Unable to read selected ZIP file.")
 
             ZipFile(temp).use { zip ->
-                val propEntry = zip.entries().asSequence()
-                    .firstOrNull { !it.isDirectory && it.name.trim('/') == "module.prop" }
+                val allEntries = zip.entries().asSequence().toList()
+                val propEntry = allEntries.firstOrNull {
+                    !it.isDirectory && it.name.replace('\\', '/').trim('/') == "module.prop"
+                } ?: allEntries
+                    .filter { !it.isDirectory && it.name.replace('\\', '/').trim('/').endsWith("/module.prop") }
+                    .minByOrNull { it.name.count { ch -> ch == '/' || ch == '\\' } }
                     ?: error("module.prop is missing.")
+
+                val propPath = propEntry.name.replace('\\', '/').trim('/')
+                val rootPrefix = if (propPath == "module.prop") {
+                    ""
+                } else {
+                    propPath.removeSuffix("module.prop")
+                }
+
                 val props = zip.getInputStream(propEntry).use { parseModuleProp(it.bufferedReader().readText()) }
                 val id = props["id"]?.trim().orEmpty()
                 require(idRegex.matches(id)) { "Invalid module id: $id" }
 
-                installMutexes.computeIfAbsent(id) { Mutex() }.withLock {
-                    val target = File(modulesRoot(context), id)
-                    val staging = File(modulesRoot(context), ".$id.installing")
+                installMutexes.getOrPut(id) { Mutex() }.withLock {
+                    val modulesDir = modulesRoot(context)
+                    val target = File(modulesDir, id)
+                    val staging = File(modulesDir, ".$id.installing")
                     staging.deleteRecursively()
                     staging.mkdirs()
 
                     var entryCount = 0
                     var extractedBytes = 0L
-                    zip.entries().asSequence().forEach { entry ->
+                    allEntries.forEach { entry ->
+                        val normalizedName = entry.name.replace('\\', '/').trim('/')
+                        if (normalizedName.isBlank()) return@forEach
+                        val relativeName = if (rootPrefix.isNotEmpty()) {
+                            if (!normalizedName.startsWith(rootPrefix)) return@forEach
+                            normalizedName.removePrefix(rootPrefix).trimStart('/')
+                        } else {
+                            normalizedName
+                        }
+                        if (relativeName.isBlank()) return@forEach
+
                         entryCount++
                         require(entryCount <= MAX_ENTRY_COUNT) { "Module ZIP has too many files." }
-                        val cleanName = cleanZipName(entry.name)
+                        val cleanName = cleanZipName(relativeName)
                         val outFile = File(staging, cleanName)
                         ensureInside(staging, outFile)
                         if (entry.isDirectory) {
@@ -111,9 +148,17 @@ object AdbModuleManager {
                         }
                     }
 
+                    // Preserve existing .source.prop across updates if not included in new ZIP
+                    val existingSourceProp = target.resolve(".source.prop")
+                    val stagingSourceProp = staging.resolve(".source.prop")
+                    if (existingSourceProp.isFile && !stagingSourceProp.exists()) {
+                        runCatching { existingSourceProp.copyTo(stagingSourceProp, overwrite = false) }
+                    }
+
                     markScriptsExecutable(staging, props["action"])
                     target.deleteRecursively()
                     check(staging.renameTo(target)) { "Unable to move module into storage." }
+                    markScriptsExecutable(target, props["action"])
                     readModule(target) ?: error("Installed module is unreadable.")
                 }
             }
@@ -123,15 +168,16 @@ object AdbModuleManager {
     }
 
     suspend fun setEnabled(module: AdbModule, enabled: Boolean) = withContext(Dispatchers.IO) {
-        val marker = module.directory.resolve(DISABLE_FILE)
+        val disableFile = module.directory.resolve(DISABLE_FILE)
         if (enabled) {
-            marker.delete()
+            disableFile.delete()
         } else {
-            marker.writeText("disabled\n")
+            disableFile.writeText("disabled")
         }
     }
 
     suspend fun delete(module: AdbModule) = withContext(Dispatchers.IO) {
+        ModuleSettings.setModuleTrusted(module.id, false)
         module.directory.deleteRecursively()
     }
 
@@ -156,13 +202,15 @@ object AdbModuleManager {
 
     suspend fun runEnabledServicesIfAllowed(context: Context): List<Pair<AdbModule, ModuleActionResult>> =
         withContext(Dispatchers.IO) {
-            if (servicesStartedForBinder) return@withContext emptyList()
-            if (!Shizuku.pingBinder()) return@withContext emptyList()
-
+            if (!Shizuku.pingBinder() || !ModuleSettings.canRunService() || servicesStartedForBinder) {
+                return@withContext emptyList()
+            }
             servicesStartedForBinder = true
             listModules(context)
                 .filter { it.enabled && it.hasService && ModuleSettings.canRunService(it) && ModuleSettings.canRunBackground(it) }
-                .map { module -> module to runService(module) }
+                .mapNotNull { module ->
+                    runCatching { module to runService(module) }.getOrNull()
+                }
         }
 
     fun resetServiceRunGuard() {
@@ -176,12 +224,11 @@ object AdbModuleManager {
         check(module.enabled) { "Module is disabled." }
         module.logsDir.mkdirs()
 
-        if (script.length() > MAX_SCRIPT_BYTES) {
-            return ModuleActionResult(exitCode = -1, stdout = "", stderr = "Script too large: ${script.length()} bytes (max $MAX_SCRIPT_BYTES)")
-        }
-
         val scriptContent = try {
-            script.readText(Charsets.UTF_8)
+            val bytes = script.readBytes()
+            var text = String(bytes, Charsets.UTF_8)
+            if (text.startsWith("\uFEFF")) text = text.substring(1)
+            text.replace("\r\n", "\n").replace("\r", "\n")
         } catch (e: Exception) {
             return ModuleActionResult(exitCode = -1, stdout = "", stderr = "Cannot read script: ${e.message}")
         }
@@ -197,27 +244,24 @@ object AdbModuleManager {
 
         val binder = Shizuku.getBinder() ?: error("Shizuku service is not running.")
         val service = IShizukuService.Stub.asInterface(binder)
-        val binDir = ensureSuShim(moe.shizuku.manager.application)
         val env = arrayOf(
             "MODDIR=${module.directory.absolutePath}",
+            "MODPATH=${module.directory.absolutePath}",
             "ASH_STANDALONE=1",
             "SHIZUKU_MODULE_ID=${module.id}",
             "SHIZUKU_MODULE_MODE=${ModuleSettings.getAccessMode().value}",
             "SHIZUKU_MODULE_TRUSTED=${if (ModuleSettings.isModuleTrusted(module.id)) "1" else "0"}",
             "SHIZUKU_MODULE_BACKGROUND=${if (ModuleSettings.canRunBackground(module)) "1" else "0"}",
-            "AXERON=true",
-            "AXERONVER=1.0.0",
-            "MODPATH=${module.directory.absolutePath}",
-            "ARCH=${android.os.Build.SUPPORTED_ABIS.firstOrNull() ?: "arm64-v8a"}",
-            "PATH=${binDir.absolutePath}:/product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin:/sbin:/data/adb/apatch:/data/adb/ksu/bin"
+            "ARCH=${android.os.Build.SUPPORTED_ABIS.firstOrNull() ?: "arm64-v8a"}"
         )
+        val wrappedScript = "cd \"\$MODDIR\" 2>/dev/null || true\n$scriptContent"
         val remote = service.newProcess(
-            arrayOf("sh", "-c", scriptContent),
+            arrayOf("sh", "-c", wrappedScript),
             env,
             "/data/local/tmp"
         )
 
-        ParcelFileDescriptor.AutoCloseOutputStream(remote.getOutputStream()).close()
+        runCatching { ParcelFileDescriptor.AutoCloseOutputStream(remote.getOutputStream()).close() }
         val stdoutPfd = remote.getInputStream()
         val stderrPfd = remote.getErrorStream()
         val streamingBuffer = StringBuilder()
@@ -257,7 +301,7 @@ object AdbModuleManager {
         }
         stdoutThread.start()
         stderrThread.start()
-        val finished = remote.waitForTimeout(MAX_SCRIPT_SECONDS, TimeUnit.SECONDS.name)
+        val finished = remote.waitForTimeout(SCRIPT_TIMEOUT_SECONDS, TimeUnit.SECONDS.name)
         val exitCode = if (finished) {
             remote.exitValue()
         } else {
@@ -293,20 +337,26 @@ object AdbModuleManager {
     }
 
     fun readModule(directory: File): AdbModule? {
-        val propsFile = directory.resolve("module.prop")
-        if (!propsFile.isFile) return null
-        val props = parseModuleProp(propsFile.readText())
-        val id = props["id"]?.takeIf { idRegex.matches(it) } ?: return null
-        val name = props["name"]?.takeIf { it.isNotBlank() } ?: id
+        val propFile = directory.resolve("module.prop")
+        if (!propFile.isFile) return null
+
+        val props = parseModuleProp(propFile.readText())
+        val id = props["id"]?.trim().orEmpty()
+        if (!idRegex.matches(id)) return null
+
+        val name = props["name"]?.trim().takeUnless { it.isNullOrEmpty() } ?: id
+        val version = props["version"]?.trim().takeUnless { it.isNullOrEmpty() } ?: "1.0"
+        val versionCode = props["versionCode"]?.trim()?.toLongOrNull() ?: 1L
+
         return AdbModule(
             id = id,
             name = name,
-            version = props["version"]?.takeIf { it.isNotBlank() },
-            versionCode = props["versionCode"]?.toLongOrNull(),
+            version = version,
+            versionCode = versionCode,
             author = props["author"]?.takeIf { it.isNotBlank() },
             description = props["description"]?.takeIf { it.isNotBlank() },
             directory = directory,
-            banner = findFirstExisting(
+            banner = findFirstExistingFile(
                 directory,
                 props["banner"],
                 "banner.png",
@@ -314,27 +364,30 @@ object AdbModuleManager {
                 "banner.jpeg",
                 "banner.webp"
             ),
-            webRoot = findFirstExisting(
+            webRoot = findFirstExistingDir(
                 directory,
                 props["webui"],
                 "webroot",
                 "webui",
                 "web"
-            )?.takeIf { it.isDirectory },
+            ),
             declaresShellBridge = props["usesShellBridge"]?.toBooleanStrictOrNull()
                 ?: props["shellBridge"]?.toBooleanStrictOrNull()
                 ?: false,
-            actionScript = findFirstExisting(
+            actionScript = findFirstExistingFile(
                 directory,
                 props["action"],
                 "action.sh",
+                "common/action.sh",
                 "run.sh",
                 "main.sh",
                 "exec.sh"
             ),
-            serviceScript = findFirstExisting(
+            serviceScript = findFirstExistingFile(
                 directory,
+                props["service"],
                 "service.sh",
+                "common/service.sh",
                 "late_start.sh"
             ),
             logsDir = directory.resolve("logs"),
@@ -347,10 +400,10 @@ object AdbModuleManager {
         )
     }
 
-    private fun parseModuleProp(raw: String): Map<String, String> {
-        return raw.lineSequence()
+    internal fun parseModuleProp(content: String): Map<String, String> {
+        return content.lineSequence()
             .map { it.trim() }
-            .filter { it.isNotBlank() && !it.startsWith("#") && it.contains("=") }
+            .filter { it.isNotEmpty() && !it.startsWith("#") && '=' in it }
             .associate {
                 val index = it.indexOf('=')
                 it.substring(0, index).trim() to it.substring(index + 1).trim()
@@ -360,66 +413,32 @@ object AdbModuleManager {
     private fun cleanZipName(name: String): String {
         val clean = name.replace('\\', '/').trim('/')
         require(clean.isNotBlank()) { "Invalid ZIP entry." }
-        require(!clean.startsWith("/") && !clean.contains("../") && clean != "..") {
+        val parts = clean.split('/')
+        require(parts.none { it.isBlank() || it == "." || it == ".." }) {
             "Unsafe ZIP entry: $name"
         }
         return clean
     }
 
     private fun ensureInside(root: File, child: File) {
-        val rootPath = root.canonicalFile.toPath()
-        val childPath = child.canonicalFile.toPath()
-        require(childPath.startsWith(rootPath)) {
+        val rootPath = root.canonicalPath
+        val childPath = child.canonicalPath
+        require(childPath == rootPath || childPath.startsWith("$rootPath/")) {
             "Unsafe module path: ${child.name}"
         }
     }
 
-    fun ensureSuShim(context: Context): File {
-        val binDir = File(context.filesDir, "bin").apply { mkdirs() }
-        val suFile = File(binDir, "su")
-        val shimScript = """
-            #!/system/bin/sh
-            # Robust su shim for shevery / Shizuku root environment
-            if [ "${'$'}(id -u)" -eq 0 ]; then
-                while [ ${'$'}# -gt 0 ]; do
-                    case "${'$'}1" in
-                        -c)
-                            shift
-                            exec sh -c "${'$'}*"
-                            ;;
-                        *)
-                            shift
-                            ;;
-                    esac
-                done
-                exec sh
-            else
-                for p in /system/bin/su /system/xbin/su /sbin/su /vendor/bin/su /data/adb/ksu/bin/su /data/adb/apatch/su; do
-                    if [ -x "${'$'}p" ] && [ "${'$'}p" != "${'$'}0" ]; then
-                        exec "${'$'}p" "${'$'}@"
-                    fi
-                done
-                echo "su: not found" >&2
-                exit 127
-            fi
-        """.trimIndent()
-
-        if (!suFile.exists() || suFile.readText() != shimScript) {
-            suFile.writeText(shimScript)
-            suFile.setExecutable(true, false)
-        }
-        return binDir
-    }
-
     private fun markScriptsExecutable(directory: File, customAction: String?) {
         val declared = customAction?.trim()?.trim('/')
-        directory.walkTopDown()
-            .filter { file ->
-                if (!file.isFile) return@filter false
-                if (file.extension == "sh") return@filter true
-                declared != null && file.toRelativeString(directory) == declared
+        directory.walkTopDown().forEach { file ->
+            file.setReadable(true, false)
+            if (file.isDirectory ||
+                file.extension.equals("sh", ignoreCase = true) ||
+                (declared != null && file.isFile && file.toRelativeString(directory) == declared)
+            ) {
+                file.setExecutable(true, false)
             }
-            .forEach { it.setExecutable(true, false) }
+        }
     }
 
     private fun writeLastLog(
@@ -429,32 +448,52 @@ object AdbModuleManager {
         result: ModuleActionResult,
         finished: Boolean
     ) {
-        logFile.parentFile?.mkdirs()
         logFile.writeText(
             buildString {
                 appendLine("module=${module.id}")
                 appendLine("script=${script.name}")
-                appendLine("finished=$finished")
                 appendLine("exitCode=${result.exitCode}")
-                appendLine("mode=${ModuleSettings.getAccessMode().value}")
-                appendLine("trusted=${ModuleSettings.isModuleTrusted(module.id)}")
-                appendLine()
-                appendLine("[stdout]")
-                appendLine(result.stdout.trim())
-                appendLine()
-                appendLine("[stderr]")
-                appendLine(result.stderr.trim())
+                appendLine("timedOut=${!finished}")
+                if (result.stdout.isNotBlank()) {
+                    appendLine("--- stdout ---")
+                    appendLine(result.stdout.trimEnd())
+                }
+                if (result.stderr.isNotBlank()) {
+                    appendLine("--- stderr ---")
+                    appendLine(result.stderr.trimEnd())
+                }
             }
         )
     }
 
-    private fun findFirstExisting(directory: File, vararg paths: String?): File? {
+    private fun findFirstExistingFile(directory: File, vararg paths: String?): File? {
         return paths.asSequence()
             .filterNotNull()
-            .map { it.trim().trim('/') }
+            .map { it.replace('\\', '/').trim().trim('/') }
             .filter { it.isNotBlank() }
-            .map { directory.resolve(it) }
-            .firstOrNull { it.exists() }
+            .mapNotNull { rel ->
+                val candidate = directory.resolve(rel)
+                runCatching {
+                    ensureInside(directory, candidate)
+                    candidate.takeIf { it.isFile }
+                }.getOrNull()
+            }
+            .firstOrNull()
+    }
+
+    private fun findFirstExistingDir(directory: File, vararg paths: String?): File? {
+        return paths.asSequence()
+            .filterNotNull()
+            .map { it.replace('\\', '/').trim().trim('/') }
+            .filter { it.isNotBlank() }
+            .mapNotNull { rel ->
+                val candidate = directory.resolve(rel)
+                runCatching {
+                    ensureInside(directory, candidate)
+                    candidate.takeIf { it.isDirectory }
+                }.getOrNull()
+            }
+            .firstOrNull()
     }
 
     private fun readStreamTail(inputStream: java.io.InputStream): String {

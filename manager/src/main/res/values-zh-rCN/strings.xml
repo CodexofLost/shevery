@@ -541,7 +541,6 @@
     <string name="home_update_available_title"><![CDATA[Shevery 有可用更新: %s]]></string>
     <string name="home_update_available_body"><![CDATA[有新版本可用，点击更新。]]></string>
     <string name="shevery_update_check_failed"><![CDATA[检查更新失败：%s]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="permission_group_label"><![CDATA[Shevery]]></string>
     <string name="permission_group_description"><![CDATA[@string/permission_label]]></string>
     <string name="starting_root_shell"><![CDATA[正在启动 root 终端……]]></string>

@@ -6,6 +6,7 @@ import kotlinx.coroutines.delay
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.starter.Starter
 import moe.shizuku.manager.utils.EnvironmentUtils
+import moe.shizuku.manager.utils.ShizukuStateMachine
 import java.io.IOException
 
 object AdbStarter {
@@ -19,7 +20,7 @@ object AdbStarter {
         listener: ((ByteArray) -> Unit)? = null,
         log: ((String) -> Unit)? = null,
     ) {
-        moe.shizuku.manager.service.WatchdogManager.expectingDeath = true
+        ShizukuStateMachine.onStartRequested()
         val key = AdbKey(PreferenceAdbKeyStore(ShizukuSettings.getPreferences()), "shizuku")
         val tcpMode = ShizukuSettings.isTcpMode()
         val targetPort = if (tcpMode) TCP_MODE_PORT else port
@@ -54,7 +55,7 @@ object AdbStarter {
         currentPort: Int,
         targetPort: Int = TCP_MODE_PORT,
     ) {
-        moe.shizuku.manager.service.WatchdogManager.expectingDeath = true
+        ShizukuStateMachine.onStartRequested()
         val key = AdbKey(PreferenceAdbKeyStore(ShizukuSettings.getPreferences()), "shizuku")
         switchToTcp(host, currentPort, targetPort, key)
     }

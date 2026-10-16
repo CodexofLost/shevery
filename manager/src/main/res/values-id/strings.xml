@@ -114,7 +114,6 @@
     <string name="update_settings_frequency_label"><![CDATA[Periksa frekuensi]]></string>
     <string name="home_update_available_title"><![CDATA[Pembaruan terbaru tersedia: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Versi yang lebih baru sudah siap. Ketuk untuk mengunduh.]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Kembali ke atas]]></string>
     <string name="accessibility_close"><![CDATA[Tutup]]></string>
     <string name="accessibility_more_options"><![CDATA[Pilihan lainnya]]></string>

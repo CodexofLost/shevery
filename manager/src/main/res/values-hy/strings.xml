@@ -76,7 +76,6 @@
     <string name="update_settings_frequency_label"><![CDATA[Ստուգեք հաճախականությունը]]></string>
     <string name="home_update_available_title"><![CDATA[Shevery-ի թարմացումը հասանելի է՝ %s]]></string>
     <string name="home_update_available_body"><![CDATA[Ավելի նոր տարբերակը պատրաստ է։ Հպեք՝ ներբեռնելու համար:]]></string>
-    <string name="app_name"><![CDATA[Շեվերի]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Վերև գնալ]]></string>
     <string name="accessibility_close"><![CDATA[Փակել]]></string>
     <string name="accessibility_more_options"><![CDATA[Ավելի շատ ընտրանքներ]]></string>

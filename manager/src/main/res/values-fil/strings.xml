@@ -114,7 +114,6 @@
     <string name="update_settings_frequency_label">Suriin ang dalas</string>
     <string name="home_update_available_title">Magagamit ang napakaraming update: %s</string>
     <string name="home_update_available_body">Ang isang mas bagong bersyon ay handa na. I-tap para mag-download.</string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Mag-navigate pataas]]></string>
     <string name="accessibility_close"><![CDATA[Isara]]></string>
     <string name="accessibility_more_options"><![CDATA[Mas maraming pagpipilian]]></string>

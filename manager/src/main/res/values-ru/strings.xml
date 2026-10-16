@@ -333,7 +333,6 @@
     <string name="modules_catalog_view_github"><![CDATA[Открыть на GitHub]]></string>
     <string name="modules_catalog_skip_token"><![CDATA[Пропустить]]></string>
     <string name="modules_catalog_open"><![CDATA[Открыть каталог]]></string>
-    <string name="app_name"><![CDATA[Шевери]]></string>
     <string name="home_local_network_title"><![CDATA[Доступ к локальной сети]]></string>
     <string name="home_local_network_description"><![CDATA[Для беспроводной отладки требуется %1$s на этой версии Android.]]></string>
     <string name="home_local_network_granted"><![CDATA[%1$s предоставлено.]]></string>

@@ -514,7 +514,6 @@ Ready for commands.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[ಲೆಗಸಿ ಸ್ಟಬ್ ಅನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[%2$s ಮೂಲಕ ಲೆಗಸಿ ಸ್ಟಬ್ ಅನ್ನು %1$s ಮಾಡಲು ವಿಫಲವಾಗಿದೆ: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[ಯಾವುದೇ ಚಾನಲ್ ಲಭ್ಯವಿಲ್ಲ (ಮೊದಲು ಪ್ರಾರಂಭಿಸಿ)]]></string>
-    <string name="app_name"><![CDATA[ಶೆವ್]]></string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Start again to update to version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[ಕಂಪ್ಯೂಟರ್ ಗೆ ಕನೆಕ್ಟ್ ಮಾಡುವ ಮೂಲಕ ಪ್ರಾರಂಭಿಸಿ]]></string>
     <string name="home_adb_description"><![CDATA[ರೂಟ್ ಇಲ್ಲದ ಸಾಧನಗಳಿಗಾಗಿ, ಶೆವಿಯನ್ನು ಪ್ರಾರಂಭಿಸಲು ನೀವು adb ಅನ್ನು ಬಳಸಬೇಕಾಗುತ್ತದೆ (ಕಂಪ್ಯೂಟರ್ ಸಂಪರ್ಕದ ಅಗತ್ಯವಿದೆ). ಸಾಧನವನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿದಾಗಲೆಲ್ಲಾ ಈ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪುನರಾವರ್ತಿಸಬೇಕಾಗಿದೆ. ದಯವಿಟ್ಟು <<b>a href="%1$s">ಸಹಾಯವನ್ನು ಓದಿ.</a></b>]]></string>

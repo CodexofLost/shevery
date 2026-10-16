@@ -277,6 +277,18 @@ fun SettingsScreen(
     var classicNav by remember {
         mutableStateOf(ShizukuSettings.isClassicNav())
     }
+    var swipeBetweenTabs by remember {
+        mutableStateOf(ShizukuSettings.isSwipeBetweenTabs())
+    }
+    var motionBlur by remember {
+        mutableStateOf(ShizukuSettings.isMotionBlurEnabled())
+    }
+    var motionBlurIntensity by remember {
+        mutableIntStateOf(ShizukuSettings.getMotionBlurIntensity())
+    }
+    var motionBlurStrength by remember {
+        mutableIntStateOf(ShizukuSettings.getMotionBlurStrength())
+    }
     var showLanguageDialog by remember { mutableStateOf(false) }
     var showNightDialog by remember { mutableStateOf(false) }
     var showModuleModeDialog by remember { mutableStateOf(false) }
@@ -473,6 +485,10 @@ fun SettingsScreen(
                 computAiModel = ModuleSettings.getComputAiModel()
                 computRecommand = ModuleSettings.isComputRecommandEnabled()
                 classicNav = ShizukuSettings.isClassicNav()
+                swipeBetweenTabs = ShizukuSettings.isSwipeBetweenTabs()
+                motionBlur = ShizukuSettings.isMotionBlurEnabled()
+                motionBlurIntensity = ShizukuSettings.getMotionBlurIntensity()
+                motionBlurStrength = ShizukuSettings.getMotionBlurStrength()
                 connectorEnabled = ModuleSettings.isConnectorEnabled()
                 verboseLogging = ModuleSettings.isVerboseLogging()
                 notifyRecovery = ModuleSettings.isNotifyOnRecovery()
@@ -594,7 +610,7 @@ fun SettingsScreen(
                             notifyDeath = notifyDeath,
                             wifiReassert = wifiReassert,
                             autoDisableUsbDebugging = autoDisableUsbDebugging,
-                            showStealthRow = BuildConfig.FLAVOR == "standard",
+                            showStealthRow = true,
                             stealthSummary = context.getString(R.string.settings_stealth_version_summary),
                             onOpenCompatStubs = { nav = SettingsNav.CompatStubs },
                             onOpenStealthDialog = {
@@ -700,6 +716,26 @@ fun SettingsScreen(
                             onClassicNavChange = { enabled ->
                                 ShizukuSettings.setClassicNav(enabled)
                                 classicNav = enabled
+                            },
+                            swipeBetweenTabs = swipeBetweenTabs,
+                            motionBlur = motionBlur,
+                            motionBlurIntensity = motionBlurIntensity,
+                            motionBlurStrength = motionBlurStrength,
+                            onSwipeBetweenTabsChange = { enabled ->
+                                ShizukuSettings.setSwipeBetweenTabs(enabled)
+                                swipeBetweenTabs = enabled
+                            },
+                            onMotionBlurChange = { enabled ->
+                                ShizukuSettings.setMotionBlurEnabled(enabled)
+                                motionBlur = enabled
+                            },
+                            onMotionBlurIntensityChange = { value ->
+                                ShizukuSettings.setMotionBlurIntensity(value)
+                                motionBlurIntensity = value
+                            },
+                            onMotionBlurStrengthChange = { value ->
+                                ShizukuSettings.setMotionBlurStrength(value)
+                                motionBlurStrength = value
                             }
                         )
                         SettingsSection.SECURITY -> {
@@ -1406,7 +1442,15 @@ private fun LazyListScope.appearanceSectionContent(
     onNightClick: () -> Unit,
     onBlackNightChange: (Boolean) -> Unit,
     onUseSystemColorChange: (Boolean) -> Unit,
-    onClassicNavChange: (Boolean) -> Unit
+    onClassicNavChange: (Boolean) -> Unit,
+    swipeBetweenTabs: Boolean,
+    motionBlur: Boolean,
+    motionBlurIntensity: Int,
+    motionBlurStrength: Int,
+    onSwipeBetweenTabsChange: (Boolean) -> Unit,
+    onMotionBlurChange: (Boolean) -> Unit,
+    onMotionBlurIntensityChange: (Int) -> Unit,
+    onMotionBlurStrengthChange: (Int) -> Unit
 ) {
     item {
         SettingsGroup(title = stringResource(R.string.settings_language)) {
@@ -1453,8 +1497,76 @@ private fun LazyListScope.appearanceSectionContent(
                 checked = classicNav,
                 onCheckedChange = onClassicNavChange
             )
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_outline_play_arrow_24,
+                title = stringResource(R.string.settings_swipe_between_tabs),
+                summary = stringResource(R.string.settings_swipe_between_tabs_summary),
+                checked = swipeBetweenTabs,
+                onCheckedChange = onSwipeBetweenTabsChange
+            )
+            GroupDivider()
+            SwitchSettingsRow(
+                icon = R.drawable.ic_code_24dp,
+                title = stringResource(R.string.settings_motion_blur),
+                summary = stringResource(R.string.settings_motion_blur_summary),
+                checked = motionBlur,
+                onCheckedChange = onMotionBlurChange
+            )
+            if (motionBlur) {
+                GroupDivider()
+                MotionBlurSliderRow(
+                    icon = R.drawable.ic_code_24dp,
+                    title = stringResource(R.string.settings_motion_blur_intensity),
+                    summary = stringResource(R.string.settings_motion_blur_intensity_summary, motionBlurIntensity),
+                    value = motionBlurIntensity,
+                    onValueChange = onMotionBlurIntensityChange
+                )
+                GroupDivider()
+                MotionBlurSliderRow(
+                    icon = R.drawable.ic_code_24dp,
+                    title = stringResource(R.string.settings_motion_blur_strength),
+                    summary = stringResource(R.string.settings_motion_blur_strength_summary, motionBlurStrength),
+                    value = motionBlurStrength,
+                    onValueChange = onMotionBlurStrengthChange
+                )
+            }
         }
     }
+}
+
+@Composable
+private fun MotionBlurSliderRow(
+    icon: Int,
+    title: String,
+    summary: String,
+    value: Int,
+    onValueChange: (Int) -> Unit
+) {
+    var sliderValue by remember(value) { mutableStateOf(value.toFloat()) }
+    SettingsRow(
+        icon = icon,
+        title = title,
+        summary = summary,
+        trailing = {
+            Text(
+                text = "$value%",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary
+            )
+        }
+    )
+    androidx.compose.material3.Slider(
+        value = sliderValue,
+        onValueChange = { sliderValue = it },
+        onValueChangeFinished = { onValueChange(sliderValue.toInt()) },
+        valueRange = 0f..100f,
+        steps = 19,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 20.dp)
+            .padding(bottom = 12.dp)
+    )
 }
 
 private fun LazyListScope.modulesSectionContent(
@@ -1792,6 +1904,28 @@ private fun LazyListScope.extrasSectionContent(
                 summary = stringResource(R.string.lab_verbose_logging_summary),
                 checked = verboseLogging,
                 onCheckedChange = onVerboseLoggingChange
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_adb_24dp,
+                title = stringResource(R.string.usb_debugging_hide_title),
+                summary = stringResource(R.string.usb_debugging_hide_open_summary),
+                onClick = {
+                    context.startActivity(Intent(context, UsbDebuggingHideActivity::class.java))
+                }
+            )
+        }
+    }
+
+    item {
+        SettingsGroup(title = stringResource(R.string.network_firewall_title)) {
+            SettingsRow(
+                icon = R.drawable.ic_security_24dp,
+                title = stringResource(R.string.network_firewall_title),
+                summary = stringResource(R.string.network_firewall_open_summary),
+                onClick = {
+                    context.startActivity(Intent(context, NetworkFirewallActivity::class.java))
+                }
             )
         }
     }

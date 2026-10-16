@@ -514,7 +514,6 @@ Ready for commands.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[کۆلکە کۆلکە سڕایەوە]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[شکستی هێنا لە ٪1$s کۆلکە کۆلکە لە رێگەی ٪2$s: ٪3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[هیچ کەناڵێک بەردەست نیە (سەرەتا شیڤێری دەست پێبکە)]]></string>
-    <string name="app_name"><![CDATA[شێڤەری]]></string>
     <string name="home_status_service_version_update"><![CDATA[Version %2$s, %1$s<br/>Start again to update to version %3$s]]></string>
     <string name="home_adb_title"><![CDATA[دەستپێکردن بە گرێدان بە کۆمپیوتەرێکەوە]]></string>
     <string name="home_adb_description"><![CDATA[بۆ ئەو ئامێرانەی کە ڕەگیان نییە، پێویستە adb بەکاربهێنیت بۆ دەستپێکردنی Shevery (پێویستی بە گرێدانی کۆمپیوتەر هەیە). ئەم پرۆسەیە پێویستە هەموو جارێک دووبارە بکرێتەوە. تکایە <b><a href="٪1$s">یارمەتیەکە بخوێنەوە</a></b>.]]></string>

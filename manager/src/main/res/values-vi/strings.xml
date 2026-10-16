@@ -113,7 +113,6 @@
     <string name="update_settings_frequency_label"><![CDATA[Kiểm tra tần suất]]></string>
     <string name="home_update_available_title"><![CDATA[Đã có bản cập nhật Shevery: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Một phiên bản mới hơn đã sẵn sàng. Nhấn để tải xuống.]]></string>
-    <string name="app_name"><![CDATA[Shevery]]></string>
     <string name="accessibility_navigate_up"><![CDATA[Quay lại trang trên]]></string>
     <string name="accessibility_close"><![CDATA[Đóng]]></string>
     <string name="accessibility_more_options"><![CDATA[Các tùy chọn khác]]></string>

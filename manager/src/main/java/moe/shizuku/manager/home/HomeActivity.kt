@@ -1,5 +1,6 @@
 @file:OptIn(
     androidx.compose.foundation.layout.ExperimentalLayoutApi::class,
+    androidx.compose.foundation.ExperimentalFoundationApi::class,
     androidx.compose.material3.ExperimentalMaterial3Api::class,
     androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class
 )
@@ -100,6 +101,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.blur
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import moe.shizuku.manager.ui.compose.scrollMotionBlur
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -329,11 +334,27 @@ abstract class HomeActivity : AppActivity() {
                 LazyListState()
             }
             var useClassicNav by remember { mutableStateOf(ShizukuSettings.isClassicNav()) }
+            var swipeBetweenTabs by remember { mutableStateOf(ShizukuSettings.isSwipeBetweenTabs()) }
+            var motionBlurEnabled by remember { mutableStateOf(ShizukuSettings.isMotionBlurEnabled()) }
+            var motionBlurIntensity by remember { mutableIntStateOf(ShizukuSettings.getMotionBlurIntensity()) }
+            var motionBlurStrength by remember { mutableIntStateOf(ShizukuSettings.getMotionBlurStrength()) }
             DisposableEffect(Unit) {
                 val prefs = ShizukuSettings.getPreferences()
                 val listener = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
                     if (key == ShizukuSettings.USE_CLASSIC_NAV) {
                         useClassicNav = ShizukuSettings.isClassicNav()
+                    }
+                    if (key == ShizukuSettings.SWIPE_BETWEEN_TABS) {
+                        swipeBetweenTabs = ShizukuSettings.isSwipeBetweenTabs()
+                    }
+                    if (key == ShizukuSettings.MOTION_BLUR_ENABLED) {
+                        motionBlurEnabled = ShizukuSettings.isMotionBlurEnabled()
+                    }
+                    if (key == ShizukuSettings.MOTION_BLUR_INTENSITY) {
+                        motionBlurIntensity = ShizukuSettings.getMotionBlurIntensity()
+                    }
+                    if (key == ShizukuSettings.MOTION_BLUR_STRENGTH) {
+                        motionBlurStrength = ShizukuSettings.getMotionBlurStrength()
                     }
                 }
                 prefs.registerOnSharedPreferenceChangeListener(listener)
@@ -397,13 +418,55 @@ abstract class HomeActivity : AppActivity() {
                         contentWindowInsets = WindowInsets(0.dp)
                     ) { innerPadding ->
                     Box(modifier = Modifier.padding(innerPadding).fillMaxSize()) {
-                        androidx.compose.animation.AnimatedContent(
-                            targetState = selectedTab,
-                            transitionSpec = {
-                                fadeIn(animationSpec = tween(300)) togetherWith fadeOut(animationSpec = tween(300))
-                            },
-                            label = "tab_transition"
-                        ) { targetTab ->
+                        val pagerState = rememberPagerState(
+                            initialPage = selectedTab.coerceIn(0, 3),
+                            pageCount = { 4 }
+                        )
+                        LaunchedEffect(selectedTab, swipeBetweenTabs) {
+                            if (swipeBetweenTabs && pagerState.currentPage != selectedTab) {
+                                try {
+                                    pagerState.animateScrollToPage(selectedTab.coerceIn(0, 3))
+                                } catch (_: Exception) {
+                                }
+                            }
+                        }
+                        LaunchedEffect(
+                            pagerState.currentPage,
+                            pagerState.isScrollInProgress,
+                            swipeBetweenTabs
+                        ) {
+                            if (swipeBetweenTabs && !pagerState.isScrollInProgress &&
+                                selectedTab != pagerState.currentPage
+                            ) {
+                                selectedTab = pagerState.currentPage
+                            }
+                        }
+                        val tabContent: @Composable (Int) -> Unit = { targetTab ->
+                            // Pages 1 (Modules) and 3 (Settings hub) scroll inside
+                            // ShizukuLazyScaffold, which applies directional motion blur
+                            // internally; pages 0 (Home) and 2 (Comput) use raw
+                            // LazyColumns, so the blur is applied here instead.
+                            // This keeps exactly one blur layer per page.
+                            val needsOuterBlur = targetTab == 0 || targetTab == 2
+                            val verticalListState = when (targetTab) {
+                                0 -> homeListState
+                                else -> computListState
+                            }
+                            Box(
+                                modifier = Modifier.fillMaxSize()
+                                    .then(
+                                        if (needsOuterBlur) {
+                                            Modifier.scrollMotionBlur(
+                                                listState = verticalListState,
+                                                enabled = motionBlurEnabled,
+                                                intensity = motionBlurIntensity,
+                                                strength = motionBlurStrength
+                                            )
+                                        } else {
+                                            Modifier
+                                        }
+                                    )
+                            ) {
                             when (targetTab) {
                                 0 -> HomeScreen(
                                     serviceResource = serviceResource,
@@ -506,6 +569,46 @@ abstract class HomeActivity : AppActivity() {
                                     targetSection = settingsTargetSection,
                                     onTargetSectionConsumed = { settingsTargetSection = null }
                                 )
+                            }
+                                }
+                        }
+                        if (swipeBetweenTabs) {
+                            HorizontalPager(
+                                state = pagerState,
+                                userScrollEnabled = true,
+                                beyondViewportPageCount = 1,
+                                modifier = Modifier.fillMaxSize()
+                                    .scrollMotionBlur(
+                                        pagerState = pagerState,
+                                        enabled = motionBlurEnabled && swipeBetweenTabs,
+                                        intensity = motionBlurIntensity,
+                                        strength = motionBlurStrength
+                                    )
+                            ) { page ->
+                                val pageOffset = pagerState.currentPage - page +
+                                    pagerState.currentPageOffsetFraction
+                                val horizontalBlur = pagerOffsetBlur(
+                                    enabled = motionBlurEnabled && swipeBetweenTabs,
+                                    offsetFraction = pageOffset,
+                                    intensity = motionBlurIntensity,
+                                    strength = motionBlurStrength
+                                )
+                                Box(
+                                    modifier = Modifier.fillMaxSize()
+                                        .then(if (horizontalBlur > 0.dp) Modifier.blur(horizontalBlur) else Modifier)
+                                ) {
+                                    tabContent(page)
+                                }
+                            }
+                        } else {
+                            androidx.compose.animation.AnimatedContent(
+                                targetState = selectedTab,
+                                transitionSpec = {
+                                    fadeIn(animationSpec = tween(300)) togetherWith fadeOut(animationSpec = tween(300))
+                                },
+                                label = "tab_transition"
+                            ) { targetTab ->
+                                tabContent(targetTab)
                             }
                         }
                     }
@@ -987,6 +1090,21 @@ private data class LocalNetworkPermissionState(
         get() = permissions.takeIf { it.isNotEmpty() }
             ?.joinToString { it.substringAfterLast('.') }
             ?: "none"
+}
+
+private fun pagerOffsetBlur(
+    enabled: Boolean,
+    offsetFraction: Float,
+    intensity: Int,
+    strength: Int
+): androidx.compose.ui.unit.Dp {
+    if (!enabled) return 0.dp
+    val offset = kotlin.math.abs(offsetFraction).coerceIn(0f, 1f)
+    if (offset <= 0.001f) return 0.dp
+    val maxRadius = (intensity.coerceIn(0, 100) / 100f) * 24f
+    if (maxRadius <= 0.01f) return 0.dp
+    val sensitivity = 0.5f + (strength.coerceIn(0, 100) / 100f)
+    return (offset * maxRadius * sensitivity).dp
 }
 
 private data class HomeButtonSpec(

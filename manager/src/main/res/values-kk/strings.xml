@@ -437,7 +437,6 @@ Shevery-ді қайта іске қосу қажет болуы мүмкін.]]>
     <string name="shevery_update_auto_check_summary"><![CDATA[Қолданба жабылған кезде де жаңа нұсқаларды іздеңіз]]></string>
     <string name="home_update_available_title"><![CDATA[Жаңарту қолжетімді: %s]]></string>
     <string name="home_update_available_body"><![CDATA[Жаңарақ нұсқасы дайын. Жүктеп алу үшін түртіңіз.]]></string>
-    <string name="app_name"><![CDATA[Шевери]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Тағы бірнеше жайт бар, алдымен көмек бөлімін оқып шыққаныңызға көз жеткізіңіз.]]></string>
     <string name="home_quick_terminal"><![CDATA[Терминал]]></string>
     <string name="home_quick_wireless"><![CDATA[Сымсыз ADB]]></string>

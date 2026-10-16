@@ -532,7 +532,6 @@ has been copied to clipboard.]]></string>
     <string name="settings_compat_stub_uninstalled"><![CDATA[הוסרה הפניה למורשת]]></string>
     <string name="settings_compat_stub_failed"><![CDATA[לא הצליח %1$s את הסטאב הישן באמצעות %2$s: %3$s]]></string>
     <string name="settings_compat_stub_none"><![CDATA[אין ערוץ זמין (התחל קודם ב-Shevery)]]></string>
-    <string name="app_name"><![CDATA[שברי]]></string>
     <string name="home_adb_is_limited_description"><![CDATA[יצרן המכשיר שלך הגביל את ההרשאות של adb, ואפליקציות המשתמשות ב-Shevery לא יפעלו כראוי.
 
 בדרך כלל, ניתן להסיר מגבלה זו על ידי שינוי כמה הגדרות ב"אפשרויות מפתחים". אנא קרא את מדריך העזרה לקבלת פרטים על אופן ביצוע הפעולה.

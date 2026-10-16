@@ -42,12 +42,7 @@
 
     <!-- Android 11+ package visibility: enumerate EVERY package that provides
          an accessibility service so the Accessibility Manager can list and
-         manage all of them. The scoped <queries> form was too narrow — it
-         only exposed resolvable exported components and missed 8 of 32
-         services on the tester's device. QUERY_ALL_PACKAGES is the same
-         approach the reference app uses, and is a legitimate, Play-policy
-         compliant use for an accessibility manager (its core function is
-         managing services across all installed apps). -->
+         manage all of them. -->
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
@@ -105,6 +100,10 @@
         tools:remove="android:appComponentFactory"
         tools:targetApi="33">
 
+        <meta-data
+            android:name="moe.shizuku.manager.STEALTH_LABEL"
+            android:value="SheveryStealthLabelPlaceholder32" />
+
         <activity
             android:name=".MainActivity"
             android:banner="@mipmap/banner"
@@ -113,9 +112,6 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
-                <!-- 2023.08.03: Google play enforces that apps with LEANBACK_LAUNCHER Activity must be uploaded with App Bundle format, -->
-                <!-- and possibly additional review steps. To avoid problems, remove it temporarily. -->
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
@@ -129,10 +125,6 @@
             android:name=".shell.ShellTutorialActivity"
             android:label="@string/home_terminal_title" />
 
-        <activity
-            android:name=".settings.LabFeaturesActivity"
-            android:exported="false"
-            android:label="Lab Features" />
         <activity
             android:name=".settings.UsbDebuggingHideActivity"
             android:exported="false"
