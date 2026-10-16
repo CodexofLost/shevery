@@ -10,22 +10,18 @@ const jakarta = Plus_Jakarta_Sans({
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-jetbrains",
 })
 
 export const metadata: Metadata = {
-  title: "Shevery — Material 3 Expressive Privileged API, ADB Modules & AI Console for Android",
+  title: "Shevery — Shizuku fork with Comput Agent, Device Owner & Stealth APK",
   description:
-    "Next-generation Shizuku & Dhizuku evolution for Android 8.0–17. Featuring Material 3 Expressive UI, Comput AI Agent Console, ADB Modules with WebUI, Wireless Boot Autostart, Stealth Edition, and Tasker automation.",
-  icons: {
-    icon: "/icon.webp",
-    apple: "/icon.webp",
-  },
+    "Shizuku fork targeting Android 17 (SDK 37) with a Material 3 Expressive Compose manager, 10-step Comput AI shell & module planner, Device Owner & Dhizuku v1/v2 provider, on-device Stealth APK byte-swap generator, and ADB modules.",
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0E1117",
+  themeColor: "#070916",
   width: "device-width",
   initialScale: 1,
 }
@@ -36,10 +32,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru" className={`${jakarta.variable} ${jetbrainsMono.variable} dark`}>
-      <body className="font-sans antialiased bg-[#0E1117] text-[#E5EAF5] selection:bg-[#B8CCF0] selection:text-[#132238]">
-        {children}
-      </body>
+    <html lang="en" className={`${jakarta.variable} ${jetbrainsMono.variable} bg-background`}>
+      <body className="antialiased">{children}</body>
     </html>
   )
 }
