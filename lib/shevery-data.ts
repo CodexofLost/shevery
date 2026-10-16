@@ -1,282 +1,205 @@
-export interface FeatureItem {
-  id: string
-  category: "core" | "ai" | "stealth" | "enterprise" | "automation" | "lab"
-  badge: string
+export interface ChangeCard {
   title: string
-  description: string
-  technicalDetail: string
-  accent: "primary" | "secondary" | "tertiary" | "error"
-  iconName: string
-  span?: "wide" | "tall" | "normal"
+  body: string
+  commits: { label: string; url: string }[]
+  span: string
+  variant: "primary" | "tertiary" | "surface"
 }
 
-export interface GuideDocItem {
-  id: string
-  category: string
+export interface CaveatCard {
   title: string
-  summary: string
-  badge: string
-  codeTitle: string
-  codeSnippet: string
-  steps: string[]
+  body: string
+  emphasized?: boolean
 }
 
-export const SHEVERY_STATS = [
-  { value: "Android 11–17", label: "Target SDK 36 & Ready" },
-  { value: "< 1.2 ms", label: "Direct Binder IPC Latency" },
-  { value: "44 Tools", label: "Comput Autonomous Agent" },
-  { value: "3 Stubs", label: "Sui · Dhizuku · Launchers" },
-]
+export interface DocLinkItem {
+  label: string
+  href: string
+}
 
-export const SHEVERY_FEATURES: FeatureItem[] = [
+export const PROJECT_FACTS = [
   {
-    id: "comput-agent",
-    category: "ai",
-    badge: "AI AGENT · 44 TOOLS",
-    title: "Comput Autonomous Agent & Shell",
-    description:
-      "Multi-step ReAct agent right inside the privilege manager. Inspects UI trees, captures screen via MediaProjection, taps, swipes, manages packages, and runs privileged shell commands.",
-    technicalDetail:
-      "Supports OpenAI, Anthropic, Google Gemini (API & OAuth), Groq, OpenRouter, DeepSeek, Cerebras, plus custom OpenAI-compatible endpoints with native tool-calling.",
-    accent: "primary",
-    iconName: "Bot",
-    span: "wide",
+    term: "compileSdk / targetSdk",
+    value: "37",
+    detail: "Android 17 (buildToolsVersion 37.0.0 in root build.gradle).",
   },
   {
-    id: "adb-modules",
-    category: "core",
-    badge: "MAGISK-LIKE · ROOTLESS",
-    title: "ADB Modules & GitHub Catalog",
-    description:
-      "Install declarative ZIP modules without root. Automatic rollback if a boot crash is detected, plus a built-in GitHub repository store with verified badges.",
-    technicalDetail:
-      "Includes 15+ helper APIs in api.sh: set_prop, apply_settings, pkg_disable, cmd_appops, and WebUI bridge window.shizuku.exec().",
-    accent: "tertiary",
-    iconName: "PackageCheck",
-    span: "normal",
+    term: "minSdk",
+    value: "24",
+    detail: "Android 7.0. Stealth generator requires API 29+; eBPF firewall requires API 30+.",
   },
   {
-    id: "stealth-edition",
-    category: "stealth",
-    badge: "ANTI-DETECTION",
-    title: "Stealth Installation & Package Disguise",
-    description:
-      "Evade aggressive banking and anti-cheat package scanners by installing Shevery under a randomized package name and custom label directly on the device.",
-    technicalDetail:
-      "Rewrites binary AndroidManifest.xml string pools in UTF-8/UTF-16LE, resigns with an auto-generated V1/V2/V3 certificate, and migrates your config.",
-    accent: "secondary",
-    iconName: "ShieldAlert",
-    span: "normal",
+    term: "Flavors & stubs",
+    value: "2+2",
+    detail: "standard & stealth flavors, plus embedded shevery-stub.apk and shevery-dhizuku-stub.apk.",
   },
   {
-    id: "usb-debugging-hide",
-    category: "stealth",
-    badge: "SPOOFING GUARD",
-    title: "USB Debugging & Dev Options Spoofing",
-    description:
-      "Automatically sets adb_enabled=0 and development_settings_enabled=0 in Settings.Global the instant a banking or game app enters the foreground.",
-    technicalDetail:
-      "Monitors foreground top-package every 1.5s without killing your active wireless ADB daemon or interrupting running Shizuku binders.",
-    accent: "primary",
-    iconName: "EyeOff",
-    span: "normal",
-  },
-  {
-    id: "device-owner",
-    category: "enterprise",
-    badge: "DPM · DHIZUKU BRIDGE",
-    title: "Device Owner & Dhizuku Compatibility",
-    description:
-      "Activate Device Owner or Profile Owner in one tap via Shizuku, delegate DPM scopes to apps, transfer ownership, or act as a drop-in Dhizuku provider.",
-    technicalDetail:
-      "Implements DhizukuBinderWrapper, remote transact, and delegated scopes (CERT_INSTALL, PERMISSION_GRANT, APP_RESTRICTIONS, BLOCK_UNINSTALL).",
-    accent: "tertiary",
-    iconName: "KeyRound",
-    span: "wide",
-  },
-  {
-    id: "network-firewall",
-    category: "lab",
-    badge: "CONNECTIVITY CHAIN",
-    title: "Zero-VPN UID Network Firewall",
-    description:
-      "Block internet access for selected user or system apps at the kernel/framework level without occupying the Android VPN slot.",
-    technicalDetail:
-      "Uses cmd connectivity set-package-networking-enabled false <pkg> with automatic fallback to iptables -A OUTPUT -m owner --uid-owner.",
-    accent: "error",
-    iconName: "Flame",
-    span: "normal",
-  },
-  {
-    id: "compat-stubs",
-    category: "stealth",
-    badge: "BRIDGES & STUBS",
-    title: "Compatibility Stubs (Shizuku · Sui · Dhizuku)",
-    description:
-      "Generate lightweight stub APKs when running under a hidden Stealth package name so legacy apps still discover Shizuku, Sui, or Dhizuku providers.",
-    technicalDetail:
-      "Also creates Shortcut Launcher APKs for hidden system activities without cluttering your launcher.",
-    accent: "secondary",
-    iconName: "Layers",
-    span: "normal",
-  },
-  {
-    id: "watchdog-boot",
-    category: "automation",
-    badge: "RESILIENCE · 5S WATCHDOG",
-    title: "Server Watchdog, Boot Start & Tasker Plugin",
-    description:
-      "Dual-layer process & native daemon watchdog polls server health every 5 seconds, keeps the Shizuku server alive, and notifies on crashes. Automate via Tasker, MacroDroid, or ADB intents.",
-    technicalDetail:
-      "5-second health check interval with Wireless ADB auto-start on boot, Wakelock keep-alive, and token-authenticated broadcast actions.",
-    accent: "primary",
-    iconName: "Activity",
-    span: "normal",
+    term: "current release",
+    value: "14.3.0",
+    detail: "versionCode 43, published 2026-10-13. Built from api_version_name 14.3.0.",
   },
 ]
 
-export const GUIDE_DOCS: GuideDocItem[] = [
+export const RECENT_CHANGES: ChangeCard[] = [
   {
-    id: "wireless-adb",
-    category: "Quick Start",
-    title: "Wireless ADB & Auto-Start on Boot",
-    summary:
-      "Start Shevery on Android 11–17 without a computer using split-screen Wireless Debugging pairing and keep it active across reboots.",
-    badge: "Android 11+ · No PC",
-    codeTitle: "Manual ADB Start Fallback",
-    codeSnippet: `# Start Shevery server via ADB from PC or local terminal
-adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/starter.sh
-
-# Verify server status & UID
-adb shell sh -c "dumpsys activity provider moe.shizuku.privileged.api"`,
-    steps: [
-      "Enable Developer Options and toggle on Wireless Debugging.",
-      "Open Shevery → click Pairing → open Developer Options in Split-Screen or Notification mode.",
-      "Tap 'Pair device with pairing code' and enter the 6-digit code in Shevery's notification.",
-      "Enable 'Start on boot (Wireless ADB)' and 'Watchdog Service' in Settings so Shevery automatically reconnects whenever Wi-Fi is ready.",
+    title: "Watchdog checks the binder before acting on a stale heartbeat",
+    body: "WatchdogManager.kt previously treated a 60 s overdue timestamp as a dead server even while the binder was still responsive. Commit ecd465a (PR #279) calls Shizuku.pingBinder() first: if the binder answers, it refreshes beat() and returns instead of restarting a healthy server on a fixed schedule.",
+    commits: [
+      { label: "ecd465a", url: "https://github.com/HmnDev-Tech/shevery/commit/ecd465a" },
+      { label: "PR #279", url: "https://github.com/HmnDev-Tech/shevery/pull/279" },
     ],
+    span: "lg:col-span-7",
+    variant: "primary",
   },
   {
-    id: "comput-ai",
-    category: "Comput AI",
-    title: "Comput AI Agent & Autonomous Screen Control",
-    summary:
-      "Configure LLM providers (Gemini OAuth, OpenAI, Claude, Groq, OpenRouter, DeepSeek) and run autonomous multi-step device workflows.",
-    badge: "44 Built-in Tools",
-    codeTitle: "Comput Agent Tool Capabilities",
-    codeSnippet: `# UI & Vision Tools
-get_screen_elements(filter="interactive")
-tap_element(index=4) / swipe(x1, y1, x2, y2, durationMs=300)
-take_screenshot() # MediaProjection hardware frame or screencap
-
-# System & Package Tools
-run_shell("cmd package compile -m speed-profile -a")
-manage_app_permission(pkg="com.example.app", perm="android.permission.CAMERA", grant=true)
-modify_system_setting(namespace="global", key="animator_duration_scale", value="0.5")`,
-    steps: [
-      "Open the Comput tab in Shevery and tap the AI Provider icon in the top bar.",
-      "Select a preset (Google Gemini with 1-click OAuth or API Key, OpenAI, Anthropic, Groq, OpenRouter, or Custom Endpoint).",
-      "Switch between Terminal Shell mode (natural language to shell command) or Agent mode (autonomous multi-step GUI + system execution).",
-      "Review real-time tool execution cards or approve sensitive commands before they run.",
+    title: "On-device Stealth APK rewriter & stub manifest fix",
+    body: "StealthApkGenerator.kt embeds assets/shevery-stealth.apk compiled with com.stealthp.lacehold (21 chars) and swaps it in-place across AndroidManifest.xml, resources.arsc, and classes*.dex in both US-ASCII and UTF-16LE. PR #268 fixed the Shizuku compatibility stub crash by using fully qualified component class names.",
+    commits: [
+      { label: "PR #268", url: "https://github.com/HmnDev-Tech/shevery/pull/268" },
+      { label: "2b6b6f7", url: "https://github.com/HmnDev-Tech/shevery/commit/2b6b6f7" },
     ],
+    span: "lg:col-span-5",
+    variant: "tertiary",
   },
   {
-    id: "adb-modules-dev",
-    category: "ADB Modules",
-    title: "Building & Installing Rootless ADB Modules",
-    summary:
-      "Create Magisk-style ZIP modules that run with ADB/Root permissions via Shevery's declarative api.sh helper functions and WebUI bridge.",
-    badge: "api.sh + WebUI",
-    codeTitle: "module.prop & service.sh Example",
-    codeSnippet: `# module.prop
-id=fps_unlocker_adb
-name=High Refresh & Animation Tuner
-version=v2.1.0
-versionCode=21
-author=HmnDev
-description=Unlocks peak refresh rate and tunes window manager via ADB
-
-# service.sh (api.sh is auto-sourced by Shevery)
-ui_print "- Applying display & animation optimizations..."
-apply_settings global window_animation_scale 0.5
-apply_settings system peak_refresh_rate 120.0
-cmd_appops set com.example.heavyapp RUN_IN_BACKGROUND ignore`,
-    steps: [
-      "Package module.prop, service.sh, post-fs-data.sh, and uninstall.sh at the root of a standard ZIP archive.",
-      "Use built-in api.sh helpers (apply_settings, set_prop, pkg_disable, cmd_compile) so Shevery automatically tracks and reverts changes on uninstall.",
-      "Optional: bundle a webroot/index.html to provide an interactive Material 3 WebUI powered by window.shizuku.exec().",
-      "Publish on GitHub with topic 'adb-module' or 'shizuku-module' to appear automatically in Shevery's built-in Module Catalog.",
+    title: "Comput AI Agent & Commandium",
+    body: "ComputAgent.kt plans up to MAX_STEPS_HARD = 10 steps of SHELL (IShizukuService.newProcess) or MODULE_SERVICE actions against 7 OpenAI-compatible provider presets plus custom URLs, gated by secure, turbo, or custom approval modes.",
+    commits: [
+      { label: "078a1e3", url: "https://github.com/HmnDev-Tech/shevery/commit/078a1e3" },
     ],
+    span: "lg:col-span-4",
+    variant: "surface",
   },
   {
-    id: "stealth-usb-hide",
-    category: "Stealth & Anti-Detection",
-    title: "Stealth Disguise, Stubs & USB Debugging Hide",
-    summary:
-      "Prevent banking apps, enterprise MDM, and games from detecting Shizuku, Developer Options, or active ADB debugging.",
-    badge: "Zero Detection",
-    codeTitle: "How USB Debugging Spoofing Works",
-    codeSnippet: `# When a monitored banking/game package enters foreground:
-settings put global adb_enabled 0
-settings put global development_settings_enabled 0
-
-# Your active Wireless ADB / Shizuku server binder remains ALIVE!
-# When you leave the protected app, Shevery restores:
-settings put global adb_enabled 1
-settings put global development_settings_enabled 1`,
-    steps: [
-      "Go to Settings → Stealth Installation to build a custom APK with a random package name (e.g. com.sys.helper.a9f2) and custom app label.",
-      "Open Settings → Compatibility Stubs to install lightweight Shizuku / Sui / Dhizuku bridge stubs if legacy apps check hardcoded package names.",
-      "Open Settings → Lab Features → Hide USB Debugging and select the apps that check for Developer Options or USB Debugging.",
-      "Enable the background guard service — Shevery spoofs the flags in real time only while those apps are in the foreground.",
+    title: "Device Owner, 5 DPM scopes & Dhizuku v1/v2",
+    body: "DeviceOwnerManager.kt and DhizukuProvider.kt implement 1-tap DPM activation through Shizuku, five per-app delegation scopes, ownership transfer via DevicePolicyManager.transferOwnership(), and a 5-second countdown before deactivation.",
+    commits: [
+      { label: "PR #270", url: "https://github.com/HmnDev-Tech/shevery/pull/270" },
     ],
+    span: "lg:col-span-4",
+    variant: "surface",
   },
   {
-    id: "device-owner-dhizuku",
-    category: "Device Owner & DPM",
-    title: "Device Owner, Delegated Scopes & Dhizuku Mode",
-    summary:
-      "Elevate Shevery to Device Owner or Profile Owner to unlock enterprise DevicePolicyManager controls and Dhizuku client support.",
-    badge: "Enterprise DPM",
-    codeTitle: "ADB Activation & Delegated Scopes",
-    codeSnippet: `# Activate Shevery as Device Owner via ADB (or 1-tap inside Shevery)
-dpm set-device-owner moe.shizuku.privileged.api/moe.shizuku.manager.deviceowner.ShizukuDeviceAdminReceiver
-
-# Available DPM Delegated Scopes for client apps:
-- delegation-cert-install
-- delegation-permission-grant
-- delegation-package-access
-- delegation-block-uninstall
-- delegation-network-logging`,
-    steps: [
-      "Navigate to Settings → Device Owner and tap 'Activate via Shizuku' (or run the dpm command over ADB).",
-      "Toggle 'Dhizuku Mode' to allow Dhizuku-compatible apps (Hail, OwnDroid, AppOps) to bind directly to Shevery.",
-      "Use 'Delegate Scopes' to grant fine-grained DPM capabilities to trusted apps without giving them full Device Owner.",
-      "Need to switch managers? Use 'Transfer Ownership' to hand off Device Owner to another receiver without factory resetting.",
+    title: "Foreground USB debugging hiding & Chain3 firewall",
+    body: "PR #269 added UsbDebuggingHideService.kt (polls top package every 1 s via PACKAGE_USAGE_STATS and sets ADB_ENABLED = 0 while a target app is visible) and NetworkFirewallManager.kt (toggles Android 11+ eBPF connectivity chain3 per package without a VPN service).",
+    commits: [
+      { label: "PR #269", url: "https://github.com/HmnDev-Tech/shevery/pull/269" },
     ],
+    span: "lg:col-span-4",
+    variant: "surface",
   },
   {
-    id: "tasker-intents",
-    category: "Automation & Intents",
-    title: "Tasker, MacroDroid & Authenticated Broadcasts",
-    summary:
-      "Control the Shizuku server lifecycle or execute privileged actions from Tasker, MacroDroid, or scripts using token-verified intents.",
-    badge: "Token Secured",
-    codeTitle: "Broadcast Automation Commands",
-    codeSnippet: `# Start Shevery server with your secret token
-adb shell am broadcast \\
-  -a com.hamondev.shevery.intent.action.START_SERVER \\
-  -n moe.shizuku.privileged.api/com.hamondev.shevery.tasker.PluginReceiver \\
-  -e auth "YOUR_SECRET_TOKEN"
-
-# Stop or Restart server
--a com.hamondev.shevery.intent.action.STOP_SERVER
--a com.hamondev.shevery.intent.action.RESTART_SERVER`,
-    steps: [
-      "Enable 'Shevery Connectors' in Settings → Automation (Allow plugins to activate Shevery).",
-      "Copy your secret authentication token from Settings → Automation or the Home screen 'View Intents' bottom sheet.",
-      "In Tasker or MacroDroid, add an Action → Plugin → Shevery (Start, Stop, or Restart Server) or send a direct broadcast intent.",
-      "Unauthorized broadcasts without a valid token are automatically blocked with a deep-link security alert notification.",
+    title: "Android 16+ resource tables & aapt2 collapse guard",
+    body: "PR #267 keeps resources.arsc uncompressed (noCompress += 'arsc') and skips collapseFlavoredReleaseResourceNames if the intermediate .ap_ path differs across AGP versions, keeping release APKs installable on Android 16 and 17.",
+    commits: [
+      { label: "PR #267", url: "https://github.com/HmnDev-Tech/shevery/pull/267" },
     ],
+    span: "lg:col-span-6",
+    variant: "surface",
+  },
+  {
+    title: "Server-side Watchdog & monitor notification shield",
+    body: "rikka.shizuku.server.Watchdog posts a 5 s heartbeat on the server main looper, checks freshness every 60 s, and holds linkToDeath on package, activity, user, and appops. Commit 1d9154b (PR #277) replaced the monitor notification icon with a dedicated shield drawable.",
+    commits: [
+      { label: "1d9154b", url: "https://github.com/HmnDev-Tech/shevery/commit/1d9154b" },
+      { label: "PR #277", url: "https://github.com/HmnDev-Tech/shevery/pull/277" },
+    ],
+    span: "lg:col-span-6",
+    variant: "surface",
+  },
+]
+
+export const LIMITS_AND_CAVEATS: CaveatCard[] = [
+  {
+    title: "Conflicts with official Shizuku (and with its own Stealth copy)",
+    body: "com.hamondev.shevery and every generated Stealth APK declare the moe.shizuku.privileged.api ContentProvider authority. Android blocks side-by-side installation with INSTALL_FAILED_CONFLICTING_PROVIDER. Uninstall Shizuku before installing Shevery, and uninstall standard Shevery before installing a Stealth APK.",
+    emphasized: true,
+  },
+  {
+    title: "Android17Compat reflection swaps String args and passes \"default\"",
+    body: "In Android17Compat.java (lines 121 and 253), when PermissionManagerApis.checkPermission falls back to reflection, invokeDynamic passes (packageName, permissionName, \"default\", userId). On Android 15+ IPermissionManager expects (permissionName, packageName, \"default:0\", userId).",
+    emphasized: true,
+  },
+  {
+    title: "Stealth APK drops v2/v3 signing blocks for v1 JAR signing",
+    body: "StealthApkGenerator.kt strips existing META-INF signature files during the in-place byte swap and signs CERT.RSA with a freshly generated 2048-bit RSA keypair using v1 JAR signing. Stale APK Signature Scheme v2/v3 blocks are dropped on rebuild.",
+  },
+  {
+    title: "Comput Agent is a 10-step shell & module planner, not a UI tapper",
+    body: "ComputAgent.kt plans up to MAX_STEPS_HARD = 10 steps of SHELL (toybox commands via IShizukuService.newProcess) or MODULE_SERVICE (AdbModuleManager). It does not inspect accessibility trees or inject touch gestures.",
+  },
+  {
+    title: "GitHub Catalog token is stored in plain SharedPreferences",
+    body: "TokenStore.kt saves the ghp_ / github_pat_ personal access token unencrypted (documented in docs/github-catalog.md as an emulator compatibility trade-off). Any root process or app backup can read it.",
+  },
+  {
+    title: "ADB modules are script runners, not systemless overlays",
+    body: "Modules extract to /data/user/0/<pkg>/files/adb_modules/<id>. There are no mount hooks, no Magisk or KernelSU /data/adb/modules compatibility, and each script execution times out after 120 seconds (exit code 124).",
+  },
+  {
+    title: "Connectors expose the server startup command when enabled",
+    body: "Off by default. Turning on shizuku_connector_enabled in Settings -> Automation exposes content://moe.shizuku.privileged.api.connector so local privilege-escalation activators can query the raw server start command.",
+  },
+  {
+    title: "Internal Java/Kotlin packages remain upstream",
+    body: "Only the applicationId (com.hamondev.shevery) and receiver action prefixes changed. Source packages remain moe.shizuku.manager.* and rikka.shizuku.server.*, and the native starter is still built with CMake + BoringSSL + libcxx.",
+  },
+]
+
+export const BUILD_METADATA = [
+  { term: "AGP", value: "9.4.0-alpha07" },
+  { term: "Gradle", value: "9.7.0-rc-2" },
+  { term: "Kotlin", value: "2.4.20-Beta2" },
+  { term: "Compose BOM", value: "2026.06.01" },
+  { term: "material3", value: "1.5.0-alpha25" },
+  { term: "NDK", value: "29.0.14206865" },
+  { term: "C++ / Crypto", value: "CMake 3.22.1 · BoringSSL" },
+  { term: "JDK target", value: "21" },
+]
+
+export const DOC_LINKS: DocLinkItem[] = [
+  {
+    label: "Comput AI Agent guide",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/comput-agent.md",
+  },
+  {
+    label: "Device Owner & Dhizuku bridge",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/device-owner.md",
+  },
+  {
+    label: "Stealth Edition & Compatibility Stubs",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/stealth-and-stubs.md",
+  },
+  {
+    label: "ADB Modules guide",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/adb-modules-guide.md",
+  },
+  {
+    label: "ADB Modules API",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/adb-modules-api.md",
+  },
+  {
+    label: "GitHub Catalog (topic:shevery-modules)",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/github-catalog.md",
+  },
+  {
+    label: "Accessibility, USB Hide & Chain3 Firewall",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/lab-and-extras.md",
+  },
+  {
+    label: "Tasker & MacroDroid automation",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/tasker-plugin.md",
+  },
+  {
+    label: "Public & internal Intents",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/intents.md",
+  },
+  {
+    label: "Shizuku Connectors API",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/shizuku-connectors.md",
+  },
+  {
+    label: "Android 17 compatibility doc",
+    href: "https://github.com/HmnDev-Tech/shevery/blob/main/docs/android-17-compatibility.md",
   },
 ]
