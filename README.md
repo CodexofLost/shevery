@@ -31,12 +31,12 @@ Upstream project reference: <https://github.com/RikkaApps/Shizuku>
 
 ## Documentation
 
-
+- [Shevery Wiki](https://github.com/HmnDev-Tech/shevery/wiki)
 - [ADB Modules guide](docs/adb-modules-guide.md)
 - [ADB Modules API reference](docs/adb-modules-api.md)
+- [ADB Modules publishing & GitHub Catalog guide](docs/github-catalog.md)
 - [Shizuku Connectors API](docs/shizuku-connectors.md)
 - [Android 17 Compatibility](docs/android-17-compatibility.md)
-- [ADB Modules publishing guide](docs/github-catalog.md)
 
 ## Background
 

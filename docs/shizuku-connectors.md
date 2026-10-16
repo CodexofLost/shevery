@@ -9,7 +9,11 @@ Often, enthusiasts discover Local Privilege Escalation (LPE) exploits (e.g., Dir
 ## Prerequisites
 
 For safety, this feature is **disabled by default**. 
-To use it, the user must navigate to the Shizuku Settings -> **Lab Features**, enable **Shizuku Connectors**, and accept the safety warning.
+To use it, the user must navigate to **Settings → Automation** (or **Lab Features**), enable **Shevery Connectors**, and accept the safety warning.
+
+This setting (`shizuku_connector_enabled`) gates both:
+1. The `content://moe.shizuku.privileged.api.connector` provider for local privilege-escalation (LPE) activators.
+2. Incoming automation commands received by `com.hamondev.shevery.tasker.PluginReceiver` (see [Tasker & MacroDroid Automation Guide](tasker-plugin.md) and [Intents](intents.md)).
 
 ## How to use
 

@@ -1,6 +1,6 @@
 # Accessibility Manager, USB Debugging Hiding & Network Firewall
 
-Shevery bundles three privileged system utilities accessible from **Settings → Extras** and **Lab Features** (`SettingsScreen`):
+Shevery bundles three privileged system utilities accessible from **Settings → Extras** and **Lab Features** (`LabFeaturesActivity`):
 
 1. **Accessibility Manager** (with Keep-Alive Pinning)
 2. **USB Debugging Hiding** (Per-App Foreground Detection)
@@ -100,4 +100,4 @@ In **Settings → Extras** (and **Lab Features**), you can also configure:
 - `manager/src/main/java/moe/shizuku/manager/settings/UsbDebuggingHideService.kt`
 - `manager/src/main/java/moe/shizuku/manager/settings/NetworkFirewallActivity.kt`
 - `manager/src/main/java/moe/shizuku/manager/settings/NetworkFirewallManager.kt`
-- `manager/src/main/java/moe/shizuku/manager/settings/SettingsScreen.kt`
+- `manager/src/main/java/moe/shizuku/manager/settings/LabFeaturesActivity.kt`

@@ -8,30 +8,28 @@ Wiki mirror: https://github.com/HmnDev-Tech/shevery/wiki/Stealth-and-Stubs
 
 ---
 
-## Part 1: Stealth Edition (On-Device Self-Cloning Random Package Generator)
+## Part 1: Stealth Edition (On-Device Random Package Generator)
 
-Available on Android 10+ (API 29+) under **Settings → Application → Stealth version**.
+Available on Android 10+ (API 29+) in standard builds under **Settings → Application → Stealth version**.
 
 ### How It Works
 
-1. Instead of embedding a duplicate APK inside `assets/` (which triggers VirusTotal `APK-in-APK` / `Dropper` heuristics and doubles the download size), Shevery clones its own installed base APK (`context.applicationInfo.sourceDir`) directly on-device.
-2. When you open **Stealth version**, Shevery generates a fresh random 20-character package name (`com.<8chars>.<7chars>`, e.g., `com.k8m2x9qp.r4v7n1t`) using `SecureRandom` — matching the exact byte length of `com.hamondev.shevery`.
+1. The standard Shevery APK embeds a prebuilt stealth template (`assets/shevery-stealth.apk`) compiled with the placeholder package ID `com.stealthp.lacehold` and launcher label `System Toolkit`.
+2. When you open **Stealth version**, Shevery generates a fresh random package name of the exact same length (`com.<8chars>.<8chars>`, e.g., `com.k8m2x9qp.r4v7n1tw`) using `SecureRandom`.
 3. You can customize:
-   - **App name** (launcher label, default `System Toolkit`, up to 32 characters)
+   - **App name** (launcher label, default `System Toolkit`)
    - **File name** (default `SystemToolkit-v<version>.apk`)
 4. When you tap **Save**, `StealthApkGenerator`:
-   - Rewrites all occurrences of the current 20-character package ID across `AndroidManifest.xml`, `resources.arsc`, `classes*.dex`, `assets/rish_shizuku.dex`, and `lib/*/libshizuku.so` in both **ASCII/UTF-8** and **UTF-16LE** encodings while keeping binary string-pool offsets intact and preserving internal `.tasker` class names (`com.hamondev.shevery.tasker.*`).
-   - Rewrites the launcher label in-place inside the binary `AndroidManifest.xml` StringPool (`SheveryStealthLabelPlaceholder32`) and switches `<application android:label>` from `@string/app_name` (`TYPE_REFERENCE`) to `TYPE_STRING` so your custom app name appears in the launcher without shifting `resources.arsc` offsets.
-   - Recalculates the **SHA-1 signature** and **Adler32 checksum** in every modified DEX header (`classes*.dex` and `assets/rish_shizuku.dex`) so Android's package verifier accepts the rewritten bytecode.
+   - Rewrites all occurrences of the template package ID and launcher label across `AndroidManifest.xml`, `resources.arsc`, and `classes*.dex` in both **ASCII/UTF-8** and **UTF-16LE** encodings while keeping binary string-pool offsets intact.
+   - Recalculates the **SHA-1 signature** and **Adler32 checksum** in every modified DEX header so Android's package verifier accepts the rewritten bytecode.
    - Preserves nested asset APKs (`shevery-stub.apk`, `shevery-dhizuku-stub.apk`) untouched so their signatures remain valid.
-   - Aligns uncompressed ZIP entries (`resources.arsc` to 4 bytes, `.so` native libraries to 4096 bytes) to satisfy Android 11+ (API 30+) `INSTALL_PARSE_FAILED_RESOURCES_ARSC_COMPRESSED` requirements.
-   - Signs the rebuilt APK on-device using a freshly generated 2048-bit RSA keypair and self-signed X.509 certificate with both **v1 JAR signing** and **APK Signature Scheme v2** (`APK Sig Block 42`, ID `0x7109871a`, 4096-byte page-aligned) for Android 11–17 compatibility.
+   - Signs the rebuilt APK on-device using a freshly generated 2048-bit RSA keypair and self-signed X.509 certificate (`SHA256withRSA`, v1 JAR signature).
    - Saves the finished APK directly to your device's **`Downloads/`** folder via `MediaStore.Downloads`.
 
 ### Installing the Stealth APK
 
 > [!IMPORTANT]
-> Because `ServerConstants.MANAGER_APPLICATION_ID`, `libshizuku.so`, and all provider authorities (`<pkg>.shizuku`, `<pkg>.fileprovider`, `<pkg>.dhizuku.server`) are rewritten to your new random package ID, the Stealth APK runs with zero static `com.hamondev.shevery` package identifiers and can even be installed alongside or in place of the standard build. If you use legacy apps that check for `moe.shizuku.privileged.api`, enable the **Shizuku Stub** after installing.
+> The stealth APK intentionally retains Shevery's Shizuku binder and provider authorities so that all Shizuku client apps continue to work with full privileges. Because Android does not allow two apps on the same device to declare the same `ContentProvider` authority, **you must uninstall the standard Shevery app before installing the generated Stealth APK** from `Downloads/`.
 
 Tip: Use **Settings → Backups → Backup** before switching to the Stealth APK, then restore your settings, authorized apps, and modules in one tap after installing the stealth copy.
 
