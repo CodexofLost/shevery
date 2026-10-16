@@ -117,11 +117,11 @@ export default function SheveryHomePage() {
 
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="https://github.com/HmnDev-Tech/shevery/releases/download/14.3.0/shevery-release.apk"
+                  href="https://github.com/HmnDev-Tech/shevery/releases"
                   className="inline-flex shrink-0 items-center justify-center gap-2 font-medium whitespace-nowrap select-none rounded-full transition-[border-radius,background-color,transform] duration-300 ease-spring active:rounded-md active:scale-[0.97] bg-m3-primary text-on-primary hover:bg-[oklch(0.87_0.075_275)] h-16 px-8 text-lg [&_svg]:size-6 [&_svg]:shrink-0"
                 >
                   <ArrowDownToLine aria-hidden="true" />
-                  <span>Download 14.3.0</span>
+                  <span>Download latest</span>
                 </a>
 
                 <a
