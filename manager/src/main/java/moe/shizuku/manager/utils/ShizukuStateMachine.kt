@@ -12,6 +12,7 @@ import moe.shizuku.manager.AppConstants
 import moe.shizuku.manager.ShizukuSettings
 import moe.shizuku.manager.adb.AdbArm
 import moe.shizuku.manager.application
+import moe.shizuku.manager.service.WatchdogManager
 import rikka.shizuku.Shizuku
 
 /**
@@ -76,14 +77,48 @@ object ShizukuStateMachine {
     fun set(newState: State) = transitionAtomic { newState }
 
     /**
-     * Called when the binder dies. If the server was RUNNING, it crashed.
-     * If it was STOPPING (explicit stop), optionally auto-disable USB debugging
-     * and transition to STOPPED.
+     * Pre-start lifecycle coordinator.
+     * If the server is currently RUNNING or pingBinder() is true, this is an intentional restart:
+     * sets [WatchdogManager.expectingDeath] to true to swallow the upcoming SIGKILL binder death,
+     * and sets state to [State.STARTING].
+     * If the server was STOPPED, moves to [State.STARTING] with expectingDeath = false.
+     */
+    fun onStartRequested() {
+        if (isRunning() || Shizuku.pingBinder()) {
+            WatchdogManager.expectingDeath = true
+        }
+        set(State.STARTING)
+    }
+
+    /**
+     * Fallback when a starter fails or times out.
+     * Reconciles state to STOPPED (if pingBinder is false) or RUNNING (if binder arrived).
+     */
+    fun onStartFailed() {
+        if (Shizuku.pingBinder()) {
+            set(State.RUNNING)
+        } else {
+            set(State.STOPPED)
+        }
+    }
+
+    /**
+     * Pre-stop lifecycle coordinator.
+     * Transitions state to [State.STOPPING] when a user or system stop is requested.
+     */
+    fun onStopRequested() {
+        set(State.STOPPING)
+    }
+
+    /**
+     * Called when the binder dies. If a stop was requested (explicit STOPPING or
+     * userStopRequested), disarm USB debugging if configured and transition to STOPPED.
+     * If the server was RUNNING without a stop request, it crashed unless an expected
+     * restart death is active ([WatchdogManager.isExpectingDeathActive]).
      */
     internal fun setDead() = transitionAtomic {
-        when (it) {
-            State.RUNNING -> State.CRASHED
-            State.STOPPING -> {
+        when {
+            it == State.STOPPING || WatchdogManager.isUserStopRequested() -> {
                 try {
                     val appContext = application.applicationContext
                     if (ShizukuSettings.getAutoDisableUsbDebugging()) {
@@ -95,6 +130,14 @@ object ShizukuStateMachine {
                 }
                 State.STOPPED
             }
+            it == State.RUNNING -> {
+                if (WatchdogManager.isExpectingDeathActive()) {
+                    State.STARTING
+                } else {
+                    State.CRASHED
+                }
+            }
+            it == State.STARTING -> State.STARTING
             else -> it
         }
     }

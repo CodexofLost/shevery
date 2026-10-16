@@ -111,6 +111,7 @@ class StarterActivity : AppActivity() {
                         if (!isFinishing) finish()
                     } else {
                         Log.e("Shizuku", "Timed out waiting for service binder. State=${ShizukuStateMachine.get()}, ping=${Shizuku.pingBinder()}")
+                        ShizukuStateMachine.onStartFailed()
                         viewModel.appendOutput("")
                         viewModel.appendOutput("✗ Timed out waiting for Shevery service to initialize.")
                         viewModel.appendOutput("  The starter process completed, but the server binder was not received.")
@@ -303,6 +304,7 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
             }
 
             ShizukuSettings.setLastLaunchMode(ShizukuSettings.LaunchMethod.ROOT)
+            ShizukuStateMachine.onStartRequested()
 
             Shell.cmd(Starter.internalCommand).to(object : CallbackList<String?>() {
                 override fun onAddElement(s: String?) {
@@ -310,6 +312,7 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
                 }
             }).submit {
                 if (it.code != 0) {
+                    ShizukuStateMachine.onStartFailed()
                     appendLine("\nSend this to developer may help solve the problem.")
                 }
             }
@@ -323,6 +326,7 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
         postResult()
 
         viewModelScope.launch(Dispatchers.IO) {
+            ShizukuStateMachine.onStartRequested()
             runCatching {
                 AdbStarter.start(host, port, context = appContext, listener = {
                     synchronized(outputLock) {
@@ -333,6 +337,7 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
                     appendLine(it)
                 })
             }.onFailure {
+                ShizukuStateMachine.onStartFailed()
                 it.printStackTrace()
 
                 if (it is java.security.GeneralSecurityException) {
@@ -414,6 +419,7 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
                     val dhizukuService = moe.shizuku.manager.dhizuku.IDhizukuService.Stub.asInterface(serviceResult)
 
                     appendLine("Executing Shevery starter directly via Dhizuku Device Owner...")
+                    ShizukuStateMachine.onStartRequested()
                     dhizukuService.runCommand(moe.shizuku.manager.starter.Starter.internalCommand)
                     ShizukuSettings.setLastLaunchMode(ShizukuSettings.LaunchMethod.DHIZUKU)
 
@@ -423,6 +429,7 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
                         appendLine("✓ Shevery binder verified.")
                         postResult()
                     } else {
+                        ShizukuStateMachine.onStartFailed()
                         appendLine("✗ Starter command completed,but Shevery service did not become available.")
                         appendLine("  Per README: start Shevery first by PC/OTG or Wireless Debugging, then use Dhizuku — \"Do not start Shevery via Dhizuku first.\"")
                         appendLine("  Direct Dhizuku startup can fail when the Device Owner context cannot provide the same shell/root environment as ADB or root.")
@@ -437,6 +444,7 @@ private class ViewModel(context: Context, root: Boolean, dhizuku: Boolean, host:
                     }
                 }
             } catch (e: Exception) {
+                ShizukuStateMachine.onStartFailed()
                 appendLine("\n✗ Dhizuku error: ${e.message}")
                 appendLine(Log.getStackTraceString(e))
                 postResult(DhizukuException("Dhizuku failed: ${e.message}", e))
