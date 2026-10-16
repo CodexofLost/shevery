@@ -56,11 +56,14 @@ export default function SheveryHomePage() {
             </ul>
           </nav>
 
+          {/* Pill radius is half the height (20px on h-10), not rounded-full:
+              calc(infinity * 1px) can't interpolate, so the press morph snapped
+              instead of animating. Pressed shape: 8px per M3 Expressive (small). */}
           <a
             href="https://github.com/HmnDev-Tech/shevery"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center justify-center gap-2 font-medium whitespace-nowrap select-none rounded-full transition-[border-radius,background-color,transform] duration-300 ease-spring active:rounded-md active:scale-[0.97] bg-primary-container text-on-primary-container hover:bg-[oklch(0.41_0.1_275)] h-10 px-4 text-sm ml-auto lg:ml-2"
+            className="inline-flex shrink-0 items-center justify-center gap-2 font-medium whitespace-nowrap select-none rounded-[20px] transition-[border-radius,background-color,transform] duration-300 ease-spring active:rounded-sm active:scale-[0.97] bg-primary-container text-on-primary-container hover:bg-[oklch(0.41_0.1_275)] h-10 px-4 text-sm ml-auto lg:ml-2"
           >
             <span>GitHub</span>
             <ArrowUpRight className="size-4 shrink-0" aria-hidden="true" />
@@ -115,10 +118,12 @@ export default function SheveryHomePage() {
                 ADB modules, and can rewrite its own package ID on the device.
               </p>
 
+              {/* Press morph (M3 Expressive): pill rest radius = half of h-16 (32px),
+                  pressed = 16px (extra-large size) — both finite so border-radius animates. */}
               <div className="flex flex-wrap gap-3">
                 <a
                   href="https://github.com/HmnDev-Tech/shevery/releases"
-                  className="inline-flex shrink-0 items-center justify-center gap-2 font-medium whitespace-nowrap select-none rounded-full transition-[border-radius,background-color,transform] duration-300 ease-spring active:rounded-md active:scale-[0.97] bg-m3-primary text-on-primary hover:bg-[oklch(0.87_0.075_275)] h-16 px-8 text-lg [&_svg]:size-6 [&_svg]:shrink-0"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 font-medium whitespace-nowrap select-none rounded-[32px] transition-[border-radius,background-color,transform] duration-300 ease-spring active:rounded-lg active:scale-[0.97] bg-m3-primary text-on-primary hover:bg-[oklch(0.87_0.075_275)] h-16 px-8 text-lg [&_svg]:size-6 [&_svg]:shrink-0"
                 >
                   <ArrowDownToLine aria-hidden="true" />
                   <span>Download latest</span>
@@ -128,7 +133,7 @@ export default function SheveryHomePage() {
                   href="https://github.com/HmnDev-Tech/shevery/actions/workflows/apk-build.yml"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex shrink-0 items-center justify-center gap-2 font-medium whitespace-nowrap select-none rounded-full transition-[border-radius,background-color,transform] duration-300 ease-spring active:rounded-md active:scale-[0.97] bg-primary-container text-on-primary-container hover:bg-[oklch(0.41_0.1_275)] h-16 px-8 text-lg [&_svg]:size-6 [&_svg]:shrink-0"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 font-medium whitespace-nowrap select-none rounded-[32px] transition-[border-radius,background-color,transform] duration-300 ease-spring active:rounded-lg active:scale-[0.97] bg-primary-container text-on-primary-container hover:bg-[oklch(0.41_0.1_275)] h-16 px-8 text-lg [&_svg]:size-6 [&_svg]:shrink-0"
                 >
                   <FlaskConical aria-hidden="true" />
                   <span>CI builds</span>
@@ -138,7 +143,7 @@ export default function SheveryHomePage() {
                   href="https://github.com/HmnDev-Tech/shevery"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex shrink-0 items-center justify-center gap-2 font-medium whitespace-nowrap select-none rounded-full transition-[border-radius,background-color,transform] duration-300 ease-spring active:rounded-md active:scale-[0.97] border border-outline text-on-surface hover:bg-surface-2 h-16 px-8 text-lg"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 font-medium whitespace-nowrap select-none rounded-[32px] transition-[border-radius,background-color,transform] duration-300 ease-spring active:rounded-lg active:scale-[0.97] border border-outline text-on-surface hover:bg-surface-2 h-16 px-8 text-lg"
                 >
                   <span>Source</span>
                 </a>

@@ -156,7 +156,7 @@ export function HeroBinderTopology() {
                 className={`h-9 px-3.5 text-xs font-medium transition-[border-radius,background-color,color] duration-300 ease-spring cursor-pointer ${
                   selected
                     ? "rounded-md bg-m3-primary text-on-primary"
-                    : "rounded-full bg-surface-3 text-on-surface hover:bg-surface-4"
+                    : "rounded-[18px] bg-surface-3 text-on-surface hover:bg-surface-4"
                 }`}
               >
                 {LAUNCH_PATHS[key].label}
@@ -423,7 +423,7 @@ export function StealthAndCompatInspector() {
                 className={`h-12 px-5 text-sm font-medium transition-[border-radius,background-color,color] duration-300 ease-spring cursor-pointer ${
                   checked
                     ? "rounded-md bg-m3-primary text-on-primary"
-                    : "rounded-full bg-surface-3 text-on-surface hover:bg-surface-4"
+                    : "rounded-[24px] bg-surface-3 text-on-surface hover:bg-surface-4"
                 }`}
               >
                 {tab.label}
