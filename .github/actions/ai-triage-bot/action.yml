@@ -386,4 +386,91 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - 
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.26'
+
+    - name: Resolve Go dependencies
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: |
+        go get google.golang.org/genai@latest
+        go mod tidy
+
+    - name: Run AI Triage Bot
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: go run ./cmd/bot
+      env:
+        # --- Core triage ---
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        GEMINI_API_KEYS: ${{ inputs.gemini-api-keys }}
+        GEMINI_MODEL: ${{ inputs.gemini-model }}
+        GEMINI_MAX_RETRIES: ${{ inputs.gemini-max-retries }}
+        GEMINI_RETRY_BASE_DELAY_MS: ${{ inputs.gemini-retry-base-delay-ms }}
+        GEMINI_RETRY_MAX_DELAY_MS: ${{ inputs.gemini-retry-max-delay-ms }}
+        REPO_CONTEXT_PATH: ${{ inputs.repo-context-path }}
+        INSTRUCTIONS_PATH: ${{ inputs.instructions-path }}
+        TEMPLATES_PATH: ${{ inputs.templates-path }}
+        LABELS_CONFIG_PATH: ${{ inputs.labels-config-path }}
+        SPAM_WINDOW_MINUTES: ${{ inputs.spam-window-minutes }}
+        SPAM_THRESHOLD: ${{ inputs.spam-threshold }}
+        MAX_FILES: ${{ inputs.max-files }}
+        MAX_FILE_BYTES: ${{ inputs.max-file-bytes }}
+        MAX_DIFF_BYTES: ${{ inputs.max-diff-bytes }}
+        MAX_EXTRACTED_PATHS: ${{ inputs.max-extracted-paths }}
+        MAX_REFERENCED_ISSUES: ${{ inputs.max-referenced-issues }}
+        MAX_API_CALLS: ${{ inputs.max-api-calls }}
+        MAX_ATTACHMENTS: ${{ inputs.max-attachments }}
+        MAX_ATTACHMENT_BYTES: ${{ inputs.max-attachment-bytes }}
+        MAX_ATTACHMENT_TOTAL_BYTES: ${{ inputs.max-attachment-total-bytes }}
+        ATTACHMENT_FETCH_TIMEOUT_SECONDS: ${{ inputs.attachment-fetch-timeout-seconds }}
+        MODERATION_TOKEN: ${{ inputs.moderation-token }}
+        MODERATION_STATE_PATH: ${{ inputs.moderation-state-path }}
+        MODERATION_LOG_ISSUE: ${{ inputs.moderation-log-issue }}
+        # --- Duplicate detection ---
+        DUPLICATE_DETECTION_ENABLED: ${{ inputs.duplicate-detection-enabled }}
+        MAX_DUPLICATE_CANDIDATES: ${{ inputs.max-duplicate-candidates }}
+        DUPLICATE_SEARCH_KEYWORDS: ${{ inputs.duplicate-search-keywords }}
+        DUPLICATE_MIN_SIMILARITY: ${{ inputs.duplicate-min-similarity }}
+        DUPLICATE_MAX_BODY_CHARS: ${{ inputs.duplicate-max-body-chars }}
+        # --- Discussions Q&A (needs a discussion_comment trigger + discussions: write) ---
+        DISCUSSIONS_ENABLED: ${{ inputs.discussions-enabled }}
+        DISCUSSION_TRIGGER: ${{ inputs.discussion-trigger }}
+        DISCUSSION_INSTRUCTIONS_PATH: ${{ inputs.discussion-instructions-path }}
+        DISCUSSION_SPAM_WINDOW_MINUTES: ${{ inputs.discussion-spam-window-minutes }}
+        DISCUSSION_SPAM_THRESHOLD: ${{ inputs.discussion-spam-threshold }}
+        DISCUSSION_STATE_PATH: ${{ inputs.discussion-state-path }}
+        DISCUSSION_MAX_COMMENTS: ${{ inputs.discussion-max-comments }}
+        # --- AI agent (needs an issue_comment trigger) ---
+        AGENT_ENABLED: ${{ inputs.agent-enabled }}
+        AGENT_TRIGGER: ${{ inputs.agent-trigger }}
+        AGENT_INSTRUCTIONS_PATH: ${{ inputs.agent-instructions-path }}
+        AGENT_ALLOWED_USERS: ${{ inputs.agent-allowed-users }}
+        AGENT_MAX_CONTEXT_FILES: ${{ inputs.agent-max-context-files }}
+        AGENT_MAX_TREE_ENTRIES: ${{ inputs.agent-max-tree-entries }}
+        AGENT_MAX_OUTPUT_FILES: ${{ inputs.agent-max-output-files }}
+        AGENT_MAX_OUTPUT_BYTES: ${{ inputs.agent-max-output-bytes }}
+        AGENT_MAX_OUTPUT_TOKENS: ${{ inputs.agent-max-output-tokens }}
+        AGENT_BRANCH_PREFIX: ${{ inputs.agent-branch-prefix }}
+        AGENT_SPAM_WINDOW_MINUTES: ${{ inputs.agent-spam-window-minutes }}
+        AGENT_SPAM_THRESHOLD: ${{ inputs.agent-spam-threshold }}
+        AGENT_STATE_PATH: ${{ inputs.agent-state-path }}
+        # --- Commit review (needs a commit_comment trigger) ---
+        COMMIT_REVIEW_ENABLED: ${{ inputs.commit-review-enabled }}
+        COMMIT_REVIEW_TRIGGER: ${{ inputs.commit-review-trigger }}
+        COMMIT_REVIEW_INSTRUCTIONS_PATH: ${{ inputs.commit-review-instructions-path }}
+        COMMIT_REVIEW_ALLOWED_USERS: ${{ inputs.commit-review-allowed-users }}
+        COMMIT_REVIEW_SPAM_WINDOW_MINUTES: ${{ inputs.commit-review-spam-window-minutes }}
+        COMMIT_REVIEW_SPAM_THRESHOLD: ${{ inputs.commit-review-spam-threshold }}
+        COMMIT_REVIEW_STATE_PATH: ${{ inputs.commit-review-state-path }}
+        # --- Workflow dispatch by comment (needs an issue_comment trigger + actions: write) ---
+        WORKFLOW_DISPATCH_ENABLED: ${{ inputs.workflow-dispatch-enabled }}
+        WORKFLOW_DISPATCH_TRIGGER: ${{ inputs.workflow-dispatch-trigger }}
+        WORKFLOW_DISPATCH_TARGETS: ${{ inputs.workflow-dispatch-targets }}
+        WORKFLOW_DISPATCH_ALLOWED_USERS: ${{ inputs.workflow-dispatch-allowed-users }}
+        WORKFLOW_DISPATCH_SPAM_WINDOW_MINUTES: ${{ inputs.workflow-dispatch-spam-window-minutes }}
+        WORKFLOW_DISPATCH_SPAM_THRESHOLD: ${{ inputs.workflow-dispatch-spam-threshold }}
+        WORKFLOW_DISPATCH_STATE_PATH: ${{ inputs.workflow-dispatch-state-path }}
+        GITHUB_WORKSPACE: ${{ github.workspace }}
