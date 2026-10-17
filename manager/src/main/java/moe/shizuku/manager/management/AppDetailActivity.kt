@@ -2,6 +2,8 @@
 
 package moe.shizuku.manager.management
 
+import android.content.pm.PermissionInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.compose.setContent
@@ -45,12 +47,15 @@ import moe.shizuku.manager.ui.compose.ShizukuExpressiveTheme
 import moe.shizuku.manager.ui.compose.ShizukuLazyScaffold
 import moe.shizuku.manager.ui.compose.SwitchSettingsRow
 import moe.shizuku.manager.utils.CustomTabsHelper
+import moe.shizuku.manager.utils.ShizukuSystemApis
+import moe.shizuku.manager.utils.UserHandleCompat
 import rikka.html.text.HtmlCompat
 import rikka.shizuku.Shizuku
 
 /**
- * Privileges of a single app: allow or deny Shizuku access, turn a one-time
- * grant into a permanent one and show the app details behind it.
+ * Privileges of a single app: Shizuku access (allowed / denied), whether that
+ * access is session-only, the app's own runtime permissions granted through
+ * Shizuku, and the package details behind them.
  *
  * Opened from [ApplicationManagementActivity] instead of the list row's old
  * tap-to-toggle behaviour, so a tap on a row always lands here.
@@ -72,7 +77,12 @@ class AppDetailActivity : AppActivity() {
             return
         }
         val packageInfo = try {
-            packageManager.getPackageInfo(pkgName, 0)
+            // GET_PERMISSIONS populates requestedPermissions (the runtime
+            // permission privileges below), GET_META_DATA the requires-root flag.
+            packageManager.getPackageInfo(
+                pkgName,
+                PackageManager.GET_PERMISSIONS or PackageManager.GET_META_DATA
+            )
         } catch (e: Exception) {
             finish()
             return
@@ -82,6 +92,7 @@ class AppDetailActivity : AppActivity() {
             return
         }
         val uid = applicationInfo.uid
+        val userId = UserHandleCompat.getUserId(uid)
 
         setContent {
             val tick = permissionTick.intValue
@@ -106,6 +117,32 @@ class AppDetailActivity : AppActivity() {
                 applicationInfo.metaData?.getBoolean("moe.shizuku.client.V3_REQUIRES_ROOT") == true
             }
 
+            // Dangerous (runtime) permissions declared by the app: these are the
+            // actual privileges that can be granted or revoked through Shizuku.
+            val runtimePermissions = remember(packageInfo) {
+                packageInfo.requestedPermissions.orEmpty().mapNotNull { permission ->
+                    val info = try {
+                        packageManager.getPermissionInfo(permission, 0)
+                    } catch (_: Exception) {
+                        null
+                    } ?: return@mapNotNull null
+                    // protectionLevel & 0xf == the base type; PROTECTION_MASK_BASE is not public API.
+                    val base = info.protectionLevel and 0xf
+                    if (base != PermissionInfo.PROTECTION_DANGEROUS) return@mapNotNull null
+                    permission to info.loadLabel(packageManager).toString()
+                }
+            }
+            val runtimePermissionStates = remember(tick, runtimePermissions) {
+                runtimePermissions.associate { (permission, _) ->
+                    val isGranted = try {
+                        ShizukuSystemApis.checkPermission(permission, pkgName, userId) == PackageManager.PERMISSION_GRANTED
+                    } catch (_: Exception) {
+                        false
+                    }
+                    permission to isGranted
+                }
+            }
+
             fun applyGrant(value: Boolean) {
                 try {
                     if (value) {
@@ -128,13 +165,40 @@ class AppDetailActivity : AppActivity() {
                 }
             }
 
-            fun makePermanent() {
+            fun setSessionOnly(value: Boolean) {
                 try {
-                    AuthorizationManager.grant(pkgName, uid)
-                    Toast.makeText(this@AppDetailActivity, R.string.app_management_made_permanent, Toast.LENGTH_SHORT).show()
+                    if (value) {
+                        // Drop the permanent grant, keep access for this session only.
+                        AuthorizationManager.revoke(pkgName, uid)
+                        AuthorizationManager.markOneTime(uid, true)
+                    } else {
+                        AuthorizationManager.grant(pkgName, uid)
+                        Toast.makeText(this@AppDetailActivity, R.string.app_management_made_permanent, Toast.LENGTH_SHORT).show()
+                    }
                     permissionTick.intValue++
                     setResult(RESULT_OK)
                 } catch (_: SecurityException) {
+                    val serverUid = try {
+                        Shizuku.getUid()
+                    } catch (_: Throwable) {
+                        return
+                    }
+                    if (serverUid != 0) {
+                        showAdbLimitedDialog = true
+                    }
+                }
+            }
+
+            fun setRuntimePermission(permission: String, value: Boolean) {
+                try {
+                    if (value) {
+                        ShizukuSystemApis.grantRuntimePermission(pkgName, permission, userId)
+                    } else {
+                        ShizukuSystemApis.revokeRuntimePermission(pkgName, permission, userId)
+                    }
+                    permissionTick.intValue++
+                    setResult(RESULT_OK)
+                } catch (_: Exception) {
                     val serverUid = try {
                         Shizuku.getUid()
                     } catch (_: Throwable) {
@@ -221,14 +285,39 @@ class AppDetailActivity : AppActivity() {
                                     stringResource(R.string.app_detail_state_denied)
                                 }
                             )
-                            if (granted && isOneTime) {
-                                GroupDivider()
+                            GroupDivider()
+                            SwitchSettingsRow(
+                                icon = R.drawable.ic_schedule_24dp,
+                                title = stringResource(R.string.app_detail_session_only),
+                                checked = isOneTime,
+                                onCheckedChange = { value -> setSessionOnly(value) },
+                                summary = stringResource(R.string.app_detail_session_only_summary)
+                            )
+                        }
+                    }
+
+                    item {
+                        SettingsGroup(title = stringResource(R.string.app_detail_runtime_permissions)) {
+                            if (runtimePermissions.isEmpty()) {
                                 SettingsRow(
-                                    icon = R.drawable.ic_schedule_24dp,
-                                    title = stringResource(R.string.app_detail_make_permanent),
-                                    summary = stringResource(R.string.app_management_make_permanent_desc),
-                                    onClick = { makePermanent() }
+                                    icon = null,
+                                    title = stringResource(R.string.app_detail_runtime_permissions_empty)
                                 )
+                            } else {
+                                runtimePermissions.forEachIndexed { index, permissionEntry ->
+                                    val permission = permissionEntry.first
+                                    val permLabel = permissionEntry.second
+                                    if (index > 0) {
+                                        GroupDivider()
+                                    }
+                                    SwitchSettingsRow(
+                                        icon = null,
+                                        title = permLabel,
+                                        summary = permission,
+                                        checked = runtimePermissionStates[permission] == true,
+                                        onCheckedChange = { value -> setRuntimePermission(permission, value) }
+                                    )
+                                }
                             }
                         }
                     }

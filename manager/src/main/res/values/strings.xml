@@ -124,11 +124,14 @@
     <string name="app_management_clear_filters">Reset filters</string>
 
     <!-- App detail (per-app privileges) -->
-    <string name="app_detail_privileges_title">Privileges</string>
+    <string name="app_detail_privileges_title">Shizuku Privileges</string>
     <string name="app_detail_shizuku_access">Shizuku access</string>
     <string name="app_detail_state_allowed">Allowed</string>
     <string name="app_detail_state_denied">Denied</string>
-    <string name="app_detail_make_permanent">Make permanent</string>
+    <string name="app_detail_session_only">Session-only access</string>
+    <string name="app_detail_session_only_summary">Granted for this session only; switch off to make it permanent</string>
+    <string name="app_detail_runtime_permissions">Runtime permissions</string>
+    <string name="app_detail_runtime_permissions_empty">This app declares no runtime permissions</string>
     <string name="app_detail_info_title">App info</string>
     <string name="app_detail_package">Package</string>
     <string name="app_detail_version">Version</string>
