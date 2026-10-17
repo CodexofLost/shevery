@@ -123,6 +123,18 @@
     <string name="app_management_no_search_results_desc">Try checking the spelling or resetting filters.</string>
     <string name="app_management_clear_filters">Reset filters</string>
 
+    <!-- App detail (per-app privileges) -->
+    <string name="app_detail_privileges_title">Privileges</string>
+    <string name="app_detail_shizuku_access">Shizuku access</string>
+    <string name="app_detail_state_allowed">Allowed</string>
+    <string name="app_detail_state_denied">Denied</string>
+    <string name="app_detail_make_permanent">Make permanent</string>
+    <string name="app_detail_info_title">App info</string>
+    <string name="app_detail_package">Package</string>
+    <string name="app_detail_version">Version</string>
+    <string name="app_detail_version_unknown">Unknown</string>
+    <string name="app_detail_uid">UID</string>
+
     <!-- Terminal -->
     <string name="home_terminal_title">Use Shevery in terminal apps</string>
     <string name="home_terminal_description">Run commands through Shevery in terminal apps you like</string>

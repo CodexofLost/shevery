@@ -2,11 +2,13 @@
 
 package moe.shizuku.manager.management
 
+import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -101,6 +103,13 @@ class ApplicationManagementActivity : AppActivity() {
 
     private val viewModel by appsViewModel()
     private val permissionTick = mutableIntStateOf(0)
+
+    /** Relays the detail screen's RESULT_OK so the home screen's app counter refreshes too. */
+    private val detailLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            setResult(RESULT_OK)
+        }
+    }
 
     private val binderDeadListener = Shizuku.OnBinderDeadListener {
         if (!isFinishing) {
@@ -414,6 +423,12 @@ class ApplicationManagementActivity : AppActivity() {
                                                         setResult(RESULT_OK)
                                                         permissionTick.intValue++
                                                         viewModel.load(onlyCount = true)
+                                                    },
+                                                    onOpenDetail = { pkg ->
+                                                        detailLauncher.launch(
+                                                            Intent(this@ApplicationManagementActivity, AppDetailActivity::class.java)
+                                                                .putExtra(AppDetailActivity.EXTRA_PACKAGE_NAME, pkg)
+                                                        )
                                                     }
                                                 )
                                                 if (index != filteredEntries.lastIndex) {
@@ -517,7 +532,8 @@ private fun AppPermissionRow(
     entry: AppEntry,
     tick: Int,
     onLimitedAdb: () -> Unit,
-    onPermissionChanged: () -> Unit
+    onPermissionChanged: () -> Unit,
+    onOpenDetail: (String) -> Unit
 ) {
     val context = LocalContext.current
     val pm = context.packageManager
@@ -525,7 +541,7 @@ private fun AppPermissionRow(
     val applicationInfo = packageInfo.applicationInfo ?: return
     val uid = applicationInfo.uid
     val packageName = packageInfo.packageName
-    var granted by remember(packageName, uid, tick) {
+    val granted by remember(packageName, uid, tick) {
         mutableStateOf(entry.granted)
     }
     val title = entry.title
@@ -533,27 +549,6 @@ private fun AppPermissionRow(
         applicationInfo.loadIcon(pm).toBitmap(width = 96, height = 96).asImageBitmap()
     }
     val requiresRoot = applicationInfo.requiresRoot()
-
-    fun toggle() {
-        try {
-            if (granted) {
-                AuthorizationManager.revoke(packageName, uid)
-            } else {
-                AuthorizationManager.grant(packageName, uid)
-            }
-            granted = !granted
-            onPermissionChanged()
-        } catch (_: SecurityException) {
-            val serverUid = try {
-                Shizuku.getUid()
-            } catch (_: Throwable) {
-                return
-            }
-            if (serverUid != 0) {
-                onLimitedAdb()
-            }
-        }
-    }
 
     fun makePermanent() {
         try {
@@ -575,7 +570,7 @@ private fun AppPermissionRow(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = { toggle() })
+            .clickable(onClick = { onOpenDetail(packageName) })
             .semantics(mergeDescendants = true) {
                 this.stateDescription = if (granted) "Allowed" else "Denied"
             }
