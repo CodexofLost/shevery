@@ -96,6 +96,7 @@ object ComputAgent {
         maxSteps: Int,
         localeTag: String,
         localeName: String,
+        history: List<AgentChatMessage> = emptyList(),
     ): Result<AgentPlan> {
         val active = AiProviderRepository.getActive()
             ?: return Result.failure(IllegalStateException("no_provider"))
@@ -132,7 +133,20 @@ object ComputAgent {
             apiKey = key,
             model = model,
             systemPrompt = systemPrompt,
-            userPrompt = "Goal: $goal",
+            userPrompt = buildString {
+                // Continuation of an earlier chat: the model sees the previous
+                // turns, so a follow-up goal can refer back to them.
+                if (history.isNotEmpty()) {
+                    append("Previous conversation with the user:\n")
+                    history.takeLast(10).forEach { message ->
+                        append(if (message.role == "user") "User: " else "Assistant: ")
+                        append(message.content.take(1200))
+                        append("\n")
+                    }
+                    append("\n")
+                }
+                append("Goal: $goal")
+            },
         )
         return result.fold(
             onSuccess = { parsePlan(it, goal) },

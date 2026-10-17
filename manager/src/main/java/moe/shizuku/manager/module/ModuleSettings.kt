@@ -408,6 +408,16 @@ object ModuleSettings {
     private const val KEY_AGENT_MAX_STEPS = "comput_agent_max_steps"
     private const val KEY_AGENT_ASK_SHELL = "comput_agent_ask_shell"
     private const val KEY_AGENT_ASK_MODULE = "comput_agent_ask_module"
+    private const val KEY_AGENT_CHATS = "comput_agent_chats"
+
+    /** JSON-encoded chat history of the Comput agent, see AgentChats. */
+    fun getAgentChats(): String {
+        return ShizukuSettings.getPreferences().getString(KEY_AGENT_CHATS, "[]") ?: "[]"
+    }
+
+    fun setAgentChats(value: String) {
+        ShizukuSettings.getPreferences().edit().putString(KEY_AGENT_CHATS, value).apply()
+    }
 
     fun getAgentSafetyMode(): AgentSafetyMode {
         return AgentSafetyMode.fromValue(
