@@ -123,6 +123,21 @@
     <string name="app_management_no_search_results_desc">Try checking the spelling or resetting filters.</string>
     <string name="app_management_clear_filters">Reset filters</string>
 
+    <!-- App detail (per-app privileges) -->
+    <string name="app_detail_privileges_title">Shizuku Privileges</string>
+    <string name="app_detail_shizuku_access">Shizuku access</string>
+    <string name="app_detail_state_allowed">Allowed</string>
+    <string name="app_detail_state_denied">Denied</string>
+    <string name="app_detail_session_only">Session-only access</string>
+    <string name="app_detail_session_only_summary">Granted for this session only; switch off to make it permanent</string>
+    <string name="app_detail_runtime_permissions">Runtime permissions</string>
+    <string name="app_detail_runtime_permissions_empty">This app declares no runtime permissions</string>
+    <string name="app_detail_info_title">App info</string>
+    <string name="app_detail_package">Package</string>
+    <string name="app_detail_version">Version</string>
+    <string name="app_detail_version_unknown">Unknown</string>
+    <string name="app_detail_uid">UID</string>
+
     <!-- Terminal -->
     <string name="home_terminal_title">Use Shevery in terminal apps</string>
     <string name="home_terminal_description">Run commands through Shevery in terminal apps you like</string>
@@ -695,6 +710,13 @@ Wi-Fi is required for the first restart because Shevery must connect to the curr
     <string name="comput_agent_ask_shell_summary">Approval dialog for every shell command in custom mode</string>
     <string name="comput_agent_ask_module_title">Ask before module services</string>
     <string name="comput_agent_ask_module_summary">Approval dialog before running a module service in custom mode</string>
+    <string name="comput_agent_history">Chat history</string>
+    <string name="comput_agent_history_empty">No chats yet. Run the agent to start one.</string>
+    <string name="comput_agent_new_chat">New chat</string>
+    <string name="comput_agent_delete_chat">Delete chat</string>
+    <string name="comput_agent_messages_count">%1$d messages</string>
+    <string name="comput_agent_role_user">You</string>
+    <string name="comput_agent_role_agent">Agent</string>
     <string name="comput_commandium_label">What command do you need?</string>
     <string name="comput_commandium_placeholder">e.g. Find all files larger than 10MB in /sdcard</string>
     <string name="comput_ask_commandium">Ask Commandium</string>

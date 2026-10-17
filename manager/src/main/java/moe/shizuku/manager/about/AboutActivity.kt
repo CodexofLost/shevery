@@ -121,14 +121,6 @@ class AboutActivity : AppActivity() {
                     }
 
                     item {
-                        AboutContributorsGroup()
-                    }
-
-                    item {
-                        Spacer(modifier = Modifier.height(24.dp))
-                    }
-
-                    item {
                         AboutLinksGroup()
                     }
 
@@ -291,93 +283,6 @@ class AboutActivity : AppActivity() {
                     style = MaterialTheme.typography.bodyMedium,
                     lineHeight = 20.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-        }
-    }
-
-    private data class Contributor(
-        val name: String,
-        val role: String,
-        val url: String
-    )
-
-    private val contributors = listOf(
-        Contributor(
-            "HmnDev-Tech",
-            "Project lead — releases, CI, settings hub, watchdog, self-update, docs and project direction",
-            "https://github.com/HmnDev-Tech"
-        ),
-        Contributor(
-            "Landon Moran",
-            "Core developer — AI providers and Commandium, Material 3 Expressive, ADB hardening, Compose migrations, i18n, code cleanup",
-            "https://github.com/LandonMoran"
-        ),
-        Contributor(
-            "kerneldroid",
-            "Comput console redesign, module catalog UI, Tasker plugin, legacy API stub, CI signing and module install fixes",
-            "https://github.com/kerneldroid"
-        ),
-        Contributor(
-            "OptionString",
-            "Expressive floating navigation, Comput M3 redesign, launcher icons, settings layout and release workflow",
-            "https://github.com/superman32432432"
-        ),
-        Contributor(
-            "CodexofLost",
-            "Material 3 tokens, wireless ADB and starter reliability, permission auth, watchdog and server startup fixes",
-            "https://github.com/CodexofLost"
-        ),
-        Contributor(
-            "Codex",
-            "Service reliability: ADB lifecycle, TCP mode, watchdog keep-alive, notification controls, dialog migration",
-            "https://github.com/codex"
-        ),
-        Contributor(
-            "arysm4a",
-            "Wireless-debugging boot autostart, Dhizuku compatibility stubs, biometric auth & session security, Jetpack Compose UI/UX modernization",
-            "https://github.com/tim1540"
-        ),
-        Contributor(
-            "Jursin",
-            "About screen, zh-CN translations, README wording",
-            "https://github.com/Jursin"
-        ),
-        Contributor(
-            "Fancy Fonts",
-            "Asset and resource updates, translation strings, workflow cleanup",
-            "https://github.com/blockawa"
-        ),
-        Contributor(
-            "tura-ai-agent",
-            "README localization (Japanese, Chinese) and language links",
-            "https://github.com/tura-ai-agent"
-        ),
-        Contributor(
-            "Rikka",
-            "Original Shizuku project — the foundation Shevery is built on",
-            "https://github.com/RikkaApps"
-        ),
-        Contributor(
-            "iamr0s",
-            "Dhizuku project — Device Owner architecture, API sharing and management integrated into Shevery",
-            "https://github.com/iamr0s"
-        )
-    )
-
-    @Composable
-    private fun AboutContributorsGroup() {
-        val context = this@AboutActivity
-        SettingsGroup(title = "Contributors & developers") {
-            contributors.forEachIndexed { index, contributor ->
-                if (index > 0) GroupDivider()
-                SettingsRow(
-                    icon = null,
-                    title = contributor.name,
-                    summary = contributor.role,
-                    onClick = {
-                        CustomTabsHelper.launchUrlOrCopy(context, contributor.url)
-                    }
                 )
             }
         }

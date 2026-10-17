@@ -188,6 +188,8 @@ private sealed interface SettingsNav {
     data object CompatStubs : SettingsNav
     data object DeviceOwnerTransfer : SettingsNav
     data object DeviceOwnerDelegation : SettingsNav
+    data object ContributorsCredits : SettingsNav
+    data object Recommendations : SettingsNav
 }
 
 
@@ -545,6 +547,10 @@ fun SettingsScreen(
                 initialState is SettingsNav.DeviceOwnerTransfer -> false
                 targetState is SettingsNav.DeviceOwnerDelegation -> true
                 initialState is SettingsNav.DeviceOwnerDelegation -> false
+                targetState is SettingsNav.ContributorsCredits -> true
+                initialState is SettingsNav.ContributorsCredits -> false
+                targetState is SettingsNav.Recommendations -> true
+                initialState is SettingsNav.Recommendations -> false
                 else -> true
             }
             if (forward) {
@@ -588,6 +594,18 @@ fun SettingsScreen(
                 BackHandler { nav = SettingsNav.Section(SettingsSection.DEVICE_OWNER) }
                 DeviceOwnerDelegationScreen(
                     onNavigateUp = { nav = SettingsNav.Section(SettingsSection.DEVICE_OWNER) }
+                )
+            }
+            SettingsNav.ContributorsCredits -> {
+                BackHandler { nav = SettingsNav.Section(SettingsSection.ABOUT) }
+                ContributorsCreditsScreen(
+                    onNavigateUp = { nav = SettingsNav.Section(SettingsSection.ABOUT) }
+                )
+            }
+            SettingsNav.Recommendations -> {
+                BackHandler { nav = SettingsNav.Section(SettingsSection.ABOUT) }
+                RecommendationsScreen(
+                    onNavigateUp = { nav = SettingsNav.Section(SettingsSection.ABOUT) }
                 )
             }
             is SettingsNav.Section -> {
@@ -862,6 +880,12 @@ fun SettingsScreen(
                         SettingsSection.ABOUT -> aboutSectionContent(
                             onOpenAbout = {
                                 context.startActivity(Intent(context, AboutActivity::class.java))
+                            },
+                            onOpenContributorsCredits = {
+                                nav = SettingsNav.ContributorsCredits
+                            },
+                            onOpenRecommendations = {
+                                nav = SettingsNav.Recommendations
                             }
                         )
                     }
@@ -1969,7 +1993,9 @@ private fun LazyListScope.extrasSectionContent(
 }
 
 private fun LazyListScope.aboutSectionContent(
-    onOpenAbout: () -> Unit
+    onOpenAbout: () -> Unit,
+    onOpenContributorsCredits: () -> Unit,
+    onOpenRecommendations: () -> Unit
 ) {
     item {
         SettingsGroup(title = stringResource(R.string.action_about)) {
@@ -1985,16 +2011,154 @@ private fun LazyListScope.aboutSectionContent(
                 summary = if (versionName.isNotBlank()) "v$versionName" else null,
                 onClick = onOpenAbout
             )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_action_about_24dp,
+                title = "Contributors and Credits",
+                summary = "The people behind Shevery and the projects it is built on",
+                onClick = onOpenContributorsCredits
+            )
+            GroupDivider()
+            SettingsRow(
+                icon = R.drawable.ic_learn_more_24dp,
+                title = "Recommendations",
+                summary = "Shizuku-powered apps picked for Shevery",
+                onClick = onOpenRecommendations
+            )
         }
     }
+}
 
-    item {
-        ShizukuAppsGroup()
+private data class Contributor(
+    val name: String,
+    val role: String,
+    val url: String
+)
+
+private val contributors = listOf(
+    Contributor(
+        "HmnDev-Tech",
+        "Project lead — releases, CI, settings hub, watchdog, self-update, docs and project direction",
+        "https://github.com/HmnDev-Tech"
+    ),
+    Contributor(
+        "Landon Moran",
+        "Core developer — AI providers and Commandium, Material 3 Expressive, ADB hardening, Compose migrations, i18n, code cleanup",
+        "https://github.com/LandonMoran"
+    ),
+    Contributor(
+        "OptionString",
+        "Expressive floating navigation, Comput M3 redesign, launcher icons, settings layout and release workflow",
+        "https://github.com/superman32432432"
+    ),
+    Contributor(
+        "CodexofLost",
+        "Material 3 tokens, wireless ADB and starter reliability, permission auth, watchdog and server startup fixes",
+        "https://github.com/CodexofLost"
+    ),
+    Contributor(
+        "Codex",
+        "Service reliability: ADB lifecycle, TCP mode, watchdog keep-alive, notification controls, dialog migration",
+        "https://github.com/codex"
+    ),
+    Contributor(
+        "arysm4a",
+        "Wireless-debugging boot autostart, Dhizuku compatibility stubs, biometric auth & session security, Jetpack Compose UI/UX modernization",
+        "https://github.com/tim1540"
+    ),
+    Contributor(
+        "Jursin",
+        "About screen, zh-CN translations, README wording",
+        "https://github.com/Jursin"
+    ),
+    Contributor(
+        "Fancy Fonts",
+        "Asset and resource updates, translation strings, workflow cleanup",
+        "https://github.com/blockawa"
+    ),
+    Contributor(
+        "tura-ai-agent",
+        "README localization (Japanese, Chinese) and language links",
+        "https://github.com/tura-ai-agent"
+    )
+)
+
+private val credits = listOf(
+    Contributor(
+        "Nightzuku (kerneldroid)",
+        "Parts of the app UI, the module catalog system and Android 17 support — adapted from Nightzuku",
+        "https://github.com/kerneldroid/Nightzuku"
+    ),
+    Contributor(
+        "Shizuku (RikkaApps)",
+        "The original Shizuku project, its API and main sources Shevery is built on",
+        "https://github.com/RikkaApps/Shizuku"
+    ),
+    Contributor(
+        "Dhizuku (iamr0s)",
+        "Device Owner architecture, API sharing and management integrated into Shevery",
+        "https://github.com/iamr0s/Dhizuku"
+    ),
+    Contributor(
+        "aShellYou (DP-Hridayan)",
+        "Parts of the \"Comput\" UI",
+        "https://github.com/DP-Hridayan/aShellYou"
+    ),
+    Contributor(
+        "Shizuku-Keeper (protonpony)",
+        "Autostart on boot via Wireless Debugging",
+        "https://github.com/protonpony/Shizuku-Keeper"
+    )
+)
+
+@Composable
+private fun ContributorRow(contributor: Contributor) {
+    val context = LocalContext.current
+    SettingsRow(
+        icon = null,
+        title = contributor.name,
+        summary = contributor.role,
+        onClick = {
+            CustomTabsHelper.launchUrlOrCopy(context, contributor.url)
+        }
+    )
+}
+
+@Composable
+private fun ContributorsCreditsScreen(onNavigateUp: () -> Unit) {
+    ShizukuLazyScaffold(
+        title = "Contributors and Credits",
+        onNavigateUp = onNavigateUp,
+        bottomInset = 112.dp
+    ) {
+        item {
+            SettingsGroup(title = "Contributors") {
+                contributors.forEachIndexed { index, contributor ->
+                    if (index > 0) GroupDivider()
+                    ContributorRow(contributor)
+                }
+            }
+        }
+        item {
+            SettingsGroup(title = "Credits") {
+                Text(
+                    text = "Projects this fork is built on — code and ideas taken over with thanks, " +
+                        "their authors did not commit to this repository.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                )
+                credits.forEachIndexed { index, credit ->
+                    GroupDivider()
+                    ContributorRow(credit)
+                }
+            }
+        }
     }
 }
 
 @Composable
-private fun ShizukuAppsGroup() {
+private fun RecommendationsScreen(onNavigateUp: () -> Unit) {
     val context = LocalContext.current
     var apps by remember { mutableStateOf<List<ShizukuApp>>(emptyList()) }
     var isLive by remember { mutableStateOf(false) }
@@ -2009,50 +2173,58 @@ private fun ShizukuAppsGroup() {
         isLoading = false
     }
 
-    SettingsGroup(title = "Shizuku apps") {
-        Text(
-            text = if (isLive) {
-                "Shizuku-powered apps from GitHub. Tap Refresh to reload the list."
-            } else {
-                "Shizuku-powered apps (offline list). Add a GitHub token in Settings for a live GitHub list. Tap Refresh to retry."
-            },
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-        )
-
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            OutlinedButton(
-                onClick = { refreshTick++ },
-                enabled = !isLoading
-            ) {
-                Text(if (isLoading) "Loading…" else "Refresh")
-            }
-            if (isLoading) {
-                CircularProgressIndicator(modifier = Modifier.size(20.dp), strokeWidth = 2.dp)
-            } else {
+    ShizukuLazyScaffold(
+        title = "Recommendations",
+        onNavigateUp = onNavigateUp,
+        bottomInset = 112.dp
+    ) {
+        item {
+            SettingsGroup(title = "Recommendations") {
                 Text(
-                    text = if (isLive) "Live from GitHub" else "Offline",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    text = if (isLive) {
+                        "Shizuku-powered apps from GitHub. Tap Refresh to reload the list."
+                    } else {
+                        "Shizuku-powered apps (offline list). Add a GitHub token in Settings for a live GitHub list. Tap Refresh to retry."
+                    },
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
                 )
-            }
-        }
 
-        SectionHeader("Apps that need Shizuku")
-        if (apps.isEmpty() && isLoading) {
-            Text(
-                text = "Loading…",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-            )
-        } else {
-            ShizukuAppsRows(apps = apps, context = context)
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    OutlinedButton(
+                        onClick = { refreshTick++ },
+                        enabled = !isLoading
+                    ) {
+                        Text(if (isLoading) "Loading…" else "Refresh")
+                    }
+                    if (isLoading) {
+                        CircularProgressIndicator(modifier = Modifier.size(20.dp), strokeWidth = 2.dp)
+                    } else {
+                        Text(
+                            text = if (isLive) "Live from GitHub" else "Offline",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+
+                SectionHeader("Apps that need Shizuku")
+                if (apps.isEmpty() && isLoading) {
+                    Text(
+                        text = "Loading…",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                    )
+                } else {
+                    ShizukuAppsRows(apps = apps, context = context)
+                }
+            }
         }
     }
 }

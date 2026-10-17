@@ -5,6 +5,7 @@
 
 package moe.shizuku.manager.logs
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,11 +24,14 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.CheckCircle
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.ContentCopy
+import androidx.compose.material.icons.rounded.DeleteOutline
 import androidx.compose.material.icons.rounded.ErrorOutline
+import androidx.compose.material.icons.rounded.History
 import androidx.compose.material.icons.rounded.HourglassEmpty
 import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.SmartToy
@@ -65,8 +69,11 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import java.text.DateFormat
+import java.util.Date
 import java.util.Locale
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CompletableDeferred
@@ -76,6 +83,9 @@ import kotlinx.coroutines.launch
 import moe.shizuku.manager.R
 import moe.shizuku.manager.commandium.AiProviderRepository
 import moe.shizuku.manager.comput.agent.AgentApproval
+import moe.shizuku.manager.comput.agent.AgentChat
+import moe.shizuku.manager.comput.agent.AgentChatMessage
+import moe.shizuku.manager.comput.agent.AgentChats
 import moe.shizuku.manager.comput.agent.AgentExecutedAction
 import moe.shizuku.manager.comput.agent.AgentModuleInfo
 import moe.shizuku.manager.comput.agent.AgentPlan
@@ -123,17 +133,116 @@ fun ComputAgentSheet(
     var showCustomEditor by remember { mutableStateOf(false) }
     var customTarget by remember { mutableStateOf("") }
 
+    // Chat history: saved conversations, the one currently open, and the turn
+    // that is closed on completion (or on navigating away) by flushTurn().
+    var chats by remember { mutableStateOf(AgentChats.load()) }
+    var activeChatId by remember { mutableStateOf<String?>(null) }
+    var messages by remember { mutableStateOf<List<AgentChatMessage>>(emptyList()) }
+    var showHistory by remember { mutableStateOf(false) }
+    var pendingUser by remember { mutableStateOf<String?>(null) }
+    var pendingReply by remember { mutableStateOf<String?>(null) }
+
     val safetyMode = ModuleSettings.getAgentSafetyMode()
     val hasProvider = AiProviderRepository.getActive() != null &&
         AiProviderRepository.getActiveKey().isNotBlank()
+
+    // Read outside the AI callbacks: stringResource() only works in composition.
+    val planEmptyText = stringResource(R.string.comput_agent_plan_empty)
+    val stoppedText = stringResource(R.string.comput_agent_stopped)
+    val noOutputText = stringResource(R.string.comput_agent_no_output)
 
     fun currentLocale(): Pair<String, String> {
         val locale = Locale.getDefault()
         return locale.toLanguageTag() to locale.getDisplayName(Locale.ENGLISH)
     }
 
+    fun resetRunView() {
+        plan = null
+        statuses = emptyList()
+        outputs = emptyList()
+        finalAnswer = ""
+        error = null
+        stopped = false
+        summarizing = false
+    }
+
+    /**
+     * Closes the finished turn: appends the goal and its answer to the open
+     * chat and writes the chat to disk. The turn is committed here instead of
+     * on completion, so the transcript never repeats the answer still shown in
+     * the Result card below.
+     */
+    fun flushTurn() {
+        val user = pendingUser
+        val reply = pendingReply ?: return
+        if (user == null) {
+            pendingReply = null
+            return
+        }
+        val now = System.currentTimeMillis()
+        val updated = messages +
+            AgentChatMessage("user", user) +
+            AgentChatMessage("assistant", reply)
+        messages = updated
+        val id = activeChatId ?: AgentChats.newChatId().also { activeChatId = it }
+        val existing = chats.firstOrNull { it.id == id }
+        chats = listOf(
+            AgentChat(
+                id = id,
+                title = existing?.title ?: user.take(60),
+                createdAt = existing?.createdAt ?: now,
+                updatedAt = now,
+                messages = updated,
+            )
+        ) + chats.filterNot { it.id == id }
+        AgentChats.save(chats)
+        pendingUser = null
+        pendingReply = null
+    }
+
+    fun openChat(id: String) {
+        if (phase == AgentPhase.PLANNING || phase == AgentPhase.EXECUTING) return
+        flushTurn()
+        val chat = chats.firstOrNull { it.id == id } ?: return
+        activeChatId = chat.id
+        messages = chat.messages
+        goal = ""
+        resetRunView()
+        showHistory = false
+    }
+
+    fun newChat() {
+        if (phase == AgentPhase.PLANNING || phase == AgentPhase.EXECUTING) return
+        flushTurn()
+        activeChatId = null
+        messages = emptyList()
+        goal = ""
+        resetRunView()
+        showHistory = false
+    }
+
+    fun deleteChat(id: String) {
+        if (phase == AgentPhase.PLANNING || phase == AgentPhase.EXECUTING) return
+        chats = chats.filterNot { it.id == id }
+        AgentChats.save(chats)
+        if (activeChatId == id) {
+            activeChatId = null
+            messages = emptyList()
+            pendingUser = null
+            pendingReply = null
+            goal = ""
+            resetRunView()
+        }
+    }
+
     fun start() {
         if (goal.isBlank() || phase == AgentPhase.PLANNING || phase == AgentPhase.EXECUTING) return
+        // Close the previous turn first: it becomes part of the transcript and
+        // of the context passed to the next plan.
+        flushTurn()
+        val userText = goal.trim()
+        pendingUser = userText
+        pendingReply = null
         error = null
         finalAnswer = ""
         stopped = false
@@ -154,15 +263,24 @@ fun ComputAgentSheet(
                 val askShell = ModuleSettings.isAgentAskShell()
                 val askModule = ModuleSettings.isAgentAskModuleService()
                 val (tag, name) = currentLocale()
-                val planResult = ComputAgent.buildPlan(goal.trim(), modules, maxSteps, tag, name)
+                val planResult = ComputAgent.buildPlan(
+                    goal = userText,
+                    modules = modules,
+                    maxSteps = maxSteps,
+                    localeTag = tag,
+                    localeName = name,
+                    history = messages,
+                )
                 val built = planResult.getOrElse { e ->
                     error = e.message ?: "Planning failed."
+                    pendingReply = error
                     phase = AgentPhase.IDLE
                     return@launch
                 }
                 if (built.steps.isEmpty()) {
                     error = null
                     plan = built
+                    pendingReply = planEmptyText
                     phase = AgentPhase.DONE
                     return@launch
                 }
@@ -232,17 +350,20 @@ fun ComputAgentSheet(
                 val (tag2, name2) = currentLocale()
                 if (executed.isNotEmpty()) {
                     summarizing = true
-                    finalAnswer = ComputAgent.summarize(goal.trim(), executed, tag2, name2)
+                    finalAnswer = ComputAgent.summarize(userText, executed, tag2, name2)
                         .getOrElse { executed.joinToString("\n\n") { it.output.ifBlank { it.status.name } } }
                     summarizing = false
                 }
+                pendingReply = finalAnswer.ifBlank { noOutputText }
                 phase = AgentPhase.DONE
             } catch (e: CancellationException) {
                 stopped = true
                 statuses = statuses.map { if (it == AgentStepStatus.RUNNING || it == AgentStepStatus.PENDING) AgentStepStatus.SKIPPED else it }
+                pendingReply = stoppedText
                 phase = AgentPhase.DONE
             } catch (e: Exception) {
                 error = e.message ?: "Agent failed."
+                pendingReply = error
                 phase = AgentPhase.IDLE
             }
         }
@@ -256,6 +377,7 @@ fun ComputAgentSheet(
     ModalBottomSheet(
         onDismissRequest = {
             stop()
+            flushTurn()
             onDismiss()
         },
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
@@ -284,7 +406,17 @@ fun ComputAgentSheet(
                     modifier = Modifier.weight(1f),
                 )
                 IconButton(onClick = {
+                    flushTurn()
+                    showHistory = !showHistory
+                }) {
+                    Icon(
+                        Icons.Rounded.History,
+                        contentDescription = stringResource(R.string.comput_agent_history),
+                    )
+                }
+                IconButton(onClick = {
                     stop()
+                    flushTurn()
                     onDismiss()
                 }) {
                     Icon(Icons.Rounded.Close, contentDescription = stringResource(android.R.string.cancel))
@@ -311,7 +443,15 @@ fun ComputAgentSheet(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
 
-            if (!hasProvider) {
+            if (showHistory) {
+                AgentChatHistoryList(
+                    chats = chats,
+                    activeChatId = activeChatId,
+                    onOpenChat = { openChat(it) },
+                    onDeleteChat = { deleteChat(it) },
+                    onNewChat = { newChat() },
+                )
+            } else if (!hasProvider) {
                 Surface(
                     modifier = Modifier.fillMaxWidth(),
                     color = MaterialTheme.colorScheme.surfaceContainerHigh,
@@ -346,6 +486,7 @@ fun ComputAgentSheet(
                     }
                 }
             } else {
+                AgentChatTranscript(messages = messages)
                 OutlinedTextField(
                     value = goal,
                     onValueChange = { goal = it },
@@ -722,6 +863,156 @@ private fun AgentApprovalButton(
     } else {
         OutlinedButton(onClick = onClick, modifier = Modifier.fillMaxWidth(), shape = CircleShape) {
             Text(label)
+        }
+    }
+}
+
+/**
+ * Transcript of the currently open chat: previous goals and agent answers,
+ * shown above the input so a follow-up reads as a continuation.
+ */
+@Composable
+private fun AgentChatTranscript(messages: List<AgentChatMessage>) {
+    if (messages.isEmpty()) return
+    val userLabel = stringResource(R.string.comput_agent_role_user)
+    val agentLabel = stringResource(R.string.comput_agent_role_agent)
+
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        messages.forEach { message ->
+            val isUser = message.role == "user"
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+                color = if (isUser) {
+                    MaterialTheme.colorScheme.primaryContainer
+                } else {
+                    MaterialTheme.colorScheme.surfaceContainerHigh
+                },
+                shape = RoundedCornerShape(16.dp),
+            ) {
+                Column(
+                    modifier = Modifier.padding(12.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                ) {
+                    Text(
+                        text = if (isUser) userLabel else agentLabel,
+                        style = MaterialTheme.typography.labelSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = if (isUser) {
+                            MaterialTheme.colorScheme.onPrimaryContainer
+                        } else {
+                            MaterialTheme.colorScheme.primary
+                        },
+                    )
+                    SelectionContainer {
+                        Text(
+                            text = message.content,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (isUser) {
+                                MaterialTheme.colorScheme.onPrimaryContainer
+                            } else {
+                                MaterialTheme.colorScheme.onSurface
+                            },
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** Saved chats: open one to continue it, delete one, or start a new chat. */
+@Composable
+private fun AgentChatHistoryList(
+    chats: List<AgentChat>,
+    activeChatId: String?,
+    onOpenChat: (String) -> Unit,
+    onDeleteChat: (String) -> Unit,
+    onNewChat: () -> Unit,
+) {
+    val dateFormat = remember { DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT) }
+
+    OutlinedButton(
+        onClick = onNewChat,
+        modifier = Modifier.fillMaxWidth(),
+        shape = CircleShape,
+    ) {
+        Icon(
+            imageVector = Icons.Rounded.Add,
+            contentDescription = null,
+            modifier = Modifier.size(18.dp),
+        )
+        Spacer(Modifier.width(6.dp))
+        Text(stringResource(R.string.comput_agent_new_chat), fontWeight = FontWeight.Bold)
+    }
+
+    if (chats.isEmpty()) {
+        Text(
+            text = stringResource(R.string.comput_agent_history_empty),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        return
+    }
+
+    chats.forEach { chat ->
+        val isActive = chat.id == activeChatId
+        Surface(
+            modifier = Modifier.fillMaxWidth(),
+            color = if (isActive) {
+                MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.6f)
+            } else {
+                MaterialTheme.colorScheme.surfaceContainerHigh
+            },
+            shape = RoundedCornerShape(16.dp),
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onOpenChat(chat.id) }
+                    .padding(horizontal = 14.dp, vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.SmartToy,
+                    contentDescription = null,
+                    tint = if (isActive) {
+                        MaterialTheme.colorScheme.onSecondaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.primary
+                    },
+                    modifier = Modifier.size(18.dp),
+                )
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(2.dp),
+                ) {
+                    Text(
+                        text = chat.title,
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.Medium,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    Text(
+                        text = "${dateFormat.format(Date(chat.updatedAt))} · " +
+                            stringResource(R.string.comput_agent_messages_count, chat.messages.size),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                IconButton(
+                    onClick = { onDeleteChat(chat.id) },
+                    modifier = Modifier.size(32.dp),
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.DeleteOutline,
+                        contentDescription = stringResource(R.string.comput_agent_delete_chat),
+                        tint = MaterialTheme.colorScheme.error,
+                        modifier = Modifier.size(18.dp),
+                    )
+                }
+            }
         }
     }
 }

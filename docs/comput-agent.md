@@ -62,8 +62,20 @@ When a step requires approval, the Agent sheet displays an approval card with fo
 
 ---
 
+## Chat History
+
+The Agent sheet keeps a history of its chats so a task can be continued later:
+
+- The **history** button in the sheet header opens the list of saved chats (title, time, message count), with **New chat** to start over and a delete button per chat.
+- Opening a chat restores its transcript (your goals and the agent's answers) above the input; the next goal is sent with the previous turns as context, so the agent sees what was already discussed.
+- Chats are stored on device as one JSON string in the same `SharedPreferences` file as the Comput macros (`ModuleSettings.getAgentChats` / `setAgentChats`, key `comput_agent_chats`, handled by `AgentChats`). Up to 30 chats and 200 messages per chat are kept; the oldest are dropped.
+- A finished turn is committed to the chat when the next run starts, when you switch chats, or when the sheet is closed.
+
+---
+
 ## Source Files
 
 - `manager/src/main/java/moe/shizuku/manager/comput/agent/ComputAgent.kt`
+- `manager/src/main/java/moe/shizuku/manager/comput/agent/AgentChats.kt`
 - `manager/src/main/java/moe/shizuku/manager/logs/ComputAgentSheet.kt`
 - `manager/src/main/java/moe/shizuku/manager/logs/ComputScreen.kt`
