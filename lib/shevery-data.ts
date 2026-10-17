@@ -35,12 +35,23 @@ export const PROJECT_FACTS = [
   },
   {
     term: "current release",
-    value: "14.3.0",
-    detail: "versionCode 43, published 2026-10-13. Built from api_version_name 14.3.0.",
+    value: "14.4.0",
+    detail: "versionCode 44, published 2026-10-17. Built from api_version_name 14.4.0.",
   },
 ]
 
 export const RECENT_CHANGES: ChangeCard[] = [
+  {
+    title: "14.4: per-app Shizuku privileges, About drill-in screens, agent chat history",
+    body: "Tapping an app in Application Management opens a detail screen with a Shizuku Privileges group — access switch, session-only grant and one switch per dangerous permission granted or revoked through Shizuku. Settings -> About now drills into a Contributors and Credits screen and a Recommendations screen, and the Comput agent persists chat history so a previous conversation can be continued. Server version bumped to 14.4 (versionCode 44).",
+    commits: [
+      { label: "feb7ebaa", url: "https://github.com/HmnDev-Tech/shevery/commit/feb7ebaa" },
+      { label: "953fa7f1", url: "https://github.com/HmnDev-Tech/shevery/commit/953fa7f1" },
+      { label: "4f84b3a7", url: "https://github.com/HmnDev-Tech/shevery/commit/4f84b3a7" },
+    ],
+    span: "lg:col-span-12",
+    variant: "primary",
+  },
   {
     title: "Watchdog checks the binder before acting on a stale heartbeat",
     body: "WatchdogManager.kt previously treated a 60 s overdue timestamp as a dead server even while the binder was still responsive. Commit ecd465a (PR #279) calls Shizuku.pingBinder() first: if the binder answers, it refreshes beat() and returns instead of restarting a healthy server on a fixed schedule.",
