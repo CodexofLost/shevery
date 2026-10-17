@@ -391,7 +391,7 @@
     <string name="backup_summary"><![CDATA[将配置和模块导出为 ZIP 文件]]></string>
     <string name="restore_title"><![CDATA[恢复设置和模块]]></string>
     <string name="restore_summary"><![CDATA[从 ZIP 文件导入配置和模块]]></string>
-    <string name="comput_title"><![CDATA[电脑]]></string>
+    <string name="comput_title"><![CDATA[Comput]]></string>
     <string name="comput_settings"><![CDATA[Comput 控制台设置]]></string>
     <string name="comput_adb_console"><![CDATA[ADB Comput 控制台]]></string>
     <string name="comput_recommand_title"><![CDATA[Comput 确认弹窗]]></string>
@@ -872,4 +872,86 @@
     <string name="stub_uninstalled_success"><![CDATA[%1$s已成功移除]]></string>
     <string name="whitelist_mode_title"><![CDATA[白名单模式]]></string>
     <string name="shizuku_whitelist_summary"><![CDATA[拦截权限弹窗，并拒绝未在此列表中开启的应用]]></string>
+
+    <!-- USB debugging hide -->
+    <string name="usb_debugging_hide_title"><![CDATA[隐藏 USB 调试]]></string>
+    <string name="usb_debugging_hide_open_summary"><![CDATA[当选中的应用位于前台时临时关闭 USB 调试]]></string>
+    <string name="usb_debugging_hide_warning"><![CDATA[这会更改设备全局的 USB 调试设置，并非仅对选中的应用隐藏。关闭期间，基于 ADB 的连接可能会中断。需要授予使用情况访问权限以及修改安全设置的权限。如果您强制停止 Shevery，Android 会在再次打开 Shevery 之前阻止清理。]]></string>
+    <string name="usb_debugging_hide_usage_access"><![CDATA[使用情况访问]]></string>
+    <string name="usb_debugging_hide_usage_access_granted"><![CDATA[已授予]]></string>
+    <string name="usb_debugging_hide_usage_access_required"><![CDATA[点按以授予检测前台应用的权限]]></string>
+    <string name="usb_debugging_hide_permission_required"><![CDATA[请使用 Shizuku 启动 Shevery，或将其配置为设备所有者，以便更改 USB 调试。]]></string>
+    <string name="usb_debugging_hide_apps"><![CDATA[选中的应用]]></string>
+    <string name="usb_debugging_hide_notification_channel"><![CDATA[USB 调试隐藏]]></string>
+    <string name="usb_debugging_hide_notification_title"><![CDATA[正在管理 USB 调试]]></string>
+    <string name="usb_debugging_hide_notification_summary"><![CDATA[仅当选中的应用位于前台时才会关闭 USB 调试]]></string>
+
+    <!-- Firewall -->
+    <string name="network_firewall_title"><![CDATA[防火墙]]></string>
+    <string name="network_firewall_open_summary"><![CDATA[无需 VPN 即可阻止选中的应用访问网络]]></string>
+    <string name="network_firewall_summary"><![CDATA[使用 Android 平台防火墙（Android 11 或更高版本），而非 VPN。Shevery 仅显示其创建的规则；防火墙链是共享的，因此启用它也可能激活其他应用设置的规则。]]></string>
+    <string name="network_firewall_unsupported"><![CDATA[平台防火墙命令需要 Android 11 或更高版本。]]></string>
+    <string name="network_firewall_server_required"><![CDATA[更改防火墙规则前，请先使用 Shizuku 启动 Shevery。]]></string>
+    <string name="network_firewall_apps"><![CDATA[应用]]></string>
+    <string name="network_firewall_change_failed"><![CDATA[无法应用防火墙规则，请检查 Shevery 是否正在运行并拥有 Shizuku 权限。]]></string>
+
+    <!-- Appearance - navigation & motion blur -->
+    <string name="settings_swipe_between_tabs"><![CDATA[在标签页之间滑动]]></string>
+    <string name="settings_swipe_between_tabs_summary"><![CDATA[在主界面左右滑动以切换主页、模块、Comput、设置]]></string>
+    <string name="settings_motion_blur"><![CDATA[动态模糊]]></string>
+    <string name="settings_motion_blur_summary"><![CDATA[在标签页之间滑动以及上下滚动列表时对内容应用模糊]]></string>
+    <string name="settings_motion_blur_intensity"><![CDATA[动态模糊程度]]></string>
+    <string name="settings_motion_blur_intensity_summary"><![CDATA[滑动时的最大模糊半径：%1$d%%]]></string>
+    <string name="settings_motion_blur_strength"><![CDATA[动态模糊强度]]></string>
+    <string name="settings_motion_blur_strength_summary"><![CDATA[模糊随滑动速度增长的快慢：%1$d%%]]></string>
+
+    <!-- Comput Agent -->
+    <string name="comput_agent_title"><![CDATA[Comput 智能体]]></string>
+    <string name="comput_agent_open"><![CDATA[Comput 智能体]]></string>
+    <string name="comput_agent_description"><![CDATA[描述目标。智能体会在 AI 提供商上规划 Shell 命令和模块服务，对每个操作进行说明、展示进度并反馈结果。]]></string>
+    <string name="comput_agent_goal_label"><![CDATA[希望智能体做什么？]]></string>
+    <string name="comput_agent_goal_placeholder"><![CDATA[例如：检查电池健康和可用空间]]></string>
+    <string name="comput_agent_run"><![CDATA[运行智能体]]></string>
+    <string name="comput_agent_stop"><![CDATA[停止]]></string>
+    <string name="comput_agent_planning"><![CDATA[正在使用 AI 规划…]]></string>
+    <string name="comput_agent_plan_empty"><![CDATA[智能体无法为此目标制定计划。]]></string>
+    <string name="comput_agent_executing"><![CDATA[第 %1$d 步，共 %2$d 步]]></string>
+    <string name="comput_agent_final_answer"><![CDATA[结果]]></string>
+    <string name="comput_agent_executed"><![CDATA[已执行的操作]]></string>
+    <string name="comput_agent_step_shell"><![CDATA[Shell]]></string>
+    <string name="comput_agent_step_service"><![CDATA[模块服务]]></string>
+    <string name="comput_agent_approve_title"><![CDATA[运行此操作？]]></string>
+    <string name="comput_agent_allow"><![CDATA[允许]]></string>
+    <string name="comput_agent_deny"><![CDATA[拒绝]]></string>
+    <string name="comput_agent_custom"><![CDATA[自行提议]]></string>
+    <string name="comput_agent_allow_always"><![CDATA[总是允许]]></string>
+    <string name="comput_agent_custom_hint"><![CDATA[编辑命令，然后运行]]></string>
+    <string name="comput_agent_denied"><![CDATA[已被用户拒绝]]></string>
+    <string name="comput_agent_stopped"><![CDATA[已被用户停止]]></string>
+    <string name="comput_agent_no_output"><![CDATA[无输出。]]></string>
+    <string name="comput_agent_summarizing"><![CDATA[正在总结…]]></string>
+    <string name="comput_agent_safety_title"><![CDATA[智能体安全模式]]></string>
+    <string name="comput_agent_mode_secure"><![CDATA[安全 — 每次询问]]></string>
+    <string name="comput_agent_mode_secure_summary"><![CDATA[智能体在执行每条命令前都会询问]]></string>
+    <string name="comput_agent_mode_turbo"><![CDATA[极速 — 无需询问直接运行]]></string>
+    <string name="comput_agent_mode_turbo_summary"><![CDATA[智能体会立即执行每个规划的操作]]></string>
+    <string name="comput_agent_mode_custom"><![CDATA[自定义]]></string>
+    <string name="comput_agent_mode_custom_summary"><![CDATA[逐项操作设置见下方]]></string>
+    <string name="comput_agent_max_steps"><![CDATA[每个任务的最大步数]]></string>
+    <string name="comput_agent_max_steps_value"><![CDATA[%1$d 步]]></string>
+    <string name="comput_agent_ask_shell_title"><![CDATA[执行 Shell 命令前询问]]></string>
+    <string name="comput_agent_ask_shell_summary"><![CDATA[在自定义模式下，对每条 Shell 命令显示批准对话框]]></string>
+    <string name="comput_agent_ask_module_title"><![CDATA[运行模块服务前询问]]></string>
+    <string name="comput_agent_ask_module_summary"><![CDATA[在自定义模式下，运行模块服务前显示批准对话框]]></string>
+
+    <!-- Stealth version -->
+    <string name="settings_stealth_version"><![CDATA[隐身版本]]></string>
+    <string name="settings_stealth_version_summary"><![CDATA[使用随机包名的伪装副本。将 APK 文件保存到下载目录]]></string>
+    <string name="settings_stealth_dialog_title"><![CDATA[保存隐身 APK]]></string>
+    <string name="settings_stealth_dialog_message"><![CDATA[包名：%1$s\n应用版本：%2$s\n\n隐身副本声明了相同的 Shizuku 授权，因此请在安装前卸载常规版 Shevery。]]></string>
+    <string name="settings_stealth_appname_label"><![CDATA[应用名称]]></string>
+    <string name="settings_stealth_filename_label"><![CDATA[文件名]]></string>
+    <string name="settings_stealth_action_save"><![CDATA[保存]]></string>
+    <string name="settings_stealth_saved"><![CDATA[隐身 APK 已保存到下载目录：%1$s]]></string>
+    <string name="settings_stealth_save_failed"><![CDATA[无法保存隐身 APK（需要 Android 10+）]]></string>
 </resources>
