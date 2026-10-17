@@ -339,6 +339,8 @@ class AdbStartWorker(context: Context, params: WorkerParameters) : CoroutineWork
                         }
                     }
                 }.first()
+            }
+
             if (Shizuku.pingBinder() || ShizukuStateMachine.isRunning()) {
                 Log.i(AppConstants.TAG, "AdbStartWorker: Shizuku became running before ADB starter launch, skipping")
                 ShizukuReceiverStarter.updateNotification(
