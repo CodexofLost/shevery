@@ -41,7 +41,7 @@ func main() {
 	}
 
 	gh := ghclient.New(cfg.GitHubToken, cfg.MaxAPICalls)
-	aiClient := ai.New(cfg.GeminiAPIKeys, cfg.GeminiModel)
+	aiClient := ai.New(cfg.GeminiAPIKeys, cfg.GeminiModel, cfg.GeminiMaxRetries, cfg.GeminiRetryBaseDelay, cfg.GeminiRetryMaxDelay)
 
 	// modGH is the elevated-permission client for real issue deletion and
 	// user blocking (see internal/triage/moderation.go for exactly why a
@@ -63,6 +63,26 @@ func main() {
 		handleErr = triage.HandleIssue(ctx, cfg, gh, modGH, aiClient, event)
 	case "pull_request", "pull_request_target":
 		handleErr = triage.HandlePullRequest(ctx, cfg, gh, modGH, aiClient, event)
+	case "issue_comment":
+		// A comment on an issue OR a PR. Two independent features can fire
+		// here: the agent (needs agent-enabled) and workflow dispatch (needs
+		// workflow-dispatch-enabled). Each decides for itself whether the
+		// comment matches, so a comment can legitimately trigger neither.
+		if err := triage.HandleAgentComment(ctx, cfg, gh, aiClient, event); err != nil {
+			handleErr = err
+			break
+		}
+		handleErr = triage.HandleWorkflowDispatch(ctx, cfg, gh, event)
+	case "discussion_comment":
+		// Discussions Q&A and (optionally) the agent, which also accepts a
+		// discussion comment as its trigger surface.
+		if err := triage.HandleDiscussionComment(ctx, cfg, gh, aiClient, event); err != nil {
+			handleErr = err
+			break
+		}
+		handleErr = triage.HandleAgentComment(ctx, cfg, gh, aiClient, event)
+	case "commit_comment":
+		handleErr = triage.HandleCommitComment(ctx, cfg, gh, aiClient, event)
 	default:
 		log.Printf("event %q is not supported, nothing to do", cfg.EventName)
 		return

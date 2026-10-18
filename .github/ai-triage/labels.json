@@ -58,25 +58,29 @@
       "name": "trash",
       "color": "b60205",
       "description": "Junk: spam, ads, abuse, no real content, bots",
-      "applies_to": ["issue", "pull_request"]
+      "applies_to": ["issue", "pull_request"],
+      "mechanical": true
     },
     {
       "name": "spam",
       "color": "5319e7",
       "description": "Flooding: too many issues from the same author in a short time (mechanical antispam, not AI)",
-      "applies_to": ["issue"]
+      "applies_to": ["issue"],
+      "mechanical": true
     },
     {
       "name": "moderation-removed",
       "color": "000000",
       "description": "Content removed automatically: personal data (doxxing) and/or severe targeted abuse (mechanical moderation action, not a quality label)",
-      "applies_to": ["issue", "pull_request"]
+      "applies_to": ["issue", "pull_request"],
+      "mechanical": true
     },
     {
       "name": "needs-triage",
       "color": "cccccc",
       "description": "Technical fallback label: the model returned a value that isn't in this list",
-      "applies_to": ["issue", "pull_request"]
+      "applies_to": ["issue", "pull_request"],
+      "mechanical": true
     }
   ]
 }
