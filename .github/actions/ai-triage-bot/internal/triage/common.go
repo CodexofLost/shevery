@@ -13,6 +13,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"unicode/utf8"
 
 	"aitriage/internal/ai"
 	"aitriage/internal/attachments"
@@ -92,6 +93,11 @@ func (p *prompts) systemPrompt() string {
 func filterLabels(lc *model.LabelsConfig, kind string) []model.LabelDef {
 	var out []model.LabelDef
 	for _, l := range lc.Labels {
+		// Mechanical labels (spam/moderation-removed/needs-triage/trash) are
+		// applied by the bot's own code paths — they are never a model choice.
+		if l.Mechanical {
+			continue
+		}
 		for _, a := range l.AppliesTo {
 			if a == kind {
 				out = append(out, l)
@@ -128,6 +134,14 @@ func resolveLabel(v *model.AIVerdict, allowed []model.LabelDef) string {
 	if v.Verdict == "trash" {
 		return "trash"
 	}
+	// "trash" is a mechanical label applied only by the verdict rule above:
+	// verdict=valid + label="trash" is self-contradictory, and acting on the
+	// label would post the plain "AI Triage" heading while stamping the item
+	// as junk. Reject it before consulting the allowed list — even if a
+	// labels.json forgets to mark it mechanical and lists it there.
+	if strings.EqualFold(strings.TrimSpace(v.Label), "trash") {
+		return "needs-triage"
+	}
 	for _, l := range allowed {
 		if strings.EqualFold(l.Name, v.Label) {
 			return l.Name
@@ -139,11 +153,7 @@ func resolveLabel(v *model.AIVerdict, allowed []model.LabelDef) string {
 // parseVerdict parses the model's JSON response, tolerating an optional
 // ```json ... ``` markdown wrapper.
 func parseVerdict(raw string) (*model.AIVerdict, error) {
-	cleaned := strings.TrimSpace(raw)
-	cleaned = strings.TrimPrefix(cleaned, "```json")
-	cleaned = strings.TrimPrefix(cleaned, "```")
-	cleaned = strings.TrimSuffix(cleaned, "```")
-	cleaned = strings.TrimSpace(cleaned)
+	cleaned := stripJSONFences(raw)
 
 	var v model.AIVerdict
 	if err := json.Unmarshal([]byte(cleaned), &v); err != nil {
@@ -186,6 +196,30 @@ func parseVerdict(raw string) (*model.AIVerdict, error) {
 		v.Moderation.Reason = ""
 	}
 
+	// Duplicate flag: only actionable when the model named the candidate it
+	// matched. "is_duplicate: true, duplicate_of: 0" would otherwise close
+	// the report with no way to say what it's a duplicate of — so that is
+	// normalized down to "not a duplicate" instead of acting on it.
+	if v.Duplicate != nil {
+		v.Duplicate.Reason = strings.TrimSpace(v.Duplicate.Reason)
+		if !v.Duplicate.IsDuplicate || v.Duplicate.DuplicateOf <= 0 {
+			v.Duplicate.IsDuplicate = false
+			v.Duplicate.DuplicateOf = 0
+			v.Duplicate.Reason = ""
+		}
+	}
+
+	// PR quality score is a 0-100 rating; a model that returns 150 or -3
+	// would post an absurd number straight into the comment, so clamp it.
+	if v.PRQuality != nil {
+		if v.PRQuality.Score < 0 {
+			v.PRQuality.Score = 0
+		}
+		if v.PRQuality.Score > 100 {
+			v.PRQuality.Score = 100
+		}
+	}
+
 	return &v, nil
 }
 
@@ -195,6 +229,108 @@ func truncateForLog(s string) string {
 		return s
 	}
 	return s[:max] + "...(truncated for logging)"
+}
+
+// handleDuplicate applies the model's duplicate verdict: the "duplicate"
+// label, a comment naming which existing item it duplicates and why, and
+// closing the report. The comment is posted BEFORE the close so a failed
+// close can never leave a closed thread with no explanation of why.
+//
+// Only ever called after moderation and after the "trash" verdict are
+// handled — junk is junk, it isn't "a duplicate of" anything.
+func handleDuplicate(ctx context.Context, gh *ghclient.Client, owner, repo string, number int, verdict *model.AIVerdict, isPR bool) error {
+	target := verdict.Duplicate.DuplicateOf
+	what := "issue"
+	if isPR {
+		what = "pull request"
+	}
+
+	if err := gh.EnsureLabel(ctx, owner, repo, "duplicate", "cfd3d7", "Looks like an already-existing issue or PR"); err != nil {
+		return fmt.Errorf("creating the duplicate label: %w", err)
+	}
+	if err := gh.AddLabels(ctx, owner, repo, number, []string{"duplicate"}); err != nil {
+		return fmt.Errorf("applying the duplicate label to %s #%d: %w", what, number, err)
+	}
+
+	var body strings.Builder
+	body.WriteString(strings.TrimSpace(verdict.Comment))
+	fmt.Fprintf(&body, "\n\nClosing as a duplicate of [#%d](#%d).", target, target)
+	if r := strings.TrimSpace(verdict.Duplicate.Reason); r != "" {
+		fmt.Fprintf(&body, " %s", r)
+	}
+	if err := gh.CreateComment(ctx, owner, repo, number, formatComment(body.String(), "duplicate")); err != nil {
+		return fmt.Errorf("posting the duplicate comment on %s #%d: %w", what, number, err)
+	}
+
+	if isPR {
+		if err := gh.ClosePullRequest(ctx, owner, repo, number); err != nil {
+			return fmt.Errorf("closing duplicate PR #%d: %w", number, err)
+		}
+	} else {
+		if err := gh.CloseIssue(ctx, owner, repo, number, "not_planned"); err != nil {
+			return fmt.Errorf("closing duplicate issue #%d: %w", number, err)
+		}
+	}
+
+	log.Printf("%s #%d processed: duplicate of #%d", what, number, target)
+	return nil
+}
+
+// loadFeaturePrompt reads a feature's REQUIRED system-prompt file (the
+// discussion / agent / commit-review instructions). A feature being
+// enabled while its instructions file is missing is a hard error with a
+// message naming the file — never a silent degradation to asking the model
+// to do a privileged job with no rules for it.
+func loadFeaturePrompt(workspace, path, what string) (string, error) {
+	data, err := os.ReadFile(filepath.Join(workspace, path))
+	if err != nil {
+		return "", fmt.Errorf("reading %s: %w (this is %s, and it must exist while the feature is enabled)", path, err, what)
+	}
+	return string(data), nil
+}
+
+// authorize runs the live permission gate for one of the privileged comment
+// features: an optional extra allowlist FIRST, then GitHub's own permission
+// level for this author in THIS repository, resolved on every trigger.
+//
+// need is "write" (admin or write — the bar for discussions and the agent)
+// or "admin" (owner-only — commit review and workflow dispatch).
+//
+// The returned reason is for the RUN LOG only: callers deliberately do not
+// reply to a refused trigger, because replying would turn any comment into
+// a channel that makes the bot post on demand.
+func authorize(ctx context.Context, gh *ghclient.Client, owner, repo, author, need string, allowed []string) (bool, string) {
+	if len(allowed) > 0 && !containsFold(allowed, author) {
+		return false, fmt.Sprintf("@%s is not in this feature's allowlist", author)
+	}
+	p, err := gh.GetCollaboratorPermission(ctx, owner, repo, author)
+	if err != nil {
+		return false, fmt.Sprintf("could not verify @%s's permission on this repository: %v", author, err)
+	}
+	if !ghclient.HasPermissionAtLeast(p.Permission, need) {
+		return false, fmt.Sprintf("@%s has %q permission on this repository, this feature requires %q or higher", author, p.Permission, need)
+	}
+	return true, ""
+}
+
+func containsFold(list []string, s string) bool {
+	for _, v := range list {
+		if strings.EqualFold(strings.TrimSpace(v), s) {
+			return true
+		}
+	}
+	return false
+}
+
+// stripJSONFences pulls the model's JSON out of an optional ```json ... ```
+// wrapper. Kept in one place because BOTH verdict parsing and the extra
+// features' own parsers have to tolerate the model wrapping its answer.
+func stripJSONFences(raw string) string {
+	cleaned := strings.TrimSpace(raw)
+	cleaned = strings.TrimPrefix(cleaned, "```json")
+	cleaned = strings.TrimPrefix(cleaned, "```")
+	cleaned = strings.TrimSuffix(cleaned, "```")
+	return strings.TrimSpace(cleaned)
 }
 
 // mandatoryNote is appended to EVERY bot comment. It's added here in code,
@@ -211,10 +347,23 @@ const mandatoryNote = "> **Note:** this is an automated AI bot (Gemini); its ver
 // silently so call sites don't need to special-case "nothing to add".
 func formatComment(text, verdict string, extraNotes ...string) string {
 	prefix := "🤖 **AI Triage**"
-	if verdict == "trash" {
+	switch verdict {
+	case "trash":
 		prefix = "🤖 **AI Triage — rejected**"
+	case "duplicate":
+		prefix = "🤖 **AI Triage — duplicate**"
 	}
-	parts := []string{prefix, strings.TrimSpace(text)}
+	return formatSpecialComment(prefix, text, extraNotes...)
+}
+
+// formatSpecialComment is the generic version: heading chosen by the
+// caller, then the body, then any deterministic notes, then the mandatory
+// note and the hidden idempotency marker. Used by the features whose output
+// isn't a triage verdict (commit review, the agent, workflow dispatch) so
+// every comment the bot posts carries the same guarantees: the disclaimer
+// and the marker are never left to the model to remember.
+func formatSpecialComment(heading, text string, extraNotes ...string) string {
+	parts := []string{heading, strings.TrimSpace(text)}
 	for _, n := range extraNotes {
 		if strings.TrimSpace(n) != "" {
 			parts = append(parts, n)
@@ -293,6 +442,24 @@ func extractFilePaths(body string) []string {
 	return out
 }
 
+// truncateUTF8 cuts s to at most max bytes WITHOUT splitting a multi-byte
+// rune. A raw s[:max] can land in the middle of a character and hand the
+// model a broken byte sequence at exactly the truncation point, which is
+// the one place a garbled character is most likely to change meaning.
+func truncateUTF8(s string, max int) string {
+	if max < 0 {
+		max = 0
+	}
+	if len(s) <= max {
+		return s
+	}
+	cut := max
+	for cut > 0 && !utf8.RuneStart(s[cut]) {
+		cut--
+	}
+	return s[:cut]
+}
+
 // fetchFiles reads up to maxFiles files at the given paths, truncating each
 // to maxBytes. An empty ref means the default branch. Files that fail to
 // read (typo'd path, deleted file, etc.) are not silently dropped anymore —
@@ -312,7 +479,7 @@ func fetchFiles(ctx context.Context, gh *ghclient.Client, owner, repo, ref strin
 		}
 		truncated := false
 		if len(content) > maxBytes {
-			content = content[:maxBytes]
+			content = truncateUTF8(content, maxBytes)
 			truncated = true
 		}
 		files = append(files, promptbuilder.FileSnippet{Path: p, Content: content, Truncated: truncated})
@@ -376,7 +543,7 @@ func fetchReferences(ctx context.Context, gh *ghclient.Client, owner, repo strin
 		body := issue.Body
 		truncated := false
 		if len(body) > maxReferenceBodyChars {
-			body = body[:maxReferenceBodyChars]
+			body = truncateUTF8(body, maxReferenceBodyChars)
 			truncated = true
 		}
 		out = append(out, promptbuilder.ReferenceSnippet{

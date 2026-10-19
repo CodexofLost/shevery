@@ -3,6 +3,7 @@
 package config
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"os"
@@ -68,11 +69,86 @@ type Config struct {
 	ModerationStatePath string // where the per-author offense-count JSON file lives in the repo
 	ModerationLogIssue  int    // issue number to post an audit-trail comment on for every moderation action (0 = disabled)
 
+	// Gemini retry/backoff: how many EXTRA times to retry the SAME key on a
+	// rate-limit/transient error before rotating to the next key in the
+	// pool, and the exponential backoff bounds for those retries.
+	GeminiMaxRetries     int
+	GeminiRetryBaseDelay time.Duration
+	GeminiRetryMaxDelay  time.Duration
+
+	// Duplicate detection: a keyword-overlap search shortlists candidates,
+	// the AI then compares full text against full text and decides.
+	DuplicateDetectionEnabled bool
+	MaxDuplicateCandidates    int
+	DuplicateSearchKeywords   int
+	DuplicateMinSimilarity    float64
+	DuplicateMaxBodyChars     int
+
+	// Discussions Q&A (a SEPARATE feature from issue/PR triage — see
+	// internal/triage/discussion.go): only reacts when an authorized
+	// collaborator @-mentions DiscussionTrigger in a discussion comment.
+	DiscussionsEnabled         bool
+	DiscussionTrigger          string
+	DiscussionInstructionsPath string
+	DiscussionSpamWindow       time.Duration
+	DiscussionSpamThreshold    int
+	DiscussionStatePath        string
+	DiscussionMaxComments      int
+
+	// AI agent (internal/triage/agent.go): authorized collaborator asks for
+	// a proposed PR or a related issue; nothing is ever auto-merged.
+	AgentEnabled          bool
+	AgentTrigger          string
+	AgentInstructionsPath string
+	AgentAllowedUsers     []string
+	AgentMaxContextFiles  int
+	AgentMaxTreeEntries   int
+	AgentMaxOutputFiles   int
+	AgentMaxOutputBytes   int
+	AgentMaxOutputTokens  int
+	AgentBranchPrefix     string
+	AgentSpamWindow       time.Duration
+	AgentSpamThreshold    int
+	AgentStatePath        string
+
+	// Commit review (internal/triage/commitreview.go): the repo OWNER rates
+	// one commit's message + diff — a stricter `admin`-only bar.
+	CommitReviewEnabled          bool
+	CommitReviewTrigger          string
+	CommitReviewInstructionsPath string
+	CommitReviewAllowedUsers     []string
+	CommitReviewSpamWindow       time.Duration
+	CommitReviewSpamThreshold    int
+	CommitReviewStatePath        string
+
+	// Workflow dispatch by comment (internal/triage/workflowdispatch.go):
+	// the repo OWNER triggers a pre-configured workflow. No AI is involved
+	// in picking the target — see WorkflowDispatchTargets.
+	WorkflowDispatchEnabled       bool
+	WorkflowDispatchTrigger       string
+	WorkflowDispatchTargets       []WorkflowDispatchTarget
+	WorkflowDispatchAllowedUsers  []string
+	WorkflowDispatchSpamWindow    time.Duration
+	WorkflowDispatchSpamThreshold int
+	WorkflowDispatchStatePath     string
+
 	EventName string
 	EventPath string
 
 	RepoOwner string
 	RepoName  string
+}
+
+// WorkflowDispatchTarget is one entry of the WORKFLOW_DISPATCH_TARGETS JSON
+// array: the workflow an owner may trigger by comment, how a given comment
+// maps to it, and the inputs to pass through to that workflow's own
+// `workflow_dispatch: inputs:` schema.
+type WorkflowDispatchTarget struct {
+	Name     string            `json:"name"`     // required: human label used in the reply comment
+	Keywords []string          `json:"keywords"` // matched (case-insensitively) against the text after the trigger phrase
+	Workflow string            `json:"workflow"` // required: existing file under .github/workflows/ (or numeric ID)
+	Ref      string            `json:"ref"`      // "default" | "head" | a literal branch/tag name ("" = "default")
+	Inputs   map[string]string `json:"inputs"`   // passed straight through, after placeholder substitution
 }
 
 // Load reads and validates the configuration. Every parameter except the
@@ -89,7 +165,7 @@ func Load() (*Config, error) {
 	if strings.TrimSpace(keysRaw) == "" {
 		return nil, errors.New("GEMINI_API_KEYS is not set (need at least 1 key, up to 100 separated by commas/newlines)")
 	}
-	c.GeminiAPIKeys = splitKeys(keysRaw)
+	c.GeminiAPIKeys = splitList(keysRaw)
 	if len(c.GeminiAPIKeys) == 0 {
 		return nil, errors.New("GEMINI_API_KEYS did not contain any valid keys")
 	}
@@ -127,10 +203,16 @@ func Load() (*Config, error) {
 	if err != nil {
 		return nil, fmt.Errorf("MAX_FILE_BYTES: %w", err)
 	}
+	if c.MaxFileBytes < 1 {
+		c.MaxFileBytes = 1
+	}
 
 	c.MaxDiffBytes, err = strconv.Atoi(envDefault("MAX_DIFF_BYTES", "30000"))
 	if err != nil {
 		return nil, fmt.Errorf("MAX_DIFF_BYTES: %w", err)
+	}
+	if c.MaxDiffBytes < 1 {
+		c.MaxDiffBytes = 1
 	}
 
 	c.MaxExtractedPaths, err = strconv.Atoi(envDefault("MAX_EXTRACTED_PATHS", "30"))
@@ -199,6 +281,149 @@ func Load() (*Config, error) {
 		c.ModerationLogIssue = 0
 	}
 
+	// --- Gemini retry/backoff (see internal/ai) ---
+	c.GeminiMaxRetries, err = strconv.Atoi(envDefault("GEMINI_MAX_RETRIES", "3"))
+	if err != nil {
+		return nil, fmt.Errorf("GEMINI_MAX_RETRIES: %w", err)
+	}
+	if c.GeminiMaxRetries < 0 {
+		c.GeminiMaxRetries = 0
+	}
+	c.GeminiRetryBaseDelay, err = envMillis("GEMINI_RETRY_BASE_DELAY_MS", 2000)
+	if err != nil {
+		return nil, err
+	}
+	c.GeminiRetryMaxDelay, err = envMillis("GEMINI_RETRY_MAX_DELAY_MS", 20000)
+	if err != nil {
+		return nil, err
+	}
+	if c.GeminiRetryMaxDelay < c.GeminiRetryBaseDelay {
+		c.GeminiRetryMaxDelay = c.GeminiRetryBaseDelay
+	}
+
+	// --- Duplicate detection (see internal/duplicate) ---
+	if c.DuplicateDetectionEnabled, err = envBool("DUPLICATE_DETECTION_ENABLED", "true"); err != nil {
+		return nil, err
+	}
+	c.MaxDuplicateCandidates, err = strconv.Atoi(envDefault("MAX_DUPLICATE_CANDIDATES", "5"))
+	if err != nil {
+		return nil, fmt.Errorf("MAX_DUPLICATE_CANDIDATES: %w", err)
+	}
+	if c.MaxDuplicateCandidates < 1 {
+		c.MaxDuplicateCandidates = 1
+	}
+	c.DuplicateSearchKeywords, err = strconv.Atoi(envDefault("DUPLICATE_SEARCH_KEYWORDS", "6"))
+	if err != nil {
+		return nil, fmt.Errorf("DUPLICATE_SEARCH_KEYWORDS: %w", err)
+	}
+	if c.DuplicateSearchKeywords < 1 {
+		c.DuplicateSearchKeywords = 1
+	}
+	if c.DuplicateSearchKeywords > c.MaxDuplicateCandidates*3 {
+		// Bound the search fan-out relative to what can actually be shown:
+		// 6 keyword queries feeding 5 candidates is useful, 60 is not.
+		c.DuplicateSearchKeywords = c.MaxDuplicateCandidates * 3
+	}
+	minSimRaw := envDefault("DUPLICATE_MIN_SIMILARITY", "0.12")
+	c.DuplicateMinSimilarity, err = strconv.ParseFloat(minSimRaw, 64)
+	if err != nil {
+		return nil, fmt.Errorf("DUPLICATE_MIN_SIMILARITY: %w", err)
+	}
+	if c.DuplicateMinSimilarity < 0 || c.DuplicateMinSimilarity > 1 {
+		return nil, fmt.Errorf("DUPLICATE_MIN_SIMILARITY: %s is not in the 0.0-1.0 range", minSimRaw)
+	}
+	c.DuplicateMaxBodyChars, err = strconv.Atoi(envDefault("DUPLICATE_MAX_BODY_CHARS", "1500"))
+	if err != nil {
+		return nil, fmt.Errorf("DUPLICATE_MAX_BODY_CHARS: %w", err)
+	}
+	if c.DuplicateMaxBodyChars < 100 {
+		c.DuplicateMaxBodyChars = 100
+	}
+
+	// --- Discussions Q&A (see internal/triage/discussion.go) ---
+	if c.DiscussionsEnabled, err = envBool("DISCUSSIONS_ENABLED", "false"); err != nil {
+		return nil, err
+	}
+	c.DiscussionTrigger = envDefault("DISCUSSION_TRIGGER", "@github-discussions")
+	c.DiscussionInstructionsPath = envDefault("DISCUSSION_INSTRUCTIONS_PATH", ".github/ai-triage/discussion_instructions.md")
+	if c.DiscussionSpamWindow, err = envWindow("DISCUSSION_SPAM_WINDOW_MINUTES", 60); err != nil {
+		return nil, err
+	}
+	if c.DiscussionSpamThreshold, err = envThreshold("DISCUSSION_SPAM_THRESHOLD", 5); err != nil {
+		return nil, err
+	}
+	c.DiscussionStatePath = envDefault("DISCUSSION_STATE_PATH", ".github/ai-triage/discussion-state.json")
+	c.DiscussionMaxComments, err = strconv.Atoi(envDefault("DISCUSSION_MAX_COMMENTS", "40"))
+	if err != nil {
+		return nil, fmt.Errorf("DISCUSSION_MAX_COMMENTS: %w", err)
+	}
+	if c.DiscussionMaxComments < 1 {
+		c.DiscussionMaxComments = 1
+	}
+
+	// --- AI agent (see internal/triage/agent.go) ---
+	if c.AgentEnabled, err = envBool("AGENT_ENABLED", "false"); err != nil {
+		return nil, err
+	}
+	c.AgentTrigger = envDefault("AGENT_TRIGGER", "@github-actions")
+	c.AgentInstructionsPath = envDefault("AGENT_INSTRUCTIONS_PATH", ".github/ai-triage/agent_instructions.md")
+	c.AgentAllowedUsers = splitList(os.Getenv("AGENT_ALLOWED_USERS"))
+	if c.AgentMaxContextFiles, err = envPositive("AGENT_MAX_CONTEXT_FILES", 6); err != nil {
+		return nil, err
+	}
+	if c.AgentMaxTreeEntries, err = envPositive("AGENT_MAX_TREE_ENTRIES", 500); err != nil {
+		return nil, err
+	}
+	if c.AgentMaxOutputFiles, err = envPositive("AGENT_MAX_OUTPUT_FILES", 6); err != nil {
+		return nil, err
+	}
+	if c.AgentMaxOutputBytes, err = envPositive("AGENT_MAX_OUTPUT_BYTES", 150000); err != nil {
+		return nil, err
+	}
+	if c.AgentMaxOutputTokens, err = envPositive("AGENT_MAX_OUTPUT_TOKENS", 16384); err != nil {
+		return nil, err
+	}
+	c.AgentBranchPrefix = envDefault("AGENT_BRANCH_PREFIX", "ai-agent/")
+	if c.AgentSpamWindow, err = envWindow("AGENT_SPAM_WINDOW_MINUTES", 60); err != nil {
+		return nil, err
+	}
+	if c.AgentSpamThreshold, err = envThreshold("AGENT_SPAM_THRESHOLD", 3); err != nil {
+		return nil, err
+	}
+	c.AgentStatePath = envDefault("AGENT_STATE_PATH", ".github/ai-triage/agent-state.json")
+
+	// --- Commit review (see internal/triage/commitreview.go) ---
+	if c.CommitReviewEnabled, err = envBool("COMMIT_REVIEW_ENABLED", "false"); err != nil {
+		return nil, err
+	}
+	c.CommitReviewTrigger = envDefault("COMMIT_REVIEW_TRIGGER", "@github-discussions")
+	c.CommitReviewInstructionsPath = envDefault("COMMIT_REVIEW_INSTRUCTIONS_PATH", ".github/ai-triage/commit_review_instructions.md")
+	c.CommitReviewAllowedUsers = splitList(os.Getenv("COMMIT_REVIEW_ALLOWED_USERS"))
+	if c.CommitReviewSpamWindow, err = envWindow("COMMIT_REVIEW_SPAM_WINDOW_MINUTES", 60); err != nil {
+		return nil, err
+	}
+	if c.CommitReviewSpamThreshold, err = envThreshold("COMMIT_REVIEW_SPAM_THRESHOLD", 5); err != nil {
+		return nil, err
+	}
+	c.CommitReviewStatePath = envDefault("COMMIT_REVIEW_STATE_PATH", ".github/ai-triage/commit-review-state.json")
+
+	// --- Workflow dispatch by comment (see internal/triage/workflowdispatch.go) ---
+	if c.WorkflowDispatchEnabled, err = envBool("WORKFLOW_DISPATCH_ENABLED", "false"); err != nil {
+		return nil, err
+	}
+	c.WorkflowDispatchTrigger = envDefault("WORKFLOW_DISPATCH_TRIGGER", "@github-discussions")
+	c.WorkflowDispatchAllowedUsers = splitList(os.Getenv("WORKFLOW_DISPATCH_ALLOWED_USERS"))
+	if c.WorkflowDispatchSpamWindow, err = envWindow("WORKFLOW_DISPATCH_SPAM_WINDOW_MINUTES", 60); err != nil {
+		return nil, err
+	}
+	if c.WorkflowDispatchSpamThreshold, err = envThreshold("WORKFLOW_DISPATCH_SPAM_THRESHOLD", 3); err != nil {
+		return nil, err
+	}
+	c.WorkflowDispatchStatePath = envDefault("WORKFLOW_DISPATCH_STATE_PATH", ".github/ai-triage/workflow-dispatch-state.json")
+	if err := c.loadWorkflowTargets(); err != nil {
+		return nil, err
+	}
+
 	c.EventName = os.Getenv("GITHUB_EVENT_NAME")
 	c.EventPath = os.Getenv("GITHUB_EVENT_PATH")
 	if c.EventName == "" || c.EventPath == "" {
@@ -212,7 +437,9 @@ func Load() (*Config, error) {
 	return c, nil
 }
 
-func splitKeys(raw string) []string {
+// splitList splits a comma/semicolon/newline/tab/space separated list
+// (used for Gemini API keys and for the *-allowed-users login lists).
+func splitList(raw string) []string {
 	fields := strings.FieldsFunc(raw, func(r rune) bool {
 		switch r {
 		case ',', ';', '\n', '\r', '\t', ' ':
@@ -238,4 +465,112 @@ func envDefault(key, def string) string {
 		return v
 	}
 	return def
+}
+
+// envBool parses a true/false toggle, failing loudly on a typo instead of
+// silently falling back to the default — a misconfigured feature input that
+// silently disables a feature is exactly what this bot must not do.
+func envBool(key, def string) (bool, error) {
+	v := strings.TrimSpace(envDefault(key, def))
+	b, err := strconv.ParseBool(v)
+	if err != nil {
+		return false, fmt.Errorf("%s: %q is not a boolean (expected true/false)", key, v)
+	}
+	return b, nil
+}
+
+// envMillis parses a duration expressed in milliseconds.
+func envMillis(key string, def int) (time.Duration, error) {
+	v := envDefault(key, strconv.Itoa(def))
+	ms, err := strconv.Atoi(v)
+	if err != nil {
+		return 0, fmt.Errorf("%s: %w", key, err)
+	}
+	if ms < 0 {
+		return 0, fmt.Errorf("%s: %s must not be negative", key, v)
+	}
+	return time.Duration(ms) * time.Millisecond, nil
+}
+
+// envWindow parses a time window expressed in minutes.
+func envWindow(key string, def int) (time.Duration, error) {
+	v := envDefault(key, strconv.Itoa(def))
+	min, err := strconv.Atoi(v)
+	if err != nil {
+		return 0, fmt.Errorf("%s: %w", key, err)
+	}
+	if min < 1 {
+		return 0, fmt.Errorf("%s: %s must be at least 1 minute", key, v)
+	}
+	return time.Duration(min) * time.Minute, nil
+}
+
+// envThreshold parses a "strictly more than this" rate-limit threshold.
+func envThreshold(key string, def int) (int, error) {
+	v := envDefault(key, strconv.Itoa(def))
+	n, err := strconv.Atoi(v)
+	if err != nil {
+		return 0, fmt.Errorf("%s: %w", key, err)
+	}
+	if n < 0 {
+		return 0, fmt.Errorf("%s: %s must not be negative", key, v)
+	}
+	return n, nil
+}
+
+// envPositive parses a limit that must be at least 1 to be meaningful.
+func envPositive(key string, def int) (int, error) {
+	v := envDefault(key, strconv.Itoa(def))
+	n, err := strconv.Atoi(v)
+	if err != nil {
+		return 0, fmt.Errorf("%s: %w", key, err)
+	}
+	if n < 1 {
+		return 0, fmt.Errorf("%s: %s must be at least 1", key, v)
+	}
+	return n, nil
+}
+
+// loadWorkflowTargets parses and validates WORKFLOW_DISPATCH_TARGETS.
+// Per action.yml this is a HARD config error when the feature is on and
+// the target list is unusable — the bot refuses to start rather than
+// running with a feature that would silently never fire.
+func (c *Config) loadWorkflowTargets() error {
+	raw := strings.TrimSpace(os.Getenv("WORKFLOW_DISPATCH_TARGETS"))
+	if !c.WorkflowDispatchEnabled {
+		// Still parse when provided, so a typo fails loudly even before the
+		// feature is switched on — but an empty value is fine while off.
+		if raw == "" {
+			return nil
+		}
+	} else if raw == "" {
+		return errors.New("WORKFLOW_DISPATCH_TARGETS is empty while workflow-dispatch-enabled is true — configure at least one target (see action.yml) or disable the feature")
+	}
+
+	var targets []WorkflowDispatchTarget
+	if err := json.Unmarshal([]byte(raw), &targets); err != nil {
+		return fmt.Errorf("WORKFLOW_DISPATCH_TARGETS: not a valid JSON array: %w", err)
+	}
+	if c.WorkflowDispatchEnabled && len(targets) == 0 {
+		return errors.New("WORKFLOW_DISPATCH_TARGETS parsed to an empty list while workflow-dispatch-enabled is true")
+	}
+	for i := range targets {
+		t := &targets[i]
+		if t.Name == "" {
+			return fmt.Errorf("WORKFLOW_DISPATCH_TARGETS[%d]: \"name\" is required", i)
+		}
+		if t.Workflow == "" {
+			return fmt.Errorf("WORKFLOW_DISPATCH_TARGETS[%d] (%s): \"workflow\" is required", i, t.Name)
+		}
+		switch t.Ref {
+		case "":
+			t.Ref = "default"
+		case "default", "head":
+			// explicit, valid
+		default:
+			// treated as a literal branch/tag name inside this repository
+		}
+	}
+	c.WorkflowDispatchTargets = targets
+	return nil
 }

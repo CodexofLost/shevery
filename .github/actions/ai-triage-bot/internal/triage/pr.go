@@ -4,12 +4,15 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"strings"
 
 	"aitriage/internal/ai"
 	"aitriage/internal/config"
+	"aitriage/internal/duplicate"
 	"aitriage/internal/ghclient"
 	"aitriage/internal/githubevent"
 	"aitriage/internal/laplace"
+	"aitriage/internal/model"
 	"aitriage/internal/promptbuilder"
 )
 
@@ -59,41 +62,27 @@ func HandlePullRequest(ctx context.Context, cfg *config.Config, gh, modGH *ghcli
 		return fmt.Errorf("fetching diff for PR #%d: %w", number, err)
 	}
 	if len(diff) > cfg.MaxDiffBytes {
-		diff = diff[:cfg.MaxDiffBytes] + "\n... (diff truncated to save tokens) ...\n"
+		diff = truncateUTF8(diff, cfg.MaxDiffBytes) + "\n... (diff truncated to save tokens) ...\n"
 	}
 
-	// Plus the full versions of a few changed files — the diff alone doesn't
-	// always show the surrounding context (the rest of the file, neighboring
-	// functions, etc.). Shares its budget with the issue flow (cfg.MaxFiles);
-	// noisy files (lockfiles, binaries, vendored code) are skipped since
-	// they don't add useful context.
+	// Plus BOTH sides of every changed file the budget allows: the
+	// base-branch content the PR replaces and the PR-head content it
+	// produces. The diff only carries a few surrounding lines either side
+	// of each hunk, so without the before/after versions the model can't
+	// check a change against the code it supersedes — nor spot a "fix"
+	// that reads well in the diff but doesn't hold up in the whole file.
 	files, err := gh.ListPullFiles(ctx, owner, repo, number)
 	if err != nil {
 		return fmt.Errorf("fetching file list for PR #%d: %w", number, err)
 	}
-	var extraFiles []promptbuilder.FileSnippet
-	budget := cfg.MaxFiles
-	for _, f := range files {
-		if budget <= 0 {
-			break
+	changed := buildChangedFiles(ctx, gh, owner, repo, pr, files, cfg)
+	readCount := 0
+	for _, f := range changed {
+		if f.UnreadReason == "" {
+			readCount++
 		}
-		if isLikelyNoise(f.Filename) {
-			continue
-		}
-		content, err := gh.GetFileContent(ctx, owner, repo, f.Filename, pr.Head.SHA)
-		if err != nil {
-			log.Printf("PR #%d: skipping file %q: %v", number, f.Filename, err)
-			continue
-		}
-		truncated := false
-		if len(content) > cfg.MaxFileBytes {
-			content = content[:cfg.MaxFileBytes]
-			truncated = true
-		}
-		extraFiles = append(extraFiles, promptbuilder.FileSnippet{Path: f.Filename, Content: content, Truncated: truncated})
-		budget--
 	}
-	log.Printf("PR #%d: diff %d bytes, %d files changed, %d full versions read", number, len(diff), len(files), len(extraFiles))
+	log.Printf("PR #%d: diff %d bytes, %d files changed, %d read with before/after", number, len(diff), len(changed), readCount)
 
 	// Cross-referenced issues/PRs (e.g. "fixes #42") — resolved so the model
 	// can check the claim against what #42 actually says.
@@ -108,6 +97,24 @@ func HandlePullRequest(ctx context.Context, cfg *config.Config, gh, modGH *ghcli
 	// carries why, so the model judges those cases by text alone.
 	imageAtts, textAtts, rejectedAtts := fetchBodyAttachments(ctx, cfg, pr.Body)
 
+	// Duplicate shortlist (ON by default): cheap LOCAL keyword search over
+	// this repo's other PRs — no AI, it only decides what the model may
+	// compare full text against. See internal/duplicate.
+	var dupCandidates []promptbuilder.DuplicateCandidate
+	if cfg.DuplicateDetectionEnabled {
+		dupCandidates = duplicate.Shortlist(ctx, gh, owner, repo, pr.Title, duplicate.Options{
+			SelfNumber:    number,
+			IsPR:          true,
+			MaxKeywords:   cfg.DuplicateSearchKeywords,
+			MaxCandidates: cfg.MaxDuplicateCandidates,
+			MinSimilarity: cfg.DuplicateMinSimilarity,
+			MaxBodyChars:  cfg.DuplicateMaxBodyChars,
+		})
+		if len(dupCandidates) > 0 {
+			log.Printf("PR #%d: %d possible duplicate(s) shortlisted", number, len(dupCandidates))
+		}
+	}
+
 	// Laplace factor: for PRs, also checks commit git metadata (author/
 	// committer email/name — noreply/actions/codex/copilot/claude patterns
 	// suggest an automated pipeline rather than a human).
@@ -119,14 +126,15 @@ func HandlePullRequest(ctx context.Context, cfg *config.Config, gh, modGH *ghcli
 	log.Printf("PR #%d: laplace factor = %d/100 (%s), %d signals", number, factor.Score, factor.Level(), len(factor.Signals))
 
 	userPrompt := promptbuilder.BuildPRPrompt(promptbuilder.PRInput{
-		Number:         number,
-		Title:          pr.Title,
-		Body:           pr.Body,
-		Author:         author,
-		Diff:           diff,
-		Files:          extraFiles,
-		References:     references,
-		AllowedLabels:  prLabels,
+		Number:              number,
+		Title:               pr.Title,
+		Body:                pr.Body,
+		Author:              author,
+		Diff:                diff,
+		ChangedFiles:        changed,
+		References:          references,
+		DuplicateCandidates: dupCandidates,
+		AllowedLabels:       prLabels,
 		LaplaceFactor:       factor.PromptBlock(),
 		AttachedImages:      len(imageAtts),
 		AttachedTexts:       textAtts,
@@ -148,6 +156,13 @@ func HandlePullRequest(ctx context.Context, cfg *config.Config, gh, modGH *ghcli
 		return handleModerationViolation(ctx, cfg, gh, modGH, owner, repo, number, author, pr.Title, "", true, verdict.Moderation)
 	}
 
+	// Duplicate verdict: the model matched this PR against a shortlisted
+	// candidate's full text — label, explain, close. Junk excluded, same
+	// reasoning as the issue flow.
+	if verdict.Duplicate != nil && verdict.Duplicate.IsDuplicate && verdict.Verdict != "trash" {
+		return handleDuplicate(ctx, gh, owner, repo, number, verdict, true)
+	}
+
 	finalLabel := resolveLabel(verdict, prLabels)
 	labelDef := findLabelDef(p.labels, finalLabel)
 	if err := gh.EnsureLabel(ctx, owner, repo, labelDef.Name, labelDef.Color, labelDef.Description); err != nil {
@@ -156,11 +171,141 @@ func HandlePullRequest(ctx context.Context, cfg *config.Config, gh, modGH *ghcli
 	if err := gh.AddLabels(ctx, owner, repo, number, []string{finalLabel}); err != nil {
 		return fmt.Errorf("applying label %q to PR #%d: %w", finalLabel, number, err)
 	}
-	comment := formatComment(verdict.Comment, verdict.Verdict, attachmentScreeningNote(rejectedAtts))
+	comment := formatComment(verdict.Comment, verdict.Verdict, attachmentScreeningNote(rejectedAtts), prQualityNote(verdict.PRQuality, changed))
 	if err := gh.CreateComment(ctx, owner, repo, number, comment); err != nil {
 		return fmt.Errorf("posting comment on PR #%d: %w", number, err)
 	}
 
 	log.Printf("PR #%d processed: verdict=%s label=%s", number, verdict.Verdict, finalLabel)
 	return nil
+}
+
+// buildChangedFiles turns the API's file list into the before/after shape
+// promptbuilder renders: statistics for every changed file (so the size/
+// shape summary is complete even for files too expensive to read), and
+// content for both sides of up to cfg.MaxFiles non-noisy files.
+//
+// Noisy files (lockfiles, binaries, vendored code) and files past the read
+// budget are NOT dropped from the list — they're kept with an UnreadReason,
+// so the model is told a file exists but has no content for it, rather than
+// silently believing the PR touched fewer files than it did.
+func buildChangedFiles(ctx context.Context, gh *ghclient.Client, owner, repo string, pr *ghclient.PullRequest, files []ghclient.PullFile, cfg *config.Config) []promptbuilder.ChangedFile {
+	out := make([]promptbuilder.ChangedFile, 0, len(files))
+	budget := cfg.MaxFiles
+
+	for _, f := range files {
+		cf := promptbuilder.ChangedFile{
+			Path:         f.Filename,
+			PreviousPath: f.PreviousFilename,
+			Status:       f.Status,
+			Additions:    f.Additions,
+			Deletions:    f.Deletions,
+			Changes:      f.Changes,
+		}
+
+		switch {
+		case isLikelyNoise(f.Filename):
+			cf.UnreadReason = "noisy file (lockfile, binary, minified or vendored content) — deliberately not read, it costs context without adding signal"
+		case budget <= 0:
+			cf.UnreadReason = fmt.Sprintf("outside the %d-file read budget for this run", cfg.MaxFiles)
+		default:
+			// For a rename/copy the base-side content lives under the OLD
+			// path — reading the new path against the base ref would 404 and
+			// wrongly look like a brand-new file.
+			beforePath := f.Filename
+			if f.PreviousFilename != "" {
+				beforePath = f.PreviousFilename
+			}
+			before := readFileSide(ctx, gh, owner, repo, beforePath, pr.Base.SHA, f.Status == "added", cfg.MaxFileBytes)
+			after := readFileSide(ctx, gh, owner, repo, f.Filename, pr.Head.SHA, f.Status == "removed", cfg.MaxFileBytes)
+			if before.Failed && after.Failed {
+				cf.UnreadReason = "the bot tried to read this file on both sides and both fetches failed — see the run log"
+			} else {
+				cf.Before, cf.After = before, after
+				budget--
+			}
+		}
+		out = append(out, cf)
+	}
+	return out
+}
+
+// readFileSide fetches one side of a changed file at ref. It never returns
+// an error: "this file doesn't exist at that ref" is a legitimate answer
+// (added/deleted, or a ref the path isn't on yet) and is reported as
+// Missing; a real failure is reported as Failed. Both are rendered
+// explicitly by promptbuilder — neither is ever shown as empty content.
+func readFileSide(ctx context.Context, gh *ghclient.Client, owner, repo, path, ref string, missing bool, maxBytes int) *promptbuilder.FileSide {
+	if missing {
+		return &promptbuilder.FileSide{Missing: true}
+	}
+	content, err := gh.GetFileContent(ctx, owner, repo, path, ref)
+	if err != nil {
+		if ghclient.IsNotFound(err) {
+			return &promptbuilder.FileSide{Missing: true}
+		}
+		log.Printf("PR: could not read %q at %s: %v", path, ref, err)
+		return &promptbuilder.FileSide{Failed: true}
+	}
+	side := &promptbuilder.FileSide{Content: content}
+	if len(content) > maxBytes {
+		side.Content = truncateUTF8(content, maxBytes)
+		side.Truncated = true
+	}
+	return side
+}
+
+// prQualityNote renders the quality block that goes into the POSTED comment
+// — the model's 0-100 score with its reasons, plus the size/shape facts
+// computed by the bot. It's built in code rather than left to the model so
+// the numbers are always present and always right: the model supplies the
+// judgment, the bot supplies the arithmetic. Returns "" when there's
+// nothing to report (formatComment skips empty notes).
+func prQualityNote(v *model.PRQuality, files []promptbuilder.ChangedFile) string {
+	if v == nil && len(files) == 0 {
+		return ""
+	}
+	var b strings.Builder
+
+	if v != nil {
+		fmt.Fprintf(&b, "**PR quality: %d/100** (higher = better; this is the model's rating of the diff, the label above is the triage verdict)", v.Score)
+		if len(v.Reasons) > 0 {
+			b.WriteString("\n")
+			for _, r := range v.Reasons {
+				fmt.Fprintf(&b, "\n- %s", r)
+			}
+		}
+	}
+
+	if len(files) > 0 {
+		var add, mod, del, ren, other, plus, minus, read int
+		for _, f := range files {
+			plus += f.Additions
+			minus += f.Deletions
+			if f.UnreadReason == "" {
+				read++
+			}
+			switch f.Status {
+			case "added":
+				add++
+			case "modified":
+				mod++
+			case "removed":
+				del++
+			case "renamed":
+				ren++
+			default:
+				other++
+			}
+		}
+		if b.Len() > 0 {
+			b.WriteString("\n\n")
+		}
+		fmt.Fprintf(&b, "**Diff size:** %d file(s) changed (%d added, %d modified, %d removed, %d renamed", len(files), add, mod, del, ren)
+		if other > 0 {
+			fmt.Fprintf(&b, ", %d other", other)
+		}
+		fmt.Fprintf(&b, "), **+%d / -%d lines**. Before/after versions read for %d of %d file(s).", plus, minus, read, len(files))
+	}
+	return b.String()
 }

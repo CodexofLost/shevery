@@ -14,11 +14,11 @@ on:
     types: [opened]
 
   # --- Optional triggers for the action's extra features ---------------
-  # All of them are OFF by default in action.yml, and the Go bot does not
-  # implement them yet — enabling a trigger before the matching input is
-  # set to 'true' just makes the workflow run on every matching event and
-  # exit immediately ("event ... is not supported, nothing to do"). Uncomment
-  # a block ONLY together with its `*-enabled: 'true'` input below.
+  # All of them are OFF by default in action.yml. Uncomment a block ONLY
+  # together with its `*-enabled: 'true'` input below — a trigger with its
+  # feature still off just makes the workflow run on every matching event
+  # and exit immediately, which burns a CI minute (setup-go + go get) each
+  # time for nothing.
   #
   # issue_comment:            # AI agent + workflow-dispatch-by-comment
   #   types: [created]
@@ -32,15 +32,18 @@ permissions:
   pull-requests: write
   # write (not read) because the moderation feature persists a small
   # per-author offense-count JSON file to the repo via the Contents API
-  # (see internal/moderation) — that's the ONLY thing the bot writes to
-  # the repository besides labels/comments. This does NOT, by itself,
-  # grant the bot the ability to delete issues or block users — those
-  # need the separate, more privileged moderation-token input below.
+  # (see internal/moderation), and the rate limiters for the privileged
+  # comment features persist their own per-author trigger timestamps the
+  # same way. This does NOT, by itself, grant the bot the ability to delete
+  # issues or block users — those need the separate, more privileged
+  # moderation-token input below.
   contents: write
-  # Extra permissions for the optional features (harmless to declare while
-  # the features are off — they only widen what the token COULD do):
-  # discussions: write        # discussions-enabled (reply in Discussions)
-  # actions: write            # workflow-dispatch-enabled (workflow_dispatch API)
+  # Permissions for the optional features. Declared unconditionally so that
+  # turning a feature on doesn't ALSO require editing this file: they only
+  # widen what the token COULD do, and every one of those features is off
+  # by default and gated behind a live permission check in the bot.
+  discussions: write        # discussions-enabled (reply in Discussions)
+  actions: write            # workflow-dispatch-enabled (workflow_dispatch API)
 
 concurrency:
   group: ai-triage-${{ github.event.issue.number || github.event.pull_request.number || github.event.comment.id || github.event.discussion.number || github.run_id }}

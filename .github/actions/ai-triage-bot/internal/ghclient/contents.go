@@ -62,7 +62,7 @@ func (c *Client) GetFileContent(ctx context.Context, owner, repo, path, ref stri
 func (c *Client) GetFileContentWithSHA(ctx context.Context, owner, repo, path, ref string) (content, sha string, found bool, err error) {
 	cf, err := c.getContentFile(ctx, owner, repo, path, ref)
 	if err != nil {
-		if strings.Contains(err.Error(), "HTTP 404") {
+		if IsNotFound(err) {
 			return "", "", false, nil
 		}
 		return "", "", false, err
@@ -98,6 +98,15 @@ func (c *Client) PutFileContent(ctx context.Context, owner, repo, path, message 
 	}
 	return c.do(ctx, http.MethodPut,
 		fmt.Sprintf("/repos/%s/%s/contents/%s", owner, repo, escapePathSegments(path)), body, nil)
+}
+
+// IsNotFound reports whether err is GitHub's 404 for a missing path/ref.
+// Callers use it to distinguish "this file does not exist at that ref"
+// (a legitimate answer — the file is new, or was deleted) from a real
+// fetch failure (permissions, rate limit, network), which must not be
+// silently reported as "the file is empty".
+func IsNotFound(err error) bool {
+	return err != nil && strings.Contains(err.Error(), "HTTP 404")
 }
 
 func escapePathSegments(p string) string {

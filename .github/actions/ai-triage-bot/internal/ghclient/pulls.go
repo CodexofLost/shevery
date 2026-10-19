@@ -22,16 +22,26 @@ type PullRequest struct {
 	Head struct {
 		Ref string `json:"ref"`
 		SHA string `json:"sha"`
+		// Repo is the head's repository. Nil-safe on purpose: it is missing
+		// from some payloads, and its absence must not be mistaken for
+		// "same repo". Fork detection (workflow-dispatch's "head" ref can
+		// only target a branch INSIDE this repository) compares FullName
+		// against the base repo, not just Fork.
+		Repo *struct {
+			FullName string `json:"full_name"`
+			Fork     bool   `json:"fork"`
+		} `json:"repo"`
 	} `json:"head"`
 }
 
 // PullFile is one changed file from /pulls/{n}/files.
 type PullFile struct {
-	Filename  string `json:"filename"`
-	Status    string `json:"status"` // added, modified, removed, renamed
-	Additions int    `json:"additions"`
-	Deletions int    `json:"deletions"`
-	Changes   int    `json:"changes"`
+	Filename         string `json:"filename"`
+	PreviousFilename string `json:"previous_filename"` // set for renames/copies — where the file came from
+	Status           string `json:"status"`            // added, modified, removed, renamed, copied, changed
+	Additions        int    `json:"additions"`
+	Deletions        int    `json:"deletions"`
+	Changes          int    `json:"changes"`
 }
 
 // GetPullRequest returns the current PR metadata.

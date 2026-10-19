@@ -140,13 +140,13 @@ func sniffImage(b []byte) (mime string, ok bool) {
 // trusting a filename.
 var dangerousSignatures = [][]byte{
 	{'M', 'Z'},                         // Windows PE (.exe/.dll)
-	{0x7F, 'E', 'L', 'F'},               // Linux ELF
-	{'P', 'K', 0x03, 0x04},              // ZIP/JAR/APK/DOCX-as-archive
-	{'R', 'a', 'r', '!'},                // RAR
-	{'7', 'z', 0xBC, 0xAF, 0x27, 0x1C},  // 7-Zip
-	{0x1F, 0x8B},                        // GZIP
-	{0xCA, 0xFE, 0xBA, 0xBE},            // Mach-O / Java class
-	{'%', 'P', 'D', 'F'},                // PDF (not whitelisted — not handled)
+	{0x7F, 'E', 'L', 'F'},              // Linux ELF
+	{'P', 'K', 0x03, 0x04},             // ZIP/JAR/APK/DOCX-as-archive
+	{'R', 'a', 'r', '!'},               // RAR
+	{'7', 'z', 0xBC, 0xAF, 0x27, 0x1C}, // 7-Zip
+	{0x1F, 0x8B},                       // GZIP
+	{0xCA, 0xFE, 0xBA, 0xBE},           // Mach-O / Java class
+	{'%', 'P', 'D', 'F'},               // PDF (not whitelisted — not handled)
 }
 
 func hasDangerousSignature(b []byte) bool {

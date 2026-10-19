@@ -9,6 +9,7 @@ import (
 	"aitriage/internal/ai"
 	"aitriage/internal/antispam"
 	"aitriage/internal/config"
+	"aitriage/internal/duplicate"
 	"aitriage/internal/ghclient"
 	"aitriage/internal/githubevent"
 	"aitriage/internal/laplace"
@@ -105,16 +106,35 @@ func HandleIssue(ctx context.Context, cfg *config.Config, gh, modGH *ghclient.Cl
 	})
 	log.Printf("issue #%d: laplace factor = %d/100 (%s), %d signals", number, factor.Score, factor.Level(), len(factor.Signals))
 
+	// 8b. Duplicate shortlist (ON by default) — a cheap LOCAL keyword
+	// search, no AI: it only decides which candidates the model gets to
+	// compare full text against. See internal/duplicate.
+	var dupCandidates []promptbuilder.DuplicateCandidate
+	if cfg.DuplicateDetectionEnabled {
+		dupCandidates = duplicate.Shortlist(ctx, gh, owner, repo, issue.Title, duplicate.Options{
+			SelfNumber:    number,
+			IsPR:          false,
+			MaxKeywords:   cfg.DuplicateSearchKeywords,
+			MaxCandidates: cfg.MaxDuplicateCandidates,
+			MinSimilarity: cfg.DuplicateMinSimilarity,
+			MaxBodyChars:  cfg.DuplicateMaxBodyChars,
+		})
+		if len(dupCandidates) > 0 {
+			log.Printf("issue #%d: %d possible duplicate(s) shortlisted", number, len(dupCandidates))
+		}
+	}
+
 	// 9. Ask the AI.
 	userPrompt := promptbuilder.BuildIssuePrompt(promptbuilder.IssueInput{
-		Number:         number,
-		Title:          issue.Title,
-		Body:           issue.Body,
-		Author:         author,
-		Files:          files,
-		FailedFiles:    failedFiles,
-		References:     references,
-		AllowedLabels:  issueLabels,
+		Number:              number,
+		Title:               issue.Title,
+		Body:                issue.Body,
+		Author:              author,
+		Files:               files,
+		FailedFiles:         failedFiles,
+		References:          references,
+		AllowedLabels:       issueLabels,
+		DuplicateCandidates: dupCandidates,
 		LaplaceFactor:       factor.PromptBlock(),
 		AttachedImages:      len(imageAtts),
 		AttachedTexts:       textAtts,
@@ -134,6 +154,14 @@ func HandleIssue(ctx context.Context, cfg *config.Config, gh, modGH *ghclient.Cl
 	// (and the author blocked on a repeat offense) instead of labeled.
 	if verdict.Moderation != nil && verdict.Moderation.Violation {
 		return handleModerationViolation(ctx, cfg, gh, modGH, owner, repo, number, author, issue.Title, issue.NodeID, false, verdict.Moderation)
+	}
+
+	// 9c. Duplicate comes next: the model compared full text against the
+	// shortlisted candidates and matched one — label, explain, close.
+	// Junk is excluded on purpose: trash is a quality verdict, and closing
+	// spam "as a duplicate of" another report would be nonsense.
+	if verdict.Duplicate != nil && verdict.Duplicate.IsDuplicate && verdict.Verdict != "trash" {
+		return handleDuplicate(ctx, gh, owner, repo, number, verdict, false)
 	}
 
 	// 10. Apply the label and comment.
