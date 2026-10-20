@@ -16,7 +16,7 @@
     <string name="home_status_service_version_update"><![CDATA[Versie %2$s, %1$s<br/>Opnieuw starten om bij te werken naar versie %3$s]]></string>
     <string name="home_adb_title"><![CDATA[Begin met aansluiten op een computer]]></string>
     <string name="home_adb_description"><![CDATA[Bij toestellen zonder root-toegang moet u adb gebruiken om Shevery te starten (hiervoor is een verbinding met een computer nodig). Dit proces moet elke keer dat het toestel opnieuw wordt opgestart, worden herhaald. Lees alstublieft <b><a href="%1$s">de help</a></b>.]]></string>
-    <string name="home_adb_button_view_help"><![CDATA[Lees de help-pagina]]></string,>
+    <string name="home_adb_button_view_help"><![CDATA[Lees de help-pagina]]></string>
     <string name="home_adb_button_view_command"><![CDATA[Commando ‘Bekijken’]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Er zijn nog enkele andere zaken waarmee u rekening moet houden; wees er zeker van dat u de helptekst gelezen heeft.]]></string>
     <string name="home_adb_dialog_view_command_copy_button"><![CDATA[Kopiëren]]></string>
@@ -577,10 +577,10 @@ Klaar voor opdrachten.]]></string>
     <string name="automation_plugin_method_summary"><![CDATA[Geïntegreerde actie- en statusvoorwaarde-plug-in in Tasker en MacroDroid]]></string>
 
     <!-- Backups, Extras & Classic Nav -->
-    <string name="settings_backups_title"><![CDATA[Backups]]></string>
+    <string name="settings_backups_title"><![CDATA[Back-ups]]></string>
     <string name="settings_section_backups_summary"><![CDATA[Backup en herstelinstellingen]]></string>
-    <string name="settings_extras_title"><![CDATA[Extra's]]></string>
-    <string name="settings_section_extras_summary"><![CDATA[Toeankelijkheid, diagnostiek, and experimenten]]></string>
+    <string name="settings_extras_title"><![CDATA[Extra\'s]]></string>
+    <string name="settings_section_extras_summary"><![CDATA[Toeankelijkheid, diagnostiek en experimenten]]></string>
     <string name="settings_classic_nav"><![CDATA[Klassieke navigatiebalk]]></string>
     <string name="settings_classic_nav_summary"><![CDATA[Vaste naviatiebalk gebrukken in plaats van een gebarenbalk]]></string>
 
