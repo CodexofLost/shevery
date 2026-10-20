@@ -7,7 +7,7 @@
     <string name="shevery_update_auto_check_summary">Zoek naar nieuwe versies, zelfs als de app gesloten is</string>
     <string name="update_settings_frequency_label"><![CDATA[Controleerfrequentie]]></string>
     <string name="home_update_available_title"><![CDATA[Shevery-update beschikbaar: %s]]></string>
-    <string name="home_update_available_body">>Nieuwe versie beschikbaar. Tik om te downloaden</string>
+    <string name="home_update_available_body">Nieuwe versie beschikbaar. Tik om te downloaden</string>
     <string name="translation_contributors">Meteor0id, sermart1234, ruvlad</string>
     <string name="accessibility_navigate_up"><![CDATA[Een niveau omhoog gaan]]></string>
     <string name="accessibility_close"><![CDATA[Sluiten]]></string>
@@ -16,7 +16,7 @@
     <string name="home_status_service_version_update"><![CDATA[Versie %2$s, %1$s<br/>Opnieuw starten om bij te werken naar versie %3$s]]></string>
     <string name="home_adb_title"><![CDATA[Begin met aansluiten op een computer]]></string>
     <string name="home_adb_description"><![CDATA[Bij toestellen zonder root-toegang moet u adb gebruiken om Shevery te starten (hiervoor is een verbinding met een computer nodig). Dit proces moet elke keer dat het toestel opnieuw wordt opgestart, worden herhaald. Lees alstublieft <b><a href="%1$s">de help</a></b>.]]></string>
-    <string name="home_adb_button_view_help"><![CDATA[Lees de help-pagina]]></string>
+    <string name="home_adb_button_view_help"><![CDATA[Lees de help-pagina]]></string,>
     <string name="home_adb_button_view_command"><![CDATA[Commando ‘Bekijken’]]></string>
     <string name="home_adb_dialog_view_command_notice"><![CDATA[Er zijn nog enkele andere zaken waarmee u rekening moet houden; wees er zeker van dat u de helptekst gelezen heeft.]]></string>
     <string name="home_adb_dialog_view_command_copy_button"><![CDATA[Kopiëren]]></string>
@@ -45,7 +45,7 @@ Let op: schakel ‘Ontwikkelaarsopties’ of ‘USB-foutopsporen’ niet uit, an
     <string name="paring_code_is_wrong"><![CDATA[De koppelingscode is onjuist.]]></string>
     <string name="cannot_connect_port"><![CDATA[Er kan geen verbinding worden gemaakt met de draadloze foutopsporingsdienst.]]></string>
     <string name="dialog_wireless_adb_not_enabled"><![CDATA[Draadloos debuggen is niet ingeschakeld.
-Let op: [Bij Android-versies ouder dan Android 11 is een verbinding met een computer vereist om draadloos debuggen in te schakelen.]]></string>
+Let op: Bij Android-versies ouder dan Android 11 is een verbinding met een computer vereist om draadloos debuggen in te schakelen.]]></string>
     <string name="dialog_adb_pairing_message"><![CDATA[Ga als volgt te werk om het koppelen te starten: "Opties voor ontwikkelaars" - "Draadloos foutopsporen" - "Apparaat koppelen met koppelingscode".
 
 Zodra het koppelingsproces is gestart, kunt u de koppelingscode invoeren.]]></string>
@@ -310,7 +310,7 @@ De exportfunctie maakt gebruik van SAF (Storage Access Framework). Er is gemeld 
     <string name="notification_startup_failed"><![CDATA[Shevery kon niet worden gestart.]]></string>
     <string name="notification_startup_no_port"><![CDATA[De draadloze debugpoort is niet binnen 15 seconden gevonden.]]></string>
     <string name="notification_startup_no_permission"><![CDATA[Kan niet starten bij het opstarten: een vereiste machtiging is niet verleend. Open Shevery en verleen eerst de machtiging.]]></string>
-    <string name="notification_startup_waiting_unlock"><![CDATA[Wachten tot het apparaat ontgrendelt wordt …]]></string>
+    <string name="notification_startup_waiting_unlock"><![CDATA[Wachten tot het apparaat ontgrendeld wordt …]]></string>
     <string name="notification_startup_cancel"><![CDATA[Annuleren]]></string>
     <string name="notification_startup_attempt_now"><![CDATA[Probeer het nu]]></string>
     <string name="wadb_notification_title"><![CDATA[Shevery is aan het starten …]]></string>
