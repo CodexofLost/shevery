@@ -14,6 +14,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.net.Uri
 import android.view.Menu
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
@@ -160,6 +161,7 @@ import moe.shizuku.manager.compat.StubManager
 import moe.shizuku.manager.utils.ShizukuStateMachine
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.*
+import java.io.File
 
 abstract class HomeActivity : AppActivity() {
 
@@ -210,9 +212,17 @@ abstract class HomeActivity : AppActivity() {
 
     private var onNavigateAutomationSettings: (() -> Unit)? = null
 
+    private val incomingZipPath = mutableStateOf<String?>(null)
+
+    private fun consumeZipIntent(intent: Intent?) {
+        val path = intent?.getStringExtra(EXTRA_ZIP_PATH) ?: return
+        incomingZipPath.value = path
+    }
+
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
+        consumeZipIntent(intent)
         if (intent.getStringExtra(PluginContract.EXTRA_TARGET_SECTION) ==
             PluginContract.TARGET_SECTION_AUTOMATION
         ) {
@@ -222,6 +232,7 @@ abstract class HomeActivity : AppActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        consumeZipIntent(intent)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
@@ -329,6 +340,32 @@ abstract class HomeActivity : AppActivity() {
             }
             val cachedModules = remember {
                 mutableStateOf<List<moe.shizuku.manager.module.AdbModule>>(emptyList(), neverEqualPolicy())
+            }
+            // ZIP handed over by another app through "Install ZIP Module":
+            // install first, then land on ADB Modules with the module present.
+            val incomingZip = incomingZipPath.value
+            LaunchedEffect(incomingZip) {
+                val path = incomingZip ?: return@LaunchedEffect
+                incomingZipPath.value = null
+                if (!consumedZipPaths.add(path)) return@LaunchedEffect
+                Toast.makeText(this@HomeActivity, getString(R.string.modules_installing_zip), Toast.LENGTH_SHORT).show()
+                val result = runCatching {
+                    AdbModuleManager.install(this@HomeActivity, Uri.fromFile(File(path)))
+                }
+                selectedTab = 1
+                result.onSuccess { module ->
+                    Toast.makeText(
+                        this@HomeActivity,
+                        getString(R.string.modules_install_success, module.name),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }.onFailure {
+                    Toast.makeText(
+                        this@HomeActivity,
+                        getString(R.string.modules_install_failed, it.message ?: it.javaClass.simpleName),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
             val homeListState = rememberSaveable(saver = LazyListState.Saver) {
                 LazyListState()
@@ -1075,6 +1112,11 @@ abstract class HomeActivity : AppActivity() {
         private const val PERMISSION_ACCESS_LOCAL_NETWORK = "android.permission.ACCESS_LOCAL_NETWORK"
         private const val PERMISSION_USE_LOOPBACK_INTERFACE = "android.permission.USE_LOOPBACK_INTERFACE"
         private var hasPromptedTcpDialogThisSession = false
+
+        const val EXTRA_ZIP_PATH = "moe.shizuku.manager.extra.ZIP_PATH"
+
+        /** Main-thread only: guards against re-installing the same shared ZIP after a config change. */
+        private val consumedZipPaths = mutableSetOf<String>()
     }
 }
 

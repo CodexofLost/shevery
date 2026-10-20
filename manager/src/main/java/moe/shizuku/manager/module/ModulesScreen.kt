@@ -63,6 +63,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -142,6 +143,8 @@ fun ModulesScreen(
     var lastRunModule by remember { mutableStateOf<AdbModule?>(null) }
     var aiExplanation by remember { mutableStateOf<String?>(null) }
     var aiLoading by remember { mutableStateOf(false) }
+    val liveOutput by AdbModuleManager.liveOutput.collectAsState()
+    var liveLogHidden by remember { mutableStateOf(false) }
 
     fun reload() {
         scope.launch {
@@ -228,6 +231,7 @@ fun ModulesScreen(
 
     fun runModuleAction(module: AdbModule) {
         lastRunModule = module
+        liveLogHidden = false
         scope.launch {
             runningModuleId = module.id
             output = runCatching {
@@ -236,6 +240,22 @@ fun ModulesScreen(
             }.getOrElse {
                 context.getString(R.string.modules_action_failed) to (it.message ?: it.javaClass.simpleName)
             }
+            AdbModuleManager.clearLiveOutput()
+            runningModuleId = null
+        }
+    }
+
+    fun runModuleService(module: AdbModule) {
+        liveLogHidden = false
+        scope.launch {
+            runningModuleId = module.id
+            output = runCatching {
+                val result = AdbModuleManager.runServiceStreaming(module)
+                context.getString(R.string.modules_service_result, result.exitCode) to result.combinedOutput
+            }.getOrElse {
+                context.getString(R.string.modules_service_failed) to (it.message ?: it.javaClass.simpleName)
+            }
+            AdbModuleManager.clearLiveOutput()
             runningModuleId = null
         }
     }
@@ -340,16 +360,7 @@ items(modules, key = { it.id }) { module ->
             }
         },
         onRunService = {
-            scope.launch {
-                runningModuleId = module.id
-                output = runCatching {
-                    val result = AdbModuleManager.runService(module)
-                    context.getString(R.string.modules_service_result, result.exitCode) to result.combinedOutput
-                }.getOrElse {
-                    context.getString(R.string.modules_service_failed) to (it.message ?: it.javaClass.simpleName)
-                }
-                runningModuleId = null
-            }
+            runModuleService(module)
         },
         onOpenWebUi = {
             onOpenWebUi(module.id)
@@ -367,6 +378,36 @@ items(modules, key = { it.id }) { module ->
 }
     }
 }
+
+    liveOutput?.takeIf { it.running && !liveLogHidden }?.let { live ->
+        AlertDialog(
+            onDismissRequest = { liveLogHidden = true },
+            title = { Text(stringResource(R.string.modules_live_log_title, live.moduleName)) },
+            text = {
+                val scrollState = rememberScrollState()
+                LaunchedEffect(live.text) {
+                    scrollState.scrollTo(scrollState.maxValue)
+                }
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    RunningRow()
+                    Spacer(modifier = Modifier.height(8.dp))
+                    MonospaceLog(
+                        live.text,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .verticalScroll(scrollState)
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { liveLogHidden = true }) {
+                    Text(stringResource(R.string.modules_live_log_hide))
+                }
+            },
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            shape = MaterialTheme.shapes.extraLarge
+        )
+    }
 
     output?.let { (title, text) ->
         AlertDialog(

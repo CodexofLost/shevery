@@ -200,6 +200,13 @@ object AdbModuleManager {
         runModuleScript(module, script, module.lastServiceLog)
     }
 
+    suspend fun runServiceStreaming(module: AdbModule): ModuleActionResult = withContext(Dispatchers.IO) {
+        check(ModuleSettings.canRunService(module)) { "serviceScript is blocked by module access policy." }
+        check(ModuleSettings.canRunBackground(module)) { "Background actions are disabled." }
+        val script = module.serviceScript?.takeIf { it.isFile } ?: error("This module has no service script.")
+        runModuleScriptStreaming(module, script, module.lastServiceLog, live = true)
+    }
+
     suspend fun runEnabledServicesIfAllowed(context: Context): List<Pair<AdbModule, ModuleActionResult>> =
         withContext(Dispatchers.IO) {
             if (!Shizuku.pingBinder() || !ModuleSettings.canRunService() || servicesStartedForBinder) {
@@ -234,12 +241,7 @@ object AdbModuleManager {
         }
 
         if (live) {
-            _liveOutput.value = LiveModuleOutput(
-                moduleId = module.id,
-                moduleName = module.name,
-                text = "Starting ${script.name}...\n",
-                running = true
-            )
+            updateLiveOutput(module, "Starting ${script.name}...\n", running = true)
         }
 
         val binder = Shizuku.getBinder() ?: error("Shizuku service is not running.")
@@ -268,36 +270,62 @@ object AdbModuleManager {
         var stdout = ""
         var stderr = ""
         val stdoutThread = Thread {
-            try {
-                if (live) {
-                    val reader = ParcelFileDescriptor.AutoCloseInputStream(stdoutPfd).bufferedReader(Charsets.UTF_8)
-                    reader.use { r ->
+            if (live) {
+                val collected = StringBuilder()
+                try {
+                    ParcelFileDescriptor.AutoCloseInputStream(stdoutPfd).bufferedReader(Charsets.UTF_8).use { r ->
                         val buffer = CharArray(1024)
                         while (true) {
                             val read = r.read(buffer)
                             if (read <= 0) break
                             val chunk = String(buffer, 0, read)
-                            synchronized(streamingBuffer) {
-                                streamingBuffer.append(chunk)
-                                stdout = streamingBuffer.toString()
+                            val snapshot = synchronized(streamingBuffer) {
+                                collected.appendBounded(chunk)
+                                streamingBuffer.appendBounded(chunk)
+                                stdout = collected.toString()
+                                streamingBuffer.toString()
                             }
-                            _liveOutput.value = LiveModuleOutput(
-                                moduleId = module.id,
-                                moduleName = module.name,
-                                text = streamingBuffer.toString().takeLast(MAX_OUTPUT_CHARS),
-                                running = true
-                            )
+                            updateLiveOutput(module, snapshot.takeLast(MAX_OUTPUT_CHARS), running = true)
                         }
                     }
-                } else {
-                    stdout = readStreamTail(ParcelFileDescriptor.AutoCloseInputStream(stdoutPfd))
+                } catch (ignore: Exception) {
+                } finally {
+                    stdout = collected.toString()
                 }
-            } catch (ignore: Exception) { }
+            } else {
+                try {
+                    stdout = readStreamTail(ParcelFileDescriptor.AutoCloseInputStream(stdoutPfd))
+                } catch (ignore: Exception) { }
+            }
         }
         val stderrThread = Thread {
-            try {
-                stderr = readStreamTail(ParcelFileDescriptor.AutoCloseInputStream(stderrPfd))
-            } catch (ignore: Exception) { }
+            if (live) {
+                val collected = StringBuilder()
+                try {
+                    ParcelFileDescriptor.AutoCloseInputStream(stderrPfd).bufferedReader(Charsets.UTF_8).use { r ->
+                        val buffer = CharArray(1024)
+                        while (true) {
+                            val read = r.read(buffer)
+                            if (read <= 0) break
+                            val chunk = String(buffer, 0, read)
+                            val snapshot = synchronized(streamingBuffer) {
+                                collected.appendBounded(chunk)
+                                streamingBuffer.appendBounded(chunk)
+                                stderr = collected.toString()
+                                streamingBuffer.toString()
+                            }
+                            updateLiveOutput(module, snapshot.takeLast(MAX_OUTPUT_CHARS), running = true)
+                        }
+                    }
+                } catch (ignore: Exception) {
+                } finally {
+                    stderr = collected.toString()
+                }
+            } else {
+                try {
+                    stderr = readStreamTail(ParcelFileDescriptor.AutoCloseInputStream(stderrPfd))
+                } catch (ignore: Exception) { }
+            }
         }
         stdoutThread.start()
         stderrThread.start()
@@ -313,23 +341,38 @@ object AdbModuleManager {
         stdoutThread.join(1000)
         stderrThread.join(1000)
 
-        val finalOutput = if (live) synchronized(streamingBuffer) { streamingBuffer.toString() } else stdout
         if (live) {
-            _liveOutput.value = LiveModuleOutput(
-                moduleId = module.id,
-                moduleName = module.name,
-                text = finalOutput.takeLast(MAX_OUTPUT_CHARS) + "\n\n--- Exit code: $exitCode ---",
+            val snapshot = synchronized(streamingBuffer) { streamingBuffer.toString() }
+            updateLiveOutput(
+                module,
+                snapshot.takeLast(MAX_OUTPUT_CHARS) + "\n\n--- Exit code: $exitCode ---",
                 running = false
             )
         }
 
         val result = ModuleActionResult(
             exitCode = exitCode,
-            stdout = finalOutput.takeLast(MAX_OUTPUT_CHARS),
+            stdout = stdout.takeLast(MAX_OUTPUT_CHARS),
             stderr = stderr.takeLast(MAX_OUTPUT_CHARS)
         )
         writeLastLog(logFile, module, script, result, finished)
         return result
+    }
+
+    private fun updateLiveOutput(module: AdbModule, text: String, running: Boolean) {
+        _liveOutput.value = LiveModuleOutput(
+            moduleId = module.id,
+            moduleName = module.name,
+            text = text,
+            running = running
+        )
+    }
+
+    private fun StringBuilder.appendBounded(chunk: String) {
+        append(chunk)
+        if (length > MAX_OUTPUT_CHARS * 2) {
+            delete(0, length - MAX_OUTPUT_CHARS)
+        }
     }
 
     fun clearLiveOutput() {
