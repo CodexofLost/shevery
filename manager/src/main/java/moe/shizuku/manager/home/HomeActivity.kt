@@ -251,9 +251,13 @@ abstract class HomeActivity : AppActivity() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                // Arm adbd on launch: WRITE_SECURE_SETTINGS when granted, otherwise
-                // Device Owner setGlobalSetting (AdbArm decides between them).
-                AdbArm.arm(applicationContext)
+                // Arm adbd on launch only when the server is not already running
+                // and no live TCP port is active; flipping adb_wifi_enabled 0 -> 1
+                // while TCP mode (port 5555) is running restarts adbd and drops
+                // the active session on OEM ROMs (Issue #278).
+                if (!Shizuku.pingBinder() && (!ShizukuSettings.isTcpMode() || EnvironmentUtils.getLiveAdbTcpPort() <= 0)) {
+                    AdbArm.arm(applicationContext)
+                }
             } catch (_: Throwable) {
             }
         }

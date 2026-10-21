@@ -404,7 +404,7 @@ fun SettingsScreen(
     fun applyTcpMode(enabled: Boolean, restart: Boolean = false) {
         ShizukuSettings.setTcpMode(enabled)
         tcpMode = ShizukuSettings.isTcpMode()
-        if (restart && enabled) {
+        if (restart) {
             restartAdbForTcpMode()
         }
     }
@@ -868,7 +868,7 @@ fun SettingsScreen(
                                 context.startActivity(Intent(context, AccessibilityManagerActivity::class.java))
                             },
                             onRestartService = {
-                                WatchdogManager.attemptRestart(context)
+                                WatchdogManager.attemptRestart(context, force = true)
                                 Toast.makeText(context, "Restart requested", Toast.LENGTH_SHORT).show()
                             },
                             onClearUpdateBanner = {

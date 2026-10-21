@@ -11,7 +11,9 @@ import moe.shizuku.manager.ShizukuSettings.LaunchMethod
 import moe.shizuku.manager.ktx.logw
 import moe.shizuku.manager.service.SheveryNotificationManager
 import moe.shizuku.manager.service.WatchdogManager
+import moe.shizuku.manager.utils.ShizukuStateMachine
 import moe.shizuku.manager.worker.AdbStartWorker
+import rikka.shizuku.Shizuku
 
 class SheveryControlReceiver : BroadcastReceiver() {
     companion object {
@@ -24,13 +26,18 @@ class SheveryControlReceiver : BroadcastReceiver() {
             ACTION_START_SERVER -> {
                 val appCtx = context.applicationContext
                 WatchdogManager.clearUserStopRequest(appCtx)
+                if (Shizuku.pingBinder()) {
+                    ShizukuStateMachine.update()
+                    return
+                }
                 if (ShizukuSettings.getLastLaunchMode() == LaunchMethod.ADB) {
                     AdbStartWorker.enqueue(appCtx)
                     ShizukuReceiverStarter.updateNotification(appCtx,
                         AdbStartWorker.bannerStateFor(appCtx)
                     )
+                } else {
+                    WatchdogManager.attemptRestart(appCtx)
                 }
-                WatchdogManager.attemptRestart(appCtx)
             }
             ACTION_STOP_SERVER -> {
                 val pendingResult = goAsync()
